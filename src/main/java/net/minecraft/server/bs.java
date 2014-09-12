@@ -76,7 +76,7 @@ public class bs extends CommandAbstract {
       return MinecraftServer.M().O().a();
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Set var4 = this.d().keySet();
          return a(var2, (String[])var4.toArray(new String[var4.size()]));

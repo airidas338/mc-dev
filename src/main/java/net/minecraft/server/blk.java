@@ -7,7 +7,7 @@ import java.util.Random;
 public class blk extends bln {
 
    private boolean[] e = new boolean[4];
-   private static final List f = Lists.newArrayList(new vl[]{new vl(amk.i, 0, 1, 3, 3), new vl(amk.j, 0, 1, 5, 10), new vl(amk.k, 0, 2, 7, 15), new vl(amk.bO, 0, 1, 3, 2), new vl(amk.aX, 0, 4, 6, 20), new vl(amk.bt, 0, 3, 7, 16), new vl(amk.aA, 0, 1, 1, 3), new vl(amk.ck, 0, 1, 1, 1), new vl(amk.cl, 0, 1, 1, 1), new vl(amk.cm, 0, 1, 1, 1)});
+   private static final List f = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 2, 7, 15), new StructurePieceTreaasure(Items.bO, 0, 1, 3, 2), new StructurePieceTreaasure(Items.aX, 0, 4, 6, 20), new StructurePieceTreaasure(Items.bt, 0, 3, 7, 16), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
 
 
    public blk() {}
@@ -223,7 +223,7 @@ public class blk extends bln {
          if(!this.e[var11.b()]) {
             int var12 = var11.g() * 2;
             int var13 = var11.i() * 2;
-            this.e[var11.b()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, vl.a(f, new vl[]{amk.cd.b(var2)}), 2 + var2.nextInt(5));
+            this.e[var11.b()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, StructurePieceTreaasure.a(f, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }
       }
 

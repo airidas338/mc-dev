@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class bge extends bgd {
 
    public void b() {
-      this.c = new asc(arm.x, 0.0F);
+      this.c = new asc(BiomeBase.x, 0.0F);
       this.d = true;
       this.e = true;
       this.g = -1;

@@ -15,11 +15,11 @@ public class beq implements Predicate {
       this.a = var1;
    }
 
-   public static beq a(atr var0) {
+   public static beq a(Block var0) {
       return new beq(var0.O());
    }
 
-   public boolean a(bec var1) {
+   public boolean a(IBlock var1) {
       if(var1 != null && var1.c().equals(this.a.c())) {
          Iterator var2 = this.b.entrySet().iterator();
 
@@ -51,6 +51,6 @@ public class beq implements Predicate {
 
    // $FF: synthetic method
    public boolean apply(Object var1) {
-      return this.a((bec)var1);
+      return this.a((IBlock)var1);
    }
 }

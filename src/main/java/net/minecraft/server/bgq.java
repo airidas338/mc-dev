@@ -10,7 +10,7 @@ public class bgq implements bfe {
 
    private World a;
    private Random b;
-   private final bec[] c = new bec[256];
+   private final IBlock[] c = new IBlock[256];
    private final biv d;
    private final List e = Lists.newArrayList();
    private final boolean f;
@@ -67,7 +67,7 @@ public class bgq implements bfe {
          biw var8 = (biw)var12.next();
 
          for(int var9 = var8.d(); var9 < var8.d() + var8.b(); ++var9) {
-            bec var10 = var8.c();
+            IBlock var10 = var8.c();
             if(var10.c() != aty.a) {
                var11 = false;
                this.c[var9] = var10;
@@ -83,7 +83,7 @@ public class bgq implements bfe {
 
       int var7;
       for(int var4 = 0; var4 < this.c.length; ++var4) {
-         bec var5 = this.c[var4];
+         IBlock var5 = this.c[var4];
          if(var5 != null) {
             for(int var6 = 0; var6 < 16; ++var6) {
                for(var7 = 0; var7 < 16; ++var7) {
@@ -101,7 +101,7 @@ public class bgq implements bfe {
       }
 
       bfh var10 = new bfh(this.a, var3, var1, var2);
-      arm[] var11 = this.a.v().b((arm[])null, var1 * 16, var2 * 16, 16, 16);
+      BiomeBase[] var11 = this.a.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var12 = var10.k();
 
       for(var7 = 0; var7 < var12.length; ++var7) {
@@ -119,8 +119,8 @@ public class bgq implements bfe {
    public void a(bfe var1, int var2, int var3) {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
-      dt var6 = new dt(var4, 0, var5);
-      arm var7 = this.a.b(new dt(var4 + 16, 0, var5 + 16));
+      Location var6 = new Location(var4, 0, var5);
+      BiomeBase var7 = this.a.b(new Location(var4 + 16, 0, var5 + 16));
       boolean var8 = false;
       this.b.setSeed(this.a.J());
       long var9 = this.b.nextLong() / 2L * 2L + 1L;
@@ -138,24 +138,24 @@ public class bgq implements bfe {
       }
 
       if(this.h != null && !var8 && this.b.nextInt(4) == 0) {
-         this.h.b(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+         this.h.generate(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
       }
 
       if(this.i != null && !var8 && this.b.nextInt(8) == 0) {
-         dt var17 = var6.a(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
+         Location var17 = var6.a(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
          if(var17.o() < 63 || this.b.nextInt(10) == 0) {
-            this.i.b(this.a, this.b, var17);
+            this.i.generate(this.a, this.b, var17);
          }
       }
 
       if(this.g) {
          for(int var18 = 0; var18 < 8; ++var18) {
-            (new bie()).b(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+            (new bie()).generate(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
          }
       }
 
       if(this.f) {
-         var7.a(this.a, this.b, new dt(var4, 0, var5));
+         var7.a(this.a, this.b, new Location(var4, 0, var5));
       }
 
    }
@@ -164,7 +164,7 @@ public class bgq implements bfe {
       return false;
    }
 
-   public boolean a(boolean var1, uy var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
@@ -182,12 +182,12 @@ public class bgq implements bfe {
       return "FlatLevelSource";
    }
 
-   public List a(xp var1, dt var2) {
-      arm var3 = this.a.b(var2);
+   public List a(EnumCreatureType var1, Location var2) {
+      BiomeBase var3 = this.a.b(var2);
       return var3.a(var1);
    }
 
-   public dt a(World var1, String var2, dt var3) {
+   public Location a(World var1, String var2, Location var3) {
       if("Stronghold".equals(var2)) {
          Iterator var4 = this.e.iterator();
 
@@ -216,7 +216,7 @@ public class bgq implements bfe {
 
    }
 
-   public bfh a(dt var1) {
+   public bfh a(Location var1) {
       return this.d(var1.n() >> 4, var1.p() >> 4);
    }
 }

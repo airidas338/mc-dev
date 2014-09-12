@@ -6,7 +6,7 @@ import java.util.List;
 final class ajo extends eg {
 
    protected amj b(dz var1, amj var2) {
-      dt var3 = var1.d().a(ave.b(var1.f()));
+      Location var3 = var1.d().a(ave.b(var1.f()));
       int var4 = var3.n();
       int var5 = var3.o();
       int var6 = var3.p();

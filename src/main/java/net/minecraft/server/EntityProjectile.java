@@ -7,7 +7,7 @@ public abstract class EntityProjectile extends Entity implements aho {
    private int c = -1;
    private int d = -1;
    private int e = -1;
-   private atr f;
+   private Block f;
    protected boolean a;
    public int b;
    private EntityLiving g;
@@ -84,7 +84,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       }
 
       if(this.a) {
-         if(this.o.p(new dt(this.c, this.d, this.e)).c() == this.f) {
+         if(this.o.p(new Location(this.c, this.d, this.e)).c() == this.f) {
             ++this.i;
             if(this.i == 1200) {
                this.J();
@@ -199,7 +199,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       var1.a("xTile", (short)this.c);
       var1.a("yTile", (short)this.d);
       var1.a("zTile", (short)this.e);
-      oa var2 = (oa)atr.c.c(this.f);
+      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.f);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("shake", (byte)this.b);
       var1.a("inGround", (byte)(this.a?1:0));
@@ -215,9 +215,9 @@ public abstract class EntityProjectile extends Entity implements aho {
       this.d = var1.e("yTile");
       this.e = var1.e("zTile");
       if(var1.b("inTile", 8)) {
-         this.f = atr.b(var1.j("inTile"));
+         this.f = Block.b(var1.j("inTile"));
       } else {
-         this.f = atr.c(var1.d("inTile") & 255);
+         this.f = Block.c(var1.d("inTile") & 255);
       }
 
       this.b = var1.d("shake") & 255;

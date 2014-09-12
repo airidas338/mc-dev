@@ -36,7 +36,7 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
       return EnumMinecartType.COMMAND_BLOCK;
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.bX.P();
    }
 

@@ -208,7 +208,7 @@ public class DataWatcher {
          var0.a(var3);
          break;
       case 6:
-         dt var4 = (dt)var1.b();
+         Location var4 = (Location)var1.b();
          var0.writeInt(var4.n());
          var0.writeInt(var4.o());
          var0.writeInt(var4.p());
@@ -256,7 +256,7 @@ public class DataWatcher {
             int var6 = var0.readInt();
             int var7 = var0.readInt();
             int var8 = var0.readInt();
-            var5 = new xw(var3, var4, new dt(var6, var7, var8));
+            var5 = new xw(var3, var4, new Location(var6, var7, var8));
             break;
          case 7:
             float var9 = var0.readFloat();
@@ -286,7 +286,7 @@ public class DataWatcher {
       c.put(Float.class, Integer.valueOf(3));
       c.put(String.class, Integer.valueOf(4));
       c.put(amj.class, Integer.valueOf(5));
-      c.put(dt.class, Integer.valueOf(6));
+      c.put(Location.class, Integer.valueOf(6));
       c.put(fa.class, Integer.valueOf(7));
    }
 }

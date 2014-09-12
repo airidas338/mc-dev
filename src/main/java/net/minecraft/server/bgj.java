@@ -97,7 +97,7 @@ public class bgj extends bgt {
                   for(int var42 = var56; !var57 && var42 < var39; ++var42) {
                      for(int var43 = var37 + 1; !var57 && var43 >= var54 - 1; --var43) {
                         if(var43 >= 0 && var43 < 256) {
-                           bec var44 = var5.a(var41, var43, var42);
+                           IBlock var44 = var5.a(var41, var43, var42);
                            if(var44.c() == aty.i || var44.c() == aty.j) {
                               var57 = true;
                            }
@@ -121,7 +121,7 @@ public class bgj extends bgt {
                            for(int var48 = var37; var48 > var54; --var48) {
                               double var49 = ((double)(var48 - 1) + 0.5D - var8) / var30;
                               if((var58 * var58 + var45 * var45) * (double)this.d[var48 - 1] + var49 * var49 / 6.0D < 1.0D) {
-                                 bec var51 = var5.a(var41, var48, var59);
+                                 IBlock var51 = var5.a(var41, var48, var59);
                                  if(var51.c() == aty.c) {
                                     var47 = true;
                                  }
@@ -132,7 +132,7 @@ public class bgj extends bgt {
                                     } else {
                                        var5.a(var41, var48, var59, aty.a.P());
                                        if(var47 && var5.a(var41, var48 - 1, var59).c() == aty.d) {
-                                          var5.a(var41, var48 - 1, var59, this.c.b(new dt(var41 + var3 * 16, 0, var59 + var4 * 16)).ak);
+                                          var5.a(var41, var48 - 1, var59, this.c.b(new Location(var41 + var3 * 16, 0, var59 + var4 * 16)).ak);
                                        }
                                     }
                                  }

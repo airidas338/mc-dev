@@ -20,9 +20,9 @@ public class bc extends CommandAbstract {
          throw new dp("commands.compare.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
-         dt var3 = a(var1, var2, 0, false);
-         dt var4 = a(var1, var2, 3, false);
-         dt var5 = a(var1, var2, 6, false);
+         Location var3 = a(var1, var2, 0, false);
+         Location var4 = a(var1, var2, 3, false);
+         Location var5 = a(var1, var2, 6, false);
          bjb var6 = new bjb(var3, var4);
          bjb var7 = new bjb(var5, var5.a(var6.b()));
          int var8 = var6.c() * var6.d() * var6.e();
@@ -37,15 +37,15 @@ public class bc extends CommandAbstract {
                }
 
                var8 = 0;
-               dt var11 = new dt(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
+               Location var11 = new Location(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
 
                for(int var12 = var6.c; var12 <= var6.f; ++var12) {
                   for(int var13 = var6.b; var13 <= var6.e; ++var13) {
                      for(int var14 = var6.a; var14 <= var6.d; ++var14) {
-                        dt var15 = new dt(var14, var13, var12);
-                        dt var16 = var15.a((fd)var11);
+                        Location var15 = new Location(var14, var13, var12);
+                        Location var16 = var15.a((fd)var11);
                         boolean var17 = false;
-                        bec var18 = var9.p(var15);
+                        IBlock var18 = var9.p(var15);
                         if(!var10 || var18.c() != aty.a) {
                            if(var18 == var9.p(var16)) {
                               bcm var19 = var9.s(var15);
@@ -91,7 +91,7 @@ public class bc extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"masked", "all"}):null)));
    }
 }

@@ -10,7 +10,7 @@ final class ok extends eg {
    protected amj b(dz var1, amj var2) {
       World var3 = var1.i();
       ej var4 = ave.b(var1.f());
-      dt var5 = var1.d().a(var4);
+      Location var5 = var1.d().a(var4);
       baj var6 = aty.ce;
       if(var3.d(var5) && var6.b(var3, var5, var2)) {
          if(!var3.D) {

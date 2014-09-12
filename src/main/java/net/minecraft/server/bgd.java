@@ -6,7 +6,7 @@ public abstract class bgd {
    protected World b;
    private WorldType h;
    private String i;
-   protected arz c;
+   protected WorldChunkManager c;
    protected boolean d;
    protected boolean e;
    protected final float[] f = new float[16];
@@ -36,11 +36,11 @@ public abstract class bgd {
       WorldType var1 = this.b.P().u();
       if(var1 == WorldType.FLAT) {
          biv var2 = biv.a(this.b.P().B());
-         this.c = new asc(arm.a(var2.a(), arm.ad), 0.5F);
+         this.c = new asc(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
-         this.c = new asc(arm.q, 0.0F);
+         this.c = new asc(BiomeBase.q, 0.0F);
       } else {
-         this.c = new arz(this.b);
+         this.c = new WorldChunkManager(this.b);
       }
 
    }
@@ -50,7 +50,7 @@ public abstract class bgd {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new dt(var1, 0, var2)) == aty.c;
+      return this.b.c(new Location(var1, 0, var2)) == aty.c;
    }
 
    public float a(long var1, float var3) {
@@ -86,7 +86,7 @@ public abstract class bgd {
       return (bgd)(var0 == -1?new bge():(var0 == 0?new bgg():(var0 == 1?new bgh():null)));
    }
 
-   public dt h() {
+   public Location h() {
       return null;
    }
 
@@ -98,7 +98,7 @@ public abstract class bgd {
 
    public abstract String l();
 
-   public arz m() {
+   public WorldChunkManager m() {
       return this.c;
    }
 

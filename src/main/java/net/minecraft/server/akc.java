@@ -16,7 +16,7 @@ public class akc extends alq {
             var4.ck().g();
             var1.a(7, (EntityLiving)var3);
             if(var1.b == 0) {
-               amj var5 = new amj(amk.aR);
+               amj var5 = new amj(Items.aR);
                var5.d(var1.o());
                return var5;
             }

@@ -4,10 +4,10 @@ import java.util.concurrent.Callable;
 final class bpc implements Callable {
 
    // $FF: synthetic field
-   final arm a;
+   final BiomeBase a;
 
 
-   bpc(arm var1) {
+   bpc(BiomeBase var1) {
       this.a = var1;
    }
 

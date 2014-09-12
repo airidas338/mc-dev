@@ -8,8 +8,8 @@ public abstract class bbf extends awq {
 
 
    public bbf() {
-      super(bof.e);
-      bec var1 = this.L.b();
+      super(Material.e);
+      IBlock var1 = this.L.b();
       if(this.j()) {
          var1 = var1.a(b, Boolean.valueOf(false));
       } else {
@@ -20,8 +20,8 @@ public abstract class bbf extends awq {
       this.a(akf.b);
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return alq.a((atr)aty.U);
+   public alq a(IBlock var1, Random var2, int var3) {
+      return alq.a((Block)aty.U);
    }
 
    public String b(int var1) {
@@ -36,8 +36,8 @@ public abstract class bbf extends awq {
       return bbg.a(var1.i() & 7);
    }
 
-   public bec a(int var1) {
-      bec var2 = this.P().a(M, bbg.a(var1 & 7));
+   public IBlock a(int var1) {
+      IBlock var2 = this.P().a(M, bbg.a(var1 & 7));
       if(this.j()) {
          var2 = var2.a(b, Boolean.valueOf((var1 & 8) != 0));
       } else {
@@ -47,7 +47,7 @@ public abstract class bbf extends awq {
       return var2;
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((bbg)var1.b(M)).a();
       if(this.j()) {
@@ -65,7 +65,7 @@ public abstract class bbf extends awq {
       return this.j()?new bed(this, new bex[]{b, M}):new bed(this, new bex[]{a, M});
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((bbg)var1.b(M)).a();
    }
 

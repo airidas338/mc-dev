@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class EntityBat extends EntityAmbient {
 
-   private dt a;
+   private Location a;
 
 
    public EntityBat(World var1) {
@@ -78,8 +78,8 @@ public class EntityBat extends EntityAmbient {
 
    protected void E() {
       super.E();
-      dt var1 = new dt(this);
-      dt var2 = var1.a();
+      Location var1 = new Location(this);
+      Location var2 = var1.a();
       if(this.n()) {
          if(!this.o.p(var2).c().t()) {
             this.a(false);
@@ -100,7 +100,7 @@ public class EntityBat extends EntityAmbient {
          }
 
          if(this.a == null || this.V.nextInt(30) == 0 || this.a.c((double)((int)this.s), (double)((int)this.t), (double)((int)this.u)) < 4.0D) {
-            this.a = new dt((int)this.s + this.V.nextInt(7) - this.V.nextInt(7), (int)this.t + this.V.nextInt(6) - 2, (int)this.u + this.V.nextInt(7) - this.V.nextInt(7));
+            this.a = new Location((int)this.s + this.V.nextInt(7) - this.V.nextInt(7), (int)this.t + this.V.nextInt(6) - 2, (int)this.u + this.V.nextInt(7) - this.V.nextInt(7));
          }
 
          double var3 = (double)this.a.n() + 0.5D - this.s;
@@ -126,7 +126,7 @@ public class EntityBat extends EntityAmbient {
 
    public void e(float var1, float var2) {}
 
-   protected void a(double var1, boolean var3, atr var4, dt var5) {}
+   protected void a(double var1, boolean var3, Block var4, Location var5) {}
 
    public boolean aH() {
       return true;
@@ -155,7 +155,7 @@ public class EntityBat extends EntityAmbient {
    }
 
    public boolean bQ() {
-      dt var1 = new dt(this.s, this.aQ().b, this.u);
+      Location var1 = new Location(this.s, this.aQ().b, this.u);
       if(var1.o() >= 63) {
          return false;
       } else {

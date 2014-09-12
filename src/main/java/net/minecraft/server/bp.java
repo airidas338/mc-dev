@@ -42,7 +42,7 @@ public class bp extends CommandAbstract {
       return !var2.equalsIgnoreCase(EnumGamemode.b.b()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(EnumGamemode.c.b()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(EnumGamemode.d.b()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(EnumGamemode.e.b()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, EnumGamemode.values().length - 2)):EnumGamemode.e):EnumGamemode.d):EnumGamemode.c):EnumGamemode.b;
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"survival", "creative", "adventure", "spectator"}):(var2.length == 2?a(var2, this.d()):null);
    }
 

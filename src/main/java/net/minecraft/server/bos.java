@@ -1,23 +1,23 @@
 package net.minecraft.server;
 
-public class bos extends bpa {
+public class bos extends GenLayer {
 
-   private arm[] c;
-   private arm[] d;
-   private arm[] e;
-   private arm[] f;
+   private BiomeBase[] c;
+   private BiomeBase[] d;
+   private BiomeBase[] e;
+   private BiomeBase[] f;
    private final bgl g;
 
 
-   public bos(long var1, bpa var3, WorldType var4, String var5) {
+   public bos(long var1, GenLayer var3, WorldType var4, String var5) {
       super(var1);
-      this.c = new arm[]{arm.r, arm.r, arm.r, arm.Y, arm.Y, arm.q};
-      this.d = new arm[]{arm.t, arm.S, arm.s, arm.q, arm.Q, arm.v};
-      this.e = new arm[]{arm.t, arm.s, arm.u, arm.q};
-      this.f = new arm[]{arm.B, arm.B, arm.B, arm.T};
+      this.c = new BiomeBase[]{BiomeBase.r, BiomeBase.r, BiomeBase.r, BiomeBase.Y, BiomeBase.Y, BiomeBase.q};
+      this.d = new BiomeBase[]{BiomeBase.t, BiomeBase.S, BiomeBase.s, BiomeBase.q, BiomeBase.Q, BiomeBase.v};
+      this.e = new BiomeBase[]{BiomeBase.t, BiomeBase.s, BiomeBase.u, BiomeBase.q};
+      this.f = new BiomeBase[]{BiomeBase.B, BiomeBase.B, BiomeBase.B, BiomeBase.T};
       this.a = var3;
       if(var4 == WorldType.NORMAL_1_1) {
-         this.c = new arm[]{arm.r, arm.t, arm.s, arm.v, arm.q, arm.u};
+         this.c = new BiomeBase[]{BiomeBase.r, BiomeBase.t, BiomeBase.s, BiomeBase.v, BiomeBase.q, BiomeBase.u};
          this.g = null;
       } else if(var4 == WorldType.CUSTOMIZED) {
          this.g = bgn.a(var5).b();
@@ -41,34 +41,34 @@ public class bos extends bpa {
                var6[var8 + var7 * var3] = this.g.F;
             } else if(b(var9)) {
                var6[var8 + var7 * var3] = var9;
-            } else if(var9 == arm.D.az) {
+            } else if(var9 == BiomeBase.D.az) {
                var6[var8 + var7 * var3] = var9;
             } else if(var9 == 1) {
                if(var10 > 0) {
                   if(this.a(3) == 0) {
-                     var6[var8 + var7 * var3] = arm.ac.az;
+                     var6[var8 + var7 * var3] = BiomeBase.ac.az;
                   } else {
-                     var6[var8 + var7 * var3] = arm.ab.az;
+                     var6[var8 + var7 * var3] = BiomeBase.ab.az;
                   }
                } else {
                   var6[var8 + var7 * var3] = this.c[this.a(this.c.length)].az;
                }
             } else if(var9 == 2) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = arm.K.az;
+                  var6[var8 + var7 * var3] = BiomeBase.K.az;
                } else {
                   var6[var8 + var7 * var3] = this.d[this.a(this.d.length)].az;
                }
             } else if(var9 == 3) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = arm.V.az;
+                  var6[var8 + var7 * var3] = BiomeBase.V.az;
                } else {
                   var6[var8 + var7 * var3] = this.e[this.a(this.e.length)].az;
                }
             } else if(var9 == 4) {
                var6[var8 + var7 * var3] = this.f[this.a(this.f.length)].az;
             } else {
-               var6[var8 + var7 * var3] = arm.D.az;
+               var6[var8 + var7 * var3] = BiomeBase.D.az;
             }
          }
       }

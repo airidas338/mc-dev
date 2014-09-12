@@ -80,14 +80,14 @@ public class qy {
          EntityItemFrame var2 = (EntityItemFrame)this.a;
          amj var3 = var2.o();
          if(var3 != null && var3.b() instanceof amn) {
-            bqe var4 = amk.bd.a(var3, this.a.o);
+            bqe var4 = Items.bd.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
                EntityHuman var6 = (EntityHuman)var5.next();
                EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
-               id var8 = amk.bd.c(var3, this.a.o, var7);
+               id var8 = Items.bd.c(var3, this.a.o, var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -299,7 +299,7 @@ public class qy {
                if(this.a instanceof EntityHuman) {
                   EntityHuman var10 = (EntityHuman)this.a;
                   if(var10.bI()) {
-                     var1.a.a((id)(new kl(var10, new dt(this.a))));
+                     var1.a.a((id)(new kl(var10, new Location(this.a))));
                   }
                }
 
@@ -403,13 +403,13 @@ public class qy {
             return new il(this.a, 51);
          } else if(this.a instanceof EntityFallingBlock) {
             EntityFallingBlock var5 = (EntityFallingBlock)this.a;
-            return new il(this.a, 70, atr.f(var5.l()));
+            return new il(this.a, 70, Block.f(var5.l()));
          } else if(this.a instanceof EntityArmorStand) {
             return new il(this.a, 78);
          } else if(this.a instanceof EntityPainting) {
             return new ip((EntityPainting)this.a);
          } else {
-            dt var3;
+            Location var3;
             if(this.a instanceof EntityItemFrame) {
                EntityItemFrame var4 = (EntityItemFrame)this.a;
                var2 = new il(this.a, 71, var4.b.b());

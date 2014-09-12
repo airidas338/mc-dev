@@ -19,12 +19,12 @@ public class anm extends alq {
       return this.b.c();
    }
 
-   public float a(amj var1, atr var2) {
+   public float a(amj var1, Block var2) {
       if(var2 == aty.G) {
          return 15.0F;
       } else {
-         bof var3 = var2.r();
-         return var3 != bof.k && var3 != bof.l && var3 != bof.v && var3 != bof.j && var3 != bof.C?1.0F:1.5F;
+         Material var3 = var2.r();
+         return var3 != Material.k && var3 != Material.l && var3 != Material.v && var3 != Material.j && var3 != Material.C?1.0F:1.5F;
       }
    }
 
@@ -33,7 +33,7 @@ public class anm extends alq {
       return true;
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
+   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(2, var5);
       }
@@ -54,7 +54,7 @@ public class anm extends alq {
       return var1;
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       return var1 == aty.G;
    }
 

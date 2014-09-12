@@ -9,7 +9,7 @@ public class arj implements ard {
    protected World e;
 
 
-   public arj(World var1, dt var2, dt var3, int var4) {
+   public arj(World var1, Location var2, Location var3, int var4) {
       this.e = var1;
       this.a = var2.n() - var4 >> 4;
       this.b = var2.p() - var4 >> 4;
@@ -37,13 +37,13 @@ public class arj implements ard {
 
    }
 
-   public bcm s(dt var1) {
+   public bcm s(Location var1) {
       int var2 = (var1.n() >> 4) - this.a;
       int var3 = (var1.p() >> 4) - this.b;
       return this.c[var2][var3].a(var1, bfl.a);
    }
 
-   public bec p(dt var1) {
+   public IBlock p(Location var1) {
       if(var1.o() >= 0 && var1.o() < 256) {
          int var2 = (var1.n() >> 4) - this.a;
          int var3 = (var1.p() >> 4) - this.b;
@@ -58,12 +58,12 @@ public class arj implements ard {
       return aty.a.P();
    }
 
-   public boolean d(dt var1) {
-      return this.p(var1).c().r() == bof.a;
+   public boolean d(Location var1) {
+      return this.p(var1).c().r() == Material.a;
    }
 
-   public int a(dt var1, ej var2) {
-      bec var3 = this.p(var1);
+   public int a(Location var1, ej var2) {
+      IBlock var3 = this.p(var1);
       return var3.c().b((ard)this, var1, var3, var2);
    }
 }

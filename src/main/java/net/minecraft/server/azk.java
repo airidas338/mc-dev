@@ -10,22 +10,22 @@ public class azk extends avb {
 
 
    protected azk() {
-      super(bof.C);
+      super(Material.C);
       this.j(this.L.b().a(N, ej.c));
       this.a(true);
       this.a(akf.b);
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2);
    }
 
-   public boolean d(World var1, dt var2) {
+   public boolean d(World var1, Location var2) {
       return this.j().a(var1, var2) != null || this.S().a(var1, var2) != null;
    }
 
-   private void e(World var1, dt var2) {
+   private void e(World var1, Location var2) {
       bem var3;
       int var4;
       int var6;
@@ -36,7 +36,7 @@ public class azk extends avb {
          }
 
          EntitySnowman var9 = new EntitySnowman(var1);
-         dt var10 = var3.a(0, 2, 0).d();
+         Location var10 = var3.a(0, 2, 0).d();
          var9.b((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var9);
 
@@ -55,7 +55,7 @@ public class azk extends avb {
             }
          }
 
-         dt var12 = var3.a(1, 2, 0).d();
+         Location var12 = var3.a(1, 2, 0).d();
          EntityIronGolem var13 = new EntityIronGolem(var1);
          var13.l(true);
          var13.b((double)var12.n() + 0.5D, (double)var12.o() + 0.05D, (double)var12.p() + 0.5D, 0.0F, 0.0F);
@@ -75,19 +75,19 @@ public class azk extends avb {
 
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return var1.p(var2).c().J.j() && World.a((ard)var1, var2.b());
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(N, ej.b(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((ej)var1.b(N)).b();
    }
 

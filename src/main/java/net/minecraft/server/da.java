@@ -59,7 +59,7 @@ public class da extends CommandAbstract {
       throw new dp("commands.time.usage", new Object[0]);
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "add", "query"}):(var2.length == 2 && var2[0].equals("set")?a(var2, new String[]{"day", "night"}):(var2.length == 2 && var2[0].equals("query")?a(var2, new String[]{"daytime", "gametime"}):null));
    }
 

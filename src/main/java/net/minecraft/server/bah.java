@@ -1,9 +1,9 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bah extends atr {
+public class bah extends Block {
 
-   public bah(bof var1) {
+   public bah(Material var1) {
       super(var1);
       this.a(akf.b);
    }
@@ -16,11 +16,11 @@ public class bah extends atr {
       return MathHelper.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 5);
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.cD;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.cD;
    }
 
-   public boh g(bec var1) {
+   public boh g(IBlock var1) {
       return boh.p;
    }
 

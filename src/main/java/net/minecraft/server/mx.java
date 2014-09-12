@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public class mx implements id {
 
-   private static final dt a = new dt(-1, -1, -1);
-   private dt b;
+   private static final Location a = new Location(-1, -1, -1);
+   private Location b;
    private int c;
    private amj d;
    private float e;
@@ -19,7 +19,7 @@ public class mx implements id {
       this(a, 255, var1, 0.0F, 0.0F, 0.0F);
    }
 
-   public mx(dt var1, int var2, amj var3, float var4, float var5, float var6) {
+   public mx(Location var1, int var2, amj var3, float var4, float var5, float var6) {
       this.b = var1;
       this.c = var2;
       this.d = var3 != null?var3.k():null;
@@ -50,7 +50,7 @@ public class mx implements id {
       ((ls)var1).a(this);
    }
 
-   public dt a() {
+   public Location a() {
       return this.b;
    }
 

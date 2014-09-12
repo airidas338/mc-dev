@@ -199,7 +199,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		byte var6 = 0;
 		j.info("Preparing start region for level " + var6);
 		WorldServer var7 = this.c[var6];
-		dt var8 = var7.M();
+		Location var8 = var7.M();
 		long var9 = ax();
 
 		for (int var11 = -192; var11 <= 192 && this.t(); var11 += 16) {
@@ -260,7 +260,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 					}
 
 					try {
-						var5.a(true, (uy) null);
+						var5.a(true, (IProgressUpdate) null);
 					} catch (ExceptionWorldConflict var7) {
 						j.warn(var7.getMessage());
 					}
@@ -717,7 +717,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		return var1;
 	}
 
-	public List a(ae var1, String var2, dt var3) {
+	public List a(ae var1, String var2, Location var3) {
 		ArrayList var4 = Lists.newArrayList();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);
@@ -1024,8 +1024,8 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		this.T = true;
 	}
 
-	public dt c() {
-		return dt.a;
+	public Location c() {
+		return Location.a;
 	}
 
 	public ChunkCoordinates d() {
@@ -1044,7 +1044,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		return 16;
 	}
 
-	public boolean a(World var1, dt var2, EntityHuman var3) {
+	public boolean a(World var1, Location var2, EntityHuman var3) {
 		return false;
 	}
 

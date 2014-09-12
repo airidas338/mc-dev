@@ -28,7 +28,7 @@ public class aay extends aaz {
    private int p() {
       if(this.b.V() && this.h()) {
          int var1 = (int)this.b.aQ().b;
-         atr var2 = this.c.p(new dt(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
+         Block var2 = this.c.p(new Location(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
          int var3 = 0;
 
          do {
@@ -37,7 +37,7 @@ public class aay extends aaz {
             }
 
             ++var1;
-            var2 = this.c.p(new dt(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
+            var2 = this.c.p(new Location(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
             ++var3;
          } while(var3 <= 16);
 
@@ -50,13 +50,13 @@ public class aay extends aaz {
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new dt(MathHelper.c(this.b.s), (int)(this.b.aQ().b + 0.5D), MathHelper.c(this.b.u)))) {
+         if(this.c.i(new Location(MathHelper.c(this.b.s), (int)(this.b.aQ().b + 0.5D), MathHelper.c(this.b.u)))) {
             return;
          }
 
          for(int var1 = 0; var1 < this.d.d(); ++var1) {
             bpt var2 = this.d.a(var1);
-            if(this.c.i(new dt(var2.a, var2.b, var2.c))) {
+            if(this.c.i(new Location(var2.a, var2.b, var2.c))) {
                this.d.b(var1 - 1);
                return;
             }
@@ -137,17 +137,17 @@ public class aay extends aaz {
                double var16 = (double)var14 + 0.5D - var7.a;
                double var18 = (double)var15 + 0.5D - var7.c;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
-                  atr var20 = this.c.p(new dt(var14, var2 - 1, var15)).c();
-                  bof var21 = var20.r();
-                  if(var21 == bof.a) {
+                  Block var20 = this.c.p(new Location(var14, var2 - 1, var15)).c();
+                  Material var21 = var20.r();
+                  if(var21 == Material.a) {
                      return false;
                   }
 
-                  if(var21 == bof.h && !this.b.V()) {
+                  if(var21 == Material.h && !this.b.V()) {
                      return false;
                   }
 
-                  if(var21 == bof.i) {
+                  if(var21 == Material.i) {
                      return false;
                   }
                }
@@ -159,14 +159,14 @@ public class aay extends aaz {
    }
 
    private boolean b(int var1, int var2, int var3, int var4, int var5, int var6, ChunkCoordinates var7, double var8, double var10) {
-      Iterator var12 = dt.a(new dt(var1, var2, var3), new dt(var1 + var4 - 1, var2 + var5 - 1, var3 + var6 - 1)).iterator();
+      Iterator var12 = Location.a(new Location(var1, var2, var3), new Location(var1 + var4 - 1, var2 + var5 - 1, var3 + var6 - 1)).iterator();
 
       while(var12.hasNext()) {
-         dt var13 = (dt)var12.next();
+         Location var13 = (Location)var12.next();
          double var14 = (double)var13.n() + 0.5D - var7.a;
          double var16 = (double)var13.p() + 0.5D - var7.c;
          if(var14 * var8 + var16 * var10 >= 0.0D) {
-            atr var18 = this.c.p(var13).c();
+            Block var18 = this.c.p(var13).c();
             if(!var18.b(this.c, var13)) {
                return false;
             }

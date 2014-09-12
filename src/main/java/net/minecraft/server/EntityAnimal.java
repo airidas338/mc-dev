@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public abstract class EntityAnimal extends EntityAgeable implements wt {
 
-   protected atr bl;
+   protected Block bl;
    private int bk;
    private EntityHuman bm;
 
@@ -49,7 +49,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
       }
    }
 
-   public float a(dt var1) {
+   public float a(Location var1) {
       return this.o.p(var1.b()).c() == aty.c?10.0F:this.o.o(var1) - 0.5F;
    }
 
@@ -67,7 +67,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
       int var1 = MathHelper.c(this.s);
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
-      dt var4 = new dt(var1, var2, var3);
+      Location var4 = new Location(var1, var2, var3);
       return this.o.p(var4.b()).c() == this.bl && this.o.k(var4) > 8 && super.bQ();
    }
 
@@ -84,7 +84,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    public boolean d(amj var1) {
-      return var1 == null?false:var1.b() == amk.O;
+      return var1 == null?false:var1.b() == Items.O;
    }
 
    public boolean a(EntityHuman var1) throws IOException {

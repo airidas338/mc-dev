@@ -476,10 +476,10 @@ public abstract class Entity implements ae {
 			int var58 = MathHelper.c(this.s);
 			int var59 = MathHelper.c(this.t - 0.20000000298023224D);
 			int var56 = MathHelper.c(this.u);
-			dt var26 = new dt(var58, var59, var56);
-			atr var62 = this.o.p(var26).c();
-			if (var62.r() == bof.a) {
-				atr var28 = this.o.p(var26.b()).c();
+			Location var26 = new Location(var58, var59, var56);
+			Block var62 = this.o.p(var26).c();
+			if (var62.r() == Material.a) {
+				Block var28 = this.o.p(var26.b()).c();
 				if (var28 instanceof avv || var28 instanceof bbx || var28 instanceof avw) {
 					var62 = var28;
 					var26 = var26.b();
@@ -513,7 +513,7 @@ public abstract class Entity implements ae {
 
 				this.M = (float) ((double) this.M + (double) MathHelper.a(var61 * var61 + var66 * var66) * 0.6D);
 				this.N = (float) ((double) this.N + (double) MathHelper.a(var61 * var61 + var63 * var63 + var66 * var66) * 0.6D);
-				if (this.N > (float) this.h && var62.r() != bof.a) {
+				if (this.N > (float) this.h && var62.r() != Material.a) {
 					this.h = (int) this.N + 1;
 					if (this.V()) {
 						float var34 = MathHelper.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
@@ -570,14 +570,14 @@ public abstract class Entity implements ae {
 	}
 
 	protected void Q() {
-		dt var1 = new dt(this.aQ().a + 0.001D, this.aQ().b + 0.001D, this.aQ().c + 0.001D);
-		dt var2 = new dt(this.aQ().d - 0.001D, this.aQ().e - 0.001D, this.aQ().f - 0.001D);
+		Location var1 = new Location(this.aQ().a + 0.001D, this.aQ().b + 0.001D, this.aQ().c + 0.001D);
+		Location var2 = new Location(this.aQ().d - 0.001D, this.aQ().e - 0.001D, this.aQ().f - 0.001D);
 		if (this.o.a(var1, var2)) {
 			for (int var3 = var1.n(); var3 <= var2.n(); ++var3) {
 				for (int var4 = var1.o(); var4 <= var2.o(); ++var4) {
 					for (int var5 = var1.p(); var5 <= var2.p(); ++var5) {
-						dt var6 = new dt(var3, var4, var5);
-						bec var7 = this.o.p(var6);
+						Location var6 = new Location(var3, var4, var5);
+						IBlock var7 = this.o.p(var6);
 
 						try {
 							var7.c().a(this.o, var6, var7, this);
@@ -594,8 +594,8 @@ public abstract class Entity implements ae {
 
 	}
 
-	protected void a(dt var1, atr var2) {
-		atx var3 = var2.H;
+	protected void a(Location var1, Block var2) {
+		StepSound var3 = var2.H;
 		if (this.o.p(var1.a()).c() == aty.aH) {
 			var3 = aty.aH.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
@@ -624,7 +624,7 @@ public abstract class Entity implements ae {
 		return true;
 	}
 
-	protected void a(double var1, boolean var3, atr var4, dt var5) {
+	protected void a(double var1, boolean var3, Block var4, Location var5) {
 		if (var3) {
 			if (this.O > 0.0F) {
 				if (var4 != null) {
@@ -664,7 +664,7 @@ public abstract class Entity implements ae {
 	}
 
 	public boolean U() {
-		return this.Y || this.o.C(new dt(this.s, this.t, this.u)) || this.o.C(new dt(this.s, this.t + (double) this.K, this.u));
+		return this.Y || this.o.C(new Location(this.s, this.t, this.u)) || this.o.C(new Location(this.s, this.t + (double) this.K, this.u));
 	}
 
 	public boolean V() {
@@ -672,7 +672,7 @@ public abstract class Entity implements ae {
 	}
 
 	public boolean W() {
-		if (this.o.a(this.aQ().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), bof.h, this)) {
+		if (this.o.a(this.aQ().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.h, this)) {
 			if (!this.Y && !this.aa) {
 				this.X();
 			}
@@ -724,12 +724,12 @@ public abstract class Entity implements ae {
 		int var1 = MathHelper.c(this.s);
 		int var2 = MathHelper.c(this.t - 0.20000000298023224D);
 		int var3 = MathHelper.c(this.u);
-		dt var4 = new dt(var1, var2, var3);
-		bec var5 = this.o.p(var4);
-		atr var6 = var5.c();
+		Location var4 = new Location(var1, var2, var3);
+		IBlock var5 = this.o.p(var4);
+		Block var6 = var5.c();
 		if (var6.b() != -1) {
 			this.o.a(ew.L, this.s + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, this.aQ().b + 0.1D, this.u + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D,
-					-this.x * 4.0D, new int[] { atr.f(var5) });
+					-this.x * 4.0D, new int[] { Block.f(var5) });
 		}
 
 	}
@@ -738,11 +738,11 @@ public abstract class Entity implements ae {
 		return "game.neutral.swim.splash";
 	}
 
-	public boolean a(bof var1) {
+	public boolean a(Material var1) {
 		double var2 = this.t + (double) this.aR();
-		dt var4 = new dt(this.s, var2, this.u);
-		bec var5 = this.o.p(var4);
-		atr var6 = var5.c();
+		Location var4 = new Location(this.s, var2, this.u);
+		IBlock var5 = this.o.p(var4);
+		Block var6 = var5.c();
 		if (var6.r() == var1) {
 			float var7 = axl.b(var5.c().c(var5)) - 0.11111111F;
 			float var8 = (float) (var4.o() + 1) - var7;
@@ -754,7 +754,7 @@ public abstract class Entity implements ae {
 	}
 
 	public boolean ab() {
-		return this.o.a(this.aQ().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), bof.i);
+		return this.o.a(this.aQ().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.i);
 	}
 
 	public void a(float var1, float var2, float var3) {
@@ -776,7 +776,7 @@ public abstract class Entity implements ae {
 	}
 
 	public float c(float var1) {
-		dt var2 = new dt(this.s, 0.0D, this.u);
+		Location var2 = new Location(this.s, 0.0D, this.u);
 		if (this.o.e(var2)) {
 			double var3 = (this.aQ().e - this.aQ().b) * 0.66D;
 			int var5 = MathHelper.c(this.t + var3);
@@ -809,7 +809,7 @@ public abstract class Entity implements ae {
 		this.b(var7, var8);
 	}
 
-	public void a(dt var1, float var2, float var3) {
+	public void a(Location var1, float var2, float var3) {
 		this.b((double) var1.n() + 0.5D, (double) var1.o(), (double) var1.p() + 0.5D, var2, var3);
 	}
 
@@ -836,11 +836,11 @@ public abstract class Entity implements ae {
 		return var7 * var7 + var9 * var9 + var11 * var11;
 	}
 
-	public double b(dt var1) {
+	public double b(Location var1) {
 		return var1.c(this.s, this.t, this.u);
 	}
 
-	public double c(dt var1) {
+	public double c(Location var1) {
 		return var1.d(this.s, this.t, this.u);
 	}
 
@@ -1138,7 +1138,7 @@ public abstract class Entity implements ae {
 				double var2 = this.s + (double) (((float) ((var1 >> 0) % 2) - 0.5F) * this.J * 0.8F);
 				double var4 = this.t + (double) (((float) ((var1 >> 1) % 2) - 0.5F) * 0.1F);
 				double var6 = this.u + (double) (((float) ((var1 >> 2) % 2) - 0.5F) * this.J * 0.8F);
-				if (this.o.p(new dt(var2, var4 + (double) this.aR(), var6)).c().u()) {
+				if (this.o.p(new Location(var2, var4 + (double) this.aR(), var6)).c().u()) {
 					return true;
 				}
 			}
@@ -1362,7 +1362,7 @@ public abstract class Entity implements ae {
 	}
 
 	protected boolean j(double var1, double var3, double var5) {
-		dt var7 = new dt(var1, var3, var5);
+		Location var7 = new Location(var1, var3, var5);
 		double var8 = var1 - (double) var7.n();
 		double var10 = var3 - (double) var7.o();
 		double var12 = var5 - (double) var7.p();
@@ -1506,7 +1506,7 @@ public abstract class Entity implements ae {
 			if (var6 != null) {
 				var6.n(this);
 				if (var3 == 1 && var1 == 1) {
-					dt var7 = this.o.r(var5.M());
+					Location var7 = this.o.r(var5.M());
 					var6.a(var7, var6.y, var6.z);
 				}
 
@@ -1521,11 +1521,11 @@ public abstract class Entity implements ae {
 		}
 	}
 
-	public float a(aqo var1, World var2, dt var3, bec var4) {
+	public float a(aqo var1, World var2, Location var3, IBlock var4) {
 		return var4.c().a(this);
 	}
 
-	public boolean a(aqo var1, World var2, dt var3, bec var4, float var5) {
+	public boolean a(aqo var1, World var2, Location var3, IBlock var4, float var5) {
 		return true;
 	}
 
@@ -1645,8 +1645,8 @@ public abstract class Entity implements ae {
 		return true;
 	}
 
-	public dt c() {
-		return new dt(this.s, this.t + 0.5D, this.u);
+	public Location c() {
+		return new Location(this.s, this.t + 0.5D, this.u);
 	}
 
 	public ChunkCoordinates d() {

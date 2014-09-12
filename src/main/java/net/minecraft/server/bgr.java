@@ -89,7 +89,7 @@ public class bgr implements bfe {
                      double var46 = (var35 - var33) * var42;
 
                      for(int var48 = 0; var48 < 4; ++var48) {
-                        bec var49 = null;
+                        IBlock var49 = null;
                         if(var11 * 8 + var30 < var5) {
                            var49 = aty.l.P();
                         }
@@ -133,13 +133,13 @@ public class bgr implements bfe {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            bec var13 = aty.aV.P();
-            bec var14 = aty.aV.P();
+            IBlock var13 = aty.aV.P();
+            IBlock var14 = aty.aV.P();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
-                  bec var16 = var3.a(var8, var15, var7);
-                  if(var16.c() != null && var16.c().r() != bof.a) {
+                  IBlock var16 = var3.a(var8, var15, var7);
+                  if(var16.c() != null && var16.c().r() != Material.a) {
                      if(var16.c() == aty.aV) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
@@ -159,7 +159,7 @@ public class bgr implements bfe {
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.c().r() == bof.a)) {
+                           if(var15 < var4 && (var13 == null || var13.c().r() == Material.a)) {
                               var13 = aty.l.P();
                            }
 
@@ -197,7 +197,7 @@ public class bgr implements bfe {
       }
 
       bfh var4 = new bfh(this.h, var3, var1, var2);
-      arm[] var5 = this.h.v().b((arm[])null, var1 * 16, var2 * 16, 16, 16);
+      BiomeBase[] var5 = this.h.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var6 = var4.k();
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
@@ -283,41 +283,41 @@ public class bgr implements bfe {
 
    public void a(bfe var1, int var2, int var3) {
       avt.M = true;
-      dt var4 = new dt(var2 * 16, 0, var3 * 16);
+      Location var4 = new Location(var2 * 16, 0, var3 * 16);
       aqm var5 = new aqm(var2, var3);
       this.B.a(this.h, this.j, var5);
 
       int var6;
       for(var6 = 0; var6 < 8; ++var6) {
-         this.y.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.y.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1) + 1; ++var6) {
-         this.t.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.t.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1); ++var6) {
-         this.u.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.u.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 10; ++var6) {
-         this.v.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.v.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.z.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.z.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.A.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.A.generate(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.w.b(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.w.generate(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.x.b(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.x.generate(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       avt.M = false;
@@ -327,7 +327,7 @@ public class bgr implements bfe {
       return false;
    }
 
-   public boolean a(boolean var1, uy var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
@@ -345,8 +345,8 @@ public class bgr implements bfe {
       return "HellRandomLevelSource";
    }
 
-   public List a(xp var1, dt var2) {
-      if(var1 == xp.a) {
+   public List a(EnumCreatureType var1, Location var2) {
+      if(var1 == EnumCreatureType.MONSTER) {
          if(this.B.b(var2)) {
             return this.B.b();
          }
@@ -356,11 +356,11 @@ public class bgr implements bfe {
          }
       }
 
-      arm var3 = this.h.b(var2);
+      BiomeBase var3 = this.h.b(var2);
       return var3.a(var1);
    }
 
-   public dt a(World var1, String var2, dt var3) {
+   public Location a(World var1, String var2, Location var3) {
       return null;
    }
 
@@ -372,7 +372,7 @@ public class bgr implements bfe {
       this.B.a(this, this.h, var2, var3, (bgk)null);
    }
 
-   public bfh a(dt var1) {
+   public bfh a(Location var1) {
       return this.d(var1.n() >> 4, var1.p() >> 4);
    }
 }

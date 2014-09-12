@@ -25,7 +25,7 @@ public class EntityEnderSignal extends Entity {
       this.b(var2, var4, var6);
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       double var2 = (double)var1.n();
       int var4 = var1.o();
       double var5 = (double)var1.p();
@@ -110,9 +110,9 @@ public class EntityEnderSignal extends Entity {
          if(this.d > 80 && !this.o.D) {
             this.J();
             if(this.e) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new amj(amk.bH))));
+               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new amj(Items.bH))));
             } else {
-               this.o.b(2003, new dt(this), 0);
+               this.o.b(2003, new Location(this), 0);
             }
          }
       }

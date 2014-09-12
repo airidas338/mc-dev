@@ -3,10 +3,10 @@ package net.minecraft.server;
 
 public class aju extends alq {
 
-   protected final atr a;
+   protected final Block a;
 
 
-   public aju(atr var1) {
+   public aju(Block var1) {
       this.a = var1;
    }
 
@@ -15,9 +15,9 @@ public class aju extends alq {
       return this;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
-      bec var9 = var3.p(var4);
-      atr var10 = var9.c();
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+      IBlock var9 = var3.p(var4);
+      Block var10 = var9.c();
       if(var10 == aty.aH && ((Integer)var9.b(bao.a)).intValue() < 1) {
          var5 = ej.b;
       } else if(!var10.f(var3, var4)) {
@@ -32,7 +32,7 @@ public class aju extends alq {
          return false;
       } else if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
          int var11 = this.a(var1.i());
-         bec var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
+         IBlock var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
          if(var3.a(var4, var12, 3)) {
             var12 = var3.p(var4);
             if(var12.c() == this.a) {
@@ -50,7 +50,7 @@ public class aju extends alq {
       }
    }
 
-   public static boolean a(World var0, dt var1, amj var2) {
+   public static boolean a(World var0, Location var1, amj var2) {
       if(var2.n() && var2.o().b("BlockEntityTag", 10)) {
          bcm var3 = var0.s(var1);
          if(var3 != null) {
@@ -81,7 +81,7 @@ public class aju extends alq {
       return this.a.a();
    }
 
-   public atr d() {
+   public Block d() {
       return this.a;
    }
 

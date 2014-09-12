@@ -8,16 +8,16 @@ public class ajq extends alq {
       this.a(akf.c);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
       } else {
          boolean var9 = var3.p(var4).c().f(var3, var4);
-         dt var10 = var9?var4:var4.a(var5);
+         Location var10 = var9?var4:var4.a(var5);
          if(!var2.a(var10, var5, var1)) {
             return false;
          } else {
-            dt var11 = var10.a();
+            Location var11 = var10.a();
             boolean var12 = !var3.d(var10) && !var3.p(var10).c().f(var3, var10);
             var12 |= !var3.d(var11) && !var3.p(var11).c().f(var3, var11);
             if(var12) {

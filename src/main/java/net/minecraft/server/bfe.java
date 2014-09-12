@@ -7,13 +7,13 @@ public interface bfe {
 
    bfh d(int var1, int var2);
 
-   bfh a(dt var1);
+   bfh a(Location var1);
 
    void a(bfe var1, int var2, int var3);
 
    boolean a(bfe var1, bfh var2, int var3, int var4);
 
-   boolean a(boolean var1, uy var2);
+   boolean a(boolean var1, IProgressUpdate var2);
 
    boolean d();
 
@@ -21,9 +21,9 @@ public interface bfe {
 
    String f();
 
-   List a(xp var1, dt var2);
+   List a(EnumCreatureType var1, Location var2);
 
-   dt a(World var1, String var2, dt var3);
+   Location a(World var1, String var2, Location var3);
 
    int g();
 

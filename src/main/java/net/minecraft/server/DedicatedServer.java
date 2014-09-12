@@ -309,7 +309,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
       return this.n.a("spawn-protection", super.au());
    }
 
-   public boolean a(World var1, dt var2, EntityHuman var3) {
+   public boolean a(World var1, Location var2, EntityHuman var3) {
       if(var1.t.q() != 0) {
          return false;
       } else if(this.aN().n().d()) {
@@ -319,7 +319,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
       } else if(this.au() <= 0) {
          return false;
       } else {
-         dt var4 = var1.M();
+         Location var4 = var1.M();
          int var5 = MathHelper.a(var2.n() - var4.n());
          int var6 = MathHelper.a(var2.p() - var4.p());
          int var7 = Math.max(var5, var6);

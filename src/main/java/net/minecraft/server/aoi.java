@@ -19,26 +19,26 @@ public class aoi implements aoo {
       for(int var9 = 0; var9 < var1.n_(); ++var9) {
          amj var10 = var1.a(var9);
          if(var10 != null) {
-            if(var10.b() == amk.H) {
+            if(var10.b() == Items.H) {
                ++var4;
-            } else if(var10.b() == amk.cc) {
+            } else if(var10.b() == Items.cc) {
                ++var6;
-            } else if(var10.b() == amk.aW) {
+            } else if(var10.b() == Items.aW) {
                ++var5;
-            } else if(var10.b() == amk.aK) {
+            } else if(var10.b() == Items.aK) {
                ++var3;
-            } else if(var10.b() == amk.aT) {
+            } else if(var10.b() == Items.aT) {
                ++var7;
-            } else if(var10.b() == amk.i) {
+            } else if(var10.b() == Items.i) {
                ++var7;
-            } else if(var10.b() == amk.bL) {
+            } else if(var10.b() == Items.bL) {
                ++var8;
-            } else if(var10.b() == amk.G) {
+            } else if(var10.b() == Items.G) {
                ++var8;
-            } else if(var10.b() == amk.bx) {
+            } else if(var10.b() == Items.bx) {
                ++var8;
             } else {
-               if(var10.b() != amk.bX) {
+               if(var10.b() != Items.bX) {
                   return false;
                }
 
@@ -52,7 +52,7 @@ public class aoi implements aoo {
          fn var15;
          fn var18;
          if(var4 >= 1 && var3 == 1 && var7 == 0) {
-            this.a = new amj(amk.cb);
+            this.a = new amj(Items.cb);
             if(var6 > 0) {
                var15 = new fn();
                var18 = new fn();
@@ -60,7 +60,7 @@ public class aoi implements aoo {
 
                for(int var22 = 0; var22 < var1.n_(); ++var22) {
                   amj var26 = var1.a(var22);
-                  if(var26 != null && var26.b() == amk.cc && var26.n() && var26.o().b("Explosion", 10)) {
+                  if(var26 != null && var26.b() == Items.cc && var26.n() && var26.o().b("Explosion", 10)) {
                      var25.a((gd)var26.o().m("Explosion"));
                   }
                }
@@ -73,7 +73,7 @@ public class aoi implements aoo {
 
             return true;
          } else if(var4 == 1 && var3 == 0 && var6 == 0 && var5 > 0 && var8 <= 1) {
-            this.a = new amj(amk.cc);
+            this.a = new amj(Items.cc);
             var15 = new fn();
             var18 = new fn();
             byte var21 = 0;
@@ -82,19 +82,19 @@ public class aoi implements aoo {
             for(int var13 = 0; var13 < var1.n_(); ++var13) {
                amj var14 = var1.a(var13);
                if(var14 != null) {
-                  if(var14.b() == amk.aW) {
+                  if(var14.b() == Items.aW) {
                      var12.add(Integer.valueOf(akw.a[var14.i() & 15]));
-                  } else if(var14.b() == amk.aT) {
+                  } else if(var14.b() == Items.aT) {
                      var18.a("Flicker", true);
-                  } else if(var14.b() == amk.i) {
+                  } else if(var14.b() == Items.i) {
                      var18.a("Trail", true);
-                  } else if(var14.b() == amk.bL) {
+                  } else if(var14.b() == Items.bL) {
                      var21 = 1;
-                  } else if(var14.b() == amk.G) {
+                  } else if(var14.b() == Items.G) {
                      var21 = 4;
-                  } else if(var14.b() == amk.bx) {
+                  } else if(var14.b() == Items.bx) {
                      var21 = 2;
-                  } else if(var14.b() == amk.bX) {
+                  } else if(var14.b() == Items.bX) {
                      var21 = 3;
                   }
                }
@@ -117,9 +117,9 @@ public class aoi implements aoo {
             for(int var20 = 0; var20 < var1.n_(); ++var20) {
                amj var11 = var1.a(var20);
                if(var11 != null) {
-                  if(var11.b() == amk.aW) {
+                  if(var11.b() == Items.aW) {
                      var16.add(Integer.valueOf(akw.a[var11.i() & 15]));
-                  } else if(var11.b() == amk.cc) {
+                  } else if(var11.b() == Items.cc) {
                      this.a = var11.k();
                      this.a.b = 1;
                   }

@@ -32,8 +32,8 @@ public class EntityEnderCrystal extends Entity {
       int var1 = MathHelper.c(this.s);
       int var2 = MathHelper.c(this.t);
       int var3 = MathHelper.c(this.u);
-      if(this.o.t instanceof bgh && this.o.p(new dt(var1, var2, var3)).c() != aty.ab) {
-         this.o.a(new dt(var1, var2, var3), aty.ab.P());
+      if(this.o.t instanceof bgh && this.o.p(new Location(var1, var2, var3)).c() != aty.ab) {
+         this.o.a(new Location(var1, var2, var3), aty.ab.P());
       }
 
    }

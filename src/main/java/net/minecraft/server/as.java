@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 final class as implements Predicate {
 
    // $FF: synthetic field
-   final dt a;
+   final Location a;
    // $FF: synthetic field
    final int b;
    // $FF: synthetic field
@@ -15,7 +15,7 @@ final class as implements Predicate {
    final int e;
 
 
-   as(dt var1, int var2, int var3, int var4, int var5) {
+   as(Location var1, int var2, int var3, int var4, int var5) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

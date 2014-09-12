@@ -20,8 +20,8 @@ public class cm extends CommandAbstract {
          throw new dp("commands.setblock.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
-         dt var3 = a(var1, var2, 0, false);
-         atr var4 = CommandAbstract.g(var1, var2[3]);
+         Location var3 = a(var1, var2, 0, false);
+         Block var4 = CommandAbstract.g(var1, var2[3]);
          int var5 = 0;
          if(var2.length >= 5) {
             var5 = a(var2[4], 0, 15);
@@ -65,7 +65,7 @@ public class cm extends CommandAbstract {
                var6.a(var3, aty.a.P(), var4 == aty.a?2:4);
             }
 
-            bec var10 = var4.a(var5);
+            IBlock var10 = var4.a(var5);
             if(!var6.a(var3, var10, 2)) {
                throw new di("commands.setblock.noChange", new Object[0]);
             } else {
@@ -87,7 +87,7 @@ public class cm extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, atr.c.c()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
+   public List a(ae var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
    }
 }

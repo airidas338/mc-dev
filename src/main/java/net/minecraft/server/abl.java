@@ -33,7 +33,7 @@ public class abl extends bqc {
 
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       if(this.c.size() <= 64) {
          if(!this.e(var1)) {
             this.c.add(var1);
@@ -77,7 +77,7 @@ public class abl extends bqc {
       return this.e;
    }
 
-   public abi a(dt var1, int var2) {
+   public abi a(Location var1, int var2) {
       abi var3 = null;
       double var4 = 3.4028234663852886E38D;
       Iterator var6 = this.e.iterator();
@@ -99,7 +99,7 @@ public class abl extends bqc {
 
    private void f() {
       if(!this.c.isEmpty()) {
-         this.b((dt)this.c.remove(0));
+         this.b((Location)this.c.remove(0));
       }
    }
 
@@ -119,7 +119,7 @@ public class abl extends bqc {
       this.d.clear();
    }
 
-   private void b(dt var1) {
+   private void b(Location var1) {
       byte var2 = 16;
       byte var3 = 4;
       byte var4 = 16;
@@ -127,7 +127,7 @@ public class abl extends bqc {
       for(int var5 = -var2; var5 < var2; ++var5) {
          for(int var6 = -var3; var6 < var3; ++var6) {
             for(int var7 = -var4; var7 < var4; ++var7) {
-               dt var8 = var1.a(var5, var6, var7);
+               Location var8 = var1.a(var5, var6, var7);
                if(this.f(var8)) {
                   abh var9 = this.c(var8);
                   if(var9 == null) {
@@ -142,7 +142,7 @@ public class abl extends bqc {
 
    }
 
-   private abh c(dt var1) {
+   private abh c(Location var1) {
       Iterator var2 = this.d.iterator();
 
       abh var3;
@@ -169,7 +169,7 @@ public class abl extends bqc {
       return var3;
    }
 
-   private void d(dt var1) {
+   private void d(Location var1) {
       ej var2 = avf.h(this.b, var1);
       ej var3 = var2.d();
       int var4 = this.a(var1, var2, 5);
@@ -180,7 +180,7 @@ public class abl extends bqc {
 
    }
 
-   private int a(dt var1, ej var2, int var3) {
+   private int a(Location var1, ej var2, int var3) {
       int var4 = 0;
 
       for(int var5 = 1; var5 <= 5; ++var5) {
@@ -195,24 +195,24 @@ public class abl extends bqc {
       return var4;
    }
 
-   private boolean e(dt var1) {
+   private boolean e(Location var1) {
       Iterator var2 = this.c.iterator();
 
-      dt var3;
+      Location var3;
       do {
          if(!var2.hasNext()) {
             return false;
          }
 
-         var3 = (dt)var2.next();
+         var3 = (Location)var2.next();
       } while(!var3.equals(var1));
 
       return true;
    }
 
-   private boolean f(dt var1) {
-      atr var2 = this.b.p(var1).c();
-      return var2 instanceof avf?var2.r() == bof.d:false;
+   private boolean f(Location var1) {
+      Block var2 = this.b.p(var1).c();
+      return var2 instanceof avf?var2.r() == Material.d:false;
    }
 
    public void a(fn var1) {

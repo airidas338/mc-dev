@@ -41,7 +41,7 @@ public class abf {
          int var18 = var4.nextInt(2 * var2 + 1) - var2;
          int var14 = var4.nextInt(2 * var1 + 1) - var1;
          if(var3 == null || (double)var12 * var3.a + (double)var14 * var3.c >= 0.0D) {
-            dt var15;
+            Location var15;
             if(var0.ci() && var1 > 1) {
                var15 = var0.cf();
                if(var0.s > (double)var15.n()) {
@@ -60,7 +60,7 @@ public class abf {
             var12 += MathHelper.c(var0.s);
             var18 += MathHelper.c(var0.t);
             var14 += MathHelper.c(var0.u);
-            var15 = new dt(var12, var18, var14);
+            var15 = new Location(var12, var18, var14);
             if(!var10 || var0.d(var15)) {
                float var16 = var0.a(var15);
                if(var16 > var9) {

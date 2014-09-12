@@ -7,7 +7,7 @@ public class akz extends ake {
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
-      amj var4 = new amj(amk.bd, 1, var2.b("map"));
+      amj var4 = new amj(Items.bd, 1, var2.b("map"));
       String var5 = "map_" + var4.i();
       bqe var6 = new bqe(var5);
       var2.a(var5, (bqc)var6);

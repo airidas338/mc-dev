@@ -24,7 +24,7 @@ public class yx extends zb {
          return false;
       } else if(!this.a.au()) {
          return false;
-      } else if(!this.f.i(new dt(this.a.s, this.a.aQ().b, this.a.u))) {
+      } else if(!this.f.i(new Location(this.a.s, this.a.aQ().b, this.a.u))) {
          return false;
       } else {
          ChunkCoordinates var1 = this.f();
@@ -49,10 +49,10 @@ public class yx extends zb {
 
    private ChunkCoordinates f() {
       Random var1 = this.a.bb();
-      dt var2 = new dt(this.a.s, this.a.aQ().b, this.a.u);
+      Location var2 = new Location(this.a.s, this.a.aQ().b, this.a.u);
 
       for(int var3 = 0; var3 < 10; ++var3) {
-         dt var4 = var2.a(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
+         Location var4 = var2.a(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
          if(!this.f.i(var4) && this.a.a(var4) < 0.0F) {
             return new ChunkCoordinates((double)var4.n(), (double)var4.o(), (double)var4.p());
          }

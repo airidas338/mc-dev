@@ -303,7 +303,7 @@ public class rj implements ls, IUpdatePlayerListBox {
    public void a(ml var1) {
       ig.a(var1, this, this.b.u());
       WorldServer var2 = this.d.a(this.b.am);
-      dt var3 = var1.a();
+      Location var3 = var1.a();
       this.b.z();
       switch(rn.a[var1.c().ordinal()]) {
       case 1:
@@ -346,7 +346,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                   this.b.c.e();
                }
 
-               if(var2.p(var3).c().r() != bof.a) {
+               if(var2.p(var3).c().r() != Material.a) {
                   this.b.a.a((id)(new iw(var2, var3)));
                }
             }
@@ -363,7 +363,7 @@ public class rj implements ls, IUpdatePlayerListBox {
       WorldServer var2 = this.d.a(this.b.am);
       amj var3 = this.b.bg.h();
       boolean var4 = false;
-      dt var5 = var1.a();
+      Location var5 = var1.a();
       ej var6 = ej.a(var1.b());
       this.b.z();
       if(var1.b() == 255) {
@@ -711,7 +711,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          if(var3 != null && var3.n() && var3.o().b("BlockEntityTag", 10)) {
             fn var4 = var3.o().m("BlockEntityTag");
             if(var4.c("x") && var4.c("y") && var4.c("z")) {
-               dt var5 = new dt(var4.f("x"), var4.f("y"), var4.f("z"));
+               Location var5 = new Location(var4.f("x"), var4.f("y"), var4.f("z"));
                bcm var6 = this.b.o.s(var5);
                if(var6 != null) {
                   fn var7 = new fn();
@@ -759,7 +759,7 @@ public class rj implements ls, IUpdatePlayerListBox {
       ig.a(var1, this, this.b.u());
       this.b.z();
       WorldServer var2 = this.d.a(this.b.am);
-      dt var3 = var1.a();
+      Location var3 = var1.a();
       if(var2.e(var3)) {
          bcm var4 = var2.s(var3);
          if(!(var4 instanceof bdj)) {
@@ -834,7 +834,7 @@ public class rj implements ls, IUpdatePlayerListBox {
 
             var4 = this.b.bg.h();
             if(var4 != null) {
-               if(var3.b() == amk.bM && var3.b() == var4.b()) {
+               if(var3.b() == Items.bM && var3.b() == var4.b()) {
                   var4.a("pages", (gd)var3.o().c("pages", 8));
                }
 
@@ -863,11 +863,11 @@ public class rj implements ls, IUpdatePlayerListBox {
 
             var4 = this.b.bg.h();
             if(var4 != null) {
-               if(var3.b() == amk.bN && var4.b() == amk.bM) {
+               if(var3.b() == Items.bN && var4.b() == Items.bM) {
                   var4.a("author", (gd)(new gc(this.b.d_())));
                   var4.a("title", (gd)(new gc(var3.o().j("title"))));
                   var4.a("pages", (gd)var3.o().c("pages", 8));
-                  var4.a(amk.bN);
+                  var4.a(Items.bN);
                }
 
                return;
@@ -900,7 +900,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                byte var43 = var2.readByte();
                aqf var46 = null;
                if(var43 == 0) {
-                  bcm var5 = this.b.o.s(new dt(var2.readInt(), var2.readInt(), var2.readInt()));
+                  bcm var5 = this.b.o.s(new Location(var2.readInt(), var2.readInt(), var2.readInt()));
                   if(var5 instanceof bct) {
                      var46 = ((bct)var5).b();
                   }

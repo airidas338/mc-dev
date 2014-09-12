@@ -9,13 +9,13 @@ public class atb extends atg {
 
 
    protected atb() {
-      super(bof.d);
+      super(Material.d);
       float var1 = 0.25F;
       float var2 = 1.0F;
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -23,7 +23,7 @@ public class atb extends atg {
       return false;
    }
 
-   public boolean b(ard var1, dt var2) {
+   public boolean b(ard var1, Location var2) {
       return true;
    }
 
@@ -35,14 +35,14 @@ public class atb extends atg {
       return new bci();
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.cE;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.cE;
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       bcm var6 = var1.s(var2);
       if(var6 instanceof bci) {
-         amj var7 = new amj(amk.cE, 1, ((bci)var6).b());
+         amj var7 = new amj(Items.cE, 1, ((bci)var6).b());
          fn var8 = new fn();
          var6.b(var8);
          var8.o("x");
@@ -57,9 +57,9 @@ public class atb extends atg {
 
    }
 
-   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
       if(var5 instanceof bci) {
-         amj var6 = new amj(amk.cE, 1, ((bci)var5).b());
+         amj var6 = new amj(Items.cE, 1, ((bci)var5).b());
          fn var7 = new fn();
          var5.b(var7);
          var7.o("x");

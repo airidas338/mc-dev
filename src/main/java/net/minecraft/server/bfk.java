@@ -4,12 +4,12 @@ import java.util.concurrent.Callable;
 class bfk implements Callable {
 
    // $FF: synthetic field
-   final dt a;
+   final Location a;
    // $FF: synthetic field
    final bfh b;
 
 
-   bfk(bfh var1, dt var2) {
+   bfk(bfh var1, Location var2) {
       this.b = var1;
       this.a = var2;
    }

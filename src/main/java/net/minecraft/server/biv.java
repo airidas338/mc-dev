@@ -116,7 +116,7 @@ public class biv {
          }
       }
 
-      atr var6 = null;
+      Block var6 = null;
 
       try {
          String var7 = var3[var3.length - 1];
@@ -126,14 +126,14 @@ public class biv {
                var5 = Integer.parseInt(var3[1]);
             }
 
-            var6 = atr.c(Integer.parseInt(var3[0]));
+            var6 = Block.c(Integer.parseInt(var3[0]));
          } else {
             var3 = var7.split(":", 3);
-            var6 = var3.length > 1?atr.b(var3[0] + ":" + var3[1]):null;
+            var6 = var3.length > 1?Block.b(var3[0] + ":" + var3[1]):null;
             if(var6 != null) {
                var5 = var3.length > 2?Integer.parseInt(var3[2]):0;
             } else {
-               var6 = atr.b(var3[0]);
+               var6 = Block.b(var3[0]);
                if(var6 != null) {
                   var5 = var3.length > 1?Integer.parseInt(var3[1]):0;
                }
@@ -198,7 +198,7 @@ public class biv {
             if(var5 != null && !var5.isEmpty()) {
                var3.c().addAll(var5);
                var3.d();
-               int var6 = arm.q.az;
+               int var6 = BiomeBase.q.az;
                if(var2 > 0 && var1.length > var4) {
                   var6 = MathHelper.a(var1[var4++], var6);
                }
@@ -243,7 +243,7 @@ public class biv {
 
    public static biv e() {
       biv var0 = new biv();
-      var0.a(arm.q.az);
+      var0.a(BiomeBase.q.az);
       var0.c().add(new biw(1, aty.h));
       var0.c().add(new biw(2, aty.d));
       var0.c().add(new biw(1, aty.c));

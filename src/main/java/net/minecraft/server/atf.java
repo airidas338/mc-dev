@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-public class atf extends atr {
+public class atf extends Block {
 
    protected atf() {
-      super(bof.I);
+      super(Material.I);
       this.v();
       this.b(6000001.0F);
       this.J();
@@ -18,5 +18,5 @@ public class atf extends atr {
       return false;
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
 }

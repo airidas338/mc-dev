@@ -23,7 +23,7 @@ public class ja implements id {
       this.b = new jb[var1.e()];
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         this.b[var2] = new jb(this, var1.readShort(), (bec)atr.d.a(var1.e()));
+         this.b[var2] = new jb(this, var1.readShort(), (IBlock)Block.d.a(var1.e()));
       }
 
    }
@@ -38,7 +38,7 @@ public class ja implements id {
       for(int var4 = 0; var4 < var3; ++var4) {
          jb var5 = var2[var4];
          var1.writeShort(var5.b());
-         var1.b(atr.d.b(var5.c()));
+         var1.b(Block.d.b(var5.c()));
       }
 
    }

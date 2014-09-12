@@ -6,24 +6,24 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    private boolean a = true;
    private int b = -1;
-   private dt c;
+   private Location c;
 
 
    public EntityMinecartHopper(World var1) {
       super(var1);
-      this.c = dt.a;
+      this.c = Location.a;
    }
 
    public EntityMinecartHopper(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
-      this.c = dt.a;
+      this.c = Location.a;
    }
 
    public EnumMinecartType s() {
       return EnumMinecartType.HOPPER;
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.cp.P();
    }
 
@@ -78,7 +78,7 @@ public class EntityMinecartHopper extends aed implements bdd {
    public void s_() throws IOException {
       super.s_();
       if(!this.o.D && this.ai() && this.y()) {
-         dt var1 = new dt(this);
+         Location var1 = new Location(this);
          if(var1.equals(this.c)) {
             --this.b;
          } else {
@@ -111,7 +111,7 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      this.a(alq.a((atr)aty.cp), 1, 0.0F);
+      this.a(alq.a((Block)aty.cp), 1, 0.0F);
    }
 
    protected void b(fn var1) {

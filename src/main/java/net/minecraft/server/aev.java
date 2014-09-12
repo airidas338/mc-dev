@@ -11,7 +11,7 @@ class aev extends zb {
    }
 
    public boolean a() {
-      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() != bof.a?false:this.a.bb().nextInt(20) == 0);
+      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() != Material.a?false:this.a.bb().nextInt(20) == 0);
    }
 
    public void e() {
@@ -20,9 +20,9 @@ class aev extends zb {
       int var3 = MathHelper.c(this.a.s - 2.0D + var1.nextDouble() * 4.0D);
       int var4 = MathHelper.c(this.a.t + var1.nextDouble() * 3.0D);
       int var5 = MathHelper.c(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
-      dt var6 = new dt(var3, var4, var5);
-      bec var7 = var2.p(var6);
-      atr var8 = var7.c();
+      Location var6 = new Location(var3, var4, var5);
+      IBlock var7 = var2.p(var6);
+      Block var8 = var7.c();
       if(EntityEnderman.co().contains(var8)) {
          this.a.a(var7);
          var2.a(var6, aty.a.P());

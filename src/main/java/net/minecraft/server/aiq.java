@@ -6,14 +6,14 @@ public class aiq extends aib {
 
    public vq a = new air(this, "Enchant", true, 2);
    private World i;
-   private dt j;
+   private Location j;
    private Random k = new Random();
    public int f;
    public int[] g = new int[3];
    public int[] h = new int[]{-1, -1, -1};
 
 
-   public aiq(ahb var1, World var2, dt var3) {
+   public aiq(ahb var1, World var2, Location var3) {
       this.i = var2;
       this.j = var3;
       this.f = var1.d.ci();
@@ -142,17 +142,17 @@ public class aiq extends aib {
       } else if(this.g[var2] > 0 && var3 != null && (var1.bz >= var5 && var1.bz >= this.g[var2] || var1.by.d)) {
          if(!this.i.D) {
             List var6 = this.a(var3, var2, this.g[var2]);
-            boolean var7 = var3.b() == amk.aL;
+            boolean var7 = var3.b() == Items.aL;
             if(var6 != null) {
                var1.b(var5);
                if(var7) {
-                  var3.a((alq)amk.cd);
+                  var3.a((alq)Items.cd);
                }
 
                for(int var8 = 0; var8 < var6.size(); ++var8) {
                   apo var9 = (apo)var6.get(var8);
                   if(var7) {
-                     amk.cd.a(var3, var9);
+                     Items.cd.a(var3, var9);
                   } else {
                      var3.a(var9.b, var9.c);
                   }
@@ -180,7 +180,7 @@ public class aiq extends aib {
    private List a(amj var1, int var2, int var3) {
       this.k.setSeed((long)(this.f + var2));
       List var4 = EnchantmentManager.b(this.k, var1, var3);
-      if(var1.b() == amk.aL && var4 != null && var4.size() > 1) {
+      if(var1.b() == Items.aL && var4 != null && var4.size() > 1) {
          var4.remove(this.k.nextInt(var4.size()));
       }
 
@@ -218,7 +218,7 @@ public class aiq extends aib {
             if(!this.a(var5, 2, 38, true)) {
                return null;
             }
-         } else if(var5.b() == amk.aW && akv.a(var5.i()) == akv.l) {
+         } else if(var5.b() == Items.aW && akv.a(var5.i()) == akv.l) {
             if(!this.a(var5, 1, 2, true)) {
                return null;
             }

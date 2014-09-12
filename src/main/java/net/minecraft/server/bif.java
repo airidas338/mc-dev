@@ -4,22 +4,22 @@ import java.util.Random;
 
 public class bif extends bhp {
 
-   private final bec a;
+   private final IBlock a;
    private final int b;
    private final Predicate c;
 
 
-   public bif(bec var1, int var2) {
+   public bif(IBlock var1, int var2) {
       this(var1, var2, bep.a(aty.b));
    }
 
-   public bif(bec var1, int var2, Predicate var3) {
+   public bif(IBlock var1, int var2, Predicate var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
    }
 
-   public boolean b(World var1, Random var2, dt var3) {
+   public boolean generate(World var1, Random var2, Location var3) {
       float var4 = var2.nextFloat() * 3.1415927F;
       double var5 = (double)((float)(var3.n() + 8) + MathHelper.sin(var4) * (float)this.b / 8.0F);
       double var7 = (double)((float)(var3.n() + 8) - MathHelper.sin(var4) * (float)this.b / 8.0F);
@@ -52,7 +52,7 @@ public class bif extends bhp {
                      for(int var43 = var33; var43 <= var36; ++var43) {
                         double var44 = ((double)var43 + 0.5D - var23) / (var27 / 2.0D);
                         if(var38 * var38 + var41 * var41 + var44 * var44 < 1.0D) {
-                           dt var46 = new dt(var37, var40, var43);
+                           Location var46 = new Location(var37, var40, var43);
                            if(this.c.apply(var1.p(var46))) {
                               var1.a(var46, this.a, 2);
                            }

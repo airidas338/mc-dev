@@ -5,10 +5,10 @@ public class aio extends aib {
    public ain a = new ain(this, 3, 3);
    public vq f = new aji();
    private World g;
-   private dt h;
+   private Location h;
 
 
-   public aio(ahb var1, World var2, dt var3) {
+   public aio(ahb var1, World var2, Location var3) {
       this.g = var2;
       this.h = var3;
       this.a((ajk)(new ajj(var1.d, this.a, this.f, 0, 124, 35)));

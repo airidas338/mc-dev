@@ -11,14 +11,14 @@ public class aid extends aib {
    private vq g = new aji();
    private vq h = new aie(this, "Repair", true, 2);
    private World i;
-   private dt j;
+   private Location j;
    public int a;
    private int k;
    private String l;
    private final EntityHuman m;
 
 
-   public aid(ahb var1, World var2, dt var3, EntityHuman var4) {
+   public aid(ahb var1, World var2, Location var3, EntityHuman var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
@@ -72,7 +72,7 @@ public class aid extends aib {
          this.k = 0;
          int var16;
          if(var13 != null) {
-            var15 = var13.b() == amk.cd && amk.cd.h(var13).c() > 0;
+            var15 = var13.b() == Items.cd && Items.cd.h(var13).c() > 0;
             int var17;
             int var18;
             if(var12.e() && var12.b().a(var8, var13)) {
@@ -134,7 +134,7 @@ public class aid extends aib {
 
                      var21 = var10000;
                      boolean var22 = var28.a(var8);
-                     if(this.m.by.d || var8.b() == amk.cd) {
+                     if(this.m.by.d || var8.b() == Items.cd) {
                         var22 = true;
                      }
 

@@ -26,7 +26,7 @@ public class cg extends CommandAbstract {
                var5 = var3.c[var4];
                var6 = var5.c;
                var5.c = false;
-               var5.a(true, (uy)null);
+               var5.a(true, (IProgressUpdate)null);
                var5.c = var6;
             }
          }

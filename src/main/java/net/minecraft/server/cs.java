@@ -57,7 +57,7 @@ class cs {
    }
 
    public int a(World var1) {
-      dt var2 = new dt(this.a, 256.0D, this.b);
+      Location var2 = new Location(this.a, 256.0D, this.b);
 
       do {
          if(var2.o() <= 0) {
@@ -65,15 +65,15 @@ class cs {
          }
 
          var2 = var2.b();
-      } while(var1.p(var2).c().r() == bof.a);
+      } while(var1.p(var2).c().r() == Material.a);
 
       return var2.o() + 1;
    }
 
    public boolean b(World var1) {
-      dt var2 = new dt(this.a, 256.0D, this.b);
+      Location var2 = new Location(this.a, 256.0D, this.b);
 
-      bof var3;
+      Material var3;
       do {
          if(var2.o() <= 0) {
             return false;
@@ -81,9 +81,9 @@ class cs {
 
          var2 = var2.b();
          var3 = var1.p(var2).c().r();
-      } while(var3 == bof.a);
+      } while(var3 == Material.a);
 
-      return !var3.d() && var3 != bof.o;
+      return !var3.d() && var3 != Material.o;
    }
 
    public void a(Random var1, double var2, double var4, double var6, double var8) {

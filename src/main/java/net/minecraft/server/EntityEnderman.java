@@ -46,18 +46,18 @@ public class EntityEnderman extends EntityMonster {
 
    public void b(fn var1) {
       super.b(var1);
-      bec var2 = this.ck();
-      var1.a("carried", (short)atr.a(var2.c()));
+      IBlock var2 = this.ck();
+      var1.a("carried", (short)Block.a(var2.c()));
       var1.a("carriedData", (short)var2.c().c(var2));
    }
 
    public void a(fn var1) {
       super.a(var1);
-      bec var2;
+      IBlock var2;
       if(var1.b("carried", 8)) {
-         var2 = atr.b(var1.j("carried")).a(var1.e("carriedData") & '\uffff');
+         var2 = Block.b(var1.j("carried")).a(var1.e("carriedData") & '\uffff');
       } else {
-         var2 = atr.c(var1.e("carried")).a(var1.e("carriedData") & '\uffff');
+         var2 = Block.c(var1.e("carried")).a(var1.e("carriedData") & '\uffff');
       }
 
       this.a(var2);
@@ -103,7 +103,7 @@ public class EntityEnderman extends EntityMonster {
 
       if(this.o.w()) {
          float var1 = this.c(1.0F);
-         if(var1 > 0.5F && this.o.i(new dt(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
+         if(var1 > 0.5F && this.o.i(new Location(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
             this.d((EntityLiving)null);
             this.a(false);
             this.bl = false;
@@ -139,13 +139,13 @@ public class EntityEnderman extends EntityMonster {
       this.t = var3;
       this.u = var5;
       boolean var13 = false;
-      dt var14 = new dt(this.s, this.t, this.u);
+      Location var14 = new Location(this.s, this.t, this.u);
       if(this.o.e(var14)) {
          boolean var15 = false;
 
          while(!var15 && var14.o() > 0) {
-            dt var16 = var14.b();
-            atr var17 = this.o.p(var16).c();
+            Location var16 = var14.b();
+            Block var17 = this.o.p(var16).c();
             if(var17.r().c()) {
                var15 = true;
             } else {
@@ -198,7 +198,7 @@ public class EntityEnderman extends EntityMonster {
    }
 
    protected alq A() {
-      return amk.bu;
+      return Items.bu;
    }
 
    protected void b(boolean var1, int var2) {
@@ -213,12 +213,12 @@ public class EntityEnderman extends EntityMonster {
 
    }
 
-   public void a(bec var1) {
-      this.ac.b(16, Short.valueOf((short)(atr.f(var1) & '\uffff')));
+   public void a(IBlock var1) {
+      this.ac.b(16, Short.valueOf((short)(Block.f(var1) & '\uffff')));
    }
 
-   public bec ck() {
-      return atr.d(this.ac.b(16) & '\uffff');
+   public IBlock ck() {
+      return Block.d(this.ac.b(16) & '\uffff');
    }
 
    public boolean a(DamageSource var1, float var2) {

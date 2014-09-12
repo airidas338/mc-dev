@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 public class lh implements id {
 
-   private dt a;
+   private Location a;
 
 
    public lh() {}
 
-   public lh(dt var1) {
+   public lh(Location var1) {
       this.a = var1;
    }
 

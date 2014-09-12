@@ -101,7 +101,7 @@ public abstract class aaw extends zb {
    protected boolean a(EntityLiving var1, boolean var2) {
       if(!a(this.e, var1, var2, this.f)) {
          return false;
-      } else if(!this.e.d(new dt(var1))) {
+      } else if(!this.e.d(new Location(var1))) {
          return false;
       } else {
          if(this.a) {

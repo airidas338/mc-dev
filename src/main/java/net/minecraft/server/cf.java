@@ -58,7 +58,7 @@ public class cf extends CommandAbstract {
          try {
             var6 = f(var1, var2[var16]);
          } catch (dk var15) {
-            if(atr.b(var2[var16]) != aty.a) {
+            if(Block.b(var2[var16]) != aty.a) {
                throw var15;
             }
 
@@ -85,7 +85,7 @@ public class cf extends CommandAbstract {
 
          if(var3) {
             var1.a(ag.d, 0);
-            dt var17 = a(var1, var2, 1, false);
+            Location var17 = a(var1, var2, 1, false);
             World var11 = var1.e();
             bcm var12 = var11.s(var17);
             if(var12 == null || !(var12 instanceof vq)) {
@@ -125,7 +125,7 @@ public class cf extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, alq.e.c())):a(var2, a.keySet())));
    }
 

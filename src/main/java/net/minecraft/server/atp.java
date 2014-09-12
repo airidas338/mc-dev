@@ -9,12 +9,12 @@ public class atp extends avb {
 
 
    public atp() {
-      super(bof.n);
+      super(Material.n);
       this.j(this.L.b().a(a, atq.b).a(b, Boolean.valueOf(false)));
       this.j();
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -26,7 +26,7 @@ public class atp extends avb {
             }
          }
 
-         if(var1.t.e() && var1.b(var2) != arm.x) {
+         if(var1.t.e() && var1.b(var2) != BiomeBase.x) {
             if(((Boolean)var3.b(b)).booleanValue()) {
                EntityHuman var10 = this.e(var1, var2);
                if(var10 != null) {
@@ -54,7 +54,7 @@ public class atp extends avb {
             }
          } else {
             var1.g(var2);
-            dt var9 = var2.a(((ej)var3.b(N)).d());
+            Location var9 = var2.a(((ej)var3.b(N)).d());
             if(var1.p(var9).c() == this) {
                var1.g(var9);
             }
@@ -65,7 +65,7 @@ public class atp extends avb {
       }
    }
 
-   private EntityHuman e(World var1, dt var2) {
+   private EntityHuman e(World var1, Location var2) {
       Iterator var3 = var1.j.iterator();
 
       EntityHuman var4;
@@ -88,11 +88,11 @@ public class atp extends avb {
       return false;
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       this.j();
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       ej var5 = (ej)var3.b(N);
       if(var3.b(a) == atq.a) {
          if(var1.p(var2.a(var5.d())).c() != this) {
@@ -107,15 +107,15 @@ public class atp extends avb {
 
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return var1.b(a) == atq.a?null:amk.ba;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return var1.b(a) == atq.a?null:Items.ba;
    }
 
    private void j() {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.5625F, 1.0F);
    }
 
-   public static dt a(World var0, dt var1, int var2) {
+   public static Location a(World var0, Location var1, int var2) {
       ej var3 = (ej)var0.p(var1).b(N);
       int var4 = var1.n();
       int var5 = var1.o();
@@ -129,7 +129,7 @@ public class atp extends avb {
 
          for(int var12 = var8; var12 <= var10; ++var12) {
             for(int var13 = var9; var13 <= var11; ++var13) {
-               dt var14 = new dt(var12, var5, var13);
+               Location var14 = new Location(var12, var5, var13);
                if(d(var0, var14)) {
                   if(var2 <= 0) {
                      return var14;
@@ -144,11 +144,11 @@ public class atp extends avb {
       return null;
    }
 
-   protected static boolean d(World var0, dt var1) {
+   protected static boolean d(World var0, Location var1) {
       return World.a((ard)var0, var1.b()) && !var0.p(var1).c().r().a() && !var0.p(var1.a()).c().r().a();
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(var3.b(a) == atq.b) {
          super.a(var1, var2, var3, var4, 0);
       }
@@ -159,9 +159,9 @@ public class atp extends avb {
       return 1;
    }
 
-   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       if(var4.by.d && var3.b(a) == atq.a) {
-         dt var5 = var2.a(((ej)var3.b(N)).d());
+         Location var5 = var2.a(((ej)var3.b(N)).d());
          if(var1.p(var5).c() == this) {
             var1.g(var5);
          }
@@ -169,14 +169,14 @@ public class atp extends avb {
 
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       ej var2 = ej.b(var1);
       return (var1 & 8) > 0?this.P().a(a, atq.a).a(N, var2).a(b, Boolean.valueOf((var1 & 4) > 0)):this.P().a(a, atq.b).a(N, var2);
    }
 
-   public bec a(bec var1, ard var2, dt var3) {
+   public IBlock a(IBlock var1, ard var2, Location var3) {
       if(var1.b(a) == atq.b) {
-         bec var4 = var2.p(var3.a((ej)var1.b(N)));
+         IBlock var4 = var2.p(var3.a((ej)var1.b(N)));
          if(var4.c() == this) {
             var1 = var1.a(b, var4.b(b));
          }
@@ -185,7 +185,7 @@ public class atp extends avb {
       return var1;
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(N)).b();
       if(var1.b(a) == atq.a) {

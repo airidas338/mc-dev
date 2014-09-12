@@ -22,23 +22,23 @@ public class bdi extends bcm {
       this.o_();
    }
 
-   public void a(World var1, dt var2) {
-      if(var1.p(var2.a()).c().r() == bof.a) {
-         bof var3 = var1.p(var2.b()).c().r();
+   public void a(World var1, Location var2) {
+      if(var1.p(var2.a()).c().r() == Material.a) {
+         Material var3 = var1.p(var2.b()).c().r();
          byte var4 = 0;
-         if(var3 == bof.e) {
+         if(var3 == Material.e) {
             var4 = 1;
          }
 
-         if(var3 == bof.p) {
+         if(var3 == Material.p) {
             var4 = 2;
          }
 
-         if(var3 == bof.s) {
+         if(var3 == Material.s) {
             var4 = 3;
          }
 
-         if(var3 == bof.d) {
+         if(var3 == Material.d) {
             var4 = 4;
          }
 

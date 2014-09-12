@@ -7,18 +7,18 @@ public class qx {
    private EnumGamemode c;
    private boolean d;
    private int e;
-   private dt f;
+   private Location f;
    private int g;
    private boolean h;
-   private dt i;
+   private Location i;
    private int j;
    private int k;
 
 
    public qx(World var1) {
       this.c = EnumGamemode.a;
-      this.f = dt.a;
-      this.i = dt.a;
+      this.f = Location.a;
+      this.i = Location.a;
       this.k = -1;
       this.a = var1;
    }
@@ -56,8 +56,8 @@ public class qx {
       int var4;
       if(this.h) {
          int var1 = this.g - this.j;
-         atr var2 = this.a.p(this.i).c();
-         if(var2.r() == bof.a) {
+         Block var2 = this.a.p(this.i).c();
+         if(var2.r() == Material.a) {
             this.h = false;
          } else {
             var3 = var2.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
@@ -73,8 +73,8 @@ public class qx {
             }
          }
       } else if(this.d) {
-         atr var5 = this.a.p(this.f).c();
-         if(var5.r() == bof.a) {
+         Block var5 = this.a.p(this.f).c();
+         if(var5.r() == Material.a) {
             this.a.c(this.b.F(), this.f, -1);
             this.k = -1;
             this.d = false;
@@ -91,14 +91,14 @@ public class qx {
 
    }
 
-   public void a(dt var1, ej var2) {
+   public void a(Location var1, ej var2) {
       if(this.d()) {
          if(!this.a.a((EntityHuman)null, var1, var2)) {
             this.b(var1);
          }
 
       } else {
-         atr var3 = this.a.p(var1).c();
+         Block var3 = this.a.p(var1).c();
          if(this.c.c()) {
             if(this.c == EnumGamemode.e) {
                return;
@@ -119,12 +119,12 @@ public class qx {
          this.a.a((EntityHuman)null, var1, var2);
          this.e = this.g;
          float var6 = 1.0F;
-         if(var3.r() != bof.a) {
+         if(var3.r() != Material.a) {
             var3.a(this.a, var1, (EntityHuman)this.b);
             var6 = var3.a((EntityHuman)this.b, this.b.o, var1);
          }
 
-         if(var3.r() != bof.a && var6 >= 1.0F) {
+         if(var3.r() != Material.a && var6 >= 1.0F) {
             this.b(var1);
          } else {
             this.d = true;
@@ -137,11 +137,11 @@ public class qx {
       }
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       if(var1.equals(this.f)) {
          int var2 = this.g - this.e;
-         atr var3 = this.a.p(var1).c();
-         if(var3.r() != bof.a) {
+         Block var3 = this.a.p(var1).c();
+         if(var3.r() != Material.a) {
             float var4 = var3.a((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
@@ -163,8 +163,8 @@ public class qx {
       this.a.c(this.b.F(), this.f, -1);
    }
 
-   private boolean c(dt var1) {
-      bec var2 = this.a.p(var1);
+   private boolean c(Location var1) {
+      IBlock var2 = this.a.p(var1);
       var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
       boolean var3 = this.a.g(var1);
       if(var3) {
@@ -174,11 +174,11 @@ public class qx {
       return var3;
    }
 
-   public boolean b(dt var1) {
+   public boolean b(Location var1) {
       if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof anm) {
          return false;
       } else {
-         bec var2 = this.a.p(var1);
+         IBlock var2 = this.a.p(var1);
          bcm var3 = this.a.s(var1);
          if(this.c.c()) {
             if(this.c == EnumGamemode.e) {
@@ -197,7 +197,7 @@ public class qx {
             }
          }
 
-         this.a.a(this.b, 2001, var1, atr.f(var2));
+         this.a.a(this.b, 2001, var1, Block.f(var2));
          boolean var7 = this.c(var1);
          if(this.d()) {
             this.b.a.a((id)(new iw(this.a, var1)));
@@ -251,11 +251,11 @@ public class qx {
       }
    }
 
-   public boolean a(EntityHuman var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(EntityHuman var1, World var2, amj var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(this.c == EnumGamemode.e) {
          bcm var13 = var2.s(var4);
          if(var13 instanceof vy) {
-            atr var15 = var2.p(var4).c();
+            Block var15 = var2.p(var4).c();
             vy var14 = (vy)var13;
             if(var14 instanceof bcr && var15 instanceof auj) {
                var14 = ((auj)var15).d(var2, var4);
@@ -273,7 +273,7 @@ public class qx {
          return false;
       } else {
          if(!var1.aw() || var1.bz() == null) {
-            bec var9 = var2.p(var4);
+            IBlock var9 = var2.p(var4);
             if(var9.c().a(var2, var4, var9, var1, var5, var6, var7, var8)) {
                return true;
             }

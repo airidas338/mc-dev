@@ -15,8 +15,8 @@ public class amy extends alq {
       b.put("records." + var1, this);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
-      bec var9 = var3.p(var4);
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+      IBlock var9 = var3.p(var4);
       if(var9.c() == aty.aN && !((Boolean)var9.b(axc.a)).booleanValue()) {
          if(var3.D) {
             return true;

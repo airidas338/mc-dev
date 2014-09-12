@@ -75,10 +75,10 @@ public class amw extends alq {
       var3.b(ty.J[alq.b((alq)this)]);
       if(!var3.by.d) {
          if(var1.b <= 0) {
-            return new amj(amk.bA);
+            return new amj(Items.bA);
          }
 
-         var3.bg.a(new amj(amk.bA));
+         var3.bg.a(new amj(Items.bA));
       }
 
       return var1;
@@ -124,7 +124,7 @@ public class amw extends alq {
             var2 = fi.a("potion.prefix.grenade").trim() + " ";
          }
 
-         List var3 = amk.bz.h(var1);
+         List var3 = Items.bz.h(var1);
          String var4;
          if(var3 != null && !var3.isEmpty()) {
             var4 = ((wq)var3.get(0)).g();

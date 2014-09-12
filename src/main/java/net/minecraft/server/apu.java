@@ -10,7 +10,7 @@ public class apu extends apf {
    public final int a;
 
 
-   public apu(int var1, oa var2, int var3, int var4) {
+   public apu(int var1, RegistryMaterials var2, int var3, int var4) {
       super(var1, var2, var3, apg.b);
       this.a = var4;
       if(var4 == 2) {

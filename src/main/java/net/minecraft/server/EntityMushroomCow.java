@@ -12,19 +12,19 @@ public class EntityMushroomCow extends EntityCow {
 
    public boolean a(EntityHuman var1) throws IOException {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.z && this.l() >= 0) {
+      if(var2 != null && var2.b() == Items.z && this.l() >= 0) {
          if(var2.b == 1) {
-            var1.bg.a(var1.bg.c, new amj(amk.A));
+            var1.bg.a(var1.bg.c, new amj(Items.A));
             return true;
          }
 
-         if(var1.bg.a(new amj(amk.A)) && !var1.by.d) {
+         if(var1.bg.a(new amj(Items.A)) && !var1.by.d) {
             var1.bg.a(var1.bg.c, 1);
             return true;
          }
       }
 
-      if(var2 != null && var2.b() == amk.be && this.l() >= 0) {
+      if(var2 != null && var2.b() == Items.be && this.l() >= 0) {
          this.J();
          this.o.a(ew.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.D) {

@@ -14,7 +14,7 @@ public interface ac extends Comparable {
 
    boolean a(ae var1);
 
-   List a(ae var1, String[] var2, dt var3);
+   List a(ae var1, String[] var2, Location var3);
 
    boolean b(String[] var1, int var2);
 }

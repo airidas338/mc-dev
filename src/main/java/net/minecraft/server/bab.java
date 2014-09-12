@@ -9,19 +9,19 @@ public class bab extends avt {
       this.j(this.L.b().a(a, bac.a));
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((bac)var1.b(a)).a();
    }
 
-   public boh g(bec var1) {
+   public boh g(IBlock var1) {
       return ((bac)var1.b(a)).c();
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, bac.a(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((bac)var1.b(a)).a();
    }
 

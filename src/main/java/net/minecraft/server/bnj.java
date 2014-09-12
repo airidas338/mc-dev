@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class bnj extends bnn {
 
-   private static final List a = Lists.newArrayList(new vl[]{new vl(amk.i, 0, 1, 3, 3), new vl(amk.j, 0, 1, 5, 10), new vl(amk.k, 0, 1, 3, 5), new vl(amk.P, 0, 1, 3, 15), new vl(amk.e, 0, 1, 3, 15), new vl(amk.b, 0, 1, 1, 5), new vl(amk.l, 0, 1, 1, 5), new vl(amk.Z, 0, 1, 1, 5), new vl(amk.Y, 0, 1, 1, 5), new vl(amk.aa, 0, 1, 1, 5), new vl(amk.ab, 0, 1, 1, 5), new vl(alq.a(aty.Z), 0, 3, 7, 5), new vl(alq.a(aty.g), 0, 3, 7, 5), new vl(amk.aA, 0, 1, 1, 3), new vl(amk.ck, 0, 1, 1, 1), new vl(amk.cl, 0, 1, 1, 1), new vl(amk.cm, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(alq.a(aty.Z), 0, 3, 7, 5), new StructurePieceTreaasure(alq.a(aty.g), 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
    private boolean b;
 
 
@@ -77,14 +77,14 @@ public class bnj extends bnn {
       this.a(var1, aty.f.P(), 1, 1, 5, var3);
       this.a(var1, aty.ad.a(this.a(aty.ad, 3)), 2, 1, 5, var3);
       this.a(var1, aty.ad.a(this.a(aty.ad, 1)), 1, 1, 4, var3);
-      if(!this.b && var3.b((fd)(new dt(this.a(5, 5), this.d(1), this.b(5, 5))))) {
+      if(!this.b && var3.b((fd)(new Location(this.a(5, 5), this.d(1), this.b(5, 5))))) {
          this.b = true;
          this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
       }
 
       int var4;
       for(var4 = 6; var4 <= 8; ++var4) {
-         if(this.a(var1, var4, 0, -1, var3).c().r() == bof.a && this.a(var1, var4, -1, -1, var3).c().r() != bof.a) {
+         if(this.a(var1, var4, 0, -1, var3).c().r() == Material.a && this.a(var1, var4, -1, -1, var3).c().r() != Material.a) {
             this.a(var1, aty.aw.a(this.a(aty.aw, 3)), var4, 0, -1, var3);
          }
       }

@@ -26,10 +26,10 @@ class agv implements agw {
       amj var4;
       amj var5;
       if(var3 < 0) {
-         var4 = new amj(amk.bO, 1, 0);
+         var4 = new amj(Items.bO, 1, 0);
          var5 = new amj(this.a.b(), -var3, this.a.i());
       } else {
-         var4 = new amj(amk.bO, var3, 0);
+         var4 = new amj(Items.bO, var3, 0);
          var5 = new amj(this.a.b(), 1, this.a.i());
       }
 

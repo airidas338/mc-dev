@@ -8,7 +8,7 @@ public class EntityLeash extends EntityHanging {
       super(var1);
    }
 
-   public EntityLeash(World var1, dt var2) {
+   public EntityLeash(World var1, Location var2) {
       super(var1, var2);
       this.b((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D);
       float var3 = 0.125F;
@@ -52,7 +52,7 @@ public class EntityLeash extends EntityHanging {
       List var6;
       Iterator var7;
       EntityInsentient var8;
-      if(var2 != null && var2.b() == amk.cn && !this.o.D) {
+      if(var2 != null && var2.b() == Items.cn && !this.o.D) {
          var4 = 7.0D;
          var6 = this.o.a(EntityInsentient.class, new AxisAlignedBB(this.s - var4, this.t - var4, this.u - var4, this.s + var4, this.t + var4, this.u + var4));
          var7 = var6.iterator();
@@ -89,14 +89,14 @@ public class EntityLeash extends EntityHanging {
       return this.o.p(this.a).c() instanceof avv;
    }
 
-   public static EntityLeash a(World var0, dt var1) {
+   public static EntityLeash a(World var0, Location var1) {
       EntityLeash var2 = new EntityLeash(var0, var1);
       var2.n = true;
       var0.d((Entity)var2);
       return var2;
    }
 
-   public static EntityLeash b(World var0, dt var1) {
+   public static EntityLeash b(World var0, Location var1) {
       int var2 = var1.n();
       int var3 = var1.o();
       int var4 = var1.p();

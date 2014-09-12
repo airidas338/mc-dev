@@ -14,21 +14,21 @@ public final class amj {
    private fn e;
    private int f;
    private EntityItemFrame g;
-   private atr h;
+   private Block h;
    private boolean i;
-   private atr j;
+   private Block j;
    private boolean k;
 
 
-   public amj(atr var1) {
+   public amj(Block var1) {
       this(var1, 1);
    }
 
-   public amj(atr var1, int var2) {
+   public amj(Block var1, int var2) {
       this(var1, var2, 0);
    }
 
-   public amj(atr var1, int var2, int var3) {
+   public amj(Block var1, int var2, int var3) {
       this(alq.a(var1), var2, var3);
    }
 
@@ -81,7 +81,7 @@ public final class amj {
       return this.d;
    }
 
-   public boolean a(EntityHuman var1, World var2, dt var3, ej var4, float var5, float var6, float var7) {
+   public boolean a(EntityHuman var1, World var2, Location var3, ej var4, float var5, float var6, float var7) {
       boolean var8 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7);
       if(var8) {
          var1.b(ty.J[alq.b(this.d)]);
@@ -90,7 +90,7 @@ public final class amj {
       return var8;
    }
 
-   public float a(atr var1) {
+   public float a(Block var1) {
       return this.b().a(this, var1);
    }
 
@@ -103,7 +103,7 @@ public final class amj {
    }
 
    public fn b(fn var1) {
-      oa var2 = (oa)alq.e.c(this.d);
+      RegistryMaterials var2 = (RegistryMaterials)alq.e.c(this.d);
       var1.a("id", var2 == null?"minecraft:air":var2.toString());
       var1.a("Count", (byte)this.b);
       var1.a("Damage", (short)this.f);
@@ -234,7 +234,7 @@ public final class amj {
 
    }
 
-   public void a(World var1, atr var2, dt var3, EntityHuman var4) {
+   public void a(World var1, Block var2, Location var3, EntityHuman var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
          var4.b(ty.J[alq.b(this.d)]);
@@ -242,7 +242,7 @@ public final class amj {
 
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       return this.d.b(var1);
    }
 
@@ -494,7 +494,7 @@ public final class amj {
       return var2;
    }
 
-   public boolean c(atr var1) {
+   public boolean c(Block var1) {
       if(var1 == this.h) {
          return this.i;
       } else {
@@ -503,7 +503,7 @@ public final class amj {
             fv var2 = this.e.c("CanDestroy", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               atr var4 = atr.b(var2.f(var3));
+               Block var4 = Block.b(var2.f(var3));
                if(var4 == var1) {
                   this.i = true;
                   return true;
@@ -516,7 +516,7 @@ public final class amj {
       }
    }
 
-   public boolean d(atr var1) {
+   public boolean d(Block var1) {
       if(var1 == this.j) {
          return this.k;
       } else {
@@ -525,7 +525,7 @@ public final class amj {
             fv var2 = this.e.c("CanPlaceOn", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               atr var4 = atr.b(var2.f(var3));
+               Block var4 = Block.b(var2.f(var3));
                if(var4 == var1) {
                   this.k = true;
                   return true;

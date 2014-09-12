@@ -3,10 +3,10 @@ package net.minecraft.server;
 public class ata implements vv {
 
    private final World a;
-   private final dt b;
+   private final Location b;
 
 
-   public ata(World var1, dt var2) {
+   public ata(World var1, Location var2) {
       this.a = var1;
       this.b = var2;
    }

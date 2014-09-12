@@ -14,7 +14,7 @@ public class baf extends auc implements atz {
       this.a(akf.c);
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!var1.D) {
          super.b(var1, var2, var3, var4);
          if(var1.l(var2.a()) >= 9 && var4.nextInt(7) == 0) {
@@ -24,7 +24,7 @@ public class baf extends auc implements atz {
       }
    }
 
-   public void d(World var1, dt var2, bec var3, Random var4) {
+   public void d(World var1, Location var2, IBlock var3, Random var4) {
       if(((Integer)var3.b(b)).intValue() == 0) {
          var1.a(var2, var3.a(b), 4);
       } else {
@@ -33,8 +33,8 @@ public class baf extends auc implements atz {
 
    }
 
-   public void e(World var1, dt var2, bec var3, Random var4) {
-      Object var5 = var4.nextInt(10) == 0?new bhd(true):new bir(true);
+   public void e(World var1, Location var2, IBlock var3, Random var4) {
+      Object var5 = var4.nextInt(10) == 0?new WorldGenBigTree(true):new WorldGenTrees(true);
       int var6 = 0;
       int var7 = 0;
       boolean var8 = false;
@@ -75,7 +75,7 @@ public class baf extends auc implements atz {
          if(!var8) {
             var7 = 0;
             var6 = 0;
-            var5 = new bir(true, 4 + var4.nextInt(7), ayx.d.a(), ayx.d.a(), false);
+            var5 = new WorldGenTrees(true, 4 + var4.nextInt(7), ayx.d.a(), ayx.d.a(), false);
          }
          break;
       case 4:
@@ -99,7 +99,7 @@ public class baf extends auc implements atz {
       case 6:
       }
 
-      bec var9 = aty.a.P();
+      IBlock var9 = aty.a.P();
       if(var8) {
          var1.a(var2.a(var6, 0, var7), var9, 4);
          var1.a(var2.a(var6 + 1, 0, var7), var9, 4);
@@ -109,7 +109,7 @@ public class baf extends auc implements atz {
          var1.a(var2, var9, 4);
       }
 
-      if(!((bhp)var5).b(var1, var4, var2.a(var6, 0, var7))) {
+      if(!((bhp)var5).generate(var1, var4, var2.a(var6, 0, var7))) {
          if(var8) {
             var1.a(var2.a(var6, 0, var7), var3, 4);
             var1.a(var2.a(var6 + 1, 0, var7), var3, 4);
@@ -122,32 +122,32 @@ public class baf extends auc implements atz {
 
    }
 
-   public boolean a(World var1, dt var2, ayx var3) {
-      bec var4 = var1.p(var2);
+   public boolean a(World var1, Location var2, ayx var3) {
+      IBlock var4 = var1.p(var2);
       return var4.c() == this && var4.b(a) == var3;
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((ayx)var1.b(a)).a();
    }
 
-   public boolean a(World var1, dt var2, bec var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
       return true;
    }
 
-   public boolean a(World var1, Random var2, dt var3, bec var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
       return (double)var1.s.nextFloat() < 0.45D;
    }
 
-   public void b(World var1, Random var2, dt var3, bec var4) {
+   public void b(World var1, Random var2, Location var3, IBlock var4) {
       this.d(var1, var3, var4, var2);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, ayx.a(var1 & 7)).a(b, Integer.valueOf((var1 & 8) >> 3));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ayx)var1.b(a)).a();
       var3 |= ((Integer)var1.b(b)).intValue() << 3;

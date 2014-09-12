@@ -31,12 +31,12 @@ public class alq {
       return (alq)e.a(var0);
    }
 
-   public static alq a(atr var0) {
+   public static alq a(Block var0) {
       return (alq)a.get(var0);
    }
 
    public static alq d(String var0) {
-      alq var1 = (alq)e.a(new oa(var0));
+      alq var1 = (alq)e.a(new RegistryMaterials(var0));
       if(var1 == null) {
          try {
             return b(Integer.parseInt(var0));
@@ -57,11 +57,11 @@ public class alq {
       return this;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       return false;
    }
 
-   public float a(amj var1, atr var2) {
+   public float a(amj var1, Block var2) {
       return 1.0F;
    }
 
@@ -107,11 +107,11 @@ public class alq {
       return false;
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
+   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
       return false;
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       return false;
    }
 
@@ -243,21 +243,21 @@ public class alq {
 
    public static void t() {
       a(aty.b, (alq)(new amr(aty.b, aty.b, new alr())).b("stone"));
-      a((atr)aty.c, (alq)(new ann(aty.c, false)));
+      a((Block)aty.c, (alq)(new ann(aty.c, false)));
       a(aty.d, (alq)(new amr(aty.d, aty.d, new ama())).b("dirt"));
       c(aty.e);
       a(aty.f, (alq)(new amr(aty.f, aty.f, new amb())).b("wood"));
       a(aty.g, (alq)(new amr(aty.g, aty.g, new amc())).b("sapling"));
       c(aty.h);
-      a((atr)aty.m, (alq)(new amr(aty.m, aty.m, new amd())).b("sand"));
+      a((Block)aty.m, (alq)(new amr(aty.m, aty.m, new amd())).b("sand"));
       c(aty.n);
       c(aty.o);
       c(aty.p);
       c(aty.q);
       a(aty.r, (alq)(new amr(aty.r, aty.r, new ame())).b("log"));
       a(aty.s, (alq)(new amr(aty.s, aty.s, new amf())).b("log"));
-      a((atr)aty.t, (alq)(new amm(aty.t)).b("leaves"));
-      a((atr)aty.u, (alq)(new amm(aty.u)).b("leaves"));
+      a((Block)aty.t, (alq)(new amm(aty.t)).b("leaves"));
+      a((Block)aty.u, (alq)(new amm(aty.u)).b("leaves"));
       a(aty.v, (alq)(new amr(aty.v, aty.v, new amg())).b("sponge"));
       c(aty.w);
       c(aty.x);
@@ -267,19 +267,19 @@ public class alq {
       c(aty.B);
       c(aty.D);
       c(aty.E);
-      a((atr)aty.F, (alq)(new amv(aty.F)));
+      a((Block)aty.F, (alq)(new amv(aty.F)));
       c(aty.G);
-      a((atr)aty.H, (alq)(new ann(aty.H, true)).a(new String[]{"shrub", "grass", "fern"}));
-      c((atr)aty.I);
-      a((atr)aty.J, (alq)(new amv(aty.J)));
+      a((Block)aty.H, (alq)(new ann(aty.H, true)).a(new String[]{"shrub", "grass", "fern"}));
+      c((Block)aty.I);
+      a((Block)aty.J, (alq)(new amv(aty.J)));
       a(aty.L, (alq)(new akx(aty.L)).b("cloth"));
-      a((atr)aty.N, (alq)(new amr(aty.N, aty.N, new als())).b("flower"));
-      a((atr)aty.O, (alq)(new amr(aty.O, aty.O, new alt())).b("rose"));
-      c((atr)aty.P);
-      c((atr)aty.Q);
+      a((Block)aty.N, (alq)(new amr(aty.N, aty.N, new als())).b("flower"));
+      a((Block)aty.O, (alq)(new amr(aty.O, aty.O, new alt())).b("rose"));
+      c((Block)aty.P);
+      c((Block)aty.Q);
       c(aty.R);
       c(aty.S);
-      a((atr)aty.U, (alq)(new ani(aty.U, aty.U, aty.T)).b("stoneSlab"));
+      a((Block)aty.U, (alq)(new ani(aty.U, aty.U, aty.T)).b("stoneSlab"));
       c(aty.V);
       c(aty.W);
       c(aty.X);
@@ -288,7 +288,7 @@ public class alq {
       c(aty.aa);
       c(aty.ac);
       c(aty.ad);
-      c((atr)aty.ae);
+      c((Block)aty.ae);
       c(aty.ag);
       c(aty.ah);
       c(aty.ai);
@@ -307,7 +307,7 @@ public class alq {
       a(aty.aH, (alq)(new anj(aty.aH)));
       c(aty.aI);
       c(aty.aJ);
-      c((atr)aty.aK);
+      c((Block)aty.aK);
       c(aty.aL);
       c(aty.aN);
       c(aty.aO);
@@ -338,7 +338,7 @@ public class alq {
       c(aty.bt);
       c(aty.bu);
       c(aty.bv);
-      c((atr)aty.bw);
+      c((Block)aty.bw);
       a(aty.bx, (alq)(new anp(aty.bx)));
       c(aty.by);
       c(aty.bz);
@@ -348,27 +348,27 @@ public class alq {
       c(aty.bH);
       c(aty.bI);
       c(aty.bJ);
-      a((atr)aty.bM, (alq)(new ani(aty.bM, aty.bM, aty.bL)).b("woodSlab"));
+      a((Block)aty.bM, (alq)(new ani(aty.bM, aty.bM, aty.bL)).b("woodSlab"));
       c(aty.bO);
       c(aty.bP);
       c(aty.bQ);
-      c((atr)aty.bR);
+      c((Block)aty.bR);
       c(aty.bT);
       c(aty.bU);
       c(aty.bV);
       c(aty.bW);
       c(aty.bX);
-      c((atr)aty.bY);
+      c((Block)aty.bY);
       a(aty.bZ, (alq)(new amr(aty.bZ, aty.bZ, new alw())).b("cobbleWall"));
       c(aty.cd);
       a(aty.cf, (alq)(new ajm(aty.cf)).b("anvil"));
       c(aty.cg);
       c(aty.ch);
       c(aty.ci);
-      c((atr)aty.cl);
+      c((Block)aty.cl);
       c(aty.cn);
       c(aty.co);
-      c((atr)aty.cp);
+      c((Block)aty.cp);
       a(aty.cq, (alq)(new amr(aty.cq, aty.cq, new String[]{"default", "chiseled", "lines"})).b("quartzBlock"));
       c(aty.cr);
       c(aty.cs);
@@ -384,14 +384,14 @@ public class alq {
       c(aty.cC);
       c(aty.cD);
       c(aty.cE);
-      a((atr)aty.cF, (alq)(new aku(aty.cF, aty.cF, new alx())).b("doublePlant"));
-      a((atr)aty.cG, (alq)(new akx(aty.cG)).b("stainedGlass"));
-      a((atr)aty.cH, (alq)(new akx(aty.cH)).b("stainedGlassPane"));
+      a((Block)aty.cF, (alq)(new aku(aty.cF, aty.cF, new alx())).b("doublePlant"));
+      a((Block)aty.cG, (alq)(new akx(aty.cG)).b("stainedGlass"));
+      a((Block)aty.cH, (alq)(new akx(aty.cH)).b("stainedGlassPane"));
       a(aty.cI, (alq)(new amr(aty.cI, aty.cI, new aly())).b("prismarine"));
       c(aty.cJ);
       a(aty.cM, (alq)(new amr(aty.cM, aty.cM, new alz())).b("redSandStone"));
       c(aty.cN);
-      a((atr)aty.cP, (alq)(new ani(aty.cP, aty.cP, aty.cO)).b("stoneSlab2"));
+      a((Block)aty.cP, (alq)(new ani(aty.cP, aty.cP, aty.cO)).b("stoneSlab2"));
       a(256, "iron_shovel", (new ane(ami.c)).c("shovelIron"));
       a(257, "iron_pickaxe", (new amu(ami.c)).c("pickaxeIron"));
       a(258, "iron_axe", (new ajr(ami.c)).c("hatchetIron"));
@@ -582,20 +582,20 @@ public class alq {
       a(2267, "record_wait", (new amy("wait")).c("record"));
    }
 
-   private static void c(atr var0) {
+   private static void c(Block var0) {
       a(var0, (alq)(new aju(var0)));
    }
 
-   protected static void a(atr var0, alq var1) {
-      a(atr.a(var0), (oa)atr.c.c(var0), var1);
+   protected static void a(Block var0, alq var1) {
+      a(Block.a(var0), (RegistryMaterials)Block.c.c(var0), var1);
       a.put(var0, var1);
    }
 
    private static void a(int var0, String var1, alq var2) {
-      a(var0, new oa(var1), var2);
+      a(var0, new RegistryMaterials(var1), var2);
    }
 
-   private static void a(int var0, oa var1, alq var2) {
+   private static void a(int var0, RegistryMaterials var1, alq var2) {
       e.a(var0, var1, var2);
    }
 

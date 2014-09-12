@@ -8,10 +8,10 @@ public class bjl extends bmm {
 
 
    public bjl() {
-      this.d.add(new arq(EntityBlaze.class, 10, 2, 3));
-      this.d.add(new arq(EntityPigZombie.class, 5, 4, 4));
-      this.d.add(new arq(EntitySkeleton.class, 10, 4, 4));
-      this.d.add(new arq(EntityMagmaCube.class, 3, 4, 4));
+      this.d.add(new BiomeMeta(EntityBlaze.class, 10, 2, 3));
+      this.d.add(new BiomeMeta(EntityPigZombie.class, 5, 4, 4));
+      this.d.add(new BiomeMeta(EntitySkeleton.class, 10, 4, 4));
+      this.d.add(new BiomeMeta(EntityMagmaCube.class, 3, 4, 4));
    }
 
    public String a() {

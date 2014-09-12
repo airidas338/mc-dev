@@ -7,12 +7,12 @@ public class ayz {
    private final ej c;
    private final ej d;
    private int e = 0;
-   private dt f;
+   private Location f;
    private int g;
    private int h;
 
 
-   public ayz(World var1, dt var2, el var3) {
+   public ayz(World var1, Location var2, el var3) {
       this.a = var1;
       this.b = var3;
       if(var3 == el.a) {
@@ -23,7 +23,7 @@ public class ayz {
          this.c = ej.d;
       }
 
-      for(dt var4 = var2; var2.o() > var4.o() - 21 && var2.o() > 0 && this.a(var1.p(var2.b()).c()); var2 = var2.b()) {
+      for(Location var4 = var2; var2.o() > var4.o() - 21 && var2.o() > 0 && this.a(var1.p(var2.b()).c()); var2 = var2.b()) {
          ;
       }
 
@@ -43,16 +43,16 @@ public class ayz {
 
    }
 
-   protected int a(dt var1, ej var2) {
+   protected int a(Location var1, ej var2) {
       int var3;
       for(var3 = 0; var3 < 22; ++var3) {
-         dt var4 = var1.a(var2, var3);
+         Location var4 = var1.a(var2, var3);
          if(!this.a(this.a.p(var4).c()) || this.a.p(var4.b()).c() != aty.Z) {
             break;
          }
       }
 
-      atr var5 = this.a.p(var1.a(var2, var3)).c();
+      Block var5 = this.a.p(var1.a(var2, var3)).c();
       return var5 == aty.Z?var3:0;
    }
 
@@ -61,8 +61,8 @@ public class ayz {
       label56:
       for(this.g = 0; this.g < 21; ++this.g) {
          for(var1 = 0; var1 < this.h; ++var1) {
-            dt var2 = this.f.a(this.c, var1).b(this.g);
-            atr var3 = this.a.p(var2).c();
+            Location var2 = this.f.a(this.c, var1).b(this.g);
+            Block var3 = this.a.p(var2).c();
             if(!this.a(var3)) {
                break label56;
             }
@@ -102,8 +102,8 @@ public class ayz {
       }
    }
 
-   protected boolean a(atr var1) {
-      return var1.J == bof.a || var1 == aty.ab || var1 == aty.aY;
+   protected boolean a(Block var1) {
+      return var1.J == Material.a || var1 == aty.ab || var1 == aty.aY;
    }
 
    public boolean b() {
@@ -112,7 +112,7 @@ public class ayz {
 
    public void c() {
       for(int var1 = 0; var1 < this.h; ++var1) {
-         dt var2 = this.f.a(this.c, var1);
+         Location var2 = this.f.a(this.c, var1);
 
          for(int var3 = 0; var3 < this.g; ++var3) {
             this.a.a(var2.b(var3), aty.aY.P().a(ayy.a, this.b), 2);

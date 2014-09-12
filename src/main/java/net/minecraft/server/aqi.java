@@ -38,13 +38,13 @@ public abstract class aqi {
    }
 
    private boolean g() {
-      dt var1 = this.b();
+      Location var1 = this.b();
       return this.a().b((double)var1.n() + 0.5D, (double)var1.o() + 0.5D, (double)var1.p() + 0.5D, (double)this.l);
    }
 
    public void c() {
       if(this.g()) {
-         dt var1 = this.b();
+         Location var1 = this.b();
          double var6;
          if(this.a().D) {
             double var2 = (double)((float)var1.n() + this.a().s.nextFloat());
@@ -150,7 +150,7 @@ public abstract class aqi {
             var11 = var13;
          }
       } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
-         ((EntityInsentient)var1).a(var1.o.E(new dt(var1)), (xq)null);
+         ((EntityInsentient)var1).a(var1.o.E(new Location(var1)), (xq)null);
          var1.o.d(var1);
       }
 
@@ -166,7 +166,7 @@ public abstract class aqi {
       }
 
       if(this.c.size() > 0) {
-         this.a((aqj)vj.a(this.a().s, this.c));
+         this.a((aqj)WeightedRandom.a(this.a().s, this.c));
       }
 
       this.a(1);
@@ -263,5 +263,5 @@ public abstract class aqi {
 
    public abstract World a();
 
-   public abstract dt b();
+   public abstract Location b();
 }

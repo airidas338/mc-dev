@@ -77,7 +77,7 @@ public class bql extends WorldData {
 
    public void c(long var1) {}
 
-   public void a(dt var1) {}
+   public void a(Location var1) {}
 
    public void a(String var1) {}
 

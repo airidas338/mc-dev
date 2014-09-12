@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bpg extends bpa {
+public class bpg extends GenLayer {
 
-   public bpg(long var1, bpa var3) {
+   public bpg(long var1, GenLayer var3) {
       super(var1);
       this.a = var3;
    }

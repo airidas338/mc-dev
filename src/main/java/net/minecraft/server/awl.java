@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class awl extends awt {
 
-   public awl(bof var1, boolean var2) {
+   public awl(Material var1, boolean var2) {
       super(var1, var2);
       this.a(akf.b);
    }

@@ -55,18 +55,18 @@ public class EntitySpider extends EntityMonster {
       return "mob.spider.death";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.spider.step", 0.15F, 1.0F);
    }
 
    protected alq A() {
-      return amk.F;
+      return Items.F;
    }
 
    protected void b(boolean var1, int var2) {
       super.b(var1, var2);
       if(var1 && (this.V.nextInt(3) == 0 || this.V.nextInt(1 + var2) > 0)) {
-         this.a(amk.bB, 1);
+         this.a(Items.bB, 1);
       }
 
    }

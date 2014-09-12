@@ -17,7 +17,7 @@ public class akw extends alq {
       return super.a() + "." + akv.a(var2).d();
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
@@ -31,8 +31,8 @@ public class akw extends alq {
                return true;
             }
          } else if(var9 == akv.m) {
-            bec var10 = var3.p(var4);
-            atr var11 = var10.c();
+            IBlock var10 = var3.p(var4);
+            Block var11 = var10.c();
             if(var11 == aty.r && var10.b(ayw.a) == ayx.d) {
                if(var5 == ej.a) {
                   return false;
@@ -44,7 +44,7 @@ public class akw extends alq {
 
                var4 = var4.a(var5);
                if(var3.d(var4)) {
-                  bec var12 = aty.bN.a(var3, var4, var5, var6, var7, var8, 0, var2);
+                  IBlock var12 = aty.bN.a(var3, var4, var5, var6, var7, var8, 0, var2);
                   var3.a(var4, var12, 2);
                   if(!var2.by.d) {
                      --var1.b;
@@ -59,8 +59,8 @@ public class akw extends alq {
       }
    }
 
-   public static boolean a(amj var0, World var1, dt var2) {
-      bec var3 = var1.p(var2);
+   public static boolean a(amj var0, World var1, Location var2) {
+      IBlock var3 = var1.p(var2);
       if(var3.c() instanceof atz) {
          atz var4 = (atz)var3.c();
          if(var4.a(var1, var2, var3, var1.D)) {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public final class dy extends dt {
+public final class dy extends Location {
 
    public int b;
    public int c;

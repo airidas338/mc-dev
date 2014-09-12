@@ -4,10 +4,10 @@ import java.util.concurrent.Callable;
 final class q implements Callable {
 
    // $FF: synthetic field
-   final dt a;
+   final Location a;
 
 
-   q(dt var1) {
+   q(Location var1) {
       this.a = var1;
    }
 

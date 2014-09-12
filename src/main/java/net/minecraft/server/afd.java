@@ -30,7 +30,7 @@ class afd extends zb {
          World var4 = this.b.o;
          ++this.a;
          if(this.a == 10) {
-            var4.a((EntityHuman)null, 1007, new dt(this.b), 0);
+            var4.a((EntityHuman)null, 1007, new Location(this.b), 0);
          }
 
          if(this.a == 20) {
@@ -39,7 +39,7 @@ class afd extends zb {
             double var8 = var1.s - (this.b.s + var7.a * var5);
             double var10 = var1.aQ().b + (double)(var1.K / 2.0F) - (0.5D + this.b.t + (double)(this.b.K / 2.0F));
             double var12 = var1.u - (this.b.u + var7.c * var5);
-            var4.a((EntityHuman)null, 1008, new dt(this.b), 0);
+            var4.a((EntityHuman)null, 1008, new Location(this.b), 0);
             EntityLargeFireball var14 = new EntityLargeFireball(var4, this.b, var8, var10, var12);
             var14.e = this.b.cd();
             var14.s = this.b.s + var7.a * var5;

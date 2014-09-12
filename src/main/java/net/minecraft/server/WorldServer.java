@@ -21,58 +21,58 @@ public class WorldServer extends World implements vn {
 
    private static final Logger a = LogManager.getLogger();
    private final MinecraftServer I;
-   private final qn J;
-   private final qq K;
+   private final EntityTracker J;
+   private final PlayerChunkMap K;
    private final Set L = Sets.newHashSet();
    private final TreeSet M = new TreeSet();
    private final Map N = Maps.newHashMap();
-   public qs b;
+   public ChunkProviderServer b;
    public boolean c;
    private boolean O;
    private int P;
-   private final arh Q;
-   private final arg R = new arg();
+   private final PortalTravelAgent Q;
+   private final SpawnerCreature R = new SpawnerCreature();
    protected final abk d = new abk(this);
-   private qv[] S = new qv[]{new qv((qu)null), new qv((qu)null)};
+   private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((BananaAPI)null), new BlockActionDataList((BananaAPI)null)};
    private int T;
-   private static final List U = Lists.newArrayList(new vl[]{new vl(amk.y, 0, 1, 3, 10), new vl(alq.a(aty.f), 0, 1, 3, 10), new vl(alq.a(aty.r), 0, 1, 3, 10), new vl(amk.t, 0, 1, 1, 3), new vl(amk.p, 0, 1, 1, 5), new vl(amk.s, 0, 1, 1, 3), new vl(amk.o, 0, 1, 1, 5), new vl(amk.e, 0, 2, 3, 5), new vl(amk.P, 0, 2, 3, 3), new vl(alq.a(aty.s), 0, 1, 3, 10)});
+   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.f), 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.r), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(alq.a(aty.s), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
 
 
    public WorldServer(MinecraftServer var1, IDataManager var2, WorldData var3, int var4, MethodProfiler var5) {
       super(var2, var3, bgd.a(var4), var5, false);
       this.I = var1;
-      this.J = new qn(this);
-      this.K = new qq(this);
+      this.J = new EntityTracker(this);
+      this.K = new PlayerChunkMap(this);
       this.t.a(this);
       this.v = this.k();
-      this.Q = new arh(this);
+      this.Q = new PortalTravelAgent(this);
       this.B();
       this.C();
       this.af().a(var1.aG());
    }
 
    public World b() {
-      this.z = new brn(this.w);
+      this.worldMaps = new brn(this.w);
       String var1 = abl.a(this.t);
-      abl var2 = (abl)this.z.a(abl.class, var1);
+      abl var2 = (abl)this.worldMaps.a(abl.class, var1);
       if(var2 == null) {
          this.A = new abl(this);
-         this.z.a(var1, (bqc)this.A);
+         this.worldMaps.a(var1, (bqc)this.A);
       } else {
          this.A = var2;
          this.A.a((World)this);
       }
 
-      this.C = new pk(this.I);
-      bse var3 = (bse)this.z.a(bse.class, "scoreboard");
+      this.C = new ScoreboardServer(this.I);
+      PersistentScoreboard var3 = (PersistentScoreboard)this.worldMaps.a(PersistentScoreboard.class, "scoreboard");
       if(var3 == null) {
-         var3 = new bse();
-         this.z.a("scoreboard", (bqc)var3);
+         var3 = new PersistentScoreboard();
+         this.worldMaps.a("scoreboard", (bqc)var3);
       }
 
       var3.a(this.C);
-      ((pk)this.C).a(var3);
+      ((ScoreboardServer)this.C).a(var3);
       this.af().c(this.x.C(), this.x.D());
       this.af().c(this.x.I());
       this.af().b(this.x.H());
@@ -135,12 +135,12 @@ public class WorldServer extends World implements vn {
       this.ak();
    }
 
-   public arq a(xp var1, dt var2) {
+   public BiomeMeta a(EnumCreatureType var1, Location var2) {
       List var3 = this.N().a(var1, var2);
-      return var3 != null && !var3.isEmpty()?(arq)vj.a(this.s, var3):null;
+      return var3 != null && !var3.isEmpty()?(BiomeMeta)WeightedRandom.a(this.s, var3):null;
    }
 
-   public boolean a(xp var1, arq var2, dt var3) {
+   public boolean a(EnumCreatureType var1, BiomeMeta var2, Location var3) {
       List var4 = this.N().a(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
@@ -231,11 +231,11 @@ public class WorldServer extends World implements vn {
             var7.b(false);
             this.B.c("thunder");
             int var8;
-            dt var9;
+            Location var9;
             if(this.s.nextInt(100000) == 0 && this.S() && this.R()) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
-               var9 = this.a(new dt(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
+               var9 = this.a(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                if(this.C(var9)) {
                   this.c(new ads(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
                }
@@ -245,8 +245,8 @@ public class WorldServer extends World implements vn {
             if(this.s.nextInt(16) == 0) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
-               var9 = this.q(new dt(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
-               dt var10 = var9.b();
+               var9 = this.q(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
+               Location var10 = var9.b();
                if(this.w(var10)) {
                   this.a(var10, aty.aI.P());
                }
@@ -276,9 +276,9 @@ public class WorldServer extends World implements vn {
                         int var16 = var14 >> 8 & 15;
                         int var17 = var14 >> 16 & 15;
                         ++var2;
-                        dt var18 = new dt(var15 + var5, var17 + var12.d(), var16 + var6);
-                        bec var19 = var12.a(var15, var17, var16);
-                        atr var20 = var19.c();
+                        Location var18 = new Location(var15 + var5, var17 + var12.d(), var16 + var6);
+                        IBlock var19 = var12.a(var15, var17, var16);
+                        Block var20 = var19.c();
                         if(var20.w()) {
                            ++var1;
                            var20.a((World)this, var18, var19, this.s);
@@ -292,31 +292,31 @@ public class WorldServer extends World implements vn {
       }
    }
 
-   protected dt a(dt var1) {
-      dt var2 = this.q(var1);
-      AxisAlignedBB var3 = (new AxisAlignedBB(var2, new dt(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
-      List var4 = this.a(EntityLiving.class, var3, new qu(this));
+   protected Location a(Location var1) {
+      Location var2 = this.q(var1);
+      AxisAlignedBB var3 = (new AxisAlignedBB(var2, new Location(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
+      List var4 = this.a(EntityLiving.class, var3, new BananaAPI(this));
       return !var4.isEmpty()?((EntityLiving)var4.get(this.s.nextInt(var4.size()))).c():var2;
    }
 
-   public boolean a(dt var1, atr var2) {
-      ark var3 = new ark(var1, var2);
+   public boolean a(Location var1, Block var2) {
+      NextTickListEntry var3 = new NextTickListEntry(var1, var2);
       return this.V.contains(var3);
    }
 
-   public void a(dt var1, atr var2, int var3) {
+   public void a(Location var1, Block var2, int var3) {
       this.a(var1, var2, var3, 0);
    }
 
-   public void a(dt var1, atr var2, int var3, int var4) {
-      ark var5 = new ark(var1, var2);
+   public void a(Location var1, Block var2, int var3, int var4) {
+      NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       byte var6 = 0;
-      if(this.e && var2.r() != bof.a) {
+      if(this.e && var2.r() != Material.a) {
          if(var2.M()) {
             var6 = 8;
             if(this.a(var5.a.a(-var6, -var6, -var6), var5.a.a(var6, var6, var6))) {
-               bec var7 = this.p(var5.a);
-               if(var7.c().r() != bof.a && var7.c() == var5.a()) {
+               IBlock var7 = this.p(var5.a);
+               if(var7.c().r() != Material.a && var7.c() == var5.a()) {
                   var7.c().b((World)this, var5.a, var7, this.s);
                }
             }
@@ -328,7 +328,7 @@ public class WorldServer extends World implements vn {
       }
 
       if(this.a(var1.a(-var6, -var6, -var6), var1.a(var6, var6, var6))) {
-         if(var2.r() != bof.a) {
+         if(var2.r() != Material.a) {
             var5.a((long)var3 + this.x.f());
             var5.a(var4);
          }
@@ -341,10 +341,10 @@ public class WorldServer extends World implements vn {
 
    }
 
-   public void b(dt var1, atr var2, int var3, int var4) {
-      ark var5 = new ark(var1, var2);
+   public void b(Location var1, Block var2, int var3, int var4) {
+      NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       var5.a(var4);
-      if(var2.r() != bof.a) {
+      if(var2.r() != Material.a) {
          var5.a((long)var3 + this.x.f());
       }
 
@@ -385,9 +385,9 @@ public class WorldServer extends World implements vn {
 
             this.B.a("cleaning");
 
-            ark var4;
+            NextTickListEntry var4;
             for(int var3 = 0; var3 < var2; ++var3) {
-               var4 = (ark)this.M.first();
+               var4 = (NextTickListEntry)this.M.first();
                if(!var1 && var4.b > this.x.f()) {
                   break;
                }
@@ -402,12 +402,12 @@ public class WorldServer extends World implements vn {
             Iterator var11 = this.V.iterator();
 
             while(var11.hasNext()) {
-               var4 = (ark)var11.next();
+               var4 = (NextTickListEntry)var11.next();
                var11.remove();
                byte var5 = 0;
                if(this.a(var4.a.a(-var5, -var5, -var5), var4.a.a(var5, var5, var5))) {
-                  bec var6 = this.p(var4.a);
-                  if(var6.c().r() != bof.a && atr.a(var6.c(), var4.a())) {
+                  IBlock var6 = this.p(var4.a);
+                  if(var6.c().r() != Material.a && Block.a(var6.c(), var4.a())) {
                      try {
                         var6.c().b((World)this, var4.a, var6, this.s);
                      } catch (Throwable var10) {
@@ -453,8 +453,8 @@ public class WorldServer extends World implements vn {
          }
 
          while(var5.hasNext()) {
-            ark var6 = (ark)var5.next();
-            dt var7 = var6.a;
+            NextTickListEntry var6 = (NextTickListEntry)var5.next();
+            Location var7 = var6.a;
             if(var7.n() >= var1.a && var7.n() < var1.d && var7.p() >= var1.c && var7.p() < var1.f) {
                if(var2) {
                   this.L.remove(var6);
@@ -495,7 +495,7 @@ public class WorldServer extends World implements vn {
 
    protected bfe k() {
       bfq var1 = this.w.a(this.t);
-      this.b = new qs(this, var1, this.t.c());
+      this.b = new ChunkProviderServer(this, var1, this.t.c());
       return this.b;
    }
 
@@ -504,7 +504,7 @@ public class WorldServer extends World implements vn {
 
       for(int var8 = 0; var8 < this.h.size(); ++var8) {
          bcm var9 = (bcm)this.h.get(var8);
-         dt var10 = var9.v();
+         Location var10 = var9.v();
          if(var10.n() >= var1 && var10.o() >= var2 && var10.p() >= var3 && var10.n() < var4 && var10.o() < var5 && var10.p() < var6) {
             var7.add(var9);
          }
@@ -513,7 +513,7 @@ public class WorldServer extends World implements vn {
       return var7;
    }
 
-   public boolean a(EntityHuman var1, dt var2) {
+   public boolean a(EntityHuman var1, Location var2) {
       return !this.I.a((World)this, var2, var1) && this.af().a(var2);
    }
 
@@ -559,15 +559,15 @@ public class WorldServer extends World implements vn {
 
    private void b(WorldSettings var1) {
       if(!this.t.e()) {
-         this.x.a(dt.a.b(this.t.i()));
+         this.x.a(Location.a.b(this.t.i()));
       } else if(this.x.u() == WorldType.DEBUG) {
-         this.x.a(dt.a.a());
+         this.x.a(Location.a.a());
       } else {
          this.y = true;
-         arz var2 = this.t.m();
+         WorldChunkManager var2 = this.t.m();
          List var3 = var2.a();
          Random var4 = new Random(this.J());
-         dt var5 = var2.a(0, 0, 256, var3, var4);
+         Location var5 = var2.a(0, 0, 256, var3, var4);
          int var6 = 0;
          int var7 = this.t.i();
          int var8 = 0;
@@ -589,7 +589,7 @@ public class WorldServer extends World implements vn {
             }
          }
 
-         this.x.a(new dt(var6, var7, var8));
+         this.x.a(new Location(var6, var7, var8));
          this.y = false;
          if(var1.c()) {
             this.l();
@@ -599,24 +599,24 @@ public class WorldServer extends World implements vn {
    }
 
    protected void l() {
-      bhh var1 = new bhh(U, 10);
+      WorldGenBonusChest var1 = new WorldGenBonusChest(U, 10);
 
       for(int var2 = 0; var2 < 10; ++var2) {
          int var3 = this.x.c() + this.s.nextInt(6) - this.s.nextInt(6);
          int var4 = this.x.e() + this.s.nextInt(6) - this.s.nextInt(6);
-         dt var5 = this.r(new dt(var3, 0, var4)).a();
-         if(var1.b(this, this.s, var5)) {
+         Location var5 = this.r(new Location(var3, 0, var4)).a();
+         if(var1.generate(this, this.s, var5)) {
             break;
          }
       }
 
    }
 
-   public dt m() {
+   public Location m() {
       return this.t.h();
    }
 
-   public void a(boolean var1, uy var2) throws ExceptionWorldConflict {
+   public void a(boolean var1, IProgressUpdate var2) throws ExceptionWorldConflict {
       if(this.v.e()) {
          if(var2 != null) {
             var2.a("Saving level");
@@ -659,7 +659,7 @@ public class WorldServer extends World implements vn {
       this.x.b(this.af().j());
       this.x.e(this.af().i());
       this.w.a(this.x, this.I.an().u());
-      this.z.a();
+      this.worldMaps.a();
    }
 
    protected void a(Entity var1) {
@@ -721,7 +721,7 @@ public class WorldServer extends World implements vn {
       return var11;
    }
 
-   public void c(dt var1, atr var2, int var3, int var4) {
+   public void c(Location var1, Block var2, int var3, int var4) {
       aqk var5 = new aqk(var1, var2, var3, var4);
       Iterator var6 = this.S[this.T].iterator();
 
@@ -756,7 +756,7 @@ public class WorldServer extends World implements vn {
    }
 
    private boolean a(aqk var1) {
-      bec var2 = this.p(var1.a());
+      IBlock var2 = this.p(var1.a());
       return var2.c() == var1.d()?var2.c().a(this, var1.a(), var2, var1.b(), var1.c()):false;
    }
 
@@ -796,15 +796,15 @@ public class WorldServer extends World implements vn {
       return this.I;
    }
 
-   public qn s() {
+   public EntityTracker s() {
       return this.J;
    }
 
-   public qq t() {
+   public PlayerChunkMap t() {
       return this.K;
    }
 
-   public arh u() {
+   public PortalTravelAgent u() {
       return this.Q;
    }
 
@@ -817,7 +817,7 @@ public class WorldServer extends World implements vn {
 
       for(int var20 = 0; var20 < this.j.size(); ++var20) {
          EntityPlayer var21 = (EntityPlayer)this.j.get(var20);
-         dt var22 = var21.c();
+         Location var22 = var21.c();
          double var23 = var22.c(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
             var21.a.a((id)var19);

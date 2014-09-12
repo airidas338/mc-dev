@@ -250,7 +250,7 @@ public class EntityArmorStand extends EntityLiving {
             }
          }
 
-         if(var5 && (var4.b() == amk.bX || var4.b() == alq.a(aty.aU))) {
+         if(var5 && (var4.b() == Items.bX || var4.b() == alq.a(aty.aU))) {
             var3 = 4;
          }
 
@@ -384,7 +384,7 @@ public class EntityArmorStand extends EntityLiving {
 
    private void z() {
       if(this.o instanceof WorldServer) {
-         ((WorldServer)this.o).a(ew.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{atr.f(aty.f.P())});
+         ((WorldServer)this.o).a(ew.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(aty.f.P())});
       }
 
    }
@@ -402,7 +402,7 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    private void A() {
-      atr.a(this.o, new dt(this), new amj(amk.cj));
+      Block.a(this.o, new Location(this), new amj(Items.cj));
       this.C();
    }
 
@@ -410,7 +410,7 @@ public class EntityArmorStand extends EntityLiving {
       for(int var1 = 0; var1 < this.g.length; ++var1) {
          if(this.g[var1] != null && this.g[var1].b > 0) {
             if(this.g[var1] != null) {
-               atr.a(this.o, (new dt(this)).a(), this.g[var1]);
+               Block.a(this.o, (new Location(this)).a(), this.g[var1]);
             }
 
             this.g[var1] = null;

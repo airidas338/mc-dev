@@ -1,14 +1,14 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bcc extends atr {
+public class bcc extends Block {
 
    public bcc() {
-      super(bof.G);
+      super(Material.G);
       this.a(akf.c);
    }
 
-   public void a(World var1, dt var2, bec var3, Entity var4) {
+   public void a(World var1, Location var2, IBlock var3, Entity var4) {
       var4.aB();
    }
 
@@ -16,7 +16,7 @@ public class bcc extends atr {
       return false;
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -24,8 +24,8 @@ public class bcc extends atr {
       return false;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.F;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.F;
    }
 
    protected boolean G() {

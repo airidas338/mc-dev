@@ -3,12 +3,12 @@ package net.minecraft.server;
 
 public abstract class blb extends bms {
 
-   protected static final bec a = aty.cI.a(azi.b);
-   protected static final bec b = aty.cI.a(azi.M);
-   protected static final bec c = aty.cI.a(azi.N);
-   protected static final bec d = b;
-   protected static final bec e = aty.cJ.P();
-   protected static final bec f = aty.j.P();
+   protected static final IBlock a = aty.cI.a(azi.b);
+   protected static final IBlock b = aty.cI.a(azi.M);
+   protected static final IBlock c = aty.cI.a(azi.N);
+   protected static final IBlock d = b;
+   protected static final IBlock e = aty.cJ.P();
+   protected static final IBlock f = aty.j.P();
    protected static final int g = a(2, 0, 0);
    protected static final int h = a(2, 2, 0);
    protected static final int i = a(0, 1, 0);
@@ -84,7 +84,7 @@ public abstract class blb extends bms {
 
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, bec var9) {
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9) {
       for(int var10 = var4; var10 <= var7; ++var10) {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var5; var12 <= var8; ++var12) {
@@ -109,12 +109,12 @@ public abstract class blb extends bms {
       int var6 = this.a(var3, var5);
       int var7 = this.d(var4);
       int var8 = this.b(var3, var5);
-      if(var2.b((fd)(new dt(var6, var7, var8)))) {
+      if(var2.b((fd)(new Location(var6, var7, var8)))) {
          EntityGuardian var9 = new EntityGuardian(var1);
          var9.a(true);
          var9.g(var9.bt());
          var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
-         var9.a(var1.E(new dt(var9)), (xq)null);
+         var9.a(var1.E(new Location(var9)), (xq)null);
          var1.d((Entity)var9);
          return true;
       } else {

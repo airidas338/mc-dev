@@ -68,8 +68,8 @@ public abstract class bms {
       return var3;
    }
 
-   public dt a() {
-      return new dt(this.l.f());
+   public Location a() {
+      return new Location(this.l.f());
    }
 
    protected boolean a(World var1, bjb var2) {
@@ -84,11 +84,11 @@ public abstract class bms {
       int var10;
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var5; var10 <= var8; ++var10) {
-            if(var1.p(new dt(var9, var4, var10)).c().r().d()) {
+            if(var1.p(new Location(var9, var4, var10)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new dt(var9, var7, var10)).c().r().d()) {
+            if(var1.p(new Location(var9, var7, var10)).c().r().d()) {
                return true;
             }
          }
@@ -96,11 +96,11 @@ public abstract class bms {
 
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.p(new dt(var9, var10, var5)).c().r().d()) {
+            if(var1.p(new Location(var9, var10, var5)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new dt(var9, var10, var8)).c().r().d()) {
+            if(var1.p(new Location(var9, var10, var8)).c().r().d()) {
                return true;
             }
          }
@@ -108,11 +108,11 @@ public abstract class bms {
 
       for(var9 = var5; var9 <= var8; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.p(new dt(var3, var10, var9)).c().r().d()) {
+            if(var1.p(new Location(var3, var10, var9)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new dt(var6, var10, var9)).c().r().d()) {
+            if(var1.p(new Location(var6, var10, var9)).c().r().d()) {
                return true;
             }
          }
@@ -161,7 +161,7 @@ public abstract class bms {
       }
    }
 
-   protected int a(atr var1, int var2) {
+   protected int a(Block var1, int var2) {
       if(var1 == aty.av) {
          if(this.m == ej.e || this.m == ej.f) {
             if(var2 == 1) {
@@ -398,18 +398,18 @@ public abstract class bms {
       return var2;
    }
 
-   protected void a(World var1, bec var2, int var3, int var4, int var5, bjb var6) {
-      dt var7 = new dt(this.a(var3, var5), this.d(var4), this.b(var3, var5));
+   protected void a(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
+      Location var7 = new Location(this.a(var3, var5), this.d(var4), this.b(var3, var5));
       if(var6.b((fd)var7)) {
          var1.a(var7, var2, 2);
       }
    }
 
-   protected bec a(World var1, int var2, int var3, int var4, bjb var5) {
+   protected IBlock a(World var1, int var2, int var3, int var4, bjb var5) {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      return !var5.b((fd)(new dt(var6, var7, var8)))?aty.a.P():var1.p(new dt(var6, var7, var8));
+      return !var5.b((fd)(new Location(var6, var7, var8)))?aty.a.P():var1.p(new Location(var6, var7, var8));
    }
 
    protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -423,11 +423,11 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, bec var9, bec var10, boolean var11) {
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, IBlock var10, boolean var11) {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var11 || this.a(var1, var13, var12, var14, var2).c().r() != bof.a) {
+               if(!var11 || this.a(var1, var13, var12, var14, var2).c().r() != Material.a) {
                   if(var12 != var4 && var12 != var7 && var13 != var3 && var13 != var6 && var14 != var5 && var14 != var8) {
                      this.a(var1, var10, var13, var12, var14, var2);
                   } else {
@@ -444,7 +444,7 @@ public abstract class bms {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var9 || this.a(var1, var13, var12, var14, var2).c().r() != bof.a) {
+               if(!var9 || this.a(var1, var13, var12, var14, var2).c().r() != Material.a) {
                   var11.a(var10, var13, var12, var14, var12 == var4 || var12 == var7 || var13 == var3 || var13 == var6 || var14 == var5 || var14 == var8);
                   this.a(var1, var11.a(), var13, var12, var14, var2);
                }
@@ -454,11 +454,11 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, bec var11, bec var12, boolean var13) {
+   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, IBlock var11, IBlock var12, boolean var13) {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
-               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().r() != bof.a)) {
+               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().r() != Material.a)) {
                   if(var14 != var6 && var14 != var9 && var15 != var5 && var15 != var8 && var16 != var7 && var16 != var10) {
                      this.a(var1, var12, var15, var14, var16, var2);
                   } else {
@@ -471,14 +471,14 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, bec var8) {
+   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, IBlock var8) {
       if(var3.nextFloat() < var4) {
          this.a(var1, var8, var5, var6, var7, var2);
       }
 
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, bec var9, boolean var10) {
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, boolean var10) {
       float var11 = (float)(var6 - var3 + 1);
       float var12 = (float)(var7 - var4 + 1);
       float var13 = (float)(var8 - var5 + 1);
@@ -493,7 +493,7 @@ public abstract class bms {
 
             for(int var20 = var5; var20 <= var8; ++var20) {
                float var21 = ((float)var20 - var15) / (var13 * 0.5F);
-               if(!var10 || this.a(var1, var18, var16, var20, var2).c().r() != bof.a) {
+               if(!var10 || this.a(var1, var18, var16, var20, var2).c().r() != Material.a) {
                   float var22 = var19 * var19 + var17 * var17 + var21 * var21;
                   if(var22 <= 1.05F) {
                      this.a(var1, var9, var18, var16, var20, var2);
@@ -506,7 +506,7 @@ public abstract class bms {
    }
 
    protected void b(World var1, int var2, int var3, int var4, bjb var5) {
-      dt var6 = new dt(this.a(var2, var4), this.d(var3), this.b(var2, var4));
+      Location var6 = new Location(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((fd)var6)) {
          while(!var1.d(var6) && var6.o() < 255) {
             var1.a(var6, aty.a.P(), 2);
@@ -516,13 +516,13 @@ public abstract class bms {
       }
    }
 
-   protected void b(World var1, bec var2, int var3, int var4, int var5, bjb var6) {
+   protected void b(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
       int var7 = this.a(var3, var5);
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
-      if(var6.b((fd)(new dt(var7, var8, var9)))) {
-         while((var1.d(new dt(var7, var8, var9)) || var1.p(new dt(var7, var8, var9)).c().r().d()) && var8 > 1) {
-            var1.a(new dt(var7, var8, var9), var2, 2);
+      if(var6.b((fd)(new Location(var7, var8, var9)))) {
+         while((var1.d(new Location(var7, var8, var9)) || var1.p(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
+            var1.a(new Location(var7, var8, var9), var2, 2);
             --var8;
          }
 
@@ -530,13 +530,13 @@ public abstract class bms {
    }
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
-      dt var9 = new dt(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+      Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var9) && var1.p(var9).c() != aty.ae) {
-         bec var10 = aty.ae.P();
+         IBlock var10 = aty.ae.P();
          var1.a(var9, aty.ae.f(var1, var9, var10), 2);
          bcm var11 = var1.s(var9);
          if(var11 instanceof bcr) {
-            vl.a(var3, var7, (vq)((bcr)var11), var8);
+            StructurePieceTreaasure.a(var3, var7, (vq)((bcr)var11), var8);
          }
 
          return true;
@@ -546,12 +546,12 @@ public abstract class bms {
    }
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, int var7, List var8, int var9) {
-      dt var10 = new dt(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+      Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var10) && var1.p(var10).c() != aty.z) {
          var1.a(var10, aty.z.a(this.a(aty.z, var7)), 2);
          bcm var11 = var1.s(var10);
          if(var11 instanceof bcx) {
-            vl.a(var3, var8, (bcx)var11, var9);
+            StructurePieceTreaasure.a(var3, var8, (bcx)var11, var9);
          }
 
          return true;
@@ -561,7 +561,7 @@ public abstract class bms {
    }
 
    protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, ej var7) {
-      dt var8 = new dt(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+      Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var8)) {
          akt.a(var1, var8, var7.f(), aty.ao);
       }

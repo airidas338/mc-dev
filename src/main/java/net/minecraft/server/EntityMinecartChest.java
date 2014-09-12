@@ -12,7 +12,7 @@ public class EntityMinecartChest extends aed {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      this.a(alq.a((atr)aty.ae), 1, 0.0F);
+      this.a(alq.a((Block)aty.ae), 1, 0.0F);
    }
 
    public int n_() {
@@ -23,7 +23,7 @@ public class EntityMinecartChest extends aed {
       return EnumMinecartType.CHEST;
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.ae.P().a(auj.a, ej.c);
    }
 

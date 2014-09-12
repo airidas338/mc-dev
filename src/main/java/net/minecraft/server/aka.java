@@ -9,6 +9,6 @@ public class aka extends all {
 
    public amj b(amj var1, World var2, EntityHuman var3) {
       super.b(var1, var2, var3);
-      return new amj(amk.z);
+      return new amj(Items.z);
    }
 }

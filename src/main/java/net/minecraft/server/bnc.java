@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class bnc extends bnn {
 
-   private atr a;
-   private atr b;
+   private Block a;
+   private Block b;
 
 
    public bnc() {}
@@ -20,17 +20,17 @@ public class bnc extends bnn {
 
    protected void a(fn var1) {
       super.a(var1);
-      var1.a("CA", atr.c.b(this.a));
-      var1.a("CB", atr.c.b(this.b));
+      var1.a("CA", Block.c.b(this.a));
+      var1.a("CB", Block.c.b(this.b));
    }
 
    protected void b(fn var1) {
       super.b(var1);
-      this.a = atr.c(var1.f("CA"));
-      this.b = atr.c(var1.f("CB"));
+      this.a = Block.c(var1.f("CA"));
+      this.b = Block.c(var1.f("CB"));
    }
 
-   private atr a(Random var1) {
+   private Block a(Random var1) {
       switch(var1.nextInt(5)) {
       case 0:
          return aty.cb;

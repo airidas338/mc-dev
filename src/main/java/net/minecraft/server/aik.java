@@ -19,7 +19,7 @@ class aik extends ajk {
    }
 
    public void a(EntityHuman var1, amj var2) {
-      if(var2.b() == amk.bz && var2.i() > 0) {
+      if(var2.b() == Items.bz && var2.i() > 0) {
          this.a.b((tq)tl.B);
       }
 
@@ -27,6 +27,6 @@ class aik extends ajk {
    }
 
    public static boolean b_(amj var0) {
-      return var0 != null && (var0.b() == amk.bz || var0.b() == amk.bA);
+      return var0 != null && (var0.b() == Items.bz || var0.b() == Items.bA);
    }
 }

@@ -9,8 +9,8 @@ public class bll extends bln {
    private boolean f;
    private boolean g;
    private boolean h;
-   private static final List i = Lists.newArrayList(new vl[]{new vl(amk.i, 0, 1, 3, 3), new vl(amk.j, 0, 1, 5, 10), new vl(amk.k, 0, 2, 7, 15), new vl(amk.bO, 0, 1, 3, 2), new vl(amk.aX, 0, 4, 6, 20), new vl(amk.bt, 0, 3, 7, 16), new vl(amk.aA, 0, 1, 1, 3), new vl(amk.ck, 0, 1, 1, 1), new vl(amk.cl, 0, 1, 1, 1), new vl(amk.cm, 0, 1, 1, 1)});
-   private static final List j = Lists.newArrayList(new vl[]{new vl(amk.g, 0, 2, 7, 30)});
+   private static final List i = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 2, 7, 15), new StructurePieceTreaasure(Items.bO, 0, 1, 3, 2), new StructurePieceTreaasure(Items.aX, 0, 4, 6, 20), new StructurePieceTreaasure(Items.bt, 0, 3, 7, 16), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
+   private static final List j = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.g, 0, 2, 7, 30)});
    private static blm k = new blm((blj)null);
 
 
@@ -177,7 +177,7 @@ public class bll extends bln {
          this.a(var1, aty.bn.a(15), 8, -1, 3, var3);
          this.a(var1, aty.bn.a(15), 8, -2, 3, var3);
          if(!this.e) {
-            this.e = this.a(var1, var3, var2, 8, -3, 3, vl.a(i, new vl[]{amk.cd.b(var2)}), 2 + var2.nextInt(5));
+            this.e = this.a(var1, var3, var2, 8, -3, 3, StructurePieceTreaasure.a(i, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }
 
          this.a(var1, aty.Y.P(), 9, -3, 2, var3);
@@ -208,7 +208,7 @@ public class bll extends bln {
          this.a(var1, aty.F.a(this.a(aty.F, ej.e.a())), 10, -1, 8, var3);
          this.a(var1, aty.bb.a(this.a(aty.bb, ej.c.b())), 10, -2, 10, var3);
          if(!this.f) {
-            this.f = this.a(var1, var3, var2, 9, -3, 10, vl.a(i, new vl[]{amk.cd.b(var2)}), 2 + var2.nextInt(5));
+            this.f = this.a(var1, var3, var2, 9, -3, 10, StructurePieceTreaasure.a(i, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }
 
          return true;

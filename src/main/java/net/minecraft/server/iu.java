@@ -4,14 +4,14 @@ import java.io.IOException;
 
 public class iu implements id {
 
-   private dt a;
+   private Location a;
    private int b;
    private fn c;
 
 
    public iu() {}
 
-   public iu(dt var1, int var2, fn var3) {
+   public iu(Location var1, int var2, fn var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

@@ -69,7 +69,7 @@ public class dd extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Scoreboard var4 = MinecraftServer.M().a(0).Z();
          ArrayList var5 = Lists.newArrayList();

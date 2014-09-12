@@ -12,7 +12,7 @@ public class azc extends ati {
       this.j(this.L.b().a(b, atl.a).a(M, Boolean.valueOf(false)));
    }
 
-   protected boolean a(World var1, dt var2, bec var3, boolean var4, int var5) {
+   protected boolean a(World var1, Location var2, IBlock var3, boolean var4, int var5) {
       if(var5 >= 8) {
          return false;
       } else {
@@ -81,12 +81,12 @@ public class azc extends ati {
             var10 = atl.a;
          }
 
-         return this.a(var1, new dt(var6, var7, var8), var4, var5, var10)?true:var9 && this.a(var1, new dt(var6, var7 - 1, var8), var4, var5, var10);
+         return this.a(var1, new Location(var6, var7, var8), var4, var5, var10)?true:var9 && this.a(var1, new Location(var6, var7 - 1, var8), var4, var5, var10);
       }
    }
 
-   protected boolean a(World var1, dt var2, boolean var3, int var4, atl var5) {
-      bec var6 = var1.p(var2);
+   protected boolean a(World var1, Location var2, boolean var3, int var4, atl var5) {
+      IBlock var6 = var1.p(var2);
       if(var6.c() != this) {
          return false;
       } else {
@@ -95,14 +95,14 @@ public class azc extends ati {
       }
    }
 
-   protected void b(World var1, dt var2, bec var3, atr var4) {
+   protected void b(World var1, Location var2, IBlock var3, Block var4) {
       boolean var5 = ((Boolean)var3.b(M)).booleanValue();
       boolean var6 = var1.z(var2) || this.a(var1, var2, var3, true, 0) || this.a(var1, var2, var3, false, 0);
       if(var6 != var5) {
          var1.a(var2, var3.a(M, Boolean.valueOf(var6)), 3);
-         var1.c(var2.b(), (atr)this);
+         var1.c(var2.b(), (Block)this);
          if(((atl)var3.b(b)).c()) {
-            var1.c(var2.a(), (atr)this);
+            var1.c(var2.a(), (Block)this);
          }
       }
 
@@ -112,11 +112,11 @@ public class azc extends ati {
       return b;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(b, atl.a(var1 & 7)).a(M, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((atl)var1.b(b)).a();
       if(((Boolean)var1.b(M)).booleanValue()) {

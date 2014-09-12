@@ -29,7 +29,7 @@ public class bfb {
       this.l = 5;
    }
 
-   public boolean a(dt var1) {
+   public boolean a(Location var1) {
       return (double)(var1.n() + 1) > this.b() && (double)var1.n() < this.d() && (double)(var1.p() + 1) > this.c() && (double)var1.p() < this.e();
    }
 

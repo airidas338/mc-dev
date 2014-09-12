@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class apd extends apf {
 
-   protected apd(int var1, oa var2, int var3) {
+   protected apd(int var1, RegistryMaterials var2, int var3) {
       super(var1, var2, var3, apg.j);
       this.c("durability");
    }

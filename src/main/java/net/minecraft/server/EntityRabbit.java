@@ -27,7 +27,7 @@ public class EntityRabbit extends EntityAnimal {
       this.h.a(2.5F);
       this.i.a(1, new yy(this));
       this.i.a(1, new acj(this, 1.33D));
-      this.i.a(2, new aag(this, 1.0D, amk.bR, false));
+      this.i.a(2, new aag(this, 1.0D, Items.bR, false));
       this.i.a(3, new yt(this, 0.8D));
       this.i.a(5, new ack(this));
       this.i.a(5, new zy(this, 0.6D));
@@ -223,7 +223,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    protected void bp() {
-      this.a(new amj(amk.br, 1), 0.0F);
+      this.a(new amj(Items.br, 1), 0.0F);
    }
 
    protected void b(boolean var1, int var2) {
@@ -231,23 +231,23 @@ public class EntityRabbit extends EntityAnimal {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(amk.bs, 1);
+         this.a(Items.bs, 1);
       }
 
       var3 = this.V.nextInt(2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.au()) {
-            this.a(amk.bp, 1);
+            this.a(Items.bp, 1);
          } else {
-            this.a(amk.bo, 1);
+            this.a(Items.bo, 1);
          }
       }
 
    }
 
    private boolean a(alq var1) {
-      return var1 == amk.bR || var1 == amk.bW || var1 == alq.a((atr)aty.N);
+      return var1 == Items.bR || var1 == Items.bW || var1 == alq.a((Block)aty.N);
    }
 
    public EntityRabbit b(EntityAgeable var1) {
@@ -310,7 +310,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    protected void cn() {
-      this.o.a(ew.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{atr.f(aty.cb.a(7))});
+      this.o.a(ew.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(aty.cb.a(7))});
       this.bs = 100;
    }
 

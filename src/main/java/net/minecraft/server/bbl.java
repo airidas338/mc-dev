@@ -3,19 +3,19 @@ import com.google.common.base.Predicate;
 
 import java.util.Iterator;
 
-public class bbl extends atr {
+public class bbl extends Block {
 
    public static final beu a = beu.a("facing", (Predicate)(new bbm()));
 
 
    protected bbl() {
-      super(bof.q);
+      super(Material.q);
       this.j(this.L.b().a(a, ej.b));
       this.a(true);
       this.a(akf.c);
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -27,16 +27,16 @@ public class bbl extends atr {
       return false;
    }
 
-   private boolean d(World var1, dt var2) {
+   private boolean d(World var1, Location var2) {
       if(World.a((ard)var1, var2)) {
          return true;
       } else {
-         atr var3 = var1.p(var2).c();
+         Block var3 = var1.p(var2).c();
          return var3 instanceof avv || var3 == aty.w || var3 == aty.bZ || var3 == aty.cG;
       }
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       Iterator var3 = a.c().iterator();
 
       ej var4;
@@ -51,13 +51,13 @@ public class bbl extends atr {
       return true;
    }
 
-   private boolean b(World var1, dt var2, ej var3) {
-      dt var4 = var2.a(var3.d());
+   private boolean b(World var1, Location var2, ej var3) {
+      Location var4 = var2.a(var3.d());
       boolean var5 = var3.k().c();
       return var5 && var1.d(var4, true) || var3.equals(ej.b) && this.d(var1, var4);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {
@@ -76,15 +76,15 @@ public class bbl extends atr {
       }
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       this.f(var1, var2, var3);
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   protected boolean e(World var1, dt var2, bec var3) {
+   protected boolean e(World var1, Location var2, IBlock var3) {
       if(!this.f(var1, var2, var3)) {
          return true;
       } else {
@@ -108,7 +108,7 @@ public class bbl extends atr {
       }
    }
 
-   protected boolean f(World var1, dt var2, bec var3) {
+   protected boolean f(World var1, Location var2, IBlock var3) {
       if(var3.c() == this && this.b(var1, var2, (ej)var3.b(a))) {
          return true;
       } else {
@@ -121,7 +121,7 @@ public class bbl extends atr {
       }
    }
 
-   public bru a(World var1, dt var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public bru a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
       ej var5 = (ej)var1.p(var2).b(a);
       float var6 = 0.15F;
       if(var5 == ej.f) {
@@ -140,8 +140,8 @@ public class bbl extends atr {
       return super.a(var1, var2, var3, var4);
    }
 
-   public bec a(int var1) {
-      bec var2 = this.P();
+   public IBlock a(int var1) {
+      IBlock var2 = this.P();
       switch(var1) {
       case 1:
          var2 = var2.a(a, ej.f);
@@ -163,7 +163,7 @@ public class bbl extends atr {
       return var2;
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3;
       switch(bbn.a[((ej)var1.b(a)).ordinal()]) {

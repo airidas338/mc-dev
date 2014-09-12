@@ -19,12 +19,12 @@ public class bed {
 
    private static final Joiner a = Joiner.on(", ");
    private static final Function b = new bee();
-   private final atr c;
+   private final Block c;
    private final ImmutableList d;
    private final ImmutableList e;
 
 
-   public bed(atr var1, bex ... var2) {
+   public bed(Block var1, bex ... var2) {
       this.c = var1;
       Arrays.sort(var2, new bef(this));
       this.d = ImmutableList.copyOf(var2);
@@ -65,11 +65,11 @@ public class bed {
       return var1;
    }
 
-   public bec b() {
-      return (bec)this.e.get(0);
+   public IBlock b() {
+      return (IBlock)this.e.get(0);
    }
 
-   public atr c() {
+   public Block c() {
       return this.c;
    }
 
@@ -78,7 +78,7 @@ public class bed {
    }
 
    public String toString() {
-      return Objects.toStringHelper(this).add("block", atr.c.c(this.c)).add("properties", Iterables.transform(this.d, b)).toString();
+      return Objects.toStringHelper(this).add("block", Block.c.c(this.c)).add("properties", Iterables.transform(this.d, b)).toString();
    }
 
 }

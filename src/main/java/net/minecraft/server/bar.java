@@ -6,17 +6,17 @@ public class bar extends awt {
    public static final bev a = bev.a("color", akv.class);
 
 
-   public bar(bof var1) {
+   public bar(Material var1) {
       super(var1, false);
       this.j(this.L.b().a(a, akv.a));
       this.a(akf.b);
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((akv)var1.b(a)).a();
    }
 
-   public boh g(bec var1) {
+   public boh g(IBlock var1) {
       return ((akv)var1.b(a)).e();
    }
 
@@ -32,25 +32,25 @@ public class bar extends awt {
       return false;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, akv.b(var1));
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          atm.d(var1, var2);
       }
 
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          atm.d(var1, var2);
       }
 
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((akv)var1.b(a)).a();
    }
 

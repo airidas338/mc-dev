@@ -19,7 +19,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return EnumMinecartType.TNT;
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.W.P();
    }
 
@@ -110,11 +110,11 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return this.a > -1;
    }
 
-   public float a(aqo var1, World var2, dt var3, bec var4) {
+   public float a(aqo var1, World var2, Location var3, IBlock var4) {
       return this.y() && (ati.d(var4) || ati.d(var2, var3.a()))?0.0F:super.a(var1, var2, var3, var4);
    }
 
-   public boolean a(aqo var1, World var2, dt var3, bec var4, float var5) {
+   public boolean a(aqo var1, World var2, Location var3, IBlock var4, float var5) {
       return this.y() && (ati.d(var4) || ati.d(var2, var3.a()))?false:super.a(var1, var2, var3, var4, var5);
    }
 

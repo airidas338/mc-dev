@@ -12,7 +12,7 @@ public class tk extends tq {
 		this(var1, var2, var3, var4, new amj(var5), var6);
 	}
 
-	public tk(String var1, String var2, int var3, int var4, atr var5, tk var6) {
+	public tk(String var1, String var2, int var3, int var4, Block var5, tk var6) {
 		this(var1, var2, var3, var4, new amj(var5), var6);
 	}
 

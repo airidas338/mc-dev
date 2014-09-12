@@ -51,11 +51,11 @@ public class hd extends ByteBuf {
       return var1;
    }
 
-   public dt c() {
-      return dt.a(this.readLong());
+   public Location c() {
+      return Location.a(this.readLong());
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       this.writeLong(var1.g());
    }
 

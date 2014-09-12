@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class bhn extends bhp {
 
-   private static final beq a = beq.a((atr)aty.m).a(bab.a, Predicates.equalTo(bac.a));
-   private final bec b;
-   private final bec c;
-   private final bec d;
+   private static final beq a = beq.a((Block)aty.m).a(bab.a, Predicates.equalTo(bac.a));
+   private final IBlock b;
+   private final IBlock c;
+   private final IBlock d;
 
 
    public bhn() {
@@ -17,7 +17,7 @@ public class bhn extends bhp {
       this.d = aty.i.P();
    }
 
-   public boolean b(World var1, Random var2, dt var3) {
+   public boolean generate(World var1, Random var2, Location var3) {
       while(var1.d(var3) && var3.o() > 2) {
          var3 = var3.b();
       }

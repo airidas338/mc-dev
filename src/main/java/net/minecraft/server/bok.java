@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bok extends bpa {
+public class bok extends GenLayer {
 
-   public bok(long var1, bpa var3) {
+   public bok(long var1, GenLayer var3) {
       super(var1);
       this.a = var3;
    }
@@ -40,7 +40,7 @@ public class bok extends bpa {
             }
 
             if(var17 == 0 && var18 > 3) {
-               var10[var12 + var11 * var3] = arm.N.az;
+               var10[var12 + var11 * var3] = BiomeBase.N.az;
             } else {
                var10[var12 + var11 * var3] = var17;
             }

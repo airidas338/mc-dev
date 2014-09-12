@@ -5,12 +5,12 @@ class aif extends ajk {
    // $FF: synthetic field
    final World a;
    // $FF: synthetic field
-   final dt b;
+   final Location b;
    // $FF: synthetic field
    final aid c;
 
 
-   aif(aid var1, vq var2, int var3, int var4, int var5, World var6, dt var7) {
+   aif(aid var1, vq var2, int var3, int var4, int var5, World var6, Location var7) {
       super(var2, var3, var4, var5);
       this.c = var1;
       this.a = var6;
@@ -44,7 +44,7 @@ class aif extends ajk {
       }
 
       this.c.a = 0;
-      bec var5 = this.a.p(this.b);
+      IBlock var5 = this.a.p(this.b);
       if(!var1.by.d && !this.a.D && var5.c() == aty.cf && var1.bb().nextFloat() < 0.12F) {
          int var4 = ((Integer)var5.b(asz.b)).intValue();
          ++var4;

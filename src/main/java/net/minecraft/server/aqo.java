@@ -58,9 +58,9 @@ public class aqo {
                   double var19 = this.g;
 
                   for(float var21 = 0.3F; var14 > 0.0F; var14 -= 0.22500001F) {
-                     dt var22 = new dt(var15, var17, var19);
-                     bec var23 = this.d.p(var22);
-                     if(var23.c().r() != bof.a) {
+                     Location var22 = new Location(var15, var17, var19);
+                     IBlock var23 = this.d.p(var22);
+                     if(var23.c().r() != Material.a) {
                         float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.c().a((Entity)null);
                         var14 -= (var24 + 0.3F) * 0.3F;
                      }
@@ -128,13 +128,13 @@ public class aqo {
       }
 
       Iterator var2;
-      dt var3;
+      Location var3;
       if(this.b) {
          var2 = this.j.iterator();
 
          while(var2.hasNext()) {
-            var3 = (dt)var2.next();
-            atr var4 = this.d.p(var3).c();
+            var3 = (Location)var2.next();
+            Block var4 = this.d.p(var3).c();
             if(var1) {
                double var5 = (double)((float)var3.n() + this.d.s.nextFloat());
                double var7 = (double)((float)var3.o() + this.d.s.nextFloat());
@@ -155,7 +155,7 @@ public class aqo {
                this.d.a(ew.l, var5, var7, var9, var11, var13, var15, new int[0]);
             }
 
-            if(var4.r() != bof.a) {
+            if(var4.r() != Material.a) {
                if(var4.a(this)) {
                   var4.a(this.d, var3, this.d.p(var3), 1.0F / this.i, 0);
                }
@@ -170,8 +170,8 @@ public class aqo {
          var2 = this.j.iterator();
 
          while(var2.hasNext()) {
-            var3 = (dt)var2.next();
-            if(this.d.p(var3).c().r() == bof.a && this.d.p(var3.b()).c().m() && this.c.nextInt(3) == 0) {
+            var3 = (Location)var2.next();
+            if(this.d.p(var3).c().r() == Material.a && this.d.p(var3.b()).c().m() && this.c.nextInt(3) == 0) {
                this.d.a(var3, aty.ab.P());
             }
          }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class bds extends atr {
+public class bds extends Block {
 
    public static final beu a = beu.a("facing");
    public static final bev b = bev.a("type", bdu.class);
@@ -10,18 +10,18 @@ public class bds extends atr {
 
 
    public bds() {
-      super(bof.H);
+      super(Material.H);
       this.j(this.L.b().a(a, ej.c).a(b, bdu.a).a(M, Boolean.valueOf(false)));
       this.a(i);
       this.c(0.5F);
    }
 
-   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       if(var4.by.d) {
          ej var5 = (ej)var3.b(a);
          if(var5 != null) {
-            dt var6 = var2.a(var5.d());
-            atr var7 = var1.p(var6).c();
+            Location var6 = var2.a(var5.d());
+            Block var7 = var1.p(var6).c();
             if(var7 == aty.J || var7 == aty.F) {
                var1.g(var6);
             }
@@ -31,11 +31,11 @@ public class bds extends atr {
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       super.b(var1, var2, var3);
       ej var4 = ((ej)var3.b(a)).d();
       var2 = var2.a(var4);
-      bec var5 = var1.p(var2);
+      IBlock var5 = var1.p(var2);
       if((var5.c() == aty.J || var5.c() == aty.F) && ((Boolean)var5.b(bdq.b)).booleanValue()) {
          var5.c().b(var1, var2, var5, 0);
          var1.g(var2);
@@ -51,11 +51,11 @@ public class bds extends atr {
       return false;
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return false;
    }
 
-   public boolean a(World var1, dt var2, ej var3) {
+   public boolean a(World var1, Location var2, ej var3) {
       return false;
    }
 
@@ -63,7 +63,7 @@ public class bds extends atr {
       return 0;
    }
 
-   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.d(var3);
       super.a(var1, var2, var3, var4, var5, var6);
       this.e(var3);
@@ -71,7 +71,7 @@ public class bds extends atr {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   private void e(bec var1) {
+   private void e(IBlock var1) {
       float var2 = 0.25F;
       float var3 = 0.375F;
       float var4 = 0.625F;
@@ -99,11 +99,11 @@ public class bds extends atr {
 
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       this.d(var1.p(var2));
    }
 
-   public void d(bec var1) {
+   public void d(IBlock var1) {
       float var2 = 0.25F;
       ej var3 = (ej)var1.b(a);
       if(var3 != null) {
@@ -130,10 +130,10 @@ public class bds extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       ej var5 = (ej)var3.b(a);
-      dt var6 = var2.a(var5.d());
-      bec var7 = var1.p(var6);
+      Location var6 = var2.a(var5.d());
+      IBlock var7 = var1.p(var6);
       if(var7.c() != aty.J && var7.c() != aty.F) {
          var1.g(var2);
       } else {
@@ -147,11 +147,11 @@ public class bds extends atr {
       return var1 > 5?null:ej.a(var1);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, b(var1)).a(b, (var1 & 8) > 0?bdu.b:bdu.a);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(a)).a();
       if(var1.b(b) == bdu.b) {

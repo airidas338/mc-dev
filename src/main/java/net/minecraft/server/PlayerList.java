@@ -74,7 +74,7 @@ public abstract class PlayerList {
 		h.info(var2.d_() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
 		WorldServer var9 = this.j.a(var2.am);
 		WorldData var10 = var9.P();
-		dt var11 = var9.M();
+		Location var11 = var9.M();
 		this.a(var2, (EntityPlayer) null, var9);
 		rj var12 = new rj(this.j, var1, var2);
 		var12.a((id) (new jw(var2.F(), var2.c.b(), var10.t(), var9.t.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
@@ -85,7 +85,7 @@ public abstract class PlayerList {
 		var12.a((id) (new kv(var2.bg.c)));
 		var2.A().d();
 		var2.A().b(var2);
-		this.a((pk) var9.Z(), var2);
+		this.a((ScoreboardServer) var9.Z(), var2);
 		this.j.aF();
 		hz var13;
 		if (!var2.d_().equalsIgnoreCase(var6)) {
@@ -123,7 +123,7 @@ public abstract class PlayerList {
 
 	}
 
-	protected void a(pk var1, EntityPlayer var2) {
+	protected void a(ScoreboardServer var1, EntityPlayer var2) {
 		HashSet var3 = Sets.newHashSet();
 		Iterator var4 = var1.g().iterator();
 
@@ -165,7 +165,7 @@ public abstract class PlayerList {
 	}
 
 	public int d() {
-		return qq.b(this.t());
+		return PlayerChunkMap.b(this.t());
 	}
 
 	public fn a(EntityPlayer var1) {
@@ -287,7 +287,7 @@ public abstract class PlayerList {
 		var1.u().t().c(var1);
 		this.e.remove(var1);
 		this.j.a(var1.am).f(var1);
-		dt var4 = var1.cg();
+		Location var4 = var1.cg();
 		boolean var5 = var1.ch();
 		var1.am = var2;
 		Object var6;
@@ -304,7 +304,7 @@ public abstract class PlayerList {
 		var7.o(var1);
 		WorldServer var8 = this.j.a(var1.am);
 		this.a(var7, var1, var8);
-		dt var9;
+		Location var9;
 		if (var4 != null) {
 			var9 = EntityHuman.a(this.j.a(var1.am), var4, var5);
 			if (var9 != null) {
@@ -380,7 +380,7 @@ public abstract class PlayerList {
 				var3.a(var1, false);
 			}
 		} else {
-			dt var12;
+			Location var12;
 			if (var2 == 1) {
 				var12 = var4.M();
 			} else {

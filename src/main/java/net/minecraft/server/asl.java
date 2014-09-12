@@ -2,12 +2,12 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Random;
 
-public class asl extends arm {
+public class asl extends BiomeBase {
 
-   protected arm aE;
+   protected BiomeBase aE;
 
 
-   public asl(int var1, arm var2) {
+   public asl(int var1, BiomeBase var2) {
       super(var1);
       this.aE = var2;
       this.a(var2.ai, true);
@@ -32,7 +32,7 @@ public class asl extends arm {
       this.ao = var2.ao + 0.2F;
    }
 
-   public void a(World var1, Random var2, dt var3) {
+   public void a(World var1, Random var2, Location var3) {
       this.aE.as.a(var1, var2, this, var3);
    }
 
@@ -52,7 +52,7 @@ public class asl extends arm {
       return this.aE.l();
    }
 
-   public boolean a(arm var1) {
+   public boolean a(BiomeBase var1) {
       return this.aE.a(var1);
    }
 

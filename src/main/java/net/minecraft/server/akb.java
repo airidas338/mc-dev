@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class akb extends alq {
 
-   private atr a;
+   private Block a;
 
 
-   public akb(atr var1) {
+   public akb(Block var1) {
       this.h = 1;
       this.a = var1;
       this.a(akf.f);
@@ -18,7 +18,7 @@ public class akb extends alq {
          return var1;
       } else {
          if(var5.a == brv.b) {
-            dt var6 = var5.a();
+            Location var6 = var5.a();
             if(!var2.a(var3, var6)) {
                return var1;
             }
@@ -28,32 +28,32 @@ public class akb extends alq {
                   return var1;
                }
 
-               bec var7 = var2.p(var6);
-               bof var8 = var7.c().r();
-               if(var8 == bof.h && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               IBlock var7 = var2.p(var6);
+               Material var8 = var7.c().r();
+               if(var8 == Material.h && ((Integer)var7.b(axl.b)).intValue() == 0) {
                   var2.g(var6);
                   var3.b(ty.J[alq.b((alq)this)]);
-                  return this.a(var1, var3, amk.ax);
+                  return this.a(var1, var3, Items.ax);
                }
 
-               if(var8 == bof.i && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               if(var8 == Material.i && ((Integer)var7.b(axl.b)).intValue() == 0) {
                   var2.g(var6);
                   var3.b(ty.J[alq.b((alq)this)]);
-                  return this.a(var1, var3, amk.ay);
+                  return this.a(var1, var3, Items.ay);
                }
             } else {
                if(this.a == aty.a) {
-                  return new amj(amk.aw);
+                  return new amj(Items.aw);
                }
 
-               dt var9 = var6.a(var5.b);
+               Location var9 = var6.a(var5.b);
                if(!var3.a(var9, var5.b, var1)) {
                   return var1;
                }
 
                if(this.a(var2, var9) && !var3.by.d) {
                   var3.b(ty.J[alq.b((alq)this)]);
-                  return new amj(amk.aw);
+                  return new amj(Items.aw);
                }
             }
          }
@@ -76,11 +76,11 @@ public class akb extends alq {
       }
    }
 
-   public boolean a(World var1, dt var2) {
+   public boolean a(World var1, Location var2) {
       if(this.a == aty.a) {
          return false;
       } else {
-         bof var3 = var1.p(var2).c().r();
+         Material var3 = var1.p(var2).c().r();
          boolean var4 = !var3.a();
          if(!var1.d(var2) && !var4) {
             return false;

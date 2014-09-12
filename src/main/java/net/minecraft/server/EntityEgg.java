@@ -37,7 +37,7 @@ public class EntityEgg extends EntityProjectile {
       double var5 = 0.08D;
 
       for(int var6 = 0; var6 < 8; ++var6) {
-         this.o.a(ew.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{alq.b(amk.aP)});
+         this.o.a(ew.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{alq.b(Items.aP)});
       }
 
       if(!this.o.D) {

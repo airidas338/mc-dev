@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bbc extends atr {
+public class bbc extends Block {
 
    public static final bev a = bev.a("variant", bbd.class);
    public static final int b = bbd.a.a();
@@ -10,20 +10,20 @@ public class bbc extends atr {
 
 
    public bbc() {
-      super(bof.e);
+      super(Material.e);
       this.j(this.L.b().a(a, bbd.a));
       this.a(akf.b);
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((bbd)var1.b(a)).a();
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, bbd.a(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((bbd)var1.b(a)).a();
    }
 

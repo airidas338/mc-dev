@@ -61,7 +61,7 @@ public class br extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, alq.e.c()):null);
    }
 

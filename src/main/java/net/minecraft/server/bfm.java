@@ -20,15 +20,15 @@ public class bfm {
 
    }
 
-   public bec a(int var1, int var2, int var3) {
-      bec var4 = (bec)atr.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
+   public IBlock a(int var1, int var2, int var3) {
+      IBlock var4 = (IBlock)Block.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
       return var4 != null?var4:aty.a.P();
    }
 
-   public void a(int var1, int var2, int var3, bec var4) {
-      bec var5 = this.a(var1, var2, var3);
-      atr var6 = var5.c();
-      atr var7 = var4.c();
+   public void a(int var1, int var2, int var3, IBlock var4) {
+      IBlock var5 = this.a(var1, var2, var3);
+      Block var6 = var5.c();
+      Block var7 = var4.c();
       if(var6 != aty.a) {
          --this.b;
          if(var6.w()) {
@@ -43,15 +43,15 @@ public class bfm {
          }
       }
 
-      this.d[var2 << 8 | var3 << 4 | var1] = (char)atr.d.b(var4);
+      this.d[var2 << 8 | var3 << 4 | var1] = (char)Block.d.b(var4);
    }
 
-   public atr b(int var1, int var2, int var3) {
+   public Block b(int var1, int var2, int var3) {
       return this.a(var1, var2, var3).c();
    }
 
    public int c(int var1, int var2, int var3) {
-      bec var4 = this.a(var1, var2, var3);
+      IBlock var4 = this.a(var1, var2, var3);
       return var4.c().c(var4);
    }
 
@@ -90,7 +90,7 @@ public class bfm {
       for(int var1 = 0; var1 < 16; ++var1) {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
-               atr var4 = this.b(var1, var2, var3);
+               Block var4 = this.b(var1, var2, var3);
                if(var4 != aty.a) {
                   ++this.b;
                   if(var4.w()) {

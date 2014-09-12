@@ -27,13 +27,13 @@ public abstract class EntityHuman extends EntityLiving {
    public double bs;
    public double bt;
    protected boolean bu;
-   public dt bv;
+   public Location bv;
    private int b;
    public float bw;
    public float bx;
-   private dt c;
+   private Location c;
    private boolean d;
-   private dt e;
+   private Location e;
    public aha by = new aha();
    public int bz;
    public int bA;
@@ -55,7 +55,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.bF = var2;
       this.bh = new ajb(this.bg, !var1.D, this);
       this.bi = this.bh;
-      dt var3 = var1.M();
+      Location var3 = var1.M();
       this.b((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
       this.aT = 180.0F;
       this.X = 20;
@@ -399,7 +399,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
       if(this.d_().equals("Notch")) {
-         this.a(new amj(amk.e, 1), true, false);
+         this.a(new amj(Items.e, 1), true, false);
       }
 
       if(!this.o.Q().b("keepInventory")) {
@@ -526,7 +526,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.o.d((Entity)var1);
    }
 
-   public float a(atr var1) {
+   public float a(Block var1) {
       float var2 = this.bg.a(var1);
       if(var2 > 1.0F) {
          int var3 = EnchantmentManager.c(this);
@@ -560,7 +560,7 @@ public abstract class EntityHuman extends EntityLiving {
          var2 *= var5;
       }
 
-      if(this.a(bof.h) && !EnchantmentManager.j(this)) {
+      if(this.a(Material.h) && !EnchantmentManager.j(this)) {
          var2 /= 5.0F;
       }
 
@@ -571,7 +571,7 @@ public abstract class EntityHuman extends EntityLiving {
       return var2;
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       return this.bg.b(var1);
    }
 
@@ -593,12 +593,12 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.r(var1.f("Score"));
       if(this.bu) {
-         this.bv = new dt(this);
+         this.bv = new Location(this);
          this.a(true, true, false);
       }
 
       if(var1.b("SpawnX", 99) && var1.b("SpawnY", 99) && var1.b("SpawnZ", 99)) {
-         this.c = new dt(var1.f("SpawnX"), var1.f("SpawnY"), var1.f("SpawnZ"));
+         this.c = new Location(var1.f("SpawnX"), var1.f("SpawnY"), var1.f("SpawnZ"));
          this.d = var1.n("SpawnForced");
       }
 
@@ -923,7 +923,7 @@ public abstract class EntityHuman extends EntityLiving {
       return this.bF;
    }
 
-   public ahf a(dt var1) {
+   public ahf a(Location var1) {
       if(!this.o.D) {
          if(this.bI() || !this.ai()) {
             return ahf.e;
@@ -1010,10 +1010,10 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
-      bec var4 = this.o.p(this.bv);
+      IBlock var4 = this.o.p(this.bv);
       if(this.bv != null && var4.c() == aty.C) {
          this.o.a(this.bv, var4.a(atp.b, Boolean.valueOf(false)), 4);
-         dt var5 = atp.a(this.o, this.bv, 0);
+         Location var5 = atp.a(this.o, this.bv, 0);
          if(var5 == null) {
             var5 = this.bv.a();
          }
@@ -1037,13 +1037,13 @@ public abstract class EntityHuman extends EntityLiving {
       return this.o.p(this.bv).c() == aty.C;
    }
 
-   public static dt a(World var0, dt var1, boolean var2) {
+   public static Location a(World var0, Location var1, boolean var2) {
       if(var0.p(var1).c() != aty.C) {
          if(!var2) {
             return null;
          } else {
-            bof var3 = var0.p(var1).c().r();
-            bof var4 = var0.p(var1.a()).c().r();
+            Material var3 = var0.p(var1).c().r();
+            Material var4 = var0.p(var1.a()).c().r();
             boolean var5 = !var3.a() && !var3.d();
             boolean var6 = !var4.a() && !var4.d();
             return var5 && var6?var1:null;
@@ -1063,7 +1063,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void b(IChatBaseComponent var1) {}
 
-   public dt cg() {
+   public Location cg() {
       return this.c;
    }
 
@@ -1071,7 +1071,7 @@ public abstract class EntityHuman extends EntityLiving {
       return this.d;
    }
 
-   public void a(dt var1, boolean var2) {
+   public void a(Location var1, boolean var2) {
       if(var1 != null) {
          this.c = var1;
          this.d = var2;
@@ -1126,7 +1126,7 @@ public abstract class EntityHuman extends EntityLiving {
    public void k(double var1, double var3, double var5) {
       if(this.m == null) {
          int var7;
-         if(this.a(bof.h)) {
+         if(this.a(Material.h)) {
             var7 = Math.round(MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(ty.p, var7);
@@ -1174,7 +1174,7 @@ public abstract class EntityHuman extends EntityLiving {
             if(this.m instanceof EntityMinecartAbstract) {
                this.a(ty.q, var7);
                if(this.e == null) {
-                  this.e = new dt(this);
+                  this.e = new Location(this);
                } else if(this.e.c((double)MathHelper.c(this.s), (double)MathHelper.c(this.t), (double)MathHelper.c(this.u)) >= 1000000.0D) {
                   this.b((tq)tl.q);
                }
@@ -1321,14 +1321,14 @@ public abstract class EntityHuman extends EntityLiving {
       return this.by.e;
    }
 
-   public boolean a(dt var1, ej var2, amj var3) {
+   public boolean a(Location var1, ej var2, amj var3) {
       if(this.by.e) {
          return true;
       } else if(var3 == null) {
          return false;
       } else {
-         dt var4 = var1.a(var2.d());
-         atr var5 = this.o.p(var4).c();
+         Location var4 = var1.a(var2.d());
+         Block var5 = this.o.p(var4).c();
          return var3.d(var5) || var3.x();
       }
    }
@@ -1487,7 +1487,7 @@ public abstract class EntityHuman extends EntityLiving {
                   if(EntityInsentient.c(var2) != var4) {
                      return false;
                   }
-               } else if(var4 != 4 || var2.b() != amk.bX && !(var2.b() instanceof aju)) {
+               } else if(var4 != 4 || var2.b() != Items.bX && !(var2.b() instanceof aju)) {
                   return false;
                }
             }

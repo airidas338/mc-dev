@@ -71,7 +71,7 @@ abstract class bnn extends bms {
 
       for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
          for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
-            dt var7 = new dt(var6, 64, var5);
+            Location var7 = new Location(var6, 64, var5);
             if(var2.b((fd)var7)) {
                var3 += Math.max(var1.r(var7).o(), var1.t.i());
                ++var4;
@@ -96,14 +96,14 @@ abstract class bnn extends bms {
             int var8 = this.a(var3 + var7, var5);
             int var9 = this.d(var4);
             int var10 = this.b(var3 + var7, var5);
-            if(!var2.b((fd)(new dt(var8, var9, var10)))) {
+            if(!var2.b((fd)(new Location(var8, var9, var10)))) {
                break;
             }
 
             ++this.a;
             EntityVillager var11 = new EntityVillager(var1);
             var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
-            var11.a(var1.E(new dt(var11)), (xq)null);
+            var11.a(var1.E(new Location(var11)), (xq)null);
             var11.r(this.c(var7, var11.cj()));
             var1.d((Entity)var11);
          }
@@ -115,7 +115,7 @@ abstract class bnn extends bms {
       return var2;
    }
 
-   protected bec a(bec var1) {
+   protected IBlock a(IBlock var1) {
       if(this.b) {
          if(var1.c() == aty.r || var1.c() == aty.s) {
             return aty.A.P();
@@ -145,19 +145,19 @@ abstract class bnn extends bms {
       return var1;
    }
 
-   protected void a(World var1, bec var2, int var3, int var4, int var5, bjb var6) {
-      bec var7 = this.a(var2);
+   protected void a(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
+      IBlock var7 = this.a(var2);
       super.a(var1, var7, var3, var4, var5, var6);
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, bec var9, bec var10, boolean var11) {
-      bec var12 = this.a(var9);
-      bec var13 = this.a(var10);
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, IBlock var10, boolean var11) {
+      IBlock var12 = this.a(var9);
+      IBlock var13 = this.a(var10);
       super.a(var1, var2, var3, var4, var5, var6, var7, var8, var12, var13, var11);
    }
 
-   protected void b(World var1, bec var2, int var3, int var4, int var5, bjb var6) {
-      bec var7 = this.a(var2);
+   protected void b(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
+      IBlock var7 = this.a(var2);
       super.b(var1, var7, var3, var4, var5, var6);
    }
 

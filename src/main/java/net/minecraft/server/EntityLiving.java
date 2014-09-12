@@ -101,23 +101,23 @@ public abstract class EntityLiving extends Entity {
       this.getAttributeMap().load(GenericAttributes.d);
    }
 
-   protected void a(double var1, boolean var3, atr var4, dt var5) {
+   protected void a(double var1, boolean var3, Block var4, Location var5) {
       if(!this.V()) {
          this.W();
       }
 
       if(!this.o.D && this.O > 3.0F && var3) {
-         bec var6 = this.o.p(var5);
-         atr var7 = var6.c();
+         IBlock var6 = this.o.p(var5);
+         Block var7 = var6.c();
          float var8 = (float)MathHelper.f(this.O - 3.0F);
-         if(var7.r() != bof.a) {
+         if(var7.r() != Material.a) {
             double var9 = (double)Math.min(0.2F + var8 / 15.0F, 10.0F);
             if(var9 > 2.5D) {
                var9 = 2.5D;
             }
 
             int var11 = (int)(150.0D * var9);
-            ((WorldServer)this.o).a(ew.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{atr.f(var6)});
+            ((WorldServer)this.o).a(ew.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.f(var6)});
          }
       }
 
@@ -149,7 +149,7 @@ public abstract class EntityLiving extends Entity {
       }
 
       boolean var7 = var1 && ((EntityHuman)this).by.a;
-      if(this.ai() && this.a(bof.h)) {
+      if(this.ai() && this.a(Material.h)) {
          if(!this.aX() && !this.k(wp.o.H) && !var7) {
             this.h(this.j(this.aA()));
             if(this.aA() == -20) {
@@ -734,7 +734,7 @@ public abstract class EntityLiving extends Entity {
       int var1 = MathHelper.c(this.s);
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
-      atr var4 = this.o.p(new dt(var1, var2, var3)).c();
+      Block var4 = this.o.p(new Location(var1, var2, var3)).c();
       return (var4 == aty.au || var4 == aty.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
 
@@ -753,9 +753,9 @@ public abstract class EntityLiving extends Entity {
          int var6 = MathHelper.c(this.s);
          int var7 = MathHelper.c(this.t - 0.20000000298023224D);
          int var8 = MathHelper.c(this.u);
-         atr var9 = this.o.p(new dt(var6, var7, var8)).c();
-         if(var9.r() != bof.a) {
-            atx var10 = var9.H;
+         Block var9 = this.o.p(new Location(var6, var7, var8)).c();
+         if(var9.r() != Material.a) {
+            StepSound var10 = var9.H;
             this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
          }
       }
@@ -960,12 +960,12 @@ public abstract class EntityLiving extends Entity {
                int var13 = (int)(this.u + (double)var11);
                AxisAlignedBB var2 = this.aQ().c((double)var10, 1.0D, (double)var11);
                if(this.o.a(var2).isEmpty()) {
-                  if(World.a((ard)this.o, new dt(var12, (int)this.t, var13))) {
+                  if(World.a((ard)this.o, new Location(var12, (int)this.t, var13))) {
                      this.a(this.s + (double)var10, this.t + 1.0D, this.u + (double)var11);
                      return;
                   }
 
-                  if(World.a((ard)this.o, new dt(var12, (int)this.t - 1, var13)) || this.o.p(new dt(var12, (int)this.t - 1, var13)).c().r() == bof.h) {
+                  if(World.a((ard)this.o, new Location(var12, (int)this.t - 1, var13)) || this.o.p(new Location(var12, (int)this.t - 1, var13)).c().r() == Material.h) {
                      var3 = this.s + (double)var10;
                      var5 = this.t + 1.0D;
                      var7 = this.u + (double)var11;
@@ -1052,7 +1052,7 @@ public abstract class EntityLiving extends Entity {
          } else {
             float var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.p(new dt(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
             }
 
             float var4 = 0.16277136F / (var3 * var3 * var3);
@@ -1065,7 +1065,7 @@ public abstract class EntityLiving extends Entity {
             this.a(var1, var2, var5);
             var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.p(new dt(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
             }
 
             if(this.j_()) {
@@ -1088,7 +1088,7 @@ public abstract class EntityLiving extends Entity {
                this.w = 0.2D;
             }
 
-            if(this.o.D && (!this.o.e(new dt((int)this.s, 0, (int)this.u)) || !this.o.f(new dt((int)this.s, 0, (int)this.u)).o())) {
+            if(this.o.D && (!this.o.e(new Location((int)this.s, 0, (int)this.u)) || !this.o.f(new Location((int)this.s, 0, (int)this.u)).o())) {
                if(this.t > 0.0D) {
                   this.w = -0.1D;
                } else {
@@ -1382,7 +1382,7 @@ public abstract class EntityLiving extends Entity {
 
    public void a(Entity var1, int var2) {
       if(!var1.I && !this.o.D) {
-         qn var3 = ((WorldServer)this.o).s();
+         EntityTracker var3 = ((WorldServer)this.o).s();
          if(var1 instanceof EntityItem) {
             var3.a(var1, (id)(new ln(var1.F(), this.F())));
          }

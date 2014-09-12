@@ -3,26 +3,26 @@ package net.minecraft.server;
 
 public class bru {
 
-   private dt e;
+   private Location e;
    public brv a;
    public ej b;
    public ChunkCoordinates c;
    public Entity d;
 
 
-   public bru(ChunkCoordinates var1, ej var2, dt var3) {
+   public bru(ChunkCoordinates var1, ej var2, Location var3) {
       this(brv.b, var1, var2, var3);
    }
 
    public bru(ChunkCoordinates var1, ej var2) {
-      this(brv.b, var1, var2, dt.a);
+      this(brv.b, var1, var2, Location.a);
    }
 
    public bru(Entity var1) {
       this(var1, new ChunkCoordinates(var1.s, var1.t, var1.u));
    }
 
-   public bru(brv var1, ChunkCoordinates var2, ej var3, dt var4) {
+   public bru(brv var1, ChunkCoordinates var2, ej var3, Location var4) {
       this.a = var1;
       this.e = var4;
       this.b = var3;
@@ -35,7 +35,7 @@ public class bru {
       this.c = var2;
    }
 
-   public dt a() {
+   public Location a() {
       return this.e;
    }
 

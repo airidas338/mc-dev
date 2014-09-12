@@ -36,7 +36,7 @@ public class cb extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().an().i().a()):null;
    }
 }

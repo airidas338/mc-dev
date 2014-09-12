@@ -116,7 +116,7 @@ public class EntityZombie extends EntityMonster {
    public void m() throws IOException {
       if(this.o.w() && !this.o.D && !this.i_()) {
          float var1 = this.c(1.0F);
-         dt var2 = new dt(this.s, (double)Math.round(this.t), this.u);
+         Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
             amj var4 = this.p(4);
@@ -162,12 +162,12 @@ public class EntityZombie extends EntityMonster {
                int var9 = var4 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var10 = var5 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var11 = var6 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
-               if(World.a((ard)this.o, new dt(var9, var10 - 1, var11)) && this.o.l(new dt(var9, var10, var11)) < 10) {
+               if(World.a((ard)this.o, new Location(var9, var10 - 1, var11)) && this.o.l(new Location(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
                   if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a(var7.aQ(), (Entity)var7) && this.o.a((Entity)var7, var7.aQ()).isEmpty() && !this.o.d(var7.aQ())) {
                      this.o.d((Entity)var7);
                      var7.d(var3);
-                     var7.a(this.o.E(new dt(var7)), (xq)null);
+                     var7.a(this.o.E(new Location(var7)), (xq)null);
                      this.getAttributeInstance(b).b(new ya("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
                      var7.getAttributeInstance(b).b(new ya("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
                      break;
@@ -218,12 +218,12 @@ public class EntityZombie extends EntityMonster {
       return "mob.zombie.death";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.zombie.step", 0.15F, 1.0F);
    }
 
    protected alq A() {
-      return amk.bt;
+      return Items.bt;
    }
 
    public xs by() {
@@ -233,13 +233,13 @@ public class EntityZombie extends EntityMonster {
    protected void bp() {
       switch(this.V.nextInt(3)) {
       case 0:
-         this.a(amk.j, 1);
+         this.a(Items.j, 1);
          break;
       case 1:
-         this.a(amk.bR, 1);
+         this.a(Items.bR, 1);
          break;
       case 2:
-         this.a(amk.bS, 1);
+         this.a(Items.bS, 1);
       }
 
    }
@@ -249,9 +249,9 @@ public class EntityZombie extends EntityMonster {
       if(this.V.nextFloat() < (this.o.aa() == EnumDifficulty.HARD?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.c(0, new amj(amk.l));
+            this.c(0, new amj(Items.l));
          } else {
-            this.c(0, new amj(amk.a));
+            this.c(0, new amj(Items.a));
          }
       }
 
@@ -298,14 +298,14 @@ public class EntityZombie extends EntityMonster {
          EntityZombie var2 = new EntityZombie(this.o);
          var2.m(var1);
          this.o.e((Entity)var1);
-         var2.a(this.o.E(new dt(var2)), (xq)null);
+         var2.a(this.o.E(new Location(var2)), (xq)null);
          var2.m(true);
          if(var1.i_()) {
             var2.l(true);
          }
 
          this.o.d((Entity)var2);
-         this.o.a((EntityHuman)null, 1016, new dt((int)this.s, (int)this.t, (int)this.u), 0);
+         this.o.a((EntityHuman)null, 1016, new Location((int)this.s, (int)this.t, (int)this.u), 0);
       }
 
    }
@@ -320,7 +320,7 @@ public class EntityZombie extends EntityMonster {
    }
 
    protected boolean a(amj var1) {
-      return var1.b() == amk.aP && this.i_() && this.av()?false:super.a(var1);
+      return var1.b() == Items.aP && this.i_() && this.av()?false:super.a(var1);
    }
 
    public xq a(vu var1, xq var2) {
@@ -385,7 +385,7 @@ public class EntityZombie extends EntityMonster {
 
    public boolean a(EntityHuman var1) {
       amj var2 = var1.bY();
-      if(var2 != null && var2.b() == amk.ao && var2.i() == 0 && this.cm() && this.a(wp.t)) {
+      if(var2 != null && var2.b() == Items.ao && var2.i() == 0 && this.cm() && this.a(wp.t)) {
          if(!var1.by.d) {
             --var2.b;
          }
@@ -423,7 +423,7 @@ public class EntityZombie extends EntityMonster {
    protected void co() {
       EntityVillager var1 = new EntityVillager(this.o);
       var1.m(this);
-      var1.a(this.o.E(new dt(var1)), (xq)null);
+      var1.a(this.o.E(new Location(var1)), (xq)null);
       var1.cn();
       if(this.i_()) {
          var1.b(-24000);
@@ -432,7 +432,7 @@ public class EntityZombie extends EntityMonster {
       this.o.e((Entity)this);
       this.o.d((Entity)var1);
       var1.c(new wq(wp.k.H, 200, 0));
-      this.o.a((EntityHuman)null, 1017, new dt((int)this.s, (int)this.t, (int)this.u), 0);
+      this.o.a((EntityHuman)null, 1017, new Location((int)this.s, (int)this.t, (int)this.u), 0);
    }
 
    protected int cp() {
@@ -443,7 +443,7 @@ public class EntityZombie extends EntityMonster {
          for(int var3 = (int)this.s - 4; var3 < (int)this.s + 4 && var2 < 14; ++var3) {
             for(int var4 = (int)this.t - 4; var4 < (int)this.t + 4 && var2 < 14; ++var4) {
                for(int var5 = (int)this.u - 4; var5 < (int)this.u + 4 && var2 < 14; ++var5) {
-                  atr var6 = this.o.p(new dt(var3, var4, var5)).c();
+                  Block var6 = this.o.p(new Location(var3, var4, var5)).c();
                   if(var6 == aty.bi || var6 == aty.C) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;
@@ -485,7 +485,7 @@ public class EntityZombie extends EntityMonster {
       super.a(var1);
       if(var1.getEntity() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(amk.bX, 1, 2), 0.0F);
+         this.a(new amj(Items.bX, 1, 2), 0.0F);
       }
 
    }

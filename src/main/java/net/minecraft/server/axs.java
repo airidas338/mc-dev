@@ -1,13 +1,13 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class axs extends atr {
+public class axs extends Block {
 
    public static final bev a = bev.a("variant", axu.class);
 
 
    public axs() {
-      super(bof.B);
+      super(Material.B);
       this.j(this.L.b().a(a, axu.a));
       this.c(0.0F);
       this.a(akf.c);
@@ -17,12 +17,12 @@ public class axs extends atr {
       return 0;
    }
 
-   public static boolean d(bec var0) {
-      atr var1 = var0.c();
+   public static boolean d(IBlock var0) {
+      Block var1 = var0.c();
       return var0 == aty.b.P().a(bba.a, bbb.a) || var1 == aty.e || var1 == aty.bf;
    }
 
-   protected amj i(bec var1) {
+   protected amj i(IBlock var1) {
       switch(axt.a[((axu)var1.b(a)).ordinal()]) {
       case 1:
          return new amj(aty.e);
@@ -39,7 +39,7 @@ public class axs extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(!var1.D && var1.Q().b("doTileDrops")) {
          EntitySilverfish var6 = new EntitySilverfish(var1);
          var6.b((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
@@ -49,16 +49,16 @@ public class axs extends atr {
 
    }
 
-   public int j(World var1, dt var2) {
-      bec var3 = var1.p(var2);
+   public int j(World var1, Location var2) {
+      IBlock var3 = var1.p(var2);
       return var3.c().c(var3);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, axu.a(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((axu)var1.b(a)).a();
    }
 

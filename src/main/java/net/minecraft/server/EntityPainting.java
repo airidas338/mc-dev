@@ -12,7 +12,7 @@ public class EntityPainting extends EntityHanging {
       super(var1);
    }
 
-   public EntityPainting(World var1, dt var2, ej var3) {
+   public EntityPainting(World var1, Location var2, ej var3) {
       super(var1, var2);
       ArrayList var4 = Lists.newArrayList();
       adn[] var5 = adn.values();
@@ -75,13 +75,13 @@ public class EntityPainting extends EntityHanging {
             }
          }
 
-         this.a(new amj(amk.an), 0.0F);
+         this.a(new amj(Items.an), 0.0F);
       }
    }
 
    public void b(double var1, double var3, double var5, float var7, float var8) {
-      dt var9 = new dt(var1 - this.s, var3 - this.t, var5 - this.u);
-      dt var10 = this.a.a((fd)var9);
+      Location var9 = new Location(var1 - this.s, var3 - this.t, var5 - this.u);
+      Location var10 = this.a.a((fd)var9);
       this.b((double)var10.n(), (double)var10.o(), (double)var10.p());
    }
 }

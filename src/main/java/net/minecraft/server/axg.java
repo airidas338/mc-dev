@@ -9,7 +9,7 @@ public abstract class axg extends bbo {
 
 
    public axg() {
-      super(bof.j, false);
+      super(Material.j, false);
       this.a(true);
       this.a(akf.c);
       this.c(0.2F);
@@ -17,19 +17,19 @@ public abstract class axg extends bbo {
       this.a(h);
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       byte var4 = 1;
       int var5 = var4 + 1;
       int var6 = var2.n();
       int var7 = var2.o();
       int var8 = var2.p();
-      if(var1.a(new dt(var6 - var5, var7 - var5, var8 - var5), new dt(var6 + var5, var7 + var5, var8 + var5))) {
+      if(var1.a(new Location(var6 - var5, var7 - var5, var8 - var5), new Location(var6 + var5, var7 + var5, var8 + var5))) {
          for(int var9 = -var4; var9 <= var4; ++var9) {
             for(int var10 = -var4; var10 <= var4; ++var10) {
                for(int var11 = -var4; var11 <= var4; ++var11) {
-                  dt var12 = var2.a(var9, var10, var11);
-                  bec var13 = var1.p(var12);
-                  if(var13.c().r() == bof.j && !((Boolean)var13.b(b)).booleanValue()) {
+                  Location var12 = var2.a(var9, var10, var11);
+                  IBlock var13 = var1.p(var12);
+                  if(var13.c().r() == Material.j && !((Boolean)var13.b(b)).booleanValue()) {
                      var1.a(var12, var13.a(b, Boolean.valueOf(true)), 4);
                   }
                }
@@ -39,7 +39,7 @@ public abstract class axg extends bbo {
 
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!var1.D) {
          if(((Boolean)var3.b(b)).booleanValue() && ((Boolean)var3.b(a)).booleanValue()) {
             byte var5 = 4;
@@ -55,15 +55,15 @@ public abstract class axg extends bbo {
             }
 
             int var13;
-            if(var1.a(new dt(var7 - var6, var8 - var6, var9 - var6), new dt(var7 + var6, var8 + var6, var9 + var6))) {
+            if(var1.a(new Location(var7 - var6, var8 - var6, var9 - var6), new Location(var7 + var6, var8 + var6, var9 + var6))) {
                int var14;
                int var15;
                for(var13 = -var5; var13 <= var5; ++var13) {
                   for(var14 = -var5; var14 <= var5; ++var14) {
                      for(var15 = -var5; var15 <= var5; ++var15) {
-                        atr var16 = var1.p(new dt(var7 + var13, var8 + var14, var9 + var15)).c();
+                        Block var16 = var1.p(new Location(var7 + var13, var8 + var14, var9 + var15)).c();
                         if(var16 != aty.r && var16 != aty.s) {
-                           if(var16.r() == bof.j) {
+                           if(var16.r() == Material.j) {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -2;
                            } else {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -1;
@@ -121,7 +121,7 @@ public abstract class axg extends bbo {
       }
    }
 
-   private void d(World var1, dt var2) {
+   private void d(World var1, Location var2) {
       this.b(var1, var2, var1.p(var2), 0);
       var1.g(var2);
    }
@@ -130,11 +130,11 @@ public abstract class axg extends bbo {
       return var1.nextInt(20) == 0?1:0;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
+   public alq a(IBlock var1, Random var2, int var3) {
       return alq.a(aty.g);
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(!var1.D) {
          int var6 = this.d(var3);
          if(var5 > 0) {
@@ -162,9 +162,9 @@ public abstract class axg extends bbo {
 
    }
 
-   protected void a(World var1, dt var2, bec var3, int var4) {}
+   protected void a(World var1, Location var2, IBlock var3, int var4) {}
 
-   protected int d(bec var1) {
+   protected int d(IBlock var1) {
       return 20;
    }
 

@@ -100,7 +100,7 @@ public class bgs extends bgt {
                   for(int var43 = var56; !var58 && var43 < var40; ++var43) {
                      for(int var44 = var38 + 1; !var58 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
-                           bec var45 = var5.a(var42, var44, var43);
+                           IBlock var45 = var5.a(var42, var44, var43);
                            if(var45.c() == aty.i || var45.c() == aty.j) {
                               var58 = true;
                            }
@@ -124,8 +124,8 @@ public class bgs extends bgt {
                            for(int var49 = var38; var49 > var57; --var49) {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var31;
                               if(var50 > -0.7D && var60 * var60 + var50 * var50 + var46 * var46 < 1.0D) {
-                                 bec var52 = var5.a(var42, var49, var59);
-                                 bec var53 = (bec)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), aty.a.P());
+                                 IBlock var52 = var5.a(var42, var49, var59);
+                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), aty.a.P());
                                  if(var52.c() == aty.c || var52.c() == aty.bw) {
                                     var48 = true;
                                  }
@@ -140,7 +140,7 @@ public class bgs extends bgt {
                                        }
 
                                        if(var48 && var5.a(var42, var49 - 1, var59).c() == aty.d) {
-                                          var5.a(var42, var49 - 1, var59, this.c.b(new dt(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
+                                          var5.a(var42, var49 - 1, var59, this.c.b(new Location(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
                                        }
                                     }
                                  }
@@ -160,8 +160,8 @@ public class bgs extends bgt {
 
    }
 
-   protected boolean a(bec var1, bec var2) {
-      return var1.c() == aty.b?true:(var1.c() == aty.d?true:(var1.c() == aty.c?true:(var1.c() == aty.cz?true:(var1.c() == aty.cu?true:(var1.c() == aty.A?true:(var1.c() == aty.cM?true:(var1.c() == aty.bw?true:(var1.c() == aty.aH?true:(var1.c() == aty.m || var1.c() == aty.n) && var2.c().r() != bof.h))))))));
+   protected boolean a(IBlock var1, IBlock var2) {
+      return var1.c() == aty.b?true:(var1.c() == aty.d?true:(var1.c() == aty.c?true:(var1.c() == aty.cz?true:(var1.c() == aty.cu?true:(var1.c() == aty.A?true:(var1.c() == aty.cM?true:(var1.c() == aty.bw?true:(var1.c() == aty.aH?true:(var1.c() == aty.m || var1.c() == aty.n) && var2.c().r() != Material.h))))))));
    }
 
    protected void a(World var1, int var2, int var3, int var4, int var5, bgk var6) {

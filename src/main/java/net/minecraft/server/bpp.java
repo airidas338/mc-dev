@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bpp extends bpa {
+public class bpp extends GenLayer {
 
-   public bpp(long var1, bpa var3) {
+   public bpp(long var1, GenLayer var3) {
       super(var1);
       super.a = var3;
    }
@@ -45,13 +45,13 @@ public class bpp extends bpa {
       return var20;
    }
 
-   public static bpa b(long var0, bpa var2, int var3) {
+   public static GenLayer b(long var0, GenLayer var2, int var3) {
       Object var4 = var2;
 
       for(int var5 = 0; var5 < var3; ++var5) {
-         var4 = new bpp(var0 + (long)var5, (bpa)var4);
+         var4 = new bpp(var0 + (long)var5, (GenLayer)var4);
       }
 
-      return (bpa)var4;
+      return (GenLayer)var4;
    }
 }

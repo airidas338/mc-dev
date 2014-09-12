@@ -68,11 +68,11 @@ public class blo extends bln {
             var8 = this.a(2, 5);
             var9 = this.d(2);
             int var10 = this.b(2, 5);
-            if(var3.b((fd)(new dt(var8, var9, var10)))) {
+            if(var3.b((fd)(new Location(var8, var9, var10)))) {
                this.e = true;
                EntityWitch var11 = new EntityWitch(var1);
                var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
-               var11.a(var1.E(new dt(var8, var9, var10)), (xq)null);
+               var11.a(var1.E(new Location(var8, var9, var10)), (xq)null);
                var1.d((Entity)var11);
             }
          }

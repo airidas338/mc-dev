@@ -87,12 +87,12 @@ public abstract class EntityMonster extends EntityCreature implements IMonster {
 		return var4;
 	}
 
-	public float a(dt var1) {
+	public float a(Location var1) {
 		return 0.5F - this.o.o(var1);
 	}
 
 	protected boolean m_() {
-		dt var1 = new dt(this.s, this.aQ().b, this.u);
+		Location var1 = new Location(this.s, this.aQ().b, this.u);
 		if (this.o.b(EnumSkyBlock.SKY, var1) > this.V.nextInt(32)) {
 			return false;
 		} else {

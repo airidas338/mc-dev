@@ -7,7 +7,7 @@ final class oh extends eg {
 
    protected amj b(dz var1, amj var2) {
       World var3 = var1.i();
-      dt var4 = var1.d().a(ave.b(var1.f()));
+      Location var4 = var1.d().a(ave.b(var1.f()));
       if(var3.d(var4)) {
          var3.a(var4, aty.ab.P());
          if(var2.a(1, var3.s)) {

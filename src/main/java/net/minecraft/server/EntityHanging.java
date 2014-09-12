@@ -7,7 +7,7 @@ import org.apache.commons.lang3.Validate;
 public abstract class EntityHanging extends Entity {
 
    private int c;
-   protected dt a;
+   protected Location a;
    public ej b;
 
 
@@ -16,7 +16,7 @@ public abstract class EntityHanging extends Entity {
       this.a(0.5F, 0.5F);
    }
 
-   public EntityHanging(World var1, dt var2) {
+   public EntityHanging(World var1, Location var2) {
       this(var1);
       this.a = var2;
    }
@@ -88,13 +88,13 @@ public abstract class EntityHanging extends Entity {
       } else {
          int var1 = Math.max(1, this.l() / 16);
          int var2 = Math.max(1, this.m() / 16);
-         dt var3 = this.a.a(this.b.d());
+         Location var3 = this.a.a(this.b.d());
          ej var4 = this.b.f();
 
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
-               dt var7 = var3.a(var4, var5).b(var6);
-               atr var8 = this.o.p(var7).c();
+               Location var7 = var3.a(var4, var5).b(var6);
+               Block var8 = this.o.p(var7).c();
                if(!var8.r().a() && !ava.d(var8)) {
                   return false;
                }
@@ -167,7 +167,7 @@ public abstract class EntityHanging extends Entity {
    }
 
    public void a(fn var1) {
-      this.a = new dt(var1.f("TileX"), var1.f("TileY"), var1.f("TileZ"));
+      this.a = new Location(var1.f("TileX"), var1.f("TileY"), var1.f("TileZ"));
       ej var2;
       if(var1.b("Direction", 99)) {
          var2 = ej.b(var1.d("Direction"));
@@ -195,8 +195,8 @@ public abstract class EntityHanging extends Entity {
       this.s = var1;
       this.t = var3;
       this.u = var5;
-      dt var7 = this.a;
-      this.a = new dt(var1, var3, var5);
+      Location var7 = this.a;
+      this.a = new Location(var1, var3, var5);
       if(!this.a.equals(var7)) {
          this.o();
          this.ai = true;
@@ -204,7 +204,7 @@ public abstract class EntityHanging extends Entity {
 
    }
 
-   public dt n() {
+   public Location n() {
       return this.a;
    }
 }

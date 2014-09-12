@@ -73,8 +73,8 @@ public class bfh {
          for(int var8 = 0; var8 < 16; ++var8) {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
-               bec var11 = var2.a(var10);
-               if(var11.c().r() != bof.a) {
+               IBlock var11 = var2.a(var10);
+               if(var11.c().r() != Material.a) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new bfm(var12 << 4, var6);
@@ -92,7 +92,7 @@ public class bfh {
       return var1 == this.a && var2 == this.b;
    }
 
-   public int f(dt var1) {
+   public int f(Location var1) {
       return this.b(var1.n() & 15, var1.p() & 15);
    }
 
@@ -153,7 +153,7 @@ public class bfh {
                         bfm var7 = this.d[var5 >> 4];
                         if(var7 != null) {
                            var7.a(var2, var5 & 15, var3, var4);
-                           this.i.n(new dt((this.a << 4) + var2, var5, (this.b << 4) + var3));
+                           this.i.n(new Location((this.a << 4) + var2, var5, (this.b << 4) + var3));
                         }
                      }
 
@@ -177,7 +177,7 @@ public class bfh {
 
    private void h(boolean var1) {
       this.i.B.a("recheckGaps");
-      if(this.i.a(new dt(this.a * 16 + 8, 0, this.b * 16 + 8), (int)16)) {
+      if(this.i.a(new Location(this.a * 16 + 8, 0, this.b * 16 + 8), (int)16)) {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
                if(this.g[var2 + var3 * 16]) {
@@ -216,7 +216,7 @@ public class bfh {
    }
 
    private void c(int var1, int var2, int var3) {
-      int var4 = this.i.m(new dt(var1, 0, var2)).o();
+      int var4 = this.i.m(new Location(var1, 0, var2)).o();
       if(var4 > var3) {
          this.a(var1, var2, var3, var4 + 1);
       } else if(var4 < var3) {
@@ -226,9 +226,9 @@ public class bfh {
    }
 
    private void a(int var1, int var2, int var3, int var4) {
-      if(var4 > var3 && this.i.a(new dt(var1, 0, var2), (int)16)) {
+      if(var4 > var3 && this.i.a(new Location(var1, 0, var2), (int)16)) {
          for(int var5 = var3; var5 < var4; ++var5) {
-            this.i.c(EnumSkyBlock.SKY, new dt(var1, var5, var2));
+            this.i.c(EnumSkyBlock.SKY, new Location(var1, var5, var2));
          }
 
          this.q = true;
@@ -261,7 +261,7 @@ public class bfh {
                   var9 = this.d[var8 >> 4];
                   if(var9 != null) {
                      var9.a(var1, var8 & 15, var3, 15);
-                     this.i.n(new dt((this.a << 4) + var1, var8, (this.b << 4) + var3));
+                     this.i.n(new Location((this.a << 4) + var1, var8, (this.b << 4) + var3));
                   }
                }
             } else {
@@ -269,7 +269,7 @@ public class bfh {
                   var9 = this.d[var8 >> 4];
                   if(var9 != null) {
                      var9.a(var1, var8 & 15, var3, 0);
-                     this.i.n(new dt((this.a << 4) + var1, var8, (this.b << 4) + var3));
+                     this.i.n(new Location((this.a << 4) + var1, var8, (this.b << 4) + var3));
                   }
                }
             }
@@ -322,7 +322,7 @@ public class bfh {
       }
    }
 
-   public int b(dt var1) {
+   public int b(Location var1) {
       return this.a(var1).n();
    }
 
@@ -330,8 +330,8 @@ public class bfh {
       return this.f(var1, var2, var3).n();
    }
 
-   private atr f(int var1, int var2, int var3) {
-      atr var4 = aty.a;
+   private Block f(int var1, int var2, int var3) {
+      Block var4 = aty.a;
       if(var2 >= 0 && var2 >> 4 < this.d.length) {
          bfm var5 = this.d[var2 >> 4];
          if(var5 != null) {
@@ -347,7 +347,7 @@ public class bfh {
       return var4;
    }
 
-   public atr a(int var1, int var2, int var3) {
+   public Block a(int var1, int var2, int var3) {
       try {
          return this.f(var1 & 15, var2, var3 & 15);
       } catch (ReportedException var6) {
@@ -357,7 +357,7 @@ public class bfh {
       }
    }
 
-   public atr a(dt var1) {
+   public Block a(Location var1) {
       try {
          return this.f(var1.n() & 15, var1.o(), var1.p() & 15);
       } catch (ReportedException var4) {
@@ -367,9 +367,9 @@ public class bfh {
       }
    }
 
-   public bec g(dt var1) {
+   public IBlock g(Location var1) {
       if(this.i.G() == WorldType.DEBUG) {
-         bec var7 = null;
+         IBlock var7 = null;
          if(var1.o() == 60) {
             var7 = aty.cv.P();
          }
@@ -410,11 +410,11 @@ public class bfh {
       }
    }
 
-   public int c(dt var1) {
+   public int c(Location var1) {
       return this.g(var1.n() & 15, var1.o(), var1.p() & 15);
    }
 
-   public bec a(dt var1, bec var2) {
+   public IBlock a(Location var1, IBlock var2) {
       int var3 = var1.n() & 15;
       int var4 = var1.o();
       int var5 = var1.p() & 15;
@@ -424,12 +424,12 @@ public class bfh {
       }
 
       int var7 = this.j[var6];
-      bec var8 = this.g(var1);
+      IBlock var8 = this.g(var1);
       if(var8 == var2) {
          return null;
       } else {
-         atr var9 = var2.c();
-         atr var10 = var8.c();
+         Block var9 = var2.c();
+         Block var10 = var8.c();
          bfm var11 = this.d[var4 >> 4];
          boolean var12 = false;
          if(var11 == null) {
@@ -501,7 +501,7 @@ public class bfh {
       }
    }
 
-   public int a(EnumSkyBlock var1, dt var2) {
+   public int a(EnumSkyBlock var1, Location var2) {
       int var3 = var2.n() & 15;
       int var4 = var2.o();
       int var5 = var2.p() & 15;
@@ -509,7 +509,7 @@ public class bfh {
       return var6 == null?(this.d(var2)?var1.c:0):(var1 == EnumSkyBlock.SKY?(this.i.t.o()?0:var6.d(var3, var4 & 15, var5)):(var1 == EnumSkyBlock.BLOCK?var6.e(var3, var4 & 15, var5):var1.c));
    }
 
-   public void a(EnumSkyBlock var1, dt var2, int var3) {
+   public void a(EnumSkyBlock var1, Location var2, int var3) {
       int var4 = var2.n() & 15;
       int var5 = var2.o();
       int var6 = var2.p() & 15;
@@ -530,7 +530,7 @@ public class bfh {
 
    }
 
-   public int a(dt var1, int var2) {
+   public int a(Location var1, int var2) {
       int var3 = var1.n() & 15;
       int var4 = var1.o();
       int var5 = var1.p() & 15;
@@ -590,19 +590,19 @@ public class bfh {
       this.m[var2].remove(var1);
    }
 
-   public boolean d(dt var1) {
+   public boolean d(Location var1) {
       int var2 = var1.n() & 15;
       int var3 = var1.o();
       int var4 = var1.p() & 15;
       return var3 >= this.j[var4 << 4 | var2];
    }
 
-   private bcm i(dt var1) {
-      atr var2 = this.a(var1);
+   private bcm i(Location var1) {
+      Block var2 = this.a(var1);
       return !var2.x()?null:((avs)var2).a(this.i, this.c(var1));
    }
 
-   public bcm a(dt var1, bfl var2) {
+   public bcm a(Location var1, bfl var2) {
       bcm var3 = (bcm)this.l.get(var1);
       if(var3 == null) {
          if(var2 == bfl.a) {
@@ -627,7 +627,7 @@ public class bfh {
 
    }
 
-   public void a(dt var1, bcm var2) {
+   public void a(Location var1, bcm var2) {
       var2.a(this.i);
       var2.a(var1);
       if(this.a(var1) instanceof avs) {
@@ -640,7 +640,7 @@ public class bfh {
       }
    }
 
-   public void e(dt var1) {
+   public void e(Location var1) {
       if(this.h) {
          bcm var2 = (bcm)this.l.remove(var1);
          if(var2 != null) {
@@ -800,19 +800,19 @@ public class bfh {
 
    }
 
-   public dt h(dt var1) {
+   public Location h(Location var1) {
       int var2 = var1.n() & 15;
       int var3 = var1.p() & 15;
       int var4 = var2 | var3 << 4;
-      dt var5 = new dt(var1.n(), this.f[var4], var1.p());
+      Location var5 = new Location(var1.n(), this.f[var4], var1.p());
       if(var5.o() == -999) {
          int var6 = this.g() + 15;
-         var5 = new dt(var1.n(), var6, var1.p());
+         var5 = new Location(var1.n(), var6, var1.p());
          int var7 = -1;
 
          while(var5.o() > 0 && var7 == -1) {
-            atr var8 = this.a(var5);
-            bof var9 = var8.r();
+            Block var8 = this.a(var5);
+            Material var9 = var8.r();
             if(!var9.c() && !var9.d()) {
                var5 = var5.b();
             } else {
@@ -823,7 +823,7 @@ public class bfh {
          this.f[var4] = var7;
       }
 
-      return new dt(var1.n(), this.f[var4], var1.p());
+      return new Location(var1.n(), this.f[var4], var1.p());
    }
 
    public void b(boolean var1) {
@@ -837,7 +837,7 @@ public class bfh {
       }
 
       while(!this.w.isEmpty()) {
-         dt var2 = (dt)this.w.poll();
+         Location var2 = (Location)this.w.poll();
          if(this.a(var2, bfl.c) == null && this.a(var2).x()) {
             bcm var3 = this.i(var2);
             this.i.a(var2, var3);
@@ -885,19 +885,19 @@ public class bfh {
       }
    }
 
-   public arm a(dt var1, arz var2) {
+   public BiomeBase a(Location var1, WorldChunkManager var2) {
       int var3 = var1.n() & 15;
       int var4 = var1.p() & 15;
       int var5 = this.e[var4 << 4 | var3] & 255;
-      arm var6;
+      BiomeBase var6;
       if(var5 == 255) {
-         var6 = var2.a(var1, arm.q);
+         var6 = var2.a(var1, BiomeBase.q);
          var5 = var6.az;
          this.e[var4 << 4 | var3] = (byte)(var5 & 255);
       }
 
-      var6 = arm.e(var5);
-      return var6 == null?arm.q:var6;
+      var6 = BiomeBase.e(var5);
+      return var6 == null?BiomeBase.q:var6;
    }
 
    public byte[] k() {
@@ -920,7 +920,7 @@ public class bfh {
    }
 
    public void m() {
-      dt var1 = new dt(this.a << 4, 0, this.b << 4);
+      Location var1 = new Location(this.a << 4, 0, this.b << 4);
 
       for(int var2 = 0; var2 < 8; ++var2) {
          if(this.v >= 4096) {
@@ -933,15 +933,15 @@ public class bfh {
          ++this.v;
 
          for(int var6 = 0; var6 < 16; ++var6) {
-            dt var7 = var1.a(var4, (var3 << 4) + var6, var5);
+            Location var7 = var1.a(var4, (var3 << 4) + var6, var5);
             boolean var8 = var6 == 0 || var6 == 15 || var4 == 0 || var4 == 15 || var5 == 0 || var5 == 15;
-            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).r() == bof.a) {
+            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).r() == Material.a) {
                ej[] var9 = ej.values();
                int var10 = var9.length;
 
                for(int var11 = 0; var11 < var10; ++var11) {
                   ej var12 = var9[var11];
-                  dt var13 = var7.a(var12);
+                  Location var13 = var7.a(var12);
                   if(this.i.p(var13).c().p() > 0) {
                      this.i.x(var13);
                   }
@@ -957,7 +957,7 @@ public class bfh {
    public void n() {
       this.n = true;
       this.o = true;
-      dt var1 = new dt(this.a << 4, 0, this.b << 4);
+      Location var1 = new Location(this.a << 4, 0, this.b << 4);
       if(!this.i.t.o()) {
          if(this.i.a(var1.a(-1, 0, -1), var1.a(16, 63, 16))) {
             label42:
@@ -1021,13 +1021,13 @@ public class bfh {
    }
 
    private boolean e(int var1, int var2) {
-      dt var3 = new dt(this.a << 4, 0, this.b << 4);
+      Location var3 = new Location(this.a << 4, 0, this.b << 4);
       int var4 = this.g();
       boolean var5 = false;
       boolean var6 = false;
 
       int var7;
-      dt var8;
+      Location var8;
       for(var7 = var4 + 16 - 1; var7 > 63 || var7 > 0 && !var6; --var7) {
          var8 = var3.a(var1, var7, var2);
          int var9 = this.b(var8);

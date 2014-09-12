@@ -3,7 +3,7 @@ import com.google.common.collect.AbstractIterator;
 
 class dv extends AbstractIterator {
 
-   private dt b;
+   private Location b;
    // $FF: synthetic field
    final du a;
 
@@ -13,12 +13,12 @@ class dv extends AbstractIterator {
       this.b = null;
    }
 
-   protected dt a() {
+   protected Location a() {
       if(this.b == null) {
          this.b = this.a.a;
          return this.b;
       } else if(this.b.equals(this.a.b)) {
-         return (dt)this.endOfData();
+         return (Location)this.endOfData();
       } else {
          int var1 = this.b.n();
          int var2 = this.b.o();
@@ -34,7 +34,7 @@ class dv extends AbstractIterator {
             ++var3;
          }
 
-         this.b = new dt(var1, var2, var3);
+         this.b = new Location(var1, var2, var3);
          return this.b;
       }
    }

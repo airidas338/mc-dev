@@ -9,12 +9,12 @@ public class avw extends avb {
 
 
    public avw() {
-      super(bof.d);
+      super(Material.d);
       this.j(this.L.b().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)));
       this.a(akf.d);
    }
 
-   public bec a(bec var1, ard var2, dt var3) {
+   public IBlock a(IBlock var1, ard var2, Location var3) {
       el var4 = ((ej)var1.b(N)).k();
       if(var4 == el.c && (var2.p(var3.e()).c() == aty.bZ || var2.p(var3.f()).c() == aty.bZ) || var4 == el.a && (var2.p(var3.c()).c() == aty.bZ || var2.p(var3.d()).c() == aty.bZ)) {
          var1 = var1.a(M, Boolean.valueOf(true));
@@ -23,11 +23,11 @@ public class avw extends avb {
       return var1;
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return var1.p(var2.b()).c().r().a()?super.c(var1, var2):false;
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          return null;
       } else {
@@ -36,7 +36,7 @@ public class avw extends avb {
       }
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       el var3 = ((ej)var1.p(var2).b(N)).k();
       if(var3 == el.c) {
          this.a(0.0F, 0.0F, 0.375F, 1.0F, 1.0F, 0.625F);
@@ -54,15 +54,15 @@ public class avw extends avb {
       return false;
    }
 
-   public boolean b(ard var1, dt var2) {
+   public boolean b(ard var1, Location var2) {
       return ((Boolean)var1.p(var2).b(a)).booleanValue();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false));
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          var3 = var3.a(a, Boolean.valueOf(false));
          var1.a(var2, var3, 2);
@@ -80,7 +80,7 @@ public class avw extends avb {
       return true;
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!var1.D) {
          boolean var5 = var1.z(var2);
          if(var5 || var4.g()) {
@@ -98,11 +98,11 @@ public class avw extends avb {
       }
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(N, ej.b(var1)).a(a, Boolean.valueOf((var1 & 4) != 0)).a(b, Boolean.valueOf((var1 & 8) != 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(N)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {

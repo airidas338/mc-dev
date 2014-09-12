@@ -44,9 +44,9 @@ public class bpx extends bpu {
       for(int var5 = var2; var5 < var2 + this.c; ++var5) {
          for(int var6 = var3; var6 < var3 + this.d; ++var6) {
             for(int var7 = var4; var7 < var4 + this.e; ++var7) {
-               dt var8 = new dt(var5, var6, var7);
-               atr var9 = this.a.p(var8).c();
-               if(var9.r() != bof.h) {
+               Location var8 = new Location(var5, var6, var7);
+               Block var9 = this.a.p(var8).c();
+               if(var9.r() != Material.h) {
                   return 0;
                }
             }

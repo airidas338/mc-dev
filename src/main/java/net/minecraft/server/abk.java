@@ -68,9 +68,9 @@ public class abk {
       while(var2.hasNext()) {
          EntityHuman var3 = (EntityHuman)var2.next();
          if(!var3.v()) {
-            this.f = this.a.ae().a(new dt(var3), 1);
+            this.f = this.a.ae().a(new Location(var3), 1);
             if(this.f != null && this.f.c() >= 10 && this.f.d() >= 20 && this.f.e() >= 20) {
-               dt var4 = this.f.a();
+               Location var4 = this.f.a();
                float var5 = (float)this.f.b();
                boolean var6 = false;
                int var7 = 0;
@@ -86,7 +86,7 @@ public class abk {
 
                      while(var9.hasNext()) {
                         abi var10 = (abi)var9.next();
-                        if(var10 != this.f && var10.a(new dt(this.g, this.h, this.i))) {
+                        if(var10 != this.f && var10.a(new Location(this.g, this.h, this.i))) {
                            var6 = true;
                            break;
                         }
@@ -102,7 +102,7 @@ public class abk {
                      return false;
                   }
 
-                  ChunkCoordinates var11 = this.a(new dt(this.g, this.h, this.i));
+                  ChunkCoordinates var11 = this.a(new Location(this.g, this.h, this.i));
                   if(var11 != null) {
                      this.e = 0;
                      this.d = 20;
@@ -118,14 +118,14 @@ public class abk {
    }
 
    private boolean c() {
-      ChunkCoordinates var1 = this.a(new dt(this.g, this.h, this.i));
+      ChunkCoordinates var1 = this.a(new Location(this.g, this.h, this.i));
       if(var1 == null) {
          return false;
       } else {
          EntityZombie var2;
          try {
             var2 = new EntityZombie(this.a);
-            var2.a(this.a.E(new dt(var2)), (xq)null);
+            var2.a(this.a.E(new Location(var2)), (xq)null);
             var2.m(false);
          } catch (Exception var4) {
             var4.printStackTrace();
@@ -134,16 +134,16 @@ public class abk {
 
          var2.b(var1.a, var1.b, var1.c, this.a.s.nextFloat() * 360.0F, 0.0F);
          this.a.d((Entity)var2);
-         dt var3 = this.f.a();
+         Location var3 = this.f.a();
          var2.a(var3, this.f.b());
          return true;
       }
    }
 
-   private ChunkCoordinates a(dt var1) {
+   private ChunkCoordinates a(Location var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
-         dt var3 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
-         if(this.f.a(var3) && arg.a(xo.a, this.a, var3)) {
+         Location var3 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         if(this.f.a(var3) && SpawnerCreature.a(xo.a, this.a, var3)) {
             return new ChunkCoordinates((double)var3.n(), (double)var3.o(), (double)var3.p());
          }
       }

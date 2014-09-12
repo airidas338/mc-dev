@@ -419,12 +419,12 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       int var8 = MathHelper.c(var1);
       int var9 = MathHelper.c(var3);
       int var10 = MathHelper.c(var5);
-      dt var11 = new dt(var8, var9, var10);
-      bcm var12 = var0.s(new dt(var8, var9, var10));
+      Location var11 = new Location(var8, var9, var10);
+      bcm var12 = var0.s(new Location(var8, var9, var10));
       if(var12 instanceof vq) {
          var7 = (vq)var12;
          if(var7 instanceof bcr) {
-            atr var13 = var0.p(new dt(var8, var9, var10)).c();
+            Block var13 = var0.p(new Location(var8, var9, var10)).c();
             if(var13 instanceof auj) {
                var7 = ((auj)var13).d(var0, var11);
             }

@@ -4,12 +4,12 @@ package net.minecraft.server;
 public class aww extends baa {
 
    public aww() {
-      super(bof.b);
+      super(Material.b);
       this.j(this.L.b().a(M, el.b));
       this.a(akf.b);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       el var2 = el.b;
       int var3 = var1 & 12;
       if(var3 == 4) {
@@ -21,7 +21,7 @@ public class aww extends baa {
       return this.P().a(M, var2);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       int var2 = 0;
       el var3 = (el)var1.b(M);
       if(var3 == el.a) {
@@ -37,11 +37,11 @@ public class aww extends baa {
       return new bed(this, new bex[]{M});
    }
 
-   protected amj i(bec var1) {
-      return new amj(alq.a((atr)this), 1, 0);
+   protected amj i(IBlock var1) {
+      return new amj(alq.a((Block)this), 1, 0);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(M, var3.k());
    }
 }

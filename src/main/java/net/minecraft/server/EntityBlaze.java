@@ -90,7 +90,7 @@ public class EntityBlaze extends EntityMonster {
    public void e(float var1, float var2) {}
 
    protected alq A() {
-      return amk.bv;
+      return Items.bv;
    }
 
    public boolean au() {
@@ -102,7 +102,7 @@ public class EntityBlaze extends EntityMonster {
          int var3 = this.V.nextInt(2 + var2);
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            this.a(amk.bv, 1);
+            this.a(Items.bv, 1);
          }
       }
 

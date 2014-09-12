@@ -214,7 +214,7 @@ public abstract class EntityInsentient extends EntityLiving {
             var4.a("UUIDMost", this.bn.aJ().getMostSignificantBits());
             var4.a("UUIDLeast", this.bn.aJ().getLeastSignificantBits());
          } else if(this.bn instanceof EntityHanging) {
-            dt var5 = ((EntityHanging)this.bn).n();
+            Location var5 = ((EntityHanging)this.bn).n();
             var4.a("X", var5.n());
             var4.a("Y", var5.o());
             var4.a("Z", var5.p());
@@ -332,7 +332,7 @@ public abstract class EntityInsentient extends EntityLiving {
                this.a(var5, 0.0F);
             }
 
-            if(var2.b() == amk.i && var1.n() != null) {
+            if(var2.b() == Items.i && var1.n() != null) {
                EntityHuman var8 = this.o.a(var1.n());
                if(var8 != null) {
                   var8.b((tq)tl.x);
@@ -554,7 +554,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public static int c(amj var0) {
-      if(var0.b() != alq.a(aty.aU) && var0.b() != amk.bX) {
+      if(var0.b() != alq.a(aty.aU) && var0.b() != Items.bX) {
          if(var0.b() instanceof ajn) {
             switch(((ajn)var0.b()).b) {
             case 0:
@@ -578,51 +578,51 @@ public abstract class EntityInsentient extends EntityLiving {
       switch(var0) {
       case 4:
          if(var1 == 0) {
-            return amk.Q;
+            return Items.Q;
          } else if(var1 == 1) {
-            return amk.ag;
+            return Items.ag;
          } else if(var1 == 2) {
-            return amk.U;
+            return Items.U;
          } else if(var1 == 3) {
-            return amk.Y;
+            return Items.Y;
          } else if(var1 == 4) {
-            return amk.ac;
+            return Items.ac;
          }
       case 3:
          if(var1 == 0) {
-            return amk.R;
+            return Items.R;
          } else if(var1 == 1) {
-            return amk.ah;
+            return Items.ah;
          } else if(var1 == 2) {
-            return amk.V;
+            return Items.V;
          } else if(var1 == 3) {
-            return amk.Z;
+            return Items.Z;
          } else if(var1 == 4) {
-            return amk.ad;
+            return Items.ad;
          }
       case 2:
          if(var1 == 0) {
-            return amk.S;
+            return Items.S;
          } else if(var1 == 1) {
-            return amk.ai;
+            return Items.ai;
          } else if(var1 == 2) {
-            return amk.W;
+            return Items.W;
          } else if(var1 == 3) {
-            return amk.aa;
+            return Items.aa;
          } else if(var1 == 4) {
-            return amk.ae;
+            return Items.ae;
          }
       case 1:
          if(var1 == 0) {
-            return amk.T;
+            return Items.T;
          } else if(var1 == 1) {
-            return amk.aj;
+            return Items.aj;
          } else if(var1 == 2) {
-            return amk.X;
+            return Items.X;
          } else if(var1 == 3) {
-            return amk.ab;
+            return Items.ab;
          } else if(var1 == 4) {
-            return amk.af;
+            return Items.af;
          }
       default:
          return null;
@@ -679,7 +679,7 @@ public abstract class EntityInsentient extends EntityLiving {
          return true;
       } else {
          amj var2 = var1.bg.h();
-         if(var2 != null && var2.b() == amk.cn && this.ca()) {
+         if(var2 != null && var2.b() == Items.cn && this.ca()) {
             if(!(this instanceof EntityTameableAnimal) || !((EntityTameableAnimal)this).cj()) {
                this.a(var1, true);
                --var2.b;
@@ -722,7 +722,7 @@ public abstract class EntityInsentient extends EntityLiving {
          this.bm = false;
          this.bn = null;
          if(!this.o.D && var2) {
-            this.a(amk.cn, 1);
+            this.a(Items.cn, 1);
          }
 
          if(!this.o.D && var1 && this.o instanceof WorldServer) {
@@ -768,7 +768,7 @@ public abstract class EntityInsentient extends EntityLiving {
                }
             }
          } else if(this.bo.b("X", 99) && this.bo.b("Y", 99) && this.bo.b("Z", 99)) {
-            dt var1 = new dt(this.bo.f("X"), this.bo.f("Y"), this.bo.f("Z"));
+            Location var1 = new Location(this.bo.f("X"), this.bo.f("Y"), this.bo.f("Z"));
             EntityLeash var2 = EntityLeash.b(this.o, var1);
             if(var2 == null) {
                var2 = EntityLeash.a(this.o, var1);

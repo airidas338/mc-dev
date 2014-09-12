@@ -3,37 +3,37 @@ public enum axu implements va {
 
 	a("STONE", 0, 0, "stone") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.b.P().a(bba.a, bbb.a);
 		}
 	},
 	b("COBBLESTONE", 1, 1, "cobblestone", "cobble") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.e.P();
 		}
 	},
 	c("STONEBRICK", 2, 2, "stone_brick", "brick") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.bf.P().a(bbc.a, bbd.a);
 		}
 	},
 	d("MOSSY_STONEBRICK", 3, 3, "mossy_brick", "mossybrick") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.bf.P().a(bbc.a, bbd.b);
 		}
 	},
 	e("CRACKED_STONEBRICK", 4, 4, "cracked_brick", "crackedbrick") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.bf.P().a(bbc.a, bbd.c);
 		}
 	},
 	f("CHISELED_STONEBRICK", 5, 5, "chiseled_brick", "chiseledbrick") {
 		@Override
-		public bec d() {
+		public IBlock d() {
 			return aty.bf.P().a(bbc.a, bbd.d);
 		}
 	};
@@ -78,9 +78,9 @@ public enum axu implements va {
 		return this.j;
 	}
 
-	public abstract bec d();
+	public abstract IBlock d();
 
-	public static axu a(bec var0) {
+	public static axu a(IBlock var0) {
 		axu[] var1 = values();
 		int var2 = var1.length;
 

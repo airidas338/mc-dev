@@ -16,8 +16,8 @@ class aec extends aqf {
       this.a.H().b(24, hp.a(this.k()));
    }
 
-   public dt c() {
-      return new dt(this.a.s, this.a.t + 0.5D, this.a.u);
+   public Location c() {
+      return new Location(this.a.s, this.a.t + 0.5D, this.a.u);
    }
 
    public ChunkCoordinates d() {

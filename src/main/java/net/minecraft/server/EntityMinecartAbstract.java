@@ -111,7 +111,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
 
    public void a(DamageSource var1) {
       this.J();
-      amj var2 = new amj(amk.az, 1);
+      amj var2 = new amj(Items.az, 1);
       if(this.b != null) {
          var2.c(this.b);
       }
@@ -203,12 +203,12 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          int var14 = MathHelper.c(this.s);
          var2 = MathHelper.c(this.t);
          int var16 = MathHelper.c(this.u);
-         if(ati.d(this.o, new dt(var14, var2 - 1, var16))) {
+         if(ati.d(this.o, new Location(var14, var2 - 1, var16))) {
             --var2;
          }
 
-         dt var4 = new dt(var14, var2, var16);
-         bec var5 = this.o.p(var4);
+         Location var4 = new Location(var14, var2, var16);
+         IBlock var5 = this.o.p(var4);
          if(ati.d(var5)) {
             this.a(var4, var5);
             if(var5.c() == aty.cs) {
@@ -282,7 +282,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
 
    }
 
-   protected void a(dt var1, bec var2) {
+   protected void a(Location var1, IBlock var2) {
       this.O = 0.0F;
       ChunkCoordinates var3 = this.k(this.s, this.t, this.u);
       this.t = (double)var1.o();
@@ -473,11 +473,11 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
       int var7 = MathHelper.c(var1);
       int var8 = MathHelper.c(var3);
       int var9 = MathHelper.c(var5);
-      if(ati.d(this.o, new dt(var7, var8 - 1, var9))) {
+      if(ati.d(this.o, new Location(var7, var8 - 1, var9))) {
          --var8;
       }
 
-      bec var10 = this.o.p(new dt(var7, var8, var9));
+      IBlock var10 = this.o.p(new Location(var7, var8, var9));
       if(ati.d(var10)) {
          atl var11 = (atl)var10.b(((ati)var10.c()).l());
          int[][] var12 = c[var11.a()];
@@ -523,16 +523,16 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
    protected void a(fn var1) {
       if(var1.n("CustomDisplayTile")) {
          int var2 = var1.f("DisplayData");
-         atr var3;
+         Block var3;
          if(var1.b("DisplayTile", 8)) {
-            var3 = atr.b(var1.j("DisplayTile"));
+            var3 = Block.b(var1.j("DisplayTile"));
             if(var3 == null) {
                this.a(aty.a.P());
             } else {
                this.a(var3.a(var2));
             }
          } else {
-            var3 = atr.c(var1.f("DisplayTile"));
+            var3 = Block.c(var1.f("DisplayTile"));
             if(var3 == null) {
                this.a(aty.a.P());
             } else {
@@ -552,8 +552,8 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
    protected void b(fn var1) {
       if(this.x()) {
          var1.a("CustomDisplayTile", true);
-         bec var2 = this.t();
-         oa var3 = (oa)atr.c.c(var2.c());
+         IBlock var2 = this.t();
+         RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2.c());
          var1.a("DisplayTile", var3 == null?"":var3.toString());
          var1.a("DisplayData", var2.c().c(var2));
          var1.a("DisplayOffset", this.v());
@@ -664,11 +664,11 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
 
    public abstract EnumMinecartType s();
 
-   public bec t() {
-      return !this.x()?this.u():atr.d(this.H().c(20));
+   public IBlock t() {
+      return !this.x()?this.u():Block.d(this.H().c(20));
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.a.P();
    }
 
@@ -680,8 +680,8 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
       return 6;
    }
 
-   public void a(bec var1) {
-      this.H().b(20, Integer.valueOf(atr.f(var1)));
+   public void a(IBlock var1) {
+      this.H().b(20, Integer.valueOf(Block.f(var1)));
       this.a(true);
    }
 

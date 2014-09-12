@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 public class aqk {
 
-   private dt a;
-   private atr b;
+   private Location a;
+   private Block b;
    private int c;
    private int d;
 
 
-   public aqk(dt var1, atr var2, int var3, int var4) {
+   public aqk(Location var1, Block var2, int var3, int var4) {
       this.a = var1;
       this.c = var3;
       this.d = var4;
       this.b = var2;
    }
 
-   public dt a() {
+   public Location a() {
       return this.a;
    }
 
@@ -27,7 +27,7 @@ public class aqk {
       return this.d;
    }
 
-   public atr d() {
+   public Block d() {
       return this.b;
    }
 

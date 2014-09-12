@@ -19,7 +19,7 @@ public class AxisAlignedBB {
       this.f = Math.max(var5, var11);
    }
 
-   public AxisAlignedBB(dt var1, dt var2) {
+   public AxisAlignedBB(Location var1, Location var2) {
       this.a = (double)var1.n();
       this.b = (double)var1.o();
       this.c = (double)var1.p();

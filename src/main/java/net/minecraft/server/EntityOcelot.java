@@ -15,7 +15,7 @@ public class EntityOcelot extends EntityTameableAnimal {
       ((aay)this.s()).a(true);
       this.i.a(1, new yy(this));
       this.i.a(2, this.bk);
-      this.i.a(3, this.bn = new aag(this, 0.6D, amk.aU, true));
+      this.i.a(3, this.bn = new aag(this, 0.6D, Items.aU, true));
       this.i.a(5, new yz(this, 1.0D, 10.0F, 5.0F));
       this.i.a(6, new zr(this, 0.8D));
       this.i.a(7, new zg(this, 0.3F));
@@ -90,7 +90,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    protected alq A() {
-      return amk.aF;
+      return Items.aF;
    }
 
    public boolean r(Entity var1) {
@@ -114,7 +114,7 @@ public class EntityOcelot extends EntityTameableAnimal {
          if(this.e(var1) && !this.o.D && !this.d(var2)) {
             this.bk.a(!this.cl());
          }
-      } else if(this.bn.f() && var2 != null && var2.b() == amk.aU && var1.h(this) < 9.0D) {
+      } else if(this.bn.f() && var2 != null && var2.b() == Items.aU && var1.h(this) < 9.0D) {
          if(!var1.by.d) {
             --var2.b;
          }
@@ -155,7 +155,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public boolean d(amj var1) {
-      return var1 != null && var1.b() == amk.aU;
+      return var1 != null && var1.b() == Items.aU;
    }
 
    public boolean a(EntityAnimal var1) {
@@ -185,13 +185,13 @@ public class EntityOcelot extends EntityTameableAnimal {
 
    public boolean bR() {
       if(this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ())) {
-         dt var1 = new dt(this.s, this.aQ().b, this.u);
+         Location var1 = new Location(this.s, this.aQ().b, this.u);
          if(var1.o() < 63) {
             return false;
          }
 
-         atr var2 = this.o.p(var1.b()).c();
-         if(var2 == aty.c || var2.r() == bof.j) {
+         Block var2 = this.o.p(var1.b()).c();
+         if(var2 == aty.c || var2.r() == Material.j) {
             return true;
          }
       }

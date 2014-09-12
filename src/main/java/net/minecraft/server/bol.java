@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public class bol extends bpa {
+public class bol extends GenLayer {
 
    private final bon c;
 
 
-   public bol(long var1, bpa var3, bon var4) {
+   public bol(long var1, GenLayer var3, bon var4) {
       super(var1);
       this.a = var3;
       this.c = var4;

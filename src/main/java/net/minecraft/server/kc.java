@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 public class kc implements id {
 
-   private dt a;
+   private Location a;
 
 
    public kc() {}
 
-   public kc(dt var1) {
+   public kc(Location var1) {
       this.a = var1;
    }
 

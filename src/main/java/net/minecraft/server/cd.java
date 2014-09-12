@@ -79,7 +79,7 @@ public class cd extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 2?a(var2, MinecraftServer.M().I()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
    }
 

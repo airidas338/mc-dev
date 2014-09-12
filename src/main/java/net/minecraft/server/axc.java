@@ -7,12 +7,12 @@ public class axc extends atg {
 
 
    protected axc() {
-      super(bof.d);
+      super(Material.d);
       this.j(this.L.b().a(a, Boolean.valueOf(false)));
       this.a(akf.c);
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          this.e(var1, var2, var3);
          var3 = var3.a(a, Boolean.valueOf(false));
@@ -23,7 +23,7 @@ public class axc extends atg {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, amj var4) {
+   public void a(World var1, Location var2, IBlock var3, amj var4) {
       if(!var1.D) {
          bcm var5 = var1.s(var2);
          if(var5 instanceof axd) {
@@ -33,7 +33,7 @@ public class axc extends atg {
       }
    }
 
-   private void e(World var1, dt var2, bec var3) {
+   private void e(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          bcm var4 = var1.s(var2);
          if(var4 instanceof axd) {
@@ -56,12 +56,12 @@ public class axc extends atg {
       }
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       this.e(var1, var2, var3);
       super.b(var1, var2, var3);
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(!var1.D) {
          super.a(var1, var2, var3, var4, 0);
       }
@@ -75,12 +75,12 @@ public class axc extends atg {
       return true;
    }
 
-   public int l(World var1, dt var2) {
+   public int l(World var1, Location var2) {
       bcm var3 = var1.s(var2);
       if(var3 instanceof axd) {
          amj var4 = ((axd)var3).a();
          if(var4 != null) {
-            return alq.b(var4.b()) + 1 - alq.b(amk.cq);
+            return alq.b(var4.b()) + 1 - alq.b(Items.cq);
          }
       }
 
@@ -91,11 +91,11 @@ public class axc extends atg {
       return 3;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Boolean.valueOf(var1 > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Boolean)var1.b(a)).booleanValue()?1:0;
    }
 

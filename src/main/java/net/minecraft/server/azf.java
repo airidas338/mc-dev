@@ -8,21 +8,21 @@ public class azf extends ath {
    private final azh b;
 
 
-   protected azf(bof var1, azh var2) {
+   protected azf(Material var1, azh var2) {
       super(var1);
       this.j(this.L.b().a(a, Boolean.valueOf(false)));
       this.b = var2;
    }
 
-   protected int e(bec var1) {
+   protected int e(IBlock var1) {
       return ((Boolean)var1.b(a)).booleanValue()?15:0;
    }
 
-   protected bec a(bec var1, int var2) {
+   protected IBlock a(IBlock var1, int var2) {
       return var1.a(a, Boolean.valueOf(var2 > 0));
    }
 
-   protected int e(World var1, dt var2) {
+   protected int e(World var1, Location var2) {
       AxisAlignedBB var3 = this.a(var2);
       List var4;
       switch(azg.a[this.b.ordinal()]) {
@@ -50,11 +50,11 @@ public class azf extends ath {
       return 0;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Boolean.valueOf(var1 == 1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Boolean)var1.b(a)).booleanValue()?1:0;
    }
 

@@ -29,7 +29,7 @@ public class cr extends CommandAbstract {
          throw new dp("commands.spreadplayers.usage", new Object[0]);
       } else {
          byte var3 = 0;
-         dt var4 = var1.c();
+         Location var4 = var1.c();
          double var10000 = (double)var4.n();
          int var18 = var3 + 1;
          double var5 = b(var10000, var2[var3], true);

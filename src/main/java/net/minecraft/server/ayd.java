@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-public class ayd extends atr {
+public class ayd extends Block {
 
    public ayd() {
-      super(bof.e);
+      super(Material.e);
       this.a(akf.b);
    }
 
-   public boh g(bec var1) {
+   public boh g(IBlock var1) {
       return boh.K;
    }
 }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class akx extends aju {
 
-   public akx(atr var1) {
+   public akx(Block var1) {
       super(var1);
       this.d(0);
       this.a(true);

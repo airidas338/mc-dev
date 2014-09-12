@@ -170,7 +170,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
    }
 
    protected bcr a(ej var1) {
-      dt var2 = this.c.a(var1);
+      Location var2 = this.c.a(var1);
       if(this.b(var2)) {
          bcm var3 = this.b.s(var2);
          if(var3 instanceof bcr) {
@@ -183,11 +183,11 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       return null;
    }
 
-   private boolean b(dt var1) {
+   private boolean b(Location var1) {
       if(this.b == null) {
          return false;
       } else {
-         atr var2 = this.b.p(var1).c();
+         Block var2 = this.b.p(var1).c();
          return var2 instanceof auj && ((auj)var2).b == this.n();
       }
    }

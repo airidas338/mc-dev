@@ -27,6 +27,6 @@ class agu implements agw {
          var4 = this.d.a(var2);
       }
 
-      var1.add(new aqc(new amj(this.a.b(), var3, this.a.i()), new amj(amk.bO), new amj(this.c.b(), var4, this.c.i())));
+      var1.add(new aqc(new amj(this.a.b(), var3, this.a.i()), new amj(Items.bO), new amj(this.c.b(), var4, this.c.i())));
    }
 }

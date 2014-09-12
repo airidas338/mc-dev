@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class bgh extends bgd {
 
    public void b() {
-      this.c = new asc(arm.y, 0.0F);
+      this.c = new asc(BiomeBase.y, 0.0F);
       this.g = 1;
       this.e = true;
    }
@@ -25,11 +25,11 @@ public class bgh extends bgd {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new dt(var1, 0, var2)).r().c();
+      return this.b.c(new Location(var1, 0, var2)).r().c();
    }
 
-   public dt h() {
-      return new dt(100, 50, 0);
+   public Location h() {
+      return new Location(100, 50, 0);
    }
 
    public int i() {

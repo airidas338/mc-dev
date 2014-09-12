@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 class azx {
 
-   dt a;
+   Location a;
    long b;
 
 
-   public azx(dt var1, long var2) {
+   public azx(Location var1, long var2) {
       this.a = var1;
       this.b = var2;
    }

@@ -11,12 +11,12 @@ final class awb implements Predicate {
       this.a = var1;
    }
 
-   public boolean a(awa var1) {
+   public boolean a(EnumFlowerType var1) {
       return var1.a() == this.a;
    }
 
    // $FF: synthetic method
    public boolean apply(Object var1) {
-      return this.a((awa)var1);
+      return this.a((EnumFlowerType)var1);
    }
 }

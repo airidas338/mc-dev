@@ -46,9 +46,9 @@ public class ze extends zn {
       this.c.p().a((double)this.b.n() + 0.5D, (double)(this.b.o() + 1), (double)this.b.p() + 0.5D, 10.0F, (float)this.c.bP());
       if(this.f()) {
          World var1 = this.c.o;
-         dt var2 = this.b.a();
-         bec var3 = var1.p(var2);
-         atr var4 = var3.c();
+         Location var2 = this.b.a();
+         IBlock var3 = var1.p(var2);
+         Block var4 = var3.c();
          if(this.f == 0 && var4 instanceof auu && ((Integer)var3.b(auu.a)).intValue() == 7) {
             var1.b(var2, true);
          } else if(this.f == 1 && var4 == aty.a) {
@@ -58,13 +58,13 @@ public class ze extends zn {
                amj var7 = var5.a(var6);
                boolean var8 = false;
                if(var7 != null) {
-                  if(var7.b() == amk.N) {
+                  if(var7.b() == Items.N) {
                      var1.a(var2, aty.aj.P(), 3);
                      var8 = true;
-                  } else if(var7.b() == amk.bS) {
+                  } else if(var7.b() == Items.bS) {
                      var1.a(var2, aty.cc.P(), 3);
                      var8 = true;
-                  } else if(var7.b() == amk.bR) {
+                  } else if(var7.b() == Items.bR) {
                      var1.a(var2, aty.cb.P(), 3);
                      var8 = true;
                   }
@@ -86,11 +86,11 @@ public class ze extends zn {
 
    }
 
-   protected boolean a(World var1, dt var2) {
-      atr var3 = var1.p(var2).c();
+   protected boolean a(World var1, Location var2) {
+      Block var3 = var1.p(var2).c();
       if(var3 == aty.ak) {
          var2 = var2.a();
-         bec var4 = var1.p(var2);
+         IBlock var4 = var1.p(var2);
          var3 = var4.c();
          if(var3 instanceof auu && ((Integer)var4.b(auu.a)).intValue() == 7 && this.e && (this.f == 0 || this.f < 0)) {
             this.f = 0;

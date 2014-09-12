@@ -20,7 +20,7 @@ public class cv extends CommandAbstract {
          throw new dp("commands.summon.usage", new Object[0]);
       } else {
          String var3 = var2[0];
-         dt var4 = var1.c();
+         Location var4 = var1.c();
          ChunkCoordinates var5 = var1.d();
          double var6 = var5.a;
          double var8 = var5.b;
@@ -29,7 +29,7 @@ public class cv extends CommandAbstract {
             var6 = b(var6, var2[1], true);
             var8 = b(var8, var2[2], false);
             var10 = b(var10, var2[3], true);
-            var4 = new dt(var6, var8, var10);
+            var4 = new Location(var6, var8, var10);
          }
 
          World var12 = var1.e();
@@ -66,7 +66,7 @@ public class cv extends CommandAbstract {
             } else {
                var21.b(var6, var8, var10, var21.y, var21.z);
                if(!var14 && var21 instanceof EntityInsentient) {
-                  ((EntityInsentient)var21).a(var12.E(new dt(var21)), (xq)null);
+                  ((EntityInsentient)var21).a(var12.E(new Location(var21)), (xq)null);
                }
 
                var12.d(var21);
@@ -89,7 +89,7 @@ public class cv extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

@@ -55,7 +55,7 @@ public class amn extends ake {
                      int var19 = (var5 / var4 + var12 - 64) * var4;
                      int var20 = (var6 / var4 + var15 - 64) * var4;
                      HashMultiset var21 = HashMultiset.create();
-                     bfh var22 = var1.f(new dt(var19, 0, var20));
+                     bfh var22 = var1.f(new Location(var19, 0, var20));
                      if(!var22.f()) {
                         int var23 = var19 & 15;
                         int var24 = var20 & 15;
@@ -76,17 +76,17 @@ public class amn extends ake {
                            for(var28 = 0; var28 < var4; ++var28) {
                               for(int var29 = 0; var29 < var4; ++var29) {
                                  int var30 = var22.b(var28 + var23, var29 + var24) + 1;
-                                 bec var31 = aty.a.P();
+                                 IBlock var31 = aty.a.P();
                                  if(var30 > 1) {
                                     do {
                                        --var30;
-                                       var31 = var22.g(new dt(var28 + var23, var30, var29 + var24));
+                                       var31 = var22.g(new Location(var28 + var23, var30, var29 + var24));
                                     } while(var31.c().g(var31) == boh.b && var30 > 0);
 
                                     if(var30 > 0 && var31.c().r().d()) {
                                        int var32 = var30 - 1;
 
-                                       atr var33;
+                                       Block var33;
                                        do {
                                           var33 = var22.a(var28 + var23, var32--, var29 + var24);
                                           ++var25;
@@ -164,7 +164,7 @@ public class amn extends ake {
 
    public void d(amj var1, World var2, EntityHuman var3) {
       if(var1.n() && var1.o().n("map_is_scaling")) {
-         bqe var4 = amk.bd.a(var1, var2);
+         bqe var4 = Items.bd.a(var1, var2);
          var1.b(var2.b("map"));
          bqe var5 = new bqe("map_" + var1.i());
          var5.e = (byte)(var4.e + 1);

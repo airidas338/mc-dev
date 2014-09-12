@@ -198,17 +198,17 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    }
 
    protected alq A() {
-      return this.ck() == 1?amk.aM:null;
+      return this.ck() == 1?Items.aM:null;
    }
 
    public boolean bQ() {
-      bfh var1 = this.o.f(new dt(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+      bfh var1 = this.o.f(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
       if(this.o.P().u() == WorldType.FLAT && this.V.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.aa() != EnumDifficulty.PEACEFUL) {
-            arm var2 = this.o.b(new dt(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
-            if(var2 == arm.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new dt(this)) <= this.V.nextInt(8)) {
+            BiomeBase var2 = this.o.b(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+            if(var2 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new Location(this)) <= this.V.nextInt(8)) {
                return super.bQ();
             }
 

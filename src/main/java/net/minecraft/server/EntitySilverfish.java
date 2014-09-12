@@ -57,7 +57,7 @@ public class EntitySilverfish extends EntityMonster {
       }
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
@@ -70,7 +70,7 @@ public class EntitySilverfish extends EntityMonster {
       super.s_();
    }
 
-   public float a(dt var1) {
+   public float a(Location var1) {
       return this.o.p(var1.b()).c() == aty.b?10.0F:super.a(var1);
    }
 

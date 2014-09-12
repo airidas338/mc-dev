@@ -47,7 +47,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		super(var2, var3);
 		var4.b = this;
 		this.c = var4;
-		dt var5 = var2.M();
+		Location var5 = var2.M();
 		if (!var2.t.o() && var2.P().r() != EnumGamemode.d) {
 			int var6 = Math.max(5, var1.au() - 6);
 			int var7 = MathHelper.c(var2.af().b((double) var5.n(), (double) var5.p()));
@@ -150,7 +150,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			while (var8.hasNext() && var6.size() < 10) {
 				aqm var10 = (aqm) var8.next();
 				if (var10 != null) {
-					if (this.o.e(new dt(var10.a << 4, 0, var10.b << 4))) {
+					if (this.o.e(new Location(var10.a << 4, 0, var10.b << 4))) {
 						var5 = this.o.a(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
@@ -251,7 +251,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	protected void h_() {
-		arm var1 = this.o.b(new dt(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+		BiomeBase var1 = this.o.b(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
 		String var2 = var1.ah;
 		ua var3 = (ua) this.A().b((tq) tl.L);
 		if (var3 == null) {
@@ -259,8 +259,8 @@ public class EntityPlayer extends EntityHuman implements ail {
 		}
 
 		var3.add(var2);
-		if (this.A().b(tl.L) && var3.size() >= arm.n.size()) {
-			HashSet var4 = Sets.newHashSet(arm.n);
+		if (this.A().b(tl.L) && var3.size() >= BiomeBase.n.size()) {
+			HashSet var4 = Sets.newHashSet(BiomeBase.n);
 			Iterator var5 = var3.iterator();
 
 			while (var5.hasNext()) {
@@ -268,7 +268,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 				Iterator var7 = var4.iterator();
 
 				while (var7.hasNext()) {
-					arm var8 = (arm) var7.next();
+					BiomeBase var8 = (BiomeBase) var7.next();
 					if (var8.ah.equals(var6)) {
 						var7.remove();
 					}
@@ -372,7 +372,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((tq) tl.C);
-				dt var2 = this.b.a(var1).m();
+				Location var2 = this.b.a(var1).m();
 				if (var2 != null) {
 					this.a.a((double) var2.n(), (double) var2.o(), (double) var2.p(), 0.0F, 0.0F);
 				}
@@ -409,7 +409,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bi.b();
 	}
 
-	public ahf a(dt var1) {
+	public ahf a(Location var1) {
 		ahf var2 = super.a(var1);
 		if (var2 == ahf.a) {
 			kl var3 = new kl(this, var1);
@@ -443,17 +443,17 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	}
 
-	protected void a(double var1, boolean var3, atr var4, dt var5) {
+	protected void a(double var1, boolean var3, Block var4, Location var5) {
 	}
 
 	public void a(double var1, boolean var3) {
 		int var4 = MathHelper.c(this.s);
 		int var5 = MathHelper.c(this.t - 0.20000000298023224D);
 		int var6 = MathHelper.c(this.u);
-		dt var7 = new dt(var4, var5, var6);
-		atr var8 = this.o.p(var7).c();
-		if (var8.r() == bof.a) {
-			atr var9 = this.o.p(var7.b()).c();
+		Location var7 = new Location(var4, var5, var6);
+		Block var8 = this.o.p(var7).c();
+		if (var8.r() == Material.a) {
+			Block var9 = this.o.p(var7.b()).c();
 			if (var9 instanceof avv || var9 instanceof bbx || var9 instanceof avw) {
 				var7 = var7.b();
 				var8 = this.o.p(var7).c();
@@ -539,7 +539,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(amj var1) {
 		alq var2 = var1.b();
-		if (var2 == amk.bN) {
+		if (var2 == Items.bN) {
 			this.a.a((id) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
 		}
 
@@ -778,8 +778,8 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.a.a((id) (new ko(var1, var2)));
 	}
 
-	public dt c() {
-		return new dt(this.s, this.t + 0.5D, this.u);
+	public Location c() {
+		return new Location(this.s, this.t + 0.5D, this.u);
 	}
 
 	public void z() {

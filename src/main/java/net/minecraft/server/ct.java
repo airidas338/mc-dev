@@ -80,7 +80,7 @@ public class ct extends CommandAbstract {
          } else {
             World var7 = var1.e();
             af var8;
-            dt var9;
+            Location var9;
             bcm var10;
             if(var3) {
                var9 = a(var1, var2, 1, false);
@@ -127,7 +127,7 @@ public class ct extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, ag.c())):a(var2, new String[]{"set", "clear"})));
    }
 

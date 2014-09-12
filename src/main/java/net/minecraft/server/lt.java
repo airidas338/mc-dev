@@ -4,16 +4,16 @@ import org.apache.commons.lang3.StringUtils;
 public class lt implements id {
 
    private String a;
-   private dt b;
+   private Location b;
 
 
    public lt() {}
 
    public lt(String var1) {
-      this(var1, (dt)null);
+      this(var1, (Location)null);
    }
 
-   public lt(String var1, dt var2) {
+   public lt(String var1, Location var2) {
       this.a = var1;
       this.b = var2;
    }
@@ -45,7 +45,7 @@ public class lt implements id {
       return this.a;
    }
 
-   public dt b() {
+   public Location b() {
       return this.b;
    }
 }

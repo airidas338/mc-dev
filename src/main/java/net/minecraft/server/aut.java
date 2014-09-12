@@ -3,10 +3,10 @@ package net.minecraft.server;
 public class aut implements vv {
 
    private final World a;
-   private final dt b;
+   private final Location b;
 
 
-   public aut(World var1, dt var2) {
+   public aut(World var1, Location var2) {
       this.a = var1;
       this.b = var2;
    }

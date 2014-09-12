@@ -172,8 +172,8 @@ public class EntityGuardian extends EntityMonster {
       return this.K * 0.5F;
    }
 
-   public float a(dt var1) {
-      return this.o.p(var1).c().r() == bof.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+   public float a(Location var1) {
+      return this.o.p(var1).c().r() == Material.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() throws IOException {
@@ -185,7 +185,7 @@ public class EntityGuardian extends EntityMonster {
                this.o.a(this.s, this.t, this.u, "mob.guardian.flop", 1.0F, 1.0F, false);
             }
 
-            this.bp = this.w < 0.0D && this.o.d((new dt(this)).b(), false);
+            this.bp = this.w < 0.0D && this.o.d((new Location(this)).b(), false);
          } else if(this.n()) {
             if(this.bk < 0.5F) {
                this.bk = 4.0F;
@@ -285,7 +285,7 @@ public class EntityGuardian extends EntityMonster {
          }
 
          if(!this.ci()) {
-            this.a(new dt(this), 16);
+            this.a(new Location(this), 16);
          }
       }
 
@@ -294,13 +294,13 @@ public class EntityGuardian extends EntityMonster {
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(var2 + 1);
       if(var3 > 0) {
-         this.a(new amj(amk.cC, var3, 0), 1.0F);
+         this.a(new amj(Items.cC, var3, 0), 1.0F);
       }
 
       if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new amj(amk.aU, 1, ali.a.a()), 1.0F);
+         this.a(new amj(Items.aU, 1, ali.a.a()), 1.0F);
       } else if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new amj(amk.cD, 1, 0), 1.0F);
+         this.a(new amj(Items.cD, 1, 0), 1.0F);
       }
 
       if(var1 && this.cl()) {
@@ -310,7 +310,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    protected void bp() {
-      amj var1 = ((adp)vj.a(this.V, ado.j())).a(this.V);
+      amj var1 = ((adp)WeightedRandom.a(this.V, ado.j())).a(this.V);
       this.a(var1, 1.0F);
    }
 
@@ -323,7 +323,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    public boolean bQ() {
-      return (this.V.nextInt(20) == 0 || !this.o.j(new dt(this))) && super.bQ();
+      return (this.V.nextInt(20) == 0 || !this.o.j(new Location(this))) && super.bQ();
    }
 
    public boolean a(DamageSource var1, float var2) {

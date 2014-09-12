@@ -55,7 +55,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    }
 
-   protected void a(dt var1, bec var2) {
+   protected void a(Location var1, IBlock var2) {
       super.a(var1, var2);
       double var3 = this.a * this.a + this.b * this.b;
       if(var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
@@ -97,7 +97,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    public boolean e(EntityHuman var1) {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.h) {
+      if(var2 != null && var2.b() == Items.h) {
          if(!var1.by.d && --var2.b == 0) {
             var1.bg.a(var1.bg.c, (amj)null);
          }
@@ -137,7 +137,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    }
 
-   public bec u() {
+   public IBlock u() {
       return (this.j()?aty.am:aty.al).P().a(awj.a, ej.c);
    }
 }

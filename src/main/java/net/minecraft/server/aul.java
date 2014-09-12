@@ -7,12 +7,12 @@ public class aul extends avb implements atz {
 
 
    public aul() {
-      super(bof.k);
+      super(Material.k);
       this.j(this.L.b().a(N, ej.c).a(a, Integer.valueOf(0)));
       this.a(true);
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
       } else if(var1.s.nextInt(5) == 0) {
@@ -24,9 +24,9 @@ public class aul extends avb implements atz {
 
    }
 
-   public boolean e(World var1, dt var2, bec var3) {
+   public boolean e(World var1, Location var2, IBlock var3) {
       var2 = var2.a((ej)var3.b(N));
-      bec var4 = var1.p(var2);
+      IBlock var4 = var1.p(var2);
       return var4.c() == aty.r && var4.b(ayw.a) == ayx.d;
    }
 
@@ -38,13 +38,13 @@ public class aul extends avb implements atz {
       return false;
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(ard var1, dt var2) {
-      bec var3 = var1.p(var2);
+   public void a(ard var1, Location var2) {
+      IBlock var3 = var1.p(var2);
       ej var4 = (ej)var3.b(N);
       int var5 = ((Integer)var3.b(a)).intValue();
       int var6 = 4 + var5 * 2;
@@ -66,12 +66,12 @@ public class aul extends avb implements atz {
 
    }
 
-   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
       ej var6 = ej.a((double)var4.y);
       var1.a(var2, var3.a(N, var6), 2);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.k().c()) {
          var3 = ej.c;
       }
@@ -79,19 +79,19 @@ public class aul extends avb implements atz {
       return this.P().a(N, var3.d()).a(a, Integer.valueOf(0));
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
       }
 
    }
 
-   private void f(World var1, dt var2, bec var3) {
+   private void f(World var1, Location var2, IBlock var3) {
       var1.a(var2, aty.a.P(), 3);
       this.b(var1, var2, var3, 0);
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       int var6 = ((Integer)var3.b(a)).intValue();
       byte var7 = 1;
       if(var6 >= 2) {
@@ -99,32 +99,32 @@ public class aul extends avb implements atz {
       }
 
       for(int var8 = 0; var8 < var7; ++var8) {
-         a(var1, var2, new amj(amk.aW, 1, akv.m.b()));
+         a(var1, var2, new amj(Items.aW, 1, akv.m.b()));
       }
 
    }
 
-   public int j(World var1, dt var2) {
+   public int j(World var1, Location var2) {
       return akv.m.b();
    }
 
-   public boolean a(World var1, dt var2, bec var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
       return ((Integer)var3.b(a)).intValue() < 2;
    }
 
-   public boolean a(World var1, Random var2, dt var3, bec var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, dt var3, bec var4) {
+   public void b(World var1, Random var2, Location var3, IBlock var4) {
       var1.a(var3, var4.a(a, Integer.valueOf(((Integer)var4.b(a)).intValue() + 1)), 2);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(N, ej.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(N)).b();
       var3 |= ((Integer)var1.b(a)).intValue() << 2;

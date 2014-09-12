@@ -93,13 +93,13 @@ public class ty {
    }
 
    private static void c() {
-      Iterator var0 = atr.c.iterator();
+      Iterator var0 = Block.c.iterator();
 
       while(var0.hasNext()) {
-         atr var1 = (atr)var0.next();
+         Block var1 = (Block)var0.next();
          alq var2 = alq.a(var1);
          if(var2 != null) {
-            int var3 = atr.a(var1);
+            int var3 = Block.a(var1);
             String var4 = a(var2);
             if(var4 != null && var1.I()) {
                H[var3] = (new to("stat.mineBlock.", var4, new hz("stat.mineBlock", new Object[]{(new amj(var1)).C()}), var2)).h();
@@ -149,7 +149,7 @@ public class ty {
    }
 
    private static String a(alq var0) {
-      oa var1 = (oa)alq.e.c(var0);
+      RegistryMaterials var1 = (RegistryMaterials)alq.e.c(var0);
       return var1 != null?var1.toString().replace(':', '.'):null;
    }
 
@@ -170,9 +170,9 @@ public class ty {
       a(var0, aty.ak, aty.d);
    }
 
-   private static void a(tq[] var0, atr var1, atr var2) {
-      int var3 = atr.a(var1);
-      int var4 = atr.a(var2);
+   private static void a(tq[] var0, Block var1, Block var2) {
+      int var3 = Block.a(var1);
+      int var4 = Block.a(var2);
       if(var0[var3] != null && var0[var4] == null) {
          var0[var4] = var0[var3];
       } else {

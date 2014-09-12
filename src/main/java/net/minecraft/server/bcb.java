@@ -10,31 +10,31 @@ public class bcb extends auc {
       this.a(akf.c);
    }
 
-   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
       if(var6 == null || !(var6 instanceof EntityBoat)) {
          super.a(var1, var2, var3, var4, var5, var6);
       }
 
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G);
    }
 
-   protected boolean c(atr var1) {
+   protected boolean c(Block var1) {
       return var1 == aty.j;
    }
 
-   public boolean f(World var1, dt var2, bec var3) {
+   public boolean f(World var1, Location var2, IBlock var3) {
       if(var2.o() >= 0 && var2.o() < 256) {
-         bec var4 = var1.p(var2.b());
-         return var4.c().r() == bof.h && ((Integer)var4.b(axl.b)).intValue() == 0;
+         IBlock var4 = var1.p(var2.b());
+         return var4.c().r() == Material.h && ((Integer)var4.b(axl.b)).intValue() == 0;
       } else {
          return false;
       }
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return 0;
    }
 }

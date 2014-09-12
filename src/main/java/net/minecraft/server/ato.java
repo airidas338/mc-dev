@@ -3,12 +3,12 @@ package net.minecraft.server;
 class ato implements Runnable {
 
    // $FF: synthetic field
-   final dt a;
+   final Location a;
    // $FF: synthetic field
    final atn b;
 
 
-   ato(atn var1, dt var2) {
+   ato(atn var1, Location var2) {
       this.b = var1;
       this.a = var2;
    }

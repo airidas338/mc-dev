@@ -59,11 +59,11 @@ public class aiw extends ajk {
       }
 
       this.b = 0;
-      if(var1.b() == amk.j) {
+      if(var1.b() == Items.j) {
          this.a.b((tq)tl.k);
       }
 
-      if(var1.b() == amk.aV) {
+      if(var1.b() == Items.aV) {
          this.a.b((tq)tl.p);
       }
 

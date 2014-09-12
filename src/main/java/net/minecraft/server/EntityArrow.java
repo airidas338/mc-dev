@@ -7,7 +7,7 @@ public class EntityArrow extends Entity implements aho {
    private int d = -1;
    private int e = -1;
    private int f = -1;
-   private atr g;
+   private Block g;
    private int h;
    private boolean i;
    public int a;
@@ -108,10 +108,10 @@ public class EntityArrow extends Entity implements aho {
          this.B = this.z = (float)(Math.atan2(this.w, (double)var1) * 180.0D / 3.1415927410125732D);
       }
 
-      dt var18 = new dt(this.d, this.e, this.f);
-      bec var2 = this.o.p(var18);
-      atr var3 = var2.c();
-      if(var3.r() != bof.a) {
+      Location var18 = new Location(this.d, this.e, this.f);
+      IBlock var2 = this.o.p(var18);
+      Block var3 = var2.c();
+      if(var3.r() != Material.a) {
          var3.a((ard)this.o, var18);
          AxisAlignedBB var4 = var3.a(this.o, var18, var2);
          if(var4 != null && var4.a(new ChunkCoordinates(this.s, this.t, this.u))) {
@@ -242,7 +242,7 @@ public class EntityArrow extends Entity implements aho {
                   this.aq = 0;
                }
             } else {
-               dt var21 = var6.a();
+               Location var21 = var6.a();
                this.d = var21.n();
                this.e = var21.o();
                this.f = var21.p();
@@ -260,7 +260,7 @@ public class EntityArrow extends Entity implements aho {
                this.i = true;
                this.b = 7;
                this.a(false);
-               if(this.g.r() != bof.a) {
+               if(this.g.r() != Material.a) {
                   this.g.a(this.o, var21, var2, (Entity)this);
                }
             }
@@ -325,7 +325,7 @@ public class EntityArrow extends Entity implements aho {
       var1.a("yTile", (short)this.e);
       var1.a("zTile", (short)this.f);
       var1.a("life", (short)this.ap);
-      oa var2 = (oa)atr.c.c(this.g);
+      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.g);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("inData", (byte)this.h);
       var1.a("shake", (byte)this.b);
@@ -340,9 +340,9 @@ public class EntityArrow extends Entity implements aho {
       this.f = var1.e("zTile");
       this.ap = var1.e("life");
       if(var1.b("inTile", 8)) {
-         this.g = atr.b(var1.j("inTile"));
+         this.g = Block.b(var1.j("inTile"));
       } else {
-         this.g = atr.c(var1.d("inTile") & 255);
+         this.g = Block.c(var1.d("inTile") & 255);
       }
 
       this.h = var1.d("inData") & 255;
@@ -363,7 +363,7 @@ public class EntityArrow extends Entity implements aho {
    public void d(EntityHuman var1) {
       if(!this.o.D && this.i && this.b <= 0) {
          boolean var2 = this.a == 1 || this.a == 2 && var1.by.d;
-         if(this.a == 1 && !var1.bg.a(new amj(amk.g, 1))) {
+         if(this.a == 1 && !var1.bg.a(new amj(Items.g, 1))) {
             var2 = false;
          }
 

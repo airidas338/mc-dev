@@ -13,12 +13,12 @@ public class anh extends alq {
       this.a(true);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
       } else {
-         bec var9 = var3.p(var4);
-         atr var10 = var9.c();
+         IBlock var9 = var3.p(var4);
+         Block var10 = var9.c();
          boolean var11 = var10.f(var3, var4);
          if(!var11) {
             if(!var3.p(var4).c().r().a()) {

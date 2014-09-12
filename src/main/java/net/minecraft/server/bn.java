@@ -23,16 +23,16 @@ public class bn extends CommandAbstract {
          throw new dp("commands.fill.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
-         dt var3 = a(var1, var2, 0, false);
-         dt var4 = a(var1, var2, 3, false);
-         atr var5 = CommandAbstract.g(var1, var2[6]);
+         Location var3 = a(var1, var2, 0, false);
+         Location var4 = a(var1, var2, 3, false);
+         Block var5 = CommandAbstract.g(var1, var2[6]);
          int var6 = 0;
          if(var2.length >= 8) {
             var6 = a(var2[7], 0, 15);
          }
 
-         dt var7 = new dt(Math.min(var3.n(), var4.n()), Math.min(var3.o(), var4.o()), Math.min(var3.p(), var4.p()));
-         dt var8 = new dt(Math.max(var3.n(), var4.n()), Math.max(var3.o(), var4.o()), Math.max(var3.p(), var4.p()));
+         Location var7 = new Location(Math.min(var3.n(), var4.n()), Math.min(var3.o(), var4.o()), Math.min(var3.p(), var4.p()));
+         Location var8 = new Location(Math.max(var3.n(), var4.n()), Math.max(var3.o(), var4.o()), Math.max(var3.p(), var4.p()));
          int var9 = (var8.n() - var7.n() + 1) * (var8.o() - var7.o() + 1) * (var8.p() - var7.p() + 1);
          if(var9 > '\u8000') {
             throw new di("commands.fill.tooManyBlocks", new Object[]{Integer.valueOf(var9), Integer.valueOf('\u8000')});
@@ -41,7 +41,7 @@ public class bn extends CommandAbstract {
 
             for(int var11 = var7.p(); var11 < var8.p() + 16; var11 += 16) {
                for(int var12 = var7.n(); var12 < var8.n() + 16; var12 += 16) {
-                  if(!var10.e(new dt(var12, var8.o() - var7.o(), var11))) {
+                  if(!var10.e(new Location(var12, var8.o() - var7.o(), var11))) {
                      throw new di("commands.fill.outOfWorld", new Object[0]);
                   }
                }
@@ -66,8 +66,8 @@ public class bn extends CommandAbstract {
             for(int var14 = var7.p(); var14 <= var8.p(); ++var14) {
                for(int var15 = var7.o(); var15 <= var8.o(); ++var15) {
                   for(int var16 = var7.n(); var16 <= var8.n(); ++var16) {
-                     dt var17 = new dt(var16, var15, var14);
-                     bec var19;
+                     Location var17 = new Location(var16, var15, var14);
+                     IBlock var19;
                      if(var2.length >= 9) {
                         if(!var2[8].equals("outline") && !var2[8].equals("hollow")) {
                            if(var2[8].equals("destroy")) {
@@ -78,7 +78,7 @@ public class bn extends CommandAbstract {
                               }
                            } else if(var2[8].equals("replace") && !var5.x()) {
                               if(var2.length > 9) {
-                                 atr var18 = CommandAbstract.g(var1, var2[9]);
+                                 Block var18 = CommandAbstract.g(var1, var2[9]);
                                  if(var10.p(var17).c() != var18) {
                                     continue;
                                  }
@@ -131,8 +131,8 @@ public class bn extends CommandAbstract {
             Iterator var25 = var24.iterator();
 
             while(var25.hasNext()) {
-               dt var27 = (dt)var25.next();
-               atr var26 = var10.p(var27).c();
+               Location var27 = (Location)var25.next();
+               Block var26 = var10.p(var27).c();
                var10.b(var27, var26);
             }
 
@@ -148,7 +148,7 @@ public class bn extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length == 7?a(var2, atr.c.c()):(var2.length == 9?a(var2, new String[]{"replace", "destroy", "keep", "hollow", "outline"}):null)));
+   public List a(ae var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length == 7?a(var2, Block.c.c()):(var2.length == 9?a(var2, new String[]{"replace", "destroy", "keep", "hollow", "outline"}):null)));
    }
 }

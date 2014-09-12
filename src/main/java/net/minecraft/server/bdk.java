@@ -25,7 +25,7 @@ class bdk implements ae {
       return true;
    }
 
-   public dt c() {
+   public Location c() {
       return this.a.c;
    }
 

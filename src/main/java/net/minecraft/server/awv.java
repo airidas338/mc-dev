@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-public class awv extends atr {
+public class awv extends Block {
 
    public awv() {
-      super(bof.e);
+      super(Material.e);
       this.a(akf.b);
    }
 
-   public boh g(bec var1) {
+   public boh g(IBlock var1) {
       return boh.q;
    }
 }

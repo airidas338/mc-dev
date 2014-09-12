@@ -115,13 +115,13 @@ public class EntityCreeper extends EntityMonster {
    public void a(DamageSource var1) {
       super.a(var1);
       if(var1.getEntity() instanceof EntitySkeleton) {
-         int var2 = alq.b(amk.cq);
-         int var3 = alq.b(amk.cB);
+         int var2 = alq.b(Items.cq);
+         int var3 = alq.b(Items.cB);
          int var4 = var2 + this.V.nextInt(var3 - var2 + 1);
          this.a(alq.b(var4), 1);
       } else if(var1.getEntity() instanceof EntityCreeper && var1.getEntity() != this && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(amk.bX, 1, 4), 0.0F);
+         this.a(new amj(Items.bX, 1, 4), 0.0F);
       }
 
    }
@@ -135,7 +135,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    protected alq A() {
-      return amk.H;
+      return Items.H;
    }
 
    public int ck() {
@@ -153,7 +153,7 @@ public class EntityCreeper extends EntityMonster {
 
    protected boolean a(EntityHuman var1) throws IOException {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.d) {
+      if(var2 != null && var2.b() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.bv();
          if(!this.o.D) {

@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-class bhe extends dt {
+class bhe extends Location {
 
    private final int b;
 
 
-   public bhe(dt var1, int var2) {
+   public bhe(Location var1, int var2) {
       super(var1.n(), var1.o(), var1.p());
       this.b = var2;
    }

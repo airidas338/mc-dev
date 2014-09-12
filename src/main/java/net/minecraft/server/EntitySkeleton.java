@@ -49,7 +49,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
       return "mob.skeleton.death";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.skeleton.step", 0.15F, 1.0F);
    }
 
@@ -72,7 +72,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
    public void m() throws IOException {
       if(this.o.w() && !this.o.D) {
          float var1 = this.c(1.0F);
-         dt var2 = new dt(this.s, (double)Math.round(this.t), this.u);
+         Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
             amj var4 = this.p(4);
@@ -121,13 +121,13 @@ public class EntitySkeleton extends EntityMonster implements afr {
          }
       } else if(var1.getEntity() instanceof EntityCreeper && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(amk.bX, 1, this.ck() == 1?1:0), 0.0F);
+         this.a(new amj(Items.bX, 1, this.ck() == 1?1:0), 0.0F);
       }
 
    }
 
    protected alq A() {
-      return amk.g;
+      return Items.g;
    }
 
    protected void b(boolean var1, int var2) {
@@ -137,34 +137,34 @@ public class EntitySkeleton extends EntityMonster implements afr {
          var3 = this.V.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(amk.h, 1);
+            this.a(Items.h, 1);
          }
       } else {
          var3 = this.V.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(amk.g, 1);
+            this.a(Items.g, 1);
          }
       }
 
       var3 = this.V.nextInt(3 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(amk.aX, 1);
+         this.a(Items.aX, 1);
       }
 
    }
 
    protected void bp() {
       if(this.ck() == 1) {
-         this.a(new amj(amk.bX, 1, 1), 0.0F);
+         this.a(new amj(Items.bX, 1, 1), 0.0F);
       }
 
    }
 
    protected void a(vu var1) {
       super.a(var1);
-      this.c(0, new amj(amk.f));
+      this.c(0, new amj(Items.f));
    }
 
    public xq a(vu var1, xq var2) {
@@ -172,7 +172,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
       if(this.o.t instanceof bge && this.bb().nextInt(5) > 0) {
          this.i.a(4, this.c);
          this.a(1);
-         this.c(0, new amj(amk.q));
+         this.c(0, new amj(Items.q));
          this.getAttributeInstance(GenericAttributes.e).a(4.0D);
       } else {
          this.i.a(4, this.b);
@@ -196,7 +196,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
       this.i.a((zb)this.c);
       this.i.a((zb)this.b);
       amj var1 = this.bz();
-      if(var1 != null && var1.b() == amk.f) {
+      if(var1 != null && var1.b() == Items.f) {
          this.i.a(4, this.b);
       } else {
          this.i.a(4, this.c);

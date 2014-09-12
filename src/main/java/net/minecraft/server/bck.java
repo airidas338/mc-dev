@@ -76,8 +76,8 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
       int var7;
       for(var7 = var3 + 1; var7 < this.b.V(); ++var7) {
-         dt var8 = new dt(var2, var7, var4);
-         bec var9 = this.b.p(var8);
+         Location var8 = new Location(var2, var7, var4);
+         IBlock var9 = this.b.p(var8);
          float[] var10;
          if(var9.c() == aty.cG) {
             var10 = EntitySheep.a((akv)var9.b(bar.a));
@@ -121,7 +121,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
             for(int var17 = var2 - var7; var17 <= var2 + var7 && var16; ++var17) {
                for(int var11 = var4 - var7; var11 <= var4 + var7; ++var11) {
-                  atr var12 = this.b.p(new dt(var17, var14, var11)).c();
+                  Block var12 = this.b.p(new Location(var17, var14, var11)).c();
                   if(var12 != aty.bT && var12 != aty.R && var12 != aty.ah && var12 != aty.S) {
                      var16 = false;
                      break;
@@ -235,7 +235,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
    public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
-      return var2.b() == amk.bO || var2.b() == amk.i || var2.b() == amk.k || var2.b() == amk.j;
+      return var2.b() == Items.bO || var2.b() == Items.i || var2.b() == Items.k || var2.b() == Items.j;
    }
 
    public String k() {

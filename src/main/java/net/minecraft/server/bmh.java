@@ -16,7 +16,7 @@ public class bmh extends bmg {
       super(0, var2, var3, var4);
    }
 
-   public dt a() {
+   public Location a() {
       return this.b != null?this.b.a():super.a();
    }
 }

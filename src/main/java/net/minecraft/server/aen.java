@@ -56,7 +56,7 @@ class aen extends zb {
 
             if(this.b > 1) {
                float var10 = MathHelper.c(MathHelper.a(var2)) * 0.5F;
-               this.a.o.a((EntityHuman)null, 1009, new dt((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
+               this.a.o.a((EntityHuman)null, 1009, new Location((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
 
                for(int var11 = 0; var11 < 1; ++var11) {
                   EntitySmallFireball var12 = new EntitySmallFireball(this.a.o, this.a, var4 + this.a.bb().nextGaussian() * (double)var10, var6, var8 + this.a.bb().nextGaussian() * (double)var10);

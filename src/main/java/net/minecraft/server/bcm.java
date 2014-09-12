@@ -11,14 +11,14 @@ public abstract class bcm {
    private static Map f = Maps.newHashMap();
    private static Map g = Maps.newHashMap();
    protected World b;
-   protected dt c;
+   protected Location c;
    protected boolean d;
    private int h;
-   protected atr e;
+   protected Block e;
 
 
    public bcm() {
-      this.c = dt.a;
+      this.c = Location.a;
       this.h = -1;
    }
 
@@ -44,7 +44,7 @@ public abstract class bcm {
    }
 
    public void a(fn var1) {
-      this.c = new dt(var1.f("x"), var1.f("y"), var1.f("z"));
+      this.c = new Location(var1.f("x"), var1.f("y"), var1.f("z"));
    }
 
    public void b(fn var1) {
@@ -82,7 +82,7 @@ public abstract class bcm {
 
    public int u() {
       if(this.h == -1) {
-         bec var1 = this.b.p(this.c);
+         IBlock var1 = this.b.p(this.c);
          this.h = var1.c().c(var1);
       }
 
@@ -91,7 +91,7 @@ public abstract class bcm {
 
    public void o_() {
       if(this.b != null) {
-         bec var1 = this.b.p(this.c);
+         IBlock var1 = this.b.p(this.c);
          this.h = var1.c().c(var1);
          this.b.b(this.c, this);
          if(this.w() != aty.a) {
@@ -101,11 +101,11 @@ public abstract class bcm {
 
    }
 
-   public dt v() {
+   public Location v() {
       return this.c;
    }
 
-   public atr w() {
+   public Block w() {
       if(this.e == null) {
          this.e = this.b.p(this.c).c();
       }
@@ -147,7 +147,7 @@ public abstract class bcm {
       }
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       this.c = var1;
    }
 

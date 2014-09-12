@@ -7,7 +7,7 @@ public abstract class EntityFireball extends Entity {
    private int e = -1;
    private int f = -1;
    private int g = -1;
-   private atr h;
+   private Block h;
    private boolean i;
    public EntityLiving a;
    private int ap;
@@ -52,13 +52,13 @@ public abstract class EntityFireball extends Entity {
    }
 
    public void s_() throws IOException {
-      if(!this.o.D && (this.a != null && this.a.I || !this.o.e(new dt(this)))) {
+      if(!this.o.D && (this.a != null && this.a.I || !this.o.e(new Location(this)))) {
          this.J();
       } else {
          super.s_();
          this.e(1);
          if(this.i) {
-            if(this.o.p(new dt(this.e, this.f, this.g)).c() == this.h) {
+            if(this.o.p(new Location(this.e, this.f, this.g)).c() == this.h) {
                ++this.ap;
                if(this.ap == 600) {
                   this.J();
@@ -169,7 +169,7 @@ public abstract class EntityFireball extends Entity {
       var1.a("xTile", (short)this.e);
       var1.a("yTile", (short)this.f);
       var1.a("zTile", (short)this.g);
-      oa var2 = (oa)atr.c.c(this.h);
+      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.h);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("inGround", (byte)(this.i?1:0));
       var1.a("direction", (gd)this.a(new double[]{this.v, this.w, this.x}));
@@ -180,9 +180,9 @@ public abstract class EntityFireball extends Entity {
       this.f = var1.e("yTile");
       this.g = var1.e("zTile");
       if(var1.b("inTile", 8)) {
-         this.h = atr.b(var1.j("inTile"));
+         this.h = Block.b(var1.j("inTile"));
       } else {
-         this.h = atr.c(var1.d("inTile") & 255);
+         this.h = Block.c(var1.d("inTile") & 255);
       }
 
       this.i = var1.d("inGround") == 1;

@@ -14,13 +14,13 @@ public class SecondaryWorldServer extends WorldServer {
    protected void a() {}
 
    public World b() {
-      this.z = this.a.T();
+      this.worldMaps = this.a.T();
       this.C = this.a.Z();
       String var1 = abl.a(this.t);
-      abl var2 = (abl)this.z.a(abl.class, var1);
+      abl var2 = (abl)this.worldMaps.a(abl.class, var1);
       if(var2 == null) {
          this.A = new abl(this);
-         this.z.a(var1, (bqc)this.A);
+         this.worldMaps.a(var1, (bqc)this.A);
       } else {
          this.A = var2;
          this.A.a((World)this);

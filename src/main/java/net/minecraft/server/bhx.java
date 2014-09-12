@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class bhx extends bhp {
 
-   public boolean b(World var1, Random var2, dt var3) {
+   public boolean generate(World var1, Random var2, Location var3) {
       while(var1.d(var3) && var3.o() > 2) {
          var3 = var3.b();
       }
@@ -30,14 +30,14 @@ public class bhx extends bhp {
                for(int var11 = -var8; var11 <= var8; ++var11) {
                   float var12 = (float)MathHelper.a(var11) - 0.25F;
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
-                     atr var13 = var1.p(var3.a(var9, var6, var11)).c();
-                     if(var13.r() == bof.a || var13 == aty.d || var13 == aty.aJ || var13 == aty.aI) {
+                     Block var13 = var1.p(var3.a(var9, var6, var11)).c();
+                     if(var13.r() == Material.a || var13 == aty.d || var13 == aty.aJ || var13 == aty.aI) {
                         this.a(var1, var3.a(var9, var6, var11), aty.cB);
                      }
 
                      if(var6 != 0 && var8 > 1) {
                         var13 = var1.p(var3.a(var9, -var6, var11)).c();
-                        if(var13.r() == bof.a || var13 == aty.d || var13 == aty.aJ || var13 == aty.aI) {
+                        if(var13.r() == Material.a || var13 == aty.d || var13 == aty.aJ || var13 == aty.aI) {
                            this.a(var1, var3.a(var9, -var6, var11), aty.cB);
                         }
                      }
@@ -57,7 +57,7 @@ public class bhx extends bhp {
             var8 = -var6;
 
             while(var8 <= var6) {
-               dt var15 = var3.a(var14, -1, var8);
+               Location var15 = var3.a(var14, -1, var8);
                int var16 = 50;
                if(Math.abs(var14) == 1 && Math.abs(var8) == 1) {
                   var16 = var2.nextInt(5);
@@ -65,8 +65,8 @@ public class bhx extends bhp {
 
                while(true) {
                   if(var15.o() > 50) {
-                     atr var17 = var1.p(var15).c();
-                     if(var17.r() == bof.a || var17 == aty.d || var17 == aty.aJ || var17 == aty.aI || var17 == aty.cB) {
+                     Block var17 = var1.p(var15).c();
+                     if(var17.r() == Material.a || var17 == aty.d || var17 == aty.aJ || var17 == aty.aI || var17 == aty.cB) {
                         this.a(var1, var15, aty.cB);
                         var15 = var15.b();
                         --var16;

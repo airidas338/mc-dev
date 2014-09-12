@@ -48,7 +48,7 @@ public class EntityEndermite extends EntityMonster {
       return "mob.silverfish.kill";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 

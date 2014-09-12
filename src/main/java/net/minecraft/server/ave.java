@@ -10,7 +10,7 @@ public class ave extends atg {
 
 
    protected ave() {
-      super(bof.e);
+      super(Material.e);
       this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
       this.a(akf.d);
    }
@@ -19,12 +19,12 @@ public class ave extends atg {
       return 4;
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2, var3);
    }
 
-   private void e(World var1, dt var2, bec var3) {
+   private void e(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          ej var4 = (ej)var3.b(a);
          boolean var5 = var1.p(var2.c()).c().m();
@@ -47,7 +47,7 @@ public class ave extends atg {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -60,7 +60,7 @@ public class ave extends atg {
       }
    }
 
-   protected void d(World var1, dt var2) {
+   protected void d(World var1, Location var2) {
       ea var3 = new ea(var1, var2);
       bcx var4 = (bcx)var3.h();
       if(var4 != null) {
@@ -83,11 +83,11 @@ public class ave extends atg {
       return (eo)M.a(var1 == null?null:var1.b());
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       boolean var5 = var1.z(var2) || var1.z(var2.a());
       boolean var6 = ((Boolean)var3.b(b)).booleanValue();
       if(var5 && !var6) {
-         var1.a(var2, (atr)this, this.a(var1));
+         var1.a(var2, (Block)this, this.a(var1));
          var1.a(var2, var3.a(b, Boolean.valueOf(true)), 4);
       } else if(!var5 && var6) {
          var1.a(var2, var3.a(b, Boolean.valueOf(false)), 4);
@@ -95,7 +95,7 @@ public class ave extends atg {
 
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!var1.D) {
          this.d(var1, var2);
       }
@@ -106,11 +106,11 @@ public class ave extends atg {
       return new bcx();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, bdq.a(var1, var2, var8)).a(b, Boolean.valueOf(false));
    }
 
-   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
       var1.a(var2, var3.a(a, bdq.a(var1, var2, var4)), 2);
       if(var5.s()) {
          bcm var6 = var1.s(var2);
@@ -121,7 +121,7 @@ public class ave extends atg {
 
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       bcm var4 = var1.s(var2);
       if(var4 instanceof bcx) {
          vs.a(var1, var2, (bcx)var4);
@@ -147,7 +147,7 @@ public class ave extends atg {
       return true;
    }
 
-   public int l(World var1, dt var2) {
+   public int l(World var1, Location var2) {
       return aib.a(var1.s(var2));
    }
 
@@ -155,11 +155,11 @@ public class ave extends atg {
       return 3;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, b(var1)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class blz extends bmk {
 
-   private static final List a = Lists.newArrayList(new vl[]{new vl(amk.aL, 0, 1, 3, 20), new vl(amk.aK, 0, 2, 7, 20), new vl(amk.bV, 0, 1, 1, 1), new vl(amk.aQ, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.aL, 0, 1, 3, 20), new StructurePieceTreaasure(Items.aK, 0, 2, 7, 20), new StructurePieceTreaasure(Items.bV, 0, 1, 1, 1), new StructurePieceTreaasure(Items.aQ, 0, 1, 1, 1)});
    private boolean b;
 
 
@@ -128,10 +128,10 @@ public class blz extends bmk {
             this.a(var1, aty.aa.P(), var8, 8, var9 + 1, var3);
          }
 
-         this.a(var1, var3, var2, 3, 3, 5, vl.a(a, new vl[]{amk.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
+         this.a(var1, var3, var2, 3, 3, 5, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
          if(this.b) {
             this.a(var1, aty.a.P(), 12, 9, 1, var3);
-            this.a(var1, var3, var2, 12, 8, 1, vl.a(a, new vl[]{amk.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
+            this.a(var1, var3, var2, 12, 8, 1, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
          }
 
          return true;

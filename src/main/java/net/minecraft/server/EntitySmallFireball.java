@@ -36,7 +36,7 @@ public class EntitySmallFireball extends EntityFireball {
             }
 
             if(var2) {
-               dt var3 = var1.a().a(var1.b);
+               Location var3 = var1.a().a(var1.b);
                if(this.o.d(var3)) {
                   this.o.a(var3, aty.ab.P());
                }

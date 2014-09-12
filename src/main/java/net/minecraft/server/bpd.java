@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bpd extends bpa {
+public class bpd extends GenLayer {
 
-   public bpd(long var1, bpa var3) {
+   public bpd(long var1, GenLayer var3) {
       super(var1);
       this.a = var3;
    }
@@ -16,8 +16,8 @@ public class bpd extends bpa {
             this.a((long)(var8 + var1), (long)(var7 + var2));
             int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
             if(this.a(57) == 0) {
-               if(var9 == arm.q.az) {
-                  var6[var8 + var7 * var3] = arm.q.az + 128;
+               if(var9 == BiomeBase.q.az) {
+                  var6[var8 + var7 * var3] = BiomeBase.q.az + 128;
                } else {
                   var6[var8 + var7 * var3] = var9;
                }

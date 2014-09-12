@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class ann extends aju {
 
-   private final atr b;
+   private final Block b;
    private String[] c;
 
 
-   public ann(atr var1, boolean var2) {
+   public ann(Block var1, boolean var2) {
       super(var1);
       this.b = var1;
       if(var2) {

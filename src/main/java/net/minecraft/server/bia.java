@@ -7,7 +7,7 @@ public class bia extends bic {
       super(var1, var2, var3, var4, var5);
    }
 
-   public boolean b(World var1, Random var2, dt var3) {
+   public boolean generate(World var1, Random var2, Location var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -23,7 +23,7 @@ public class bia extends bic {
             for(var9 = 0; var9 < 5; ++var9) {
                var7 = var3.n() + (int)(1.5F + MathHelper.cos(var6) * (float)var9);
                var8 = var3.p() + (int)(1.5F + MathHelper.sin(var6) * (float)var9);
-               this.a(var1, new dt(var7, var5 - 3 + var9 / 2, var8), aty.r, this.b);
+               this.a(var1, new Location(var7, var5 - 3 + var9 / 2, var8), aty.r, this.b);
             }
 
             var9 = 1 + var2.nextInt(2);
@@ -31,12 +31,12 @@ public class bia extends bic {
 
             for(int var11 = var5 - var9; var11 <= var10; ++var11) {
                int var12 = var11 - var10;
-               this.b(var1, new dt(var7, var11, var8), 1 - var12);
+               this.b(var1, new Location(var7, var11, var8), 1 - var12);
             }
          }
 
          for(int var13 = 0; var13 < var4; ++var13) {
-            dt var14 = var3.b(var13);
+            Location var14 = var3.b(var13);
             if(this.a(var1.p(var14).c().r())) {
                this.a(var1, var14, aty.r, this.b);
                if(var13 > 0) {
@@ -46,7 +46,7 @@ public class bia extends bic {
             }
 
             if(var13 < var4 - 1) {
-               dt var15 = var14.f();
+               Location var15 = var14.f();
                if(this.a(var1.p(var15).c().r())) {
                   this.a(var1, var15, aty.r, this.b);
                   if(var13 > 0) {
@@ -55,7 +55,7 @@ public class bia extends bic {
                   }
                }
 
-               dt var16 = var14.d().f();
+               Location var16 = var14.d().f();
                if(this.a(var1.p(var16).c().r())) {
                   this.a(var1, var16, aty.r, this.b);
                   if(var13 > 0) {
@@ -64,7 +64,7 @@ public class bia extends bic {
                   }
                }
 
-               dt var17 = var14.d();
+               Location var17 = var14.d();
                if(this.a(var1.p(var17).c().r())) {
                   this.a(var1, var17, aty.r, this.b);
                   if(var13 > 0) {
@@ -79,18 +79,18 @@ public class bia extends bic {
       }
    }
 
-   private boolean a(bof var1) {
-      return var1 == bof.a || var1 == bof.j;
+   private boolean a(Material var1) {
+      return var1 == Material.a || var1 == Material.j;
    }
 
-   private void b(World var1, Random var2, dt var3, int var4) {
+   private void b(World var1, Random var2, Location var3, int var4) {
       if(var2.nextInt(3) > 0 && var1.d(var3)) {
          this.a(var1, var3, aty.bn, var4);
       }
 
    }
 
-   private void c(World var1, dt var2, int var3) {
+   private void c(World var1, Location var2, int var3) {
       byte var4 = 2;
 
       for(int var5 = -var4; var5 <= 0; ++var5) {

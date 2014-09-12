@@ -16,25 +16,25 @@ public class aok {
    }
 
    private aok() {
-      this.a(aty.p, new amj(amk.j), 0.7F);
-      this.a(aty.o, new amj(amk.k), 1.0F);
-      this.a(aty.ag, new amj(amk.i), 1.0F);
-      this.a((atr)aty.m, new amj(aty.w), 0.1F);
-      this.a(amk.al, new amj(amk.am), 0.35F);
-      this.a(amk.bi, new amj(amk.bj), 0.35F);
-      this.a(amk.bk, new amj(amk.bl), 0.35F);
-      this.a(amk.bo, new amj(amk.bp), 0.35F);
-      this.a(amk.bm, new amj(amk.bn), 0.35F);
+      this.a(aty.p, new amj(Items.j), 0.7F);
+      this.a(aty.o, new amj(Items.k), 1.0F);
+      this.a(aty.ag, new amj(Items.i), 1.0F);
+      this.a((Block)aty.m, new amj(aty.w), 0.1F);
+      this.a(Items.al, new amj(Items.am), 0.35F);
+      this.a(Items.bi, new amj(Items.bj), 0.35F);
+      this.a(Items.bk, new amj(Items.bl), 0.35F);
+      this.a(Items.bo, new amj(Items.bp), 0.35F);
+      this.a(Items.bm, new amj(Items.bn), 0.35F);
       this.a(aty.e, new amj(aty.b), 0.1F);
       this.a(new amj(aty.bf, 1, bbc.b), new amj(aty.bf, 1, bbc.N), 0.1F);
-      this.a(amk.aI, new amj(amk.aH), 0.3F);
+      this.a(Items.aI, new amj(Items.aH), 0.3F);
       this.a(aty.aL, new amj(aty.cz), 0.35F);
-      this.a((atr)aty.aK, new amj(amk.aW, 1, akv.n.b()), 0.2F);
-      this.a(aty.r, new amj(amk.h, 1, 1), 0.15F);
-      this.a(aty.s, new amj(amk.h, 1, 1), 0.15F);
-      this.a(aty.bP, new amj(amk.bO), 1.0F);
-      this.a(amk.bS, new amj(amk.bT), 0.35F);
-      this.a(aty.aV, new amj(amk.cf), 0.1F);
+      this.a((Block)aty.aK, new amj(Items.aW, 1, akv.n.b()), 0.2F);
+      this.a(aty.r, new amj(Items.h, 1, 1), 0.15F);
+      this.a(aty.s, new amj(Items.h, 1, 1), 0.15F);
+      this.a(aty.bP, new amj(Items.bO), 1.0F);
+      this.a(Items.bS, new amj(Items.bT), 0.35F);
+      this.a(aty.aV, new amj(Items.cf), 0.1F);
       this.a(new amj(aty.v, 1, 1), new amj(aty.v, 1, 0), 0.15F);
       ali[] var1 = ali.values();
       int var2 = var1.length;
@@ -42,17 +42,17 @@ public class aok {
       for(int var3 = 0; var3 < var2; ++var3) {
          ali var4 = var1[var3];
          if(var4.g()) {
-            this.a(new amj(amk.aU, 1, var4.a()), new amj(amk.aV, 1, var4.a()), 0.35F);
+            this.a(new amj(Items.aU, 1, var4.a()), new amj(Items.aV, 1, var4.a()), 0.35F);
          }
       }
 
-      this.a(aty.q, new amj(amk.h), 0.1F);
-      this.a(aty.aC, new amj(amk.aC), 0.7F);
-      this.a(aty.x, new amj(amk.aW, 1, akv.l.b()), 0.2F);
-      this.a(aty.co, new amj(amk.cg), 0.2F);
+      this.a(aty.q, new amj(Items.h), 0.1F);
+      this.a(aty.aC, new amj(Items.aC), 0.7F);
+      this.a(aty.x, new amj(Items.aW, 1, akv.l.b()), 0.2F);
+      this.a(aty.co, new amj(Items.cg), 0.2F);
    }
 
-   public void a(atr var1, amj var2, float var3) {
+   public void a(Block var1, amj var2, float var3) {
       this.a(alq.a(var1), var2, var3);
    }
 

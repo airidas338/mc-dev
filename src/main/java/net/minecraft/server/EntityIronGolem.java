@@ -35,11 +35,11 @@ public class EntityIronGolem extends EntityGolem {
    protected void E() {
       if(--this.b <= 0) {
          this.b = 70 + this.V.nextInt(50);
-         this.a = this.o.ae().a(new dt(this), 32);
+         this.a = this.o.ae().a(new Location(this), 32);
          if(this.a == null) {
             this.ch();
          } else {
-            dt var1 = this.a.a();
+            Location var1 = this.a.a();
             this.a(var1, (int)((float)this.a.b() * 0.6F));
          }
       }
@@ -79,10 +79,10 @@ public class EntityIronGolem extends EntityGolem {
          int var1 = MathHelper.c(this.s);
          int var2 = MathHelper.c(this.t - 0.20000000298023224D);
          int var3 = MathHelper.c(this.u);
-         bec var4 = this.o.p(new dt(var1, var2, var3));
-         atr var5 = var4.c();
-         if(var5.r() != bof.a) {
-            this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{atr.f(var4)});
+         IBlock var4 = this.o.p(new Location(var1, var2, var3));
+         Block var5 = var4.c();
+         if(var5.r() != Material.a) {
+            this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
          }
       }
 
@@ -132,7 +132,7 @@ public class EntityIronGolem extends EntityGolem {
       return "mob.irongolem.death";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.irongolem.walk", 1.0F, 1.0F);
    }
 
@@ -141,13 +141,13 @@ public class EntityIronGolem extends EntityGolem {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(alq.a((atr)aty.O), 1, (float)awa.b.b());
+         this.a(alq.a((Block)aty.O), 1, (float)EnumFlowerType.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.a(amk.j, 1);
+         this.a(Items.j, 1);
       }
 
    }

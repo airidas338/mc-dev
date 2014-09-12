@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class azi extends atr {
+public class azi extends Block {
 
    public static final bev a = bev.a("variant", azj.class);
    public static final int b = azj.a.a();
@@ -9,16 +9,16 @@ public class azi extends atr {
 
 
    public azi() {
-      super(bof.e);
+      super(Material.e);
       this.j(this.L.b().a(a, azj.a));
       this.a(akf.b);
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((azj)var1.b(a)).a();
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((azj)var1.b(a)).a();
    }
 
@@ -26,7 +26,7 @@ public class azi extends atr {
       return new bed(this, new bex[]{a});
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, azj.a(var1));
    }
 

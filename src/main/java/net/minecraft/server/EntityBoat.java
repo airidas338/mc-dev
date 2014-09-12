@@ -77,7 +77,7 @@ public class EntityBoat extends Entity {
                }
 
                if(!var3) {
-                  this.a(amk.aE, 1, 0.0F);
+                  this.a(Items.aE, 1, 0.0F);
                }
 
                this.J();
@@ -114,7 +114,7 @@ public class EntityBoat extends Entity {
          double var5 = this.aQ().b + (this.aQ().e - this.aQ().b) * (double)(var4 + 0) / (double)var1 - 0.125D;
          double var7 = this.aQ().b + (this.aQ().e - this.aQ().b) * (double)(var4 + 1) / (double)var1 - 0.125D;
          AxisAlignedBB var9 = new AxisAlignedBB(this.aQ().a, var5, this.aQ().c, this.aQ().d, var7, this.aQ().f);
-         if(this.o.b(var9, bof.h)) {
+         if(this.o.b(var9, Material.h)) {
             var2 += 1.0D / (double)var1;
          }
       }
@@ -219,8 +219,8 @@ public class EntityBoat extends Entity {
 
             for(int var25 = 0; var25 < 2; ++var25) {
                int var12 = MathHelper.c(this.t) + var25;
-               dt var27 = new dt(var23, var12, var10);
-               atr var14 = this.o.p(var27).c();
+               Location var27 = new Location(var23, var12, var10);
+               Block var14 = this.o.p(var27).c();
                if(var14 == aty.aH) {
                   this.o.g(var27);
                   this.D = false;
@@ -247,7 +247,7 @@ public class EntityBoat extends Entity {
                }
 
                for(var22 = 0; var22 < 2; ++var22) {
-                  this.a(amk.y, 1, 0.0F);
+                  this.a(Items.y, 1, 0.0F);
                }
             }
          } else {
@@ -318,7 +318,7 @@ public class EntityBoat extends Entity {
       }
    }
 
-   protected void a(double var1, boolean var3, atr var4, dt var5) {
+   protected void a(double var1, boolean var3, Block var4, Location var5) {
       if(var3) {
          if(this.O > 3.0F) {
             this.e(this.O, 1.0F);
@@ -331,13 +331,13 @@ public class EntityBoat extends Entity {
                }
 
                for(var6 = 0; var6 < 2; ++var6) {
-                  this.a(amk.y, 1, 0.0F);
+                  this.a(Items.y, 1, 0.0F);
                }
             }
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new dt(this)).b()).c().r() != bof.h && var1 < 0.0D) {
+      } else if(this.o.p((new Location(this)).b()).c().r() != Material.h && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

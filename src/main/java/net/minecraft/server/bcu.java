@@ -11,7 +11,7 @@ class bcu extends aqf {
       this.a = var1;
    }
 
-   public dt c() {
+   public Location c() {
       return this.a.c;
    }
 

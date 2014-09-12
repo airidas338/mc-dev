@@ -16,7 +16,7 @@ public class zl extends zb {
    }
 
    public boolean a() {
-      dt var1 = new dt(this.a);
+      Location var1 = new Location(this.a);
       if((!this.a.o.w() || this.a.o.S() && !this.a.o.b(var1).e()) && !this.a.o.t.o()) {
          if(this.a.bb().nextInt(50) != 0) {
             return false;
@@ -42,7 +42,7 @@ public class zl extends zb {
 
    public void c() {
       this.c = -1;
-      dt var1 = this.b.e();
+      Location var1 = this.b.e();
       int var2 = var1.n();
       int var3 = var1.o();
       int var4 = var1.p();

@@ -21,7 +21,7 @@ public class aks extends alq {
       this.a(akf.i);
    }
 
-   public float a(amj var1, atr var2) {
+   public float a(amj var1, Block var2) {
       return this.c.contains(var2)?this.a:1.0F;
    }
 
@@ -30,7 +30,7 @@ public class aks extends alq {
       return true;
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
+   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(1, var5);
       }

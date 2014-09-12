@@ -24,14 +24,14 @@ public class EntitySheep extends EntityAnimal {
       this.i.a(0, new yy(this));
       this.i.a(1, new zu(this, 1.25D));
       this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.1D, amk.O, false));
+      this.i.a(3, new aag(this, 1.1D, Items.O, false));
       this.i.a(4, new za(this, 1.1D));
       this.i.a(5, this.bo);
       this.i.a(6, new zy(this, 1.0D));
       this.i.a(7, new zh(this, EntityHuman.class, 6.0F));
       this.i.a(8, new zx(this));
-      this.bk.a(0, new amj(amk.aW, 1, 0));
-      this.bk.a(1, new amj(amk.aW, 1, 0));
+      this.bk.a(0, new amj(Items.aW, 1, 0));
+      this.bk.a(1, new amj(Items.aW, 1, 0));
    }
 
    protected void E() {
@@ -67,9 +67,9 @@ public class EntitySheep extends EntityAnimal {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.au()) {
-            this.a(amk.bn, 1);
+            this.a(Items.bn, 1);
          } else {
-            this.a(amk.bm, 1);
+            this.a(Items.bm, 1);
          }
       }
 
@@ -81,7 +81,7 @@ public class EntitySheep extends EntityAnimal {
 
    public boolean a(EntityHuman var1) throws IOException {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.be && !this.ck() && !this.i_()) {
+      if(var2 != null && var2.b() == Items.be && !this.ck() && !this.i_()) {
          if(!this.o.D) {
             this.l(true);
             int var3 = 1 + this.V.nextInt(3);
@@ -125,7 +125,7 @@ public class EntitySheep extends EntityAnimal {
       return "mob.sheep.say";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.sheep.step", 0.15F, 1.0F);
    }
 
@@ -185,7 +185,7 @@ public class EntitySheep extends EntityAnimal {
       this.bk.a(1).b(var4);
       amj var5 = aop.a().a(this.bk, ((EntitySheep)var1).o);
       int var6;
-      if(var5 != null && var5.b() == amk.aW) {
+      if(var5 != null && var5.b() == Items.aW) {
          var6 = var5.i();
       } else {
          var6 = this.o.s.nextBoolean()?var3:var4;

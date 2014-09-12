@@ -19,7 +19,7 @@ class aei extends aqi {
       return this.a.o;
    }
 
-   public dt b() {
-      return new dt(this.a);
+   public Location b() {
+      return new Location(this.a);
    }
 }

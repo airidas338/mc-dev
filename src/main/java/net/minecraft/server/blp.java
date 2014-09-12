@@ -21,11 +21,11 @@ public class blp extends bmm {
       this.h = 32.0D;
       this.i = 3;
       this.d = Lists.newArrayList();
-      arm[] var1 = arm.n();
+      BiomeBase[] var1 = BiomeBase.n();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         arm var4 = var1[var3];
+         BiomeBase var4 = var1[var3];
          if(var4 != null && var4.an > 0.0F) {
             this.d.add(var4);
          }
@@ -65,7 +65,7 @@ public class blp extends bmm {
             double var8 = (1.25D * (double)var6 + var3.nextDouble()) * this.h * (double)var6;
             int var10 = (int)Math.round(Math.cos(var4) * var8);
             int var11 = (int)Math.round(Math.sin(var4) * var8);
-            dt var12 = this.c.v().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
+            Location var12 = this.c.v().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
             if(var12 != null) {
                var10 = var12.n() >> 4;
                var11 = var12.p() >> 4;

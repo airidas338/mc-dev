@@ -382,10 +382,10 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
       for(int var10 = var2; var10 <= var5; ++var10) {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
-               atr var13 = this.o.p(new dt(var10, var11, var12)).c();
-               if(var13.r() != bof.a) {
+               Block var13 = this.o.p(new Location(var10, var11, var12)).c();
+               if(var13.r() != Material.a) {
                   if(var13 != aty.cv && var13 != aty.Z && var13 != aty.bH && var13 != aty.h && var13 != aty.bX && this.o.Q().b("mobGriefing")) {
-                     var9 = this.o.g(new dt(var10, var11, var12)) || var9;
+                     var9 = this.o.g(new Location(var10, var11, var12)) || var9;
                   } else {
                      var8 = true;
                   }
@@ -462,7 +462,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
          }
 
          if(this.bw == 1) {
-            this.o.a(1018, new dt(this), 0);
+            this.o.a(1018, new Location(this), 0);
          }
       }
 
@@ -477,13 +477,13 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
             this.o.d((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var5)));
          }
 
-         this.a(new dt(this.s, 64.0D, this.u));
+         this.a(new Location(this.s, 64.0D, this.u));
          this.J();
       }
 
    }
 
-   private void a(dt var1) {
+   private void a(Location var1) {
       boolean var2 = true;
       double var3 = 12.25D;
       double var5 = 6.25D;
@@ -493,7 +493,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
             for(int var9 = -4; var9 <= 4; ++var9) {
                double var10 = (double)(var8 * var8 + var9 * var9);
                if(var10 <= 12.25D) {
-                  dt var12 = var1.a(var8, var7, var9);
+                  Location var12 = var1.a(var8, var7, var9);
                   if(var7 < 0) {
                      if(var10 <= 6.25D) {
                         this.o.a(var12, aty.h.P());
@@ -512,7 +512,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
 
       this.o.a(var1, aty.h.P());
       this.o.a(var1.a(), aty.h.P());
-      dt var13 = var1.b(2);
+      Location var13 = var1.b(2);
       this.o.a(var13, aty.h.P());
       this.o.a(var13.e(), aty.aa.P().a(bbl.a, ej.f));
       this.o.a(var13.f(), aty.aa.P().a(bbl.a, ej.e));

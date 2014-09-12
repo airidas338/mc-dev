@@ -46,7 +46,7 @@ public class zk extends zb {
 
    public boolean b() {
       EntityLiving var1 = this.b.u();
-      return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.s().m():this.b.d(new dt(var1))));
+      return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.s().m():this.b.d(new Location(var1))));
    }
 
    public void c() {

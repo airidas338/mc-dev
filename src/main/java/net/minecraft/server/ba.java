@@ -24,9 +24,9 @@ public class ba extends CommandAbstract {
          throw new dp("commands.clone.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
-         dt var3 = a(var1, var2, 0, false);
-         dt var4 = a(var1, var2, 3, false);
-         dt var5 = a(var1, var2, 6, false);
+         Location var3 = a(var1, var2, 0, false);
+         Location var4 = a(var1, var2, 3, false);
+         Location var5 = a(var1, var2, 6, false);
          bjb var6 = new bjb(var3, var4);
          bjb var7 = new bjb(var5, var5.a(var6.b()));
          int var8 = var6.c() * var6.d() * var6.e();
@@ -34,7 +34,7 @@ public class ba extends CommandAbstract {
             throw new di("commands.clone.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf('\u8000')});
          } else {
             boolean var9 = false;
-            atr var10 = null;
+            Block var10 = null;
             int var11 = -1;
             if((var2.length < 11 || !var2[10].equals("force") && !var2[10].equals("move")) && var6.a(var7)) {
                throw new di("commands.clone.noOverlap", new Object[0]);
@@ -66,14 +66,14 @@ public class ba extends CommandAbstract {
                      ArrayList var15 = Lists.newArrayList();
                      ArrayList var16 = Lists.newArrayList();
                      LinkedList var17 = Lists.newLinkedList();
-                     dt var18 = new dt(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
+                     Location var18 = new Location(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
 
                      for(int var19 = var6.c; var19 <= var6.f; ++var19) {
                         for(int var20 = var6.b; var20 <= var6.e; ++var20) {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
-                              dt var22 = new dt(var21, var20, var19);
-                              dt var23 = var22.a((fd)var18);
-                              bec var24 = var12.p(var22);
+                              Location var22 = new Location(var21, var20, var19);
+                              Location var23 = var22.a((fd)var18);
+                              IBlock var24 = var12.p(var22);
                               if((!var13 || var24.c() != aty.a) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
                                  bcm var25 = var12.s(var22);
                                  if(var25 != null) {
@@ -94,10 +94,10 @@ public class ba extends CommandAbstract {
                      }
 
                      if(var9) {
-                        dt var27;
+                        Location var27;
                         Iterator var29;
                         for(var29 = var17.iterator(); var29.hasNext(); var12.a(var27, aty.cv.P(), 2)) {
-                           var27 = (dt)var29.next();
+                           var27 = (Location)var29.next();
                            bcm var34 = var12.s(var27);
                            if(var34 instanceof vq) {
                               ((vq)var34).l();
@@ -107,7 +107,7 @@ public class ba extends CommandAbstract {
                         var29 = var17.iterator();
 
                         while(var29.hasNext()) {
-                           var27 = (dt)var29.next();
+                           var27 = (Location)var29.next();
                            var12.a(var27, aty.a.P(), 3);
                         }
                      }
@@ -163,9 +163,9 @@ public class ba extends CommandAbstract {
                         Iterator var36 = var32.iterator();
 
                         while(var36.hasNext()) {
-                           ark var37 = (ark)var36.next();
+                           NextTickListEntry var37 = (NextTickListEntry)var36.next();
                            if(var6.b((fd)var37.a)) {
-                              dt var38 = var37.a.a((fd)var18);
+                              Location var38 = var37.a.a((fd)var18);
                               var12.b(var38, var37.a(), (int)(var37.b - var12.P().f()), var37.c);
                            }
                         }
@@ -188,7 +188,7 @@ public class ba extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, atr.c.c()):null)))));
+   public List a(ae var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.c.c()):null)))));
    }
 }

@@ -16,7 +16,7 @@ public class cn extends CommandAbstract {
    }
 
    public void a(ae var1, String[] var2) throws di {
-      dt var3;
+      Location var3;
       if(var2.length == 0) {
          var3 = b(var1).c();
       } else {
@@ -32,7 +32,7 @@ public class cn extends CommandAbstract {
       a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

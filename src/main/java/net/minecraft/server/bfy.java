@@ -244,9 +244,9 @@ public class bfy implements bfq, brq {
          Iterator var28 = var24.iterator();
 
          while(var28.hasNext()) {
-            ark var29 = (ark)var28.next();
+            NextTickListEntry var29 = (NextTickListEntry)var28.next();
             fn var31 = new fn();
-            oa var30 = (oa)atr.c.c(var29.a());
+            RegistryMaterials var30 = (RegistryMaterials)Block.c.c(var29.a());
             var31.a("i", var30 == null?"":var30.toString());
             var31.a("x", var29.a.n());
             var31.a("y", var29.a.o());
@@ -345,14 +345,14 @@ public class bfy implements bfq, brq {
          if(var31 != null) {
             for(int var29 = 0; var29 < var31.c(); ++var29) {
                fn var34 = var31.b(var29);
-               atr var37;
+               Block var37;
                if(var34.b("i", 8)) {
-                  var37 = atr.b(var34.j("i"));
+                  var37 = Block.b(var34.j("i"));
                } else {
-                  var37 = atr.c(var34.f("i"));
+                  var37 = Block.c(var34.f("i"));
                }
 
-               var1.b(new dt(var34.f("x"), var34.f("y"), var34.f("z")), var37, var34.f("t"), var34.f("p"));
+               var1.b(new Location(var34.f("x"), var34.f("y"), var34.f("z")), var37, var34.f("t"), var34.f("p"));
             }
          }
       }

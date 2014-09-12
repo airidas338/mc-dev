@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bph extends bpa {
+public class bph extends GenLayer {
 
-   public bph(long var1, bpa var3) {
+   public bph(long var1, GenLayer var3) {
       super(var1);
       super.a = var3;
    }
@@ -25,7 +25,7 @@ public class bph extends bpa {
             if(var17 == var13 && var17 == var15 && var17 == var14 && var17 == var16) {
                var10[var12 + var11 * var3] = -1;
             } else {
-               var10[var12 + var11 * var3] = arm.w.az;
+               var10[var12 + var11 * var3] = BiomeBase.w.az;
             }
          }
       }

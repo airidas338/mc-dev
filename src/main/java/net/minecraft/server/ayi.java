@@ -10,8 +10,8 @@ public class ayi extends axm {
       this.j(this.L.b().a(b, ayx.e).a(a, axo.b));
    }
 
-   public bec a(int var1) {
-      bec var2 = this.P().a(b, ayx.a((var1 & 3) + 4));
+   public IBlock a(int var1) {
+      IBlock var2 = this.P().a(b, ayx.a((var1 & 3) + 4));
       switch(var1 & 12) {
       case 0:
          var2 = var2.a(a, axo.b);
@@ -29,7 +29,7 @@ public class ayi extends axm {
       return var2;
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ayx)var1.b(b)).a() - 4;
       switch(ayk.a[((axo)var1.b(a)).ordinal()]) {
@@ -50,11 +50,11 @@ public class ayi extends axm {
       return new bed(this, new bex[]{b, a});
    }
 
-   protected amj i(bec var1) {
-      return new amj(alq.a((atr)this), 1, ((ayx)var1.b(b)).a() - 4);
+   protected amj i(IBlock var1) {
+      return new amj(alq.a((Block)this), 1, ((ayx)var1.b(b)).a() - 4);
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((ayx)var1.b(b)).a() - 4;
    }
 

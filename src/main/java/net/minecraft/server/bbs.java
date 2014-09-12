@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class bbs extends atr {
+public class bbs extends Block {
 
    public static final bet a = bet.a("powered");
    public static final bet b = bet.a("suspended");
@@ -16,17 +16,17 @@ public class bbs extends atr {
 
 
    public bbs() {
-      super(bof.q);
+      super(Material.q);
       this.j(this.L.b().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false)).a(Q, Boolean.valueOf(false)).a(R, Boolean.valueOf(false)));
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.15625F, 1.0F);
       this.a(true);
    }
 
-   public bec a(bec var1, ard var2, dt var3) {
+   public IBlock a(IBlock var1, ard var2, Location var3) {
       return var1.a(O, Boolean.valueOf(c(var2, var3, var1, ej.c))).a(P, Boolean.valueOf(c(var2, var3, var1, ej.f))).a(Q, Boolean.valueOf(c(var2, var3, var1, ej.d))).a(R, Boolean.valueOf(c(var2, var3, var1, ej.e)));
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -38,11 +38,11 @@ public class bbs extends atr {
       return false;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.F;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.F;
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       boolean var5 = ((Boolean)var3.b(b)).booleanValue();
       boolean var6 = !World.a((ard)var1, var2.b());
       if(var5 != var6) {
@@ -52,8 +52,8 @@ public class bbs extends atr {
 
    }
 
-   public void a(ard var1, dt var2) {
-      bec var3 = var1.p(var2);
+   public void a(ard var1, Location var2) {
+      IBlock var3 = var1.p(var2);
       boolean var4 = ((Boolean)var3.b(M)).booleanValue();
       boolean var5 = ((Boolean)var3.b(b)).booleanValue();
       if(!var5) {
@@ -66,26 +66,26 @@ public class bbs extends atr {
 
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       var3 = var3.a(b, Boolean.valueOf(!World.a((ard)var1, var2.b())));
       var1.a(var2, var3, 3);
       this.e(var1, var2, var3);
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       this.e(var1, var2, var3.a(a, Boolean.valueOf(true)));
    }
 
-   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       if(!var1.D) {
-         if(var4.bY() != null && var4.bY().b() == amk.be) {
+         if(var4.bY() != null && var4.bY().b() == Items.be) {
             var1.a(var2, var3.a(N, Boolean.valueOf(true)), 4);
          }
 
       }
    }
 
-   private void e(World var1, dt var2, bec var3) {
+   private void e(World var1, Location var2, IBlock var3) {
       ej[] var4 = new ej[]{ej.d, ej.e};
       int var5 = var4.length;
       int var6 = 0;
@@ -96,8 +96,8 @@ public class bbs extends atr {
 
          while(true) {
             if(var8 < 42) {
-               dt var9 = var2.a(var7, var8);
-               bec var10 = var1.p(var9);
+               Location var9 = var2.a(var7, var8);
+               IBlock var10 = var1.p(var9);
                if(var10.c() == aty.bR) {
                   if(var10.b(bbt.a) == var7.d()) {
                      aty.bR.a(var1, var9, var10, false, true, var8, var3);
@@ -115,7 +115,7 @@ public class bbs extends atr {
 
    }
 
-   public void a(World var1, dt var2, bec var3, Entity var4) {
+   public void a(World var1, Location var2, IBlock var3, Entity var4) {
       if(!var1.D) {
          if(!((Boolean)var3.b(a)).booleanValue()) {
             this.d(var1, var2);
@@ -123,9 +123,9 @@ public class bbs extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, Random var4) {}
+   public void a(World var1, Location var2, IBlock var3, Random var4) {}
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!var1.D) {
          if(((Boolean)var1.p(var2).b(a)).booleanValue()) {
             this.d(var1, var2);
@@ -133,8 +133,8 @@ public class bbs extends atr {
       }
    }
 
-   private void d(World var1, dt var2) {
-      bec var3 = var1.p(var2);
+   private void d(World var1, Location var2) {
+      IBlock var3 = var1.p(var2);
       boolean var4 = ((Boolean)var3.b(a)).booleanValue();
       boolean var5 = false;
       List var6 = var1.b((Entity)null, new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
@@ -157,15 +157,15 @@ public class bbs extends atr {
       }
 
       if(var5) {
-         var1.a(var2, (atr)this, this.a(var1));
+         var1.a(var2, (Block)this, this.a(var1));
       }
 
    }
 
-   public static boolean c(ard var0, dt var1, bec var2, ej var3) {
-      dt var4 = var1.a(var3);
-      bec var5 = var0.p(var4);
-      atr var6 = var5.c();
+   public static boolean c(ard var0, Location var1, IBlock var2, ej var3) {
+      Location var4 = var1.a(var3);
+      IBlock var5 = var0.p(var4);
+      Block var6 = var5.c();
       if(var6 == aty.bR) {
          ej var9 = var3.d();
          return var5.b(bbt.a) == var9;
@@ -178,11 +178,11 @@ public class bbs extends atr {
       }
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Boolean.valueOf((var1 & 1) > 0)).a(b, Boolean.valueOf((var1 & 2) > 0)).a(M, Boolean.valueOf((var1 & 4) > 0)).a(N, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       int var2 = 0;
       if(((Boolean)var1.b(a)).booleanValue()) {
          var2 |= 1;

@@ -67,7 +67,7 @@ public class df extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"on", "off", "list", "add", "remove", "reload"});
       } else {

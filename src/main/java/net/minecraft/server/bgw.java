@@ -12,7 +12,7 @@ public class bgw implements bfe {
    public bnv b;
    private World l;
    private double[] m;
-   private arm[] n;
+   private BiomeBase[] n;
    double[] c;
    double[] d;
    double[] e;
@@ -63,7 +63,7 @@ public class bgw implements bfe {
                      double var45 = (var34 - var32) * var41;
 
                      for(int var47 = 0; var47 < 8; ++var47) {
-                        bec var48 = null;
+                        IBlock var48 = null;
                         if(var43 > 0.0D) {
                            var48 = aty.bH.P();
                         }
@@ -95,12 +95,12 @@ public class bgw implements bfe {
          for(int var3 = 0; var3 < 16; ++var3) {
             byte var4 = 1;
             int var5 = -1;
-            bec var6 = aty.bH.P();
-            bec var7 = aty.bH.P();
+            IBlock var6 = aty.bH.P();
+            IBlock var7 = aty.bH.P();
 
             for(int var8 = 127; var8 >= 0; --var8) {
-               bec var9 = var1.a(var2, var8, var3);
-               if(var9.c().r() == bof.a) {
+               IBlock var9 = var1.a(var2, var8, var3);
+               if(var9.c().r() == Material.a) {
                   var5 = -1;
                } else if(var9.c() == aty.b) {
                   if(var5 == -1) {
@@ -215,7 +215,7 @@ public class bgw implements bfe {
 
    public void a(bfe var1, int var2, int var3) {
       avt.M = true;
-      dt var4 = new dt(var2 * 16, 0, var3 * 16);
+      Location var4 = new Location(var2 * 16, 0, var3 * 16);
       this.l.b(var4.a(16, 0, 16)).a(this.l, this.l.s, var4);
       avt.M = false;
    }
@@ -224,7 +224,7 @@ public class bgw implements bfe {
       return false;
    }
 
-   public boolean a(boolean var1, uy var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
@@ -242,11 +242,11 @@ public class bgw implements bfe {
       return "RandomLevelSource";
    }
 
-   public List a(xp var1, dt var2) {
+   public List a(EnumCreatureType var1, Location var2) {
       return this.l.b(var2).a(var1);
    }
 
-   public dt a(World var1, String var2, dt var3) {
+   public Location a(World var1, String var2, Location var3) {
       return null;
    }
 
@@ -256,7 +256,7 @@ public class bgw implements bfe {
 
    public void a(bfh var1, int var2, int var3) {}
 
-   public bfh a(dt var1) {
+   public bfh a(Location var1) {
       return this.d(var1.n() >> 4, var1.p() >> 4);
    }
 }

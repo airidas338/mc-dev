@@ -8,7 +8,7 @@ public class awd extends atg {
 
 
    public awd() {
-      super(bof.q);
+      super(Material.q);
       this.j(this.L.b().a(b, awf.a).a(a, Integer.valueOf(0)));
       this.h();
    }
@@ -31,7 +31,7 @@ public class awd extends atg {
       return false;
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       amj var9 = var4.bg.h();
       if(var9 != null && var9.b() instanceof aju) {
          bdb var10 = this.d(var1, var2);
@@ -40,7 +40,7 @@ public class awd extends atg {
          } else if(var10.b() != null) {
             return false;
          } else {
-            atr var11 = atr.a(var9.b());
+            Block var11 = Block.a(var9.b());
             if(!this.a(var11, var9.i())) {
                return false;
             } else {
@@ -59,20 +59,20 @@ public class awd extends atg {
       }
    }
 
-   private boolean a(atr var1, int var2) {
+   private boolean a(Block var1, int var2) {
       return var1 != aty.N && var1 != aty.O && var1 != aty.aK && var1 != aty.P && var1 != aty.Q && var1 != aty.g && var1 != aty.I?var1 == aty.H && var2 == bbi.c.a():true;
    }
 
-   public int j(World var1, dt var2) {
+   public int j(World var1, Location var2) {
       bdb var3 = this.d(var1, var2);
       return var3 != null && var3.b() != null?var3.c():0;
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return super.c(var1, var2) && World.a((ard)var1, var2.b());
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!World.a((ard)var1, var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -80,7 +80,7 @@ public class awd extends atg {
 
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       bdb var4 = this.d(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new amj(var4.b(), 1, var4.c()));
@@ -89,7 +89,7 @@ public class awd extends atg {
       super.b(var1, var2, var3);
    }
 
-   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
       if(var4.by.d) {
          bdb var5 = this.d(var1, var2);
@@ -100,11 +100,11 @@ public class awd extends atg {
 
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.bQ;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.bQ;
    }
 
-   private bdb d(World var1, dt var2) {
+   private bdb d(World var1, Location var2) {
       bcm var3 = var1.s(var2);
       return var3 instanceof bdb?(bdb)var3:null;
    }
@@ -115,7 +115,7 @@ public class awd extends atg {
       switch(var2) {
       case 1:
          var3 = aty.O;
-         var4 = awa.b.b();
+         var4 = EnumFlowerType.b.b();
          break;
       case 2:
          var3 = aty.N;
@@ -161,18 +161,18 @@ public class awd extends atg {
          var4 = ayx.f.a();
       }
 
-      return new bdb(alq.a((atr)var3), var4);
+      return new bdb(alq.a((Block)var3), var4);
    }
 
    protected bed e() {
       return new bed(this, new bex[]{b, a});
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 
-   public bec a(bec var1, ard var2, dt var3) {
+   public IBlock a(IBlock var1, ard var2, Location var3) {
       awf var4 = awf.a;
       bcm var5 = var2.s(var3);
       if(var5 instanceof bdb) {
@@ -180,7 +180,7 @@ public class awd extends atg {
          alq var7 = var6.b();
          if(var7 instanceof aju) {
             int var8 = var6.c();
-            atr var9 = atr.a(var7);
+            Block var9 = Block.a(var7);
             if(var9 == aty.g) {
                switch(awe.a[ayx.a(var8).ordinal()]) {
                case 1:
@@ -218,7 +218,7 @@ public class awd extends atg {
             } else if(var9 == aty.N) {
                var4 = awf.k;
             } else if(var9 == aty.O) {
-               switch(awe.b[awa.a(awc.b, var8).ordinal()]) {
+               switch(awe.b[EnumFlowerType.a(awc.b, var8).ordinal()]) {
                case 1:
                   var4 = awf.b;
                   break;

@@ -7,10 +7,10 @@ public class bay extends auc implements atz {
 
    public static final bew a = bew.a("age", 0, 7);
    public static final beu b = beu.a("facing", (Predicate)(new baz()));
-   private final atr M;
+   private final Block M;
 
 
-   protected bay(atr var1) {
+   protected bay(Block var1) {
       this.j(this.L.b().a(a, Integer.valueOf(0)).a(b, ej.b));
       this.M = var1;
       this.a(true);
@@ -19,7 +19,7 @@ public class bay extends auc implements atz {
       this.a((akf)null);
    }
 
-   public bec a(bec var1, ard var2, dt var3) {
+   public IBlock a(IBlock var1, ard var2, Location var3) {
       var1 = var1.a(b, ej.b);
       Iterator var4 = en.a.iterator();
 
@@ -34,11 +34,11 @@ public class bay extends auc implements atz {
       return var1;
    }
 
-   protected boolean c(atr var1) {
+   protected boolean c(Block var1) {
       return var1 == aty.ak;
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       super.b(var1, var2, var3, var4);
       if(var1.l(var2.a()) >= 9) {
          float var5 = auu.a(this, var1, var2);
@@ -58,8 +58,8 @@ public class bay extends auc implements atz {
                }
 
                var2 = var2.a(en.a.a(var4));
-               atr var9 = var1.p(var2.b()).c();
-               if(var1.p(var2).c().J == bof.a && (var9 == aty.ak || var9 == aty.d || var9 == aty.c)) {
+               Block var9 = var1.p(var2.b()).c();
+               if(var1.p(var2).c().J == Material.a && (var9 == aty.ak || var9 == aty.d || var9 == aty.c)) {
                   var1.a(var2, this.M.P());
                }
             }
@@ -68,7 +68,7 @@ public class bay extends auc implements atz {
       }
    }
 
-   public void g(World var1, dt var2, bec var3) {
+   public void g(World var1, Location var2, IBlock var3) {
       int var4 = ((Integer)var3.b(a)).intValue() + MathHelper.a(var1.s, 2, 5);
       var1.a(var2, var3.a(a, Integer.valueOf(Math.min(7, var4))), 2);
    }
@@ -78,13 +78,13 @@ public class bay extends auc implements atz {
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.25F, 0.5F + var1);
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       this.F = (double)((float)(((Integer)var1.p(var2).b(a)).intValue() * 2 + 2) / 16.0F);
       float var3 = 0.125F;
       this.a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, (float)this.F, 0.5F + var3);
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       if(!var1.D) {
          alq var6 = this.j();
@@ -102,30 +102,30 @@ public class bay extends auc implements atz {
    }
 
    protected alq j() {
-      return this.M == aty.aU?amk.bg:(this.M == aty.bk?amk.bh:null);
+      return this.M == aty.aU?Items.bg:(this.M == aty.bk?Items.bh:null);
    }
 
-   public alq a(bec var1, Random var2, int var3) {
+   public alq a(IBlock var1, Random var2, int var3) {
       return null;
    }
 
-   public boolean a(World var1, dt var2, bec var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
       return ((Integer)var3.b(a)).intValue() != 7;
    }
 
-   public boolean a(World var1, Random var2, dt var3, bec var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, dt var3, bec var4) {
+   public void b(World var1, Random var2, Location var3, IBlock var4) {
       this.g(var1, var3, var4);
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

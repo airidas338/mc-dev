@@ -9,8 +9,8 @@ public class abi {
 
    private World a;
    private final List b = Lists.newArrayList();
-   private dt c;
-   private dt d;
+   private Location c;
+   private Location d;
    private int e;
    private int f;
    private int g;
@@ -22,15 +22,15 @@ public class abi {
 
 
    public abi() {
-      this.c = dt.a;
-      this.d = dt.a;
+      this.c = Location.a;
+      this.d = Location.a;
       this.j = new TreeMap();
       this.k = Lists.newArrayList();
    }
 
    public abi(World var1) {
-      this.c = dt.a;
-      this.d = dt.a;
+      this.c = Location.a;
+      this.d = Location.a;
       this.j = new TreeMap();
       this.k = Lists.newArrayList();
       this.a = var1;
@@ -65,10 +65,10 @@ public class abi {
 
    }
 
-   private ChunkCoordinates a(dt var1, int var2, int var3, int var4) {
+   private ChunkCoordinates a(Location var1, int var2, int var3, int var4) {
       for(int var5 = 0; var5 < 10; ++var5) {
-         dt var6 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
-         if(this.a(var6) && this.a(new dt(var2, var3, var4), var6)) {
+         Location var6 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         if(this.a(var6) && this.a(new Location(var2, var3, var4), var6)) {
             return new ChunkCoordinates((double)var6.n(), (double)var6.o(), (double)var6.p());
          }
       }
@@ -76,7 +76,7 @@ public class abi {
       return null;
    }
 
-   private boolean a(dt var1, dt var2) {
+   private boolean a(Location var1, Location var2) {
       if(!World.a((ard)this.a, var2.b())) {
          return false;
       } else {
@@ -86,7 +86,7 @@ public class abi {
          for(int var5 = var3; var5 < var3 + var1.n(); ++var5) {
             for(int var6 = var2.o(); var6 < var2.o() + var1.o(); ++var6) {
                for(int var7 = var4; var7 < var4 + var1.p(); ++var7) {
-                  if(this.a.p(new dt(var5, var6, var7)).c().t()) {
+                  if(this.a.p(new Location(var5, var6, var7)).c().t()) {
                      return false;
                   }
                }
@@ -111,7 +111,7 @@ public class abi {
 
    }
 
-   public dt a() {
+   public Location a() {
       return this.d;
    }
 
@@ -131,7 +131,7 @@ public class abi {
       return this.h;
    }
 
-   public boolean a(dt var1) {
+   public boolean a(Location var1) {
       return this.d.i(var1) < (double)(this.e * this.e);
    }
 
@@ -139,7 +139,7 @@ public class abi {
       return this.b;
    }
 
-   public abh b(dt var1) {
+   public abh b(Location var1) {
       abh var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
@@ -156,7 +156,7 @@ public class abi {
       return var2;
    }
 
-   public abh c(dt var1) {
+   public abh c(Location var1) {
       abh var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
@@ -179,7 +179,7 @@ public class abi {
       return var2;
    }
 
-   public abh e(dt var1) {
+   public abh e(Location var1) {
       if(this.d.i(var1) > (double)(this.e * this.e)) {
          return null;
       } else {
@@ -300,18 +300,18 @@ public class abi {
 
    }
 
-   private boolean f(dt var1) {
-      atr var2 = this.a.p(var1).c();
-      return var2 instanceof avf?var2.r() == bof.d:false;
+   private boolean f(Location var1) {
+      Block var2 = this.a.p(var1).c();
+      return var2 instanceof avf?var2.r() == Material.d:false;
    }
 
    private void n() {
       int var1 = this.b.size();
       if(var1 == 0) {
-         this.d = new dt(0, 0, 0);
+         this.d = new Location(0, 0, 0);
          this.e = 0;
       } else {
-         this.d = new dt(this.c.n() / var1, this.c.o() / var1, this.c.p() / var1);
+         this.d = new Location(this.c.n() / var1, this.c.o() / var1, this.c.p() / var1);
          int var2 = 0;
 
          abh var4;
@@ -346,13 +346,13 @@ public class abi {
       this.f = var1.f("Stable");
       this.g = var1.f("Tick");
       this.i = var1.f("MTick");
-      this.d = new dt(var1.f("CX"), var1.f("CY"), var1.f("CZ"));
-      this.c = new dt(var1.f("ACX"), var1.f("ACY"), var1.f("ACZ"));
+      this.d = new Location(var1.f("CX"), var1.f("CY"), var1.f("CZ"));
+      this.c = new Location(var1.f("ACX"), var1.f("ACY"), var1.f("ACZ"));
       fv var2 = var1.c("Doors", 10);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          fn var4 = var2.b(var3);
-         abh var5 = new abh(new dt(var4.f("X"), var4.f("Y"), var4.f("Z")), var4.f("IDX"), var4.f("IDZ"), var4.f("TS"));
+         abh var5 = new abh(new Location(var4.f("X"), var4.f("Y"), var4.f("Z")), var4.f("IDX"), var4.f("IDZ"), var4.f("TS"));
          this.b.add(var5);
       }
 

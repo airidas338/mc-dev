@@ -3,13 +3,13 @@ package net.minecraft.server;
 public class it implements id {
 
    private int a;
-   private dt b;
+   private Location b;
    private int c;
 
 
    public it() {}
 
-   public it(int var1, dt var2, int var3) {
+   public it(int var1, Location var2, int var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

@@ -2,17 +2,17 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class aui extends atr {
+public class aui extends Block {
 
    public static final bew a = bew.a("level", 0, 3);
 
 
    public aui() {
-      super(bof.f);
+      super(Material.f);
       this.j(this.L.b().a(a, Integer.valueOf(0)));
    }
 
-   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -39,7 +39,7 @@ public class aui extends atr {
       return false;
    }
 
-   public void a(World var1, dt var2, bec var3, Entity var4) {
+   public void a(World var1, Location var2, IBlock var3, Entity var4) {
       int var5 = ((Integer)var3.b(a)).intValue();
       float var6 = (float)var2.o() + (6.0F + (float)(3 * var5)) / 16.0F;
       if(!var1.D && var4.au() && var5 > 0 && var4.aQ().b <= (double)var6) {
@@ -49,7 +49,7 @@ public class aui extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -59,10 +59,10 @@ public class aui extends atr {
          } else {
             int var10 = ((Integer)var3.b(a)).intValue();
             alq var11 = var9.b();
-            if(var11 == amk.ax) {
+            if(var11 == Items.ax) {
                if(var10 < 3) {
                   if(!var4.by.d) {
-                     var4.bg.a(var4.bg.c, new amj(amk.aw));
+                     var4.bg.a(var4.bg.c, new amj(Items.aw));
                   }
 
                   this.a(var1, var2, var3, 3);
@@ -71,10 +71,10 @@ public class aui extends atr {
                return true;
             } else {
                amj var13;
-               if(var11 == amk.bA) {
+               if(var11 == Items.bA) {
                   if(var10 > 0) {
                      if(!var4.by.d) {
-                        var13 = new amj(amk.bz, 1, 0);
+                        var13 = new amj(Items.bz, 1, 0);
                         if(!var4.bg.a(var13)) {
                            var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
@@ -133,14 +133,14 @@ public class aui extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, int var4) {
+   public void a(World var1, Location var2, IBlock var3, int var4) {
       var1.a(var2, var3.a(a, Integer.valueOf(MathHelper.a(var4, 0, 3))), 2);
       var1.e(var2, this);
    }
 
-   public void k(World var1, dt var2) {
+   public void k(World var1, Location var2) {
       if(var1.s.nextInt(20) == 1) {
-         bec var3 = var1.p(var2);
+         IBlock var3 = var1.p(var2);
          if(((Integer)var3.b(a)).intValue() < 3) {
             var1.a(var2, var3.a(a), 2);
          }
@@ -148,23 +148,23 @@ public class aui extends atr {
       }
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.bG;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.bG;
    }
 
    public boolean N() {
       return true;
    }
 
-   public int l(World var1, dt var2) {
+   public int l(World var1, Location var2) {
       return ((Integer)var1.p(var2).b(a)).intValue();
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

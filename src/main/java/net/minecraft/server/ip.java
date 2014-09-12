@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class ip implements id {
 
    private int a;
-   private dt b;
+   private Location b;
    private ej c;
    private String d;
 

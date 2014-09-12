@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class boq extends bpa {
+public class boq extends GenLayer {
 
-   public boq(long var1, bpa var3) {
+   public boq(long var1, GenLayer var3) {
       super(var1);
       this.a = var3;
    }

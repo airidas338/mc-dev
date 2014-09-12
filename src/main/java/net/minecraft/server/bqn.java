@@ -107,7 +107,7 @@ public class bqn implements Convertable {
       return false;
    }
 
-   public boolean a(String var1, uy var2) {
+   public boolean a(String var1, IProgressUpdate var2) {
       return false;
    }
 

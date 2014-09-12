@@ -206,8 +206,8 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == alq.a(aty.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == amk.aw) {
-            this.h[1] = new amj(amk.ax);
+         if(this.h[0].b() == alq.a(aty.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
+            this.h[1] = new amj(Items.ax);
          }
 
          --this.h[0].b;
@@ -223,13 +223,13 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
          return 0;
       } else {
          alq var1 = var0.b();
-         if(var1 instanceof aju && atr.a(var1) != aty.a) {
-            atr var2 = atr.a(var1);
+         if(var1 instanceof aju && Block.a(var1) != aty.a) {
+            Block var2 = Block.a(var1);
             if(var2 == aty.bM) {
                return 150;
             }
 
-            if(var2.r() == bof.d) {
+            if(var2.r() == Material.d) {
                return 300;
             }
 
@@ -238,7 +238,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == amk.y?100:(var1 == amk.h?1600:(var1 == amk.ay?20000:(var1 == alq.a(aty.g)?100:(var1 == amk.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == alq.a(aty.g)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 
@@ -269,7 +269,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
    public boolean b(int var1, amj var2, ej var3) {
       if(var3 == ej.a && var1 == 1) {
          alq var4 = var2.b();
-         if(var4 != amk.ax && var4 != amk.aw) {
+         if(var4 != Items.ax && var4 != Items.aw) {
             return false;
          }
       }

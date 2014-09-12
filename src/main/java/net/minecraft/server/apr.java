@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class apr extends apf {
 
-   protected apr(int var1, oa var2, int var3) {
+   protected apr(int var1, RegistryMaterials var2, int var3) {
       super(var1, var2, var3, apg.g);
       this.c("knockback");
    }

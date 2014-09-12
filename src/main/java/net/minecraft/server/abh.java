@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 public class abh {
 
-   private final dt a;
-   private final dt b;
+   private final Location a;
+   private final Location b;
    private final ej c;
    private int d;
    private boolean e;
    private int f;
 
 
-   public abh(dt var1, int var2, int var3, int var4) {
+   public abh(Location var1, int var2, int var3, int var4) {
       this(var1, a(var2, var3), var4);
    }
 
@@ -18,7 +18,7 @@ public class abh {
       return var0 < 0?ej.e:(var0 > 0?ej.f:(var1 < 0?ej.c:ej.d));
    }
 
-   public abh(dt var1, ej var2, int var3) {
+   public abh(Location var1, ej var2, int var3) {
       this.a = var1;
       this.c = var2;
       this.b = var1.a(var2, 2);
@@ -29,15 +29,15 @@ public class abh {
       return (int)this.a.c((double)var1, (double)var2, (double)var3);
    }
 
-   public int a(dt var1) {
+   public int a(Location var1) {
       return (int)var1.i(this.d());
    }
 
-   public int b(dt var1) {
+   public int b(Location var1) {
       return (int)this.b.i(var1);
    }
 
-   public boolean c(dt var1) {
+   public boolean c(Location var1) {
       int var2 = var1.n() - this.a.n();
       int var3 = var1.p() - this.a.o();
       return var2 * this.c.g() + var3 * this.c.i() >= 0;
@@ -55,11 +55,11 @@ public class abh {
       return this.f;
    }
 
-   public dt d() {
+   public Location d() {
       return this.a;
    }
 
-   public dt e() {
+   public Location e() {
       return this.b;
    }
 

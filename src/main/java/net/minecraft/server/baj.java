@@ -14,7 +14,7 @@ public class baj extends atg {
 
 
    protected baj() {
-      super(bof.q);
+      super(Material.q);
       this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
       this.a(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
    }
@@ -27,7 +27,7 @@ public class baj extends atg {
       return false;
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       switch(bal.a[((ej)var1.p(var2).b(a)).ordinal()]) {
       case 1:
       default:
@@ -48,12 +48,12 @@ public class baj extends atg {
 
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO()).a(b, Boolean.valueOf(false));
    }
 
@@ -61,14 +61,14 @@ public class baj extends atg {
       return new bdm();
    }
 
-   public int j(World var1, dt var2) {
+   public int j(World var1, Location var2) {
       bcm var3 = var1.s(var2);
       return var3 instanceof bdm?((bdm)var3).c():super.j(var1, var2);
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
 
-   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       if(var4.by.d) {
          var3 = var3.a(b, Boolean.valueOf(true));
          var1.a(var2, var3, 4);
@@ -77,13 +77,13 @@ public class baj extends atg {
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          if(!((Boolean)var3.b(b)).booleanValue()) {
             bcm var4 = var1.s(var2);
             if(var4 instanceof bdm) {
                bdm var5 = (bdm)var4;
-               amj var6 = new amj(amk.bX, 1, this.j(var1, var2));
+               amj var6 = new amj(Items.bX, 1, this.j(var1, var2));
                if(var5.c() == 3 && var5.b() != null) {
                   var6.d(new fn());
                   fn var7 = new fn();
@@ -99,15 +99,15 @@ public class baj extends atg {
       }
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.bX;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.bX;
    }
 
-   public boolean b(World var1, dt var2, amj var3) {
+   public boolean b(World var1, Location var2, amj var3) {
       return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.D?this.j().a(var1, var2) != null:false;
    }
 
-   public void a(World var1, dt var2, bdm var3) {
+   public void a(World var1, Location var2, bdm var3) {
       if(var3.c() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.D) {
          bek var4 = this.l();
          bem var5 = var4.a(var1, var2);
@@ -125,9 +125,9 @@ public class baj extends atg {
                }
             }
 
-            dt var13 = var5.a(1, 0, 0).d();
+            Location var13 = var5.a(1, 0, 0).d();
             EntityWither var14 = new EntityWither(var1);
-            dt var15 = var5.a(1, 2, 0).d();
+            Location var15 = var5.a(1, 2, 0).d();
             var14.b((double)var15.n() + 0.5D, (double)var15.o() + 0.55D, (double)var15.p() + 0.5D, var5.b().k() == el.a?0.0F:90.0F, 0.0F);
             var14.aG = var5.b().k() == el.a?0.0F:90.0F;
             var14.n();
@@ -156,11 +156,11 @@ public class baj extends atg {
       }
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, ej.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

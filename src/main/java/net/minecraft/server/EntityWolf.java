@@ -68,7 +68,7 @@ public class EntityWolf extends EntityTameableAnimal {
       this.ac.a(20, new Byte((byte)akv.o.a()));
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 
@@ -224,7 +224,7 @@ public class EntityWolf extends EntityTameableAnimal {
 
                   return true;
                }
-            } else if(var2.b() == amk.aW) {
+            } else if(var2.b() == Items.aW) {
                akv var4 = akv.a(var2.i());
                if(var4 != this.cu()) {
                   this.a(var4);
@@ -243,7 +243,7 @@ public class EntityWolf extends EntityTameableAnimal {
             this.h.n();
             this.d((EntityLiving)null);
          }
-      } else if(var2 != null && var2.b() == amk.aX && !this.ct()) {
+      } else if(var2 != null && var2.b() == Items.aX && !this.ct()) {
          if(!var1.by.d) {
             --var2.b;
          }

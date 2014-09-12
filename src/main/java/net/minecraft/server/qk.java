@@ -53,7 +53,7 @@ public class qk extends qx {
 
    }
 
-   public void a(dt var1, ej var2) {
+   public void a(Location var1, ej var2) {
       if(this.d) {
          this.f();
       } else {
@@ -61,13 +61,13 @@ public class qk extends qx {
       }
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       if(!this.d) {
          super.a(var1);
       }
    }
 
-   public boolean b(dt var1) {
+   public boolean b(Location var1) {
       return this.d?false:super.b(var1);
    }
 
@@ -80,7 +80,7 @@ public class qk extends qx {
       }
    }
 
-   public boolean a(EntityHuman var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(EntityHuman var1, World var2, amj var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(this.d) {
          this.f();
          return false;

@@ -4,12 +4,12 @@ import java.util.Iterator;
 final class du implements Iterable {
 
    // $FF: synthetic field
-   final dt a;
+   final Location a;
    // $FF: synthetic field
-   final dt b;
+   final Location b;
 
 
-   du(dt var1, dt var2) {
+   du(Location var1, Location var2) {
       this.a = var1;
       this.b = var2;
    }

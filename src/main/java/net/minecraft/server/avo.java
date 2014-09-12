@@ -4,7 +4,7 @@ package net.minecraft.server;
 public class avo extends atg {
 
    protected avo() {
-      super(bof.e);
+      super(Material.e);
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
       this.e(0);
       this.a(akf.c);
@@ -26,7 +26,7 @@ public class avo extends atg {
       return new bcz();
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -39,7 +39,7 @@ public class avo extends atg {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          bcm var6 = var1.s(var2);

@@ -10,7 +10,7 @@ public class ajs extends aju {
       this.d(0);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
       } else if(!var3.p(var4).c().r().a()) {

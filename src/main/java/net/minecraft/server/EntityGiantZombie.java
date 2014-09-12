@@ -18,7 +18,7 @@ public class EntityGiantZombie extends EntityMonster {
       this.getAttributeInstance(GenericAttributes.e).a(50.0D);
    }
 
-   public float a(dt var1) {
+   public float a(Location var1) {
       return this.o.o(var1) - 0.5F;
    }
 }

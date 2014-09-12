@@ -38,7 +38,7 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    protected alq A() {
-      return amk.bE;
+      return Items.bE;
    }
 
    protected void b(boolean var1, int var2) {

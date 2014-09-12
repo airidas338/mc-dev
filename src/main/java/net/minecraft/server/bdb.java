@@ -15,7 +15,7 @@ public class bdb extends bcm {
 
    public void b(fn var1) {
       super.b(var1);
-      oa var2 = (oa)alq.e.c(this.a);
+      RegistryMaterials var2 = (RegistryMaterials)alq.e.c(this.a);
       var1.a("Item", var2 == null?"":var2.toString());
       var1.a("Data", this.f);
    }

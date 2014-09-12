@@ -48,7 +48,7 @@ public class ajw extends alq {
             return var1;
          } else {
             if(var24.a == brv.b) {
-               dt var34 = var24.a();
+               Location var34 = var24.a();
                if(var2.p(var34).c() == aty.aH) {
                   var34 = var34.b();
                }

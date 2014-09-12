@@ -11,7 +11,7 @@ public interface ae {
 
    boolean a(int var1, String var2);
 
-   dt c();
+   Location c();
 
    ChunkCoordinates d();
 

@@ -3,9 +3,9 @@ package net.minecraft.server;
 
 public interface ara {
 
-   void a(dt var1);
+   void a(Location var1);
 
-   void b(dt var1);
+   void b(Location var1);
 
    void a(int var1, int var2, int var3, int var4, int var5, int var6);
 
@@ -19,11 +19,11 @@ public interface ara {
 
    void b(Entity var1);
 
-   void a(String var1, dt var2);
+   void a(String var1, Location var2);
 
-   void a(int var1, dt var2, int var3);
+   void a(int var1, Location var2, int var3);
 
-   void a(EntityHuman var1, int var2, dt var3, int var4);
+   void a(EntityHuman var1, int var2, Location var3, int var4);
 
-   void b(int var1, dt var2, int var3);
+   void b(int var1, Location var2, int var3);
 }

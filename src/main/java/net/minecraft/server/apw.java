@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class apw extends apf {
 
-   protected apw(int var1, oa var2, int var3) {
+   protected apw(int var1, RegistryMaterials var2, int var3) {
       super(var1, var2, var3, apg.h);
       this.c("untouching");
    }
@@ -24,6 +24,6 @@ public class apw extends apf {
    }
 
    public boolean a(amj var1) {
-      return var1.b() == amk.be?true:super.a(var1);
+      return var1.b() == Items.be?true:super.a(var1);
    }
 }

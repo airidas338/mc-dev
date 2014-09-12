@@ -12,7 +12,7 @@ class aih extends ajk {
    }
 
    public boolean a(amj var1) {
-      return var1 == null?false:var1.b() == amk.bO || var1.b() == amk.i || var1.b() == amk.k || var1.b() == amk.j;
+      return var1 == null?false:var1.b() == Items.bO || var1.b() == Items.i || var1.b() == Items.k || var1.b() == Items.j;
    }
 
    public int a() {

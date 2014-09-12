@@ -18,10 +18,10 @@ public class CrashReportSystemDetails {
    }
 
    public static String a(double var0, double var2, double var4) {
-      return String.format("%.2f,%.2f,%.2f - %s", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new dt(var0, var2, var4))});
+      return String.format("%.2f,%.2f,%.2f - %s", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new Location(var0, var2, var4))});
    }
 
-   public static String a(dt var0) {
+   public static String a(Location var0) {
       int var1 = var0.n();
       int var2 = var0.o();
       int var3 = var0.p();
@@ -165,14 +165,14 @@ public class CrashReportSystemDetails {
       return this.d;
    }
 
-   public static void a(CrashReportSystemDetails var0, dt var1, atr var2, int var3) {
-      int var4 = atr.a(var2);
+   public static void a(CrashReportSystemDetails var0, Location var1, Block var2, int var3) {
+      int var4 = Block.a(var2);
       var0.a("Block type", (Callable)(new k(var4, var2)));
       var0.a("Block data value", (Callable)(new l(var3)));
       var0.a("Block location", (Callable)(new m(var1)));
    }
 
-   public static void a(CrashReportSystemDetails var0, dt var1, bec var2) {
+   public static void a(CrashReportSystemDetails var0, Location var1, IBlock var2) {
       var0.a("Block", (Callable)(new p(var2)));
       var0.a("Block location", (Callable)(new q(var1)));
    }

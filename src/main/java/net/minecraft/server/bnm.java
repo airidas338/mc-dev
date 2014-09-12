@@ -118,7 +118,7 @@ public class bnm extends bnn {
       this.a(var1, aty.aa.P().a(bbl.a, this.m), 2, 3, 1, var3);
       this.a(var1, var3, var2, 2, 1, 0, ej.b(this.a(aty.ao, 1)));
       this.a(var1, var3, 1, 0, -1, 3, 2, -1, aty.a.P(), aty.a.P(), false);
-      if(this.a(var1, 2, 0, -1, var3).c().r() == bof.a && this.a(var1, 2, -1, -1, var3).c().r() != bof.a) {
+      if(this.a(var1, 2, 0, -1, var3).c().r() == Material.a && this.a(var1, 2, -1, -1, var3).c().r() != Material.a) {
          this.a(var1, aty.aw.a(this.a(aty.aw, 3)), 2, 0, -1, var3);
       }
 

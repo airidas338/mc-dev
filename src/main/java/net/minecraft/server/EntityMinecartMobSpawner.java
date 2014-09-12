@@ -19,7 +19,7 @@ public class EntityMinecartMobSpawner extends EntityMinecartAbstract {
       return EnumMinecartType.SPAWNER;
    }
 
-   public bec u() {
+   public IBlock u() {
       return aty.ac.P();
    }
 

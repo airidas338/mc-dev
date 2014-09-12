@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ConvertProgressUpdater implements uy {
+public class ConvertProgressUpdater implements IProgressUpdate {
 
    private long b;
    // $FF: synthetic field

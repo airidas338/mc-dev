@@ -6,7 +6,7 @@ public class vs {
    private static final Random a = new Random();
 
 
-   public static void a(World var0, dt var1, vq var2) {
+   public static void a(World var0, Location var1, vq var2) {
       a(var0, (double)var1.n(), (double)var1.o(), (double)var1.p(), var2);
    }
 

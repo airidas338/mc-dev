@@ -20,7 +20,7 @@ public class EntityChicken extends EntityAnimal {
       this.i.a(0, new yy(this));
       this.i.a(1, new zu(this, 1.4D));
       this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.0D, amk.N, false));
+      this.i.a(3, new aag(this, 1.0D, Items.N, false));
       this.i.a(4, new za(this, 1.1D));
       this.i.a(5, new zy(this, 1.0D));
       this.i.a(6, new zh(this, EntityHuman.class, 6.0F));
@@ -55,7 +55,7 @@ public class EntityChicken extends EntityAnimal {
       this.bk += this.bp * 2.0F;
       if(!this.o.D && !this.i_() && !this.cj() && --this.bq <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
-         this.a(amk.aP, 1);
+         this.a(Items.aP, 1);
          this.bq = this.V.nextInt(6000) + 6000;
       }
 
@@ -75,25 +75,25 @@ public class EntityChicken extends EntityAnimal {
       return "mob.chicken.hurt";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.chicken.step", 0.15F, 1.0F);
    }
 
    protected alq A() {
-      return amk.G;
+      return Items.G;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(amk.G, 1);
+         this.a(Items.G, 1);
       }
 
       if(this.au()) {
-         this.a(amk.bl, 1);
+         this.a(Items.bl, 1);
       } else {
-         this.a(amk.bk, 1);
+         this.a(Items.bk, 1);
       }
 
    }
@@ -103,7 +103,7 @@ public class EntityChicken extends EntityAnimal {
    }
 
    public boolean d(amj var1) {
-      return var1 != null && var1.b() == amk.N;
+      return var1 != null && var1.b() == Items.N;
    }
 
    public void a(fn var1) {

@@ -42,7 +42,7 @@ public class EnchantmentManager {
 
    public static Map a(amj var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      fv var2 = var0.b() == amk.cd?amk.cd.h(var0):var0.p();
+      fv var2 = var0.b() == Items.cd?Items.cd.h(var0):var0.p();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             short var4 = var2.b(var3).e("id");
@@ -66,14 +66,14 @@ public class EnchantmentManager {
             var6.a("id", (short)var4);
             var6.a("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
             var2.a((gd)var6);
-            if(var1.b() == amk.cd) {
-               amk.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
+            if(var1.b() == Items.cd) {
+               Items.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
             }
          }
       }
 
       if(var2.c() > 0) {
-         if(var1.b() != amk.cd) {
+         if(var1.b() != Items.cd) {
             var1.a("ench", (gd)var2);
          }
       } else if(var1.n()) {
@@ -248,9 +248,9 @@ public class EnchantmentManager {
 
    public static amj a(Random var0, amj var1, int var2) {
       List var3 = b(var0, var1, var2);
-      boolean var4 = var1.b() == amk.aL;
+      boolean var4 = var1.b() == Items.aL;
       if(var4) {
-         var1.a((alq)amk.cd);
+         var1.a((alq)Items.cd);
       }
 
       if(var3 != null) {
@@ -259,7 +259,7 @@ public class EnchantmentManager {
          while(var5.hasNext()) {
             apo var6 = (apo)var5.next();
             if(var4) {
-               amk.cd.a(var1, var6);
+               Items.cd.a(var1, var6);
             } else {
                var1.a(var6.b, var6.c);
             }
@@ -287,7 +287,7 @@ public class EnchantmentManager {
          ArrayList var8 = null;
          Map var9 = b(var7, var1);
          if(var9 != null && !var9.isEmpty()) {
-            apo var10 = (apo)vj.a(var0, var9.values());
+            apo var10 = (apo)WeightedRandom.a(var0, var9.values());
             if(var10 != null) {
                var8 = Lists.newArrayList();
                var8.add(var10);
@@ -318,7 +318,7 @@ public class EnchantmentManager {
                   }
 
                   if(!var9.isEmpty()) {
-                     apo var17 = (apo)vj.a(var0, var9.values());
+                     apo var17 = (apo)WeightedRandom.a(var0, var9.values());
                      var8.add(var17);
                   }
                }
@@ -332,7 +332,7 @@ public class EnchantmentManager {
    public static Map b(int var0, amj var1) {
       alq var2 = var1.b();
       HashMap var3 = null;
-      boolean var4 = var1.b() == amk.aL;
+      boolean var4 = var1.b() == Items.aL;
       apf[] var5 = apf.b;
       int var6 = var5.length;
 

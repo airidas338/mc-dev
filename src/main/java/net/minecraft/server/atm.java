@@ -4,7 +4,7 @@ package net.minecraft.server;
 public class atm extends atg {
 
    public atm() {
-      super(bof.s);
+      super(Material.s);
       this.c(3.0F);
       this.a(akf.f);
    }
@@ -13,7 +13,7 @@ public class atm extends atg {
       return new bck();
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -38,7 +38,7 @@ public class atm extends atg {
       return 3;
    }
 
-   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          bcm var6 = var1.s(var2);
@@ -49,7 +49,7 @@ public class atm extends atg {
 
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       bcm var5 = var1.s(var2);
       if(var5 instanceof bck) {
          ((bck)var5).m();
@@ -58,7 +58,7 @@ public class atm extends atg {
 
    }
 
-   public static void d(World var0, dt var1) {
+   public static void d(World var0, Location var1) {
       ui.a.submit(new atn(var0, var1));
    }
 }

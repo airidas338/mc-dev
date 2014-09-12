@@ -12,7 +12,7 @@ public class auj extends atg {
 
 
    protected auj(int var1) {
-      super(bof.d);
+      super(Material.d);
       this.j(this.L.b().a(a, ej.c));
       this.b = var1;
       this.a(akf.c);
@@ -31,7 +31,7 @@ public class auj extends atg {
       return 2;
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       if(var1.p(var2.c()).c() == this) {
          this.a(0.0625F, 0.0F, 0.0F, 0.9375F, 0.875F, 0.9375F);
       } else if(var1.p(var2.d()).c() == this) {
@@ -46,14 +46,14 @@ public class auj extends atg {
 
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       this.e(var1, var2, var3);
       Iterator var4 = en.a.iterator();
 
       while(var4.hasNext()) {
          ej var5 = (ej)var4.next();
-         dt var6 = var2.a(var5);
-         bec var7 = var1.p(var6);
+         Location var6 = var2.a(var5);
+         IBlock var7 = var1.p(var6);
          if(var7.c() == this) {
             this.e(var1, var6, var7);
          }
@@ -61,17 +61,17 @@ public class auj extends atg {
 
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO());
    }
 
-   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
       ej var6 = ej.b(MathHelper.c((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
       var3 = var3.a(a, var6);
-      dt var7 = var2.c();
-      dt var8 = var2.d();
-      dt var9 = var2.e();
-      dt var10 = var2.f();
+      Location var7 = var2.c();
+      Location var8 = var2.d();
+      Location var9 = var2.e();
+      Location var10 = var2.f();
       boolean var11 = this == var1.p(var7).c();
       boolean var12 = this == var1.p(var8).c();
       boolean var13 = this == var1.p(var9).c();
@@ -105,26 +105,26 @@ public class auj extends atg {
 
    }
 
-   public bec e(World var1, dt var2, bec var3) {
+   public IBlock e(World var1, Location var2, IBlock var3) {
       if(var1.D) {
          return var3;
       } else {
-         bec var4 = var1.p(var2.c());
-         bec var5 = var1.p(var2.d());
-         bec var6 = var1.p(var2.e());
-         bec var7 = var1.p(var2.f());
+         IBlock var4 = var1.p(var2.c());
+         IBlock var5 = var1.p(var2.d());
+         IBlock var6 = var1.p(var2.e());
+         IBlock var7 = var1.p(var2.f());
          ej var8 = (ej)var3.b(a);
-         atr var9 = var4.c();
-         atr var10 = var5.c();
-         atr var11 = var6.c();
-         atr var12 = var7.c();
+         Block var9 = var4.c();
+         Block var10 = var5.c();
+         Block var11 = var6.c();
+         Block var12 = var7.c();
          if(var9 != this && var10 != this) {
             boolean var21 = var9.m();
             boolean var23 = var10.m();
             if(var11 == this || var12 == this) {
-               dt var22 = var11 == this?var2.e():var2.f();
-               bec var25 = var1.p(var22.c());
-               bec var24 = var1.p(var22.d());
+               Location var22 = var11 == this?var2.e():var2.f();
+               IBlock var25 = var1.p(var22.c());
+               IBlock var24 = var1.p(var22.d());
                var8 = ej.d;
                ej var26;
                if(var11 == this) {
@@ -137,8 +137,8 @@ public class auj extends atg {
                   var8 = ej.c;
                }
 
-               atr var19 = var25.c();
-               atr var20 = var24.c();
+               Block var19 = var25.c();
+               Block var20 = var24.c();
                if((var21 || var19.m()) && !var23 && !var20.m()) {
                   var8 = ej.d;
                }
@@ -148,9 +148,9 @@ public class auj extends atg {
                }
             }
          } else {
-            dt var13 = var9 == this?var2.c():var2.d();
-            bec var14 = var1.p(var13.e());
-            bec var15 = var1.p(var13.f());
+            Location var13 = var9 == this?var2.c():var2.d();
+            IBlock var14 = var1.p(var13.e());
+            IBlock var15 = var1.p(var13.f());
             var8 = ej.f;
             ej var16;
             if(var9 == this) {
@@ -163,8 +163,8 @@ public class auj extends atg {
                var8 = ej.e;
             }
 
-            atr var17 = var14.c();
-            atr var18 = var15.c();
+            Block var17 = var14.c();
+            Block var18 = var15.c();
             if((var11.m() || var17.m()) && !var12.m() && !var18.m()) {
                var8 = ej.f;
             }
@@ -180,13 +180,13 @@ public class auj extends atg {
       }
    }
 
-   public bec f(World var1, dt var2, bec var3) {
+   public IBlock f(World var1, Location var2, IBlock var3) {
       ej var4 = null;
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
          ej var6 = (ej)var5.next();
-         bec var7 = var1.p(var2.a(var6));
+         IBlock var7 = var1.p(var2.a(var6));
          if(var7.c() == this) {
             return var3;
          }
@@ -221,12 +221,12 @@ public class auj extends atg {
       }
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       int var3 = 0;
-      dt var4 = var2.e();
-      dt var5 = var2.f();
-      dt var6 = var2.c();
-      dt var7 = var2.d();
+      Location var4 = var2.e();
+      Location var5 = var2.f();
+      Location var6 = var2.c();
+      Location var7 = var2.d();
       if(var1.p(var4).c() == this) {
          if(this.e(var1, var4)) {
             return false;
@@ -262,7 +262,7 @@ public class auj extends atg {
       return var3 <= 1;
    }
 
-   private boolean e(World var1, dt var2) {
+   private boolean e(World var1, Location var2) {
       if(var1.p(var2).c() != this) {
          return false;
       } else {
@@ -281,7 +281,7 @@ public class auj extends atg {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       super.a(var1, var2, var3, var4);
       bcm var5 = var1.s(var2);
       if(var5 instanceof bcr) {
@@ -290,7 +290,7 @@ public class auj extends atg {
 
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       bcm var4 = var1.s(var2);
       if(var4 instanceof vq) {
          vs.a(var1, var2, (vq)var4);
@@ -300,7 +300,7 @@ public class auj extends atg {
       super.b(var1, var2, var3);
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -313,7 +313,7 @@ public class auj extends atg {
       }
    }
 
-   public vy d(World var1, dt var2) {
+   public vy d(World var1, Location var2) {
       bcm var3 = var1.s(var2);
       if(!(var3 instanceof bcr)) {
          return null;
@@ -326,8 +326,8 @@ public class auj extends atg {
 
             while(var5.hasNext()) {
                ej var6 = (ej)var5.next();
-               dt var7 = var2.a(var6);
-               atr var8 = var1.p(var7).c();
+               Location var7 = var2.a(var6);
+               Block var8 = var1.p(var7).c();
                if(var8 == this) {
                   if(this.m(var1, var7)) {
                      return null;
@@ -357,7 +357,7 @@ public class auj extends atg {
       return this.b == 1;
    }
 
-   public int a(ard var1, dt var2, bec var3, ej var4) {
+   public int a(ard var1, Location var2, IBlock var3, ej var4) {
       if(!this.g()) {
          return 0;
       } else {
@@ -371,19 +371,19 @@ public class auj extends atg {
       }
    }
 
-   public int b(ard var1, dt var2, bec var3, ej var4) {
+   public int b(ard var1, Location var2, IBlock var3, ej var4) {
       return var4 == ej.b?this.a(var1, var2, var3, var4):0;
    }
 
-   private boolean m(World var1, dt var2) {
+   private boolean m(World var1, Location var2) {
       return this.n(var1, var2) || this.o(var1, var2);
    }
 
-   private boolean n(World var1, dt var2) {
+   private boolean n(World var1, Location var2) {
       return var1.p(var2.a()).c().t();
    }
 
-   private boolean o(World var1, dt var2) {
+   private boolean o(World var1, Location var2) {
       Iterator var3 = var1.a(EntityOcelot.class, new AxisAlignedBB((double)var2.n(), (double)(var2.o() + 1), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 2), (double)(var2.p() + 1))).iterator();
 
       EntityOcelot var5;
@@ -403,11 +403,11 @@ public class auj extends atg {
       return true;
    }
 
-   public int l(World var1, dt var2) {
+   public int l(World var1, Location var2) {
       return aib.b((vq)this.d(var1, var2));
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       ej var2 = ej.a(var1);
       if(var2.k() == el.b) {
          var2 = ej.c;
@@ -416,7 +416,7 @@ public class auj extends atg {
       return this.P().a(a, var2);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((ej)var1.b(a)).a();
    }
 

@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 
 public class blg extends bmm {
 
-   private static final List d = Arrays.asList(new arm[]{arm.r, arm.G, arm.K, arm.L, arm.v});
+   private static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.r, BiomeBase.G, BiomeBase.K, BiomeBase.L, BiomeBase.v});
    private List f;
    private int g;
    private int h;
@@ -19,7 +19,7 @@ public class blg extends bmm {
       this.f = Lists.newArrayList();
       this.g = 32;
       this.h = 8;
-      this.f.add(new arq(EntityWitch.class, 1, 1, 1));
+      this.f.add(new BiomeMeta(EntityWitch.class, 1, 1, 1));
    }
 
    public blg(Map var1) {
@@ -58,7 +58,7 @@ public class blg extends bmm {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         arm var8 = this.c.v().a(new dt(var3 * 16 + 8, 0, var4 * 16 + 8));
+         BiomeBase var8 = this.c.v().a(new Location(var3 * 16 + 8, 0, var4 * 16 + 8));
          if(var8 == null) {
             return false;
          }
@@ -66,7 +66,7 @@ public class blg extends bmm {
          Iterator var9 = d.iterator();
 
          while(var9.hasNext()) {
-            arm var10 = (arm)var9.next();
+            BiomeBase var10 = (BiomeBase)var9.next();
             if(var8 == var10) {
                return true;
             }
@@ -80,7 +80,7 @@ public class blg extends bmm {
       return new blh(this.c, this.b, var1, var2);
    }
 
-   public boolean a(dt var1) {
+   public boolean a(Location var1) {
       bmv var2 = this.c(var1);
       if(var2 != null && var2 instanceof blh && !var2.a.isEmpty()) {
          bms var3 = (bms)var2.a.getFirst();

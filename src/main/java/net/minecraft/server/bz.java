@@ -34,7 +34,7 @@ public class bz extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          String var4 = var2[var2.length - 1];
          ArrayList var5 = Lists.newArrayList();

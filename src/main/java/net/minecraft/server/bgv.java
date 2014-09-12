@@ -8,7 +8,7 @@ public class bgv implements bfe {
    private bnv i;
    private bnv j;
    private bnv k;
-   private bnw l;
+   private NoiseGenerator3 l;
    public bnv a;
    public bnv b;
    public bnv c;
@@ -18,7 +18,7 @@ public class bgv implements bfe {
    private final double[] p;
    private final float[] q;
    private bgl r;
-   private atr s;
+   private Block s;
    private double[] t;
    private bgt u;
    private blp v;
@@ -27,7 +27,7 @@ public class bgv implements bfe {
    private blg y;
    private bgt z;
    private bkg A;
-   private arm[] B;
+   private BiomeBase[] B;
    double[] d;
    double[] e;
    double[] f;
@@ -51,7 +51,7 @@ public class bgv implements bfe {
       this.i = new bnv(this.h, 16);
       this.j = new bnv(this.h, 16);
       this.k = new bnv(this.h, 8);
-      this.l = new bnw(this.h, 4);
+      this.l = new NoiseGenerator3(this.h, 4);
       this.a = new bnv(this.h, 10);
       this.b = new bnv(this.h, 16);
       this.c = new bnv(this.h, 8);
@@ -132,13 +132,13 @@ public class bgv implements bfe {
 
    }
 
-   public void a(int var1, int var2, bgk var3, arm[] var4) {
+   public void a(int var1, int var2, bgk var3, BiomeBase[] var4) {
       double var5 = 0.03125D;
       this.t = this.l.a(this.t, (double)(var1 * 16), (double)(var2 * 16), 16, 16, var5 * 2.0D, var5 * 2.0D, 1.0D);
 
       for(int var7 = 0; var7 < 16; ++var7) {
          for(int var8 = 0; var8 < 16; ++var8) {
-            arm var9 = var4[var8 + var7 * 16];
+            BiomeBase var9 = var4[var8 + var7 * 16];
             var9.a(this.m, this.h, var3, var1 * 16 + var7, var2 * 16 + var8, this.t[var8 + var7 * 16]);
          }
       }
@@ -208,11 +208,11 @@ public class bgv implements bfe {
             float var11 = 0.0F;
             float var12 = 0.0F;
             byte var13 = 2;
-            arm var14 = this.B[var8 + 2 + (var9 + 2) * 10];
+            BiomeBase var14 = this.B[var8 + 2 + (var9 + 2) * 10];
 
             for(int var15 = -var13; var15 <= var13; ++var15) {
                for(int var16 = -var13; var16 <= var13; ++var16) {
-                  arm var17 = this.B[var8 + var15 + 2 + (var9 + var16 + 2) * 10];
+                  BiomeBase var17 = this.B[var8 + var15 + 2 + (var9 + var16 + 2) * 10];
                   float var18 = this.r.n + var17.an * this.r.m;
                   float var19 = this.r.p + var17.ao * this.r.o;
                   if(this.o == WorldType.AMPLIFIED && var18 > 0.0F) {
@@ -295,8 +295,8 @@ public class bgv implements bfe {
       avt.M = true;
       int var4 = var2 * 16;
       int var5 = var3 * 16;
-      dt var6 = new dt(var4, 0, var5);
-      arm var7 = this.m.b(var6.a(16, 0, 16));
+      Location var6 = new Location(var4, 0, var5);
+      BiomeBase var7 = this.m.b(var6.a(16, 0, 16));
       this.h.setSeed(this.m.J());
       long var8 = this.h.nextLong() / 2L * 2L + 1L;
       long var10 = this.h.nextLong() / 2L * 2L + 1L;
@@ -326,11 +326,11 @@ public class bgv implements bfe {
       int var14;
       int var15;
       int var16;
-      if(var7 != arm.r && var7 != arm.G && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
+      if(var7 != BiomeBase.r && var7 != BiomeBase.G && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
          var14 = this.h.nextInt(16) + 8;
          var15 = this.h.nextInt(256);
          var16 = this.h.nextInt(16) + 8;
-         (new bhy(aty.j)).b(this.m, this.h, var6.a(var14, var15, var16));
+         (new bhy(aty.j)).generate(this.m, this.h, var6.a(var14, var15, var16));
       }
 
       if(!var12 && this.h.nextInt(this.r.D / 10) == 0 && this.r.C) {
@@ -338,7 +338,7 @@ public class bgv implements bfe {
          var15 = this.h.nextInt(this.h.nextInt(248) + 8);
          var16 = this.h.nextInt(16) + 8;
          if(var15 < 63 || this.h.nextInt(this.r.D / 8) == 0) {
-            (new bhy(aty.l)).b(this.m, this.h, var6.a(var14, var15, var16));
+            (new bhy(aty.l)).generate(this.m, this.h, var6.a(var14, var15, var16));
          }
       }
 
@@ -347,18 +347,18 @@ public class bgv implements bfe {
             var15 = this.h.nextInt(16) + 8;
             var16 = this.h.nextInt(256);
             int var17 = this.h.nextInt(16) + 8;
-            (new bie()).b(this.m, this.h, var6.a(var15, var16, var17));
+            (new bie()).generate(this.m, this.h, var6.a(var15, var16, var17));
          }
       }
 
-      var7.a(this.m, this.h, new dt(var4, 0, var5));
-      arg.a(this.m, var7, var4 + 8, var5 + 8, 16, 16, this.h);
+      var7.a(this.m, this.h, new Location(var4, 0, var5));
+      SpawnerCreature.a(this.m, var7, var4 + 8, var5 + 8, 16, 16, this.h);
       var6 = var6.a(8, 0, 8);
 
       for(var14 = 0; var14 < 16; ++var14) {
          for(var15 = 0; var15 < 16; ++var15) {
-            dt var19 = this.m.q(var6.a(var14, 0, var15));
-            dt var18 = var19.b();
+            Location var19 = this.m.q(var6.a(var14, 0, var15));
+            Location var18 = var19.b();
             if(this.m.v(var18)) {
                this.m.a(var18, aty.aI.P(), 2);
             }
@@ -381,7 +381,7 @@ public class bgv implements bfe {
       return var5;
    }
 
-   public boolean a(boolean var1, uy var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
@@ -399,14 +399,14 @@ public class bgv implements bfe {
       return "RandomLevelSource";
    }
 
-   public List a(xp var1, dt var2) {
-      arm var3 = this.m.b(var2);
+   public List a(EnumCreatureType var1, Location var2) {
+      BiomeBase var3 = this.m.b(var2);
       if(this.n) {
-         if(var1 == xp.a && this.y.a(var2)) {
+         if(var1 == EnumCreatureType.MONSTER && this.y.a(var2)) {
             return this.y.b();
          }
 
-         if(var1 == xp.a && this.r.y && this.A.a(this.m, var2)) {
+         if(var1 == EnumCreatureType.MONSTER && this.r.y && this.A.a(this.m, var2)) {
             return this.A.b();
          }
       }
@@ -414,7 +414,7 @@ public class bgv implements bfe {
       return var3.a(var1);
    }
 
-   public dt a(World var1, String var2, dt var3) {
+   public Location a(World var1, String var2, Location var3) {
       return "Stronghold".equals(var2) && this.v != null?this.v.b(var1, var3):null;
    }
 
@@ -445,7 +445,7 @@ public class bgv implements bfe {
 
    }
 
-   public bfh a(dt var1) {
+   public bfh a(Location var1) {
       return this.d(var1.n() >> 4, var1.p() >> 4);
    }
 }

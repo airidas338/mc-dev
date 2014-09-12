@@ -1,19 +1,19 @@
 package net.minecraft.server;
 import java.util.Iterator;
 
-public class axi extends atr {
+public class axi extends Block {
 
    public static final bev a = bev.a("facing", axk.class);
    public static final bet b = bet.a("powered");
 
 
    protected axi() {
-      super(bof.q);
+      super(Material.q);
       this.j(this.L.b().a(a, axk.e).a(b, Boolean.valueOf(false)));
       this.a(akf.d);
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -25,20 +25,20 @@ public class axi extends atr {
       return false;
    }
 
-   public boolean a(World var1, dt var2, ej var3) {
+   public boolean a(World var1, Location var2, ej var3) {
       return var3 == ej.b && World.a((ard)var1, var2.b())?true:this.d(var1, var2.a(var3.d()));
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return this.d(var1, var2.e())?true:(this.d(var1, var2.f())?true:(this.d(var1, var2.c())?true:(this.d(var1, var2.d())?true:(World.a((ard)var1, var2.b())?true:this.d(var1, var2.a())))));
    }
 
-   protected boolean d(World var1, dt var2) {
+   protected boolean d(World var1, Location var2) {
       return var1.p(var2).c().t();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      bec var9 = this.P().a(b, Boolean.valueOf(false));
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlock var9 = this.P().a(b, Boolean.valueOf(false));
       if(this.d(var1, var2.a(var3.d()))) {
          return var9.a(a, axk.a(var3, var8.aO()));
       } else {
@@ -80,7 +80,7 @@ public class axi extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(this.e(var1, var2) && !this.d(var1, var2.a(((axk)var3.b(a)).c().d()))) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -88,7 +88,7 @@ public class axi extends atr {
 
    }
 
-   private boolean e(World var1, dt var2) {
+   private boolean e(World var1, Location var2) {
       if(this.c(var1, var2)) {
          return true;
       } else {
@@ -98,7 +98,7 @@ public class axi extends atr {
       }
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       float var3 = 0.1875F;
       switch(axj.b[((axk)var1.p(var2).b(a)).ordinal()]) {
       case 1:
@@ -126,35 +126,35 @@ public class axi extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
          var3 = var3.a(b);
          var1.a(var2, var3, 3);
          var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, ((Boolean)var3.b(b)).booleanValue()?0.6F:0.5F);
-         var1.c(var2, (atr)this);
+         var1.c(var2, (Block)this);
          ej var9 = ((axk)var3.b(a)).c();
-         var1.c(var2.a(var9.d()), (atr)this);
+         var1.c(var2.a(var9.d()), (Block)this);
          return true;
       }
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
-         var1.c(var2, (atr)this);
+         var1.c(var2, (Block)this);
          ej var4 = ((axk)var3.b(a)).c();
-         var1.c(var2.a(var4.d()), (atr)this);
+         var1.c(var2.a(var4.d()), (Block)this);
       }
 
       super.b(var1, var2, var3);
    }
 
-   public int a(ard var1, dt var2, bec var3, ej var4) {
+   public int a(ard var1, Location var2, IBlock var3, ej var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(ard var1, dt var2, bec var3, ej var4) {
+   public int b(ard var1, Location var2, IBlock var3, ej var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(((axk)var3.b(a)).c() == var4?15:0);
    }
 
@@ -162,11 +162,11 @@ public class axi extends atr {
       return true;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, axk.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((axk)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

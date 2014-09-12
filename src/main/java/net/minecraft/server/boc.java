@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class boc extends bof {
+public class boc extends Material {
 
    public boc(boh var1) {
       super(var1);

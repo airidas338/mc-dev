@@ -8,7 +8,7 @@ public class bdx extends atg {
 
 
    public bdx() {
-      super(bof.H);
+      super(Material.H);
       this.j(this.L.b().a(a, ej.c).a(b, bdu.a));
       this.c(-1.0F);
    }
@@ -17,11 +17,11 @@ public class bdx extends atg {
       return null;
    }
 
-   public static bcm a(bec var0, ej var1, boolean var2, boolean var3) {
+   public static bcm a(IBlock var0, ej var1, boolean var2, boolean var3) {
       return new bdv(var0, var1, var2, var3);
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       bcm var4 = var1.s(var2);
       if(var4 instanceof bdv) {
          ((bdv)var4).h();
@@ -31,17 +31,17 @@ public class bdx extends atg {
 
    }
 
-   public boolean c(World var1, dt var2) {
+   public boolean c(World var1, Location var2) {
       return false;
    }
 
-   public boolean a(World var1, dt var2, ej var3) {
+   public boolean a(World var1, Location var2, ej var3) {
       return false;
    }
 
-   public void d(World var1, dt var2, bec var3) {
-      dt var4 = var2.a(((ej)var3.b(a)).d());
-      bec var5 = var1.p(var4);
+   public void d(World var1, Location var2, IBlock var3) {
+      Location var4 = var2.a(((ej)var3.b(a)).d());
+      IBlock var5 = var1.p(var4);
       if(var5.c() instanceof bdq && ((Boolean)var5.b(bdq.b)).booleanValue()) {
          var1.g(var4);
       }
@@ -56,7 +56,7 @@ public class bdx extends atg {
       return false;
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(!var1.D && var1.s(var2) == null) {
          var1.g(var2);
          return true;
@@ -65,32 +65,32 @@ public class bdx extends atg {
       }
    }
 
-   public alq a(bec var1, Random var2, int var3) {
+   public alq a(IBlock var1, Random var2, int var3) {
       return null;
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(!var1.D) {
          bdv var6 = this.e(var1, var2);
          if(var6 != null) {
-            bec var7 = var6.b();
+            IBlock var7 = var6.b();
             var7.c().b(var1, var2, var7, 0);
          }
       }
    }
 
-   public bru a(World var1, dt var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public bru a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
       return null;
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!var1.D) {
          var1.s(var2);
       }
 
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       bdv var4 = this.e(var1, var2);
       if(var4 == null) {
          return null;
@@ -104,12 +104,12 @@ public class bdx extends atg {
       }
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       bdv var3 = this.e(var1, var2);
       if(var3 != null) {
-         bec var4 = var3.b();
-         atr var5 = var4.c();
-         if(var5 == this || var5.r() == bof.a) {
+         IBlock var4 = var3.b();
+         Block var5 = var4.c();
+         if(var5 == this || var5.r() == Material.a) {
             return;
          }
 
@@ -134,8 +134,8 @@ public class bdx extends atg {
 
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3, float var4, ej var5) {
-      if(var3.c() != this && var3.c().r() != bof.a) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3, float var4, ej var5) {
+      if(var3.c() != this && var3.c().r() != Material.a) {
          AxisAlignedBB var6 = var3.c().a(var1, var2, var3);
          if(var6 == null) {
             return null;
@@ -171,16 +171,16 @@ public class bdx extends atg {
       }
    }
 
-   private bdv e(ard var1, dt var2) {
+   private bdv e(ard var1, Location var2) {
       bcm var3 = var1.s(var2);
       return var3 instanceof bdv?(bdv)var3:null;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, bds.b(var1)).a(b, (var1 & 8) > 0?bdu.b:bdu.a);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(a)).a();
       if(var1.b(b) == bdu.b) {

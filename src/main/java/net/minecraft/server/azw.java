@@ -11,7 +11,7 @@ public class azw extends bbl {
    private final boolean M;
 
 
-   private boolean a(World var1, dt var2, boolean var3) {
+   private boolean a(World var1, Location var2, boolean var3) {
       if(!b.containsKey(var1)) {
          b.put(var1, Lists.newArrayList());
       }
@@ -46,44 +46,44 @@ public class azw extends bbl {
       return 2;
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       if(this.M) {
          ej[] var4 = ej.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
             ej var7 = var4[var6];
-            var1.c(var2.a(var7), (atr)this);
+            var1.c(var2.a(var7), (Block)this);
          }
       }
 
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       if(this.M) {
          ej[] var4 = ej.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
             ej var7 = var4[var6];
-            var1.c(var2.a(var7), (atr)this);
+            var1.c(var2.a(var7), (Block)this);
          }
       }
 
    }
 
-   public int a(ard var1, dt var2, bec var3, ej var4) {
+   public int a(ard var1, Location var2, IBlock var3, ej var4) {
       return this.M && var3.b(a) != var4?15:0;
    }
 
-   private boolean g(World var1, dt var2, bec var3) {
+   private boolean g(World var1, Location var2, IBlock var3) {
       ej var4 = ((ej)var3.b(a)).d();
       return var1.b(var2.a(var4), var4);
    }
 
-   public void a(World var1, dt var2, bec var3, Random var4) {}
+   public void a(World var1, Location var2, IBlock var3, Random var4) {}
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       boolean var5 = this.g(var1, var2, var3);
       List var6 = (List)b.get(var1);
 
@@ -113,20 +113,20 @@ public class azw extends bbl {
 
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          if(this.M == this.g(var1, var2, var3)) {
-            var1.a(var2, (atr)this, this.a(var1));
+            var1.a(var2, (Block)this, this.a(var1));
          }
 
       }
    }
 
-   public int b(ard var1, dt var2, bec var3, ej var4) {
+   public int b(ard var1, Location var2, IBlock var3, ej var4) {
       return var4 == ej.a?this.a(var1, var2, var3, var4):0;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
+   public alq a(IBlock var1, Random var2, int var3) {
       return alq.a(aty.aF);
    }
 
@@ -134,7 +134,7 @@ public class azw extends bbl {
       return true;
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       return var1 == aty.aE || var1 == aty.aF;
    }
 

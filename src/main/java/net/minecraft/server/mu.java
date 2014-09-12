@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class mu implements id {
 
-   private dt a;
+   private Location a;
    private IChatBaseComponent[] b;
 
 
@@ -29,7 +29,7 @@ public class mu implements id {
       ((ls)var1).a(this);
    }
 
-   public dt a() {
+   public Location a() {
       return this.a;
    }
 

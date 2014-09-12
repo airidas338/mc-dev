@@ -3,12 +3,12 @@ package net.minecraft.server;
 public class kl implements id {
 
    private int a;
-   private dt b;
+   private Location b;
 
 
    public kl() {}
 
-   public kl(EntityHuman var1, dt var2) {
+   public kl(EntityHuman var1, Location var2) {
       this.a = var1.F();
       this.b = var2;
    }

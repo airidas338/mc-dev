@@ -33,16 +33,16 @@ public abstract class aaz {
    }
 
    public final bpv a(double var1, double var3, double var5) {
-      return this.a(new dt(MathHelper.c(var1), (int)var3, MathHelper.c(var5)));
+      return this.a(new Location(MathHelper.c(var1), (int)var3, MathHelper.c(var5)));
    }
 
-   public bpv a(dt var1) {
+   public bpv a(Location var1) {
       if(!this.b()) {
          return null;
       } else {
          float var2 = this.i();
          this.c.B.a("pathfind");
-         dt var3 = new dt(this.b);
+         Location var3 = new Location(this.b);
          int var4 = (int)(var2 + 8.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
          bpv var6 = this.j.a((ard)var5, (Entity)this.b, var1, var2);
@@ -66,7 +66,7 @@ public abstract class aaz {
       } else {
          float var2 = this.i();
          this.c.B.a("pathfind");
-         dt var3 = (new dt(this.b)).a();
+         Location var3 = (new Location(this.b)).a();
          int var4 = (int)(var2 + 16.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
          bpv var6 = this.j.a((ard)var5, (Entity)this.b, var1, var2);

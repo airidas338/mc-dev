@@ -25,7 +25,7 @@ public class bft {
       return var3;
    }
 
-   public static void a(bfu var0, fn var1, arz var2) {
+   public static void a(bfu var0, fn var1, WorldChunkManager var2) {
       var1.a("xPos", var0.k);
       var1.a("zPos", var0.l);
       var1.a("LastUpdate", var0.a);
@@ -101,7 +101,7 @@ public class bft {
 
       for(int var18 = 0; var18 < 16; ++var18) {
          for(var7 = 0; var7 < 16; ++var7) {
-            var17[var7 << 4 | var18] = (byte)(var2.a(new dt(var0.k << 4 | var18, 0, var0.l << 4 | var7), arm.ad).az & 255);
+            var17[var7 << 4 | var18] = (byte)(var2.a(new Location(var0.k << 4 | var18, 0, var0.l << 4 | var7), BiomeBase.ad).az & 255);
          }
       }
 

@@ -2,20 +2,20 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class azy extends atr {
+public class azy extends Block {
 
    public static final bew a = bew.a("age", 0, 15);
 
 
    protected azy() {
-      super(bof.k);
+      super(Material.k);
       this.j(this.L.b().a(a, Integer.valueOf(0)));
       float var1 = 0.375F;
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 1.0F, 0.5F + var1);
       this.a(true);
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(var1.p(var2.b()).c() == aty.aM || this.e(var1, var2, var3)) {
          if(var1.d(var2.a())) {
             int var5;
@@ -37,8 +37,8 @@ public class azy extends atr {
       }
    }
 
-   public boolean c(World var1, dt var2) {
-      atr var3 = var1.p(var2.b()).c();
+   public boolean c(World var1, Location var2) {
+      Block var3 = var1.p(var2.b()).c();
       if(var3 == this) {
          return true;
       } else if(var3 != aty.c && var3 != aty.d && var3 != aty.m) {
@@ -53,17 +53,17 @@ public class azy extends atr {
             }
 
             var5 = (ej)var4.next();
-         } while(var1.p(var2.a(var5).b()).c().r() != bof.h);
+         } while(var1.p(var2.a(var5).b()).c().r() != Material.h);
 
          return true;
       }
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   protected final boolean e(World var1, dt var2, bec var3) {
+   protected final boolean e(World var1, Location var2, IBlock var3) {
       if(this.d(var1, var2)) {
          return true;
       } else {
@@ -73,16 +73,16 @@ public class azy extends atr {
       }
    }
 
-   public boolean d(World var1, dt var2) {
+   public boolean d(World var1, Location var2) {
       return this.c(var1, var2);
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.aJ;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.aJ;
    }
 
    public boolean c() {
@@ -93,11 +93,11 @@ public class azy extends atr {
       return false;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

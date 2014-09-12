@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class bme extends bmk {
 
-   private static final List b = Lists.newArrayList(new vl[]{new vl(amk.j, 0, 1, 5, 10), new vl(amk.k, 0, 1, 3, 5), new vl(amk.aC, 0, 4, 9, 5), new vl(amk.h, 0, 3, 8, 10), new vl(amk.P, 0, 1, 3, 15), new vl(amk.e, 0, 1, 3, 15), new vl(amk.b, 0, 1, 1, 1)});
+   private static final List b = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.aC, 0, 4, 9, 5), new StructurePieceTreaasure(Items.h, 0, 3, 8, 10), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 1)});
    protected int a;
 
 
@@ -126,7 +126,7 @@ public class bme extends bmk {
             this.a(var1, aty.au.a(this.a(aty.au, ej.e.a())), 9, 1, 3, var3);
             this.a(var1, aty.au.a(this.a(aty.au, ej.e.a())), 9, 2, 3, var3);
             this.a(var1, aty.au.a(this.a(aty.au, ej.e.a())), 9, 3, 3, var3);
-            this.a(var1, var3, var2, 3, 4, 8, vl.a(b, new vl[]{amk.cd.b(var2)}), 1 + var2.nextInt(4));
+            this.a(var1, var3, var2, 3, 4, 8, StructurePieceTreaasure.a(b, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 1 + var2.nextInt(4));
          }
 
          return true;

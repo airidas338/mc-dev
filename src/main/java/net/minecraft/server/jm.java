@@ -46,7 +46,7 @@ public class jm implements id {
          int var7 = var1.readByte() + var3;
          int var8 = var1.readByte() + var4;
          int var9 = var1.readByte() + var5;
-         this.e.add(new dt(var7, var8, var9));
+         this.e.add(new Location(var7, var8, var9));
       }
 
       this.f = var1.readFloat();
@@ -66,7 +66,7 @@ public class jm implements id {
       Iterator var5 = this.e.iterator();
 
       while(var5.hasNext()) {
-         dt var6 = (dt)var5.next();
+         Location var6 = (Location)var5.next();
          int var7 = var6.n() - var2;
          int var8 = var6.o() - var3;
          int var9 = var6.p() - var4;

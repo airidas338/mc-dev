@@ -10,7 +10,7 @@ public class EntityItemFrame extends EntityHanging {
       super(var1);
    }
 
-   public EntityItemFrame(World var1, dt var2, ej var3) {
+   public EntityItemFrame(World var1, Location var2, ej var3) {
       super(var1, var2);
       this.a(var3);
    }
@@ -63,7 +63,7 @@ public class EntityItemFrame extends EntityHanging {
          }
 
          if(var2) {
-            this.a(new amj(amk.bP), 0.0F);
+            this.a(new amj(Items.bP), 0.0F);
          }
 
          if(var3 != null && this.V.nextFloat() < this.c) {
@@ -77,7 +77,7 @@ public class EntityItemFrame extends EntityHanging {
 
    private void b(amj var1) {
       if(var1 != null) {
-         if(var1.b() == amk.bd) {
+         if(var1.b() == Items.bd) {
             bqe var2 = ((amn)var1.b()).a(var1, this.o);
             var2.h.remove("frame-" + this.F());
          }

@@ -20,7 +20,7 @@ public class ay extends CommandAbstract {
          throw new dp("commands.blockdata.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
-         dt var3 = a(var1, var2, 0, false);
+         Location var3 = a(var1, var2, 0, false);
          World var4 = var1.e();
          if(!var4.e(var3)) {
             throw new di("commands.blockdata.outOfWorld", new Object[0]);
@@ -58,7 +58,7 @@ public class ay extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

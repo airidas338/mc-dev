@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class bow extends bpp {
 
-   public bow(long var1, bpa var3) {
+   public bow(long var1, GenLayer var3) {
       super(var1, var3);
    }
 

@@ -12,7 +12,7 @@ public class EntityPotion extends EntityProjectile {
    }
 
    public EntityPotion(World var1, EntityLiving var2, int var3) {
-      this(var1, var2, new amj(amk.bz, 1, var3));
+      this(var1, var2, new amj(Items.bz, 1, var3));
    }
 
    public EntityPotion(World var1, EntityLiving var2, amj var3) {
@@ -39,7 +39,7 @@ public class EntityPotion extends EntityProjectile {
 
    public void a(int var1) {
       if(this.c == null) {
-         this.c = new amj(amk.bz, 1, 0);
+         this.c = new amj(Items.bz, 1, 0);
       }
 
       this.c.b(var1);
@@ -47,7 +47,7 @@ public class EntityPotion extends EntityProjectile {
 
    public int o() {
       if(this.c == null) {
-         this.c = new amj(amk.bz, 1, 0);
+         this.c = new amj(Items.bz, 1, 0);
       }
 
       return this.c.i();
@@ -55,7 +55,7 @@ public class EntityPotion extends EntityProjectile {
 
    protected void a(bru var1) {
       if(!this.o.D) {
-         List var2 = amk.bz.h(this.c);
+         List var2 = Items.bz.h(this.c);
          if(var2 != null && !var2.isEmpty()) {
             AxisAlignedBB var3 = this.aQ().b(4.0D, 2.0D, 4.0D);
             List var4 = this.o.a(EntityLiving.class, var3);
@@ -90,7 +90,7 @@ public class EntityPotion extends EntityProjectile {
             }
          }
 
-         this.o.b(2002, new dt(this), this.o());
+         this.o.b(2002, new Location(this), this.o());
          this.J();
       }
 

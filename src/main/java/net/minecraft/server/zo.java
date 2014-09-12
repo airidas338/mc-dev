@@ -21,7 +21,7 @@ public class zo extends zb {
       if(this.a.ce()) {
          return false;
       } else {
-         dt var1 = this.a.cf();
+         Location var1 = this.a.cf();
          ChunkCoordinates var2 = abf.a(this.a, 16, 7, new ChunkCoordinates((double)var1.n(), (double)var1.o(), (double)var1.p()));
          if(var2 == null) {
             return false;

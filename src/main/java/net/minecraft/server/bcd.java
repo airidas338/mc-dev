@@ -7,13 +7,13 @@ public class bcd extends ath {
    private final int b;
 
 
-   protected bcd(String var1, bof var2, int var3) {
+   protected bcd(String var1, Material var2, int var3) {
       super(var2);
       this.j(this.L.b().a(a, Integer.valueOf(0)));
       this.b = var3;
    }
 
-   protected int e(World var1, dt var2) {
+   protected int e(World var1, Location var2) {
       int var3 = Math.min(var1.a(Entity.class, this.a(var2)).size(), this.b);
       if(var3 > 0) {
          float var4 = (float)Math.min(this.b, var3) / (float)this.b;
@@ -23,11 +23,11 @@ public class bcd extends ath {
       }
    }
 
-   protected int e(bec var1) {
+   protected int e(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 
-   protected bec a(bec var1, int var2) {
+   protected IBlock a(IBlock var1, int var2) {
       return var1.a(a, Integer.valueOf(var2));
    }
 
@@ -35,11 +35,11 @@ public class bcd extends ath {
       return 10;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

@@ -32,23 +32,23 @@ public class WorldManager implements ara {
 
    public void a(int var1, int var2, int var3, int var4, int var5, int var6) {}
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       this.b.t().a(var1);
    }
 
-   public void b(dt var1) {}
+   public void b(Location var1) {}
 
-   public void a(String var1, dt var2) {}
+   public void a(String var1, Location var2) {}
 
-   public void a(EntityHuman var1, int var2, dt var3, int var4) {
+   public void a(EntityHuman var1, int var2, Location var3, int var4) {
       this.a.an().a(var1, (double)var3.n(), (double)var3.o(), (double)var3.p(), 64.0D, this.b.t.q(), new jt(var2, var3, var4, false));
    }
 
-   public void a(int var1, dt var2, int var3) {
+   public void a(int var1, Location var2, int var3) {
       this.a.an().a((id)(new jt(var1, var2, var3, true)));
    }
 
-   public void b(int var1, dt var2, int var3) {
+   public void b(int var1, Location var2, int var3) {
       Iterator var4 = this.a.an().e.iterator();
 
       while(var4.hasNext()) {

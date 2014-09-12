@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class boz extends bpa {
+public class boz extends GenLayer {
 
    public boz(long var1) {
       super(var1);

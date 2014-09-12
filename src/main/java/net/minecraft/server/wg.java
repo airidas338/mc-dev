@@ -23,7 +23,7 @@ public class wg {
    public void a() {
       this.j();
       if(this.b.j_()) {
-         atr var1 = this.b.o.p(new dt(this.b.s, this.b.aQ().b, this.b.u)).c();
+         Block var1 = this.b.o.p(new Location(this.b.s, this.b.aQ().b, this.b.u)).c();
          if(var1 == aty.au) {
             this.h = "ladder";
          } else if(var1 == aty.bn) {

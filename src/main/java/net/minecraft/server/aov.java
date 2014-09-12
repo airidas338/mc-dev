@@ -7,7 +7,7 @@ public class aov {
 
 
    public aov() {
-      this.b = new Object[][]{{aty.f, aty.e, amk.j, amk.i, amk.k}, {amk.o, amk.s, amk.b, amk.w, amk.D}, {amk.n, amk.r, amk.a, amk.v, amk.C}, {amk.p, amk.t, amk.c, amk.x, amk.E}, {amk.I, amk.J, amk.K, amk.L, amk.M}};
+      this.b = new Object[][]{{aty.f, aty.e, Items.j, Items.i, Items.k}, {Items.o, Items.s, Items.b, Items.w, Items.D}, {Items.n, Items.r, Items.a, Items.v, Items.C}, {Items.p, Items.t, Items.c, Items.x, Items.E}, {Items.I, Items.J, Items.K, Items.L, Items.M}};
    }
 
    public void a(aop var1) {
@@ -16,10 +16,10 @@ public class aov {
 
          for(int var4 = 0; var4 < this.b.length - 1; ++var4) {
             alq var5 = (alq)this.b[var4 + 1][var2];
-            var1.a(new amj(var5), new Object[]{this.a[var4], Character.valueOf('#'), amk.y, Character.valueOf('X'), var3});
+            var1.a(new amj(var5), new Object[]{this.a[var4], Character.valueOf('#'), Items.y, Character.valueOf('X'), var3});
          }
       }
 
-      var1.a(new amj(amk.be), new Object[]{" #", "# ", Character.valueOf('#'), amk.j});
+      var1.a(new amj(Items.be), new Object[]{" #", "# ", Character.valueOf('#'), Items.j});
    }
 }

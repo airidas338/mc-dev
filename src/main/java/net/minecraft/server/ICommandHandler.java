@@ -6,7 +6,7 @@ public interface ICommandHandler {
 
    int a(ae var1, String var2);
 
-   List a(ae var1, String var2, dt var3);
+   List a(ae var1, String var2, Location var3);
 
    List a(ae var1);
 

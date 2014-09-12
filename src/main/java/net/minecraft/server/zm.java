@@ -30,7 +30,7 @@ public class zm extends zb {
       if(this.e && this.a.o.w()) {
          return false;
       } else {
-         abi var1 = this.a.o.ae().a(new dt(this.a), 0);
+         abi var1 = this.a.o.ae().a(new Location(this.a), 0);
          if(var1 == null) {
             return false;
          } else {

@@ -11,7 +11,7 @@ class aet extends zb {
    }
 
    public boolean a() {
-      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() == bof.a?false:this.a.bb().nextInt(2000) == 0);
+      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() == Material.a?false:this.a.bb().nextInt(2000) == 0);
    }
 
    public void e() {
@@ -20,9 +20,9 @@ class aet extends zb {
       int var3 = MathHelper.c(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
       int var4 = MathHelper.c(this.a.t + var1.nextDouble() * 2.0D);
       int var5 = MathHelper.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
-      dt var6 = new dt(var3, var4, var5);
-      atr var7 = var2.p(var6).c();
-      atr var8 = var2.p(var6.b()).c();
+      Location var6 = new Location(var3, var4, var5);
+      Block var7 = var2.p(var6).c();
+      Block var8 = var2.p(var6.b()).c();
       if(this.a(var2, var6, this.a.ck().c(), var7, var8)) {
          var2.a(var6, this.a.ck(), 3);
          this.a.a(aty.a.P());
@@ -30,7 +30,7 @@ class aet extends zb {
 
    }
 
-   private boolean a(World var1, dt var2, atr var3, atr var4, atr var5) {
-      return !var3.c(var1, var2)?false:(var4.r() != bof.a?false:(var5.r() == bof.a?false:var5.d()));
+   private boolean a(World var1, Location var2, Block var3, Block var4, Block var5) {
+      return !var3.c(var1, var2)?false:(var4.r() != Material.a?false:(var5.r() == Material.a?false:var5.d()));
    }
 }

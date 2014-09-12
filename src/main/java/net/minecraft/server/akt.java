@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 public class akt extends alq {
 
-   private atr a;
+   private Block a;
 
 
-   public akt(atr var1) {
+   public akt(Block var1) {
       this.a = var1;
       this.a(akf.d);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var5 != ej.b) {
          return false;
       } else {
-         bec var9 = var3.p(var4);
-         atr var10 = var9.c();
+         IBlock var9 = var3.p(var4);
+         Block var10 = var9.c();
          if(!var10.f(var3, var4)) {
             var4 = var4.a(var5);
          }
@@ -32,9 +32,9 @@ public class akt extends alq {
       }
    }
 
-   public static void a(World var0, dt var1, ej var2, atr var3) {
-      dt var4 = var1.a(var2.e());
-      dt var5 = var1.a(var2.f());
+   public static void a(World var0, Location var1, ej var2, Block var3) {
+      Location var4 = var1.a(var2.e());
+      Location var5 = var1.a(var2.f());
       int var6 = (var0.p(var5).c().t()?1:0) + (var0.p(var5.a()).c().t()?1:0);
       int var7 = (var0.p(var4).c().t()?1:0) + (var0.p(var4.a()).c().t()?1:0);
       boolean var8 = var0.p(var5).c() == var3 || var0.p(var5.a()).c() == var3;
@@ -44,8 +44,8 @@ public class akt extends alq {
          var10 = true;
       }
 
-      dt var11 = var1.a();
-      bec var12 = var3.P().a(avf.a, var2).a(avf.M, var10?avh.b:avh.a);
+      Location var11 = var1.a();
+      IBlock var12 = var3.P().a(avf.a, var2).a(avf.M, var10?avh.b:avh.a);
       var0.a(var1, var12.a(avf.O, avg.b), 2);
       var0.a(var11, var12.a(avf.O, avg.a), 2);
       var0.c(var1, var3);

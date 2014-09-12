@@ -11,7 +11,7 @@ public class bib extends bic {
       this.e = var2;
    }
 
-   public boolean b(World var1, Random var2, dt var3) {
+   public boolean generate(World var1, Random var2, Location var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -19,24 +19,24 @@ public class bib extends bic {
          this.a(var1, var3.n(), var3.p(), var3.o() + var4, 0, var2);
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            atr var6 = var1.p(var3.b(var5)).c();
-            if(var6.r() == bof.a || var6.r() == bof.j) {
+            Block var6 = var1.p(var3.b(var5)).c();
+            if(var6.r() == Material.a || var6.r() == Material.j) {
                this.a(var1, var3.b(var5), aty.r, this.b);
             }
 
             if(var5 < var4 - 1) {
                var6 = var1.p(var3.a(1, var5, 0)).c();
-               if(var6.r() == bof.a || var6.r() == bof.j) {
+               if(var6.r() == Material.a || var6.r() == Material.j) {
                   this.a(var1, var3.a(1, var5, 0), aty.r, this.b);
                }
 
                var6 = var1.p(var3.a(1, var5, 1)).c();
-               if(var6.r() == bof.a || var6.r() == bof.j) {
+               if(var6.r() == Material.a || var6.r() == Material.j) {
                   this.a(var1, var3.a(1, var5, 1), aty.r, this.b);
                }
 
                var6 = var1.p(var3.a(0, var5, 1)).c();
-               if(var6.r() == bof.a || var6.r() == bof.j) {
+               if(var6.r() == Material.a || var6.r() == Material.j) {
                   this.a(var1, var3.a(0, var5, 1), aty.r, this.b);
                }
             }
@@ -53,13 +53,13 @@ public class bib extends bic {
       for(int var9 = var4 - var7; var9 <= var4; ++var9) {
          int var10 = var4 - var9;
          int var11 = var5 + MathHelper.d((float)var10 / (float)var7 * 3.5F);
-         this.a(var1, new dt(var2, var9, var3), var11 + (var10 > 0 && var11 == var8 && (var9 & 1) == 0?1:0));
+         this.a(var1, new Location(var2, var9, var3), var11 + (var10 > 0 && var11 == var8 && (var9 & 1) == 0?1:0));
          var8 = var11;
       }
 
    }
 
-   public void a(World var1, Random var2, dt var3) {
+   public void a(World var1, Random var2, Location var3) {
       this.b(var1, var3.e().c());
       this.b(var1, var3.g(2).c());
       this.b(var1, var3.e().e(2));
@@ -76,7 +76,7 @@ public class bib extends bic {
 
    }
 
-   private void b(World var1, dt var2) {
+   private void b(World var1, Location var2) {
       for(int var3 = -2; var3 <= 2; ++var3) {
          for(int var4 = -2; var4 <= 2; ++var4) {
             if(Math.abs(var3) != 2 || Math.abs(var4) != 2) {
@@ -87,16 +87,16 @@ public class bib extends bic {
 
    }
 
-   private void c(World var1, dt var2) {
+   private void c(World var1, Location var2) {
       for(int var3 = 2; var3 >= -3; --var3) {
-         dt var4 = var2.b(var3);
-         atr var5 = var1.p(var4).c();
+         Location var4 = var2.b(var3);
+         Block var5 = var1.p(var4).c();
          if(var5 == aty.c || var5 == aty.d) {
             this.a(var1, var4, aty.d, avd.c.a());
             break;
          }
 
-         if(var5.r() != bof.a && var3 < 0) {
+         if(var5.r() != Material.a && var3 < 0) {
             break;
          }
       }

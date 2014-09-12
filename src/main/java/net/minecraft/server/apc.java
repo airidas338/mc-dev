@@ -10,7 +10,7 @@ public class apc extends apf {
    public final int a;
 
 
-   public apc(int var1, oa var2, int var3, int var4) {
+   public apc(int var1, RegistryMaterials var2, int var3, int var4) {
       super(var1, var2, var3, apg.g);
       this.a = var4;
    }

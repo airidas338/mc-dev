@@ -7,7 +7,7 @@ final class ol extends eg {
 
    protected amj b(dz var1, amj var2) {
       World var3 = var1.i();
-      dt var4 = var1.d().a(ave.b(var1.f()));
+      Location var4 = var1.d().a(ave.b(var1.f()));
       azk var5 = (azk)aty.aU;
       if(var3.d(var4) && var5.d(var3, var4)) {
          if(!var3.D) {

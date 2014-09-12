@@ -16,42 +16,42 @@ public class aup extends ava implements avs {
       this.A = true;
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return amk.ce;
+   public alq a(IBlock var1, Random var2, int var3) {
+      return Items.ce;
    }
 
-   protected int d(bec var1) {
+   protected int d(IBlock var1) {
       return 2;
    }
 
-   protected bec e(bec var1) {
+   protected IBlock e(IBlock var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       ej var4 = (ej)var1.b(N);
       return aty.ck.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
-   protected bec k(bec var1) {
+   protected IBlock k(IBlock var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       ej var4 = (ej)var1.b(N);
       return aty.cj.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
-   protected boolean l(bec var1) {
+   protected boolean l(IBlock var1) {
       return this.M || ((Boolean)var1.b(a)).booleanValue();
    }
 
-   protected int a(ard var1, dt var2, bec var3) {
+   protected int a(ard var1, Location var2, IBlock var3) {
       bcm var4 = var1.s(var2);
       return var4 instanceof bcv?((bcv)var4).b():0;
    }
 
-   private int j(World var1, dt var2, bec var3) {
+   private int j(World var1, Location var2, IBlock var3) {
       return var3.b(b) == aur.b?Math.max(this.f(var1, var2, var3) - this.c((ard)var1, var2, var3), 0):this.f(var1, var2, var3);
    }
 
-   protected boolean e(World var1, dt var2, bec var3) {
+   protected boolean e(World var1, Location var2, IBlock var3) {
       int var4 = this.f(var1, var2, var3);
       if(var4 >= 15) {
          return true;
@@ -63,11 +63,11 @@ public class aup extends ava implements avs {
       }
    }
 
-   protected int f(World var1, dt var2, bec var3) {
+   protected int f(World var1, Location var2, IBlock var3) {
       int var4 = super.f(var1, var2, var3);
       ej var5 = (ej)var3.b(N);
-      dt var6 = var2.a(var5);
-      atr var7 = var1.p(var6).c();
+      Location var6 = var2.a(var5);
+      Block var7 = var1.p(var6).c();
       if(var7.N()) {
          var4 = var7.l(var1, var6);
       } else if(var4 < 15 && var7.t()) {
@@ -75,7 +75,7 @@ public class aup extends ava implements avs {
          var7 = var1.p(var6).c();
          if(var7.N()) {
             var4 = var7.l(var1, var6);
-         } else if(var7.r() == bof.a) {
+         } else if(var7.r() == Material.a) {
             EntityItemFrame var8 = this.a(var1, var5, var6);
             if(var8 != null) {
                var4 = var8.q();
@@ -86,12 +86,12 @@ public class aup extends ava implements avs {
       return var4;
    }
 
-   private EntityItemFrame a(World var1, ej var2, dt var3) {
+   private EntityItemFrame a(World var1, ej var2, Location var3) {
       List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
       return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -103,8 +103,8 @@ public class aup extends ava implements avs {
       }
    }
 
-   protected void g(World var1, dt var2, bec var3) {
-      if(!var1.a(var2, (atr)this)) {
+   protected void g(World var1, Location var2, IBlock var3) {
+      if(!var1.a(var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
          bcm var5 = var1.s(var2);
          int var6 = var5 instanceof bcv?((bcv)var5).b():0;
@@ -119,7 +119,7 @@ public class aup extends ava implements avs {
       }
    }
 
-   private void k(World var1, dt var2, bec var3) {
+   private void k(World var1, Location var2, IBlock var3) {
       int var4 = this.j(var1, var2, var3);
       bcm var5 = var1.s(var2);
       int var6 = 0;
@@ -143,7 +143,7 @@ public class aup extends ava implements avs {
 
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(this.M) {
          var1.a(var2, this.k(var3).a(a, Boolean.valueOf(true)), 4);
       }
@@ -151,18 +151,18 @@ public class aup extends ava implements avs {
       this.k(var1, var2, var3);
    }
 
-   public void c(World var1, dt var2, bec var3) {
+   public void c(World var1, Location var2, IBlock var3) {
       super.c(var1, var2, var3);
       var1.a(var2, this.a(var1, 0));
    }
 
-   public void b(World var1, dt var2, bec var3) {
+   public void b(World var1, Location var2, IBlock var3) {
       super.b(var1, var2, var3);
       var1.t(var2);
       this.h(var1, var2, var3);
    }
 
-   public boolean a(World var1, dt var2, bec var3, int var4, int var5) {
+   public boolean a(World var1, Location var2, IBlock var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       bcm var6 = var1.s(var2);
       return var6 == null?false:var6.c(var4, var5);
@@ -172,11 +172,11 @@ public class aup extends ava implements avs {
       return new bcv();
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(N, ej.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0?aur.b:aur.a);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ej)var1.b(N)).b();
       if(((Boolean)var1.b(a)).booleanValue()) {
@@ -194,7 +194,7 @@ public class aup extends ava implements avs {
       return new bed(this, new bex[]{N, b, a});
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d()).a(a, Boolean.valueOf(false)).a(b, aur.a);
    }
 

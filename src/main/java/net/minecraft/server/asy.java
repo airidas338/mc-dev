@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
-public class asy extends atr {
+public class asy extends Block {
 
    protected asy() {
-      super(bof.a);
+      super(Material.a);
    }
 
    public int b() {
       return -1;
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       return null;
    }
 
@@ -18,9 +18,9 @@ public class asy extends atr {
       return false;
    }
 
-   public boolean a(bec var1, boolean var2) {
+   public boolean a(IBlock var1, boolean var2) {
       return false;
    }
 
-   public void a(World var1, dt var2, bec var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
 }

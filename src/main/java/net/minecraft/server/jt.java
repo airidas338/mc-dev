@@ -3,14 +3,14 @@ package net.minecraft.server;
 public class jt implements id {
 
    private int a;
-   private dt b;
+   private Location b;
    private int c;
    private boolean d;
 
 
    public jt() {}
 
-   public jt(int var1, dt var2, int var3, boolean var4) {
+   public jt(int var1, Location var2, int var3, boolean var4) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

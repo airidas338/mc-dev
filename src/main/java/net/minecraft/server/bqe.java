@@ -95,7 +95,7 @@ public class bqe extends bqc {
 
       if(var2.y()) {
          EntityItemFrame var7 = var2.z();
-         dt var9 = var7.n();
+         Location var9 = var7.n();
          this.a(1, var1.o, "frame-" + var7.F(), (double)var9.n(), (double)var9.p(), (double)(var7.b.b() * 90));
       }
 

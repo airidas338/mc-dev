@@ -5,13 +5,13 @@ import java.util.List;
 
 public class ado extends Entity {
 
-   private static final List d = Arrays.asList(new adp[]{(new adp(new amj(amk.T), 10)).a(0.9F), new adp(new amj(amk.aF), 10), new adp(new amj(amk.aX), 10), new adp(new amj(amk.bz), 10), new adp(new amj(amk.F), 5), (new adp(new amj(amk.aR), 2)).a(0.9F), new adp(new amj(amk.z), 10), new adp(new amj(amk.y), 5), new adp(new amj(amk.aW, 10, akv.p.b()), 1), new adp(new amj(aty.bR), 10), new adp(new amj(amk.bt), 10)});
-   private static final List e = Arrays.asList(new adp[]{new adp(new amj(aty.bx), 1), new adp(new amj(amk.co), 1), new adp(new amj(amk.aA), 1), (new adp(new amj(amk.f), 1)).a(0.25F).a(), (new adp(new amj(amk.aR), 1)).a(0.25F).a(), (new adp(new amj(amk.aL), 1)).a()});
-   private static final List f = Arrays.asList(new adp[]{new adp(new amj(amk.aU, 1, ali.a.a()), 60), new adp(new amj(amk.aU, 1, ali.b.a()), 25), new adp(new amj(amk.aU, 1, ali.c.a()), 2), new adp(new amj(amk.aU, 1, ali.d.a()), 13)});
+   private static final List d = Arrays.asList(new adp[]{(new adp(new amj(Items.T), 10)).a(0.9F), new adp(new amj(Items.aF), 10), new adp(new amj(Items.aX), 10), new adp(new amj(Items.bz), 10), new adp(new amj(Items.F), 5), (new adp(new amj(Items.aR), 2)).a(0.9F), new adp(new amj(Items.z), 10), new adp(new amj(Items.y), 5), new adp(new amj(Items.aW, 10, akv.p.b()), 1), new adp(new amj(aty.bR), 10), new adp(new amj(Items.bt), 10)});
+   private static final List e = Arrays.asList(new adp[]{new adp(new amj(aty.bx), 1), new adp(new amj(Items.co), 1), new adp(new amj(Items.aA), 1), (new adp(new amj(Items.f), 1)).a(0.25F).a(), (new adp(new amj(Items.aR), 1)).a(0.25F).a(), (new adp(new amj(Items.aL), 1)).a()});
+   private static final List f = Arrays.asList(new adp[]{new adp(new amj(Items.aU, 1, ali.a.a()), 60), new adp(new amj(Items.aU, 1, ali.b.a()), 25), new adp(new amj(Items.aU, 1, ali.c.a()), 2), new adp(new amj(Items.aU, 1, ali.d.a()), 13)});
    private int g = -1;
    private int h = -1;
    private int i = -1;
-   private atr ap;
+   private Block ap;
    private boolean aq;
    public int a;
    public EntityHuman b;
@@ -95,7 +95,7 @@ public class ado extends Entity {
       } else {
          if(!this.o.D) {
             amj var1 = this.b.bY();
-            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != amk.aR || this.h(this.b) > 1024.0D) {
+            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != Items.aR || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bE = null;
                return;
@@ -119,7 +119,7 @@ public class ado extends Entity {
          }
 
          if(this.aq) {
-            if(this.o.p(new dt(this.g, this.h, this.i)).c() == this.ap) {
+            if(this.o.p(new Location(this.g, this.h, this.i)).c() == this.ap) {
                ++this.ar;
                if(this.ar == 1200) {
                   this.J();
@@ -220,7 +220,7 @@ public class ado extends Entity {
                double var17 = var14.b + var15 * (double)var36 / (double)var34;
                var19 = var14.b + var15 * (double)(var36 + 1) / (double)var34;
                AxisAlignedBB var21 = new AxisAlignedBB(var14.a, var17, var14.c, var14.d, var19, var14.f);
-               if(this.o.b(var21, bof.h)) {
+               if(this.o.b(var21, Material.h)) {
                   var33 += 1.0D / (double)var34;
                }
             }
@@ -228,7 +228,7 @@ public class ado extends Entity {
             if(!this.o.D && var33 > 0.0D) {
                WorldServer var35 = (WorldServer)this.o;
                int var38 = 1;
-               dt var37 = (new dt(this)).a();
+               Location var37 = (new Location(this)).a();
                if(this.V.nextFloat() < 0.25F && this.o.C(var37)) {
                   var38 = 2;
                }
@@ -329,7 +329,7 @@ public class ado extends Entity {
       var1.a("xTile", (short)this.g);
       var1.a("yTile", (short)this.h);
       var1.a("zTile", (short)this.i);
-      oa var2 = (oa)atr.c.c(this.ap);
+      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.ap);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("shake", (byte)this.a);
       var1.a("inGround", (byte)(this.aq?1:0));
@@ -340,9 +340,9 @@ public class ado extends Entity {
       this.h = var1.e("yTile");
       this.i = var1.e("zTile");
       if(var1.b("inTile", 8)) {
-         this.ap = atr.b(var1.j("inTile"));
+         this.ap = Block.b(var1.j("inTile"));
       } else {
-         this.ap = atr.c(var1.d("inTile") & 255);
+         this.ap = Block.c(var1.d("inTile") & 255);
       }
 
       this.a = var1.d("shake") & 255;
@@ -399,16 +399,16 @@ public class ado extends Entity {
       var5 = MathHelper.a(var5, 0.0F, 1.0F);
       if(var1 < var4) {
          this.b.b(ty.D);
-         return ((adp)vj.a(this.V, d)).a(this.V);
+         return ((adp)WeightedRandom.a(this.V, d)).a(this.V);
       } else {
          var1 -= var4;
          if(var1 < var5) {
             this.b.b(ty.E);
-            return ((adp)vj.a(this.V, e)).a(this.V);
+            return ((adp)WeightedRandom.a(this.V, e)).a(this.V);
          } else {
             float var10000 = var1 - var5;
             this.b.b(ty.C);
-            return ((adp)vj.a(this.V, f)).a(this.V);
+            return ((adp)WeightedRandom.a(this.V, f)).a(this.V);
          }
       }
    }

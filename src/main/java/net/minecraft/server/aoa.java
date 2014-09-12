@@ -19,7 +19,7 @@ public class aoa implements aoo {
 
                var3 = var6;
             } else {
-               if(var6.b() != amk.aW) {
+               if(var6.b() != Items.aW) {
                   return false;
                }
 
@@ -66,7 +66,7 @@ public class aoa implements aoo {
                   ++var5;
                }
             } else {
-               if(var8.b() != amk.aW) {
+               if(var8.b() != Items.aW) {
                   return null;
                }
 

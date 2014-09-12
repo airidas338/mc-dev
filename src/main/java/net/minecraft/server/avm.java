@@ -13,7 +13,7 @@ public class avm extends ave {
       return new bcy();
    }
 
-   protected void d(World var1, dt var2) {
+   protected void d(World var1, Location var2) {
       ea var3 = new ea(var1, var2);
       bcx var4 = (bcx)var3.h();
       if(var4 != null) {
@@ -24,7 +24,7 @@ public class avm extends ave {
             amj var6 = var4.a(var5);
             if(var6 != null) {
                ej var7 = (ej)var1.p(var2).b(a);
-               dt var8 = var2.a(var7);
+               Location var8 = var2.a(var7);
                vq var9 = bde.b(var1, (double)var8.n(), (double)var8.o(), (double)var8.p());
                amj var10;
                if(var9 == null) {

@@ -7,8 +7,8 @@ public abstract class bcf extends awq {
 
 
    public bcf() {
-      super(bof.d);
-      bec var1 = this.L.b();
+      super(Material.d);
+      IBlock var1 = this.L.b();
       if(!this.j()) {
          var1 = var1.a(a, awr.b);
       }
@@ -17,8 +17,8 @@ public abstract class bcf extends awq {
       this.a(akf.b);
    }
 
-   public alq a(bec var1, Random var2, int var3) {
-      return alq.a((atr)aty.bM);
+   public alq a(IBlock var1, Random var2, int var3) {
+      return alq.a((Block)aty.bM);
    }
 
    public String b(int var1) {
@@ -33,8 +33,8 @@ public abstract class bcf extends awq {
       return ayx.a(var1.i() & 7);
    }
 
-   public bec a(int var1) {
-      bec var2 = this.P().a(b, ayx.a(var1 & 7));
+   public IBlock a(int var1) {
+      IBlock var2 = this.P().a(b, ayx.a(var1 & 7));
       if(!this.j()) {
          var2 = var2.a(a, (var1 & 8) == 0?awr.b:awr.a);
       }
@@ -42,7 +42,7 @@ public abstract class bcf extends awq {
       return var2;
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | ((ayx)var1.b(b)).a();
       if(!this.j() && var1.b(a) == awr.a) {
@@ -56,7 +56,7 @@ public abstract class bcf extends awq {
       return this.j()?new bed(this, new bex[]{b}):new bed(this, new bex[]{a, b});
    }
 
-   public int a(bec var1) {
+   public int a(IBlock var1) {
       return ((ayx)var1.b(b)).a();
    }
 

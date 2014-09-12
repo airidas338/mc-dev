@@ -14,8 +14,8 @@ public class amp extends alq {
       ave.M.a(this, a);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
-      bec var9 = var3.p(var4);
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+      IBlock var9 = var3.p(var4);
       if(ati.d(var9)) {
          if(!var3.D) {
             atl var10 = var9.c() instanceof ati?(atl)var9.b(((ati)var9.c()).l()):atl.a;

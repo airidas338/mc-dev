@@ -8,7 +8,7 @@ class bl implements ae {
    // $FF: synthetic field
    final ae b;
    // $FF: synthetic field
-   final dt c;
+   final Location c;
    // $FF: synthetic field
    final double d;
    // $FF: synthetic field
@@ -19,7 +19,7 @@ class bl implements ae {
    final bk g;
 
 
-   bl(bk var1, Entity var2, ae var3, dt var4, double var5, double var7, double var9) {
+   bl(bk var1, Entity var2, ae var3, Location var4, double var5, double var7, double var9) {
       this.g = var1;
       this.a = var2;
       this.b = var3;
@@ -45,7 +45,7 @@ class bl implements ae {
       return this.b.a(var1, var2);
    }
 
-   public dt c() {
+   public Location c() {
       return this.c;
    }
 

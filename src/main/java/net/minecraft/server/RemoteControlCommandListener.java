@@ -35,8 +35,8 @@ public class RemoteControlCommandListener implements ae {
       return true;
    }
 
-   public dt c() {
-      return new dt(0, 0, 0);
+   public Location c() {
+      return new Location(0, 0, 0);
    }
 
    public ChunkCoordinates d() {

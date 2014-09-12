@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class EntityFallingBlock extends Entity {
 
-   private bec d;
+   private IBlock d;
    public int a;
    public boolean b = true;
    private boolean e;
@@ -20,7 +20,7 @@ public class EntityFallingBlock extends Entity {
       super(var1);
    }
 
-   public EntityFallingBlock(World var1, double var2, double var4, double var6, bec var8) {
+   public EntityFallingBlock(World var1, double var2, double var4, double var6, IBlock var8) {
       super(var1);
       this.d = var8;
       this.k = true;
@@ -45,16 +45,16 @@ public class EntityFallingBlock extends Entity {
    }
 
    public void s_() {
-      atr var1 = this.d.c();
-      if(var1.r() == bof.a) {
+      Block var1 = this.d.c();
+      if(var1.r() == Material.a) {
          this.J();
       } else {
          this.p = this.s;
          this.q = this.t;
          this.r = this.u;
-         dt var2;
+         Location var2;
          if(this.a++ == 0) {
-            var2 = new dt(this);
+            var2 = new Location(this);
             if(this.o.p(var2).c() == var1) {
                this.o.g(var2);
             } else if(!this.o.D) {
@@ -69,7 +69,7 @@ public class EntityFallingBlock extends Entity {
          this.w *= 0.9800000190734863D;
          this.x *= 0.9800000190734863D;
          if(!this.o.D) {
-            var2 = new dt(this);
+            var2 = new Location(this);
             if(this.C) {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
@@ -117,7 +117,7 @@ public class EntityFallingBlock extends Entity {
    }
 
    public void e(float var1, float var2) {
-      atr var3 = this.d.c();
+      Block var3 = this.d.c();
       if(this.f) {
          int var4 = MathHelper.f(var1 - 1.0F);
          if(var4 > 0) {
@@ -146,8 +146,8 @@ public class EntityFallingBlock extends Entity {
    }
 
    protected void b(fn var1) {
-      atr var2 = this.d != null?this.d.c():aty.a;
-      oa var3 = (oa)atr.c.c(var2);
+      Block var2 = this.d != null?this.d.c():aty.a;
+      RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2);
       var1.a("Block", var3 == null?"":var3.toString());
       var1.a("Data", (byte)var2.c(this.d));
       var1.a("Time", (byte)this.a);
@@ -164,15 +164,15 @@ public class EntityFallingBlock extends Entity {
    protected void a(fn var1) {
       int var2 = var1.d("Data") & 255;
       if(var1.b("Block", 8)) {
-         this.d = atr.b(var1.j("Block")).a(var2);
+         this.d = Block.b(var1.j("Block")).a(var2);
       } else if(var1.b("TileID", 99)) {
-         this.d = atr.c(var1.f("TileID")).a(var2);
+         this.d = Block.c(var1.f("TileID")).a(var2);
       } else {
-         this.d = atr.c(var1.d("Tile") & 255).a(var2);
+         this.d = Block.c(var1.d("Tile") & 255).a(var2);
       }
 
       this.a = var1.d("Time") & 255;
-      atr var3 = this.d.c();
+      Block var3 = this.d.c();
       if(var1.b("HurtEntities", 99)) {
          this.f = var1.n("HurtEntities");
          this.h = var1.h("FallHurtAmount");
@@ -189,7 +189,7 @@ public class EntityFallingBlock extends Entity {
          this.c = var1.m("TileEntityData");
       }
 
-      if(var3 == null || var3.r() == bof.a) {
+      if(var3 == null || var3.r() == Material.a) {
          this.d = aty.m.P();
       }
 
@@ -202,14 +202,14 @@ public class EntityFallingBlock extends Entity {
    public void getAttributeInstance(CrashReportSystemDetails var1) {
       super.getAttributeInstance(var1);
       if(this.d != null) {
-         atr var2 = this.d.c();
-         var1.a("Immitating block ID", (Object)Integer.valueOf(atr.a(var2)));
+         Block var2 = this.d.c();
+         var1.a("Immitating block ID", (Object)Integer.valueOf(Block.a(var2)));
          var1.a("Immitating block data", (Object)Integer.valueOf(var2.c(this.d)));
       }
 
    }
 
-   public bec l() {
+   public IBlock l() {
       return this.d;
    }
 }

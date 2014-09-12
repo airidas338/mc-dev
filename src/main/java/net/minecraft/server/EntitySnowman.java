@@ -31,7 +31,7 @@ public class EntitySnowman extends EntityGolem implements afr {
             this.a(DamageSource.f, 1.0F);
          }
 
-         if(this.o.b(new dt(var1, 0, var3)).a(new dt(var1, var2, var3)) > 1.0F) {
+         if(this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) > 1.0F) {
             this.a(DamageSource.c, 1.0F);
          }
 
@@ -39,8 +39,8 @@ public class EntitySnowman extends EntityGolem implements afr {
             var1 = MathHelper.c(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
             var2 = MathHelper.c(this.t);
             var3 = MathHelper.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
-            if(this.o.p(new dt(var1, var2, var3)).c().r() == bof.a && this.o.b(new dt(var1, 0, var3)).a(new dt(var1, var2, var3)) < 0.8F && aty.aH.c(this.o, new dt(var1, var2, var3))) {
-               this.o.a(new dt(var1, var2, var3), aty.aH.P());
+            if(this.o.p(new Location(var1, var2, var3)).c().r() == Material.a && this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && aty.aH.c(this.o, new Location(var1, var2, var3))) {
+               this.o.a(new Location(var1, var2, var3), aty.aH.P());
             }
          }
       }
@@ -48,14 +48,14 @@ public class EntitySnowman extends EntityGolem implements afr {
    }
 
    protected alq A() {
-      return amk.aD;
+      return Items.aD;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(16);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(amk.aD, 1);
+         this.a(Items.aD, 1);
       }
 
    }

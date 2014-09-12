@@ -356,7 +356,7 @@ public class WorldData {
       this.i = var1;
    }
 
-   public void a(dt var1) {
+   public void a(Location var1) {
       this.e = var1.n();
       this.f = var1.o();
       this.g = var1.p();

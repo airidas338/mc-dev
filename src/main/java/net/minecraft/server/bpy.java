@@ -25,7 +25,7 @@ public class bpy extends bpu {
       if(this.i && var1.V()) {
          var2 = (int)var1.aQ().b;
 
-         for(atr var3 = this.a.p(new dt(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == aty.i || var3 == aty.j; var3 = this.a.p(new dt(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
+         for(Block var3 = this.a.p(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == aty.i || var3 == aty.j; var3 = this.a.p(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
             ++var2;
          }
 
@@ -125,17 +125,17 @@ public class bpy extends bpu {
 
    public static int a(ard var0, Entity var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
       boolean var11 = false;
-      dt var12 = new dt(var1);
+      Location var12 = new Location(var1);
 
       for(int var13 = var2; var13 < var2 + var5; ++var13) {
          for(int var14 = var3; var14 < var3 + var6; ++var14) {
             for(int var15 = var4; var15 < var4 + var7; ++var15) {
-               dt var16 = new dt(var13, var14, var15);
-               atr var17 = var0.p(var16).c();
-               if(var17.r() != bof.a) {
+               Location var16 = new Location(var13, var14, var15);
+               Block var17 = var0.p(var16).c();
+               if(var17.r() != Material.a) {
                   if(var17 != aty.bd && var17 != aty.cw) {
                      if(var17 != aty.i && var17 != aty.j) {
-                        if(!var10 && var17 instanceof avf && var17.r() == bof.d) {
+                        if(!var10 && var17 instanceof avf && var17.r() == Material.d) {
                            return 0;
                         }
                      } else {
@@ -153,7 +153,7 @@ public class bpy extends bpu {
                      if(!(var1.o.p(var12).c() instanceof ati) && !(var1.o.p(var12.b()).c() instanceof ati)) {
                         return -3;
                      }
-                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof avf) || var17.r() != bof.d)) {
+                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof avf) || var17.r() != Material.d)) {
                      if(var17 instanceof avv || var17 instanceof avw || var17 instanceof bbx) {
                         return -3;
                      }
@@ -162,8 +162,8 @@ public class bpy extends bpu {
                         return -4;
                      }
 
-                     bof var18 = var17.r();
-                     if(var18 != bof.i) {
+                     Material var18 = var17.r();
+                     if(var18 != Material.i) {
                         return 0;
                      }
 

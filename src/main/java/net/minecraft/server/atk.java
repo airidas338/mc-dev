@@ -6,16 +6,16 @@ import java.util.List;
 public class atk {
 
    private final World b;
-   private final dt c;
+   private final Location c;
    private final ati d;
-   private bec e;
+   private IBlock e;
    private final boolean f;
    private final List g;
    // $FF: synthetic field
    final ati a;
 
 
-   public atk(ati var1, World var2, dt var3, bec var4) {
+   public atk(ati var1, World var2, Location var3, IBlock var4) {
       this.a = var1;
       this.g = Lists.newArrayList();
       this.b = var2;
@@ -75,7 +75,7 @@ public class atk {
 
    private void c() {
       for(int var1 = 0; var1 < this.g.size(); ++var1) {
-         atk var2 = this.b((dt)this.g.get(var1));
+         atk var2 = this.b((Location)this.g.get(var1));
          if(var2 != null && var2.a(this)) {
             this.g.set(var1, var2.c);
          } else {
@@ -85,16 +85,16 @@ public class atk {
 
    }
 
-   private boolean a(dt var1) {
+   private boolean a(Location var1) {
       return ati.d(this.b, var1) || ati.d(this.b, var1.a()) || ati.d(this.b, var1.b());
    }
 
-   private atk b(dt var1) {
-      bec var3 = this.b.p(var1);
+   private atk b(Location var1) {
+      IBlock var3 = this.b.p(var1);
       if(ati.d(var3)) {
          return new atk(this.a, this.b, var1, var3);
       } else {
-         dt var2 = var1.a();
+         Location var2 = var1.a();
          var3 = this.b.p(var2);
          if(ati.d(var3)) {
             return new atk(this.a, this.b, var2, var3);
@@ -110,9 +110,9 @@ public class atk {
       return this.c(var1.c);
    }
 
-   private boolean c(dt var1) {
+   private boolean c(Location var1) {
       for(int var2 = 0; var2 < this.g.size(); ++var2) {
-         dt var3 = (dt)this.g.get(var2);
+         Location var3 = (Location)this.g.get(var2);
          if(var3.n() == var1.n() && var3.p() == var1.p()) {
             return true;
          }
@@ -141,10 +141,10 @@ public class atk {
 
    private void c(atk var1) {
       this.g.add(var1.c);
-      dt var2 = this.c.c();
-      dt var3 = this.c.d();
-      dt var4 = this.c.e();
-      dt var5 = this.c.f();
+      Location var2 = this.c.c();
+      Location var3 = this.c.d();
+      Location var4 = this.c.e();
+      Location var5 = this.c.f();
       boolean var6 = this.c(var2);
       boolean var7 = this.c(var3);
       boolean var8 = this.c(var4);
@@ -204,7 +204,7 @@ public class atk {
       this.b.a(this.c, this.e, 3);
    }
 
-   private boolean d(dt var1) {
+   private boolean d(Location var1) {
       atk var2 = this.b(var1);
       if(var2 == null) {
          return false;
@@ -215,10 +215,10 @@ public class atk {
    }
 
    public atk a(boolean var1, boolean var2) {
-      dt var3 = this.c.c();
-      dt var4 = this.c.d();
-      dt var5 = this.c.e();
-      dt var6 = this.c.f();
+      Location var3 = this.c.c();
+      Location var4 = this.c.d();
+      Location var5 = this.c.e();
+      Location var6 = this.c.f();
       boolean var7 = this.d(var3);
       boolean var8 = this.d(var4);
       boolean var9 = this.d(var5);
@@ -326,7 +326,7 @@ public class atk {
          this.b.a(this.c, this.e, 3);
 
          for(int var12 = 0; var12 < this.g.size(); ++var12) {
-            atk var13 = this.b((dt)this.g.get(var12));
+            atk var13 = this.b((Location)this.g.get(var12));
             if(var13 != null) {
                var13.c();
                if(var13.b(this)) {
@@ -339,7 +339,7 @@ public class atk {
       return this;
    }
 
-   public bec b() {
+   public IBlock b() {
       return this.e;
    }
 }

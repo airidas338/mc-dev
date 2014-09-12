@@ -11,7 +11,7 @@ public class EntityCow extends EntityAnimal {
       this.i.a(0, new yy(this));
       this.i.a(1, new zu(this, 2.0D));
       this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.25D, amk.O, false));
+      this.i.a(3, new aag(this, 1.25D, Items.O, false));
       this.i.a(4, new za(this, 1.25D));
       this.i.a(5, new zy(this, 1.0D));
       this.i.a(6, new zh(this, EntityHuman.class, 6.0F));
@@ -36,7 +36,7 @@ public class EntityCow extends EntityAnimal {
       return "mob.cow.hurt";
    }
 
-   protected void a(dt var1, atr var2) {
+   protected void a(Location var1, Block var2) {
       this.a("mob.cow.step", 0.15F, 1.0F);
    }
 
@@ -45,7 +45,7 @@ public class EntityCow extends EntityAnimal {
    }
 
    protected alq A() {
-      return amk.aF;
+      return Items.aF;
    }
 
    protected void b(boolean var1, int var2) {
@@ -53,16 +53,16 @@ public class EntityCow extends EntityAnimal {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(amk.aF, 1);
+         this.a(Items.aF, 1);
       }
 
       var3 = this.V.nextInt(3) + 1 + this.V.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.au()) {
-            this.a(amk.bj, 1);
+            this.a(Items.bj, 1);
          } else {
-            this.a(amk.bi, 1);
+            this.a(Items.bi, 1);
          }
       }
 
@@ -70,11 +70,11 @@ public class EntityCow extends EntityAnimal {
 
    public boolean a(EntityHuman var1) throws IOException {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.aw && !var1.by.d) {
+      if(var2 != null && var2.b() == Items.aw && !var1.by.d) {
          if(var2.b-- == 1) {
-            var1.bg.a(var1.bg.c, new amj(amk.aG));
-         } else if(!var1.bg.a(new amj(amk.aG))) {
-            var1.a(new amj(amk.aG, 1, 0), false);
+            var1.bg.a(var1.bg.c, new amj(Items.aG));
+         } else if(!var1.bg.a(new amj(Items.aG))) {
+            var1.a(new amj(Items.aG, 1, 0), false);
          }
 
          return true;

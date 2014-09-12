@@ -85,7 +85,7 @@ public class cc extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, ew.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 9?a(var2, new String[]{"normal", "force"}):null));
    }
 }

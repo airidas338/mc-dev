@@ -52,11 +52,11 @@ public class ajj extends ajk {
          this.b.b((tq)tl.l);
       }
 
-      if(var1.b() == amk.P) {
+      if(var1.b() == Items.P) {
          this.b.b((tq)tl.m);
       }
 
-      if(var1.b() == amk.aZ) {
+      if(var1.b() == Items.aZ) {
          this.b.b((tq)tl.n);
       }
 
@@ -76,7 +76,7 @@ public class ajj extends ajk {
          this.b.b((tq)tl.G);
       }
 
-      if(var1.b() == amk.ao && var1.i() == 1) {
+      if(var1.b() == Items.ao && var1.i() == 1) {
          this.b.b((tq)tl.M);
       }
 

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bpf extends bpa {
+public class bpf extends GenLayer {
 
-   public bpf(long var1, bpa var3) {
+   public bpf(long var1, GenLayer var3) {
       super(var1);
       this.a = var3;
    }

@@ -10,7 +10,7 @@ public abstract class EntityFlying extends EntityInsentient {
 
    public void e(float var1, float var2) {}
 
-   protected void a(double var1, boolean var3, atr var4, dt var5) {}
+   protected void a(double var1, boolean var3, Block var4, Location var5) {}
 
    public void g(float var1, float var2) {
       if(this.V()) {
@@ -28,14 +28,14 @@ public abstract class EntityFlying extends EntityInsentient {
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new dt(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+            var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new dt(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+            var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
          }
 
          this.d(this.v, this.w, this.x);

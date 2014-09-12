@@ -9,7 +9,7 @@ class aoe implements aoo {
 
       for(int var4 = 0; var4 < var1.n_(); ++var4) {
          amj var5 = var1.a(var4);
-         if(var5 != null && var5.b() == amk.cE) {
+         if(var5 != null && var5.b() == Items.cE) {
             if(var3) {
                return false;
             }
@@ -34,7 +34,7 @@ class aoe implements aoo {
 
       for(int var3 = 0; var3 < var1.n_(); ++var3) {
          amj var4 = var1.a(var3);
-         if(var4 != null && var4.b() == amk.cE) {
+         if(var4 != null && var4.b() == Items.cE) {
             var2 = var4.k();
             var2.b = 1;
             break;
@@ -48,7 +48,7 @@ class aoe implements aoo {
          amj var6;
          for(int var5 = 0; var5 < var1.n_(); ++var5) {
             var6 = var1.a(var5);
-            if(var6 != null && var6.b() == amk.aW) {
+            if(var6 != null && var6.b() == Items.aW) {
                var9 = var6.i();
                break;
             }
@@ -109,8 +109,8 @@ class aoe implements aoo {
 
                for(var9 = 0; var9 < var1.n_() && var6; ++var9) {
                   amj var14 = var1.a(var9);
-                  if(var14 != null && var14.b() != amk.cE) {
-                     if(var14.b() == amk.aW) {
+                  if(var14 != null && var14.b() != Items.cE) {
+                     if(var14.b() == Items.aW) {
                         if(var13) {
                            var6 = false;
                            break;
@@ -140,8 +140,8 @@ class aoe implements aoo {
                   var9 = var8 / 3;
                   int var10 = var8 % 3;
                   amj var11 = var1.a(var8);
-                  if(var11 != null && var11.b() != amk.cE) {
-                     if(var11.b() != amk.aW) {
+                  if(var11 != null && var11.b() != Items.cE) {
+                     if(var11.b() != Items.aW) {
                         var6 = false;
                         break;
                      }

@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class bnb extends bnn {
 
-   private atr a;
-   private atr b;
-   private atr c;
-   private atr d;
+   private Block a;
+   private Block b;
+   private Block c;
+   private Block d;
 
 
    public bnb() {}
@@ -24,21 +24,21 @@ public class bnb extends bnn {
 
    protected void a(fn var1) {
       super.a(var1);
-      var1.a("CA", atr.c.b(this.a));
-      var1.a("CB", atr.c.b(this.b));
-      var1.a("CC", atr.c.b(this.c));
-      var1.a("CD", atr.c.b(this.d));
+      var1.a("CA", Block.c.b(this.a));
+      var1.a("CB", Block.c.b(this.b));
+      var1.a("CC", Block.c.b(this.c));
+      var1.a("CD", Block.c.b(this.d));
    }
 
    protected void b(fn var1) {
       super.b(var1);
-      this.a = atr.c(var1.f("CA"));
-      this.b = atr.c(var1.f("CB"));
-      this.c = atr.c(var1.f("CC"));
-      this.d = atr.c(var1.f("CD"));
+      this.a = Block.c(var1.f("CA"));
+      this.b = Block.c(var1.f("CB"));
+      this.c = Block.c(var1.f("CC"));
+      this.d = Block.c(var1.f("CD"));
    }
 
-   private atr a(Random var1) {
+   private Block a(Random var1) {
       switch(var1.nextInt(5)) {
       case 0:
          return aty.cb;

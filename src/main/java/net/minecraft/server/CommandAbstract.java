@@ -28,7 +28,7 @@ public abstract class CommandAbstract implements ac {
 		return var1.a(this.a(), this.c());
 	}
 
-	public List a(ae var1, String[] var2, dt var3) {
+	public List a(ae var1, String[] var2, Location var3) {
 		return null;
 	}
 
@@ -74,9 +74,9 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static dt a(ae var0, String[] var1, int var2, boolean var3) throws dk {
-		dt var4 = var0.c();
-		return new dt(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
+	public static Location a(ae var0, String[] var1, int var2, boolean var3) throws dk {
+		Location var4 = var0.c();
+		return new Location(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
 
 	public static double c(String var0) throws dk {
@@ -332,7 +332,7 @@ public abstract class CommandAbstract implements ac {
 	}
 
 	public static alq f(ae var0, String var1) throws dk {
-		oa var2 = new oa(var1);
+		RegistryMaterials var2 = new RegistryMaterials(var1);
 		alq var3 = (alq) alq.e.a(var2);
 		if (var3 == null) {
 			throw new dk("commands.give.notFound", new Object[] { var2 });
@@ -341,12 +341,12 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static atr g(ae var0, String var1) throws dk {
-		oa var2 = new oa(var1);
-		if (!atr.c.d(var2)) {
+	public static Block g(ae var0, String var1) throws dk {
+		RegistryMaterials var2 = new RegistryMaterials(var1);
+		if (!Block.c.d(var2)) {
 			throw new dk("commands.give.notFound", new Object[] { var2 });
 		} else {
-			atr var3 = (atr) atr.c.a(var2);
+			Block var3 = (Block) Block.c.a(var2);
 			if (var3 == null) {
 				throw new dk("commands.give.notFound", new Object[] { var2 });
 			} else {
@@ -396,7 +396,7 @@ public abstract class CommandAbstract implements ac {
 		return a(var0.toArray(new String[var0.size()]));
 	}
 
-	public static List a(String[] var0, int var1, dt var2) {
+	public static List a(String[] var0, int var1, Location var2) {
 		if (var2 == null) {
 			return null;
 		} else {
@@ -443,7 +443,7 @@ public abstract class CommandAbstract implements ac {
 
 				while (var4.hasNext()) {
 					Object var6 = var4.next();
-					if (var6 instanceof oa && a(var2, ((oa) var6).a())) {
+					if (var6 instanceof RegistryMaterials && a(var2, ((RegistryMaterials) var6).a())) {
 						var3.add(String.valueOf(var6));
 					}
 				}

@@ -18,13 +18,13 @@ public class anl extends alq {
       return var2;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var3.D) {
          return true;
       } else if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
-         bec var9 = var3.p(var4);
+         IBlock var9 = var3.p(var4);
          if(var9.c() == aty.ac) {
             bcm var10 = var3.s(var4);
             if(var10 instanceof bdg) {
@@ -70,7 +70,7 @@ public class anl extends alq {
             return var1;
          } else {
             if(var4.a == brv.b) {
-               dt var5 = var4.a();
+               Location var5 = var4.a();
                if(!var2.a(var3, var5)) {
                   return var1;
                }
@@ -113,7 +113,7 @@ public class anl extends alq {
                var8.b(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
                var10.aI = var10.y;
                var10.aG = var10.y;
-               var10.a(var0.E(new dt(var10)), (xq)null);
+               var10.a(var0.E(new Location(var10)), (xq)null);
                var0.d(var8);
                var10.x();
             }

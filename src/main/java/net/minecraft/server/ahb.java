@@ -285,7 +285,7 @@ public class ahb implements vq {
       var3[var1] = var2;
    }
 
-   public float a(atr var1) {
+   public float a(Block var1) {
       float var2 = 1.0F;
       if(this.a[this.c] != null) {
          var2 *= this.a[this.c].a(var1);
@@ -369,7 +369,7 @@ public class ahb implements vq {
       return 64;
    }
 
-   public boolean b(atr var1) {
+   public boolean b(Block var1) {
       if(var1.r().l()) {
          return true;
       } else {

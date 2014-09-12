@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 final class als implements Function {
 
    public String a(amj var1) {
-      return awa.a(awc.a, var1.i()).d();
+      return EnumFlowerType.a(awc.a, var1.i()).d();
    }
 
    // $FF: synthetic method

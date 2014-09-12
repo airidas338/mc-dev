@@ -6,7 +6,7 @@ public class ani extends aju {
    private final awq c;
 
 
-   public ani(atr var1, awq var2, awq var3) {
+   public ani(Block var1, awq var2, awq var3) {
       super(var1);
       this.b = var2;
       this.c = var3;
@@ -22,20 +22,20 @@ public class ani extends aju {
       return this.b.b(var1.i());
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var1.b == 0) {
          return false;
       } else if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
          Object var9 = this.b.a(var1);
-         bec var10 = var3.p(var4);
+         IBlock var10 = var3.p(var4);
          if(var10.c() == this.b) {
             bex var11 = this.b.l();
             Comparable var12 = var10.b(var11);
             awr var13 = (awr)var10.b(awq.a);
             if((var5 == ej.b && var13 == awr.b || var5 == ej.a && var13 == awr.a) && var12 == var9) {
-               bec var14 = this.c.P().a(var11, var12);
+               IBlock var14 = this.c.P().a(var11, var12);
                if(var3.b(this.c.a(var3, var4, var14)) && var3.a(var4, var14, 3)) {
                   var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
                   --var1.b;
@@ -49,12 +49,12 @@ public class ani extends aju {
       }
    }
 
-   private boolean a(amj var1, World var2, dt var3, Object var4) {
-      bec var5 = var2.p(var3);
+   private boolean a(amj var1, World var2, Location var3, Object var4) {
+      IBlock var5 = var2.p(var3);
       if(var5.c() == this.b) {
          Comparable var6 = var5.b(this.b.l());
          if(var6 == var4) {
-            bec var7 = this.c.P().a(this.b.l(), var6);
+            IBlock var7 = this.c.P().a(this.b.l(), var6);
             if(var2.b(this.c.a(var2, var3, var7)) && var2.a(var3, var7, 3)) {
                var2.a((double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
                --var1.b;

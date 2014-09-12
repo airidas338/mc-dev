@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-final class bog extends bof {
+final class bog extends Material {
 
    bog(boh var1) {
       super(var1);

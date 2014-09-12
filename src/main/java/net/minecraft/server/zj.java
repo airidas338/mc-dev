@@ -23,7 +23,7 @@ public class zj extends zb {
       } else if(this.b.bb().nextInt(500) != 0) {
          return false;
       } else {
-         this.a = this.d.ae().a(new dt(this.b), 0);
+         this.a = this.d.ae().a(new Location(this.b), 0);
          if(this.a == null) {
             return false;
          } else if(this.f() && this.b.n(true)) {

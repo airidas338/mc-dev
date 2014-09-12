@@ -12,7 +12,7 @@ public class ajy extends alq {
          return var1;
       } else {
          if(var4.a == brv.b) {
-            dt var5 = var4.a();
+            Location var5 = var4.a();
             if(!var2.a(var3, var5)) {
                return var1;
             }
@@ -21,15 +21,15 @@ public class ajy extends alq {
                return var1;
             }
 
-            if(var2.p(var5).c().r() == bof.h) {
+            if(var2.p(var5).c().r() == Material.h) {
                --var1.b;
                var3.b(ty.J[alq.b((alq)this)]);
                if(var1.b <= 0) {
-                  return new amj(amk.bz);
+                  return new amj(Items.bz);
                }
 
-               if(!var3.bg.a(new amj(amk.bz))) {
-                  var3.a(new amj(amk.bz, 1, 0), false);
+               if(!var3.bg.a(new amj(Items.bz))) {
+                  var3.a(new amj(Items.bz, 1, 0), false);
                }
             }
          }

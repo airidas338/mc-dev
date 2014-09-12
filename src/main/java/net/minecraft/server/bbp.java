@@ -1,14 +1,14 @@
 package net.minecraft.server;
 import com.google.common.base.Predicate;
 
-public class bbp extends atr {
+public class bbp extends Block {
 
    public static final beu a = beu.a("facing", (Predicate)en.a);
    public static final bet b = bet.a("open");
    public static final bev M = bev.a("half", bbr.class);
 
 
-   protected bbp(bof var1) {
+   protected bbp(Material var1) {
       super(var1);
       this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)).a(M, bbr.b));
       float var2 = 0.5F;
@@ -25,16 +25,16 @@ public class bbp extends atr {
       return false;
    }
 
-   public boolean b(ard var1, dt var2) {
+   public boolean b(ard var1, Location var2) {
       return !((Boolean)var1.p(var2).b(b)).booleanValue();
    }
 
-   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(ard var1, dt var2) {
+   public void a(ard var1, Location var2) {
       this.d(var1.p(var2));
    }
 
@@ -43,7 +43,7 @@ public class bbp extends atr {
       this.a(0.0F, 0.40625F, 0.0F, 1.0F, 0.59375F, 1.0F);
    }
 
-   public void d(bec var1) {
+   public void d(IBlock var1) {
       if(var1.c() == this) {
          boolean var2 = var1.b(M) == bbr.a;
          Boolean var3 = (Boolean)var1.b(b);
@@ -76,8 +76,8 @@ public class bbp extends atr {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
-      if(this.J == bof.f) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+      if(this.J == Material.f) {
          return true;
       } else {
          var3 = var3.a(b);
@@ -87,9 +87,9 @@ public class bbp extends atr {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, atr var4) {
+   public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!var1.D) {
-         dt var5 = var2.a(((ej)var3.b(a)).d());
+         Location var5 = var2.a(((ej)var3.b(a)).d());
          if(!c(var1.p(var5).c())) {
             var1.g(var2);
             this.b(var1, var2, var3, 0);
@@ -107,13 +107,13 @@ public class bbp extends atr {
       }
    }
 
-   public bru a(World var1, dt var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public bru a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
       this.a(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      bec var9 = this.P();
+   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlock var9 = this.P();
       if(var3.k().c()) {
          var9 = var9.a(a, var3).a(b, Boolean.valueOf(false));
          var9 = var9.a(M, var5 > 0.5F?bbr.a:bbr.b);
@@ -122,7 +122,7 @@ public class bbp extends atr {
       return var9;
    }
 
-   public boolean a(World var1, dt var2, ej var3) {
+   public boolean a(World var1, Location var2, ej var3) {
       return !var3.k().b() && c(var1.p(var2.a(var3.d())).c());
    }
 
@@ -154,15 +154,15 @@ public class bbp extends atr {
       }
    }
 
-   private static boolean c(atr var0) {
+   private static boolean c(Block var0) {
       return var0.J.k() && var0.d() || var0 == aty.aX || var0 instanceof awq || var0 instanceof bat;
    }
 
-   public bec a(int var1) {
+   public IBlock a(int var1) {
       return this.P().a(a, b(var1)).a(b, Boolean.valueOf((var1 & 4) != 0)).a(M, (var1 & 8) == 0?bbr.b:bbr.a);
    }
 
-   public int c(bec var1) {
+   public int c(IBlock var1) {
       byte var2 = 0;
       int var3 = var2 | a((ej)var1.b(a));
       if(((Boolean)var1.b(b)).booleanValue()) {

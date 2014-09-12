@@ -4,14 +4,14 @@ import java.util.Random;
 public class axb extends awt {
 
    public axb() {
-      super(bof.w, false);
+      super(Material.w, false);
       this.K = 0.98F;
       this.a(true);
       this.a(akf.b);
    }
 
-   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
-      var2.b(ty.H[atr.a((atr)this)]);
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+      var2.b(ty.H[Block.a((Block)this)]);
       var2.a(0.025F);
       if(this.G() && EnchantmentManager.e(var2)) {
          amj var8 = this.i(var4);
@@ -26,7 +26,7 @@ public class axb extends awt {
 
          int var6 = EnchantmentManager.f(var2);
          this.b(var1, var3, var4, var6);
-         bof var7 = var1.p(var3.b()).c().r();
+         Material var7 = var1.p(var3.b()).c().r();
          if(var7.c() || var7.d()) {
             var1.a(var3, aty.i.P());
          }
@@ -38,7 +38,7 @@ public class axb extends awt {
       return 0;
    }
 
-   public void b(World var1, dt var2, bec var3, Random var4) {
+   public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11 - this.n()) {
          if(var1.t.n()) {
             var1.g(var2);

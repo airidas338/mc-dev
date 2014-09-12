@@ -17,7 +17,7 @@ public class amo extends alq {
       }
 
       var3.b(ty.J[alq.b((alq)this)]);
-      return var1.b <= 0?new amj(amk.aw):var1;
+      return var1.b <= 0?new amj(Items.aw):var1;
    }
 
    public int d(amj var1) {

@@ -52,13 +52,13 @@ public class ala extends alq {
       return var2;
    }
 
-   public vl b(Random var1) {
+   public StructurePieceTreaasure b(Random var1) {
       return this.a(var1, 1, 1, 1);
    }
 
-   public vl a(Random var1, int var2, int var3, int var4) {
-      amj var5 = new amj(amk.aL, 1, 0);
+   public StructurePieceTreaasure a(Random var1, int var2, int var3, int var4) {
+      amj var5 = new amj(Items.aL, 1, 0);
       EnchantmentManager.a(var1, var5, 30);
-      return new vl(var5, var2, var3, var4);
+      return new StructurePieceTreaasure(var5, var2, var3, var4);
    }
 }

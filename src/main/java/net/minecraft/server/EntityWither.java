@@ -154,7 +154,7 @@ public class EntityWither extends EntityMonster implements afr {
          var1 = this.cj() - 1;
          if(var1 <= 0) {
             this.o.a(this, this.s, this.t + (double)this.aR(), this.u, 7.0F, false, this.o.Q().b("mobGriefing"));
-            this.o.a(1013, new dt(this), 0);
+            this.o.a(1013, new Location(this), 0);
          }
 
          this.r(var1);
@@ -236,16 +236,16 @@ public class EntityWither extends EntityMonster implements afr {
                         int var20 = var12 + var17;
                         int var9 = var1 + var7;
                         int var10 = var15 + var19;
-                        atr var11 = this.o.p(new dt(var20, var9, var10)).c();
-                        if(var11.r() != bof.a && var11 != aty.h && var11 != aty.bF && var11 != aty.bG && var11 != aty.bX && var11 != aty.cv) {
-                           var18 = this.o.b(new dt(var20, var9, var10), true) || var18;
+                        Block var11 = this.o.p(new Location(var20, var9, var10)).c();
+                        if(var11.r() != Material.a && var11 != aty.h && var11 != aty.bF && var11 != aty.bG && var11 != aty.bX && var11 != aty.cv) {
+                           var18 = this.o.b(new Location(var20, var9, var10), true) || var18;
                         }
                      }
                   }
                }
 
                if(var18) {
-                  this.o.a((EntityHuman)null, 1012, new dt(this), 0);
+                  this.o.a((EntityHuman)null, 1012, new Location(this), 0);
                }
             }
          }
@@ -310,7 +310,7 @@ public class EntityWither extends EntityMonster implements afr {
    }
 
    private void a(int var1, double var2, double var4, double var6, boolean var8) {
-      this.o.a((EntityHuman)null, 1014, new dt(this), 0);
+      this.o.a((EntityHuman)null, 1014, new Location(this), 0);
       double var9 = this.t(var1);
       double var11 = this.u(var1);
       double var13 = this.v(var1);
@@ -368,7 +368,7 @@ public class EntityWither extends EntityMonster implements afr {
    }
 
    protected void b(boolean var1, int var2) {
-      EntityItem var3 = this.a(amk.bZ, 1);
+      EntityItem var3 = this.a(Items.bZ, 1);
       if(var3 != null) {
          var3.u();
       }

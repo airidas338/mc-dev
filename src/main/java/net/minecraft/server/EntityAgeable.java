@@ -20,7 +20,7 @@ public abstract class EntityAgeable extends EntityCreature {
 
    public boolean a(EntityHuman var1) throws IOException {
       amj var2 = var1.bg.h();
-      if(var2 != null && var2.b() == amk.bJ) {
+      if(var2 != null && var2.b() == Items.bJ) {
          if(!this.o.D) {
             Class var3 = EntityTypes.a(var2.i());
             if(var3 != null && this.getClass() == var3) {

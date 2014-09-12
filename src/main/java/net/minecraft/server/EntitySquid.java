@@ -65,13 +65,13 @@ public class EntitySquid extends EntityWaterAnimal {
       int var3 = this.V.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new amj(amk.aW, 1, akv.p.b()), 0.0F);
+         this.a(new amj(Items.aW, 1, akv.p.b()), 0.0F);
       }
 
    }
 
    public boolean V() {
-      return this.o.a(this.aQ().b(0.0D, -0.6000000238418579D, 0.0D), bof.h, (Entity)this);
+      return this.o.a(this.aQ().b(0.0D, -0.6000000238418579D, 0.0D), Material.h, (Entity)this);
    }
 
    public void m() throws IOException {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class ml implements id {
 
-   private dt a;
+   private Location a;
    private ej b;
    private mm c;
 
@@ -23,7 +23,7 @@ public class ml implements id {
       ((ls)var1).a(this);
    }
 
-   public dt a() {
+   public Location a() {
       return this.a;
    }
 

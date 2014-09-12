@@ -20,25 +20,25 @@ public class bfg extends bfh {
 
    public void b() {}
 
-   public atr a(dt var1) {
+   public Block a(Location var1) {
       return aty.a;
    }
 
-   public int b(dt var1) {
+   public int b(Location var1) {
       return 255;
    }
 
-   public int c(dt var1) {
+   public int c(Location var1) {
       return 0;
    }
 
-   public int a(EnumSkyBlock var1, dt var2) {
+   public int a(EnumSkyBlock var1, Location var2) {
       return var1.c;
    }
 
-   public void a(EnumSkyBlock var1, dt var2, int var3) {}
+   public void a(EnumSkyBlock var1, Location var2, int var3) {}
 
-   public int a(dt var1, int var2) {
+   public int a(Location var1, int var2) {
       return 0;
    }
 
@@ -48,19 +48,19 @@ public class bfg extends bfh {
 
    public void a(Entity var1, int var2) {}
 
-   public boolean d(dt var1) {
+   public boolean d(Location var1) {
       return false;
    }
 
-   public bcm a(dt var1, bfl var2) {
+   public bcm a(Location var1, bfl var2) {
       return null;
    }
 
    public void a(bcm var1) {}
 
-   public void a(dt var1, bcm var2) {}
+   public void a(Location var1, bcm var2) {}
 
-   public void e(dt var1) {}
+   public void e(Location var1) {}
 
    public void c() {}
 

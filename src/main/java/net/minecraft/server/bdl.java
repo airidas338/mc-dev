@@ -28,7 +28,7 @@ class bdl implements ae {
       return true;
    }
 
-   public dt c() {
+   public Location c() {
       return this.b.c;
    }
 

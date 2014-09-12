@@ -66,7 +66,7 @@ public class EntityItem extends Entity {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.p(new dt(this)).c().r() == bof.i) {
+            if(this.o.p(new Location(this)).c().r() == Material.i) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -80,7 +80,7 @@ public class EntityItem extends Entity {
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.p(new dt(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
+            var2 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
          }
 
          this.v *= (double)var2;
@@ -158,7 +158,7 @@ public class EntityItem extends Entity {
    }
 
    public boolean W() {
-      if(this.o.a(this.aQ(), bof.h, (Entity)this)) {
+      if(this.o.a(this.aQ(), Material.h, (Entity)this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }
@@ -178,7 +178,7 @@ public class EntityItem extends Entity {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.l() != null && this.l().b() == amk.bZ && var1.c()) {
+      } else if(this.l() != null && this.l().b() == Items.bZ && var1.c()) {
          return false;
       } else {
          this.ac();
@@ -245,19 +245,19 @@ public class EntityItem extends Entity {
                var1.b((tq)tl.g);
             }
 
-            if(var2.b() == amk.aF) {
+            if(var2.b() == Items.aF) {
                var1.b((tq)tl.t);
             }
 
-            if(var2.b() == amk.i) {
+            if(var2.b() == Items.i) {
                var1.b((tq)tl.w);
             }
 
-            if(var2.b() == amk.bv) {
+            if(var2.b() == Items.bv) {
                var1.b((tq)tl.A);
             }
 
-            if(var2.b() == amk.i && this.n() != null) {
+            if(var2.b() == Items.i && this.n() != null) {
                EntityHuman var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
                   var4.b((tq)tl.x);

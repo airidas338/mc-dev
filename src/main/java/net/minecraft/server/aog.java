@@ -9,14 +9,14 @@ public class aog implements aoo {
       for(int var5 = 0; var5 < var1.n_(); ++var5) {
          amj var6 = var1.a(var5);
          if(var6 != null) {
-            if(var6.b() == amk.bN) {
+            if(var6.b() == Items.bN) {
                if(var4 != null) {
                   return false;
                }
 
                var4 = var6;
             } else {
-               if(var6.b() != amk.bM) {
+               if(var6.b() != Items.bM) {
                   return false;
                }
 
@@ -35,14 +35,14 @@ public class aog implements aoo {
       for(int var4 = 0; var4 < var1.n_(); ++var4) {
          amj var5 = var1.a(var4);
          if(var5 != null) {
-            if(var5.b() == amk.bN) {
+            if(var5.b() == Items.bN) {
                if(var3 != null) {
                   return null;
                }
 
                var3 = var5;
             } else {
-               if(var5.b() != amk.bM) {
+               if(var5.b() != Items.bM) {
                   return null;
                }
 
@@ -52,7 +52,7 @@ public class aog implements aoo {
       }
 
       if(var3 != null && var2 >= 1 && anr.h(var3) < 2) {
-         amj var6 = new amj(amk.bN, var2);
+         amj var6 = new amj(Items.bN, var2);
          var6.d((fn)var3.o().b());
          var6.o().a("generation", anr.h(var3) + 1);
          if(var3.s()) {

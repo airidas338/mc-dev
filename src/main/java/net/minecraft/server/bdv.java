@@ -6,7 +6,7 @@ import java.util.List;
 
 public class bdv extends bcm implements IUpdatePlayerListBox {
 
-   private bec a;
+   private IBlock a;
    private ej f;
    private boolean g;
    private boolean h;
@@ -17,14 +17,14 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
 
    public bdv() {}
 
-   public bdv(bec var1, ej var2, boolean var3, boolean var4) {
+   public bdv(IBlock var1, ej var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;
       this.h = var4;
    }
 
-   public bec b() {
+   public IBlock b() {
       return this.a;
    }
 
@@ -125,7 +125,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
 
    public void a(fn var1) {
       super.a(var1);
-      this.a = atr.c(var1.f("blockId")).a(var1.f("blockData"));
+      this.a = Block.c(var1.f("blockId")).a(var1.f("blockData"));
       this.f = ej.a(var1.f("facing"));
       this.j = this.i = var1.h("progress");
       this.g = var1.n("extending");
@@ -133,7 +133,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
 
    public void b(fn var1) {
       super.b(var1);
-      var1.a("blockId", atr.a(this.a.c()));
+      var1.a("blockId", Block.a(this.a.c()));
       var1.a("blockData", this.a.c().c(this.a));
       var1.a("facing", this.f.a());
       var1.a("progress", this.j);

@@ -66,7 +66,7 @@ public class dg extends CommandAbstract {
                throw new dp("commands.worldborder.center.usage", new Object[0]);
             }
 
-            dt var10 = var1.c();
+            Location var10 = var1.c();
             double var5 = b((double)var10.n() + 0.5D, var2[1], true);
             double var7 = b((double)var10.p() + 0.5D, var2[2], true);
             var3.c(var5, var7);
@@ -132,7 +132,7 @@ public class dg extends CommandAbstract {
       return MinecraftServer.M().c[0].af();
    }
 
-   public List a(ae var1, String[] var2, dt var3) {
+   public List a(ae var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null));
    }
 }
