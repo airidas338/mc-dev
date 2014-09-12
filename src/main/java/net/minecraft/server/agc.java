@@ -5,11 +5,11 @@ class agc extends yn {
 
    private float g;
    private int h;
-   private afy i;
+   private EntitySlime i;
    private boolean j;
 
 
-   public agc(afy var1) {
+   public agc(EntitySlime var1) {
       super(var1);
       this.i = var1;
    }
@@ -33,7 +33,7 @@ class agc extends yn {
       } else {
          this.f = false;
          if(this.a.C) {
-            this.a.j((float)(this.e * this.a.a(afs.d).e()));
+            this.a.j((float)(this.e * this.a.getAttributeInstance(GenericAttributes.d).getValue()));
             if(this.h-- <= 0) {
                this.h = this.i.ce();
                if(this.j) {
@@ -49,7 +49,7 @@ class agc extends yn {
                this.a.j(0.0F);
             }
          } else {
-            this.a.j((float)(this.e * this.a.a(afs.d).e()));
+            this.a.j((float)(this.e * this.a.getAttributeInstance(GenericAttributes.d).getValue()));
          }
 
       }

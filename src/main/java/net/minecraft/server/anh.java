@@ -13,7 +13,7 @@ public class anh extends alq {
       this.a(true);
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
       } else {

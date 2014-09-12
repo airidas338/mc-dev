@@ -28,7 +28,7 @@ public abstract class ath extends atr {
       return 20;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -105,9 +105,9 @@ public abstract class ath extends atr {
 
    }
 
-   protected brt a(dt var1) {
+   protected AxisAlignedBB a(dt var1) {
       float var2 = 0.125F;
-      return new brt((double)((float)var1.n() + 0.125F), (double)var1.o(), (double)((float)var1.p() + 0.125F), (double)((float)(var1.n() + 1) - 0.125F), (double)var1.o() + 0.25D, (double)((float)(var1.p() + 1) - 0.125F));
+      return new AxisAlignedBB((double)((float)var1.n() + 0.125F), (double)var1.o(), (double)((float)var1.p() + 0.125F), (double)((float)(var1.n() + 1) - 0.125F), (double)var1.o() + 0.25D, (double)((float)(var1.p() + 1) - 0.125F));
    }
 
    public void b(World var1, dt var2, bec var3) {

@@ -9,7 +9,7 @@ public class and extends alq {
       this.a(akf.i);
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, xm var5) {
+   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
       if(var3.r() != bof.j && var3 != aty.G && var3 != aty.H && var3 != aty.bn && var3 != aty.bS && var3 != aty.L) {
          return super.a(var1, var2, var3, var4, var5);
       } else {

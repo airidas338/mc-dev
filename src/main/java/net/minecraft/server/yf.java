@@ -8,27 +8,27 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class yf extends yc {
+public class yf extends AttributeMapBase {
 
    private final Set e = Sets.newHashSet();
    protected final Map d = new ul();
 
 
-   public ye e(xy var1) {
+   public ye e(IAttribute var1) {
       return (ye)super.a(var1);
    }
 
    public ye b(String var1) {
-      xz var2 = super.a(var1);
+      AttributeInstance var2 = super.a(var1);
       if(var2 == null) {
-         var2 = (xz)this.d.get(var1);
+         var2 = (AttributeInstance)this.d.get(var1);
       }
 
       return (ye)var2;
    }
 
-   public xz b(xy var1) {
-      xz var2 = super.b(var1);
+   public AttributeInstance load(IAttribute var1) {
+      AttributeInstance var2 = super.load(var1);
       if(var1 instanceof yg && ((yg)var1).g() != null) {
          this.d.put(((yg)var1).g(), var2);
       }
@@ -36,11 +36,11 @@ public class yf extends yc {
       return var2;
    }
 
-   protected xz c(xy var1) {
+   protected AttributeInstance c(IAttribute var1) {
       return new ye(this, var1);
    }
 
-   public void a(xz var1) {
+   public void a(AttributeInstance var1) {
       if(var1.a().c()) {
          this.e.add(var1);
       }
@@ -48,7 +48,7 @@ public class yf extends yc {
       Iterator var2 = this.c.get(var1.a()).iterator();
 
       while(var2.hasNext()) {
-         xy var3 = (xy)var2.next();
+         IAttribute var3 = (IAttribute)var2.next();
          ye var4 = this.e(var3);
          if(var4 != null) {
             var4.f();
@@ -66,7 +66,7 @@ public class yf extends yc {
       Iterator var2 = this.a().iterator();
 
       while(var2.hasNext()) {
-         xz var3 = (xz)var2.next();
+         AttributeInstance var3 = (AttributeInstance)var2.next();
          if(var3.a().c()) {
             var1.add(var3);
          }
@@ -76,12 +76,12 @@ public class yf extends yc {
    }
 
    // $FF: synthetic method
-   public xz a(String var1) {
+   public AttributeInstance a(String var1) {
       return this.b(var1);
    }
 
    // $FF: synthetic method
-   public xz a(xy var1) {
+   public AttributeInstance a(IAttribute var1) {
       return this.e(var1);
    }
 }

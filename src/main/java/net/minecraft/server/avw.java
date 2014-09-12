@@ -27,12 +27,12 @@ public class avw extends avb {
       return var1.p(var2.b()).c().r().a()?super.c(var1, var2):false;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          return null;
       } else {
          el var4 = ((ej)var3.b(N)).k();
-         return var4 == el.c?new brt((double)var2.n(), (double)var2.o(), (double)((float)var2.p() + 0.375F), (double)(var2.n() + 1), (double)((float)var2.o() + 1.5F), (double)((float)var2.p() + 0.625F)):new brt((double)((float)var2.n() + 0.375F), (double)var2.o(), (double)var2.p(), (double)((float)var2.n() + 0.625F), (double)((float)var2.o() + 1.5F), (double)(var2.p() + 1));
+         return var4 == el.c?new AxisAlignedBB((double)var2.n(), (double)var2.o(), (double)((float)var2.p() + 0.375F), (double)(var2.n() + 1), (double)((float)var2.o() + 1.5F), (double)((float)var2.p() + 0.625F)):new AxisAlignedBB((double)((float)var2.n() + 0.375F), (double)var2.o(), (double)var2.p(), (double)((float)var2.n() + 0.625F), (double)((float)var2.o() + 1.5F), (double)(var2.p() + 1));
       }
    }
 
@@ -58,11 +58,11 @@ public class avw extends avb {
       return ((Boolean)var1.p(var2).b(a)).booleanValue();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false));
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          var3 = var3.a(a, Boolean.valueOf(false));
          var1.a(var2, var3, 2);
@@ -86,10 +86,10 @@ public class avw extends avb {
          if(var5 || var4.g()) {
             if(var5 && !((Boolean)var3.b(a)).booleanValue() && !((Boolean)var3.b(b)).booleanValue()) {
                var1.a(var2, var3.a(a, Boolean.valueOf(true)).a(b, Boolean.valueOf(true)), 2);
-               var1.a((ahd)null, 1003, var2, 0);
+               var1.a((EntityHuman)null, 1003, var2, 0);
             } else if(!var5 && ((Boolean)var3.b(a)).booleanValue() && ((Boolean)var3.b(b)).booleanValue()) {
                var1.a(var2, var3.a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)), 2);
-               var1.a((ahd)null, 1006, var2, 0);
+               var1.a((EntityHuman)null, 1006, var2, 0);
             } else if(var5 != ((Boolean)var3.b(b)).booleanValue()) {
                var1.a(var2, var3.a(b, Boolean.valueOf(var5)), 2);
             }

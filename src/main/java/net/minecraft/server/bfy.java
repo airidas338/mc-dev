@@ -310,14 +310,14 @@ public class bfy implements bfq, brq {
       if(var24 != null) {
          for(int var23 = 0; var23 < var24.c(); ++var23) {
             fn var25 = var24.b(var23);
-            Entity var30 = xb.a(var25, var1);
+            Entity var30 = EntityTypes.a(var25, var1);
             var5.g(true);
             if(var30 != null) {
                var5.a(var30);
                Entity var35 = var30;
 
                for(fn var33 = var25; var33.b("Riding", 10); var33 = var33.m("Riding")) {
-                  Entity var36 = xb.a(var33.m("Riding"), var1);
+                  Entity var36 = EntityTypes.a(var33.m("Riding"), var1);
                   if(var36 != null) {
                      var5.a(var36);
                      var35.a(var36);

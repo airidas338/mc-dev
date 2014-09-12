@@ -40,13 +40,13 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
          int var4 = this.c.n();
          int var5 = this.c.o();
          int var6 = this.c.p();
-         brt var7 = (new brt((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1))).b(var1, var1, var1).a(0.0D, (double)this.b.U(), 0.0D);
-         List var8 = this.b.a(ahd.class, var7);
+         AxisAlignedBB var7 = (new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1))).b(var1, var1, var1).a(0.0D, (double)this.b.U(), 0.0D);
+         List var8 = this.b.a(EntityHuman.class, var7);
          Iterator var9 = var8.iterator();
 
-         ahd var10;
+         EntityHuman var10;
          while(var9.hasNext()) {
-            var10 = (ahd)var9.next();
+            var10 = (EntityHuman)var9.next();
             var10.c(new wq(this.k, 180, var3, true, true));
          }
 
@@ -54,7 +54,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
             var9 = var8.iterator();
 
             while(var9.hasNext()) {
-               var10 = (ahd)var9.next();
+               var10 = (EntityHuman)var9.next();
                var10.c(new wq(this.l, 180, 0, true, true));
             }
          }
@@ -70,7 +70,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       this.j = 0;
       this.f.clear();
       this.i = true;
-      bcl var5 = new bcl(acl.a(akv.a));
+      bcl var5 = new bcl(EntitySheep.a(akv.a));
       this.f.add(var5);
       boolean var6 = true;
 
@@ -80,7 +80,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
          bec var9 = this.b.p(var8);
          float[] var10;
          if(var9.c() == aty.cG) {
-            var10 = acl.a((akv)var9.b(bar.a));
+            var10 = EntitySheep.a((akv)var9.b(bar.a));
          } else {
             if(var9.c() != aty.cH) {
                if(var9.c().n() >= 15) {
@@ -93,7 +93,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
                continue;
             }
 
-            var10 = acl.a((akv)var9.b(bas.a));
+            var10 = EntitySheep.a((akv)var9.b(bas.a));
          }
 
          if(!var6) {
@@ -140,10 +140,10 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       }
 
       if(!this.b.D && this.j == 4 && var1 < this.j) {
-         Iterator var15 = this.b.a(ahd.class, (new brt((double)var2, (double)var3, (double)var4, (double)var2, (double)(var3 - 4), (double)var4)).b(10.0D, 5.0D, 10.0D)).iterator();
+         Iterator var15 = this.b.a(EntityHuman.class, (new AxisAlignedBB((double)var2, (double)var3, (double)var4, (double)var2, (double)(var3 - 4), (double)var4)).b(10.0D, 5.0D, 10.0D)).iterator();
 
          while(var15.hasNext()) {
-            ahd var13 = (ahd)var15.next();
+            EntityHuman var13 = (EntityHuman)var15.next();
             var13.b((tq)tl.K);
          }
       }
@@ -226,13 +226,13 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       return 1;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return var2.b() == amk.bO || var2.b() == amk.i || var2.b() == amk.k || var2.b() == amk.j;
@@ -242,7 +242,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       return "minecraft:beacon";
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aig(var1, this);
    }
 

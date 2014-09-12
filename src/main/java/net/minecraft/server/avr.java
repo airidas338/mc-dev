@@ -39,15 +39,15 @@ public class avr extends atg {
       return true;
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d());
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       var1.a(var2, var3.a(a, var4.aO().d()), 2);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       ajh var9 = var4.cn();
       bcm var10 = var1.s(var2);
       if(var9 != null && var10 instanceof bda) {

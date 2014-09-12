@@ -58,7 +58,7 @@ public class ala extends alq {
 
    public vl a(Random var1, int var2, int var3, int var4) {
       amj var5 = new amj(amk.aL, 1, 0);
-      aph.a(var1, var5, 30);
+      EnchantmentManager.a(var1, var5, 30);
       return new vl(var5, var2, var3, var4);
    }
 }

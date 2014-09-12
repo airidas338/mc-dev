@@ -99,7 +99,7 @@ public class ah {
    private static boolean b(ae var0, Map var1) {
       String var2 = b(var1, "type");
       var2 = var2 != null && var2.startsWith("!")?var2.substring(1):var2;
-      if(var2 != null && !xb.b(var2)) {
+      if(var2 != null && !EntityTypes.b(var2)) {
          hz var3 = new hz("commands.generic.entity.invalidType", new Object[]{var2});
          var3.b().a(EnumChatFormat.m);
          var0.a(var3);
@@ -239,10 +239,10 @@ public class ah {
          int var16 = var4.j.size();
          int var17 = var4.f.size();
          boolean var18 = var16 < var17 / 16;
-         brt var19;
+         AxisAlignedBB var19;
          if(!var0.containsKey("dx") && !var0.containsKey("dy") && !var0.containsKey("dz")) {
             if(var13 >= 0) {
-               var19 = new brt((double)(var5.n() - var13), (double)(var5.o() - var13), (double)(var5.p() - var13), (double)(var5.n() + var13 + 1), (double)(var5.o() + var13 + 1), (double)(var5.p() + var13 + 1));
+               var19 = new AxisAlignedBB((double)(var5.n() - var13), (double)(var5.o() - var13), (double)(var5.p() - var13), (double)(var5.n() + var13 + 1), (double)(var5.o() + var13 + 1), (double)(var5.p() + var13 + 1));
                if(var8 && var18 && !var9) {
                   var6.addAll(var4.b(var1, var15));
                } else {
@@ -301,7 +301,7 @@ public class ah {
       return (List)var0;
    }
 
-   private static brt a(dt var0, int var1, int var2, int var3) {
+   private static AxisAlignedBB a(dt var0, int var1, int var2, int var3) {
       boolean var4 = var1 < 0;
       boolean var5 = var2 < 0;
       boolean var6 = var3 < 0;
@@ -311,7 +311,7 @@ public class ah {
       int var10 = var0.n() + (var4?0:var1) + 1;
       int var11 = var0.o() + (var5?0:var2) + 1;
       int var12 = var0.p() + (var6?0:var3) + 1;
-      return new brt((double)var7, (double)var8, (double)var9, (double)var10, (double)var11, (double)var12);
+      return new AxisAlignedBB((double)var7, (double)var8, (double)var9, (double)var10, (double)var11, (double)var12);
    }
 
    public static int a(int var0) {

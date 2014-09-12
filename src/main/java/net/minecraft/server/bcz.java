@@ -36,7 +36,7 @@ public class bcz extends bcm implements IUpdatePlayerListBox, vv {
    public void c() {
       this.k = this.j;
       this.m = this.l;
-      ahd var1 = this.b.a((double)((float)this.c.n() + 0.5F), (double)((float)this.c.o() + 0.5F), (double)((float)this.c.p() + 0.5F), 3.0D);
+      EntityHuman var1 = this.b.a((double)((float)this.c.n() + 0.5F), (double)((float)this.c.o() + 0.5F), (double)((float)this.c.p() + 0.5F), 3.0D);
       if(var1 != null) {
          double var2 = var1.s - (double)((float)this.c.n() + 0.5F);
          double var4 = var1.u - (double)((float)this.c.p() + 0.5F);
@@ -106,7 +106,7 @@ public class bcz extends bcm implements IUpdatePlayerListBox, vv {
       return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new hz(this.d_(), new Object[0]));
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aiq(var1, this.b, this.c);
    }
 

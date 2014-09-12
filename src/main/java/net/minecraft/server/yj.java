@@ -4,12 +4,12 @@ package net.minecraft.server;
 
 public class yj {
 
-   private xm a;
+   private EntityLiving a;
    private int b;
    private float c;
 
 
-   public yj(xm var1) {
+   public yj(EntityLiving var1) {
       this.a = var1;
    }
 

@@ -3,14 +3,14 @@ package net.minecraft.server;
 class acm extends aib {
 
    // $FF: synthetic field
-   final acl a;
+   final EntitySheep a;
 
 
-   acm(acl var1) {
+   acm(EntitySheep var1) {
       this.a = var1;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return false;
    }
 }

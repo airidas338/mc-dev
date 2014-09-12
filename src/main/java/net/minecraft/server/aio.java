@@ -38,7 +38,7 @@ public class aio extends aib {
       this.f.a(0, aop.a().a(this.a, this.g));
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
       if(!this.g.D) {
          for(int var2 = 0; var2 < 9; ++var2) {
@@ -51,11 +51,11 @@ public class aio extends aib {
       }
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.g.p(this.h).c() != aty.ai?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {

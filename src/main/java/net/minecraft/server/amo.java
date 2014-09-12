@@ -7,7 +7,7 @@ public class amo extends alq {
       this.a(akf.f);
    }
 
-   public amj b(amj var1, World var2, ahd var3) {
+   public amj b(amj var1, World var2, EntityHuman var3) {
       if(!var3.by.d) {
          --var1.b;
       }
@@ -28,7 +28,7 @@ public class amo extends alq {
       return ano.c;
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       var3.a(var1, this.d(var1));
       return var1;
    }

@@ -228,7 +228,7 @@ public class bfh {
    private void a(int var1, int var2, int var3, int var4) {
       if(var4 > var3 && this.i.a(new dt(var1, 0, var2), (int)16)) {
          for(int var5 = var3; var5 < var4; ++var5) {
-            this.i.c(arf.a, new dt(var1, var5, var2));
+            this.i.c(EnumSkyBlock.SKY, new dt(var1, var5, var2));
          }
 
          this.q = true;
@@ -466,7 +466,7 @@ public class bfh {
                   this.d(var3, var4, var5);
                }
 
-               if(var13 != var14 && (var13 < var14 || this.a(arf.a, var1) > 0 || this.a(arf.b, var1) > 0)) {
+               if(var13 != var14 && (var13 < var14 || this.a(EnumSkyBlock.SKY, var1) > 0 || this.a(EnumSkyBlock.BLOCK, var1) > 0)) {
                   this.d(var3, var5);
                }
             }
@@ -501,15 +501,15 @@ public class bfh {
       }
    }
 
-   public int a(arf var1, dt var2) {
+   public int a(EnumSkyBlock var1, dt var2) {
       int var3 = var2.n() & 15;
       int var4 = var2.o();
       int var5 = var2.p() & 15;
       bfm var6 = this.d[var4 >> 4];
-      return var6 == null?(this.d(var2)?var1.c:0):(var1 == arf.a?(this.i.t.o()?0:var6.d(var3, var4 & 15, var5)):(var1 == arf.b?var6.e(var3, var4 & 15, var5):var1.c));
+      return var6 == null?(this.d(var2)?var1.c:0):(var1 == EnumSkyBlock.SKY?(this.i.t.o()?0:var6.d(var3, var4 & 15, var5)):(var1 == EnumSkyBlock.BLOCK?var6.e(var3, var4 & 15, var5):var1.c));
    }
 
-   public void a(arf var1, dt var2, int var3) {
+   public void a(EnumSkyBlock var1, dt var2, int var3) {
       int var4 = var2.n() & 15;
       int var5 = var2.o();
       int var6 = var2.p() & 15;
@@ -520,11 +520,11 @@ public class bfh {
       }
 
       this.q = true;
-      if(var1 == arf.a) {
+      if(var1 == EnumSkyBlock.SKY) {
          if(!this.i.t.o()) {
             var7.a(var4, var5 & 15, var6, var3);
          }
-      } else if(var1 == arf.b) {
+      } else if(var1 == EnumSkyBlock.BLOCK) {
          var7.b(var4, var5 & 15, var6, var3);
       }
 
@@ -536,7 +536,7 @@ public class bfh {
       int var5 = var1.p() & 15;
       bfm var6 = this.d[var4 >> 4];
       if(var6 == null) {
-         return !this.i.t.o() && var2 < arf.a.c?arf.a.c - var2:0;
+         return !this.i.t.o() && var2 < EnumSkyBlock.SKY.c?EnumSkyBlock.SKY.c - var2:0;
       } else {
          int var7 = this.i.t.o()?0:var6.d(var3, var4 & 15, var5);
          var7 -= var2;
@@ -686,7 +686,7 @@ public class bfh {
       this.q = true;
    }
 
-   public void a(Entity var1, brt var2, List var3, Predicate var4) {
+   public void a(Entity var1, AxisAlignedBB var2, List var3, Predicate var4) {
       int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
       int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
       var5 = MathHelper.a(var5, 0, this.m.length - 1);
@@ -714,7 +714,7 @@ public class bfh {
 
    }
 
-   public void a(Class var1, brt var2, List var3, Predicate var4) {
+   public void a(Class var1, AxisAlignedBB var2, List var3, Predicate var4) {
       int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
       int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
       var5 = MathHelper.a(var5, 0, this.m.length - 1);

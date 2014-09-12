@@ -20,7 +20,7 @@ class agt implements agw {
 
       amj var4 = new amj(amk.bO, var3, 0);
       amj var5 = new amj(this.a.b(), 1, this.a.i());
-      var5 = aph.a(var2, var5, 5 + var2.nextInt(15));
+      var5 = EnchantmentManager.a(var2, var5, 5 + var2.nextInt(15));
       var1.add(new aqc(var4, var5));
    }
 }

@@ -141,13 +141,13 @@ public class wa implements vq {
 
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return true;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return true;

@@ -368,7 +368,7 @@ public class bat extends atr {
       return var13;
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.e(var1, var2);
       super.a(var1, var2, var3, var4, var5, var6);
       boolean var7 = this.h(var1, var2);
@@ -380,7 +380,7 @@ public class bat extends atr {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, dt var2, ahd var3) {
+   public void a(World var1, dt var2, EntityHuman var3) {
       this.O.a(var1, var2, var3);
    }
 
@@ -429,7 +429,7 @@ public class bat extends atr {
       this.O.b(var1, var2, var3, var4);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       return this.O.a(var1, var2, this.P, var4, ej.a, 0.0F, 0.0F, 0.0F);
    }
 
@@ -441,7 +441,7 @@ public class bat extends atr {
       return this.O.g(this.P);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       bec var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8);
       var9 = var9.a(a, var8.aO()).a(M, bav.a);
       return var3 != ej.a && (var3 == ej.b || (double)var5 <= 0.5D)?var9.a(b, bau.b):var9.a(b, bau.a);

@@ -15,7 +15,7 @@ public class ads extends adr {
       this.b = 2;
       this.a = this.V.nextLong();
       this.c = this.V.nextInt(3) + 1;
-      if(!var1.D && var1.Q().b("doFireTick") && (var1.aa() == EnumDifficulty.c || var1.aa() == EnumDifficulty.d) && var1.a(new dt(this), (int)10)) {
+      if(!var1.D && var1.Q().b("doFireTick") && (var1.aa() == EnumDifficulty.NORMAL || var1.aa() == EnumDifficulty.HARD) && var1.a(new dt(this), (int)10)) {
          dt var8 = new dt(this);
          if(var1.p(var8).c().r() == bof.a && aty.ab.c(var1, var8)) {
             var1.a(var8, aty.ab.P());
@@ -58,7 +58,7 @@ public class ads extends adr {
             this.o.c(2);
          } else {
             double var6 = 3.0D;
-            List var3 = this.o.b((Entity)this, new brt(this.s - var6, this.t - var6, this.u - var6, this.s + var6, this.t + 6.0D + var6, this.u + var6));
+            List var3 = this.o.b((Entity)this, new AxisAlignedBB(this.s - var6, this.t - var6, this.u - var6, this.s + var6, this.t + 6.0D + var6, this.u + var6));
 
             for(int var4 = 0; var4 < var3.size(); ++var4) {
                Entity var5 = (Entity)var3.get(var4);

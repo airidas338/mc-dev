@@ -20,7 +20,7 @@ public class awx extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -35,7 +35,7 @@ public class awx extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       ej var9 = var3.d();
       if(var9 == ej.b) {
          var9 = ej.a;
@@ -48,7 +48,7 @@ public class awx extends atg {
       return new bde();
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          bcm var6 = var1.s(var2);
@@ -63,7 +63,7 @@ public class awx extends atg {
       this.e(var1, var2, var3);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {

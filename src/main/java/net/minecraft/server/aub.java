@@ -29,7 +29,7 @@ public class aub extends atg {
       return false;
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.4375F, 0.0F, 0.4375F, 0.5625F, 0.875F, 0.5625F);
       super.a(var1, var2, var3, var4, var5, var6);
       this.h();
@@ -40,7 +40,7 @@ public class aub extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -53,7 +53,7 @@ public class aub extends atg {
       }
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       if(var5.s()) {
          bcm var6 = var1.s(var2);
          if(var6 instanceof bcq) {

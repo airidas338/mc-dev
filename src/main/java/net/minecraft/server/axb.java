@@ -10,10 +10,10 @@ public class axb extends awt {
       this.a(akf.b);
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       var2.b(ty.H[atr.a((atr)this)]);
       var2.a(0.025F);
-      if(this.G() && aph.e(var2)) {
+      if(this.G() && EnchantmentManager.e(var2)) {
          amj var8 = this.i(var4);
          if(var8 != null) {
             a(var1, var3, var8);
@@ -24,7 +24,7 @@ public class axb extends awt {
             return;
          }
 
-         int var6 = aph.f(var2);
+         int var6 = EnchantmentManager.f(var2);
          this.b(var1, var3, var4, var6);
          bof var7 = var1.p(var3.b()).c().r();
          if(var7.c() || var7.d()) {
@@ -39,7 +39,7 @@ public class axb extends awt {
    }
 
    public void b(World var1, dt var2, bec var3, Random var4) {
-      if(var1.b(arf.b, var2) > 11 - this.n()) {
+      if(var1.b(EnumSkyBlock.BLOCK, var2) > 11 - this.n()) {
          if(var1.t.n()) {
             var1.g(var2);
          } else {

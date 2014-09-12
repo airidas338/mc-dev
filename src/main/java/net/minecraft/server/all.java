@@ -26,7 +26,7 @@ public class all extends alq {
       this(var1, 0.6F, var2);
    }
 
-   public amj b(amj var1, World var2, ahd var3) {
+   public amj b(amj var1, World var2, EntityHuman var3) {
       --var1.b;
       var3.ck().a(this, var1);
       var2.a((Entity)var3, "random.burp", 0.5F, var2.s.nextFloat() * 0.1F + 0.9F);
@@ -35,7 +35,7 @@ public class all extends alq {
       return var1;
    }
 
-   protected void c(amj var1, World var2, ahd var3) {
+   protected void c(amj var1, World var2, EntityHuman var3) {
       if(!var2.D && this.l > 0 && var2.s.nextFloat() < this.o) {
          var3.c(new wq(this.l, this.m * 20, this.n));
       }
@@ -50,7 +50,7 @@ public class all extends alq {
       return ano.b;
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       if(var3.j(this.k)) {
          var3.a(var1, this.d(var1));
       }

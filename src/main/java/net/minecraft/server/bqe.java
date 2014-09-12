@@ -70,7 +70,7 @@ public class bqe extends bqc {
       var1.a("colors", this.f);
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       if(!this.i.containsKey(var1)) {
          bqf var3 = new bqf(this, var1);
          this.i.put(var1, var3);
@@ -94,7 +94,7 @@ public class bqe extends bqc {
       }
 
       if(var2.y()) {
-         adk var7 = var2.z();
+         EntityItemFrame var7 = var2.z();
          dt var9 = var7.n();
          this.a(1, var1.o, "frame-" + var7.F(), (double)var9.n(), (double)var9.p(), (double)(var7.b.b() * 90));
       }
@@ -155,7 +155,7 @@ public class bqe extends bqc {
       this.h.put(var3, new bqd((byte)var1, var13, var14, var15));
    }
 
-   public id a(amj var1, World var2, ahd var3) {
+   public id a(amj var1, World var2, EntityHuman var3) {
       bqf var4 = (bqf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }
@@ -171,7 +171,7 @@ public class bqe extends bqc {
 
    }
 
-   public bqf a(ahd var1) {
+   public bqf a(EntityHuman var1) {
       bqf var2 = (bqf)this.i.get(var1);
       if(var2 == null) {
          var2 = new bqf(this, var1);

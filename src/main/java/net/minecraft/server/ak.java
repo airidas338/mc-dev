@@ -4,10 +4,10 @@ import com.google.common.base.Predicate;
 final class ak implements Predicate {
 
    // $FF: synthetic field
-   final brt a;
+   final AxisAlignedBB a;
 
 
-   ak(brt var1) {
+   ak(AxisAlignedBB var1) {
       this.a = var1;
    }
 

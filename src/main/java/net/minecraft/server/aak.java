@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public class aak extends aaw {
 
-   acq a;
-   xm b;
+   EntityIronGolem a;
+   EntityLiving b;
 
 
-   public aak(acq var1) {
+   public aak(EntityIronGolem var1) {
       super(var1, false, true);
       this.a = var1;
       this.a(1);
@@ -18,10 +18,10 @@ public class aak extends aaw {
       if(var1 == null) {
          return false;
       } else {
-         this.b = var1.b((xm)this.a);
+         this.b = var1.b((EntityLiving)this.a);
          if(!this.a(this.b, false)) {
             if(this.e.bb().nextInt(20) == 0) {
-               this.b = var1.c((xm)this.a);
+               this.b = var1.c((EntityLiving)this.a);
                return this.a(this.b, false);
             } else {
                return false;

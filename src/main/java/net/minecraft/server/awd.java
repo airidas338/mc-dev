@@ -31,7 +31,7 @@ public class awd extends atg {
       return false;
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       amj var9 = var4.bg.h();
       if(var9 != null && var9.b() instanceof aju) {
          bdb var10 = this.d(var1, var2);
@@ -89,7 +89,7 @@ public class awd extends atg {
       super.b(var1, var2, var3);
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
       if(var4.by.d) {
          bdb var5 = this.d(var1, var2);

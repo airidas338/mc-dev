@@ -23,7 +23,7 @@ public final class arg {
          int var9;
          int var12;
          while(var6.hasNext()) {
-            ahd var7 = (ahd)var6.next();
+            EntityHuman var7 = (EntityHuman)var6.next();
             if(!var7.v()) {
                int var8 = MathHelper.c(var7.s / 16.0D);
                var9 = MathHelper.c(var7.u / 16.0D);
@@ -96,9 +96,9 @@ public final class arg {
                                        }
 
                                        if(var1.a(var40, var27, var30) && a(xr.a(var27.b), var1, var30)) {
-                                          xn var33;
+                                          EntityInsentient var33;
                                           try {
-                                             var33 = (xn)var27.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
+                                             var33 = (EntityInsentient)var27.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
                                           } catch (Exception var35) {
                                              var35.printStackTrace();
                                              return var36;
@@ -187,9 +187,9 @@ public final class arg {
                for(int var17 = 0; !var16 && var17 < 4; ++var17) {
                   dt var18 = var0.r(new dt(var11, 0, var12));
                   if(a(xo.a, var0, var18)) {
-                     xn var19;
+                     EntityInsentient var19;
                      try {
-                        var19 = (xn)var8.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
+                        var19 = (EntityInsentient)var8.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
                      } catch (Exception var21) {
                         var21.printStackTrace();
                         continue;

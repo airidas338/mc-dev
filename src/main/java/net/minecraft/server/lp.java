@@ -20,7 +20,7 @@ public class lp implements id {
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         xz var4 = (xz)var3.next();
+         AttributeInstance var4 = (AttributeInstance)var3.next();
          this.b.add(new lq(this, var4.a().a(), var4.b(), var4.c()));
       }
 

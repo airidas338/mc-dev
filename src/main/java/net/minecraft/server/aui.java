@@ -12,7 +12,7 @@ public class aui extends atr {
       this.j(this.L.b().a(a, Integer.valueOf(0)));
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -49,7 +49,7 @@ public class aui extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -76,7 +76,7 @@ public class aui extends atr {
                      if(!var4.by.d) {
                         var13 = new amj(amk.bz, 1, 0);
                         if(!var4.bg.a(var13)) {
-                           var1.d((Entity)(new adw(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
+                           var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
@@ -109,7 +109,7 @@ public class aui extends atr {
                         var4.bg.a(var4.bg.c, var13);
                      } else {
                         if(!var4.bg.a(var13)) {
-                           var1.d((Entity)(new adw(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
+                           var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
                            ((EntityPlayer)var4).a(var4.bh);
                         }

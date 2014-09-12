@@ -31,12 +31,12 @@ public class apu extends apf {
       return 4;
    }
 
-   public int a(int var1, wh var2) {
+   public int a(int var1, DamageSource var2) {
       if(var2.g()) {
          return 0;
       } else {
          float var3 = (float)(6 + var1 * var1) / 3.0F;
-         return this.a == 0?MathHelper.d(var3 * 0.75F):(this.a == 1 && var2.o()?MathHelper.d(var3 * 1.25F):(this.a == 2 && var2 == wh.i?MathHelper.d(var3 * 2.5F):(this.a == 3 && var2.c()?MathHelper.d(var3 * 1.5F):(this.a == 4 && var2.a()?MathHelper.d(var3 * 1.5F):0))));
+         return this.a == 0?MathHelper.d(var3 * 0.75F):(this.a == 1 && var2.o()?MathHelper.d(var3 * 1.25F):(this.a == 2 && var2 == DamageSource.i?MathHelper.d(var3 * 2.5F):(this.a == 3 && var2.c()?MathHelper.d(var3 * 1.5F):(this.a == 4 && var2.a()?MathHelper.d(var3 * 1.5F):0))));
       }
    }
 
@@ -54,7 +54,7 @@ public class apu extends apf {
    }
 
    public static int a(Entity var0, int var1) {
-      int var2 = aph.a(apf.d.B, var0.at());
+      int var2 = EnchantmentManager.a(apf.d.B, var0.at());
       if(var2 > 0) {
          var1 -= MathHelper.d((float)var1 * (float)var2 * 0.15F);
       }
@@ -63,7 +63,7 @@ public class apu extends apf {
    }
 
    public static double a(Entity var0, double var1) {
-      int var3 = aph.a(apf.f.B, var0.at());
+      int var3 = EnchantmentManager.a(apf.f.B, var0.at());
       if(var3 > 0) {
          var1 -= (double)MathHelper.c(var1 * (double)((float)var3 * 0.15F));
       }

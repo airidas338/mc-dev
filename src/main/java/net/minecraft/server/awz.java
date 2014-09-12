@@ -21,7 +21,7 @@ public class awz extends atr {
       return alq.a(this.b);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P();
    }
 

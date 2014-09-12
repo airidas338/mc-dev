@@ -3,12 +3,12 @@ package net.minecraft.server;
 public class ajg extends ajk {
 
    private final aje a;
-   private ahd b;
+   private EntityHuman b;
    private int c;
    private final aqb h;
 
 
-   public ajg(ahd var1, aqb var2, aje var3, int var4, int var5, int var6) {
+   public ajg(EntityHuman var1, aqb var2, aje var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.h = var2;
@@ -37,7 +37,7 @@ public class ajg extends ajk {
       this.c = 0;
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       this.c(var2);
       aqc var3 = this.a.i();
       if(var3 != null) {

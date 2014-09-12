@@ -3,10 +3,10 @@ package net.minecraft.server;
 
 public class aah extends zb {
 
-   private agp a;
+   private EntityVillager a;
 
 
-   public aah(agp var1) {
+   public aah(EntityVillager var1) {
       this.a = var1;
       this.a(5);
    }
@@ -21,7 +21,7 @@ public class aah extends zb {
       } else if(this.a.G) {
          return false;
       } else {
-         ahd var1 = this.a.u_();
+         EntityHuman var1 = this.a.u_();
          return var1 == null?false:(this.a.h(var1) > 16.0D?false:var1.bi instanceof aib);
       }
    }
@@ -31,6 +31,6 @@ public class aah extends zb {
    }
 
    public void d() {
-      this.a.a_((ahd)null);
+      this.a.a_((EntityHuman)null);
    }
 }

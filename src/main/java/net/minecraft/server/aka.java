@@ -7,7 +7,7 @@ public class aka extends all {
       this.c(1);
    }
 
-   public amj b(amj var1, World var2, ahd var3) {
+   public amj b(amj var1, World var2, EntityHuman var3) {
       super.b(var1, var2, var3);
       return new amj(amk.z);
    }

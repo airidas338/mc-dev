@@ -94,7 +94,7 @@ public abstract class apf {
       return this.a(var1) + 5;
    }
 
-   public int a(int var1, wh var2) {
+   public int a(int var1, DamageSource var2) {
       return 0;
    }
 
@@ -124,9 +124,9 @@ public abstract class apf {
       return this.C.a(var1.b());
    }
 
-   public void a(xm var1, Entity var2, int var3) {}
+   public void a(EntityLiving var1, Entity var2, int var3) {}
 
-   public void b(xm var1, Entity var2, int var3) {}
+   public void b(EntityLiving var1, Entity var2, int var3) {}
 
    static {
       ArrayList var0 = Lists.newArrayList();

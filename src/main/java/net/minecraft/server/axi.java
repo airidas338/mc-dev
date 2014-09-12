@@ -13,7 +13,7 @@ public class axi extends atr {
       this.a(akf.d);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -37,7 +37,7 @@ public class axi extends atr {
       return var1.p(var2).c().t();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       bec var9 = this.P().a(b, Boolean.valueOf(false));
       if(this.d(var1, var2.a(var3.d()))) {
          return var9.a(a, axk.a(var3, var8.aO()));
@@ -126,7 +126,7 @@ public class axi extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {

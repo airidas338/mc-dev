@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 class acd extends zk {
 
-   public acd(acb var1) {
-      super(var1, xm.class, 1.4D, true);
+   public acd(EntityRabbit var1) {
+      super(var1, EntityLiving.class, 1.4D, true);
    }
 
-   protected double a(xm var1) {
+   protected double a(EntityLiving var1) {
       return (double)(4.0F + var1.J);
    }
 }

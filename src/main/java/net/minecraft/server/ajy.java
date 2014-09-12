@@ -6,7 +6,7 @@ public class ajy extends alq {
       this.a(akf.k);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       bru var4 = this.a(var2, var3, true);
       if(var4 == null) {
          return var1;

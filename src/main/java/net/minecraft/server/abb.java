@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class abb extends aaz {
 
-   public abb(xn var1, World var2) {
+   public abb(EntityInsentient var1, World var2) {
       super(var1, var2);
    }
 

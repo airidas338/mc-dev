@@ -71,12 +71,12 @@ public abstract class aqi {
             boolean var13 = false;
 
             for(int var3 = 0; var3 < this.i; ++var3) {
-               Entity var14 = xb.a(this.f(), this.a());
+               Entity var14 = EntityTypes.a(this.f(), this.a());
                if(var14 == null) {
                   return;
                }
 
-               int var5 = this.a().a(var14.getClass(), (new brt((double)var1.n(), (double)var1.o(), (double)var1.p(), (double)(var1.n() + 1), (double)(var1.o() + 1), (double)(var1.p() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
+               int var5 = this.a().a(var14.getClass(), (new AxisAlignedBB((double)var1.n(), (double)var1.o(), (double)var1.p(), (double)(var1.n() + 1), (double)(var1.o() + 1), (double)(var1.p() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
                if(var5 >= this.k) {
                   this.h();
                   return;
@@ -85,7 +85,7 @@ public abstract class aqi {
                var6 = (double)var1.n() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
                double var8 = (double)(var1.o() + this.a().s.nextInt(3) - 1);
                double var10 = (double)var1.p() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
-               xn var12 = var14 instanceof xn?(xn)var14:null;
+               EntityInsentient var12 = var14 instanceof EntityInsentient?(EntityInsentient)var14:null;
                var14.b(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.bQ() && var12.bR()) {
                   this.a(var14, true);
@@ -126,7 +126,7 @@ public abstract class aqi {
          fn var12;
          for(Entity var11 = var1; var3.b("Riding", 10); var3 = var12) {
             var12 = var3.m("Riding");
-            Entity var13 = xb.a(var12.j("id"), var1.o);
+            Entity var13 = EntityTypes.a(var12.j("id"), var1.o);
             if(var13 != null) {
                fn var7 = new fn();
                var13.d(var7);
@@ -149,8 +149,8 @@ public abstract class aqi {
 
             var11 = var13;
          }
-      } else if(var1 instanceof xm && var1.o != null && var2) {
-         ((xn)var1).a(var1.o.E(new dt(var1)), (xq)null);
+      } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
+         ((EntityInsentient)var1).a(var1.o.E(new dt(var1)), (xq)null);
          var1.o.d(var1);
       }
 

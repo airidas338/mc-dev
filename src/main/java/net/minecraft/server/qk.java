@@ -71,7 +71,7 @@ public class qk extends qx {
       return this.d?false:super.b(var1);
    }
 
-   public boolean a(ahd var1, World var2, amj var3) {
+   public boolean a(EntityHuman var1, World var2, amj var3) {
       if(this.d) {
          this.f();
          return false;
@@ -80,7 +80,7 @@ public class qk extends qx {
       }
    }
 
-   public boolean a(ahd var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(EntityHuman var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(this.d) {
          this.f();
          return false;

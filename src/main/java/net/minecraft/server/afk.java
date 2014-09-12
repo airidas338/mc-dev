@@ -3,10 +3,10 @@ package net.minecraft.server;
 
 class afk extends yn {
 
-   private afg g;
+   private EntityGuardian g;
 
 
-   public afk(afg var1) {
+   public afk(EntityGuardian var1) {
       super(var1);
       this.g = var1;
    }
@@ -22,7 +22,7 @@ class afk extends yn {
          float var9 = (float)(Math.atan2(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
          this.g.y = this.a(this.g.y, var9, 30.0F);
          this.g.aG = this.g.y;
-         float var10 = (float)(this.e * this.g.a(afs.d).e());
+         float var10 = (float)(this.e * this.g.getAttributeInstance(GenericAttributes.d).getValue());
          this.g.j(this.g.bH() + (var10 - this.g.bH()) * 0.125F);
          double var11 = Math.sin((double)(this.g.W + this.g.F()) * 0.5D) * 0.05D;
          double var13 = Math.cos((double)(this.g.y * 3.1415927F / 180.0F));
@@ -46,10 +46,10 @@ class afk extends yn {
          }
 
          this.g.p().a(var24 + (var18 - var24) * 0.125D, var26 + (var20 - var26) * 0.125D, var28 + (var22 - var28) * 0.125D, 10.0F, 40.0F);
-         afg.a(this.g, true);
+         EntityGuardian.a(this.g, true);
       } else {
          this.g.j(0.0F);
-         afg.a(this.g, false);
+         EntityGuardian.a(this.g, false);
       }
    }
 }

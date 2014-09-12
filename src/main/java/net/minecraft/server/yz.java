@@ -4,8 +4,8 @@ package net.minecraft.server;
 
 public class yz extends zb {
 
-   private xx d;
-   private xm e;
+   private EntityTameableAnimal d;
+   private EntityLiving e;
    World a;
    private double f;
    private aaz g;
@@ -15,7 +15,7 @@ public class yz extends zb {
    private boolean i;
 
 
-   public yz(xx var1, double var2, float var4, float var5) {
+   public yz(EntityTameableAnimal var1, double var2, float var4, float var5) {
       this.d = var1;
       this.a = var1.o;
       this.f = var2;
@@ -29,7 +29,7 @@ public class yz extends zb {
    }
 
    public boolean a() {
-      xm var1 = this.d.cm();
+      EntityLiving var1 = this.d.cm();
       if(var1 == null) {
          return false;
       } else if(this.d.cl()) {

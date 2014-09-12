@@ -16,7 +16,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EntityPlayer extends ahd implements ail {
+public class EntityPlayer extends EntityHuman implements ail {
 
 	private static final Logger bF = LogManager.getLogger();
 	private String bG = "en_US";
@@ -63,7 +63,7 @@ public class EntityPlayer extends ahd implements ail {
 		}
 
 		this.b = var1;
-		this.bI = var1.an().a((ahd) this);
+		this.bI = var1.an().a((EntityHuman) this);
 		this.S = 0.0F;
 		this.a(var5, 0.0F, 0.0F);
 
@@ -122,7 +122,7 @@ public class EntityPlayer extends ahd implements ail {
 		}
 
 		this.bi.b();
-		if (!this.o.D && !this.bi.a((ahd) this)) {
+		if (!this.o.D && !this.bi.a((EntityHuman) this)) {
 			this.n();
 			this.bi = this.bh;
 		}
@@ -229,7 +229,7 @@ public class EntityPlayer extends ahd implements ail {
 
 				while (var7.hasNext()) {
 					bry var9 = (bry) var7.next();
-					this.co().c(this.d_(), var9).a(Arrays.asList(new ahd[] { this }));
+					this.co().c(this.d_(), var9).a(Arrays.asList(new EntityHuman[] { this }));
 				}
 			}
 
@@ -245,7 +245,7 @@ public class EntityPlayer extends ahd implements ail {
 		} catch (Throwable var4) {
 			CrashReport var2 = CrashReport.a(var4, "Ticking player");
 			CrashReportSystemDetails var3 = var2.a("Player being ticked");
-			this.a(var3);
+			this.getAttributeInstance(var3);
 			throw new ReportedException(var2);
 		}
 	}
@@ -286,14 +286,14 @@ public class EntityPlayer extends ahd implements ail {
 
 	}
 
-	public void a(wh var1) {
+	public void a(DamageSource var1) {
 		if (this.o.Q().b("showDeathMessages")) {
 			ScoreboardTeamBase var2 = this.bN();
 			if (var2 != null && var2.j() != bsg.a) {
 				if (var2.j() == bsg.c) {
-					this.b.an().a((ahd) this, this.br().b());
+					this.b.an().a((EntityHuman) this, this.br().b());
 				} else if (var2.j() == bsg.d) {
-					this.b.an().b((ahd) this, this.br().b());
+					this.b.an().b((EntityHuman) this, this.br().b());
 				}
 			} else {
 				this.b.an().a(this.br().b());
@@ -313,9 +313,9 @@ public class EntityPlayer extends ahd implements ail {
 			var5.a();
 		}
 
-		xm var7 = this.bs();
+		EntityLiving var7 = this.bs();
 		if (var7 != null) {
-			xc var8 = (xc) xb.a.get(Integer.valueOf(xb.a(var7)));
+			MonsterEggInfo var8 = (MonsterEggInfo) EntityTypes.a.get(Integer.valueOf(EntityTypes.a(var7)));
 			if (var8 != null) {
 				this.b(var8.e);
 			}
@@ -328,23 +328,23 @@ public class EntityPlayer extends ahd implements ail {
 		this.br().g();
 	}
 
-	public boolean a(wh var1, float var2) {
+	public boolean a(DamageSource var1, float var2) {
 		if (this.b(var1)) {
 			return false;
 		} else {
 			boolean var3 = this.b.ad() && this.cq() && "fall".equals(var1.p);
-			if (!var3 && this.bO > 0 && var1 != wh.j) {
+			if (!var3 && this.bO > 0 && var1 != DamageSource.j) {
 				return false;
 			} else {
 				if (var1 instanceof wi) {
-					Entity var4 = var1.j();
-					if (var4 instanceof ahd && !this.a((ahd) var4)) {
+					Entity var4 = var1.getEntity();
+					if (var4 instanceof EntityHuman && !this.a((EntityHuman) var4)) {
 						return false;
 					}
 
-					if (var4 instanceof ahj) {
-						ahj var5 = (ahj) var4;
-						if (var5.c instanceof ahd && !this.a((ahd) var5.c)) {
+					if (var4 instanceof EntityArrow) {
+						EntityArrow var5 = (EntityArrow) var4;
+						if (var5.c instanceof EntityHuman && !this.a((EntityHuman) var5.c)) {
 							return false;
 						}
 					}
@@ -355,7 +355,7 @@ public class EntityPlayer extends ahd implements ail {
 		}
 	}
 
-	public boolean a(ahd var1) {
+	public boolean a(EntityHuman var1) {
 		return !this.cq() ? false : super.a(var1);
 	}
 
@@ -464,7 +464,7 @@ public class EntityPlayer extends ahd implements ail {
 	}
 
 	public void a(bdj var1) {
-		var1.a((ahd) this);
+		var1.a((EntityHuman) this);
 		this.a.a((id) (new kc(var1.v())));
 	}
 
@@ -525,7 +525,7 @@ public class EntityPlayer extends ahd implements ail {
 
 	}
 
-	public void a(abt var1, vq var2) {
+	public void a(EntityHorse var1, vq var2) {
 		if (this.bi != this.bh) {
 			this.n();
 		}
@@ -585,7 +585,7 @@ public class EntityPlayer extends ahd implements ail {
 	}
 
 	public void p() {
-		this.bi.b((ahd) this);
+		this.bi.b((EntityHuman) this);
 		this.bi = this.bh;
 	}
 
@@ -671,7 +671,7 @@ public class EntityPlayer extends ahd implements ail {
 
 	}
 
-	public void a(ahd var1, boolean var2) {
+	public void a(EntityHuman var1, boolean var2) {
 		super.a(var1, var2);
 		this.bN = -1;
 		this.bK = -1.0F;
@@ -791,7 +791,7 @@ public class EntityPlayer extends ahd implements ail {
 	}
 
 	public void d(Entity var1) {
-		if (var1 instanceof ahd) {
+		if (var1 instanceof EntityHuman) {
 			this.a.a((id) (new km(new int[] { var1.F() })));
 		} else {
 			this.bH.add(Integer.valueOf(var1.F()));

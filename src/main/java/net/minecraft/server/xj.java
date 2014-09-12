@@ -14,11 +14,11 @@ public class xj implements Predicate {
    public boolean a(Entity var1) {
       if(!var1.ai()) {
          return false;
-      } else if(!(var1 instanceof xm)) {
+      } else if(!(var1 instanceof EntityLiving)) {
          return false;
       } else {
-         xm var2 = (xm)var1;
-         return var2.p(xn.c(this.a)) != null?false:(var2 instanceof xn?((xn)var2).bX():(var2 instanceof adi?true:var2 instanceof ahd));
+         EntityLiving var2 = (EntityLiving)var1;
+         return var2.p(EntityInsentient.c(this.a)) != null?false:(var2 instanceof EntityInsentient?((EntityInsentient)var2).bX():(var2 instanceof EntityArmorStand?true:var2 instanceof EntityHuman));
       }
    }
 

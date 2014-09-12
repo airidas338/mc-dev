@@ -3,7 +3,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public abstract class aaw extends zb {
 
-   protected final xu e;
+   protected final EntityCreature e;
    protected boolean f;
    private boolean a;
    private int b;
@@ -11,18 +11,18 @@ public abstract class aaw extends zb {
    private int d;
 
 
-   public aaw(xu var1, boolean var2) {
+   public aaw(EntityCreature var1, boolean var2) {
       this(var1, var2, false);
    }
 
-   public aaw(xu var1, boolean var2, boolean var3) {
+   public aaw(EntityCreature var1, boolean var2, boolean var3) {
       this.e = var1;
       this.f = var2;
       this.a = var3;
    }
 
    public boolean b() {
-      xm var1 = this.e.u();
+      EntityLiving var1 = this.e.u();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
@@ -45,15 +45,15 @@ public abstract class aaw extends zb {
                   }
                }
 
-               return !(var1 instanceof ahd) || !((ahd)var1).by.a;
+               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).by.a;
             }
          }
       }
    }
 
    protected double f() {
-      xz var1 = this.e.a(afs.b);
-      return var1 == null?16.0D:var1.e();
+      AttributeInstance var1 = this.e.getAttributeInstance(GenericAttributes.b);
+      return var1 == null?16.0D:var1.getValue();
    }
 
    public void c() {
@@ -63,10 +63,10 @@ public abstract class aaw extends zb {
    }
 
    public void d() {
-      this.e.d((xm)null);
+      this.e.d((EntityLiving)null);
    }
 
-   public static boolean a(xn var0, xm var1, boolean var2, boolean var3) {
+   public static boolean a(EntityInsentient var0, EntityLiving var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return false;
       } else if(var1 == var0) {
@@ -89,7 +89,7 @@ public abstract class aaw extends zb {
                if(var1 == ((xt)var0).l_()) {
                   return false;
                }
-            } else if(var1 instanceof ahd && !var2 && ((ahd)var1).by.a) {
+            } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).by.a) {
                return false;
             }
 
@@ -98,7 +98,7 @@ public abstract class aaw extends zb {
       }
    }
 
-   protected boolean a(xm var1, boolean var2) {
+   protected boolean a(EntityLiving var1, boolean var2) {
       if(!a(this.e, var1, var2, this.f)) {
          return false;
       } else if(!this.e.d(new dt(var1))) {
@@ -122,7 +122,7 @@ public abstract class aaw extends zb {
       }
    }
 
-   private boolean a(xm var1) {
+   private boolean a(EntityLiving var1) {
       this.c = 10 + this.e.bb().nextInt(5);
       bpv var2 = this.e.s().a((Entity)var1);
       if(var2 == null) {

@@ -37,7 +37,7 @@ public class bfb {
       return (double)var1.e() > this.b() && (double)var1.c() < this.d() && (double)var1.f() > this.c() && (double)var1.d() < this.e();
    }
 
-   public boolean a(brt var1) {
+   public boolean a(AxisAlignedBB var1) {
       return var1.d > this.b() && var1.a < this.d() && var1.f > this.c() && var1.c < this.e();
    }
 

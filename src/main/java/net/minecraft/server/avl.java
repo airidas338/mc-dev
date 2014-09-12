@@ -24,7 +24,7 @@ public class avl extends atr {
       if(avt.d(var1, var2.b()) && var2.o() >= 0) {
          byte var3 = 32;
          if(!avt.M && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
-            var1.d((Entity)(new adv(var1, (double)((float)var2.n() + 0.5F), (double)var2.o(), (double)((float)var2.p() + 0.5F), this.P())));
+            var1.d((Entity)(new EntityFallingBlock(var1, (double)((float)var2.n() + 0.5F), (double)var2.o(), (double)((float)var2.p() + 0.5F), this.P())));
          } else {
             var1.g(var2);
 
@@ -41,12 +41,12 @@ public class avl extends atr {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       this.e(var1, var2);
       return true;
    }
 
-   public void a(World var1, dt var2, ahd var3) {
+   public void a(World var1, dt var2, EntityHuman var3) {
       this.e(var1, var2);
    }
 

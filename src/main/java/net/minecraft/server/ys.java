@@ -8,7 +8,7 @@ public class ys extends yv {
    private int h = -1;
 
 
-   public ys(xn var1) {
+   public ys(EntityInsentient var1) {
       super(var1);
    }
 
@@ -61,7 +61,7 @@ public class ys extends yv {
          this.h = var1;
       }
 
-      if(this.g == 240 && this.a.o.aa() == EnumDifficulty.d) {
+      if(this.g == 240 && this.a.o.aa() == EnumDifficulty.HARD) {
          this.a.o.g(this.b);
          this.a.o.b(1012, this.b, 0);
          this.a.o.b(2001, this.b, atr.a((atr)this.c));

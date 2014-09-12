@@ -82,7 +82,7 @@ public class bhy extends bhp {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      dt var32 = var3.a(var6, var8 - 1, var30);
-                     if(var1.p(var32).c() == aty.d && var1.b(arf.a, var3.a(var6, var8, var30)) > 0) {
+                     if(var1.p(var32).c() == aty.d && var1.b(EnumSkyBlock.SKY, var3.a(var6, var8, var30)) > 0) {
                         arm var33 = var1.b(var32);
                         if(var33.ak.c() == aty.bw) {
                            var1.a(var32, aty.bw.P(), 2);

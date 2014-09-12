@@ -3,11 +3,11 @@ package net.minecraft.server;
 public class ajj extends ajk {
 
    private final ain a;
-   private final ahd b;
+   private final EntityHuman b;
    private int c;
 
 
-   public ajj(ahd var1, ain var2, vq var3, int var4, int var5, int var6) {
+   public ajj(EntityHuman var1, ain var2, vq var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.a = var2;
@@ -82,7 +82,7 @@ public class ajj extends ajk {
 
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       this.c(var2);
       amj[] var3 = aop.a().b(this.a, var1.o);
 

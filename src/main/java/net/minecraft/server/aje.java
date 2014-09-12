@@ -4,12 +4,12 @@ public class aje implements vq {
 
    private final aqb a;
    private amj[] b = new amj[3];
-   private final ahd c;
+   private final EntityHuman c;
    private aqc d;
    private int e;
 
 
-   public aje(ahd var1, aqb var2) {
+   public aje(EntityHuman var1, aqb var2) {
       this.c = var1;
       this.a = var2;
    }
@@ -96,13 +96,13 @@ public class aje implements vq {
       return 64;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.a.u_() == var1;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return true;

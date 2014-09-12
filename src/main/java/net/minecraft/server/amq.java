@@ -36,7 +36,7 @@ final class amq extends eg {
          }
       }
 
-      adx var18 = adx.a(var4, var5, var7 + var14, var9, amp.a((amp)var2.b()));
+      EntityMinecartAbstract var18 = EntityMinecartAbstract.a(var4, var5, var7 + var14, var9, amp.a((amp)var2.b()));
       if(var2.s()) {
          var18.a(var2.q());
       }

@@ -6,21 +6,21 @@ public class abf {
    private static ChunkCoordinates a = new ChunkCoordinates(0.0D, 0.0D, 0.0D);
 
 
-   public static ChunkCoordinates a(xu var0, int var1, int var2) {
+   public static ChunkCoordinates a(EntityCreature var0, int var1, int var2) {
       return c(var0, var1, var2, (ChunkCoordinates)null);
    }
 
-   public static ChunkCoordinates a(xu var0, int var1, int var2, ChunkCoordinates var3) {
+   public static ChunkCoordinates a(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
       a = var3.a(var0.s, var0.t, var0.u);
       return c(var0, var1, var2, a);
    }
 
-   public static ChunkCoordinates b(xu var0, int var1, int var2, ChunkCoordinates var3) {
+   public static ChunkCoordinates b(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
       a = (new ChunkCoordinates(var0.s, var0.t, var0.u)).d(var3);
       return c(var0, var1, var2, a);
    }
 
-   private static ChunkCoordinates c(xu var0, int var1, int var2, ChunkCoordinates var3) {
+   private static ChunkCoordinates c(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
       Random var4 = var0.bb();
       boolean var5 = false;
       int var6 = 0;

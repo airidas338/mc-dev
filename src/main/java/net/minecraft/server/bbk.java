@@ -31,20 +31,20 @@ public class bbk extends atr {
 
    public void a(World var1, dt var2, aqo var3) {
       if(!var1.D) {
-         aek var4 = new aek(var1, (double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), var3.c());
+         EntityTNTPrimed var4 = new EntityTNTPrimed(var1, (double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), var3.c());
          var4.a = var1.s.nextInt(var4.a / 4) + var4.a / 8;
          var1.d((Entity)var4);
       }
    }
 
    public void d(World var1, dt var2, bec var3) {
-      this.a(var1, var2, var3, (xm)null);
+      this.a(var1, var2, var3, (EntityLiving)null);
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4) {
       if(!var1.D) {
          if(((Boolean)var3.b(a)).booleanValue()) {
-            aek var5 = new aek(var1, (double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), var4);
+            EntityTNTPrimed var5 = new EntityTNTPrimed(var1, (double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), var4);
             var1.d((Entity)var5);
             var1.a((Entity)var5, "game.tnt.primed", 1.0F, 1.0F);
          }
@@ -52,14 +52,14 @@ public class bbk extends atr {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var4.bY() != null) {
          alq var9 = var4.bY().b();
          if(var9 == amk.d || var9 == amk.bL) {
-            this.a(var1, var2, var3.a(a, Boolean.valueOf(true)), (xm)var4);
+            this.a(var1, var2, var3.a(a, Boolean.valueOf(true)), (EntityLiving)var4);
             var1.g(var2);
             if(var9 == amk.d) {
-               var4.bY().a(1, (xm)var4);
+               var4.bY().a(1, (EntityLiving)var4);
             } else if(!var4.by.d) {
                --var4.bY().b;
             }
@@ -72,10 +72,10 @@ public class bbk extends atr {
    }
 
    public void a(World var1, dt var2, bec var3, Entity var4) {
-      if(!var1.D && var4 instanceof ahj) {
-         ahj var5 = (ahj)var4;
+      if(!var1.D && var4 instanceof EntityArrow) {
+         EntityArrow var5 = (EntityArrow)var4;
          if(var5.au()) {
-            this.a(var1, var2, var1.p(var2).a(a, Boolean.valueOf(true)), var5.c instanceof xm?(xm)var5.c:null);
+            this.a(var1, var2, var1.p(var2).a(a, Boolean.valueOf(true)), var5.c instanceof EntityLiving?(EntityLiving)var5.c:null);
             var1.g(var2);
          }
       }

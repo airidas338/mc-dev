@@ -66,7 +66,7 @@ public class abk {
       Iterator var2 = var1.iterator();
 
       while(var2.hasNext()) {
-         ahd var3 = (ahd)var2.next();
+         EntityHuman var3 = (EntityHuman)var2.next();
          if(!var3.v()) {
             this.f = this.a.ae().a(new dt(var3), 1);
             if(this.f != null && this.f.c() >= 10 && this.f.d() >= 20 && this.f.e() >= 20) {
@@ -78,9 +78,9 @@ public class abk {
                while(true) {
                   if(var7 < 10) {
                      float var8 = this.a.s.nextFloat() * 3.1415927F * 2.0F;
-                     this.g = var4.n() + (int)((double)(MathHelper.b(var8) * var5) * 0.9D);
+                     this.g = var4.n() + (int)((double)(MathHelper.cos(var8) * var5) * 0.9D);
                      this.h = var4.o();
-                     this.i = var4.p() + (int)((double)(MathHelper.a(var8) * var5) * 0.9D);
+                     this.i = var4.p() + (int)((double)(MathHelper.sin(var8) * var5) * 0.9D);
                      var6 = false;
                      Iterator var9 = this.a.ae().b().iterator();
 
@@ -122,9 +122,9 @@ public class abk {
       if(var1 == null) {
          return false;
       } else {
-         agj var2;
+         EntityZombie var2;
          try {
-            var2 = new agj(this.a);
+            var2 = new EntityZombie(this.a);
             var2.a(this.a.E(new dt(var2)), (xq)null);
             var2.m(false);
          } catch (Exception var4) {

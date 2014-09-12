@@ -6,7 +6,7 @@ public class bdj extends bcm {
    public final IChatBaseComponent[] a = new IChatBaseComponent[]{new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText("")};
    public int f = -1;
    private boolean g = true;
-   private ahd h;
+   private EntityHuman h;
    private final af i = new af();
 
 
@@ -55,15 +55,15 @@ public class bdj extends bcm {
       return this.g;
    }
 
-   public void a(ahd var1) {
+   public void a(EntityHuman var1) {
       this.h = var1;
    }
 
-   public ahd c() {
+   public EntityHuman c() {
       return this.h;
    }
 
-   public boolean b(ahd var1) {
+   public boolean b(EntityHuman var1) {
       bdl var2 = new bdl(this, var1);
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {

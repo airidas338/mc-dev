@@ -56,7 +56,7 @@ public class cv extends CommandAbstract {
 
             Entity var21;
             try {
-               var21 = xb.a(var13, var12);
+               var21 = EntityTypes.a(var13, var12);
             } catch (RuntimeException var19) {
                throw new di("commands.summon.failed", new Object[0]);
             }
@@ -65,15 +65,15 @@ public class cv extends CommandAbstract {
                throw new di("commands.summon.failed", new Object[0]);
             } else {
                var21.b(var6, var8, var10, var21.y, var21.z);
-               if(!var14 && var21 instanceof xn) {
-                  ((xn)var21).a(var12.E(new dt(var21)), (xq)null);
+               if(!var14 && var21 instanceof EntityInsentient) {
+                  ((EntityInsentient)var21).a(var12.E(new dt(var21)), (xq)null);
                }
 
                var12.d(var21);
                Entity var16 = var21;
 
                for(fn var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.m("Riding")) {
-                  Entity var18 = xb.a(var17.m("Riding"), var12);
+                  Entity var18 = EntityTypes.a(var17.m("Riding"), var12);
                   if(var18 != null) {
                      var18.b(var6, var8, var10, var18.y, var18.z);
                      var12.d(var18);
@@ -90,6 +90,6 @@ public class cv extends CommandAbstract {
    }
 
    public List a(ae var1, String[] var2, dt var3) {
-      return var2.length == 1?a(var2, xb.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
+      return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

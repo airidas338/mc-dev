@@ -3,12 +3,12 @@ package net.minecraft.server;
 
 public class aau extends aaw {
 
-   xx a;
-   xm b;
+   EntityTameableAnimal a;
+   EntityLiving b;
    private int c;
 
 
-   public aau(xx var1) {
+   public aau(EntityTameableAnimal var1) {
       super(var1, false);
       this.a = var1;
       this.a(1);
@@ -18,7 +18,7 @@ public class aau extends aaw {
       if(!this.a.cj()) {
          return false;
       } else {
-         xm var1 = this.a.cm();
+         EntityLiving var1 = this.a.cm();
          if(var1 == null) {
             return false;
          } else {
@@ -31,7 +31,7 @@ public class aau extends aaw {
 
    public void c() {
       this.e.d(this.b);
-      xm var1 = this.a.cm();
+      EntityLiving var1 = this.a.cm();
       if(var1 != null) {
          this.c = var1.bd();
       }

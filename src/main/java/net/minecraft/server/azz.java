@@ -16,7 +16,7 @@ public class azz extends ava {
       return var1.a(a, Boolean.valueOf(this.b(var2, var3, var1)));
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {

@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class yn {
 
-   protected xn a;
+   protected EntityInsentient a;
    protected double b;
    protected double c;
    protected double d;
@@ -12,7 +12,7 @@ public class yn {
    protected boolean f;
 
 
-   public yn(xn var1) {
+   public yn(EntityInsentient var1) {
       this.a = var1;
       this.b = var1.s;
       this.c = var1.t;
@@ -47,7 +47,7 @@ public class yn {
          if(var8 >= 2.500000277905201E-7D) {
             float var10 = (float)(Math.atan2(var4, var2) * 180.0D / 3.1415927410125732D) - 90.0F;
             this.a.y = this.a(this.a.y, var10, 30.0F);
-            this.a.j((float)(this.e * this.a.a(afs.d).e()));
+            this.a.j((float)(this.e * this.a.getAttributeInstance(GenericAttributes.d).getValue()));
             if(var6 > 0.0D && var2 * var2 + var4 * var4 < 1.0D) {
                this.a.r().a();
             }

@@ -35,7 +35,7 @@ public class azk extends avb {
             var1.a(var5.d(), aty.a.P(), 2);
          }
 
-         acn var9 = new acn(var1);
+         EntitySnowman var9 = new EntitySnowman(var1);
          dt var10 = var3.a(0, 2, 0).d();
          var9.b((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var9);
@@ -56,7 +56,7 @@ public class azk extends avb {
          }
 
          dt var12 = var3.a(1, 2, 0).d();
-         acq var13 = new acq(var1);
+         EntityIronGolem var13 = new EntityIronGolem(var1);
          var13.l(true);
          var13.b((double)var12.n() + 0.5D, (double)var12.o() + 0.05D, (double)var12.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var13);
@@ -79,7 +79,7 @@ public class azk extends avb {
       return var1.p(var2).c().J.j() && World.a((ard)var1, var2.b());
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 

@@ -20,7 +20,7 @@ public class bj extends CommandAbstract {
          throw new dp("commands.entitydata.usage", new Object[0]);
       } else {
          Entity var3 = b(var1, var2[0]);
-         if(var3 instanceof ahd) {
+         if(var3 instanceof EntityHuman) {
             throw new di("commands.entitydata.noPlayers", new Object[]{var3.e_()});
          } else {
             fn var4 = new fn();

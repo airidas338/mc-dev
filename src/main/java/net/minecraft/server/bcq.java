@@ -211,13 +211,13 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       return 64;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return var1 == 3?var2.b().l(var2):var2.b() == amk.bz || var2.b() == amk.bA;
@@ -251,7 +251,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       return "minecraft:brewing_stand";
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aii(var1, this);
    }
 

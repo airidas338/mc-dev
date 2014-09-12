@@ -18,7 +18,7 @@ public class ban extends atr {
    }
 
    public void b(World var1, dt var2, bec var3, Random var4) {
-      if(var1.b(arf.b, var2) > 11) {
+      if(var1.b(EnumSkyBlock.BLOCK, var2) > 11) {
          this.b(var1, var2, var1.p(var2), 0);
          var1.g(var2);
       }

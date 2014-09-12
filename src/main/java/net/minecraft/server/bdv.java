@@ -55,7 +55,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
          --var1;
       }
 
-      brt var3 = aty.M.a(this.b, this.c, this.a, var1, this.f);
+      AxisAlignedBB var3 = aty.M.a(this.b, this.c, this.a, var1, this.f);
       if(var3 != null) {
          List var4 = this.b.b((Entity)null, var3);
          if(!var4.isEmpty()) {

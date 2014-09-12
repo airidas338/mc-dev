@@ -241,7 +241,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                }
             }
 
-            brt var47 = this.b.aQ().b((double)var41, (double)var41, (double)var41).a(0.0D, -0.55D, 0.0D);
+            AxisAlignedBB var47 = this.b.aQ().b((double)var41, (double)var41, (double)var41).a(0.0D, -0.55D, 0.0D);
             if(!this.d.ai() && !this.b.by.c && !var2.c(var47)) {
                if(var43 >= -0.03125D) {
                   ++this.g;
@@ -334,7 +334,7 @@ public class rj implements ls, IUpdatePlayerListBox {
             return;
          } else {
             if(var1.c() == mm.a) {
-               if(!this.d.a((World)var2, var3, (ahd)this.b) && var2.af().a(var3)) {
+               if(!this.d.a((World)var2, var3, (EntityHuman)this.b) && var2.af().a(var3)) {
                   this.b.c.a(var3, var1.b());
                } else {
                   this.b.a.a((id)(new iw(var2, var3)));
@@ -378,7 +378,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          this.b.a.a((id)(new iz(var7)));
          var4 = true;
       } else {
-         if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((World)var2, var5, (ahd)this.b) && var2.af().a(var5)) {
+         if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((World)var2, var5, (EntityHuman)this.b) && var2.af().a(var5)) {
             this.b.c.a(this.b, var2, var3, var5, var6, var1.d(), var1.e(), var1.f());
          }
 
@@ -571,13 +571,13 @@ public class rj implements ls, IUpdatePlayerListBox {
          this.r = false;
          break;
       case 6:
-         if(this.b.m instanceof abt) {
-            ((abt)this.b.m).v(var1.c());
+         if(this.b.m instanceof EntityHorse) {
+            ((EntityHorse)this.b.m).v(var1.c());
          }
          break;
       case 7:
-         if(this.b.m instanceof abt) {
-            ((abt)this.b.m).g(this.b);
+         if(this.b.m instanceof EntityHorse) {
+            ((EntityHorse)this.b.m).g(this.b);
          }
          break;
       default:
@@ -602,9 +602,9 @@ public class rj implements ls, IUpdatePlayerListBox {
             if(var1.a() == me.a) {
                this.b.u(var3);
             } else if(var1.a() == me.c) {
-               var3.a((ahd)this.b, var1.b());
+               var3.a((EntityHuman)this.b, var1.b());
             } else if(var1.a() == me.b) {
-               if(var3 instanceof adw || var3 instanceof xk || var3 instanceof ahj || var3 == this.b) {
+               if(var3 instanceof EntityItem || var3 instanceof EntityExperienceOrb || var3 instanceof EntityArrow || var3 == this.b) {
                   this.c("Attempting to attack an invalid entity");
                   this.d.f("Player " + this.b.d_() + " tried to attack an invalid entity");
                   return;
@@ -697,7 +697,7 @@ public class rj implements ls, IUpdatePlayerListBox {
       ig.a(var1, this, this.b.u());
       this.b.z();
       if(this.b.bi.d == var1.a() && this.b.bi.c(this.b) && !this.b.v()) {
-         this.b.bi.a((ahd)this.b, var1.b());
+         this.b.bi.a((EntityHuman)this.b, var1.b());
          this.b.bi.b();
       }
 
@@ -737,7 +737,7 @@ public class rj implements ls, IUpdatePlayerListBox {
             this.b.bh.a(this.b, true);
          } else if(var2 && var9 && var10 && this.m < 200) {
             this.m += 20;
-            adw var11 = this.b.a(var3, true);
+            EntityItem var11 = this.b.a(var3, true);
             if(var11 != null) {
                var11.j();
             }
@@ -906,8 +906,8 @@ public class rj implements ls, IUpdatePlayerListBox {
                   }
                } else if(var43 == 1) {
                   Entity var47 = this.b.o.a(var2.readInt());
-                  if(var47 instanceof aeb) {
-                     var46 = ((aeb)var47).j();
+                  if(var47 instanceof EntityMinecartCommandBlock) {
+                     var46 = ((EntityMinecartCommandBlock)var47).j();
                   }
                }
 

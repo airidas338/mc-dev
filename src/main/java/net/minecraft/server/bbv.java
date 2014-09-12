@@ -104,7 +104,7 @@ public class bbv extends atr {
       this.a(var4, var5, var6, var7, var8, var9);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -280,7 +280,7 @@ public class bbv extends atr {
       return 1 << var0.b();
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       bec var9 = this.P().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
       return var3.k().c()?var9.a(a(var3.d()), Boolean.valueOf(true)):var9;
    }
@@ -293,7 +293,7 @@ public class bbv extends atr {
       return 0;
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == amk.be) {
          var2.b(ty.H[atr.a((atr)this)]);
          a(var1, var3, new amj(aty.bn, 1, 0));

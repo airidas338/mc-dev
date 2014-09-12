@@ -5,19 +5,19 @@ package net.minecraft.server;
 public class zq extends zb {
 
    World a;
-   xn b;
-   xm c;
+   EntityInsentient b;
+   EntityLiving c;
    int d;
 
 
-   public zq(xn var1) {
+   public zq(EntityInsentient var1) {
       this.b = var1;
       this.a = var1.o;
       this.a(3);
    }
 
    public boolean a() {
-      xm var1 = this.b.u();
+      EntityLiving var1 = this.b.u();
       if(var1 == null) {
          return false;
       } else {

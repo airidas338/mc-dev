@@ -24,7 +24,7 @@ public class bbt extends atr {
       return var1.a(N, Boolean.valueOf(!World.a(var2, var3.b())));
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -55,7 +55,7 @@ public class bbt extends atr {
       return true;
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       bec var9 = this.P().a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
       if(var3.k().c()) {
          var9 = var9.a(a, var3);
@@ -64,7 +64,7 @@ public class bbt extends atr {
       return var9;
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       this.a(var1, var2, var3, false, false, -1, (bec)null);
    }
 

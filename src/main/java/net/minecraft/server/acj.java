@@ -3,10 +3,10 @@ package net.minecraft.server;
 
 class acj extends zu {
 
-   private acb b;
+   private EntityRabbit b;
 
 
-   public acj(acb var1, double var2) {
+   public acj(EntityRabbit var1, double var2) {
       super(var1, var2);
       this.b = var1;
    }

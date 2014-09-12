@@ -9,10 +9,10 @@ public class alj extends alq {
       this.a(akf.i);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       if(var3.bE != null) {
          int var4 = var3.bE.l();
-         var1.a(var4, (xm)var3);
+         var1.a(var4, (EntityLiving)var3);
          var3.bv();
       } else {
          var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));

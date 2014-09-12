@@ -56,7 +56,7 @@ public class abi {
       if(this.l < var2 && this.b.size() > 20 && this.a.s.nextInt(7000) == 0) {
          ChunkCoordinates var3 = this.a(this.d, 2, 4, 2);
          if(var3 != null) {
-            acq var4 = new acq(this.a);
+            EntityIronGolem var4 = new EntityIronGolem(this.a);
             var4.b(var3.a, var3.b, var3.c);
             this.a.d((Entity)var4);
             ++this.l;
@@ -98,12 +98,12 @@ public class abi {
    }
 
    private void j() {
-      List var1 = this.a.a(acq.class, new brt((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
+      List var1 = this.a.a(EntityIronGolem.class, new AxisAlignedBB((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
       this.l = var1.size();
    }
 
    private void k() {
-      List var1 = this.a.a(agp.class, new brt((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
+      List var1 = this.a.a(EntityVillager.class, new AxisAlignedBB((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
       this.h = var1.size();
       if(this.h == 0) {
          this.j.clear();
@@ -209,7 +209,7 @@ public class abi {
       return this.b.isEmpty();
    }
 
-   public void a(xm var1) {
+   public void a(EntityLiving var1) {
       Iterator var2 = this.k.iterator();
 
       abj var3;
@@ -225,7 +225,7 @@ public class abi {
       var3.b = this.g;
    }
 
-   public xm b(xm var1) {
+   public EntityLiving b(EntityLiving var1) {
       double var2 = Double.MAX_VALUE;
       abj var4 = null;
 
@@ -241,15 +241,15 @@ public class abi {
       return var4 != null?var4.a:null;
    }
 
-   public ahd c(xm var1) {
+   public EntityHuman c(EntityLiving var1) {
       double var2 = Double.MAX_VALUE;
-      ahd var4 = null;
+      EntityHuman var4 = null;
       Iterator var5 = this.j.keySet().iterator();
 
       while(var5.hasNext()) {
          String var6 = (String)var5.next();
          if(this.d(var6)) {
-            ahd var7 = this.a.a(var6);
+            EntityHuman var7 = this.a.a(var6);
             if(var7 != null) {
                double var8 = var7.h(var1);
                if(var8 <= var2) {

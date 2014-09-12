@@ -84,7 +84,7 @@ public class cl extends ab implements y {
          Iterator var9 = var7.an().e.iterator();
 
          while(var9.hasNext()) {
-            ahd var10 = (ahd)var9.next();
+            EntityHuman var10 = (EntityHuman)var9.next();
             if(var10 != var1 && var7.an().g(var10.cc()) && var2.a(var1)) {
                var10.a((IChatBaseComponent)var8);
             }

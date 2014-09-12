@@ -4,12 +4,12 @@ package net.minecraft.server;
 class bdl implements ae {
 
    // $FF: synthetic field
-   final ahd a;
+   final EntityHuman a;
    // $FF: synthetic field
    final bdj b;
 
 
-   bdl(bdj var1, ahd var2) {
+   bdl(bdj var1, EntityHuman var2) {
       this.b = var1;
       this.a = var2;
    }

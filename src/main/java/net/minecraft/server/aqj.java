@@ -21,7 +21,7 @@ public class aqj extends vk {
       this.b = var1;
       if(var3.equals("Minecart")) {
          if(var2 != null) {
-            var3 = adz.a(var2.f("Type")).b();
+            var3 = EnumMinecartType.a(var2.f("Type")).b();
          } else {
             var3 = "MinecartRideable";
          }

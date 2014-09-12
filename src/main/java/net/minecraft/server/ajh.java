@@ -45,11 +45,11 @@ public class ajh extends wa {
       return var1;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.a != null && !this.a.a(var1)?false:super.a(var1);
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       if(this.a != null) {
          this.a.b();
       }
@@ -57,7 +57,7 @@ public class ajh extends wa {
       super.b(var1);
    }
 
-   public void c(ahd var1) {
+   public void c(EntityHuman var1) {
       if(this.a != null) {
          this.a.d();
       }

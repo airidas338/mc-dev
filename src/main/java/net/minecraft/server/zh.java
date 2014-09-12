@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class zh extends zb {
 
-   protected xn a;
+   protected EntityInsentient a;
    protected Entity b;
    protected float c;
    private int e;
@@ -12,7 +12,7 @@ public class zh extends zb {
    protected Class d;
 
 
-   public zh(xn var1, Class var2, float var3) {
+   public zh(EntityInsentient var1, Class var2, float var3) {
       this.a = var1;
       this.d = var2;
       this.c = var3;
@@ -20,7 +20,7 @@ public class zh extends zb {
       this.a(2);
    }
 
-   public zh(xn var1, Class var2, float var3, float var4) {
+   public zh(EntityInsentient var1, Class var2, float var3, float var4) {
       this.a = var1;
       this.d = var2;
       this.c = var3;
@@ -36,7 +36,7 @@ public class zh extends zb {
             this.b = this.a.u();
          }
 
-         if(this.d == ahd.class) {
+         if(this.d == EntityHuman.class) {
             this.b = this.a.o.a(this.a, (double)this.c);
          } else {
             this.b = this.a.o.a(this.d, this.a.aQ().b((double)this.c, 3.0D, (double)this.c), (Entity)this.a);

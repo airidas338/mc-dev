@@ -15,10 +15,10 @@ public class aid extends aib {
    public int a;
    private int k;
    private String l;
-   private final ahd m;
+   private final EntityHuman m;
 
 
-   public aid(ahb var1, World var2, dt var3, ahd var4) {
+   public aid(ahb var1, World var2, dt var3, EntityHuman var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
@@ -66,7 +66,7 @@ public class aid extends aib {
       } else {
          amj var12 = var8.k();
          amj var13 = this.h.a(1);
-         Map var14 = aph.a(var12);
+         Map var14 = EnchantmentManager.a(var12);
          boolean var15 = false;
          int var25 = var10 + var8.A() + (var13 == null?0:var13.A());
          this.k = 0;
@@ -115,7 +115,7 @@ public class aid extends aib {
                   }
                }
 
-               Map var26 = aph.a(var13);
+               Map var26 = EnchantmentManager.a(var13);
                Iterator var27 = var26.keySet().iterator();
 
                while(var27.hasNext()) {
@@ -220,7 +220,7 @@ public class aid extends aib {
 
             var16 = var16 * 2 + 1;
             var12.c(var16);
-            aph.a(var14, var12);
+            EnchantmentManager.a(var14, var12);
          }
 
          this.g.a(0, var12);
@@ -233,7 +233,7 @@ public class aid extends aib {
       var1.a(this, 0, this.a);
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
       if(!this.i.D) {
          for(int var2 = 0; var2 < this.h.n_(); ++var2) {
@@ -246,11 +246,11 @@ public class aid extends aib {
       }
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.i.p(this.j).c() != aty.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {

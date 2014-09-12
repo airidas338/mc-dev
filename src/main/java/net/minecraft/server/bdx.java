@@ -56,7 +56,7 @@ public class bdx extends atg {
       return false;
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(!var1.D && var1.s(var2) == null) {
          var1.g(var2);
          return true;
@@ -90,7 +90,7 @@ public class bdx extends atg {
 
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       bdv var4 = this.e(var1, var2);
       if(var4 == null) {
          return null;
@@ -134,9 +134,9 @@ public class bdx extends atg {
 
    }
 
-   public brt a(World var1, dt var2, bec var3, float var4, ej var5) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3, float var4, ej var5) {
       if(var3.c() != this && var3.c().r() != bof.a) {
-         brt var6 = var3.c().a(var1, var2, var3);
+         AxisAlignedBB var6 = var3.c().a(var1, var2, var3);
          if(var6 == null) {
             return null;
          } else {
@@ -164,7 +164,7 @@ public class bdx extends atg {
                var17 -= (double)((float)var5.i() * var4);
             }
 
-            return new brt(var7, var9, var11, var13, var15, var17);
+            return new AxisAlignedBB(var7, var9, var11, var13, var15, var17);
          }
       } else {
          return null;

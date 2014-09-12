@@ -12,7 +12,7 @@ public class alm extends all {
       return var1.i() == 0?amx.c:amx.d;
    }
 
-   protected void c(amj var1, World var2, ahd var3) {
+   protected void c(amj var1, World var2, EntityHuman var3) {
       if(!var2.D) {
          var3.c(new wq(wp.x.H, 2400, 0));
       }

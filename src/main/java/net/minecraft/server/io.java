@@ -21,9 +21,9 @@ public class io implements id {
 
    public io() {}
 
-   public io(xm var1) {
+   public io(EntityLiving var1) {
       this.a = var1.F();
-      this.b = (byte)xb.a(var1);
+      this.b = (byte)EntityTypes.a(var1);
       this.c = MathHelper.c(var1.s * 32.0D);
       this.d = MathHelper.c(var1.t * 32.0D);
       this.e = MathHelper.c(var1.u * 32.0D);

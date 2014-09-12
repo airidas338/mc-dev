@@ -43,7 +43,7 @@ public class azt extends atr {
       }
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 

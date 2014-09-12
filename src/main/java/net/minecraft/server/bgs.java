@@ -28,13 +28,13 @@ public class bgs extends bgt {
       int var27 = var25.nextInt(var16 / 2) + var16 / 4;
 
       for(boolean var28 = var25.nextInt(6) == 0; var15 < var16; ++var15) {
-         double var29 = 1.5D + (double)(MathHelper.a((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
+         double var29 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
          double var31 = var29 * var17;
-         float var33 = MathHelper.b(var14);
-         float var34 = MathHelper.a(var14);
-         var6 += (double)(MathHelper.b(var13) * var33);
+         float var33 = MathHelper.cos(var14);
+         float var34 = MathHelper.sin(var14);
+         var6 += (double)(MathHelper.cos(var13) * var33);
          var8 += (double)var34;
-         var10 += (double)(MathHelper.a(var13) * var33);
+         var10 += (double)(MathHelper.sin(var13) * var33);
          if(var28) {
             var14 *= 0.92F;
          } else {

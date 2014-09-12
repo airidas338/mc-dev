@@ -11,7 +11,7 @@ public class akb extends alq {
       this.a(akf.f);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       boolean var4 = this.a == aty.a;
       bru var5 = this.a(var2, var3, var4);
       if(var5 == null) {
@@ -62,7 +62,7 @@ public class akb extends alq {
       }
    }
 
-   private amj a(amj var1, ahd var2, alq var3) {
+   private amj a(amj var1, EntityHuman var2, alq var3) {
       if(var2.by.d) {
          return var1;
       } else if(--var1.b <= 0) {

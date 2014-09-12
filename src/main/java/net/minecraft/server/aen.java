@@ -3,18 +3,18 @@ package net.minecraft.server;
 
 class aen extends zb {
 
-   private aem a;
+   private EntityBlaze a;
    private int b;
    private int c;
 
 
-   public aen(aem var1) {
+   public aen(EntityBlaze var1) {
       this.a = var1;
       this.a(3);
    }
 
    public boolean a() {
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       return var1 != null && var1.ai();
    }
 
@@ -28,7 +28,7 @@ class aen extends zb {
 
    public void e() {
       --this.c;
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       double var2 = this.a.h(var1);
       if(var2 < 4.0D) {
          if(this.c <= 0) {
@@ -56,10 +56,10 @@ class aen extends zb {
 
             if(this.b > 1) {
                float var10 = MathHelper.c(MathHelper.a(var2)) * 0.5F;
-               this.a.o.a((ahd)null, 1009, new dt((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
+               this.a.o.a((EntityHuman)null, 1009, new dt((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
 
                for(int var11 = 0; var11 < 1; ++var11) {
-                  ahp var12 = new ahp(this.a.o, this.a, var4 + this.a.bb().nextGaussian() * (double)var10, var6, var8 + this.a.bb().nextGaussian() * (double)var10);
+                  EntitySmallFireball var12 = new EntitySmallFireball(this.a.o, this.a, var4 + this.a.bb().nextGaussian() * (double)var10, var6, var8 + this.a.bb().nextGaussian() * (double)var10);
                   var12.t = this.a.t + (double)(this.a.K / 2.0F) + 0.5D;
                   this.a.o.d((Entity)var12);
                }

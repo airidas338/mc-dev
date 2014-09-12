@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class zy extends zb {
 
-   private xu a;
+   private EntityCreature a;
    private double b;
    private double c;
    private double d;
@@ -13,11 +13,11 @@ public class zy extends zb {
    private boolean g;
 
 
-   public zy(xu var1, double var2) {
+   public zy(EntityCreature var1, double var2) {
       this(var1, var2, 120);
    }
 
-   public zy(xu var1, double var2, int var4) {
+   public zy(EntityCreature var1, double var2, int var4) {
       this.a = var1;
       this.e = var2;
       this.f = var4;

@@ -40,7 +40,7 @@ public class br extends CommandAbstract {
             var3.bh.b();
          }
 
-         adw var9;
+         EntityItem var9;
          if(var11 && var7.b <= 0) {
             var7.b = 1;
             var1.a(ag.d, var5);

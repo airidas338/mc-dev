@@ -86,7 +86,7 @@ public class aqo {
       int var7 = MathHelper.c(this.f + (double)var30 + 1.0D);
       int var32 = MathHelper.c(this.g - (double)var30 - 1.0D);
       int var9 = MathHelper.c(this.g + (double)var30 + 1.0D);
-      List var33 = this.d.b(this.h, new brt((double)var4, (double)var31, (double)var32, (double)var5, (double)var7, (double)var9));
+      List var33 = this.d.b(this.h, new AxisAlignedBB((double)var4, (double)var31, (double)var32, (double)var5, (double)var7, (double)var9));
       ChunkCoordinates var11 = new ChunkCoordinates(this.e, this.f, this.g);
 
       for(int var34 = 0; var34 < var33.size(); ++var34) {
@@ -104,13 +104,13 @@ public class aqo {
                   var20 /= var36;
                   double var37 = (double)this.d.a(var11, var13.aQ());
                   double var26 = (1.0D - var35) * var37;
-                  var13.a(wh.a(this), (float)((int)((var26 * var26 + var26) / 2.0D * 8.0D * (double)var30 + 1.0D)));
+                  var13.a(DamageSource.a(this), (float)((int)((var26 * var26 + var26) / 2.0D * 8.0D * (double)var30 + 1.0D)));
                   double var28 = apu.a(var13, var26);
                   var13.v += var16 * var28;
                   var13.w += var18 * var28;
                   var13.x += var20 * var28;
-                  if(var13 instanceof ahd) {
-                     this.k.put((ahd)var13, new ChunkCoordinates(var16 * var26, var18 * var26, var20 * var26));
+                  if(var13 instanceof EntityHuman) {
+                     this.k.put((EntityHuman)var13, new ChunkCoordinates(var16 * var26, var18 * var26, var20 * var26));
                   }
                }
             }
@@ -183,8 +183,8 @@ public class aqo {
       return this.k;
    }
 
-   public xm c() {
-      return this.h == null?null:(this.h instanceof aek?((aek)this.h).j():(this.h instanceof xm?(xm)this.h:null));
+   public EntityLiving c() {
+      return this.h == null?null:(this.h instanceof EntityTNTPrimed?((EntityTNTPrimed)this.h).j():(this.h instanceof EntityLiving?(EntityLiving)this.h:null));
    }
 
    public void d() {

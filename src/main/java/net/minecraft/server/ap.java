@@ -15,10 +15,10 @@ final class ap implements Predicate {
    }
 
    public boolean a(Entity var1) {
-      if(!(var1 instanceof xm)) {
+      if(!(var1 instanceof EntityLiving)) {
          return false;
       } else {
-         xm var2 = (xm)var1;
+         EntityLiving var2 = (EntityLiving)var1;
          ScoreboardTeamBase var3 = var2.bN();
          String var4 = var3 == null?"":var3.b();
          return var4.equals(this.a) != this.b;

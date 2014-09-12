@@ -52,7 +52,7 @@ public abstract class axl extends atr {
       return var4 == this.J?false:(var3 == ej.b?true:(var4 == bof.w?false:super.b(var1, var2, var3)));
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 

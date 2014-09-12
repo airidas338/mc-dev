@@ -37,9 +37,9 @@ public class auf extends atr {
       }
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       float var4 = 0.0625F;
-      return new brt((double)((float)var2.n() + var4), (double)var2.o(), (double)((float)var2.p() + var4), (double)((float)(var2.n() + 1) - var4), (double)((float)(var2.o() + 1) - var4), (double)((float)(var2.p() + 1) - var4));
+      return new AxisAlignedBB((double)((float)var2.n() + var4), (double)var2.o(), (double)((float)var2.p() + var4), (double)((float)(var2.n() + 1) - var4), (double)((float)(var2.o() + 1) - var4), (double)((float)(var2.p() + 1) - var4));
    }
 
    public boolean d() {
@@ -76,7 +76,7 @@ public class auf extends atr {
    }
 
    public void a(World var1, dt var2, bec var3, Entity var4) {
-      var4.a(wh.h, 1.0F);
+      var4.a(DamageSource.h, 1.0F);
    }
 
    public bec a(int var1) {

@@ -16,11 +16,11 @@ public interface vq extends vz {
 
    void o_();
 
-   boolean a(ahd var1);
+   boolean a(EntityHuman var1);
 
-   void b(ahd var1);
+   void b(EntityHuman var1);
 
-   void c(ahd var1);
+   void c(EntityHuman var1);
 
    boolean b(int var1, amj var2);
 

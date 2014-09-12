@@ -3,9 +3,9 @@ package net.minecraft.server;
 public class aiy extends aib {
 
 	private vq a;
-	private abt f;
+	private EntityHorse f;
 
-	public aiy(vq var1, vq var2, abt var3, ahd var4) {
+	public aiy(vq var1, vq var2, EntityHorse var3, EntityHuman var4) {
 		this.a = var2;
 		this.f = var3;
 		byte var5 = 3;
@@ -35,11 +35,11 @@ public class aiy extends aib {
 
 	}
 
-	public boolean a(ahd var1) {
+	public boolean a(EntityHuman var1) {
 		return this.a.a(var1) && this.f.ai() && this.f.g((Entity) var1) < 8.0F;
 	}
 
-	public amj b(ahd var1, int var2) {
+	public amj b(EntityHuman var1, int var2) {
 		amj var3 = null;
 		ajk var4 = (ajk) this.c.get(var2);
 		if (var4 != null && var4.e()) {
@@ -71,7 +71,7 @@ public class aiy extends aib {
 		return var3;
 	}
 
-	public void b(ahd var1) {
+	public void b(EntityHuman var1) {
 		super.b(var1);
 		this.a.c(var1);
 	}

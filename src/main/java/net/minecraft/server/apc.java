@@ -43,9 +43,9 @@ public class apc extends apf {
       return var1.b() instanceof ajr?true:super.a(var1);
    }
 
-   public void a(xm var1, Entity var2, int var3) {
-      if(var2 instanceof xm) {
-         xm var4 = (xm)var2;
+   public void a(EntityLiving var1, Entity var2, int var3) {
+      if(var2 instanceof EntityLiving) {
+         EntityLiving var4 = (EntityLiving)var2;
          if(this.a == 2 && var4.by() == xs.c) {
             int var5 = 20 + var1.bb().nextInt(10 * var3);
             var4.c(new wq(wp.d.H, var5, 3));

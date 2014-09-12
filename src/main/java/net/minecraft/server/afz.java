@@ -3,17 +3,17 @@ package net.minecraft.server;
 
 class afz extends zb {
 
-   private afy a;
+   private EntitySlime a;
    private int b;
 
 
-   public afz(afy var1) {
+   public afz(EntitySlime var1) {
       this.a = var1;
       this.a(2);
    }
 
    public boolean a() {
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       return var1 == null?false:var1.ai();
    }
 
@@ -23,7 +23,7 @@ class afz extends zb {
    }
 
    public boolean b() {
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       return var1 == null?false:(!var1.ai()?false:--this.b > 0);
    }
 

@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class yu extends zb {
 
-   private final xn a;
+   private final EntityInsentient a;
    private final float b;
    private float c;
    private boolean d;
@@ -12,7 +12,7 @@ public class yu extends zb {
    private int f;
 
 
-   public yu(xn var1, float var2) {
+   public yu(EntityInsentient var1, float var2) {
       this.a = var1;
       this.b = var2;
       this.a(7);
@@ -28,12 +28,12 @@ public class yu extends zb {
    }
 
    public boolean a() {
-      return this.a.ai() && this.a.l != null && this.a.l instanceof ahd && (this.d || this.a.bV());
+      return this.a.ai() && this.a.l != null && this.a.l instanceof EntityHuman && (this.d || this.a.bV());
    }
 
    public void e() {
-      ahd var1 = (ahd)this.a.l;
-      xu var2 = (xu)this.a;
+      EntityHuman var1 = (EntityHuman)this.a.l;
+      EntityCreature var2 = (EntityCreature)this.a;
       float var3 = MathHelper.g(var1.y - this.a.y) * 0.5F;
       if(var3 > 5.0F) {
          var3 = 5.0F;
@@ -61,7 +61,7 @@ public class yu extends zb {
             this.d = false;
          }
 
-         var7 += var7 * 1.15F * MathHelper.a((float)this.e / (float)this.f * 3.1415927F);
+         var7 += var7 * 1.15F * MathHelper.sin((float)this.e / (float)this.f * 3.1415927F);
       }
 
       float var8 = 0.91F;
@@ -70,8 +70,8 @@ public class yu extends zb {
       }
 
       float var9 = 0.16277136F / (var8 * var8 * var8);
-      float var10 = MathHelper.a(var2.y * 3.1415927F / 180.0F);
-      float var11 = MathHelper.b(var2.y * 3.1415927F / 180.0F);
+      float var10 = MathHelper.sin(var2.y * 3.1415927F / 180.0F);
+      float var11 = MathHelper.cos(var2.y * 3.1415927F / 180.0F);
       float var12 = var2.bH() * var9;
       float var13 = Math.max(var7, 1.0F);
       var13 = var12 / var13;
@@ -115,7 +115,7 @@ public class yu extends zb {
       if(!var1.by.d && this.c >= this.b * 0.5F && this.a.bb().nextFloat() < 0.006F && !this.d) {
          amj var24 = var1.bz();
          if(var24 != null && var24.b() == amk.bY) {
-            var24.a(1, (xm)var1);
+            var24.a(1, (EntityLiving)var1);
             if(var24.b == 0) {
                amj var25 = new amj(amk.aR);
                var25.d(var24.o());

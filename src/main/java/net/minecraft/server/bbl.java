@@ -15,7 +15,7 @@ public class bbl extends atr {
       this.a(akf.c);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -57,7 +57,7 @@ public class bbl extends atr {
       return var5 && var1.d(var4, true) || var3.equals(ej.b) && this.d(var1, var4);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {

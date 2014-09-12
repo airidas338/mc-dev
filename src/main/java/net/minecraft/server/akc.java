@@ -9,12 +9,12 @@ public class akc extends alq {
       this.d(25);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
-      if(var3.av() && var3.m instanceof aca) {
-         aca var4 = (aca)var3.m;
+   public amj a(amj var1, World var2, EntityHuman var3) {
+      if(var3.av() && var3.m instanceof EntityPig) {
+         EntityPig var4 = (EntityPig)var3.m;
          if(var4.ck().h() && var1.j() - var1.i() >= 7) {
             var4.ck().g();
-            var1.a(7, (xm)var3);
+            var1.a(7, (EntityLiving)var3);
             if(var1.b == 0) {
                amj var5 = new amj(amk.aR);
                var5.d(var1.o());

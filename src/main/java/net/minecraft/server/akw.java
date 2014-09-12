@@ -17,7 +17,7 @@ public class akw extends alq {
       return super.a() + "." + akv.a(var2).d();
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
@@ -79,9 +79,9 @@ public class akw extends alq {
       return false;
    }
 
-   public boolean a(amj var1, ahd var2, xm var3) {
-      if(var3 instanceof acl) {
-         acl var4 = (acl)var3;
+   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+      if(var3 instanceof EntitySheep) {
+         EntitySheep var4 = (EntitySheep)var3;
          akv var5 = akv.a(var1.i());
          if(!var4.ck() && var4.cj() != var5) {
             var4.b(var5);

@@ -13,7 +13,7 @@ public final class amj {
    private alq d;
    private fn e;
    private int f;
-   private adk g;
+   private EntityItemFrame g;
    private atr h;
    private boolean i;
    private atr j;
@@ -81,7 +81,7 @@ public final class amj {
       return this.d;
    }
 
-   public boolean a(ahd var1, World var2, dt var3, ej var4, float var5, float var6, float var7) {
+   public boolean a(EntityHuman var1, World var2, dt var3, ej var4, float var5, float var6, float var7) {
       boolean var8 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7);
       if(var8) {
          var1.b(ty.J[alq.b(this.d)]);
@@ -94,11 +94,11 @@ public final class amj {
       return this.b().a(this, var1);
    }
 
-   public amj a(World var1, ahd var2) {
+   public amj a(World var1, EntityHuman var2) {
       return this.b().a(this, var1, var2);
    }
 
-   public amj b(World var1, ahd var2) {
+   public amj b(World var1, EntityHuman var2) {
       return this.b().b(this, var1, var2);
    }
 
@@ -181,7 +181,7 @@ public final class amj {
          return false;
       } else {
          if(var1 > 0) {
-            int var3 = aph.a(apf.t.B, this);
+            int var3 = EnchantmentManager.a(apf.t.B, this);
             int var4 = 0;
 
             for(int var5 = 0; var3 > 0 && var5 < var1; ++var5) {
@@ -201,14 +201,14 @@ public final class amj {
       }
    }
 
-   public void a(int var1, xm var2) {
-      if(!(var2 instanceof ahd) || !((ahd)var2).by.d) {
+   public void a(int var1, EntityLiving var2) {
+      if(!(var2 instanceof EntityHuman) || !((EntityHuman)var2).by.d) {
          if(this.e()) {
             if(this.a(var1, var2.bb())) {
                var2.b(this);
                --this.b;
-               if(var2 instanceof ahd) {
-                  ahd var3 = (ahd)var2;
+               if(var2 instanceof EntityHuman) {
+                  EntityHuman var3 = (EntityHuman)var2;
                   var3.b(ty.K[alq.b(this.d)]);
                   if(this.b == 0 && this.b() instanceof ajz) {
                      var3.bZ();
@@ -226,15 +226,15 @@ public final class amj {
       }
    }
 
-   public void a(xm var1, ahd var2) {
-      boolean var3 = this.d.a(this, var1, (xm)var2);
+   public void a(EntityLiving var1, EntityHuman var2) {
+      boolean var3 = this.d.a(this, var1, (EntityLiving)var2);
       if(var3) {
          var2.b(ty.J[alq.b(this.d)]);
       }
 
    }
 
-   public void a(World var1, atr var2, dt var3, ahd var4) {
+   public void a(World var1, atr var2, dt var3, EntityHuman var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
          var4.b(ty.J[alq.b(this.d)]);
@@ -246,7 +246,7 @@ public final class amj {
       return this.d.b(var1);
    }
 
-   public boolean a(ahd var1, xm var2) {
+   public boolean a(EntityHuman var1, EntityLiving var2) {
       return this.d.a(this, var1, var2);
    }
 
@@ -299,7 +299,7 @@ public final class amj {
       this.d.a(this, var1, var2, var3, var4);
    }
 
-   public void a(World var1, ahd var2, int var3) {
+   public void a(World var1, EntityHuman var2, int var3) {
       var2.a(ty.I[alq.b(this.d)], var3);
       this.d.d(this, var1, var2);
    }
@@ -312,7 +312,7 @@ public final class amj {
       return this.b().e(this);
    }
 
-   public void b(World var1, ahd var2, int var3) {
+   public void b(World var1, EntityHuman var2, int var3) {
       this.b().a(this, var1, var2, var3);
    }
 
@@ -433,11 +433,11 @@ public final class amj {
       return this.g != null;
    }
 
-   public void a(adk var1) {
+   public void a(EntityItemFrame var1) {
       this.g = var1;
    }
 
-   public adk z() {
+   public EntityItemFrame z() {
       return this.g;
    }
 
@@ -461,7 +461,7 @@ public final class amj {
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             fn var4 = var2.b(var3);
-            ya var5 = afs.a(var4);
+            ya var5 = GenericAttributes.a(var4);
             if(var5 != null && var5.a().getLeastSignificantBits() != 0L && var5.a().getMostSignificantBits() != 0L) {
                ((Multimap)var1).put(var4.j("AttributeName"), var5);
             }

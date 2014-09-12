@@ -8,7 +8,7 @@ public class ajq extends alq {
       this.a(akf.c);
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
       } else {
@@ -26,14 +26,14 @@ public class ajq extends alq {
                double var13 = (double)var10.n();
                double var15 = (double)var10.o();
                double var17 = (double)var10.p();
-               List var19 = var3.b((Entity)null, brt.a(var13, var15, var17, var13 + 1.0D, var15 + 2.0D, var17 + 1.0D));
+               List var19 = var3.b((Entity)null, AxisAlignedBB.a(var13, var15, var17, var13 + 1.0D, var15 + 2.0D, var17 + 1.0D));
                if(var19.size() > 0) {
                   return false;
                } else {
                   if(!var3.D) {
                      var3.g(var10);
                      var3.g(var11);
-                     adi var20 = new adi(var3, var13 + 0.5D, var15, var17 + 0.5D);
+                     EntityArmorStand var20 = new EntityArmorStand(var3, var13 + 0.5D, var15, var17 + 0.5D);
                      float var21 = (float)MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var20.b(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
                      this.a(var20, var3.s);
@@ -56,7 +56,7 @@ public class ajq extends alq {
       }
    }
 
-   private void a(adi var1, Random var2) {
+   private void a(EntityArmorStand var1, Random var2) {
       fa var3 = var1.s();
       float var5 = var2.nextFloat() * 5.0F;
       float var6 = var2.nextFloat() * 20.0F - 10.0F;

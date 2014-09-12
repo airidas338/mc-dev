@@ -91,17 +91,17 @@ public class avi extends auc implements atz {
       var1.a(var2.a(), this.P().a(b, avj.a), var4);
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       var1.a(var2.a(), this.P().a(b, avj.a), 2);
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       if(var1.D || var2.bY() == null || var2.bY().b() != amk.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
          super.a(var1, var2, var3, var4, var5);
       }
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       if(var3.b(b) == avj.a) {
          if(var1.p(var2.b()).c() == this) {
             if(!var4.by.d) {
@@ -130,7 +130,7 @@ public class avi extends auc implements atz {
       super.a(var1, var2, var3, var4);
    }
 
-   private boolean b(World var1, dt var2, bec var3, ahd var4) {
+   private boolean b(World var1, dt var2, bec var3, EntityHuman var4) {
       avk var5 = (avk)var3.b(a);
       if(var5 != avk.d && var5 != avk.c) {
          return false;

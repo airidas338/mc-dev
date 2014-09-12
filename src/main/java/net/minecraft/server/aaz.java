@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public abstract class aaz {
 
-   protected xn b;
+   protected EntityInsentient b;
    protected World c;
    protected bpv d;
    protected double e;
-   private final xz a;
+   private final AttributeInstance a;
    private int f;
    private int g;
    private ChunkCoordinates h = new ChunkCoordinates(0.0D, 0.0D, 0.0D);
@@ -15,10 +15,10 @@ public abstract class aaz {
    private final bpw j;
 
 
-   public aaz(xn var1, World var2) {
+   public aaz(EntityInsentient var1, World var2) {
       this.b = var1;
       this.c = var2;
-      this.a = var1.a(afs.b);
+      this.a = var1.getAttributeInstance(GenericAttributes.b);
       this.j = this.a();
    }
 
@@ -29,7 +29,7 @@ public abstract class aaz {
    }
 
    public float i() {
-      return (float)this.a.e();
+      return (float)this.a.getValue();
    }
 
    public final bpv a(double var1, double var3, double var5) {

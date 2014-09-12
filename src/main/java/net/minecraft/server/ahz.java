@@ -18,14 +18,14 @@ public class ahz {
       this.a(var1.h(var2), var1.i(var2));
    }
 
-   public void a(ahd var1) {
+   public void a(EntityHuman var1) {
       EnumDifficulty var2 = var1.o.aa();
       this.e = this.a;
       if(this.c > 4.0F) {
          this.c -= 4.0F;
          if(this.b > 0.0F) {
             this.b = Math.max(this.b - 1.0F, 0.0F);
-         } else if(var2 != EnumDifficulty.a) {
+         } else if(var2 != EnumDifficulty.PEACEFUL) {
             this.a = Math.max(this.a - 1, 0);
          }
       }
@@ -40,8 +40,8 @@ public class ahz {
       } else if(this.a <= 0) {
          ++this.d;
          if(this.d >= 80) {
-            if(var1.bm() > 10.0F || var2 == EnumDifficulty.d || var1.bm() > 1.0F && var2 == EnumDifficulty.c) {
-               var1.a(wh.g, 1.0F);
+            if(var1.bm() > 10.0F || var2 == EnumDifficulty.HARD || var1.bm() > 1.0F && var2 == EnumDifficulty.NORMAL) {
+               var1.a(DamageSource.g, 1.0F);
             }
 
             this.d = 0;

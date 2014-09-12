@@ -7,7 +7,7 @@ import java.util.List;
 
 public class zm extends zb {
 
-   private xu a;
+   private EntityCreature a;
    private double b;
    private bpv c;
    private abh d;
@@ -15,7 +15,7 @@ public class zm extends zb {
    private List f = Lists.newArrayList();
 
 
-   public zm(xu var1, double var2, boolean var4) {
+   public zm(EntityCreature var1, double var2, boolean var4) {
       this.a = var1;
       this.b = var2;
       this.e = var4;

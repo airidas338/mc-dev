@@ -15,7 +15,7 @@ public class aju extends alq {
       return this;
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       bec var9 = var3.p(var4);
       atr var10 = var9.c();
       if(var10 == aty.aH && ((Integer)var9.b(bao.a)).intValue() < 1) {
@@ -37,7 +37,7 @@ public class aju extends alq {
             var12 = var3.p(var4);
             if(var12.c() == this.a) {
                a(var3, var4, var1);
-               this.a.a(var3, var4, var12, (xm)var2, var1);
+               this.a.a(var3, var4, var12, (EntityLiving)var2, var1);
             }
 
             var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.H.b(), (this.a.H.d() + 1.0F) / 2.0F, this.a.H.e() * 0.8F);

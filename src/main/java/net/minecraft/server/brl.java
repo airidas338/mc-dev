@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 public interface brl {
 
-   void a(ahd var1);
+   void a(EntityHuman var1);
 
-   fn b(ahd var1);
+   fn b(EntityHuman var1);
 
    String[] f();
 }

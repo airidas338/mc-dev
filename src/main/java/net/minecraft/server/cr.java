@@ -90,8 +90,8 @@ public class cr extends CommandAbstract {
 
       while(var3.hasNext()) {
          Entity var4 = (Entity)var3.next();
-         if(var4 instanceof ahd) {
-            var2.add(((ahd)var4).bN());
+         if(var4 instanceof EntityHuman) {
+            var2.add(((EntityHuman)var4).bN());
          } else {
             var2.add((Object)null);
          }
@@ -178,7 +178,7 @@ public class cr extends CommandAbstract {
          Entity var10 = (Entity)var1.get(var9);
          cs var11;
          if(var4) {
-            ScoreboardTeamBase var12 = var10 instanceof ahd?((ahd)var10).bN():null;
+            ScoreboardTeamBase var12 = var10 instanceof EntityHuman?((EntityHuman)var10).bN():null;
             if(!var8.containsKey(var12)) {
                var8.put(var12, var3[var7++]);
             }

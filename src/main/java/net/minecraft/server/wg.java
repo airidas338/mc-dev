@@ -7,7 +7,7 @@ import java.util.List;
 public class wg {
 
    private final List a = Lists.newArrayList();
-   private final xm b;
+   private final EntityLiving b;
    private int c;
    private int d;
    private int e;
@@ -16,7 +16,7 @@ public class wg {
    private String h;
 
 
-   public wg(xm var1) {
+   public wg(EntityLiving var1) {
       this.b = var1;
    }
 
@@ -35,7 +35,7 @@ public class wg {
 
    }
 
-   public void a(wh var1, float var2, float var3) {
+   public void a(DamageSource var1, float var2, float var3) {
       this.g();
       this.a();
       wf var4 = new wf(var1, this.b.W, var2, var3, this.h, this.b.O);
@@ -58,21 +58,21 @@ public class wg {
          wf var1 = this.i();
          wf var2 = (wf)this.a.get(this.a.size() - 1);
          IChatBaseComponent var4 = var2.h();
-         Entity var5 = var2.a().j();
+         Entity var5 = var2.a().getEntity();
          Object var3;
-         if(var1 != null && var2.a() == wh.i) {
+         if(var1 != null && var2.a() == DamageSource.i) {
             IChatBaseComponent var6 = var1.h();
-            if(var1.a() != wh.i && var1.a() != wh.j) {
+            if(var1.a() != DamageSource.i && var1.a() != DamageSource.j) {
                if(var6 != null && (var4 == null || !var6.equals(var4))) {
-                  Entity var9 = var1.a().j();
-                  amj var8 = var9 instanceof xm?((xm)var9).bz():null;
+                  Entity var9 = var1.a().getEntity();
+                  amj var8 = var9 instanceof EntityLiving?((EntityLiving)var9).bz():null;
                   if(var8 != null && var8.s()) {
                      var3 = new hz("death.fell.assist.item", new Object[]{this.b.e_(), var6, var8.C()});
                   } else {
                      var3 = new hz("death.fell.assist", new Object[]{this.b.e_(), var6});
                   }
                } else if(var4 != null) {
-                  amj var7 = var5 instanceof xm?((xm)var5).bz():null;
+                  amj var7 = var5 instanceof EntityLiving?((EntityLiving)var5).bz():null;
                   if(var7 != null && var7.s()) {
                      var3 = new hz("death.fell.finish.item", new Object[]{this.b.e_(), var4, var7.C()});
                   } else {
@@ -92,23 +92,23 @@ public class wg {
       }
    }
 
-   public xm c() {
-      xm var1 = null;
-      ahd var2 = null;
+   public EntityLiving c() {
+      EntityLiving var1 = null;
+      EntityHuman var2 = null;
       float var3 = 0.0F;
       float var4 = 0.0F;
       Iterator var5 = this.a.iterator();
 
       while(var5.hasNext()) {
          wf var6 = (wf)var5.next();
-         if(var6.a().j() instanceof ahd && (var2 == null || var6.c() > var4)) {
+         if(var6.a().getEntity() instanceof EntityHuman && (var2 == null || var6.c() > var4)) {
             var4 = var6.c();
-            var2 = (ahd)var6.a().j();
+            var2 = (EntityHuman)var6.a().getEntity();
          }
 
-         if(var6.a().j() instanceof xm && (var1 == null || var6.c() > var3)) {
+         if(var6.a().getEntity() instanceof EntityLiving && (var1 == null || var6.c() > var3)) {
             var3 = var6.c();
-            var1 = (xm)var6.a().j();
+            var1 = (EntityLiving)var6.a().getEntity();
          }
       }
 
@@ -128,7 +128,7 @@ public class wg {
       for(int var5 = 0; var5 < this.a.size(); ++var5) {
          wf var6 = (wf)this.a.get(var5);
          wf var7 = var5 > 0?(wf)this.a.get(var5 - 1):null;
-         if((var6.a() == wh.i || var6.a() == wh.j) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
+         if((var6.a() == DamageSource.i || var6.a() == DamageSource.j) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
             if(var5 > 0) {
                var1 = var7;
             } else {
@@ -180,7 +180,7 @@ public class wg {
 
    }
 
-   public xm h() {
+   public EntityLiving h() {
       return this.b;
    }
 }

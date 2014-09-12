@@ -19,10 +19,10 @@ public class bao extends atr {
       return ((Integer)var1.p(var2).b(a)).intValue() < 5;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       int var4 = ((Integer)var3.b(a)).intValue() - 1;
       float var5 = 0.125F;
-      return new brt((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)((float)var2.o() + (float)var4 * var5), (double)var2.p() + this.G);
+      return new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)((float)var2.o() + (float)var4 * var5), (double)var2.p() + this.G);
    }
 
    public boolean c() {
@@ -66,7 +66,7 @@ public class bao extends atr {
       }
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       a(var1, var3, new amj(amk.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
       var1.g(var3);
       var2.b(ty.H[atr.a((atr)this)]);
@@ -81,7 +81,7 @@ public class bao extends atr {
    }
 
    public void b(World var1, dt var2, bec var3, Random var4) {
-      if(var1.b(arf.b, var2) > 11) {
+      if(var1.b(EnumSkyBlock.BLOCK, var2) > 11) {
          this.b(var1, var2, var1.p(var2), 0);
          var1.g(var2);
       }

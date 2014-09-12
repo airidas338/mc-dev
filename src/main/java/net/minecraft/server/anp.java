@@ -6,7 +6,7 @@ public class anp extends ann {
       super(var1, false);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       bru var4 = this.a(var2, var3, true);
       if(var4 == null) {
          return var1;

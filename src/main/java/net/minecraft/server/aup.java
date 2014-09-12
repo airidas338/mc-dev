@@ -76,7 +76,7 @@ public class aup extends ava implements avs {
          if(var7.N()) {
             var4 = var7.l(var1, var6);
          } else if(var7.r() == bof.a) {
-            adk var8 = this.a(var1, var5, var6);
+            EntityItemFrame var8 = this.a(var1, var5, var6);
             if(var8 != null) {
                var4 = var8.q();
             }
@@ -86,12 +86,12 @@ public class aup extends ava implements avs {
       return var4;
    }
 
-   private adk a(World var1, ej var2, dt var3) {
-      List var4 = var1.a(adk.class, new brt((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
-      return var4.size() == 1?(adk)var4.get(0):null;
+   private EntityItemFrame a(World var1, ej var2, dt var3) {
+      List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
+      return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -194,7 +194,7 @@ public class aup extends ava implements avs {
       return new bed(this, new bex[]{N, b, a});
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d()).a(a, Boolean.valueOf(false)).a(b, aur.a);
    }
 

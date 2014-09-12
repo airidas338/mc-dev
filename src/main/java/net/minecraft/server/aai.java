@@ -4,17 +4,17 @@ package net.minecraft.server;
 public class aai extends zf {
 
    private int e;
-   private agp f;
+   private EntityVillager f;
 
 
-   public aai(agp var1) {
-      super(var1, agp.class, 3.0F, 0.02F);
+   public aai(EntityVillager var1) {
+      super(var1, EntityVillager.class, 3.0F, 0.02F);
       this.f = var1;
    }
 
    public void c() {
       super.c();
-      if(this.f.cq() && this.b instanceof agp && ((agp)this.b).cr()) {
+      if(this.f.cq() && this.b instanceof EntityVillager && ((EntityVillager)this.b).cr()) {
          this.e = 10;
       } else {
          this.e = 0;
@@ -53,13 +53,13 @@ public class aai extends zf {
 
                if(var4 != null) {
                   double var11 = this.f.t - 0.30000001192092896D + (double)this.f.aR();
-                  adw var12 = new adw(this.f.o, this.f.s, var11, this.f.u, var4);
+                  EntityItem var12 = new EntityItem(this.f.o, this.f.s, var11, this.f.u, var4);
                   float var8 = 0.3F;
                   float var9 = this.f.aI;
                   float var10 = this.f.z;
-                  var12.v = (double)(-MathHelper.a(var9 / 180.0F * 3.1415927F) * MathHelper.b(var10 / 180.0F * 3.1415927F) * var8);
-                  var12.x = (double)(MathHelper.b(var9 / 180.0F * 3.1415927F) * MathHelper.b(var10 / 180.0F * 3.1415927F) * var8);
-                  var12.w = (double)(-MathHelper.a(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
+                  var12.v = (double)(-MathHelper.sin(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
+                  var12.x = (double)(MathHelper.cos(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
+                  var12.w = (double)(-MathHelper.sin(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
                   var12.p();
                   this.f.o.d((Entity)var12);
                   break;

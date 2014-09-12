@@ -6,7 +6,7 @@ public class ajt extends alq {
       this.a(akf.c);
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(var3.D) {
          return true;
       } else if(var5 != ej.b) {

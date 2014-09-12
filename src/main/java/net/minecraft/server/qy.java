@@ -76,15 +76,15 @@ public class qy {
          this.a((id)(new ky(0, this.a, this.a.m)));
       }
 
-      if(this.a instanceof adk && this.m % 10 == 0) {
-         adk var2 = (adk)this.a;
+      if(this.a instanceof EntityItemFrame && this.m % 10 == 0) {
+         EntityItemFrame var2 = (EntityItemFrame)this.a;
          amj var3 = var2.o();
          if(var3 != null && var3.b() instanceof amn) {
             bqe var4 = amk.bd.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
-               ahd var6 = (ahd)var5.next();
+               EntityHuman var6 = (EntityHuman)var5.next();
                EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
                id var8 = amk.bd.c(var3, this.a.o, var7);
@@ -113,7 +113,7 @@ public class qy {
             Object var10 = null;
             boolean var11 = Math.abs(var29) >= 4 || Math.abs(var30) >= 4 || Math.abs(var9) >= 4 || this.m % 60 == 0;
             boolean var12 = Math.abs(var27 - this.g) >= 4 || Math.abs(var28 - this.h) >= 4;
-            if(this.m > 0 || this.a instanceof ahj) {
+            if(this.m > 0 || this.a instanceof EntityArrow) {
                if(var29 >= -128 && var29 < 128 && var30 >= -128 && var30 < 128 && var9 >= -128 && var9 < 128 && this.v <= 400 && !this.x && this.y == this.a.C) {
                   if(var11 && var12) {
                      var10 = new ka(this.a.F(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
@@ -200,8 +200,8 @@ public class qy {
          this.b((id)(new kx(this.a.F(), var1, false)));
       }
 
-      if(this.a instanceof xm) {
-         yf var2 = (yf)((xm)this.a).bx();
+      if(this.a instanceof EntityLiving) {
+         yf var2 = (yf)((EntityLiving)this.a).getAttributeMap();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
             this.b((id)(new lp(this.a.F(), var3)));
@@ -264,8 +264,8 @@ public class qy {
                   var1.a.a((id)(new jl(this.a.F(), var3)));
                }
 
-               if(this.a instanceof xm) {
-                  yf var4 = (yf)((xm)this.a).bx();
+               if(this.a instanceof EntityLiving) {
+                  yf var4 = (yf)((EntityLiving)this.a).getAttributeMap();
                   Collection var5 = var4.c();
                   if(!var5.isEmpty()) {
                      var1.a.a((id)(new lp(this.a.F(), var5)));
@@ -283,28 +283,28 @@ public class qy {
                   var1.a.a((id)(new ky(0, this.a, this.a.m)));
                }
 
-               if(this.a instanceof xn && ((xn)this.a).cc() != null) {
-                  var1.a.a((id)(new ky(1, this.a, ((xn)this.a).cc())));
+               if(this.a instanceof EntityInsentient && ((EntityInsentient)this.a).cc() != null) {
+                  var1.a.a((id)(new ky(1, this.a, ((EntityInsentient)this.a).cc())));
                }
 
-               if(this.a instanceof xm) {
+               if(this.a instanceof EntityLiving) {
                   for(int var7 = 0; var7 < 5; ++var7) {
-                     amj var8 = ((xm)this.a).p(var7);
+                     amj var8 = ((EntityLiving)this.a).p(var7);
                      if(var8 != null) {
                         var1.a.a((id)(new la(this.a.F(), var7, var8)));
                      }
                   }
                }
 
-               if(this.a instanceof ahd) {
-                  ahd var10 = (ahd)this.a;
+               if(this.a instanceof EntityHuman) {
+                  EntityHuman var10 = (EntityHuman)this.a;
                   if(var10.bI()) {
                      var1.a.a((id)(new kl(var10, new dt(this.a))));
                   }
                }
 
-               if(this.a instanceof xm) {
-                  xm var9 = (xm)this.a;
+               if(this.a instanceof EntityLiving) {
+                  EntityLiving var9 = (EntityLiving)this.a;
                   Iterator var11 = var9.bk().iterator();
 
                   while(var11.hasNext()) {
@@ -343,50 +343,50 @@ public class qy {
          p.warn("Fetching addPacket for removed entity");
       }
 
-      if(this.a instanceof adw) {
+      if(this.a instanceof EntityItem) {
          return new il(this.a, 2, 1);
       } else if(this.a instanceof EntityPlayer) {
-         return new iq((ahd)this.a);
-      } else if(this.a instanceof adx) {
-         adx var9 = (adx)this.a;
+         return new iq((EntityHuman)this.a);
+      } else if(this.a instanceof EntityMinecartAbstract) {
+         EntityMinecartAbstract var9 = (EntityMinecartAbstract)this.a;
          return new il(this.a, 10, var9.s().a());
-      } else if(this.a instanceof adu) {
+      } else if(this.a instanceof EntityBoat) {
          return new il(this.a, 1);
       } else if(this.a instanceof wt) {
          this.i = MathHelper.d(this.a.aD() * 256.0F / 360.0F);
-         return new io((xm)this.a);
+         return new io((EntityLiving)this.a);
       } else if(this.a instanceof ado) {
-         ahd var8 = ((ado)this.a).b;
+         EntityHuman var8 = ((ado)this.a).b;
          return new il(this.a, 90, var8 != null?var8.F():this.a.F());
-      } else if(this.a instanceof ahj) {
-         Entity var7 = ((ahj)this.a).c;
+      } else if(this.a instanceof EntityArrow) {
+         Entity var7 = ((EntityArrow)this.a).c;
          return new il(this.a, 60, var7 != null?var7.F():this.a.F());
-      } else if(this.a instanceof ahq) {
+      } else if(this.a instanceof EntitySnowball) {
          return new il(this.a, 61);
-      } else if(this.a instanceof ahv) {
-         return new il(this.a, 73, ((ahv)this.a).o());
-      } else if(this.a instanceof ahu) {
+      } else if(this.a instanceof EntityPotion) {
+         return new il(this.a, 73, ((EntityPotion)this.a).o());
+      } else if(this.a instanceof EntityThrownExpBottle) {
          return new il(this.a, 75);
-      } else if(this.a instanceof aht) {
+      } else if(this.a instanceof EntityEnderPearl) {
          return new il(this.a, 65);
-      } else if(this.a instanceof ahk) {
+      } else if(this.a instanceof EntityEnderSignal) {
          return new il(this.a, 72);
-      } else if(this.a instanceof ahm) {
+      } else if(this.a instanceof EntityFireworks) {
          return new il(this.a, 76);
       } else {
          il var2;
-         if(this.a instanceof ahl) {
-            ahl var6 = (ahl)this.a;
+         if(this.a instanceof EntityFireball) {
+            EntityFireball var6 = (EntityFireball)this.a;
             var2 = null;
             byte var10 = 63;
-            if(this.a instanceof ahp) {
+            if(this.a instanceof EntitySmallFireball) {
                var10 = 64;
-            } else if(this.a instanceof ahw) {
+            } else if(this.a instanceof EntityWitherSkull) {
                var10 = 66;
             }
 
             if(var6.a != null) {
-               var2 = new il(this.a, var10, ((ahl)this.a).a.F());
+               var2 = new il(this.a, var10, ((EntityFireball)this.a).a.F());
             } else {
                var2 = new il(this.a, var10, 0);
             }
@@ -395,39 +395,39 @@ public class qy {
             var2.e((int)(var6.c * 8000.0D));
             var2.f((int)(var6.d * 8000.0D));
             return var2;
-         } else if(this.a instanceof ahs) {
+         } else if(this.a instanceof EntityEgg) {
             return new il(this.a, 62);
-         } else if(this.a instanceof aek) {
+         } else if(this.a instanceof EntityTNTPrimed) {
             return new il(this.a, 50);
-         } else if(this.a instanceof ada) {
+         } else if(this.a instanceof EntityEnderCrystal) {
             return new il(this.a, 51);
-         } else if(this.a instanceof adv) {
-            adv var5 = (adv)this.a;
+         } else if(this.a instanceof EntityFallingBlock) {
+            EntityFallingBlock var5 = (EntityFallingBlock)this.a;
             return new il(this.a, 70, atr.f(var5.l()));
-         } else if(this.a instanceof adi) {
+         } else if(this.a instanceof EntityArmorStand) {
             return new il(this.a, 78);
-         } else if(this.a instanceof adm) {
-            return new ip((adm)this.a);
+         } else if(this.a instanceof EntityPainting) {
+            return new ip((EntityPainting)this.a);
          } else {
             dt var3;
-            if(this.a instanceof adk) {
-               adk var4 = (adk)this.a;
+            if(this.a instanceof EntityItemFrame) {
+               EntityItemFrame var4 = (EntityItemFrame)this.a;
                var2 = new il(this.a, 71, var4.b.b());
                var3 = var4.n();
                var2.a(MathHelper.d((float)(var3.n() * 32)));
                var2.b(MathHelper.d((float)(var3.o() * 32)));
                var2.c(MathHelper.d((float)(var3.p() * 32)));
                return var2;
-            } else if(this.a instanceof adl) {
-               adl var1 = (adl)this.a;
+            } else if(this.a instanceof EntityLeash) {
+               EntityLeash var1 = (EntityLeash)this.a;
                var2 = new il(this.a, 77);
                var3 = var1.n();
                var2.a(MathHelper.d((float)(var3.n() * 32)));
                var2.b(MathHelper.d((float)(var3.o() * 32)));
                var2.c(MathHelper.d((float)(var3.p() * 32)));
                return var2;
-            } else if(this.a instanceof xk) {
-               return new im((xk)this.a);
+            } else if(this.a instanceof EntityExperienceOrb) {
+               return new im((EntityExperienceOrb)this.a);
             } else {
                throw new IllegalArgumentException("Don\'t know how to add " + this.a.getClass() + "!");
             }

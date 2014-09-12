@@ -27,7 +27,7 @@ public class amn extends ake {
    }
 
    public void a(World var1, Entity var2, bqe var3) {
-      if(var1.t.q() == var3.d && var2 instanceof ahd) {
+      if(var1.t.q() == var3.d && var2 instanceof EntityHuman) {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
          int var6 = var3.c;
@@ -38,7 +38,7 @@ public class amn extends ake {
             var9 /= 2;
          }
 
-         bqf var10 = var3.a((ahd)var2);
+         bqf var10 = var3.a((EntityHuman)var2);
          ++var10.b;
          boolean var11 = false;
 
@@ -146,8 +146,8 @@ public class amn extends ake {
    public void a(amj var1, World var2, Entity var3, int var4, boolean var5) {
       if(!var2.D) {
          bqe var6 = this.a(var1, var2);
-         if(var3 instanceof ahd) {
-            ahd var7 = (ahd)var3;
+         if(var3 instanceof EntityHuman) {
+            EntityHuman var7 = (EntityHuman)var3;
             var6.a(var7, var1);
          }
 
@@ -158,11 +158,11 @@ public class amn extends ake {
       }
    }
 
-   public id c(amj var1, World var2, ahd var3) {
+   public id c(amj var1, World var2, EntityHuman var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void d(amj var1, World var2, ahd var3) {
+   public void d(amj var1, World var2, EntityHuman var3) {
       if(var1.n() && var1.o().n("map_is_scaling")) {
          bqe var4 = amk.bd.a(var1, var2);
          var1.b(var2.b("map"));

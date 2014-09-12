@@ -6,7 +6,7 @@ public class anq extends alq {
       this.c(1);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       var3.a(var1);
       var3.b(ty.J[alq.b((alq)this)]);
       return var1;

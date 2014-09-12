@@ -29,11 +29,11 @@ public class auv extends atg {
    public void d(World var1, dt var2) {
       if(!var1.t.o()) {
          bec var3 = var1.p(var2);
-         int var4 = var1.b(arf.a, var2) - var1.ab();
+         int var4 = var1.b(EnumSkyBlock.SKY, var2) - var1.ab();
          float var5 = var1.d(1.0F);
          float var6 = var5 < 3.1415927F?0.0F:6.2831855F;
          var5 += (var6 - var5) * 0.2F;
-         var4 = Math.round((float)var4 * MathHelper.b(var5));
+         var4 = Math.round((float)var4 * MathHelper.cos(var5));
          var4 = MathHelper.a(var4, 0, 15);
          if(this.b) {
             var4 = 15 - var4;
@@ -46,7 +46,7 @@ public class auv extends atg {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var4.cm()) {
          if(var1.D) {
             return true;

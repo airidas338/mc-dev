@@ -10,15 +10,15 @@ import org.apache.logging.log4j.Logger;
 public class aao extends zb {
 
    private static final Logger a = LogManager.getLogger();
-   private xn b;
+   private EntityInsentient b;
    private final Predicate c;
    private final aas d;
-   private xm e;
+   private EntityLiving e;
 
 
-   public aao(xn var1) {
+   public aao(EntityInsentient var1) {
       this.b = var1;
-      if(var1 instanceof xu) {
+      if(var1 instanceof EntityCreature) {
          a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");
       }
 
@@ -28,18 +28,18 @@ public class aao extends zb {
 
    public boolean a() {
       double var1 = this.f();
-      List var3 = this.b.o.a(ahd.class, this.b.aQ().b(var1, 4.0D, var1), this.c);
+      List var3 = this.b.o.a(EntityHuman.class, this.b.aQ().b(var1, 4.0D, var1), this.c);
       Collections.sort(var3, this.d);
       if(var3.isEmpty()) {
          return false;
       } else {
-         this.e = (xm)var3.get(0);
+         this.e = (EntityLiving)var3.get(0);
          return true;
       }
    }
 
    public boolean b() {
-      xm var1 = this.b.u();
+      EntityLiving var1 = this.b.u();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
@@ -62,17 +62,17 @@ public class aao extends zb {
    }
 
    public void d() {
-      this.b.d((xm)null);
+      this.b.d((EntityLiving)null);
       super.c();
    }
 
    protected double f() {
-      xz var1 = this.b.a(afs.b);
-      return var1 == null?16.0D:var1.e();
+      AttributeInstance var1 = this.b.getAttributeInstance(GenericAttributes.b);
+      return var1 == null?16.0D:var1.getValue();
    }
 
    // $FF: synthetic method
-   static xn a(aao var0) {
+   static EntityInsentient a(aao var0) {
       return var0.b;
    }
 

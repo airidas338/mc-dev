@@ -11,7 +11,7 @@ class aan implements Predicate {
       this.a = var1;
    }
 
-   public boolean a(xm var1) {
+   public boolean a(EntityLiving var1) {
       double var2 = this.a.f();
       if(var1.aw()) {
          var2 *= 0.800000011920929D;
@@ -22,6 +22,6 @@ class aan implements Predicate {
 
    // $FF: synthetic method
    public boolean apply(Object var1) {
-      return this.a((xm)var1);
+      return this.a((EntityLiving)var1);
    }
 }

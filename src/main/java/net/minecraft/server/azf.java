@@ -23,14 +23,14 @@ public class azf extends ath {
    }
 
    protected int e(World var1, dt var2) {
-      brt var3 = this.a(var2);
+      AxisAlignedBB var3 = this.a(var2);
       List var4;
       switch(azg.a[this.b.ordinal()]) {
       case 1:
          var4 = var1.b((Entity)null, var3);
          break;
       case 2:
-         var4 = var1.a(xm.class, var3);
+         var4 = var1.a(EntityLiving.class, var3);
          break;
       default:
          return 0;

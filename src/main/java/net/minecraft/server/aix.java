@@ -5,7 +5,7 @@ public class aix extends aib {
    private final vq a;
 
 
-   public aix(ahb var1, vq var2, ahd var3) {
+   public aix(ahb var1, vq var2, EntityHuman var3) {
       this.a = var2;
       var2.b(var3);
       byte var4 = 51;
@@ -27,11 +27,11 @@ public class aix extends aib {
 
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.a.a(var1);
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
@@ -55,7 +55,7 @@ public class aix extends aib {
       return var3;
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
       this.a.c(var1);
    }

@@ -21,10 +21,10 @@ public class bif extends bhp {
 
    public boolean b(World var1, Random var2, dt var3) {
       float var4 = var2.nextFloat() * 3.1415927F;
-      double var5 = (double)((float)(var3.n() + 8) + MathHelper.a(var4) * (float)this.b / 8.0F);
-      double var7 = (double)((float)(var3.n() + 8) - MathHelper.a(var4) * (float)this.b / 8.0F);
-      double var9 = (double)((float)(var3.p() + 8) + MathHelper.b(var4) * (float)this.b / 8.0F);
-      double var11 = (double)((float)(var3.p() + 8) - MathHelper.b(var4) * (float)this.b / 8.0F);
+      double var5 = (double)((float)(var3.n() + 8) + MathHelper.sin(var4) * (float)this.b / 8.0F);
+      double var7 = (double)((float)(var3.n() + 8) - MathHelper.sin(var4) * (float)this.b / 8.0F);
+      double var9 = (double)((float)(var3.p() + 8) + MathHelper.cos(var4) * (float)this.b / 8.0F);
+      double var11 = (double)((float)(var3.p() + 8) - MathHelper.cos(var4) * (float)this.b / 8.0F);
       double var13 = (double)(var3.o() + var2.nextInt(3) - 2);
       double var15 = (double)(var3.o() + var2.nextInt(3) - 2);
 
@@ -34,8 +34,8 @@ public class bif extends bhp {
          double var21 = var13 + (var15 - var13) * (double)var18;
          double var23 = var9 + (var11 - var9) * (double)var18;
          double var25 = var2.nextDouble() * (double)this.b / 16.0D;
-         double var27 = (double)(MathHelper.a(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
-         double var29 = (double)(MathHelper.a(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
+         double var27 = (double)(MathHelper.sin(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
+         double var29 = (double)(MathHelper.sin(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
          int var31 = MathHelper.c(var19 - var27 / 2.0D);
          int var32 = MathHelper.c(var21 - var29 / 2.0D);
          int var33 = MathHelper.c(var23 - var27 / 2.0D);

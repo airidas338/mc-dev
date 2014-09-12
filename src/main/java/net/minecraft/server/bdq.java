@@ -21,7 +21,7 @@ public class bdq extends atr {
       return false;
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       var1.a(var2, var3.a(a, a(var1, var2, var4)), 2);
       if(!var1.D) {
          this.e(var1, var2, var3);
@@ -43,7 +43,7 @@ public class bdq extends atr {
 
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, a(var1, var2, var8)).a(b, Boolean.valueOf(false));
    }
 
@@ -184,12 +184,12 @@ public class bdq extends atr {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -203,7 +203,7 @@ public class bdq extends atr {
       return var1 > 5?null:ej.a(var1);
    }
 
-   public static ej a(World var0, dt var1, xm var2) {
+   public static ej a(World var0, dt var1, EntityLiving var2) {
       if(MathHelper.e((float)var2.s - (float)var1.n()) < 2.0F && MathHelper.e((float)var2.u - (float)var1.p()) < 2.0F) {
          double var3 = var2.t + (double)var2.aR();
          if(var3 - (double)var1.o() > 2.0D) {

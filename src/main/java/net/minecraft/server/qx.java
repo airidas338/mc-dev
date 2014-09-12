@@ -60,7 +60,7 @@ public class qx {
          if(var2.r() == bof.a) {
             this.h = false;
          } else {
-            var3 = var2.a((ahd)this.b, this.b.o, this.i) * (float)(var1 + 1);
+            var3 = var2.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.i, var4);
@@ -80,7 +80,7 @@ public class qx {
             this.d = false;
          } else {
             int var6 = this.g - this.e;
-            var3 = var5.a((ahd)this.b, this.b.o, this.i) * (float)(var6 + 1);
+            var3 = var5.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var6 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.f, var4);
@@ -93,7 +93,7 @@ public class qx {
 
    public void a(dt var1, ej var2) {
       if(this.d()) {
-         if(!this.a.a((ahd)null, var1, var2)) {
+         if(!this.a.a((EntityHuman)null, var1, var2)) {
             this.b(var1);
          }
 
@@ -116,12 +116,12 @@ public class qx {
             }
          }
 
-         this.a.a((ahd)null, var1, var2);
+         this.a.a((EntityHuman)null, var1, var2);
          this.e = this.g;
          float var6 = 1.0F;
          if(var3.r() != bof.a) {
-            var3.a(this.a, var1, (ahd)this.b);
-            var6 = var3.a((ahd)this.b, this.b.o, var1);
+            var3.a(this.a, var1, (EntityHuman)this.b);
+            var6 = var3.a((EntityHuman)this.b, this.b.o, var1);
          }
 
          if(var3.r() != bof.a && var6 >= 1.0F) {
@@ -142,7 +142,7 @@ public class qx {
          int var2 = this.g - this.e;
          atr var3 = this.a.p(var1).c();
          if(var3.r() != bof.a) {
-            float var4 = var3.a((ahd)this.b, this.b.o, var1) * (float)(var2 + 1);
+            float var4 = var3.a((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
                this.a.c(this.b.F(), var1, -1);
@@ -165,7 +165,7 @@ public class qx {
 
    private boolean c(dt var1) {
       bec var2 = this.a.p(var1);
-      var2.c().a(this.a, var1, var2, (ahd)this.b);
+      var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
       boolean var3 = this.a.g(var1);
       if(var3) {
          var2.c().d(this.a, var1, var2);
@@ -212,7 +212,7 @@ public class qx {
             }
 
             if(var7 && var6) {
-               var2.c().a(this.a, (ahd)this.b, var1, var2, var3);
+               var2.c().a(this.a, (EntityHuman)this.b, var1, var2, var3);
             }
          }
 
@@ -220,7 +220,7 @@ public class qx {
       }
    }
 
-   public boolean a(ahd var1, World var2, amj var3) {
+   public boolean a(EntityHuman var1, World var2, amj var3) {
       if(this.c == EnumGamemode.e) {
          return false;
       } else {
@@ -251,7 +251,7 @@ public class qx {
       }
    }
 
-   public boolean a(ahd var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(EntityHuman var1, World var2, amj var3, dt var4, ej var5, float var6, float var7, float var8) {
       if(this.c == EnumGamemode.e) {
          bcm var13 = var2.s(var4);
          if(var13 instanceof vy) {

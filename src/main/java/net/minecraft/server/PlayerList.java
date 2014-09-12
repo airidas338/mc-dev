@@ -112,7 +112,7 @@ public abstract class PlayerList {
 
 		var2.f_();
 		if (var7 != null && var7.b("Riding", 10)) {
-			Entity var16 = xb.a(var7.m("Riding"), (World) var9);
+			Entity var16 = EntityTypes.a(var7.m("Riding"), (World) var9);
 			if (var16 != null) {
 				var16.n = true;
 				var9.d(var16);
@@ -253,7 +253,7 @@ public abstract class PlayerList {
 	}
 
 	public EntityPlayer f(GameProfile var1) {
-		UUID var2 = ahd.a(var1);
+		UUID var2 = EntityHuman.a(var1);
 		ArrayList var3 = Lists.newArrayList();
 
 		EntityPlayer var5;
@@ -299,14 +299,14 @@ public abstract class PlayerList {
 
 		EntityPlayer var7 = new EntityPlayer(this.j, this.j.a(var1.am), var1.cc(), (qx) var6);
 		var7.a = var1.a;
-		var7.a((ahd) var1, var3);
+		var7.a((EntityHuman) var1, var3);
 		var7.d(var1.F());
 		var7.o(var1);
 		WorldServer var8 = this.j.a(var1.am);
 		this.a(var7, var1, var8);
 		dt var9;
 		if (var4 != null) {
-			var9 = ahd.a(this.j.a(var1.am), var4, var5);
+			var9 = EntityHuman.a(this.j.a(var1.am), var4, var5);
 			if (var9 != null) {
 				var7.b((double) ((float) var9.n() + 0.5F), (double) ((float) var9.o() + 0.1F), (double) ((float) var9.p() + 0.5F), 0.0F, 0.0F);
 				var7.a(var4, var5);
@@ -439,7 +439,7 @@ public abstract class PlayerList {
 
 	}
 
-	public void a(ahd var1, IChatBaseComponent var2) {
+	public void a(EntityHuman var1, IChatBaseComponent var2) {
 		ScoreboardTeamBase var3 = var1.bN();
 		if (var3 != null) {
 			Collection var4 = var3.d();
@@ -456,7 +456,7 @@ public abstract class PlayerList {
 		}
 	}
 
-	public void b(ahd var1, IChatBaseComponent var2) {
+	public void b(EntityHuman var1, IChatBaseComponent var2) {
 		ScoreboardTeamBase var3 = var1.bN();
 		if (var3 == null) {
 			this.a(var2);
@@ -545,10 +545,10 @@ public abstract class PlayerList {
 	}
 
 	public void a(double var1, double var3, double var5, double var7, int var9, id var10) {
-		this.a((ahd) null, var1, var3, var5, var7, var9, var10);
+		this.a((EntityHuman) null, var1, var3, var5, var7, var9, var10);
 	}
 
-	public void a(ahd var1, double var2, double var4, double var6, double var8, int var10, id var11) {
+	public void a(EntityHuman var1, double var2, double var4, double var6, double var8, int var10, id var11) {
 		for (int var12 = 0; var12 < this.e.size(); ++var12) {
 			EntityPlayer var13 = (EntityPlayer) this.e.get(var12);
 			if (var13 != var1 && var13.am == var10) {
@@ -688,7 +688,7 @@ public abstract class PlayerList {
 		this.a(var1, true);
 	}
 
-	public tp a(ahd var1) {
+	public tp a(EntityHuman var1) {
 		UUID var2 = var1.aJ();
 		tp var3 = var2 == null ? null : (tp) this.o.get(var2);
 		if (var3 == null) {

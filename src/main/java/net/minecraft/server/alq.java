@@ -57,7 +57,7 @@ public class alq {
       return this;
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       return false;
    }
 
@@ -65,11 +65,11 @@ public class alq {
       return 1.0F;
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       return var1;
    }
 
-   public amj b(amj var1, World var2, ahd var3) {
+   public amj b(amj var1, World var2, EntityHuman var3) {
       return var1;
    }
 
@@ -103,11 +103,11 @@ public class alq {
       return this.c > 0 && !this.j;
    }
 
-   public boolean a(amj var1, xm var2, xm var3) {
+   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
       return false;
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, xm var5) {
+   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
       return false;
    }
 
@@ -115,7 +115,7 @@ public class alq {
       return false;
    }
 
-   public boolean a(amj var1, ahd var2, xm var3) {
+   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
       return false;
    }
 
@@ -161,7 +161,7 @@ public class alq {
 
    public void a(amj var1, World var2, Entity var3, int var4, boolean var5) {}
 
-   public void d(amj var1, World var2, ahd var3) {}
+   public void d(amj var1, World var2, EntityHuman var3) {}
 
    public boolean f() {
       return false;
@@ -175,7 +175,7 @@ public class alq {
       return 0;
    }
 
-   public void a(amj var1, World var2, ahd var3, int var4) {}
+   public void a(amj var1, World var2, EntityHuman var3, int var4) {}
 
    protected alq e(String var1) {
       this.k = var1;
@@ -202,17 +202,17 @@ public class alq {
       return this.j() == 1 && this.m();
    }
 
-   protected bru a(World var1, ahd var2, boolean var3) {
+   protected bru a(World var1, EntityHuman var2, boolean var3) {
       float var4 = var2.B + (var2.z - var2.B);
       float var5 = var2.A + (var2.y - var2.A);
       double var6 = var2.p + (var2.s - var2.p);
       double var8 = var2.q + (var2.t - var2.q) + (double)var2.aR();
       double var10 = var2.r + (var2.u - var2.r);
       ChunkCoordinates var12 = new ChunkCoordinates(var6, var8, var10);
-      float var13 = MathHelper.b(-var5 * 0.017453292F - 3.1415927F);
-      float var14 = MathHelper.a(-var5 * 0.017453292F - 3.1415927F);
-      float var15 = -MathHelper.b(-var4 * 0.017453292F);
-      float var16 = MathHelper.a(-var4 * 0.017453292F);
+      float var13 = MathHelper.cos(-var5 * 0.017453292F - 3.1415927F);
+      float var14 = MathHelper.sin(-var5 * 0.017453292F - 3.1415927F);
+      float var15 = -MathHelper.cos(-var4 * 0.017453292F);
+      float var16 = MathHelper.sin(-var4 * 0.017453292F);
       float var17 = var14 * var15;
       float var19 = var13 * var15;
       double var20 = 5.0D;
@@ -457,7 +457,7 @@ public class alq {
       a(318, "flint", (new alq()).c("flint").a(akf.l));
       a(319, "porkchop", (new all(3, 0.3F, true)).c("porkchopRaw"));
       a(320, "cooked_porkchop", (new all(8, 0.8F, true)).c("porkchopCooked"));
-      a(321, "painting", (new aln(adm.class)).c("painting"));
+      a(321, "painting", (new aln(EntityPainting.class)).c("painting"));
       a(322, "golden_apple", (new alm(4, 1.2F, false)).h().a(wp.l.H, 5, 1, 1.0F).c("appleGold"));
       a(323, "sign", (new anf()).c("sign"));
       a(324, "wooden_door", (new akt(aty.ao)).c("doorOak"));
@@ -465,7 +465,7 @@ public class alq {
       a(325, "bucket", var0);
       a(326, "water_bucket", (new akb(aty.i)).c("bucketWater").c(var0));
       a(327, "lava_bucket", (new akb(aty.k)).c("bucketLava").c(var0));
-      a(328, "minecart", (new amp(adz.a)).c("minecart"));
+      a(328, "minecart", (new amp(EnumMinecartType.RIDEABLE)).c("minecart"));
       a(329, "saddle", (new ana()).c("saddle"));
       a(330, "iron_door", (new akt(aty.aA)).c("doorIron"));
       a(331, "redstone", (new amz()).c("redstone").e(ans.i));
@@ -479,8 +479,8 @@ public class alq {
       a(339, "paper", (new alq()).c("paper").a(akf.f));
       a(340, "book", (new ajx()).c("book").a(akf.f));
       a(341, "slime_ball", (new alq()).c("slimeball").a(akf.f));
-      a(342, "chest_minecart", (new amp(adz.b)).c("minecartChest"));
-      a(343, "furnace_minecart", (new amp(adz.c)).c("minecartFurnace"));
+      a(342, "chest_minecart", (new amp(EnumMinecartType.CHEST)).c("minecartChest"));
+      a(343, "furnace_minecart", (new amp(EnumMinecartType.FURNACE)).c("minecartFurnace"));
       a(344, "egg", (new aky()).c("egg"));
       a(345, "compass", (new alq()).c("compass").a(akf.i));
       a(346, "fishing_rod", (new alj()).c("fishingRod"));
@@ -526,7 +526,7 @@ public class alq {
       a(386, "writable_book", (new anq()).c("writingBook").a(akf.f));
       a(387, "written_book", (new anr()).c("writtenBook").c(16));
       a(388, "emerald", (new alq()).c("emerald").a(akf.l));
-      a(389, "item_frame", (new aln(adk.class)).c("frame"));
+      a(389, "item_frame", (new aln(EntityItemFrame.class)).c("frame"));
       a(390, "flower_pot", (new ajv(aty.ca)).c("flowerPot").a(akf.c));
       a(391, "carrot", (new anb(3, 0.6F, aty.cb, aty.ak)).c("carrots"));
       a(392, "potato", (new anb(1, 0.3F, aty.cc, aty.ak)).c("potato"));
@@ -544,8 +544,8 @@ public class alq {
       a(404, "comparator", (new ajv(aty.cj)).c("comparator").a(akf.d));
       a(405, "netherbrick", (new alq()).c("netherbrick").a(akf.l));
       a(406, "quartz", (new alq()).c("netherquartz").a(akf.l));
-      a(407, "tnt_minecart", (new amp(adz.d)).c("minecartTnt"));
-      a(408, "hopper_minecart", (new amp(adz.f)).c("minecartHopper"));
+      a(407, "tnt_minecart", (new amp(EnumMinecartType.TNT)).c("minecartTnt"));
+      a(408, "hopper_minecart", (new amp(EnumMinecartType.HOPPER)).c("minecartHopper"));
       a(409, "prismarine_shard", (new alq()).c("prismarineShard").a(akf.l));
       a(410, "prismarine_crystals", (new alq()).c("prismarineCrystals").a(akf.l));
       a(411, "rabbit", (new all(3, 0.3F, true)).c("rabbitRaw"));
@@ -559,7 +559,7 @@ public class alq {
       a(419, "diamond_horse_armor", (new alq()).c("horsearmordiamond").c(1).a(akf.f));
       a(420, "lead", (new aml()).c("leash"));
       a(421, "name_tag", (new amt()).c("nameTag"));
-      a(422, "command_block_minecart", (new amp(adz.g)).c("minecartCommandBlock").a((akf)null));
+      a(422, "command_block_minecart", (new amp(EnumMinecartType.COMMAND_BLOCK)).c("minecartCommandBlock").a((akf)null));
       a(423, "mutton", (new all(2, 0.3F, true)).c("muttonRaw"));
       a(424, "cooked_mutton", (new all(6, 0.8F, true)).c("muttonCooked"));
       a(425, "banner", (new ajs()).b("banner"));

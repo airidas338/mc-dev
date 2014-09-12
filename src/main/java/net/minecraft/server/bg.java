@@ -19,7 +19,7 @@ public class bg extends CommandAbstract {
       if(var2.length < 2) {
          throw new dp("commands.effect.usage", new Object[0]);
       } else {
-         xm var3 = (xm)a(var1, var2[0], xm.class);
+         EntityLiving var3 = (EntityLiving)a(var1, var2[0], EntityLiving.class);
          if(var2[1].equals("clear")) {
             if(var3.bk().isEmpty()) {
                throw new di("commands.effect.failure.notActive.all", new Object[]{var3.d_()});

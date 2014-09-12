@@ -29,7 +29,7 @@ public class bbh extends auc implements atz {
       return 1 + var2.nextInt(var1 * 2 + 1);
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == amk.be) {
          var2.b(ty.H[atr.a((atr)this)]);
          a(var1, var3, new amj(aty.H, 1, ((bbi)var4.b(a)).a()));

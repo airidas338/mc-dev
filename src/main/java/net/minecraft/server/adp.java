@@ -30,7 +30,7 @@ public class adp extends vk {
       }
 
       if(this.d) {
-         aph.a(var1, var2, 30);
+         EnchantmentManager.a(var1, var2, 30);
       }
 
       return var2;

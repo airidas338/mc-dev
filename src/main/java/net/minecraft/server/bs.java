@@ -58,7 +58,7 @@ public class bs extends CommandAbstract {
          var1.a(var11);
       }
 
-      if(var13 == 0 && var1 instanceof ahd) {
+      if(var13 == 0 && var1 instanceof EntityHuman) {
          hz var16 = new hz("commands.help.footer", new Object[0]);
          var16.b().a(EnumChatFormat.k);
          var1.a(var16);

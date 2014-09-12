@@ -34,15 +34,15 @@ public class bgj extends bgt {
       }
 
       for(; var15 < var16; ++var15) {
-         double var52 = 1.5D + (double)(MathHelper.a((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
+         double var52 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
          double var30 = var52 * var17;
          var52 *= (double)var19.nextFloat() * 0.25D + 0.75D;
          var30 *= (double)var19.nextFloat() * 0.25D + 0.75D;
-         float var32 = MathHelper.b(var14);
-         float var33 = MathHelper.a(var14);
-         var6 += (double)(MathHelper.b(var13) * var32);
+         float var32 = MathHelper.cos(var14);
+         float var33 = MathHelper.sin(var14);
+         var6 += (double)(MathHelper.cos(var13) * var32);
          var8 += (double)var33;
-         var10 += (double)(MathHelper.a(var13) * var32);
+         var10 += (double)(MathHelper.sin(var13) * var32);
          var14 *= 0.7F;
          var14 += var25 * 0.05F;
          var13 += var24 * 0.05F;

@@ -265,7 +265,7 @@ public abstract class World implements ard {
 
       if(!this.t.o()) {
          for(var5 = var3; var5 <= var4; ++var5) {
-            this.c(arf.a, new dt(var1, var5, var2));
+            this.c(EnumSkyBlock.SKY, new dt(var1, var5, var2));
          }
       }
 
@@ -447,7 +447,7 @@ public abstract class World implements ard {
       }
    }
 
-   public int b(arf var1, dt var2) {
+   public int b(EnumSkyBlock var1, dt var2) {
       if(var2.o() < 0) {
          var2 = new dt(var2.n(), 0, var2.p());
       }
@@ -462,7 +462,7 @@ public abstract class World implements ard {
       }
    }
 
-   public void a(arf var1, dt var2, int var3) {
+   public void a(EnumSkyBlock var1, dt var2, int var3) {
       if(this.a(var2)) {
          if(this.e(var2)) {
             bfh var4 = this.f(var2);
@@ -642,7 +642,7 @@ public abstract class World implements ard {
 
    }
 
-   public void a(ahd var1, String var2, float var3, float var4) {
+   public void a(EntityHuman var1, String var2, float var3, float var4) {
       for(int var5 = 0; var5 < this.u.size(); ++var5) {
          ((ara)this.u.get(var5)).a(var1, var2, var1.s, var1.t, var1.u, var3, var4);
       }
@@ -685,15 +685,15 @@ public abstract class World implements ard {
       int var2 = MathHelper.c(var1.s / 16.0D);
       int var3 = MathHelper.c(var1.u / 16.0D);
       boolean var4 = var1.n;
-      if(var1 instanceof ahd) {
+      if(var1 instanceof EntityHuman) {
          var4 = true;
       }
 
       if(!var4 && !this.a(var2, var3, true)) {
          return false;
       } else {
-         if(var1 instanceof ahd) {
-            ahd var5 = (ahd)var1;
+         if(var1 instanceof EntityHuman) {
+            EntityHuman var5 = (EntityHuman)var1;
             this.j.add(var5);
             this.d();
          }
@@ -729,7 +729,7 @@ public abstract class World implements ard {
       }
 
       var1.J();
-      if(var1 instanceof ahd) {
+      if(var1 instanceof EntityHuman) {
          this.j.remove(var1);
          this.d();
          this.b(var1);
@@ -739,7 +739,7 @@ public abstract class World implements ard {
 
    public void f(Entity var1) {
       var1.J();
-      if(var1 instanceof ahd) {
+      if(var1 instanceof EntityHuman) {
          this.j.remove(var1);
          this.d();
       }
@@ -758,7 +758,7 @@ public abstract class World implements ard {
       this.u.add(var1);
    }
 
-   public List a(Entity var1, brt var2) {
+   public List a(Entity var1, AxisAlignedBB var2) {
       ArrayList var3 = Lists.newArrayList();
       int var4 = MathHelper.c(var2.a);
       int var5 = MathHelper.c(var2.d + 1.0D);
@@ -798,7 +798,7 @@ public abstract class World implements ard {
 
       for(int var19 = 0; var19 < var18.size(); ++var19) {
          if(var1.l != var18 && var1.m != var18) {
-            brt var20 = ((Entity)var18.get(var19)).S();
+            AxisAlignedBB var20 = ((Entity)var18.get(var19)).S();
             if(var20 != null && var20.b(var2)) {
                var3.add(var20);
             }
@@ -833,7 +833,7 @@ public abstract class World implements ard {
       return var2.s > var3 && var2.s < var7 && var2.u > var5 && var2.u < var9;
    }
 
-   public List a(brt var1) {
+   public List a(AxisAlignedBB var1) {
       ArrayList var2 = Lists.newArrayList();
       int var3 = MathHelper.c(var1.a);
       int var4 = MathHelper.c(var1.d + 1.0D);
@@ -865,7 +865,7 @@ public abstract class World implements ard {
 
    public int a(float var1) {
       float var2 = this.c(var1);
-      float var3 = 1.0F - (MathHelper.b(var2 * 3.1415927F * 2.0F) * 2.0F + 0.5F);
+      float var3 = 1.0F - (MathHelper.cos(var2 * 3.1415927F * 2.0F) * 2.0F + 0.5F);
       var3 = MathHelper.a(var3, 0.0F, 1.0F);
       var3 = 1.0F - var3;
       var3 = (float)((double)var3 * (1.0D - (double)(this.j(var1) * 5.0F) / 16.0D));
@@ -933,7 +933,7 @@ public abstract class World implements ard {
             if(var2 == null) {
                var5.a("Entity", (Object)"~~NULL~~");
             } else {
-               var2.a(var5);
+               var2.getAttributeInstance(var5);
             }
 
             throw new ReportedException(var4);
@@ -983,7 +983,7 @@ public abstract class World implements ard {
             } catch (Throwable var8) {
                var4 = CrashReport.a(var8, "Ticking entity");
                var5 = var4.a("Entity being ticked");
-               var2.a(var5);
+               var2.getAttributeInstance(var5);
                throw new ReportedException(var4);
             }
          }
@@ -1163,11 +1163,11 @@ public abstract class World implements ard {
       }
    }
 
-   public boolean b(brt var1) {
+   public boolean b(AxisAlignedBB var1) {
       return this.a(var1, (Entity)null);
    }
 
-   public boolean a(brt var1, Entity var2) {
+   public boolean a(AxisAlignedBB var1, Entity var2) {
       List var3 = this.b((Entity)null, var1);
 
       for(int var4 = 0; var4 < var3.size(); ++var4) {
@@ -1180,7 +1180,7 @@ public abstract class World implements ard {
       return true;
    }
 
-   public boolean c(brt var1) {
+   public boolean c(AxisAlignedBB var1) {
       int var2 = MathHelper.c(var1.a);
       int var3 = MathHelper.c(var1.d);
       int var4 = MathHelper.c(var1.b);
@@ -1202,7 +1202,7 @@ public abstract class World implements ard {
       return false;
    }
 
-   public boolean d(brt var1) {
+   public boolean d(AxisAlignedBB var1) {
       int var2 = MathHelper.c(var1.a);
       int var3 = MathHelper.c(var1.d);
       int var4 = MathHelper.c(var1.b);
@@ -1224,7 +1224,7 @@ public abstract class World implements ard {
       return false;
    }
 
-   public boolean e(brt var1) {
+   public boolean e(AxisAlignedBB var1) {
       int var2 = MathHelper.c(var1.a);
       int var3 = MathHelper.c(var1.d + 1.0D);
       int var4 = MathHelper.c(var1.b);
@@ -1247,7 +1247,7 @@ public abstract class World implements ard {
       return false;
    }
 
-   public boolean a(brt var1, bof var2, Entity var3) {
+   public boolean a(AxisAlignedBB var1, bof var2, Entity var3) {
       int var4 = MathHelper.c(var1.a);
       int var5 = MathHelper.c(var1.d + 1.0D);
       int var6 = MathHelper.c(var1.b);
@@ -1289,7 +1289,7 @@ public abstract class World implements ard {
       }
    }
 
-   public boolean a(brt var1, bof var2) {
+   public boolean a(AxisAlignedBB var1, bof var2) {
       int var3 = MathHelper.c(var1.a);
       int var4 = MathHelper.c(var1.d + 1.0D);
       int var5 = MathHelper.c(var1.b);
@@ -1310,7 +1310,7 @@ public abstract class World implements ard {
       return false;
    }
 
-   public boolean b(brt var1, bof var2) {
+   public boolean b(AxisAlignedBB var1, bof var2) {
       int var3 = MathHelper.c(var1.a);
       int var4 = MathHelper.c(var1.d + 1.0D);
       int var5 = MathHelper.c(var1.b);
@@ -1353,7 +1353,7 @@ public abstract class World implements ard {
       return var11;
    }
 
-   public float a(ChunkCoordinates var1, brt var2) {
+   public float a(ChunkCoordinates var1, AxisAlignedBB var2) {
       double var3 = 1.0D / ((var2.d - var2.a) * 2.0D + 1.0D);
       double var5 = 1.0D / ((var2.e - var2.b) * 2.0D + 1.0D);
       double var7 = 1.0D / ((var2.f - var2.c) * 2.0D + 1.0D);
@@ -1382,7 +1382,7 @@ public abstract class World implements ard {
       }
    }
 
-   public boolean a(ahd var1, dt var2, ej var3) {
+   public boolean a(EntityHuman var1, dt var2, ej var3) {
       var2 = var2.a(var3);
       if(this.p(var2).c() == aty.ab) {
          this.a(var1, 1004, var2, 0);
@@ -1474,7 +1474,7 @@ public abstract class World implements ard {
 
    public boolean u(dt var1) {
       bec var2 = this.p(var1);
-      brt var3 = var2.c().a(this, var1, var2);
+      AxisAlignedBB var3 = var2.c().a(this, var1, var2);
       return var3 != null && var3.a() >= 1.0D;
    }
 
@@ -1591,12 +1591,12 @@ public abstract class World implements ard {
       this.B.a("buildList");
 
       int var1;
-      ahd var2;
+      EntityHuman var2;
       int var3;
       int var4;
       int var5;
       for(var1 = 0; var1 < this.j.size(); ++var1) {
-         var2 = (ahd)this.j.get(var1);
+         var2 = (EntityHuman)this.j.get(var1);
          var3 = MathHelper.c(var2.s / 16.0D);
          var4 = MathHelper.c(var2.u / 16.0D);
          var5 = this.q();
@@ -1616,7 +1616,7 @@ public abstract class World implements ard {
       this.B.a("playerCheckLight");
       if(!this.j.isEmpty()) {
          var1 = this.s.nextInt(this.j.size());
-         var2 = (ahd)this.j.get(var1);
+         var2 = (EntityHuman)this.j.get(var1);
          var3 = MathHelper.c(var2.s) + this.s.nextInt(11) - 5;
          var4 = MathHelper.c(var2.t) + this.s.nextInt(11) - 5;
          var5 = MathHelper.c(var2.u) + this.s.nextInt(11) - 5;
@@ -1640,8 +1640,8 @@ public abstract class World implements ard {
          atr var9 = var3.a(var8);
          var5 += var1;
          var6 += var2;
-         if(var9.r() == bof.a && this.k(var8) <= this.s.nextInt(8) && this.b(arf.a, var8) <= 0) {
-            ahd var10 = this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, 8.0D);
+         if(var9.r() == bof.a && this.k(var8) <= this.s.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
+            EntityHuman var10 = this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, 8.0D);
             if(var10 != null && var10.e((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D) > 4.0D) {
                this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.s.nextFloat() * 0.2F);
                this.K = this.s.nextInt(12000) + 6000;
@@ -1677,7 +1677,7 @@ public abstract class World implements ard {
       if(var4 > 0.15F) {
          return false;
       } else {
-         if(var1.o() >= 0 && var1.o() < 256 && this.b(arf.b, var1) < 10) {
+         if(var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
             bec var5 = this.p(var1);
             atr var6 = var5.c();
             if((var6 == aty.j || var6 == aty.i) && ((Integer)var5.b(axl.b)).intValue() == 0) {
@@ -1708,7 +1708,7 @@ public abstract class World implements ard {
       } else if(!var2) {
          return true;
       } else {
-         if(var1.o() >= 0 && var1.o() < 256 && this.b(arf.b, var1) < 10) {
+         if(var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
             atr var5 = this.p(var1).c();
             if(var5.r() == bof.a && aty.aH.c(this, var1)) {
                return true;
@@ -1722,19 +1722,19 @@ public abstract class World implements ard {
    public boolean x(dt var1) {
       boolean var2 = false;
       if(!this.t.o()) {
-         var2 |= this.c(arf.a, var1);
+         var2 |= this.c(EnumSkyBlock.SKY, var1);
       }
 
-      var2 |= this.c(arf.b, var1);
+      var2 |= this.c(EnumSkyBlock.BLOCK, var1);
       return var2;
    }
 
-   private int a(dt var1, arf var2) {
-      if(var2 == arf.a && this.i(var1)) {
+   private int a(dt var1, EnumSkyBlock var2) {
+      if(var2 == EnumSkyBlock.SKY && this.i(var1)) {
          return 15;
       } else {
          atr var3 = this.p(var1).c();
-         int var4 = var2 == arf.a?0:var3.p();
+         int var4 = var2 == EnumSkyBlock.SKY?0:var3.p();
          int var5 = var3.n();
          if(var5 >= 15 && var3.p() > 0) {
             var5 = 1;
@@ -1770,7 +1770,7 @@ public abstract class World implements ard {
       }
    }
 
-   public boolean c(arf var1, dt var2) {
+   public boolean c(EnumSkyBlock var1, dt var2) {
       if(!this.a(var2, 17, false)) {
          return false;
       } else {
@@ -1897,11 +1897,11 @@ public abstract class World implements ard {
       return null;
    }
 
-   public List b(Entity var1, brt var2) {
+   public List b(Entity var1, AxisAlignedBB var2) {
       return this.a(var1, var2, xe.d);
    }
 
-   public List a(Entity var1, brt var2, Predicate var3) {
+   public List a(Entity var1, AxisAlignedBB var2, Predicate var3) {
       ArrayList var4 = Lists.newArrayList();
       int var5 = MathHelper.c((var2.a - 2.0D) / 16.0D);
       int var6 = MathHelper.c((var2.d + 2.0D) / 16.0D);
@@ -1947,11 +1947,11 @@ public abstract class World implements ard {
       return var3;
    }
 
-   public List a(Class var1, brt var2) {
+   public List a(Class var1, AxisAlignedBB var2) {
       return this.a(var1, var2, xe.d);
    }
 
-   public List a(Class var1, brt var2, Predicate var3) {
+   public List a(Class var1, AxisAlignedBB var2, Predicate var3) {
       int var4 = MathHelper.c((var2.a - 2.0D) / 16.0D);
       int var5 = MathHelper.c((var2.d + 2.0D) / 16.0D);
       int var6 = MathHelper.c((var2.c - 2.0D) / 16.0D);
@@ -1969,7 +1969,7 @@ public abstract class World implements ard {
       return var8;
    }
 
-   public Entity a(Class var1, brt var2, Entity var3) {
+   public Entity a(Class var1, AxisAlignedBB var2, Entity var3) {
       List var4 = this.a(var1, var2);
       Entity var5 = null;
       double var6 = Double.MAX_VALUE;
@@ -2005,7 +2005,7 @@ public abstract class World implements ard {
 
       while(var3.hasNext()) {
          Entity var4 = (Entity)var3.next();
-         if((!(var4 instanceof xn) || !((xn)var4).bY()) && var1.isAssignableFrom(var4.getClass())) {
+         if((!(var4 instanceof EntityInsentient) || !((EntityInsentient)var4).bY()) && var1.isAssignableFrom(var4.getClass())) {
             ++var2;
          }
       }
@@ -2030,7 +2030,7 @@ public abstract class World implements ard {
 
    public boolean a(atr var1, dt var2, boolean var3, ej var4, Entity var5, amj var6) {
       atr var7 = this.p(var2).c();
-      brt var8 = var3?null:var1.a(this, var2, var1.P());
+      AxisAlignedBB var8 = var3?null:var1.a(this, var2, var1.P());
       return var8 != null && !this.a(var8, var5)?false:(var7.r() == bof.q && var1 == aty.cf?true:var7.r().j() && var1.a(this, var2, var4, var6));
    }
 
@@ -2108,16 +2108,16 @@ public abstract class World implements ard {
       return var2;
    }
 
-   public ahd a(Entity var1, double var2) {
+   public EntityHuman a(Entity var1, double var2) {
       return this.a(var1.s, var1.t, var1.u, var2);
    }
 
-   public ahd a(double var1, double var3, double var5, double var7) {
+   public EntityHuman a(double var1, double var3, double var5, double var7) {
       double var9 = -1.0D;
-      ahd var11 = null;
+      EntityHuman var11 = null;
 
       for(int var12 = 0; var12 < this.j.size(); ++var12) {
-         ahd var13 = (ahd)this.j.get(var12);
+         EntityHuman var13 = (EntityHuman)this.j.get(var12);
          if(xe.d.apply(var13)) {
             double var14 = var13.e(var1, var3, var5);
             if((var7 < 0.0D || var14 < var7 * var7) && (var9 == -1.0D || var14 < var9)) {
@@ -2132,7 +2132,7 @@ public abstract class World implements ard {
 
    public boolean b(double var1, double var3, double var5, double var7) {
       for(int var9 = 0; var9 < this.j.size(); ++var9) {
-         ahd var10 = (ahd)this.j.get(var9);
+         EntityHuman var10 = (EntityHuman)this.j.get(var9);
          if(xe.d.apply(var10)) {
             double var11 = var10.e(var1, var3, var5);
             if(var7 < 0.0D || var11 < var7 * var7) {
@@ -2144,9 +2144,9 @@ public abstract class World implements ard {
       return false;
    }
 
-   public ahd a(String var1) {
+   public EntityHuman a(String var1) {
       for(int var2 = 0; var2 < this.j.size(); ++var2) {
-         ahd var3 = (ahd)this.j.get(var2);
+         EntityHuman var3 = (EntityHuman)this.j.get(var2);
          if(var1.equals(var3.d_())) {
             return var3;
          }
@@ -2155,9 +2155,9 @@ public abstract class World implements ard {
       return null;
    }
 
-   public ahd b(UUID var1) {
+   public EntityHuman b(UUID var1) {
       for(int var2 = 0; var2 < this.j.size(); ++var2) {
-         ahd var3 = (ahd)this.j.get(var2);
+         EntityHuman var3 = (EntityHuman)this.j.get(var2);
          if(var1.equals(var3.aJ())) {
             return var3;
          }
@@ -2199,7 +2199,7 @@ public abstract class World implements ard {
       this.x.a(var1);
    }
 
-   public boolean a(ahd var1, dt var2) {
+   public boolean a(EntityHuman var1, dt var2) {
       return true;
    }
 
@@ -2285,10 +2285,10 @@ public abstract class World implements ard {
    }
 
    public void b(int var1, dt var2, int var3) {
-      this.a((ahd)null, var1, var2, var3);
+      this.a((EntityHuman)null, var1, var2, var3);
    }
 
-   public void a(ahd var1, int var2, dt var3, int var4) {
+   public void a(EntityHuman var1, int var2, dt var3, int var4) {
       try {
          for(int var5 = 0; var5 < this.u.size(); ++var5) {
             ((ara)this.u.get(var5)).a(var1, var2, var3, var4);

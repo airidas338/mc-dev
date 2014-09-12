@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class ym {
 
-   private xn a;
+   private EntityInsentient a;
    private float b;
    private float c;
    private boolean d;
@@ -13,13 +13,13 @@ public class ym {
    private double g;
 
 
-   public ym(xn var1) {
+   public ym(EntityInsentient var1) {
       this.a = var1;
    }
 
    public void a(Entity var1, float var2, float var3) {
       this.e = var1.s;
-      if(var1 instanceof xm) {
+      if(var1 instanceof EntityLiving) {
          this.f = var1.t + (double)var1.aR();
       } else {
          this.f = (var1.aQ().b + var1.aQ().e) / 2.0D;

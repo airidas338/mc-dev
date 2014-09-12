@@ -115,13 +115,13 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return 64;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return true;
@@ -293,7 +293,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
             }
          }
       } else {
-         adw var6 = a(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
+         EntityItem var6 = a(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
          if(var6 != null) {
             return a((vq)var0, var6);
          }
@@ -318,7 +318,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return false;
    }
 
-   public static boolean a(vq var0, adw var1) {
+   public static boolean a(vq var0, EntityItem var1) {
       boolean var2 = false;
       if(var1 == null) {
          return false;
@@ -409,9 +409,9 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return b(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
    }
 
-   public static adw a(World var0, double var1, double var3, double var5) {
-      List var7 = var0.a(adw.class, new brt(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), xe.a);
-      return var7.size() > 0?(adw)var7.get(0):null;
+   public static EntityItem a(World var0, double var1, double var3, double var5) {
+      List var7 = var0.a(EntityItem.class, new AxisAlignedBB(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), xe.a);
+      return var7.size() > 0?(EntityItem)var7.get(0):null;
    }
 
    public static vq b(World var0, double var1, double var3, double var5) {
@@ -432,7 +432,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       }
 
       if(var7 == null) {
-         List var14 = var0.a((Entity)null, new brt(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), xe.c);
+         List var14 = var0.a((Entity)null, new AxisAlignedBB(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), xe.c);
          if(var14.size() > 0) {
             var7 = (vq)var14.get(var0.s.nextInt(var14.size()));
          }
@@ -473,7 +473,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return "minecraft:hopper";
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aix(var1, this, var2);
    }
 

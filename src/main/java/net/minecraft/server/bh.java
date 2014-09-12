@@ -19,7 +19,7 @@ public class bh extends CommandAbstract {
       if(var2.length <= 0) {
          throw new dp("commands.me.usage", new Object[0]);
       } else {
-         IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof ahd));
+         IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof EntityHuman));
          MinecraftServer.M().an().a((IChatBaseComponent)(new hz("chat.type.emote", new Object[]{var1.e_(), var3})));
       }
    }

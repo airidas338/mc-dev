@@ -3,7 +3,7 @@ package net.minecraft.server;
 final class apn implements apl {
 
    public int a;
-   public wh b;
+   public DamageSource b;
 
 
    private apn() {}

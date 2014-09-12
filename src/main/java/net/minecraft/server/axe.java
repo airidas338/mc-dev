@@ -14,7 +14,7 @@ public class axe extends atr {
       this.a(akf.c);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -53,7 +53,7 @@ public class axe extends atr {
       return var1.p(var2.e()).c().t()?true:(var1.p(var2.f()).c().t()?true:(var1.p(var2.c()).c().t()?true:var1.p(var2.d()).c().t()));
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var3.k().c() && this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {

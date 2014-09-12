@@ -55,7 +55,7 @@ public class amw extends alq {
       return var2;
    }
 
-   public amj b(amj var1, World var2, ahd var3) {
+   public amj b(amj var1, World var2, EntityHuman var3) {
       if(!var3.by.d) {
          --var1.b;
       }
@@ -92,7 +92,7 @@ public class amw extends alq {
       return ano.c;
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       if(f(var1.i())) {
          if(!var3.by.d) {
             --var1.b;
@@ -100,7 +100,7 @@ public class amw extends alq {
 
          var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
          if(!var2.D) {
-            var2.d((Entity)(new ahv(var2, var3, var1)));
+            var2.d((Entity)(new EntityPotion(var2, var3, var1)));
          }
 
          var3.b(ty.J[alq.b((alq)this)]);

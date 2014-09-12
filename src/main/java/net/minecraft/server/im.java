@@ -12,7 +12,7 @@ public class im implements id {
 
    public im() {}
 
-   public im(xk var1) {
+   public im(EntityExperienceOrb var1) {
       this.a = var1.F();
       this.b = MathHelper.c(var1.s * 32.0D);
       this.c = MathHelper.c(var1.t * 32.0D);

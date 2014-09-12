@@ -32,7 +32,7 @@ public class ajk {
 
    protected void c(amj var1) {}
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       this.f();
    }
 
@@ -73,7 +73,7 @@ public class ajk {
       return var1 == this.d && var2 == this.a;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return true;
    }
 }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class bqf {
 
-   public final ahd a;
+   public final EntityHuman a;
    private boolean d;
    private int e;
    private int f;
@@ -14,7 +14,7 @@ public class bqf {
    final bqe c;
 
 
-   public bqf(bqe var1, ahd var2) {
+   public bqf(bqe var1, EntityHuman var2) {
       this.c = var1;
       this.d = true;
       this.e = 0;

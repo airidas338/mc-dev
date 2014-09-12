@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 final class apk implements apl {
 
-   public xm a;
+   public EntityLiving a;
    public Entity b;
 
 

@@ -23,7 +23,7 @@ public class aut implements vv {
       return new hz(aty.ai.a() + ".name", new Object[0]);
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aio(var1, this.a, this.b);
    }
 

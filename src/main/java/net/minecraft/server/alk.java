@@ -9,7 +9,7 @@ public class alk extends alq {
       this.a(akf.i);
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       var4 = var4.a(var5);
       if(!var2.a(var4, var5, var1)) {
          return false;
@@ -19,7 +19,7 @@ public class alk extends alq {
             var3.a(var4, aty.ab.P());
          }
 
-         var1.a(1, (xm)var2);
+         var1.a(1, (EntityLiving)var2);
          return true;
       }
    }

@@ -14,7 +14,7 @@ public class ado extends Entity {
    private atr ap;
    private boolean aq;
    public int a;
-   public ahd b;
+   public EntityHuman b;
    private int ar;
    private int as;
    private int at;
@@ -40,21 +40,21 @@ public class ado extends Entity {
       this.ah = true;
    }
 
-   public ado(World var1, ahd var2) {
+   public ado(World var1, EntityHuman var2) {
       super(var1);
       this.ah = true;
       this.b = var2;
       this.b.bE = this;
       this.a(0.25F, 0.25F);
       this.b(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
-      this.s -= (double)(MathHelper.b(this.y / 180.0F * 3.1415927F) * 0.16F);
+      this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.t -= 0.10000000149011612D;
-      this.u -= (double)(MathHelper.a(this.y / 180.0F * 3.1415927F) * 0.16F);
+      this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.b(this.s, this.t, this.u);
       float var3 = 0.4F;
-      this.v = (double)(-MathHelper.a(this.y / 180.0F * 3.1415927F) * MathHelper.b(this.z / 180.0F * 3.1415927F) * var3);
-      this.x = (double)(MathHelper.b(this.y / 180.0F * 3.1415927F) * MathHelper.b(this.z / 180.0F * 3.1415927F) * var3);
-      this.w = (double)(-MathHelper.a(this.z / 180.0F * 3.1415927F) * var3);
+      this.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
+      this.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
+      this.w = (double)(-MathHelper.sin(this.z / 180.0F * 3.1415927F) * var3);
       this.c(this.v, this.w, this.x, 1.5F, 1.0F);
    }
 
@@ -156,7 +156,7 @@ public class ado extends Entity {
             Entity var9 = (Entity)var5.get(var8);
             if(var9.ad() && (var9 != this.b || this.as >= 5)) {
                float var10 = 0.3F;
-               brt var11 = var9.aQ().b((double)var10, (double)var10, (double)var10);
+               AxisAlignedBB var11 = var9.aQ().b((double)var10, (double)var10, (double)var10);
                bru var12 = var11.a(var27, var2);
                if(var12 != null) {
                   var13 = var27.f(var12.c);
@@ -174,7 +174,7 @@ public class ado extends Entity {
 
          if(var3 != null) {
             if(var3.d != null) {
-               if(var3.d.a(wh.a((Entity)this, this.b), 0.0F)) {
+               if(var3.d.a(DamageSource.a((Entity)this, this.b), 0.0F)) {
                   this.c = var3.d;
                }
             } else {
@@ -215,11 +215,11 @@ public class ado extends Entity {
 
             double var19;
             for(int var36 = 0; var36 < var34; ++var36) {
-               brt var14 = this.aQ();
+               AxisAlignedBB var14 = this.aQ();
                double var15 = var14.e - var14.b;
                double var17 = var14.b + var15 * (double)var36 / (double)var34;
                var19 = var14.b + var15 * (double)(var36 + 1) / (double)var34;
-               brt var21 = new brt(var14.a, var17, var14.c, var14.d, var19, var14.f);
+               AxisAlignedBB var21 = new AxisAlignedBB(var14.a, var17, var14.c, var14.d, var19, var14.f);
                if(this.o.b(var21, bof.h)) {
                   var33 += 1.0D / (double)var34;
                }
@@ -261,8 +261,8 @@ public class ado extends Entity {
                      } else {
                         this.aw = (float)((double)this.aw + this.V.nextGaussian() * 4.0D);
                         var16 = this.aw * 0.017453292F;
-                        var39 = MathHelper.a(var16);
-                        var18 = MathHelper.b(var16);
+                        var39 = MathHelper.sin(var16);
+                        var18 = MathHelper.cos(var16);
                         var19 = this.s + (double)(var39 * (float)this.av * 0.1F);
                         var40 = (double)((float)MathHelper.c(this.aQ().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.av * 0.1F);
@@ -289,9 +289,9 @@ public class ado extends Entity {
                      if(this.V.nextFloat() < var16) {
                         var39 = MathHelper.a(this.V, 0.0F, 360.0F) * 0.017453292F;
                         var18 = MathHelper.a(this.V, 25.0F, 60.0F);
-                        var19 = this.s + (double)(MathHelper.a(var39) * var18 * 0.1F);
+                        var19 = this.s + (double)(MathHelper.sin(var39) * var18 * 0.1F);
                         var40 = (double)((float)MathHelper.c(this.aQ().b) + 1.0F);
-                        var23 = this.u + (double)(MathHelper.b(var39) * var18 * 0.1F);
+                        var23 = this.u + (double)(MathHelper.cos(var39) * var18 * 0.1F);
                         var35.a(ew.f, var19, var40, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                      }
 
@@ -301,7 +301,7 @@ public class ado extends Entity {
                      }
                   } else {
                      this.au = MathHelper.a(this.V, 100, 900);
-                     this.au -= aph.h(this.b) * 20 * 5;
+                     this.au -= EnchantmentManager.h(this.b) * 20 * 5;
                   }
                }
 
@@ -365,7 +365,7 @@ public class ado extends Entity {
             this.c.x += var6 * var10;
             var1 = 3;
          } else if(this.at > 0) {
-            adw var13 = new adw(this.o, this.s, this.t, this.u, this.m());
+            EntityItem var13 = new EntityItem(this.o, this.s, this.t, this.u, this.m());
             double var3 = this.b.s - this.s;
             double var5 = this.b.t - this.t;
             double var7 = this.b.u - this.u;
@@ -375,7 +375,7 @@ public class ado extends Entity {
             var13.w = var5 * var11 + (double)MathHelper.a(var9) * 0.08D;
             var13.x = var7 * var11;
             this.o.d((Entity)var13);
-            this.b.o.d((Entity)(new xk(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
+            this.b.o.d((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
             var1 = 1;
          }
 
@@ -391,8 +391,8 @@ public class ado extends Entity {
 
    private amj m() {
       float var1 = this.o.s.nextFloat();
-      int var2 = aph.g(this.b);
-      int var3 = aph.h(this.b);
+      int var2 = EnchantmentManager.g(this.b);
+      int var3 = EnchantmentManager.h(this.b);
       float var4 = 0.1F - (float)var2 * 0.025F - (float)var3 * 0.01F;
       float var5 = 0.05F + (float)var2 * 0.01F - (float)var3 * 0.01F;
       var4 = MathHelper.a(var4, 0.0F, 1.0F);

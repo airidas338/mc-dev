@@ -33,7 +33,7 @@ public class anr extends alq {
       return super.a(var1);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       if(!var2.D) {
          this.a(var1, var3);
       }
@@ -43,7 +43,7 @@ public class anr extends alq {
       return var1;
    }
 
-   private void a(amj var1, ahd var2) {
+   private void a(amj var1, EntityHuman var2) {
       if(var1 != null && var1.o() != null) {
          fn var3 = var1.o();
          if(!var3.n("resolved")) {

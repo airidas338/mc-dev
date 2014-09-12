@@ -8,7 +8,7 @@ public class kl implements id {
 
    public kl() {}
 
-   public kl(ahd var1, dt var2) {
+   public kl(EntityHuman var1, dt var2) {
       this.a = var1.F();
       this.b = var2;
    }

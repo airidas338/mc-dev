@@ -121,7 +121,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       return 64;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
@@ -202,11 +202,11 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       if(!this.b.D && this.l != 0 && (this.n + var1 + var2 + var3) % 200 == 0) {
          this.l = 0;
          var4 = 5.0F;
-         List var5 = this.b.a(ahd.class, new brt((double)((float)var1 - var4), (double)((float)var2 - var4), (double)((float)var3 - var4), (double)((float)(var1 + 1) + var4), (double)((float)(var2 + 1) + var4), (double)((float)(var3 + 1) + var4)));
+         List var5 = this.b.a(EntityHuman.class, new AxisAlignedBB((double)((float)var1 - var4), (double)((float)var2 - var4), (double)((float)var3 - var4), (double)((float)(var1 + 1) + var4), (double)((float)(var2 + 1) + var4), (double)((float)(var3 + 1) + var4)));
          Iterator var6 = var5.iterator();
 
          while(var6.hasNext()) {
-            ahd var7 = (ahd)var6.next();
+            EntityHuman var7 = (EntityHuman)var6.next();
             if(var7.bi instanceof aim) {
                vq var8 = ((aim)var7.bi).e();
                if(var8 == this || var8 instanceof vp && ((vp)var8).a((vq)this)) {
@@ -276,7 +276,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       }
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       if(!var1.v()) {
          if(this.l < 0) {
             this.l = 0;
@@ -290,7 +290,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    }
 
-   public void c(ahd var1) {
+   public void c(EntityHuman var1) {
       if(!var1.v() && this.w() instanceof auj) {
          --this.l;
          this.b.c(this.c, this.w(), 1, this.l);
@@ -326,7 +326,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       return "minecraft:chest";
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aim(var1, this, var2);
    }
 

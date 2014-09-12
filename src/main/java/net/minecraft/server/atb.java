@@ -15,7 +15,7 @@ public class atb extends atg {
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -57,7 +57,7 @@ public class atb extends atg {
 
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       if(var5 instanceof bci) {
          amj var6 = new amj(amk.cE, 1, ((bci)var5).b());
          fn var7 = new fn();

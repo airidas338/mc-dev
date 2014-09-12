@@ -28,12 +28,12 @@ public class anm extends alq {
       }
    }
 
-   public boolean a(amj var1, xm var2, xm var3) {
+   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
       var1.a(1, var3);
       return true;
    }
 
-   public boolean a(amj var1, World var2, atr var3, dt var4, xm var5) {
+   public boolean a(amj var1, World var2, atr var3, dt var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(2, var5);
       }
@@ -49,7 +49,7 @@ public class anm extends alq {
       return 72000;
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       var3.a(var1, this.d(var1));
       return var1;
    }
@@ -72,7 +72,7 @@ public class anm extends alq {
 
    public Multimap i() {
       Multimap var1 = super.i();
-      var1.put(afs.e.a(), new ya(f, "Weapon modifier", (double)this.a, 0));
+      var1.put(GenericAttributes.e.a(), new ya(f, "Weapon modifier", (double)this.a, 0));
       return var1;
    }
 }

@@ -3,17 +3,17 @@ package net.minecraft.server;
 
 public class aae extends zb {
 
-   aep a;
-   xm b;
+   EntityCreeper a;
+   EntityLiving b;
 
 
-   public aae(aep var1) {
+   public aae(EntityCreeper var1) {
       this.a = var1;
       this.a(1);
    }
 
    public boolean a() {
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       return this.a.ck() > 0 || var1 != null && this.a.h(var1) < 9.0D;
    }
 

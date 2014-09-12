@@ -4,9 +4,9 @@ package net.minecraft.server;
 
 public class zz extends zb {
 
-   private final xn a;
+   private final EntityInsentient a;
    private final afr b;
-   private xm c;
+   private EntityLiving c;
    private int d;
    private double e;
    private int f;
@@ -22,11 +22,11 @@ public class zz extends zb {
 
    public zz(afr var1, double var2, int var4, int var5, float var6) {
       this.d = -1;
-      if(!(var1 instanceof xm)) {
+      if(!(var1 instanceof EntityLiving)) {
          throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
       } else {
          this.b = var1;
-         this.a = (xn)var1;
+         this.a = (EntityInsentient)var1;
          this.e = var2;
          this.g = var4;
          this.h = var5;
@@ -37,7 +37,7 @@ public class zz extends zb {
    }
 
    public boolean a() {
-      xm var1 = this.a.u();
+      EntityLiving var1 = this.a.u();
       if(var1 == null) {
          return false;
       } else {

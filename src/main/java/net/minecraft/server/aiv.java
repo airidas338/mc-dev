@@ -61,11 +61,11 @@ public class aiv extends aib {
       this.g = this.a.a_(3);
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.a.a(var1);
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {

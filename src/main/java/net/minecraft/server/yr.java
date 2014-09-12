@@ -4,14 +4,14 @@ package net.minecraft.server;
 
 public class yr extends zb {
 
-   private acu a;
-   private ahd b;
+   private EntityWolf a;
+   private EntityHuman b;
    private World c;
    private float d;
    private int e;
 
 
-   public yr(acu var1, float var2) {
+   public yr(EntityWolf var1, float var2) {
       this.a = var1;
       this.c = var1.o;
       this.d = var2;
@@ -42,7 +42,7 @@ public class yr extends zb {
       --this.e;
    }
 
-   private boolean a(ahd var1) {
+   private boolean a(EntityHuman var1) {
       amj var2 = var1.bg.h();
       return var2 == null?false:(!this.a.cj() && var2.b() == amk.aX?true:this.a.d(var2));
    }

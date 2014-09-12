@@ -7,7 +7,7 @@ public class alb extends alq {
       this.a(akf.f);
    }
 
-   public boolean a(amj var1, ahd var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(amj var1, EntityHuman var2, World var3, dt var4, ej var5, float var6, float var7, float var8) {
       bec var9 = var3.p(var4);
       if(var2.a(var4.a(var5), var5, var1) && var9.c() == aty.bG && !((Boolean)var9.b(avq.b)).booleanValue()) {
          if(var3.D) {
@@ -98,7 +98,7 @@ public class alb extends alq {
       }
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
+   public amj a(amj var1, World var2, EntityHuman var3) {
       bru var4 = this.a(var2, var3, false);
       if(var4 != null && var4.a == brv.b && var2.p(var4.a()).c() == aty.bG) {
          return var1;
@@ -106,11 +106,11 @@ public class alb extends alq {
          if(!var2.D) {
             dt var5 = var2.a("Stronghold", new dt(var3));
             if(var5 != null) {
-               ahk var6 = new ahk(var2, var3.s, var3.t, var3.u);
+               EntityEnderSignal var6 = new EntityEnderSignal(var2, var3.s, var3.t, var3.u);
                var6.a(var5);
                var2.d((Entity)var6);
                var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
-               var2.a((ahd)null, 1002, new dt(var3), 0);
+               var2.a((EntityHuman)null, 1002, new dt(var3), 0);
                if(!var3.by.d) {
                   --var1.b;
                }

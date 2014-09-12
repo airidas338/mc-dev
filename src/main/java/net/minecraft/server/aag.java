@@ -3,14 +3,14 @@ package net.minecraft.server;
 
 public class aag extends zb {
 
-   private xu a;
+   private EntityCreature a;
    private double b;
    private double c;
    private double d;
    private double e;
    private double f;
    private double g;
-   private ahd h;
+   private EntityHuman h;
    private int i;
    private boolean j;
    private alq k;
@@ -18,7 +18,7 @@ public class aag extends zb {
    private boolean m;
 
 
-   public aag(xu var1, double var2, alq var4, boolean var5) {
+   public aag(EntityCreature var1, double var2, alq var4, boolean var5) {
       this.a = var1;
       this.b = var2;
       this.k = var4;

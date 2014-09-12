@@ -61,11 +61,11 @@ public class auj extends atg {
 
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO());
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       ej var6 = ej.b(MathHelper.c((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
       var3 = var3.a(a, var6);
       dt var7 = var2.c();
@@ -300,7 +300,7 @@ public class auj extends atg {
       super.b(var1, var2, var3);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -384,16 +384,16 @@ public class auj extends atg {
    }
 
    private boolean o(World var1, dt var2) {
-      Iterator var3 = var1.a(aby.class, new brt((double)var2.n(), (double)(var2.o() + 1), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 2), (double)(var2.p() + 1))).iterator();
+      Iterator var3 = var1.a(EntityOcelot.class, new AxisAlignedBB((double)var2.n(), (double)(var2.o() + 1), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 2), (double)(var2.p() + 1))).iterator();
 
-      aby var5;
+      EntityOcelot var5;
       do {
          if(!var3.hasNext()) {
             return false;
          }
 
          Entity var4 = (Entity)var3.next();
-         var5 = (aby)var4;
+         var5 = (EntityOcelot)var4;
       } while(!var5.cl());
 
       return true;

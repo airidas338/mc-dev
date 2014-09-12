@@ -17,7 +17,7 @@ public abstract class aud extends atr {
       this.M = var1;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -51,7 +51,7 @@ public abstract class aud extends atr {
       return false;
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return var1.p(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, ej.a).a(b, Boolean.valueOf(false));
    }
 
@@ -110,7 +110,7 @@ public abstract class aud extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          return true;
       } else {
@@ -180,7 +180,7 @@ public abstract class aud extends atr {
 
    private void f(World var1, dt var2, bec var3) {
       this.d(var3);
-      List var4 = var1.a(ahj.class, new brt((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
+      List var4 = var1.a(EntityArrow.class, new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
       boolean var5 = !var4.isEmpty();
       boolean var6 = ((Boolean)var3.b(b)).booleanValue();
       if(var5 && !var6) {

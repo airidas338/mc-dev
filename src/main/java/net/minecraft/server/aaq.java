@@ -11,18 +11,18 @@ public class aaq extends aaw {
    private final int g;
    protected final aas b;
    protected Predicate c;
-   protected xm d;
+   protected EntityLiving d;
 
 
-   public aaq(xu var1, Class var2, boolean var3) {
+   public aaq(EntityCreature var1, Class var2, boolean var3) {
       this(var1, var2, var3, false);
    }
 
-   public aaq(xu var1, Class var2, boolean var3, boolean var4) {
+   public aaq(EntityCreature var1, Class var2, boolean var3, boolean var4) {
       this(var1, var2, 10, var3, var4, (Predicate)null);
    }
 
-   public aaq(xu var1, Class var2, int var3, boolean var4, boolean var5, Predicate var6) {
+   public aaq(EntityCreature var1, Class var2, int var3, boolean var4, boolean var5, Predicate var6) {
       super(var1, var4, var5);
       this.a = var2;
       this.g = var3;
@@ -41,7 +41,7 @@ public class aaq extends aaw {
          if(var3.isEmpty()) {
             return false;
          } else {
-            this.d = (xm)var3.get(0);
+            this.d = (EntityLiving)var3.get(0);
             return true;
          }
       }

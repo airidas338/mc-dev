@@ -3,14 +3,14 @@ package net.minecraft.server;
 
 public class aac extends zb {
 
-   private abt a;
+   private EntityHorse a;
    private double b;
    private double c;
    private double d;
    private double e;
 
 
-   public aac(abt var1, double var2) {
+   public aac(EntityHorse var1, double var2) {
       this.a = var1;
       this.b = var2;
       this.a(1);
@@ -42,11 +42,11 @@ public class aac extends zb {
 
    public void e() {
       if(this.a.bb().nextInt(50) == 0) {
-         if(this.a.l instanceof ahd) {
+         if(this.a.l instanceof EntityHuman) {
             int var1 = this.a.cA();
             int var2 = this.a.cG();
             if(var2 > 0 && this.a.bb().nextInt(var2) < var1) {
-               this.a.h((ahd)this.a.l);
+               this.a.h((EntityHuman)this.a.l);
                this.a.o.a((Entity)this.a, (byte)7);
                return;
             }

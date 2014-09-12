@@ -23,7 +23,7 @@ public class ata implements vv {
       return new hz(aty.cf.a() + ".name", new Object[0]);
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aid(var1, this.a, this.b, var2);
    }
 

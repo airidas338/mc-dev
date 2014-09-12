@@ -309,7 +309,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
       return this.n.a("spawn-protection", super.au());
    }
 
-   public boolean a(World var1, dt var2, ahd var3) {
+   public boolean a(World var1, dt var2, EntityHuman var3) {
       if(var1.t.q() != 0) {
          return false;
       } else if(this.aN().n().d()) {

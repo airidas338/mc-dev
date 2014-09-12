@@ -109,8 +109,8 @@ public class ChunkCoordinates {
    }
 
    public ChunkCoordinates a(float var1) {
-      float var2 = MathHelper.b(var1);
-      float var3 = MathHelper.a(var1);
+      float var2 = MathHelper.cos(var1);
+      float var3 = MathHelper.sin(var1);
       double var4 = this.a;
       double var6 = this.b * (double)var2 + this.c * (double)var3;
       double var8 = this.c * (double)var2 - this.b * (double)var3;
@@ -118,8 +118,8 @@ public class ChunkCoordinates {
    }
 
    public ChunkCoordinates b(float var1) {
-      float var2 = MathHelper.b(var1);
-      float var3 = MathHelper.a(var1);
+      float var2 = MathHelper.cos(var1);
+      float var3 = MathHelper.sin(var1);
       double var4 = this.a * (double)var2 + this.c * (double)var3;
       double var6 = this.b;
       double var8 = this.c * (double)var2 - this.a * (double)var3;

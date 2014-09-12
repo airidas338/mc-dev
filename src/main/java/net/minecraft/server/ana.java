@@ -8,9 +8,9 @@ public class ana extends alq {
       this.a(akf.e);
    }
 
-   public boolean a(amj var1, ahd var2, xm var3) {
-      if(var3 instanceof aca) {
-         aca var4 = (aca)var3;
+   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+      if(var3 instanceof EntityPig) {
+         EntityPig var4 = (EntityPig)var3;
          if(!var4.cj() && !var4.i_()) {
             var4.l(true);
             var4.o.a((Entity)var4, "mob.horse.leather", 0.5F, 1.0F);
@@ -23,8 +23,8 @@ public class ana extends alq {
       }
    }
 
-   public boolean a(amj var1, xm var2, xm var3) {
-      this.a(var1, (ahd)null, var2);
+   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
+      this.a(var1, (EntityHuman)null, var2);
       return true;
    }
 }

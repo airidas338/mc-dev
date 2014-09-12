@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 
-public abstract class yb implements xy {
+public abstract class yb implements IAttribute {
 
-   private final xy a;
+   private final IAttribute a;
    private final String b;
    private final double c;
    private boolean d;
 
 
-   protected yb(xy var1, String var2, double var3) {
+   protected yb(IAttribute var1, String var2, double var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -35,7 +35,7 @@ public abstract class yb implements xy {
       return this;
    }
 
-   public xy d() {
+   public IAttribute d() {
       return this.a;
    }
 
@@ -44,6 +44,6 @@ public abstract class yb implements xy {
    }
 
    public boolean equals(Object var1) {
-      return var1 instanceof xy && this.b.equals(((xy)var1).a());
+      return var1 instanceof IAttribute && this.b.equals(((IAttribute)var1).a());
    }
 }

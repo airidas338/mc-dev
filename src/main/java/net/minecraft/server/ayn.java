@@ -28,7 +28,7 @@ public class ayn extends atg {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -43,7 +43,7 @@ public class ayn extends atg {
       }
    }
 
-   public void a(World var1, dt var2, ahd var3) {
+   public void a(World var1, dt var2, EntityHuman var3) {
       if(!var1.D) {
          bcm var4 = var1.s(var2);
          if(var4 instanceof bdi) {

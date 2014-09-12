@@ -3,12 +3,12 @@ import java.util.Random;
 
 class afu extends zy {
 
-   private final aft a;
+   private final EntitySilverfish a;
    private ej b;
    private boolean c;
 
 
-   public afu(aft var1) {
+   public afu(EntitySilverfish var1) {
       super(var1, 1.0D, 10);
       this.a = var1;
       this.a(1);

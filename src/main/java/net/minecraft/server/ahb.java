@@ -6,12 +6,12 @@ public class ahb implements vq {
    public amj[] a = new amj[36];
    public amj[] b = new amj[4];
    public int c;
-   public ahd d;
+   public EntityHuman d;
    private amj f;
    public boolean e;
 
 
-   public ahb(ahd var1) {
+   public ahb(EntityHuman var1) {
       this.d = var1;
    }
 
@@ -403,7 +403,7 @@ public class ahb implements vq {
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null && this.b[var2].b() instanceof ajn) {
-            this.b[var2].a((int)var1, (xm)this.d);
+            this.b[var2].a((int)var1, (EntityLiving)this.d);
             if(this.b[var2].b == 0) {
                this.b[var2] = null;
             }
@@ -442,7 +442,7 @@ public class ahb implements vq {
       return this.f;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.d.I?false:var1.h(this.d) <= 64.0D;
    }
 
@@ -463,9 +463,9 @@ public class ahb implements vq {
       return false;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return true;

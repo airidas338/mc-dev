@@ -5,7 +5,7 @@ package net.minecraft.server;
 public class zk extends zb {
 
    World a;
-   protected xu b;
+   protected EntityCreature b;
    int c;
    double d;
    boolean e;
@@ -17,12 +17,12 @@ public class zk extends zb {
    private double k;
 
 
-   public zk(xu var1, Class var2, double var3, boolean var5) {
+   public zk(EntityCreature var1, Class var2, double var3, boolean var5) {
       this(var1, var3, var5);
       this.g = var2;
    }
 
-   public zk(xu var1, double var2, boolean var4) {
+   public zk(EntityCreature var1, double var2, boolean var4) {
       this.b = var1;
       this.a = var1.o;
       this.d = var2;
@@ -31,7 +31,7 @@ public class zk extends zb {
    }
 
    public boolean a() {
-      xm var1 = this.b.u();
+      EntityLiving var1 = this.b.u();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
@@ -45,7 +45,7 @@ public class zk extends zb {
    }
 
    public boolean b() {
-      xm var1 = this.b.u();
+      EntityLiving var1 = this.b.u();
       return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.s().m():this.b.d(new dt(var1))));
    }
 
@@ -59,7 +59,7 @@ public class zk extends zb {
    }
 
    public void e() {
-      xm var1 = this.b.u();
+      EntityLiving var1 = this.b.u();
       this.b.p().a(var1, 30.0F, 30.0F);
       double var2 = this.b.e(var1.s, var1.aQ().b, var1.u);
       double var4 = this.a(var1);
@@ -92,7 +92,7 @@ public class zk extends zb {
 
    }
 
-   protected double a(xm var1) {
+   protected double a(EntityLiving var1) {
       return (double)(this.b.J * 2.0F * this.b.J * 2.0F + var1.J);
    }
 }

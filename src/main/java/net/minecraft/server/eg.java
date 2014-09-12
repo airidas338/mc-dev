@@ -28,7 +28,7 @@ public class eg implements eo {
          var7 -= 0.15625D;
       }
 
-      adw var11 = new adw(var0, var5, var7, var9, var1);
+      EntityItem var11 = new EntityItem(var0, var5, var7, var9, var1);
       double var12 = var0.s.nextDouble() * 0.1D + 0.2D;
       var11.v = (double)var3.g() * var12;
       var11.w = 0.20000000298023224D;

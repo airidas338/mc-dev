@@ -15,7 +15,7 @@ public class avv extends atr {
       this.a(akf.c);
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       boolean var7 = this.e(var1, var2.c());
       boolean var8 = this.e(var1, var2.d());
       boolean var9 = this.e(var1, var2.e());
@@ -108,7 +108,7 @@ public class avv extends atr {
       return var3 == aty.cv?false:((!(var3 instanceof avv) || var3.J != this.J) && !(var3 instanceof avw)?(var3.J.k() && var3.d()?var3.J != bof.C:false):true);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       return var1.D?true:aml.a(var4, var1, var2);
    }
 

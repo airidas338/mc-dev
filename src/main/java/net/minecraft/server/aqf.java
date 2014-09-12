@@ -133,7 +133,7 @@ public abstract class aqf implements ae {
       return this.c;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       if(!var1.by.d) {
          return false;
       } else {

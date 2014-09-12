@@ -9,11 +9,11 @@ public class MathHelper {
    private static final int[] c;
 
 
-   public static float a(float var0) {
+   public static float sin(float var0) {
       return b[(int)(var0 * 10430.378F) & '\uffff'];
    }
 
-   public static float b(float var0) {
+   public static float cos(float var0) {
       return b[(int)(var0 * 10430.378F + 16384.0F) & '\uffff'];
    }
 

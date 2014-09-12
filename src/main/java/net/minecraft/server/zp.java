@@ -4,8 +4,8 @@ package net.minecraft.server;
 
 public class zp extends zb {
 
-   private xu a;
-   private xm b;
+   private EntityCreature a;
+   private EntityLiving b;
    private double c;
    private double d;
    private double e;
@@ -13,7 +13,7 @@ public class zp extends zb {
    private float g;
 
 
-   public zp(xu var1, double var2, float var4) {
+   public zp(EntityCreature var1, double var2, float var4) {
       this.a = var1;
       this.f = var2;
       this.g = var4;

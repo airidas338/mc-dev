@@ -12,7 +12,7 @@ public class axc extends atg {
       this.a(akf.c);
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          this.e(var1, var2, var3);
          var3 = var3.a(a, Boolean.valueOf(false));
@@ -48,7 +48,7 @@ public class axc extends atg {
                double var10 = (double)(var1.s.nextFloat() * var7) + (double)(1.0F - var7) * 0.2D + 0.6D;
                double var12 = (double)(var1.s.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
                amj var14 = var6.k();
-               adw var15 = new adw(var1, (double)var2.n() + var8, (double)var2.o() + var10, (double)var2.p() + var12, var14);
+               EntityItem var15 = new EntityItem(var1, (double)var2.n() + var8, (double)var2.o() + var10, (double)var2.p() + var12, var14);
                var15.p();
                var1.d((Entity)var15);
             }

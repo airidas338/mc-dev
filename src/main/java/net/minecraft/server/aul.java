@@ -38,7 +38,7 @@ public class aul extends avb implements atz {
       return false;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -66,12 +66,12 @@ public class aul extends avb implements atz {
 
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       ej var6 = ej.a((double)var4.y);
       var1.a(var2, var3.a(N, var6), 2);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.k().c()) {
          var3 = ej.c;
       }

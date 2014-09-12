@@ -4,10 +4,10 @@ package net.minecraft.server;
 
 public enum xp {
 
-   a("MONSTER", 0, aex.class, 70, bof.a, false, false),
-   b("CREATURE", 1, abq.class, 10, bof.a, true, true),
-   c("AMBIENT", 2, abn.class, 15, bof.a, true, false),
-   d("WATER_CREATURE", 3, act.class, 5, bof.h, true, false);
+   a("MONSTER", 0, IMonster.class, 70, bof.a, false, false),
+   b("CREATURE", 1, EntityAnimal.class, 10, bof.a, true, true),
+   c("AMBIENT", 2, EntityAmbient.class, 15, bof.a, true, false),
+   d("WATER_CREATURE", 3, EntityWaterAnimal.class, 5, bof.h, true, false);
    private final Class e;
    private final int f;
    private final bof g;

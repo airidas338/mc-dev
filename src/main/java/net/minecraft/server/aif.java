@@ -21,11 +21,11 @@ class aif extends ajk {
       return false;
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return (var1.by.d || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       if(!var1.by.d) {
          var1.a(-this.c.a);
       }

@@ -6,12 +6,12 @@ import com.google.common.base.Predicates;
 public class yw extends zb {
 
    private static final Predicate b = beq.a((atr)aty.H).a(bbh.a, Predicates.equalTo(bbi.b));
-   private xn c;
+   private EntityInsentient c;
    private World d;
    int a;
 
 
-   public yw(xn var1) {
+   public yw(EntityInsentient var1) {
       this.c = var1;
       this.d = var1.o;
       this.a(7);

@@ -32,11 +32,11 @@ public class bfg extends bfh {
       return 0;
    }
 
-   public int a(arf var1, dt var2) {
+   public int a(EnumSkyBlock var1, dt var2) {
       return var1.c;
    }
 
-   public void a(arf var1, dt var2, int var3) {}
+   public void a(EnumSkyBlock var1, dt var2, int var3) {}
 
    public int a(dt var1, int var2) {
       return 0;
@@ -68,9 +68,9 @@ public class bfg extends bfh {
 
    public void e() {}
 
-   public void a(Entity var1, brt var2, List var3, Predicate var4) {}
+   public void a(Entity var1, AxisAlignedBB var2, List var3, Predicate var4) {}
 
-   public void a(Class var1, brt var2, List var3, Predicate var4) {}
+   public void a(Class var1, AxisAlignedBB var2, List var3, Predicate var4) {}
 
    public boolean a(boolean var1) {
       return false;

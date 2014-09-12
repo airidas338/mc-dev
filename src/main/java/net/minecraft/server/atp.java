@@ -14,7 +14,7 @@ public class atp extends avb {
       this.j();
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
@@ -28,7 +28,7 @@ public class atp extends avb {
 
          if(var1.t.e() && var1.b(var2) != arm.x) {
             if(((Boolean)var3.b(b)).booleanValue()) {
-               ahd var10 = this.e(var1, var2);
+               EntityHuman var10 = this.e(var1, var2);
                if(var10 != null) {
                   var4.b((IChatBaseComponent)(new hz("tile.bed.occupied", new Object[0])));
                   return true;
@@ -65,16 +65,16 @@ public class atp extends avb {
       }
    }
 
-   private ahd e(World var1, dt var2) {
+   private EntityHuman e(World var1, dt var2) {
       Iterator var3 = var1.j.iterator();
 
-      ahd var4;
+      EntityHuman var4;
       do {
          if(!var3.hasNext()) {
             return null;
          }
 
-         var4 = (ahd)var3.next();
+         var4 = (EntityHuman)var3.next();
       } while(!var4.bI() || !var4.bv.equals(var2));
 
       return var4;
@@ -159,7 +159,7 @@ public class atp extends avb {
       return 1;
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       if(var4.by.d && var3.b(a) == atq.a) {
          dt var5 = var2.a(((ej)var3.b(N)).d());
          if(var1.p(var5).c() == this) {

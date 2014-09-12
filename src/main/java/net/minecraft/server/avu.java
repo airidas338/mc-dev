@@ -15,8 +15,8 @@ public class avu extends atr {
       this.e(255);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
-      return new brt((double)var2.n(), (double)var2.o(), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 1), (double)(var2.p() + 1));
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+      return new AxisAlignedBB((double)var2.n(), (double)var2.o(), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 1), (double)(var2.p() + 1));
    }
 
    public boolean c() {
@@ -42,9 +42,9 @@ public class avu extends atr {
    }
 
    public void a(World var1, dt var2, Entity var3, float var4) {
-      if(var3 instanceof xm) {
+      if(var3 instanceof EntityLiving) {
          if(!var1.D && var1.s.nextFloat() < var4 - 0.5F) {
-            if(!(var3 instanceof ahd) && !var1.Q().b("mobGriefing")) {
+            if(!(var3 instanceof EntityHuman) && !var1.Q().b("mobGriefing")) {
                return;
             }
 

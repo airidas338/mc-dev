@@ -77,16 +77,16 @@ public class vp implements vy {
       this.c.o_();
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.b.a(var1) && this.c.a(var1);
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       this.b.b(var1);
       this.c.b(var1);
    }
 
-   public void c(ahd var1) {
+   public void c(EntityHuman var1) {
       this.b.c(var1);
       this.c.c(var1);
    }
@@ -122,7 +122,7 @@ public class vp implements vy {
       return this.b.k();
    }
 
-   public aib a(ahb var1, ahd var2) {
+   public aib a(ahb var1, EntityHuman var2) {
       return new aim(var1, this, var2);
    }
 

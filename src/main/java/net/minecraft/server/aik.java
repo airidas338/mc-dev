@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 class aik extends ajk {
 
-   private ahd a;
+   private EntityHuman a;
 
 
-   public aik(ahd var1, vq var2, int var3, int var4, int var5) {
+   public aik(EntityHuman var1, vq var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
@@ -18,7 +18,7 @@ class aik extends ajk {
       return 1;
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       if(var2.b() == amk.bz && var2.i() > 0) {
          this.a.b((tq)tl.B);
       }

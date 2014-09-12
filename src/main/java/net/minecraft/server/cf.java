@@ -99,16 +99,16 @@ public class cf extends CommandAbstract {
          } else {
             Entity var18 = b(var1, var2[1]);
             var1.a(ag.d, 0);
-            if(var18 instanceof ahd) {
-               ((ahd)var18).bh.b();
+            if(var18 instanceof EntityHuman) {
+               ((EntityHuman)var18).bh.b();
             }
 
             if(!var18.d(var5, var9)) {
                throw new di("commands.replaceitem.failed", new Object[]{Integer.valueOf(var5), Integer.valueOf(var7), var9 == null?"Air":var9.C()});
             }
 
-            if(var18 instanceof ahd) {
-               ((ahd)var18).bh.b();
+            if(var18 instanceof EntityHuman) {
+               ((EntityHuman)var18).bh.b();
             }
          }
 

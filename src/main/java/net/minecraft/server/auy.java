@@ -51,7 +51,7 @@ public class auy extends ati {
    private void e(World var1, dt var2, bec var3) {
       boolean var4 = ((Boolean)var3.b(M)).booleanValue();
       boolean var5 = false;
-      List var6 = this.a(var1, var2, adx.class, new Predicate[0]);
+      List var6 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[0]);
       if(!var6.isEmpty()) {
          var5 = true;
       }
@@ -92,12 +92,12 @@ public class auy extends ati {
 
    public int l(World var1, dt var2) {
       if(((Boolean)var1.p(var2).b(M)).booleanValue()) {
-         List var3 = this.a(var1, var2, aeb.class, new Predicate[0]);
+         List var3 = this.a(var1, var2, EntityMinecartCommandBlock.class, new Predicate[0]);
          if(!var3.isEmpty()) {
-            return ((aeb)var3.get(0)).j().j();
+            return ((EntityMinecartCommandBlock)var3.get(0)).j().j();
          }
 
-         List var4 = this.a(var1, var2, adx.class, new Predicate[]{xe.c});
+         List var4 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[]{xe.c});
          if(!var4.isEmpty()) {
             return aib.b((vq)var4.get(0));
          }
@@ -107,13 +107,13 @@ public class auy extends ati {
    }
 
    protected List a(World var1, dt var2, Class var3, Predicate ... var4) {
-      brt var5 = this.a(var2);
+      AxisAlignedBB var5 = this.a(var2);
       return var4.length != 1?var1.a(var3, var5):var1.a(var3, var5, var4[0]);
    }
 
-   private brt a(dt var1) {
+   private AxisAlignedBB a(dt var1) {
       float var2 = 0.2F;
-      return new brt((double)((float)var1.n() + 0.2F), (double)var1.o(), (double)((float)var1.p() + 0.2F), (double)((float)(var1.n() + 1) - 0.2F), (double)((float)(var1.o() + 1) - 0.2F), (double)((float)(var1.p() + 1) - 0.2F));
+      return new AxisAlignedBB((double)((float)var1.n() + 0.2F), (double)var1.o(), (double)((float)var1.p() + 0.2F), (double)((float)(var1.n() + 1) - 0.2F), (double)((float)(var1.o() + 1) - 0.2F), (double)((float)(var1.p() + 1) - 0.2F));
    }
 
    public bec a(int var1) {

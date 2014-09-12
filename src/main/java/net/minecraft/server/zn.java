@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public abstract class zn extends zb {
 
-   private final xu c;
+   private final EntityCreature c;
    private final double d;
    protected int a;
    private int e;
@@ -14,7 +14,7 @@ public abstract class zn extends zb {
    private int h;
 
 
-   public zn(xu var1, double var2, int var4) {
+   public zn(EntityCreature var1, double var2, int var4) {
       this.b = dt.a;
       this.c = var1;
       this.d = var2;

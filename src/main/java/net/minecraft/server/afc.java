@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 class afc extends yn {
 
-   private afa g;
+   private EntityGhast g;
    private int h;
 
 
-   public afc(afa var1) {
+   public afc(EntityGhast var1) {
       super(var1);
       this.g = var1;
    }
@@ -37,7 +37,7 @@ class afc extends yn {
       double var9 = (var1 - this.g.s) / var7;
       double var11 = (var3 - this.g.t) / var7;
       double var13 = (var5 - this.g.u) / var7;
-      brt var15 = this.g.aQ();
+      AxisAlignedBB var15 = this.g.aQ();
 
       for(int var16 = 1; (double)var16 < var7; ++var16) {
          var15 = var15.c(var9, var11, var13);

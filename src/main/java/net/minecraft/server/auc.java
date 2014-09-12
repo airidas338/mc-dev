@@ -44,7 +44,7 @@ public class auc extends atr {
       return this.c(var1.p(var2.b()).c());
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 

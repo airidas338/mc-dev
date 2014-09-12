@@ -124,11 +124,11 @@ public abstract class ava extends avb {
       return true;
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {
       if(this.e(var1, var2, var3)) {
          var1.a(var2, (atr)this, 1);
       }

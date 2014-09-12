@@ -55,7 +55,7 @@ public class ty {
       e();
       b();
       tl.a();
-      xb.a();
+      EntityTypes.a();
    }
 
    private static void b() {
@@ -183,13 +183,13 @@ public class ty {
       }
    }
 
-   public static tq a(xc var0) {
-      String var1 = xb.b(var0.a);
+   public static tq a(MonsterEggInfo var0) {
+      String var1 = EntityTypes.b(var0.a);
       return var1 == null?null:(new tq("stat.killEntity." + var1, new hz("stat.entityKill", new Object[]{new hz("entity." + var1 + ".name", new Object[0])}))).h();
    }
 
-   public static tq b(xc var0) {
-      String var1 = xb.b(var0.a);
+   public static tq b(MonsterEggInfo var0) {
+      String var1 = EntityTypes.b(var0.a);
       return var1 == null?null:(new tq("stat.entityKilledBy." + var1, new hz("stat.entityKilledBy", new Object[]{new hz("entity." + var1 + ".name", new Object[0])}))).h();
    }
 

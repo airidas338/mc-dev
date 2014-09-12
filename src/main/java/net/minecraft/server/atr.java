@@ -228,16 +228,16 @@ public class atr {
       return var1.p(var2).c().r().a();
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
-      brt var7 = this.a(var1, var2, var3);
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
+      AxisAlignedBB var7 = this.a(var1, var2, var3);
       if(var7 != null && var4.b(var7)) {
          var5.add(var7);
       }
 
    }
 
-   public brt a(World var1, dt var2, bec var3) {
-      return new brt((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G);
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+      return new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G);
    }
 
    public boolean c() {
@@ -278,7 +278,7 @@ public class atr {
       return alq.a(this);
    }
 
-   public float a(ahd var1, World var2, dt var3) {
+   public float a(EntityHuman var1, World var2, dt var3) {
       float var4 = this.g(var2, var3);
       return var4 < 0.0F?0.0F:(!var1.b(this)?var1.a(this) / var4 / 100.0F:var1.a(this) / var4 / 30.0F);
    }
@@ -309,7 +309,7 @@ public class atr {
          double var4 = (double)(var0.s.nextFloat() * var3) + (double)(1.0F - var3) * 0.5D;
          double var6 = (double)(var0.s.nextFloat() * var3) + (double)(1.0F - var3) * 0.5D;
          double var8 = (double)(var0.s.nextFloat() * var3) + (double)(1.0F - var3) * 0.5D;
-         adw var10 = new adw(var0, (double)var1.n() + var4, (double)var1.o() + var6, (double)var1.p() + var8, var2);
+         EntityItem var10 = new EntityItem(var0, (double)var1.n() + var4, (double)var1.o() + var6, (double)var1.p() + var8, var2);
          var10.p();
          var0.d((Entity)var10);
       }
@@ -318,9 +318,9 @@ public class atr {
    protected void b(World var1, dt var2, int var3) {
       if(!var1.D) {
          while(var3 > 0) {
-            int var4 = xk.a(var3);
+            int var4 = EntityExperienceOrb.a(var3);
             var3 -= var4;
-            var1.d((Entity)(new xk(var1, (double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, var4)));
+            var1.d((Entity)(new EntityExperienceOrb(var1, (double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, var4)));
          }
       }
 
@@ -451,17 +451,17 @@ public class atr {
       return var1.p(var2).c().J.j();
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       return false;
    }
 
    public void a(World var1, dt var2, Entity var3) {}
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.a(var7);
    }
 
-   public void a(World var1, dt var2, ahd var3) {}
+   public void a(World var1, dt var2, EntityHuman var3) {}
 
    public ChunkCoordinates a(World var1, dt var2, Entity var3, ChunkCoordinates var4) {
       return var4;
@@ -509,16 +509,16 @@ public class atr {
 
    public void h() {}
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       var2.b(ty.H[a(this)]);
       var2.a(0.025F);
-      if(this.G() && aph.e(var2)) {
+      if(this.G() && EnchantmentManager.e(var2)) {
          amj var7 = this.i(var4);
          if(var7 != null) {
             a(var1, var3, var7);
          }
       } else {
-         int var6 = aph.f(var2);
+         int var6 = EnchantmentManager.f(var2);
          this.b(var1, var3, var4, var6);
       }
 
@@ -542,7 +542,7 @@ public class atr {
       return this.a(var2);
    }
 
-   public void a(World var1, dt var2, bec var3, xm var4, amj var5) {}
+   public void a(World var1, dt var2, bec var3, EntityLiving var4, amj var5) {}
 
    public atr c(String var1) {
       this.N = var1;
@@ -591,7 +591,7 @@ public class atr {
       return this;
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {}
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {}
 
    public void k(World var1, dt var2) {}
 

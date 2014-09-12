@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public class aiw extends ajk {
 
-   private ahd a;
+   private EntityHuman a;
    private int b;
 
 
-   public aiw(ahd var1, vq var2, int var3, int var4, int var5) {
+   public aiw(EntityHuman var1, vq var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
@@ -24,7 +24,7 @@ public class aiw extends ajk {
       return super.a(var1);
    }
 
-   public void a(ahd var1, amj var2) {
+   public void a(EntityHuman var1, amj var2) {
       this.c(var2);
       super.a(var1, var2);
    }
@@ -52,9 +52,9 @@ public class aiw extends ajk {
          }
 
          while(var2 > 0) {
-            var4 = xk.a(var2);
+            var4 = EntityExperienceOrb.a(var2);
             var2 -= var4;
-            this.a.o.d((Entity)(new xk(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
+            this.a.o.d((Entity)(new EntityExperienceOrb(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
          }
       }
 

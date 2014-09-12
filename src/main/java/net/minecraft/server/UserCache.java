@@ -54,7 +54,7 @@ public class UserCache {
       rz var3 = new rz(var2);
       var0.aC().findProfilesByNames(new String[]{var1}, Agent.MINECRAFT, var3);
       if(!var0.ae() && var2[0] == null) {
-         UUID var4 = ahd.a(new GameProfile((UUID)null, var1));
+         UUID var4 = EntityHuman.a(new GameProfile((UUID)null, var1));
          GameProfile var5 = new GameProfile(var4, var1);
          var3.onProfileLookupSucceeded(var5);
       }

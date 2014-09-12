@@ -9,10 +9,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class ye implements xz {
+public class ye implements AttributeInstance {
 
-   private final yc a;
-   private final xy b;
+   private final AttributeMapBase a;
+   private final IAttribute b;
    private final Map c = Maps.newHashMap();
    private final Map d = Maps.newHashMap();
    private final Map e = Maps.newHashMap();
@@ -21,7 +21,7 @@ public class ye implements xz {
    private double h;
 
 
-   public ye(yc var1, xy var2) {
+   public ye(AttributeMapBase var1, IAttribute var2) {
       this.a = var1;
       this.b = var2;
       this.f = var2.b();
@@ -32,7 +32,7 @@ public class ye implements xz {
 
    }
 
-   public xy a() {
+   public IAttribute a() {
       return this.b;
    }
 
@@ -88,7 +88,7 @@ public class ye implements xz {
 
    protected void f() {
       this.g = true;
-      this.a.a((xz)this);
+      this.a.a((AttributeInstance)this);
    }
 
    public void c(ya var1) {
@@ -109,7 +109,7 @@ public class ye implements xz {
       this.f();
    }
 
-   public double e() {
+   public double getValue() {
       if(this.g) {
          this.h = this.g();
          this.g = false;
@@ -144,8 +144,8 @@ public class ye implements xz {
    private Collection b(int var1) {
       HashSet var2 = Sets.newHashSet(this.a(var1));
 
-      for(xy var3 = this.b.d(); var3 != null; var3 = var3.d()) {
-         xz var4 = this.a.a(var3);
+      for(IAttribute var3 = this.b.d(); var3 != null; var3 = var3.d()) {
+         AttributeInstance var4 = this.a.a(var3);
          if(var4 != null) {
             var2.addAll(var4.a(var1));
          }

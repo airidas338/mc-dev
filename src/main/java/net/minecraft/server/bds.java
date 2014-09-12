@@ -16,7 +16,7 @@ public class bds extends atr {
       this.c(0.5F);
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       if(var4.by.d) {
          ej var5 = (ej)var3.b(a);
          if(var5 != null) {
@@ -63,7 +63,7 @@ public class bds extends atr {
       return 0;
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.d(var3);
       super.a(var1, var2, var3, var4, var5, var6);
       this.e(var3);

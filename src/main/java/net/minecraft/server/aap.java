@@ -12,7 +12,7 @@ class aap implements Predicate {
    }
 
    public boolean a(Entity var1) {
-      if(!(var1 instanceof ahd)) {
+      if(!(var1 instanceof EntityHuman)) {
          return false;
       } else {
          double var2 = this.a.f();
@@ -21,7 +21,7 @@ class aap implements Predicate {
          }
 
          if(var1.ay()) {
-            float var4 = ((ahd)var1).bX();
+            float var4 = ((EntityHuman)var1).bX();
             if(var4 < 0.1F) {
                var4 = 0.1F;
             }
@@ -29,7 +29,7 @@ class aap implements Predicate {
             var2 *= (double)(0.7F * var4);
          }
 
-         return (double)var1.g(aao.a(this.a)) > var2?false:aaw.a(aao.a(this.a), (xm)var1, false, true);
+         return (double)var1.g(aao.a(this.a)) > var2?false:aaw.a(aao.a(this.a), (EntityLiving)var1, false, true);
       }
    }
 

@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public class aad extends zb {
 
-   private xx a;
+   private EntityTameableAnimal a;
    private boolean b;
 
 
-   public aad(xx var1) {
+   public aad(EntityTameableAnimal var1) {
       this.a = var1;
       this.a(5);
    }
@@ -20,7 +20,7 @@ public class aad extends zb {
       } else if(!this.a.C) {
          return false;
       } else {
-         xm var1 = this.a.cm();
+         EntityLiving var1 = this.a.cm();
          return var1 == null?true:(this.a.h(var1) < 144.0D && var1.bc() != null?false:this.b);
       }
    }

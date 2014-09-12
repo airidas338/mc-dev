@@ -10,15 +10,15 @@ public class bcb extends auc {
       this.a(akf.c);
    }
 
-   public void a(World var1, dt var2, bec var3, brt var4, List var5, Entity var6) {
-      if(var6 == null || !(var6 instanceof adu)) {
+   public void a(World var1, dt var2, bec var3, AxisAlignedBB var4, List var5, Entity var6) {
+      if(var6 == null || !(var6 instanceof EntityBoat)) {
          super.a(var1, var2, var3, var4, var5, var6);
       }
 
    }
 
-   public brt a(World var1, dt var2, bec var3) {
-      return new brt((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G);
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
+      return new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G);
    }
 
    protected boolean c(atr var1) {

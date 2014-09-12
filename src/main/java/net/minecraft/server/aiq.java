@@ -104,7 +104,7 @@ public class aiq extends aib {
                this.k.setSeed((long)this.f);
 
                for(var4 = 0; var4 < 3; ++var4) {
-                  this.g[var4] = aph.a(this.k, var4, var3, var2);
+                  this.g[var4] = EnchantmentManager.a(this.k, var4, var3, var2);
                   this.h[var4] = -1;
                   if(this.g[var4] < var4 + 1) {
                      this.g[var4] = 0;
@@ -133,7 +133,7 @@ public class aiq extends aib {
 
    }
 
-   public boolean a(ahd var1, int var2) {
+   public boolean a(EntityHuman var1, int var2) {
       amj var3 = this.a.a(0);
       amj var4 = this.a.a(1);
       int var5 = var2 + 1;
@@ -179,7 +179,7 @@ public class aiq extends aib {
 
    private List a(amj var1, int var2, int var3) {
       this.k.setSeed((long)(this.f + var2));
-      List var4 = aph.b(this.k, var1, var3);
+      List var4 = EnchantmentManager.b(this.k, var1, var3);
       if(var1.b() == amk.aL && var4 != null && var4.size() > 1) {
          var4.remove(this.k.nextInt(var4.size()));
       }
@@ -187,7 +187,7 @@ public class aiq extends aib {
       return var4;
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
       if(!this.i.D) {
          for(int var2 = 0; var2 < this.a.n_(); ++var2) {
@@ -200,11 +200,11 @@ public class aiq extends aib {
       }
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.i.p(this.j).c() != aty.bC?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {

@@ -819,11 +819,11 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 			WorldServer var3 = this.c[var2];
 			if (var3 != null) {
 				if (var3.P().t()) {
-					var3.P().a(EnumDifficulty.d);
+					var3.P().a(EnumDifficulty.HARD);
 					var3.a(true, true);
 				} else if (this.S()) {
 					var3.P().a(var1);
-					var3.a(var3.aa() != EnumDifficulty.a, true);
+					var3.a(var3.aa() != EnumDifficulty.PEACEFUL, true);
 				} else {
 					var3.P().a(var1);
 					var3.a(this.V(), this.A);
@@ -1044,7 +1044,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		return 16;
 	}
 
-	public boolean a(World var1, dt var2, ahd var3) {
+	public boolean a(World var1, dt var2, EntityHuman var3) {
 		return false;
 	}
 

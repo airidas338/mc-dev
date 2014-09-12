@@ -8,7 +8,7 @@ import java.util.List;
 public class yp extends zb {
 
    public final Predicate a = new yq(this);
-   protected xu b;
+   protected EntityCreature b;
    private double d;
    private double e;
    protected Entity c;
@@ -18,7 +18,7 @@ public class yp extends zb {
    private Predicate i;
 
 
-   public yp(xu var1, Predicate var2, float var3, double var4, double var6) {
+   public yp(EntityCreature var1, Predicate var2, float var3, double var4, double var6) {
       this.b = var1;
       this.i = var2;
       this.f = var3;

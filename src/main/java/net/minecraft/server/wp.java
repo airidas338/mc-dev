@@ -12,11 +12,11 @@ public class wp {
    public static final wp[] a = new wp[32];
    private static final Map I = Maps.newHashMap();
    public static final wp b = null;
-   public static final wp c = (new wp(1, new oa("speed"), false, 8171462)).c("potion.moveSpeed").b(0, 0).a(afs.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
-   public static final wp d = (new wp(2, new oa("slowness"), true, 5926017)).c("potion.moveSlowdown").b(1, 0).a(afs.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2);
+   public static final wp c = (new wp(1, new oa("speed"), false, 8171462)).c("potion.moveSpeed").b(0, 0).a(GenericAttributes.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
+   public static final wp d = (new wp(2, new oa("slowness"), true, 5926017)).c("potion.moveSlowdown").b(1, 0).a(GenericAttributes.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2);
    public static final wp e = (new wp(3, new oa("haste"), false, 14270531)).c("potion.digSpeed").b(2, 0).a(1.5D);
    public static final wp f = (new wp(4, new oa("mining_fatigue"), true, 4866583)).c("potion.digSlowDown").b(3, 0);
-   public static final wp g = (new wm(5, new oa("strength"), false, 9643043)).c("potion.damageBoost").b(4, 0).a(afs.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2);
+   public static final wp g = (new wm(5, new oa("strength"), false, 9643043)).c("potion.damageBoost").b(4, 0).a(GenericAttributes.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2);
    public static final wp h = (new wo(6, new oa("instant_health"), false, 16262179)).c("potion.heal");
    public static final wp i = (new wo(7, new oa("instant_damage"), true, 4393481)).c("potion.harm");
    public static final wp j = (new wp(8, new oa("jump_boost"), false, 2293580)).c("potion.jump").b(2, 1);
@@ -29,10 +29,10 @@ public class wp {
    public static final wp q = (new wp(15, new oa("blindness"), true, 2039587)).c("potion.blindness").b(5, 1).a(0.25D);
    public static final wp r = (new wp(16, new oa("night_vision"), false, 2039713)).c("potion.nightVision").b(4, 1);
    public static final wp s = (new wp(17, new oa("hunger"), true, 5797459)).c("potion.hunger").b(1, 1);
-   public static final wp t = (new wm(18, new oa("weakness"), true, 4738376)).c("potion.weakness").b(5, 0).a(afs.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0);
+   public static final wp t = (new wm(18, new oa("weakness"), true, 4738376)).c("potion.weakness").b(5, 0).a(GenericAttributes.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0);
    public static final wp u = (new wp(19, new oa("poison"), true, 5149489)).c("potion.poison").b(6, 0).a(0.25D);
    public static final wp v = (new wp(20, new oa("wither"), true, 3484199)).c("potion.wither").b(1, 2).a(0.25D);
-   public static final wp w = (new wn(21, new oa("health_boost"), false, 16284963)).c("potion.healthBoost").b(2, 2).a(afs.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0);
+   public static final wp w = (new wn(21, new oa("health_boost"), false, 16284963)).c("potion.healthBoost").b(2, 2).a(GenericAttributes.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0);
    public static final wp x = (new wl(22, new oa("absorption"), false, 2445989)).c("potion.absorption").b(2, 2);
    public static final wp y = (new wo(23, new oa("saturation"), false, 16262179)).c("potion.saturation");
    public static final wp z = null;
@@ -92,26 +92,26 @@ public class wp {
       return this.H;
    }
 
-   public void a(xm var1, int var2) {
+   public void a(EntityLiving var1, int var2) {
       if(this.H == l.H) {
          if(var1.bm() < var1.bt()) {
             var1.g(1.0F);
          }
       } else if(this.H == u.H) {
          if(var1.bm() > 1.0F) {
-            var1.a(wh.l, 1.0F);
+            var1.a(DamageSource.l, 1.0F);
          }
       } else if(this.H == v.H) {
-         var1.a(wh.m, 1.0F);
-      } else if(this.H == s.H && var1 instanceof ahd) {
-         ((ahd)var1).a(0.025F * (float)(var2 + 1));
-      } else if(this.H == y.H && var1 instanceof ahd) {
+         var1.a(DamageSource.m, 1.0F);
+      } else if(this.H == s.H && var1 instanceof EntityHuman) {
+         ((EntityHuman)var1).a(0.025F * (float)(var2 + 1));
+      } else if(this.H == y.H && var1 instanceof EntityHuman) {
          if(!var1.o.D) {
-            ((ahd)var1).ck().a(var2 + 1, 1.0F);
+            ((EntityHuman)var1).ck().a(var2 + 1, 1.0F);
          }
       } else if((this.H != h.H || var1.bl()) && (this.H != i.H || !var1.bl())) {
          if(this.H == i.H && !var1.bl() || this.H == h.H && var1.bl()) {
-            var1.a(wh.l, (float)(6 << var2));
+            var1.a(DamageSource.l, (float)(6 << var2));
          }
       } else {
          var1.g((float)Math.max(4 << var2, 0));
@@ -119,15 +119,15 @@ public class wp {
 
    }
 
-   public void a(Entity var1, Entity var2, xm var3, int var4, double var5) {
+   public void a(Entity var1, Entity var2, EntityLiving var3, int var4, double var5) {
       int var7;
       if((this.H != h.H || var3.bl()) && (this.H != i.H || !var3.bl())) {
          if(this.H == i.H && !var3.bl() || this.H == h.H && var3.bl()) {
             var7 = (int)(var5 * (double)(6 << var4) + 0.5D);
             if(var1 == null) {
-               var3.a(wh.l, (float)var7);
+               var3.a(DamageSource.l, (float)var7);
             } else {
-               var3.a(wh.b(var1, var2), (float)var7);
+               var3.a(DamageSource.b(var1, var2), (float)var7);
             }
          }
       } else {
@@ -183,18 +183,18 @@ public class wp {
       return this.L;
    }
 
-   public wp a(xy var1, String var2, double var3, int var5) {
+   public wp a(IAttribute var1, String var2, double var3, int var5) {
       ya var6 = new ya(UUID.fromString(var2), this.a(), var3, var5);
       this.J.put(var1, var6);
       return this;
    }
 
-   public void a(xm var1, yc var2, int var3) {
+   public void a(EntityLiving var1, AttributeMapBase var2, int var3) {
       Iterator var4 = this.J.entrySet().iterator();
 
       while(var4.hasNext()) {
          Entry var5 = (Entry)var4.next();
-         xz var6 = var2.a((xy)var5.getKey());
+         AttributeInstance var6 = var2.a((IAttribute)var5.getKey());
          if(var6 != null) {
             var6.c((ya)var5.getValue());
          }
@@ -202,12 +202,12 @@ public class wp {
 
    }
 
-   public void b(xm var1, yc var2, int var3) {
+   public void b(EntityLiving var1, AttributeMapBase var2, int var3) {
       Iterator var4 = this.J.entrySet().iterator();
 
       while(var4.hasNext()) {
          Entry var5 = (Entry)var4.next();
-         xz var6 = var2.a((xy)var5.getKey());
+         AttributeInstance var6 = var2.a((IAttribute)var5.getKey());
          if(var6 != null) {
             ya var7 = (ya)var5.getValue();
             var6.c(var7);

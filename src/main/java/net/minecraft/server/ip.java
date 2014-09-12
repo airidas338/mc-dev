@@ -10,7 +10,7 @@ public class ip implements id {
 
    public ip() {}
 
-   public ip(adm var1) {
+   public ip(EntityPainting var1) {
       this.a = var1.F();
       this.b = var1.n();
       this.c = var1.b;

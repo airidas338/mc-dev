@@ -61,7 +61,7 @@ public abstract class aib {
 
    }
 
-   public boolean a(ahd var1, int var2) {
+   public boolean a(EntityHuman var1, int var2) {
       return false;
    }
 
@@ -80,12 +80,12 @@ public abstract class aib {
       return (ajk)this.c.get(var1);
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       ajk var3 = (ajk)this.c.get(var2);
       return var3 != null?var3.d():null;
    }
 
-   public amj a(int var1, int var2, int var3, ahd var4) {
+   public amj a(int var1, int var2, int var3, EntityHuman var4) {
       amj var5 = null;
       ahb var6 = var4.bg;
       int var9;
@@ -340,11 +340,11 @@ public abstract class aib {
       return true;
    }
 
-   protected void a(int var1, int var2, boolean var3, ahd var4) {
+   protected void a(int var1, int var2, boolean var3, EntityHuman var4) {
       this.a(var1, var2, 1, var4);
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       ahb var2 = var1.bg;
       if(var2.p() != null) {
          var1.a(var2.p(), false);
@@ -361,11 +361,11 @@ public abstract class aib {
       this.a(var1).d(var2);
    }
 
-   public boolean c(ahd var1) {
+   public boolean c(EntityHuman var1) {
       return !this.i.contains(var1);
    }
 
-   public void a(ahd var1, boolean var2) {
+   public void a(EntityHuman var1, boolean var2) {
       if(var2) {
          this.i.remove(var1);
       } else {
@@ -374,7 +374,7 @@ public abstract class aib {
 
    }
 
-   public abstract boolean a(ahd var1);
+   public abstract boolean a(EntityHuman var1);
 
    protected boolean a(amj var1, int var2, int var3, boolean var4) {
       boolean var5 = false;
@@ -449,7 +449,7 @@ public abstract class aib {
       return var0 & 3;
    }
 
-   public static boolean a(int var0, ahd var1) {
+   public static boolean a(int var0, EntityHuman var1) {
       return var0 == 0?true:(var0 == 1?true:var0 == 2 && var1.by.d);
    }
 

@@ -21,7 +21,7 @@ public class auw extends auc {
       return null;
    }
 
-   public void a(World var1, ahd var2, dt var3, bec var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, dt var3, bec var4, bcm var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == amk.be) {
          var2.b(ty.H[atr.a((atr)this)]);
          a(var1, var3, new amj(aty.I, 1, 0));

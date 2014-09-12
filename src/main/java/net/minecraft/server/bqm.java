@@ -167,7 +167,7 @@ public class bqm implements IDataManager, brl {
 
    }
 
-   public void a(ahd var1) {
+   public void a(EntityHuman var1) {
       try {
          fn var2 = new fn();
          var1.e(var2);
@@ -185,7 +185,7 @@ public class bqm implements IDataManager, brl {
 
    }
 
-   public fn b(ahd var1) {
+   public fn b(EntityHuman var1) {
       fn var2 = null;
 
       try {

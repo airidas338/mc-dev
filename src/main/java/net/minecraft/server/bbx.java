@@ -70,7 +70,7 @@ public class bbx extends atr {
       this.a(var7, 0.0F, var9, var8, var11, var10);
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       this.F = 1.5D;
       return super.a(var1, var2, var3);

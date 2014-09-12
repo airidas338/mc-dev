@@ -79,7 +79,7 @@ public class wq {
       return this.h;
    }
 
-   public boolean a(xm var1) {
+   public boolean a(EntityLiving var1) {
       if(this.c > 0) {
          if(wp.a[this.b].a(this.c, this.d)) {
             this.b(var1);
@@ -95,7 +95,7 @@ public class wq {
       return --this.c;
    }
 
-   public void b(xm var1) {
+   public void b(EntityLiving var1) {
       if(this.c > 0) {
          wp.a[this.b].a(var1, this.d);
       }

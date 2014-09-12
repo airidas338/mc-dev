@@ -14,7 +14,7 @@ public class ke implements id {
 
    public ke(wg var1, kg var2) {
       this.a = var2;
-      xm var3 = var1.c();
+      EntityLiving var3 = var1.c();
       switch(kf.a[var2.ordinal()]) {
       case 1:
          this.d = var1.f();

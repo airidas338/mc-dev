@@ -89,8 +89,8 @@ public class WorldServer extends World implements vn {
 
    public void c() {
       super.c();
-      if(this.P().t() && this.aa() != EnumDifficulty.d) {
-         this.P().a(EnumDifficulty.d);
+      if(this.P().t() && this.aa() != EnumDifficulty.HARD) {
+         this.P().a(EnumDifficulty.HARD);
       }
 
       this.t.m().b();
@@ -153,7 +153,7 @@ public class WorldServer extends World implements vn {
          Iterator var3 = this.j.iterator();
 
          while(var3.hasNext()) {
-            ahd var4 = (ahd)var3.next();
+            EntityHuman var4 = (EntityHuman)var3.next();
             if(var4.v()) {
                ++var1;
             } else if(var4.bI()) {
@@ -171,7 +171,7 @@ public class WorldServer extends World implements vn {
       Iterator var1 = this.j.iterator();
 
       while(var1.hasNext()) {
-         ahd var2 = (ahd)var1.next();
+         EntityHuman var2 = (EntityHuman)var1.next();
          if(var2.bI()) {
             var2.a(false, false, true);
          }
@@ -191,13 +191,13 @@ public class WorldServer extends World implements vn {
       if(this.O && !this.D) {
          Iterator var1 = this.j.iterator();
 
-         ahd var2;
+         EntityHuman var2;
          do {
             if(!var1.hasNext()) {
                return true;
             }
 
-            var2 = (ahd)var1.next();
+            var2 = (EntityHuman)var1.next();
          } while(!var2.v() && var2.ce());
 
          return false;
@@ -294,9 +294,9 @@ public class WorldServer extends World implements vn {
 
    protected dt a(dt var1) {
       dt var2 = this.q(var1);
-      brt var3 = (new brt(var2, new dt(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
-      List var4 = this.a(xm.class, var3, new qu(this));
-      return !var4.isEmpty()?((xm)var4.get(this.s.nextInt(var4.size()))).c():var2;
+      AxisAlignedBB var3 = (new AxisAlignedBB(var2, new dt(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
+      List var4 = this.a(EntityLiving.class, var3, new qu(this));
+      return !var4.isEmpty()?((EntityLiving)var4.get(this.s.nextInt(var4.size()))).c():var2;
    }
 
    public boolean a(dt var1, atr var2) {
@@ -474,7 +474,7 @@ public class WorldServer extends World implements vn {
    }
 
    public void a(Entity var1, boolean var2) throws IOException {
-      if(!this.ai() && (var1 instanceof abq || var1 instanceof act)) {
+      if(!this.ai() && (var1 instanceof EntityAnimal || var1 instanceof EntityWaterAnimal)) {
          var1.J();
       }
 
@@ -513,7 +513,7 @@ public class WorldServer extends World implements vn {
       return var7;
    }
 
-   public boolean a(ahd var1, dt var2) {
+   public boolean a(EntityHuman var1, dt var2) {
       return !this.I.a((World)this, var2, var1) && this.af().a(var2);
    }
 
@@ -552,7 +552,7 @@ public class WorldServer extends World implements vn {
       this.x.c(6000L);
       this.x.a(EnumGamemode.e);
       this.x.g(false);
-      this.x.a(EnumDifficulty.a);
+      this.x.a(EnumDifficulty.PEACEFUL);
       this.x.e(true);
       this.Q().a("doDaylightCycle", "false");
    }
@@ -712,7 +712,7 @@ public class WorldServer extends World implements vn {
       Iterator var12 = this.j.iterator();
 
       while(var12.hasNext()) {
-         ahd var13 = (ahd)var12.next();
+         EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
             ((EntityPlayer)var13).a.a((id)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
          }

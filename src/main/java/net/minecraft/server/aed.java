@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public abstract class aed extends adx implements vy {
+public abstract class aed extends EntityMinecartAbstract implements vy {
 
    private amj[] a = new amj[36];
    private boolean b = true;
@@ -16,7 +16,7 @@ public abstract class aed extends adx implements vy {
       super(var1, var2, var4, var6);
    }
 
-   public void a(wh var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       vs.a(this.o, (Entity)this, this);
    }
@@ -65,13 +65,13 @@ public abstract class aed extends adx implements vy {
 
    public void o_() {}
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return this.I?false:var1.h(this) <= 64.0D;
    }
 
-   public void b(ahd var1) {}
+   public void b(EntityHuman var1) {}
 
-   public void c(ahd var1) {}
+   public void c(EntityHuman var1) {}
 
    public boolean b(int var1, amj var2) {
       return true;
@@ -129,7 +129,7 @@ public abstract class aed extends adx implements vy {
 
    }
 
-   public boolean e(ahd var1) {
+   public boolean e(EntityHuman var1) {
       if(!this.o.D) {
          var1.a((vq)this);
       }

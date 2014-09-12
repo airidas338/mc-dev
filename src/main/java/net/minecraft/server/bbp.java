@@ -29,7 +29,7 @@ public class bbp extends atr {
       return !((Boolean)var1.p(var2).b(b)).booleanValue();
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -76,7 +76,7 @@ public class bbp extends atr {
       }
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(this.J == bof.f) {
          return true;
       } else {
@@ -99,7 +99,7 @@ public class bbp extends atr {
                boolean var7 = ((Boolean)var3.b(b)).booleanValue();
                if(var7 != var6) {
                   var1.a(var2, var3.a(b, Boolean.valueOf(var6)), 2);
-                  var1.a((ahd)null, var6?1003:1006, var2, 0);
+                  var1.a((EntityHuman)null, var6?1003:1006, var2, 0);
                }
             }
 
@@ -112,7 +112,7 @@ public class bbp extends atr {
       return super.a(var1, var2, var3, var4);
    }
 
-   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, xm var8) {
+   public bec a(World var1, dt var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       bec var9 = this.P();
       if(var3.k().c()) {
          var9 = var9.a(a, var3).a(b, Boolean.valueOf(false));

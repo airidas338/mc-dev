@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public abstract class yv extends zb {
 
-   protected xn a;
+   protected EntityInsentient a;
    protected dt b;
    protected avf c;
    boolean d;
@@ -12,7 +12,7 @@ public abstract class yv extends zb {
    float f;
 
 
-   public yv(xn var1) {
+   public yv(EntityInsentient var1) {
       this.b = dt.a;
       this.a = var1;
       if(!(var1.s() instanceof aay)) {

@@ -9,7 +9,7 @@ public class yg extends yb {
    private String c;
 
 
-   public yg(xy var1, String var2, double var3, double var5, double var7) {
+   public yg(IAttribute var1, String var2, double var3, double var5, double var7) {
       super(var1, var2, var3);
       this.a = var5;
       this.b = var7;

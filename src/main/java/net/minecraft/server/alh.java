@@ -25,7 +25,7 @@ public class alh extends all {
       return ali.a(var1) == ali.d?ans.m:null;
    }
 
-   protected void c(amj var1, World var2, ahd var3) {
+   protected void c(amj var1, World var2, EntityHuman var3) {
       ali var4 = ali.a(var1);
       if(var4 == ali.d) {
          var3.c(new wq(wp.u.H, 1200, 3));

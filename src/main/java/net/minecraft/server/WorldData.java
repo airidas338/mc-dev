@@ -3,7 +3,7 @@ import java.util.concurrent.Callable;
 
 public class WorldData {
 
-   public static final EnumDifficulty a = EnumDifficulty.c;
+   public static final EnumDifficulty a = EnumDifficulty.NORMAL;
    private long b;
    private WorldType c;
    private String d;

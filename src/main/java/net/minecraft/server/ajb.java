@@ -5,10 +5,10 @@ public class ajb extends aib {
    public ain a = new ain(this, 2, 2);
    public vq f = new aji();
    public boolean g;
-   private final ahd h;
+   private final EntityHuman h;
 
 
-   public ajb(ahb var1, boolean var2, ahd var3) {
+   public ajb(ahb var1, boolean var2, EntityHuman var3) {
       this.g = var2;
       this.h = var3;
       this.a((ajk)(new ajj(var1.d, this.a, this.f, 0, 144, 36)));
@@ -42,7 +42,7 @@ public class ajb extends aib {
       this.f.a(0, aop.a().a(this.a, this.h.o));
    }
 
-   public void b(ahd var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
@@ -55,11 +55,11 @@ public class ajb extends aib {
       this.f.a(0, (amj)null);
    }
 
-   public boolean a(ahd var1) {
+   public boolean a(EntityHuman var1) {
       return true;
    }
 
-   public amj b(ahd var1, int var2) {
+   public amj b(EntityHuman var1, int var2) {
       amj var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {

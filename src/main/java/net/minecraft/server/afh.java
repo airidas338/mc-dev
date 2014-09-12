@@ -4,10 +4,10 @@ import com.google.common.base.Predicate;
 class afh implements Predicate {
 
    // $FF: synthetic field
-   final afg a;
+   final EntityGuardian a;
 
 
-   afh(afg var1) {
+   afh(EntityGuardian var1) {
       this.a = var1;
    }
 

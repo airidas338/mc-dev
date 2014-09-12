@@ -26,7 +26,7 @@ public class bbs extends atr {
       return var1.a(O, Boolean.valueOf(c(var2, var3, var1, ej.c))).a(P, Boolean.valueOf(c(var2, var3, var1, ej.f))).a(Q, Boolean.valueOf(c(var2, var3, var1, ej.d))).a(R, Boolean.valueOf(c(var2, var3, var1, ej.e)));
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       return null;
    }
 
@@ -76,7 +76,7 @@ public class bbs extends atr {
       this.e(var1, var2, var3.a(a, Boolean.valueOf(true)));
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       if(!var1.D) {
          if(var4.bY() != null && var4.bY().b() == amk.be) {
             var1.a(var2, var3.a(N, Boolean.valueOf(true)), 4);
@@ -137,7 +137,7 @@ public class bbs extends atr {
       bec var3 = var1.p(var2);
       boolean var4 = ((Boolean)var3.b(a)).booleanValue();
       boolean var5 = false;
-      List var6 = var1.b((Entity)null, new brt((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
+      List var6 = var1.b((Entity)null, new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
       if(!var6.isEmpty()) {
          Iterator var7 = var6.iterator();
 

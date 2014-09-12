@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public interface aqb {
 
-   void a_(ahd var1);
+   void a_(EntityHuman var1);
 
-   ahd u_();
+   EntityHuman u_();
 
-   aqd b_(ahd var1);
+   aqd b_(EntityHuman var1);
 
    void a(aqc var1);
 

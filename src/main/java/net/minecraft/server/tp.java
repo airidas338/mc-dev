@@ -58,7 +58,7 @@ public class tp extends tz {
 
    }
 
-   public void a(ahd var1, tq var2, int var3) {
+   public void a(EntityHuman var1, tq var2, int var3) {
       int var4 = var2.d()?this.a(var2):0;
       super.a(var1, var2, var3);
       this.e.add(var2);

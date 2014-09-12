@@ -3,5 +3,5 @@ package net.minecraft.server;
 
 public interface afr {
 
-   void a(xm var1, float var2);
+   void a(EntityLiving var1, float var2);
 }

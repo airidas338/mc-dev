@@ -19,7 +19,7 @@ public class iq implements id {
 
    public iq() {}
 
-   public iq(ahd var1) {
+   public iq(EntityHuman var1) {
       this.a = var1.F();
       this.b = var1.cc().getId();
       this.c = MathHelper.c(var1.s * 32.0D);

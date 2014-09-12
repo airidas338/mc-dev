@@ -87,8 +87,8 @@ public class ajn extends alq {
       return this.m.b() == var2.b()?true:super.a(var1, var2);
    }
 
-   public amj a(amj var1, World var2, ahd var3) {
-      int var4 = xn.c(var1) - 1;
+   public amj a(amj var1, World var2, EntityHuman var3) {
+      int var4 = EntityInsentient.c(var1) - 1;
       amj var5 = var3.q(var4);
       if(var5 == null) {
          var3.c(var4, var1.k());

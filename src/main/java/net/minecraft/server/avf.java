@@ -28,7 +28,7 @@ public class avf extends atr {
       return false;
    }
 
-   public brt a(World var1, dt var2, bec var3) {
+   public AxisAlignedBB a(World var1, dt var2, bec var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -81,7 +81,7 @@ public class avf extends atr {
 
    }
 
-   public boolean a(World var1, dt var2, bec var3, ahd var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, dt var2, bec var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
       if(this.J == bof.f) {
          return true;
       } else {
@@ -107,7 +107,7 @@ public class avf extends atr {
          if(var6.c() == this && ((Boolean)var6.b(b)).booleanValue() != var3) {
             var1.a(var5, var6.a(b, Boolean.valueOf(var3)), 2);
             var1.b(var5, var2);
-            var1.a((ahd)null, var3?1003:1006, var2, 0);
+            var1.a((EntityHuman)null, var3?1003:1006, var2, 0);
          }
 
       }
@@ -150,7 +150,7 @@ public class avf extends atr {
                if(var8 != ((Boolean)var3.b(b)).booleanValue()) {
                   var1.a(var2, var3.a(b, Boolean.valueOf(var8)), 2);
                   var1.b(var2, var2);
-                  var1.a((ahd)null, var8?1003:1006, var2, 0);
+                  var1.a((EntityHuman)null, var8?1003:1006, var2, 0);
                }
             }
          }
@@ -194,7 +194,7 @@ public class avf extends atr {
       return this == aty.aA?amk.aB:(this == aty.ap?amk.ar:(this == aty.aq?amk.as:(this == aty.ar?amk.at:(this == aty.as?amk.au:(this == aty.at?amk.av:amk.aq)))));
    }
 
-   public void a(World var1, dt var2, bec var3, ahd var4) {
+   public void a(World var1, dt var2, bec var3, EntityHuman var4) {
       dt var5 = var2.b();
       if(var4.by.d && var3.b(O) == avg.a && var1.p(var5).c() == this) {
          var1.g(var5);
