@@ -33,7 +33,7 @@ public class WorldServer extends World implements vn {
    private final PortalTravelAgent Q;
    private final SpawnerCreature R = new SpawnerCreature();
    protected final abk d = new abk(this);
-   private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((BananaAPI)null), new BlockActionDataList((BananaAPI)null)};
+   private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((PredicateEntityUnderSun)null), new BlockActionDataList((PredicateEntityUnderSun)null)};
    private int T;
    private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.f), 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.r), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(alq.a(aty.s), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
@@ -295,7 +295,7 @@ public class WorldServer extends World implements vn {
    protected Location a(Location var1) {
       Location var2 = this.q(var1);
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new Location(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
-      List var4 = this.a(EntityLiving.class, var3, new BananaAPI(this));
+      List var4 = this.a(EntityLiving.class, var3, new PredicateEntityUnderSun(this));
       return !var4.isEmpty()?((EntityLiving)var4.get(this.s.nextInt(var4.size()))).c():var2;
    }
 

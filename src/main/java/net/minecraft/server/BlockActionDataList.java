@@ -6,7 +6,7 @@ class BlockActionDataList extends ArrayList {
    private BlockActionDataList() {}
 
    // $FF: synthetic method
-   BlockActionDataList(BananaAPI var1) {
+   BlockActionDataList(PredicateEntityUnderSun var1) {
       this();
    }
 }
