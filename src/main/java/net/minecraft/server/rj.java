@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
 public class rj implements ls, IUpdatePlayerListBox {
 
    private static final Logger c = LogManager.getLogger();
-   public final gr a;
+   public final NetworkManager a;
    private final MinecraftServer d;
    public EntityPlayer b;
    private int e;
@@ -40,10 +40,10 @@ public class rj implements ls, IUpdatePlayerListBox {
    private boolean r = true;
 
 
-   public rj(MinecraftServer var1, gr var2, EntityPlayer var3) {
+   public rj(MinecraftServer var1, NetworkManager var2, EntityPlayer var3) {
       this.d = var1;
       this.a = var2;
-      var2.a((hg)this);
+      var2.a((PacketListener)this);
       this.b = var3;
       var3.a = this;
    }
@@ -74,13 +74,13 @@ public class rj implements ls, IUpdatePlayerListBox {
 
    }
 
-   public gr a() {
+   public NetworkManager a() {
       return this.a;
    }
 
    public void c(String var1) {
       ChatComponentText var2 = new ChatComponentText(var1);
-      this.a.a(new jj(var2), new rk(this, var2), new GenericFutureListener[0]);
+      this.a.a(new PacketPlayOutKickDisconnect(var2), new rk(this, var2), new GenericFutureListener[0]);
       this.a.k();
       Futures.getUnchecked(this.d.a((Runnable)(new rl(this))));
    }

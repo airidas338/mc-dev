@@ -26,11 +26,11 @@ public enum gy {
 
 
    private gy(String var1, int var2, int var3) {
-      this.h = Maps.newEnumMap(ie.class);
+      this.h = Maps.newEnumMap(EnumPacketDirection.class);
       this.g = var3;
    }
 
-   protected gy a(ie var1, Class var2) {
+   protected gy a(EnumPacketDirection var1, Class var2) {
       Object var3 = (BiMap)this.h.get(var1);
       if(var3 == null) {
          var3 = HashBiMap.create();
@@ -47,11 +47,11 @@ public enum gy {
       }
    }
 
-   public Integer a(ie var1, id var2) {
+   public Integer a(EnumPacketDirection var1, id var2) {
       return (Integer)((BiMap)this.h.get(var1)).inverse().get(var2.getClass());
    }
 
-   public id a(ie var1, int var2) throws InstantiationException, IllegalAccessException {
+   public id a(EnumPacketDirection var1, int var2) throws InstantiationException, IllegalAccessException {
       Class var3 = (Class)((BiMap)this.h.get(var1)).get(Integer.valueOf(var2));
       return var3 == null?null:(id)var3.newInstance();
    }
@@ -83,7 +83,7 @@ public enum gy {
          Iterator var4 = var3.h.keySet().iterator();
 
          while(var4.hasNext()) {
-            ie var5 = (ie)var4.next();
+            EnumPacketDirection var5 = (EnumPacketDirection)var4.next();
 
             Class var7;
             for(Iterator var6 = ((BiMap)var3.h.get(var5)).values().iterator(); var6.hasNext(); f.put(var7, var3)) {

@@ -1,0 +1,60 @@
+package net.minecraft.server;
+import java.util.Random;
+
+public class ayu extends Block {
+
+   public ayu() {
+      super(Material.e);
+      this.a(akf.b);
+   }
+
+   public alq a(IBlock var1, Random var2, int var3) {
+      return this == aty.q?Items.h:(this == aty.ag?Items.i:(this == aty.x?Items.aW:(this == aty.bP?Items.bO:(this == aty.co?Items.cg:alq.a((Block)this)))));
+   }
+
+   public int a(Random var1) {
+      return this == aty.x?4 + var1.nextInt(5):1;
+   }
+
+   public int a(int var1, Random var2) {
+      if(var1 > 0 && alq.a((Block)this) != this.a((IBlock)this.O().a().iterator().next(), var2, var1)) {
+         int var3 = var2.nextInt(var1 + 2) - 1;
+         if(var3 < 0) {
+            var3 = 0;
+         }
+
+         return this.a(var2) * (var3 + 1);
+      } else {
+         return this.a(var2);
+      }
+   }
+
+   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
+      super.a(var1, var2, var3, var4, var5);
+      if(this.a(var3, var1.s, var5) != alq.a((Block)this)) {
+         int var6 = 0;
+         if(this == aty.q) {
+            var6 = MathHelper.a(var1.s, 0, 2);
+         } else if(this == aty.ag) {
+            var6 = MathHelper.a(var1.s, 3, 7);
+         } else if(this == aty.bP) {
+            var6 = MathHelper.a(var1.s, 3, 7);
+         } else if(this == aty.x) {
+            var6 = MathHelper.a(var1.s, 2, 5);
+         } else if(this == aty.co) {
+            var6 = MathHelper.a(var1.s, 2, 5);
+         }
+
+         this.b(var1, var2, var6);
+      }
+
+   }
+
+   public int j(World var1, Location var2) {
+      return 0;
+   }
+
+   public int a(IBlock var1) {
+      return this == aty.x?akv.l.b():0;
+   }
+}

@@ -1,5 +1,5 @@
 package net.minecraft.server;
-public interface ik extends hg {
+public interface ik extends PacketListener {
 
 	void a(il var1);
 
@@ -53,7 +53,7 @@ public interface ik extends hg {
 
 	void a(ji var1);
 
-	void a(jj var1);
+	void a(PacketPlayOutKickDisconnect var1);
 
 	void a(kl var1);
 
