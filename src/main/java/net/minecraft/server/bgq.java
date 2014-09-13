@@ -52,11 +52,11 @@ public class bgq implements IChunkProvider {
       }
 
       if(this.d.b().containsKey("lake")) {
-         this.h = new bhy(Blocks.j);
+         this.h = new bhy(Blocks.STATIONARY_WATER);
       }
 
       if(this.d.b().containsKey("lava_lake")) {
-         this.i = new bhy(Blocks.l);
+         this.i = new bhy(Blocks.STATIONARY_LAVA);
       }
 
       this.g = this.d.b().containsKey("dungeon");

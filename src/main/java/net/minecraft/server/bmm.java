@@ -171,7 +171,7 @@ public abstract class bmm extends bgt {
                NBTBase var5 = var2.a(var4);
                if(var5.getTypeId() == 10) {
                   NBTTagCompound var6 = (NBTTagCompound)var5;
-                  if(var6.c("ChunkX") && var6.c("ChunkZ")) {
+                  if(var6.hasKey("ChunkX") && var6.hasKey("ChunkZ")) {
                      int var7 = var6.getInt("ChunkX");
                      int var8 = var6.getInt("ChunkZ");
                      bmv var9 = bmq.a(var6, var1);

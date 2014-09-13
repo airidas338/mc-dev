@@ -84,7 +84,7 @@ public class bji extends bms {
       if(this.a(var1, var3)) {
          return false;
       } else {
-         this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.d.P(), Blocks.AIR.P(), true);
+         this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.DIRT.P(), Blocks.AIR.P(), true);
          this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, Blocks.AIR.P(), Blocks.AIR.P(), false);
          Iterator var4 = this.a.iterator();
 

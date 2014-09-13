@@ -40,7 +40,7 @@ public class bil extends WorldGenTreeAbstract {
             return false;
          } else {
             Block var20 = var1.getData(var3.b()).c();
-            if((var20 == Blocks.c || var20 == Blocks.d) && var3.o() < 256 - var4 - 1) {
+            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                EnumFacing var21 = en.a.a(var2);
                var8 = var4 - var2.nextInt(4) - 1;
@@ -61,7 +61,7 @@ public class bil extends WorldGenTreeAbstract {
                   Location var15 = new Location(var10, var14, var11);
                   Material var16 = var1.getData(var15).c().r();
                   if(var16 == Material.AIR || var16 == Material.LEAVES) {
-                     this.a(var1, var15, Blocks.s, ayx.e.a() - 4);
+                     this.a(var1, var15, Blocks.LOG2, ayx.e.a() - 4);
                      var12 = var14;
                   }
                }
@@ -106,7 +106,7 @@ public class bil extends WorldGenTreeAbstract {
                         Location var18 = new Location(var10, var17, var11);
                         Material var19 = var1.getData(var18).c().r();
                         if(var19 == Material.AIR || var19 == Material.LEAVES) {
-                           this.a(var1, var18, Blocks.s, ayx.e.a() - 4);
+                           this.a(var1, var18, Blocks.LOG2, ayx.e.a() - 4);
                            var12 = var17;
                         }
                      }
@@ -149,7 +149,7 @@ public class bil extends WorldGenTreeAbstract {
    private void b(World var1, Location var2) {
       Material var3 = var1.getData(var2).c().r();
       if(var3 == Material.AIR || var3 == Material.LEAVES) {
-         this.a(var1, var2, Blocks.u, 0);
+         this.a(var1, var2, Blocks.LEAVES2, 0);
       }
 
    }

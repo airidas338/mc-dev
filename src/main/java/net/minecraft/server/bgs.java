@@ -101,7 +101,7 @@ public class bgs extends bgt {
                      for(int var44 = var38 + 1; !var58 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
                            IBlock var45 = var5.a(var42, var44, var43);
-                           if(var45.c() == Blocks.i || var45.c() == Blocks.j) {
+                           if(var45.c() == Blocks.WATER || var45.c() == Blocks.STATIONARY_WATER) {
                               var58 = true;
                            }
 
@@ -126,20 +126,20 @@ public class bgs extends bgt {
                               if(var50 > -0.7D && var60 * var60 + var50 * var50 + var46 * var46 < 1.0D) {
                                  IBlock var52 = var5.a(var42, var49, var59);
                                  IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.AIR.P());
-                                 if(var52.c() == Blocks.c || var52.c() == Blocks.bw) {
+                                 if(var52.c() == Blocks.GRASS || var52.c() == Blocks.MYCEL) {
                                     var48 = true;
                                  }
 
                                  if(this.a(var52, var53)) {
                                     if(var49 - 1 < 10) {
-                                       var5.a(var42, var49, var59, Blocks.l.P());
+                                       var5.a(var42, var49, var59, Blocks.STATIONARY_LAVA.P());
                                     } else {
                                        var5.a(var42, var49, var59, Blocks.AIR.P());
-                                       if(var53.c() == Blocks.m) {
-                                          var5.a(var42, var49 + 1, var59, var53.b(BlockSand.a) == bac.b?Blocks.cM.P():Blocks.A.P());
+                                       if(var53.c() == Blocks.SAND) {
+                                          var5.a(var42, var49 + 1, var59, var53.b(BlockSand.a) == bac.b?Blocks.RED_SANDSTONE.P():Blocks.SANDSTONE.P());
                                        }
 
-                                       if(var48 && var5.a(var42, var49 - 1, var59).c() == Blocks.d) {
+                                       if(var48 && var5.a(var42, var49 - 1, var59).c() == Blocks.DIRT) {
                                           var5.a(var42, var49 - 1, var59, this.c.b(new Location(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
                                        }
                                     }
@@ -161,7 +161,7 @@ public class bgs extends bgt {
    }
 
    protected boolean a(IBlock var1, IBlock var2) {
-      return var1.c() == Blocks.b?true:(var1.c() == Blocks.d?true:(var1.c() == Blocks.c?true:(var1.c() == Blocks.cz?true:(var1.c() == Blocks.cu?true:(var1.c() == Blocks.A?true:(var1.c() == Blocks.cM?true:(var1.c() == Blocks.bw?true:(var1.c() == Blocks.aH?true:(var1.c() == Blocks.m || var1.c() == Blocks.n) && var2.c().r() != Material.WATER))))))));
+      return var1.c() == Blocks.STONE?true:(var1.c() == Blocks.DIRT?true:(var1.c() == Blocks.GRASS?true:(var1.c() == Blocks.HARDENED_CLAY?true:(var1.c() == Blocks.STAINED_HARDENED_CLAY?true:(var1.c() == Blocks.SANDSTONE?true:(var1.c() == Blocks.RED_SANDSTONE?true:(var1.c() == Blocks.MYCEL?true:(var1.c() == Blocks.SNOW?true:(var1.c() == Blocks.SAND || var1.c() == Blocks.GRAVEL) && var2.c().r() != Material.WATER))))))));
    }
 
    protected void a(World var1, int var2, int var3, int var4, int var5, bgk var6) {

@@ -115,7 +115,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
 
    void a(Location var1) {
       for(int var2 = 0; var2 < this.i; ++var2) {
-         this.a(var1.b(var2), this.b(var2), Blocks.t);
+         this.a(var1.b(var2), this.b(var2), Blocks.LEAVES);
       }
 
    }
@@ -175,7 +175,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
    void c() {
       Location var1 = this.m;
       Location var2 = this.m.b(this.b);
-      Block var3 = Blocks.r;
+      Block var3 = Blocks.LOG;
       this.a(var1, var2, var3);
       if(this.g == 2) {
          this.a(var1.f(), var2.f(), var3);
@@ -193,7 +193,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
          int var3 = var2.q();
          Location var4 = new Location(this.m.n(), var3, this.m.p());
          if(this.c(var3 - this.m.o())) {
-            this.a(var4, var2, Blocks.r);
+            this.a(var4, var2, Blocks.LOG);
          }
       }
 
@@ -244,7 +244,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
 
    private boolean f() {
       Block var1 = this.l.getData(this.m.b()).c();
-      if(var1 != Blocks.d && var1 != Blocks.c && var1 != Blocks.ak) {
+      if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.FARMLAND) {
          return false;
       } else {
          int var2 = this.a(this.m, this.m.b(this.a - 1));

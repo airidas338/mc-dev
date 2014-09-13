@@ -7,7 +7,7 @@ import java.util.UUID;
 public class EntityWitch extends EntityMonster implements IRangedEntity {
 
    private static final UUID b = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
-   private static final ya c = (new ya(b, "Drinking speed penalty", -0.25D, 0)).a(false);
+   private static final AttributeModifier c = (new AttributeModifier(b, "Drinking speed penalty", -0.25D, 0)).a(false);
    private static final Item[] bk = new Item[]{Items.aT, Items.aY, Items.aC, Items.bB, Items.bA, Items.H, Items.y, Items.y};
    private int bl;
 

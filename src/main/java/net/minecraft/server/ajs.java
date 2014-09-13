@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class ajs extends aju {
 
    public ajs() {
-      super(Blocks.cK);
+      super(Blocks.BANNER_STANDING);
       this.h = 16;
       this.a(CreativeModeTab.c);
       this.a(true);
@@ -19,16 +19,16 @@ public class ajs extends aju {
          var4 = var4.a(var5);
          if(!var2.a(var4, var5, var1)) {
             return false;
-         } else if(!Blocks.cK.c(var3, var4)) {
+         } else if(!Blocks.BANNER_STANDING.c(var3, var4)) {
             return false;
          } else if(var3.D) {
             return true;
          } else {
             if(var5 == EnumFacing.UP) {
                int var9 = MathHelper.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.a(var4, Blocks.cK.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
+               var3.a(var4, Blocks.BANNER_STANDING.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
-               var3.a(var4, Blocks.cL.P().a(BlockWallSign.a, var5), 3);
+               var3.a(var4, Blocks.BANNER_WALL.P().a(BlockWallSign.a, var5), 3);
             }
 
             --var1.b;
@@ -52,7 +52,7 @@ public class ajs extends aju {
    private akv h(ItemStack var1) {
       NBTTagCompound var2 = var1.a("BlockEntityTag", false);
       akv var3 = null;
-      if(var2 != null && var2.c("Base")) {
+      if(var2 != null && var2.hasKey("Base")) {
          var3 = akv.a(var2.getInt("Base"));
       } else {
          var3 = akv.a(var1.i());

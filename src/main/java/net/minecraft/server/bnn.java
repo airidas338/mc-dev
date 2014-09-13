@@ -28,7 +28,7 @@ abstract class bnn extends bms {
    protected void b(NBTTagCompound var1) {
       this.h = var1.getInt("HPos");
       this.a = var1.getInt("VCount");
-      this.b = var1.n("Desert");
+      this.b = var1.getBoolean("Desert");
    }
 
    protected bms a(bnk var1, List var2, Random var3, int var4, int var5) {
@@ -117,28 +117,28 @@ abstract class bnn extends bms {
 
    protected IBlock a(IBlock var1) {
       if(this.b) {
-         if(var1.c() == Blocks.r || var1.c() == Blocks.s) {
-            return Blocks.A.P();
+         if(var1.c() == Blocks.LOG || var1.c() == Blocks.LOG2) {
+            return Blocks.SANDSTONE.P();
          }
 
-         if(var1.c() == Blocks.e) {
-            return Blocks.A.a(bae.a.a());
+         if(var1.c() == Blocks.COBBLESTONE) {
+            return Blocks.SANDSTONE.a(bae.a.a());
          }
 
-         if(var1.c() == Blocks.f) {
-            return Blocks.A.a(bae.c.a());
+         if(var1.c() == Blocks.WOOD) {
+            return Blocks.SANDSTONE.a(bae.c.a());
          }
 
-         if(var1.c() == Blocks.ad) {
-            return Blocks.bO.P().a(BlockStairs.a, var1.b(BlockStairs.a));
+         if(var1.c() == Blocks.WOOD_STAIRS) {
+            return Blocks.SANDSTONE_STAIRS.P().a(BlockStairs.a, var1.b(BlockStairs.a));
          }
 
-         if(var1.c() == Blocks.aw) {
-            return Blocks.bO.P().a(BlockStairs.a, var1.b(BlockStairs.a));
+         if(var1.c() == Blocks.COBBLESTONE_STAIRS) {
+            return Blocks.SANDSTONE_STAIRS.P().a(BlockStairs.a, var1.b(BlockStairs.a));
          }
 
-         if(var1.c() == Blocks.n) {
-            return Blocks.A.P();
+         if(var1.c() == Blocks.GRAVEL) {
+            return Blocks.SANDSTONE.P();
          }
       }
 

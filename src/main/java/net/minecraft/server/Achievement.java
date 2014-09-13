@@ -1,59 +1,59 @@
 package net.minecraft.server;
-public class tk extends tq {
+public class Achievement extends tq {
 
 	public int a;
 	public int b;
-	public final tk c;
+	public final Achievement c;
 	private final String k;
 	public final ItemStack d;
 	private boolean m;
 
-	public tk(String var1, String var2, int var3, int var4, Item var5, tk var6) {
+	public Achievement(String var1, String var2, int var3, int var4, Item var5, Achievement var6) {
 		this(var1, var2, var3, var4, new ItemStack(var5), var6);
 	}
 
-	public tk(String var1, String var2, int var3, int var4, Block var5, tk var6) {
+	public Achievement(String var1, String var2, int var3, int var4, Block var5, Achievement var6) {
 		this(var1, var2, var3, var4, new ItemStack(var5), var6);
 	}
 
-	public tk(String var1, String var2, int var3, int var4, ItemStack var5, tk var6) {
+	public Achievement(String var1, String var2, int var3, int var4, ItemStack var5, Achievement var6) {
 		super(var1, new ChatMessage("achievement." + var2, new Object[0]));
 		this.d = var5;
 		this.k = "achievement." + var2 + ".desc";
 		this.a = var3;
 		this.b = var4;
-		if (var3 < tl.a) {
+		if (var3 < AchievementList.a) {
 			a = var3;
 		}
 
-		if (var4 < tl.b) {
+		if (var4 < AchievementList.b) {
 			b = var4;
 		}
 
-		if (var3 > tl.c) {
-			tl.c = var3;
+		if (var3 > AchievementList.c) {
+			AchievementList.c = var3;
 		}
 
-		if (var4 > tl.d) {
-			tl.d = var4;
+		if (var4 > AchievementList.d) {
+			AchievementList.d = var4;
 		}
 
 		this.c = var6;
 	}
 
-	public tk a() {
+	public Achievement a() {
 		this.f = true;
 		return this;
 	}
 
-	public tk b() {
+	public Achievement b() {
 		this.m = true;
 		return this;
 	}
 
-	public tk c() {
+	public Achievement c() {
 		super.h();
-		tl.e.add(this);
+		AchievementList.e.add(this);
 		return this;
 	}
 
@@ -67,8 +67,8 @@ public class tk extends tq {
 		return var1;
 	}
 
-	public tk a(Class var1) {
-		return (tk) super.b(var1);
+	public Achievement a(Class var1) {
+		return (Achievement) super.b(var1);
 	}
 
 	public boolean g() {

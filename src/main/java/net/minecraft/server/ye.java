@@ -61,15 +61,15 @@ public class ye implements AttributeInstance {
       return var1;
    }
 
-   public ya a(UUID var1) {
-      return (ya)this.e.get(var1);
+   public AttributeModifier a(UUID var1) {
+      return (AttributeModifier)this.e.get(var1);
    }
 
-   public boolean a(ya var1) {
+   public boolean a(AttributeModifier var1) {
       return this.e.get(var1.a()) != null;
    }
 
-   public void b(ya var1) {
+   public void b(AttributeModifier var1) {
       if(this.a(var1.a()) != null) {
          throw new IllegalArgumentException("Modifier is already applied on this attribute!");
       } else {
@@ -91,7 +91,7 @@ public class ye implements AttributeInstance {
       this.a.a((AttributeInstance)this);
    }
 
-   public void c(ya var1) {
+   public void c(AttributeModifier var1) {
       for(int var2 = 0; var2 < 3; ++var2) {
          Set var3 = (Set)this.c.get(Integer.valueOf(var2));
          var3.remove(var1);
@@ -121,21 +121,21 @@ public class ye implements AttributeInstance {
    private double g() {
       double var1 = this.b();
 
-      ya var4;
+      AttributeModifier var4;
       for(Iterator var3 = this.b(0).iterator(); var3.hasNext(); var1 += var4.d()) {
-         var4 = (ya)var3.next();
+         var4 = (AttributeModifier)var3.next();
       }
 
       double var7 = var1;
 
       Iterator var5;
-      ya var6;
+      AttributeModifier var6;
       for(var5 = this.b(1).iterator(); var5.hasNext(); var7 += var1 * var6.d()) {
-         var6 = (ya)var5.next();
+         var6 = (AttributeModifier)var5.next();
       }
 
       for(var5 = this.b(2).iterator(); var5.hasNext(); var7 *= 1.0D + var6.d()) {
-         var6 = (ya)var5.next();
+         var6 = (AttributeModifier)var5.next();
       }
 
       return this.b.a(var7);

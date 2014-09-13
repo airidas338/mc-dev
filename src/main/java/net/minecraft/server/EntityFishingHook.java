@@ -5,8 +5,8 @@ import java.util.List;
 
 public class EntityFishingHook extends Entity {
 
-   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.bz), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.bR), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
-   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.bx), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
+   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.bz), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
+   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.WATER_LILY), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
    private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.d.a()), 13)});
    private int g = -1;
    private int h = -1;
@@ -339,7 +339,7 @@ public class EntityFishingHook extends Entity {
       this.g = var1.getShort("xTile");
       this.h = var1.getShort("yTile");
       this.i = var1.getShort("zTile");
-      if(var1.b("inTile", 8)) {
+      if(var1.hasKeyOfType("inTile", 8)) {
          this.ap = Block.b(var1.getString("inTile"));
       } else {
          this.ap = Block.c(var1.getByte("inTile") & 255);

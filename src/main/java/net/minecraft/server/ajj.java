@@ -36,48 +36,48 @@ public class ajj extends ajk {
       }
 
       this.c = 0;
-      if(var1.b() == Item.a(Blocks.ai)) {
-         this.b.b((tq)tl.h);
+      if(var1.b() == Item.a(Blocks.CRAFTING_TABLE)) {
+         this.b.b((tq)AchievementList.h);
       }
 
       if(var1.b() instanceof amu) {
-         this.b.b((tq)tl.i);
+         this.b.b((tq)AchievementList.i);
       }
 
-      if(var1.b() == Item.a(Blocks.al)) {
-         this.b.b((tq)tl.j);
+      if(var1.b() == Item.a(Blocks.FURNACE)) {
+         this.b.b((tq)AchievementList.j);
       }
 
       if(var1.b() instanceof alo) {
-         this.b.b((tq)tl.l);
+         this.b.b((tq)AchievementList.l);
       }
 
       if(var1.b() == Items.P) {
-         this.b.b((tq)tl.m);
+         this.b.b((tq)AchievementList.m);
       }
 
       if(var1.b() == Items.aZ) {
-         this.b.b((tq)tl.n);
+         this.b.b((tq)AchievementList.n);
       }
 
       if(var1.b() instanceof amu && ((amu)var1.b()).g() != ami.a) {
-         this.b.b((tq)tl.o);
+         this.b.b((tq)AchievementList.o);
       }
 
       if(var1.b() instanceof anm) {
-         this.b.b((tq)tl.r);
+         this.b.b((tq)AchievementList.r);
       }
 
-      if(var1.b() == Item.a(Blocks.bC)) {
-         this.b.b((tq)tl.E);
+      if(var1.b() == Item.a(Blocks.ENCHANTMENT_TABLE)) {
+         this.b.b((tq)AchievementList.E);
       }
 
-      if(var1.b() == Item.a(Blocks.X)) {
-         this.b.b((tq)tl.G);
+      if(var1.b() == Item.a(Blocks.BOOKSHELF)) {
+         this.b.b((tq)AchievementList.G);
       }
 
       if(var1.b() == Items.ao && var1.i() == 1) {
-         this.b.b((tq)tl.M);
+         this.b.b((tq)AchievementList.M);
       }
 
    }

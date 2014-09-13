@@ -72,7 +72,7 @@ public class BlockCactus extends Block {
       }
 
       Block var5 = var1.getData(var2.b()).c();
-      return var5 == Blocks.aK || var5 == Blocks.m;
+      return var5 == Blocks.CACTUS || var5 == Blocks.SAND;
    }
 
    public void a(World var1, Location var2, IBlock var3, Entity var4) {

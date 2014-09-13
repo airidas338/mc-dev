@@ -9,11 +9,11 @@ public class anr extends Item {
    public static boolean b(NBTTagCompound var0) {
       if(!anq.b(var0)) {
          return false;
-      } else if(!var0.b("title", 8)) {
+      } else if(!var0.hasKeyOfType("title", 8)) {
          return false;
       } else {
          String var1 = var0.getString("title");
-         return var1 != null && var1.length() <= 32?var0.b("author", 8):false;
+         return var1 != null && var1.length() <= 32?var0.hasKeyOfType("author", 8):false;
       }
    }
 
@@ -46,7 +46,7 @@ public class anr extends Item {
    private void a(ItemStack var1, EntityHuman var2) {
       if(var1 != null && var1.o() != null) {
          NBTTagCompound var3 = var1.o();
-         if(!var3.n("resolved")) {
+         if(!var3.getBoolean("resolved")) {
             var3.setBoolean("resolved", true);
             if(b(var3)) {
                NBTTagList var4 = var3.getList("pages", 8);

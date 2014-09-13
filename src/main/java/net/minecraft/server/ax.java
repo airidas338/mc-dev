@@ -34,8 +34,8 @@ public class ax extends CommandAbstract {
                var5 = a(var1, var2, 1).c();
             }
 
-            sw var6 = new sw(var4, (Date)null, var1.d_(), (Date)null, var5);
-            var3.an().i().a((sr)var6);
+            GameProfileBanEntry var6 = new GameProfileBanEntry(var4, (Date)null, var1.d_(), (Date)null, var5);
+            var3.an().i().a((JsonListEntry)var6);
             EntityPlayer var7 = var3.an().a(var2[0]);
             if(var7 != null) {
                var7.a.c("You are banned from this server.");

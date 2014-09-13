@@ -120,7 +120,7 @@ public class EntityArmorStand extends EntityLiving {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("Equipment", 9)) {
+      if(var1.hasKeyOfType("Equipment", 9)) {
          NBTTagList var2 = var1.getList("Equipment", 10);
 
          for(int var3 = 0; var3 < this.g.length; ++var3) {
@@ -128,12 +128,12 @@ public class EntityArmorStand extends EntityLiving {
          }
       }
 
-      this.e(var1.n("Invisible"));
-      this.a(var1.n("Small"));
-      this.k(var1.n("ShowArms"));
+      this.e(var1.getBoolean("Invisible"));
+      this.a(var1.getBoolean("Small"));
+      this.k(var1.getBoolean("ShowArms"));
       this.bg = var1.getInt("DisabledSlots");
-      this.j(var1.n("NoGravity"));
-      this.l(var1.n("NoBasePlate"));
+      this.j(var1.getBoolean("NoGravity"));
+      this.l(var1.getBoolean("NoBasePlate"));
       this.T = this.p();
       NBTTagCompound var4 = var1.getCompound("Pose");
       this.h(var4);
@@ -250,7 +250,7 @@ public class EntityArmorStand extends EntityLiving {
             }
          }
 
-         if(var5 && (var4.b() == Items.bX || var4.b() == Item.a(Blocks.aU))) {
+         if(var5 && (var4.b() == Items.bX || var4.b() == Item.a(Blocks.PUMPKIN))) {
             var3 = 4;
          }
 
@@ -384,7 +384,7 @@ public class EntityArmorStand extends EntityLiving {
 
    private void z() {
       if(this.o instanceof WorldServer) {
-         ((WorldServer)this.o).a(ew.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(Blocks.f.P())});
+         ((WorldServer)this.o).a(ew.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(Blocks.WOOD.P())});
       }
 
    }

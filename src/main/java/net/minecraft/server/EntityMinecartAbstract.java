@@ -212,7 +212,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 			IBlock var5 = this.o.getData(var4);
 			if (ati.d(var5)) {
 				this.a(var4, var5);
-				if (var5.c() == Blocks.cs) {
+				if (var5.c() == Blocks.ACTIVATOR_RAIL) {
 					this.a(var14, var2, var16, ((Boolean) var5.b(BlockPoweredRail.M)).booleanValue());
 				}
 			} else {
@@ -291,7 +291,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		boolean var4 = false;
 		boolean var5 = false;
 		ati var6 = (ati) var2.c();
-		if (var6 == Blocks.D) {
+		if (var6 == Blocks.GOLDEN_RAIL) {
 			var4 = ((Boolean) var2.b(BlockPoweredRail.M)).booleanValue();
 			var5 = !var4;
 		}
@@ -523,10 +523,10 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 	}
 
 	protected void a(NBTTagCompound var1) {
-		if (var1.n("CustomDisplayTile")) {
+		if (var1.getBoolean("CustomDisplayTile")) {
 			int var2 = var1.getInt("DisplayData");
 			Block var3;
-			if (var1.b("DisplayTile", 8)) {
+			if (var1.hasKeyOfType("DisplayTile", 8)) {
 				var3 = Block.b(var1.getString("DisplayTile"));
 				if (var3 == null) {
 					this.a(Blocks.AIR.P());
@@ -545,7 +545,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 			this.l(var1.getInt("DisplayOffset"));
 		}
 
-		if (var1.b("CustomName", 8) && var1.getString("CustomName").length() > 0) {
+		if (var1.hasKeyOfType("CustomName", 8) && var1.getString("CustomName").length() > 0) {
 			this.b = var1.getString("CustomName");
 		}
 

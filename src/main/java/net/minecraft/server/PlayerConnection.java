@@ -631,8 +631,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					this.b.a.c("You have died. Game over, man, it\'s game over!");
 					this.d.Z();
 				} else {
-					sw var3 = new sw(this.b.cc(), (Date) null, "(You just lost the game)", (Date) null, "Death in Hardcore");
-					this.d.an().i().a((sr) var3);
+					GameProfileBanEntry var3 = new GameProfileBanEntry(this.b.cc(), (Date) null, "(You just lost the game)", (Date) null, "Death in Hardcore");
+					this.d.an().i().a((JsonListEntry) var3);
 					this.b.a.c("You have died. Game over, man, it\'s game over!");
 				}
 			} else {
@@ -647,7 +647,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			this.b.A().a(this.b);
 			break;
 		case 3:
-			this.b.b((tq) tl.f);
+			this.b.b((tq) AchievementList.f);
 		}
 
 	}
@@ -709,9 +709,9 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		if (this.b.c.d()) {
 			boolean var2 = var1.a() < 0;
 			ItemStack var3 = var1.b();
-			if (var3 != null && var3.n() && var3.o().b("BlockEntityTag", 10)) {
+			if (var3 != null && var3.n() && var3.o().hasKeyOfType("BlockEntityTag", 10)) {
 				NBTTagCompound var4 = var3.o().getCompound("BlockEntityTag");
-				if (var4.c("x") && var4.c("y") && var4.c("z")) {
+				if (var4.hasKey("x") && var4.hasKey("y") && var4.hasKey("z")) {
 					Location var5 = new Location(var4.getInt("x"), var4.getInt("y"), var4.getInt("z"));
 					TileEntity var6 = this.b.o.s(var5);
 					if (var6 != null) {

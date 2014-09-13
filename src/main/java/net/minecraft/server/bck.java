@@ -79,10 +79,10 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
          Location var8 = new Location(var2, var7, var4);
          IBlock var9 = this.b.getData(var8);
          float[] var10;
-         if(var9.c() == Blocks.cG) {
+         if(var9.c() == Blocks.STAINED_GLASS) {
             var10 = EntitySheep.a((akv)var9.b(BlockStainedGlass.a));
          } else {
-            if(var9.c() != Blocks.cH) {
+            if(var9.c() != Blocks.STAINED_GLASS_PANE) {
                if(var9.c().n() >= 15) {
                   this.i = false;
                   this.f.clear();
@@ -122,7 +122,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
             for(int var17 = var2 - var7; var17 <= var2 + var7 && var16; ++var17) {
                for(int var11 = var4 - var7; var11 <= var4 + var7; ++var11) {
                   Block var12 = this.b.getData(new Location(var17, var14, var11)).c();
-                  if(var12 != Blocks.bT && var12 != Blocks.R && var12 != Blocks.ah && var12 != Blocks.S) {
+                  if(var12 != Blocks.EMERALD_BLOCK && var12 != Blocks.GOLD_BLOCK && var12 != Blocks.DIAMOND_BLOCK && var12 != Blocks.IRON_BLOCK) {
                      var16 = false;
                      break;
                   }
@@ -144,7 +144,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
 
          while(var15.hasNext()) {
             EntityHuman var13 = (EntityHuman)var15.next();
-            var13.b((tq)tl.K);
+            var13.b((tq)AchievementList.K);
          }
       }
 

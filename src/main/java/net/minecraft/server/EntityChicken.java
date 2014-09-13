@@ -108,8 +108,8 @@ public class EntityChicken extends EntityAnimal {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.br = var1.n("IsChickenJockey");
-      if(var1.c("EggLayTime")) {
+      this.br = var1.getBoolean("IsChickenJockey");
+      if(var1.hasKey("EggLayTime")) {
          this.bq = var1.getInt("EggLayTime");
       }
 

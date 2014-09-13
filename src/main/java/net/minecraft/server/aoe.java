@@ -57,7 +57,7 @@ class aoe implements aoo {
          NBTTagCompound var10 = var2.a("BlockEntityTag", true);
          var6 = null;
          NBTTagList var11;
-         if(var10.b("Patterns", 9)) {
+         if(var10.hasKeyOfType("Patterns", 9)) {
             var11 = var10.getList("Patterns", 10);
          } else {
             var11 = new NBTTagList();

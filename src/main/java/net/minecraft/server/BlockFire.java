@@ -21,7 +21,7 @@ public class BlockFire extends Block {
       int var4 = var3.n();
       int var5 = var3.o();
       int var6 = var3.p();
-      if(!World.a(var2, var3.b()) && !Blocks.ab.e(var2, var3.b())) {
+      if(!World.a(var2, var3.b()) && !Blocks.FIRE.e(var2, var3.b())) {
          boolean var7 = (var4 + var5 + var6 & 1) == 1;
          boolean var8 = (var4 / 2 + var5 / 2 + var6 / 2 & 1) == 1;
          int var9 = 0;
@@ -42,41 +42,41 @@ public class BlockFire extends Block {
    }
 
    public static void j() {
-      Blocks.ab.a(Blocks.f, 5, 20);
-      Blocks.ab.a(Blocks.bL, 5, 20);
-      Blocks.ab.a(Blocks.bM, 5, 20);
-      Blocks.ab.a(Blocks.bo, 5, 20);
-      Blocks.ab.a(Blocks.bp, 5, 20);
-      Blocks.ab.a(Blocks.bq, 5, 20);
-      Blocks.ab.a(Blocks.br, 5, 20);
-      Blocks.ab.a(Blocks.bs, 5, 20);
-      Blocks.ab.a(Blocks.bt, 5, 20);
-      Blocks.ab.a(Blocks.aO, 5, 20);
-      Blocks.ab.a(Blocks.aP, 5, 20);
-      Blocks.ab.a(Blocks.aQ, 5, 20);
-      Blocks.ab.a(Blocks.aR, 5, 20);
-      Blocks.ab.a(Blocks.aS, 5, 20);
-      Blocks.ab.a(Blocks.aT, 5, 20);
-      Blocks.ab.a(Blocks.ad, 5, 20);
-      Blocks.ab.a(Blocks.bV, 5, 20);
-      Blocks.ab.a(Blocks.bU, 5, 20);
-      Blocks.ab.a(Blocks.bW, 5, 20);
-      Blocks.ab.a(Blocks.r, 5, 5);
-      Blocks.ab.a(Blocks.s, 5, 5);
-      Blocks.ab.a(Blocks.t, 30, 60);
-      Blocks.ab.a(Blocks.u, 30, 60);
-      Blocks.ab.a(Blocks.X, 30, 20);
-      Blocks.ab.a(Blocks.W, 15, 100);
-      Blocks.ab.a(Blocks.H, 60, 100);
-      Blocks.ab.a(Blocks.cF, 60, 100);
-      Blocks.ab.a(Blocks.N, 60, 100);
-      Blocks.ab.a(Blocks.O, 60, 100);
-      Blocks.ab.a(Blocks.I, 60, 100);
-      Blocks.ab.a(Blocks.L, 30, 60);
-      Blocks.ab.a(Blocks.bn, 15, 100);
-      Blocks.ab.a(Blocks.cA, 5, 5);
-      Blocks.ab.a(Blocks.cx, 60, 20);
-      Blocks.ab.a(Blocks.cy, 60, 20);
+      Blocks.FIRE.a(Blocks.WOOD, 5, 20);
+      Blocks.FIRE.a(Blocks.WOOD_DOUBLE_STEP, 5, 20);
+      Blocks.FIRE.a(Blocks.WOOD_STEP, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGLE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGLE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.WOOD_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_WOOD_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_WOOD_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGLE_WOOD_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.LOG, 5, 5);
+      Blocks.FIRE.a(Blocks.LOG2, 5, 5);
+      Blocks.FIRE.a(Blocks.LEAVES, 30, 60);
+      Blocks.FIRE.a(Blocks.LEAVES2, 30, 60);
+      Blocks.FIRE.a(Blocks.BOOKSHELF, 30, 20);
+      Blocks.FIRE.a(Blocks.TNT, 15, 100);
+      Blocks.FIRE.a(Blocks.LONG_GRASS, 60, 100);
+      Blocks.FIRE.a(Blocks.DOUBLE_PLANT, 60, 100);
+      Blocks.FIRE.a(Blocks.YELLOW_FLOWER, 60, 100);
+      Blocks.FIRE.a(Blocks.RED_ROSE, 60, 100);
+      Blocks.FIRE.a(Blocks.DEAD_BUSH, 60, 100);
+      Blocks.FIRE.a(Blocks.WOOL, 30, 60);
+      Blocks.FIRE.a(Blocks.VINE, 15, 100);
+      Blocks.FIRE.a(Blocks.COAL_BLOCK, 5, 5);
+      Blocks.FIRE.a(Blocks.HAY_BLOCK, 60, 20);
+      Blocks.FIRE.a(Blocks.CARPET, 60, 20);
    }
 
    public void a(Block var1, int var2, int var3) {
@@ -111,8 +111,8 @@ public class BlockFire extends Block {
          }
 
          Block var5 = var1.getData(var2.b()).c();
-         boolean var6 = var5 == Blocks.aV;
-         if(var1.t instanceof bgh && var5 == Blocks.h) {
+         boolean var6 = var5 == Blocks.NETHERRACK;
+         if(var1.t instanceof bgh && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 
@@ -222,8 +222,8 @@ public class BlockFire extends Block {
             var1.g(var2);
          }
 
-         if(var7.c() == Blocks.W) {
-            Blocks.W.d(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
+         if(var7.c() == Blocks.TNT) {
+            Blocks.TNT.d(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
          }
       }
 
@@ -280,7 +280,7 @@ public class BlockFire extends Block {
    }
 
    public void c(World var1, Location var2, IBlock var3) {
-      if(var1.t.q() > 0 || !Blocks.aY.d(var1, var2)) {
+      if(var1.t.q() > 0 || !Blocks.PORTAL.d(var1, var2)) {
          if(!World.a((IBlockAccess)var1, var2.b()) && !this.e(var1, var2)) {
             var1.g(var2);
          } else {

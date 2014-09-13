@@ -52,80 +52,80 @@ public class bme extends bmk {
          int var4;
          switch(this.a) {
          case 0:
-            this.a(var1, Blocks.bf.P(), 5, 1, 5, var3);
-            this.a(var1, Blocks.bf.P(), 5, 2, 5, var3);
-            this.a(var1, Blocks.bf.P(), 5, 3, 5, var3);
-            this.a(var1, Blocks.aa.P(), 4, 3, 5, var3);
-            this.a(var1, Blocks.aa.P(), 6, 3, 5, var3);
-            this.a(var1, Blocks.aa.P(), 5, 3, 4, var3);
-            this.a(var1, Blocks.aa.P(), 5, 3, 6, var3);
-            this.a(var1, Blocks.U.P(), 4, 1, 4, var3);
-            this.a(var1, Blocks.U.P(), 4, 1, 5, var3);
-            this.a(var1, Blocks.U.P(), 4, 1, 6, var3);
-            this.a(var1, Blocks.U.P(), 6, 1, 4, var3);
-            this.a(var1, Blocks.U.P(), 6, 1, 5, var3);
-            this.a(var1, Blocks.U.P(), 6, 1, 6, var3);
-            this.a(var1, Blocks.U.P(), 5, 1, 4, var3);
-            this.a(var1, Blocks.U.P(), 5, 1, 6, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 1, 5, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 2, 5, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 3, 5, var3);
+            this.a(var1, Blocks.TORCH.P(), 4, 3, 5, var3);
+            this.a(var1, Blocks.TORCH.P(), 6, 3, 5, var3);
+            this.a(var1, Blocks.TORCH.P(), 5, 3, 4, var3);
+            this.a(var1, Blocks.TORCH.P(), 5, 3, 6, var3);
+            this.a(var1, Blocks.STEP1.P(), 4, 1, 4, var3);
+            this.a(var1, Blocks.STEP1.P(), 4, 1, 5, var3);
+            this.a(var1, Blocks.STEP1.P(), 4, 1, 6, var3);
+            this.a(var1, Blocks.STEP1.P(), 6, 1, 4, var3);
+            this.a(var1, Blocks.STEP1.P(), 6, 1, 5, var3);
+            this.a(var1, Blocks.STEP1.P(), 6, 1, 6, var3);
+            this.a(var1, Blocks.STEP1.P(), 5, 1, 4, var3);
+            this.a(var1, Blocks.STEP1.P(), 5, 1, 6, var3);
             break;
          case 1:
             for(var4 = 0; var4 < 5; ++var4) {
-               this.a(var1, Blocks.bf.P(), 3, 1, 3 + var4, var3);
-               this.a(var1, Blocks.bf.P(), 7, 1, 3 + var4, var3);
-               this.a(var1, Blocks.bf.P(), 3 + var4, 1, 3, var3);
-               this.a(var1, Blocks.bf.P(), 3 + var4, 1, 7, var3);
+               this.a(var1, Blocks.SMOOTH_BRICK.P(), 3, 1, 3 + var4, var3);
+               this.a(var1, Blocks.SMOOTH_BRICK.P(), 7, 1, 3 + var4, var3);
+               this.a(var1, Blocks.SMOOTH_BRICK.P(), 3 + var4, 1, 3, var3);
+               this.a(var1, Blocks.SMOOTH_BRICK.P(), 3 + var4, 1, 7, var3);
             }
 
-            this.a(var1, Blocks.bf.P(), 5, 1, 5, var3);
-            this.a(var1, Blocks.bf.P(), 5, 2, 5, var3);
-            this.a(var1, Blocks.bf.P(), 5, 3, 5, var3);
-            this.a(var1, Blocks.i.P(), 5, 4, 5, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 1, 5, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 2, 5, var3);
+            this.a(var1, Blocks.SMOOTH_BRICK.P(), 5, 3, 5, var3);
+            this.a(var1, Blocks.WATER.P(), 5, 4, 5, var3);
             break;
          case 2:
             for(var4 = 1; var4 <= 9; ++var4) {
-               this.a(var1, Blocks.e.P(), 1, 3, var4, var3);
-               this.a(var1, Blocks.e.P(), 9, 3, var4, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 1, 3, var4, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 9, 3, var4, var3);
             }
 
             for(var4 = 1; var4 <= 9; ++var4) {
-               this.a(var1, Blocks.e.P(), var4, 3, 1, var3);
-               this.a(var1, Blocks.e.P(), var4, 3, 9, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), var4, 3, 1, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), var4, 3, 9, var3);
             }
 
-            this.a(var1, Blocks.e.P(), 5, 1, 4, var3);
-            this.a(var1, Blocks.e.P(), 5, 1, 6, var3);
-            this.a(var1, Blocks.e.P(), 5, 3, 4, var3);
-            this.a(var1, Blocks.e.P(), 5, 3, 6, var3);
-            this.a(var1, Blocks.e.P(), 4, 1, 5, var3);
-            this.a(var1, Blocks.e.P(), 6, 1, 5, var3);
-            this.a(var1, Blocks.e.P(), 4, 3, 5, var3);
-            this.a(var1, Blocks.e.P(), 6, 3, 5, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 5, 1, 4, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 5, 1, 6, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 5, 3, 4, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 5, 3, 6, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 4, 1, 5, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 6, 1, 5, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 4, 3, 5, var3);
+            this.a(var1, Blocks.COBBLESTONE.P(), 6, 3, 5, var3);
 
             for(var4 = 1; var4 <= 3; ++var4) {
-               this.a(var1, Blocks.e.P(), 4, var4, 4, var3);
-               this.a(var1, Blocks.e.P(), 6, var4, 4, var3);
-               this.a(var1, Blocks.e.P(), 4, var4, 6, var3);
-               this.a(var1, Blocks.e.P(), 6, var4, 6, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 4, var4, 4, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 6, var4, 4, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 4, var4, 6, var3);
+               this.a(var1, Blocks.COBBLESTONE.P(), 6, var4, 6, var3);
             }
 
-            this.a(var1, Blocks.aa.P(), 5, 3, 5, var3);
+            this.a(var1, Blocks.TORCH.P(), 5, 3, 5, var3);
 
             for(var4 = 2; var4 <= 8; ++var4) {
-               this.a(var1, Blocks.f.P(), 2, 3, var4, var3);
-               this.a(var1, Blocks.f.P(), 3, 3, var4, var3);
+               this.a(var1, Blocks.WOOD.P(), 2, 3, var4, var3);
+               this.a(var1, Blocks.WOOD.P(), 3, 3, var4, var3);
                if(var4 <= 3 || var4 >= 7) {
-                  this.a(var1, Blocks.f.P(), 4, 3, var4, var3);
-                  this.a(var1, Blocks.f.P(), 5, 3, var4, var3);
-                  this.a(var1, Blocks.f.P(), 6, 3, var4, var3);
+                  this.a(var1, Blocks.WOOD.P(), 4, 3, var4, var3);
+                  this.a(var1, Blocks.WOOD.P(), 5, 3, var4, var3);
+                  this.a(var1, Blocks.WOOD.P(), 6, 3, var4, var3);
                }
 
-               this.a(var1, Blocks.f.P(), 7, 3, var4, var3);
-               this.a(var1, Blocks.f.P(), 8, 3, var4, var3);
+               this.a(var1, Blocks.WOOD.P(), 7, 3, var4, var3);
+               this.a(var1, Blocks.WOOD.P(), 8, 3, var4, var3);
             }
 
-            this.a(var1, Blocks.au.a(this.a(Blocks.au, EnumFacing.WEST.a())), 9, 1, 3, var3);
-            this.a(var1, Blocks.au.a(this.a(Blocks.au, EnumFacing.WEST.a())), 9, 2, 3, var3);
-            this.a(var1, Blocks.au.a(this.a(Blocks.au, EnumFacing.WEST.a())), 9, 3, 3, var3);
+            this.a(var1, Blocks.LADDER.a(this.a(Blocks.LADDER, EnumFacing.WEST.a())), 9, 1, 3, var3);
+            this.a(var1, Blocks.LADDER.a(this.a(Blocks.LADDER, EnumFacing.WEST.a())), 9, 2, 3, var3);
+            this.a(var1, Blocks.LADDER.a(this.a(Blocks.LADDER, EnumFacing.WEST.a())), 9, 3, 3, var3);
             this.a(var1, var3, var2, 3, 4, 8, StructurePieceTreaasure.a(b, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 1 + var2.nextInt(4));
          }
 

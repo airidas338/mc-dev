@@ -51,8 +51,8 @@ public class aw extends CommandAbstract {
    }
 
    protected void a(ICommandSender var1, String var2, String var3) {
-      se var4 = new se(var2, (Date)null, var1.d_(), (Date)null, var3);
-      MinecraftServer.M().an().j().a((sr)var4);
+      IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.d_(), (Date)null, var3);
+      MinecraftServer.M().an().j().a((JsonListEntry)var4);
       List var5 = MinecraftServer.M().an().b(var2);
       String[] var6 = new String[var5.size()];
       int var7 = 0;

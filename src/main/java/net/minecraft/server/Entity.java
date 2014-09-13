@@ -503,7 +503,7 @@ public abstract class Entity implements ICommandSender {
 				double var61 = this.s - var7;
 				double var63 = this.t - var9;
 				double var66 = this.u - var11;
-				if (var62 != Blocks.au) {
+				if (var62 != Blocks.LADDER) {
 					var63 = 0.0D;
 				}
 
@@ -596,8 +596,8 @@ public abstract class Entity implements ICommandSender {
 
 	protected void a(Location var1, Block var2) {
 		StepSound var3 = var2.H;
-		if (this.o.getData(var1.a()).c() == Blocks.aH) {
-			var3 = Blocks.aH.H;
+		if (this.o.getData(var1.a()).c() == Blocks.SNOW) {
+			var3 = Blocks.SNOW.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		} else if (!var2.r().d()) {
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
@@ -1034,25 +1034,25 @@ public abstract class Entity implements ICommandSender {
 			this.O = var1.getFloat("FallDistance");
 			this.i = var1.getShort("Fire");
 			this.h(var1.getShort("Air"));
-			this.C = var1.n("OnGround");
+			this.C = var1.getBoolean("OnGround");
 			this.am = var1.getInt("Dimension");
-			this.ar = var1.n("Invulnerable");
+			this.ar = var1.getBoolean("Invulnerable");
 			this.aj = var1.getInt("PortalCooldown");
-			if (var1.b("UUIDMost", 4) && var1.b("UUIDLeast", 4)) {
+			if (var1.hasKeyOfType("UUIDMost", 4) && var1.hasKeyOfType("UUIDLeast", 4)) {
 				this.ao = new UUID(var1.getLong("UUIDMost"), var1.getLong("UUIDLeast"));
-			} else if (var1.b("UUID", 8)) {
+			} else if (var1.hasKeyOfType("UUID", 8)) {
 				this.ao = UUID.fromString(var1.getString("UUID"));
 			}
 
 			this.b(this.s, this.t, this.u);
 			this.b(this.y, this.z);
-			if (var1.b("CustomName", 8) && var1.getString("CustomName").length() > 0) {
+			if (var1.hasKeyOfType("CustomName", 8) && var1.getString("CustomName").length() > 0) {
 				this.a(var1.getString("CustomName"));
 			}
 
-			this.g(var1.n("CustomNameVisible"));
+			this.g(var1.getBoolean("CustomNameVisible"));
 			this.as.a(var1);
-			this.b(var1.n("Silent"));
+			this.b(var1.getBoolean("Silent"));
 			this.a(var1);
 			if (this.af()) {
 				this.b(this.s, this.t, this.u);

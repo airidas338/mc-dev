@@ -47,17 +47,17 @@ public class zr extends zn {
       } else {
          IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
-         if(var4 == Blocks.ae) {
+         if(var4 == Blocks.CHEST) {
             TileEntity var5 = var1.s(var2);
             if(var5 instanceof bcr && ((bcr)var5).l < 1) {
                return true;
             }
          } else {
-            if(var4 == Blocks.am) {
+            if(var4 == Blocks.BURNING_FURNACE) {
                return true;
             }
 
-            if(var4 == Blocks.C && var3.b(BlockBed.a) != atq.a) {
+            if(var4 == Blocks.BED && var3.b(BlockBed.a) != atq.a) {
                return true;
             }
          }

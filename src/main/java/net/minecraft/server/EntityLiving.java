@@ -13,7 +13,7 @@ import java.util.UUID;
 public abstract class EntityLiving extends Entity {
 
    private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
-   private static final ya b = (new ya(a, "Sprinting speed boost", 0.30000001192092896D, 2)).a(false);
+   private static final AttributeModifier b = (new AttributeModifier(a, "Sprinting speed boost", 0.30000001192092896D, 2)).a(false);
    private AttributeMapBase c;
    private final wg f = new wg(this);
    private final Map g = Maps.newHashMap();
@@ -349,11 +349,11 @@ public abstract class EntityLiving extends Entity {
 
    public void a(NBTTagCompound var1) {
       this.l(var1.getFloat("AbsorptionAmount"));
-      if(var1.b("Attributes", 9) && this.o != null && !this.o.D) {
+      if(var1.hasKeyOfType("Attributes", 9) && this.o != null && !this.o.D) {
          GenericAttributes.a(this.getAttributeMap(), var1.getList("Attributes", 10));
       }
 
-      if(var1.b("ActiveEffects", 9)) {
+      if(var1.hasKeyOfType("ActiveEffects", 9)) {
          NBTTagList var2 = var1.getList("ActiveEffects", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
@@ -365,7 +365,7 @@ public abstract class EntityLiving extends Entity {
          }
       }
 
-      if(var1.b("HealF", 99)) {
+      if(var1.hasKeyOfType("HealF", 99)) {
          this.h(var1.getFloat("HealF"));
       } else {
          NBTBase var6 = var1.a("Health");
@@ -735,7 +735,7 @@ public abstract class EntityLiving extends Entity {
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
       Block var4 = this.o.getData(new Location(var1, var2, var3)).c();
-      return (var4 == Blocks.au || var4 == Blocks.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
+      return (var4 == Blocks.LADDER || var4 == Blocks.VINE) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
 
    public boolean isAlive() {

@@ -115,7 +115,7 @@ public final class ItemStack {
    }
 
    public void c(NBTTagCompound var1) {
-      if(var1.b("id", 8)) {
+      if(var1.hasKeyOfType("id", 8)) {
          this.d = Item.d(var1.getString("id"));
       } else {
          this.d = Item.b(var1.getShort("id"));
@@ -127,7 +127,7 @@ public final class ItemStack {
          this.f = 0;
       }
 
-      if(var1.b("tag", 10)) {
+      if(var1.hasKeyOfType("tag", 10)) {
          this.e = var1.getCompound("tag");
          if(this.d != null) {
             this.d.a(this.e);
@@ -145,7 +145,7 @@ public final class ItemStack {
    }
 
    public boolean e() {
-      return this.d == null?false:(this.d.l() <= 0?false:!this.n() || !this.o().n("Unbreakable"));
+      return this.d == null?false:(this.d.l() <= 0?false:!this.n() || !this.o().getBoolean("Unbreakable"));
    }
 
    public boolean f() {
@@ -325,7 +325,7 @@ public final class ItemStack {
    }
 
    public NBTTagCompound a(String var1, boolean var2) {
-      if(this.e != null && this.e.b(var1, 10)) {
+      if(this.e != null && this.e.hasKeyOfType(var1, 10)) {
          return this.e.getCompound(var1);
       } else if(var2) {
          NBTTagCompound var3 = new NBTTagCompound();
@@ -346,9 +346,9 @@ public final class ItemStack {
 
    public String q() {
       String var1 = this.b().a(this);
-      if(this.e != null && this.e.b("display", 10)) {
+      if(this.e != null && this.e.hasKeyOfType("display", 10)) {
          NBTTagCompound var2 = this.e.getCompound("display");
-         if(var2.b("Name", 8)) {
+         if(var2.hasKeyOfType("Name", 8)) {
             var1 = var2.getString("Name");
          }
       }
@@ -361,7 +361,7 @@ public final class ItemStack {
          this.e = new NBTTagCompound();
       }
 
-      if(!this.e.b("display", 10)) {
+      if(!this.e.hasKeyOfType("display", 10)) {
          this.e.set("display", (NBTBase)(new NBTTagCompound()));
       }
 
@@ -371,7 +371,7 @@ public final class ItemStack {
 
    public void r() {
       if(this.e != null) {
-         if(this.e.b("display", 10)) {
+         if(this.e.hasKeyOfType("display", 10)) {
             NBTTagCompound var1 = this.e.getCompound("display");
             var1.o("Name");
             if(var1.c_()) {
@@ -386,7 +386,7 @@ public final class ItemStack {
    }
 
    public boolean s() {
-      return this.e == null?false:(!this.e.b("display", 10)?false:this.e.getCompound("display").b("Name", 8));
+      return this.e == null?false:(!this.e.hasKeyOfType("display", 10)?false:this.e.getCompound("display").hasKeyOfType("Name", 8));
    }
 
    public amx u() {
@@ -402,7 +402,7 @@ public final class ItemStack {
          this.d(new NBTTagCompound());
       }
 
-      if(!this.e.b("ench", 9)) {
+      if(!this.e.hasKeyOfType("ench", 9)) {
          this.e.set("ench", (NBTBase)(new NBTTagList()));
       }
 
@@ -414,7 +414,7 @@ public final class ItemStack {
    }
 
    public boolean w() {
-      return this.e != null && this.e.b("ench", 9);
+      return this.e != null && this.e.hasKeyOfType("ench", 9);
    }
 
    public void a(String var1, NBTBase var2) {
@@ -442,7 +442,7 @@ public final class ItemStack {
    }
 
    public int A() {
-      return this.n() && this.e.b("RepairCost", 3)?this.e.getInt("RepairCost"):0;
+      return this.n() && this.e.hasKeyOfType("RepairCost", 3)?this.e.getInt("RepairCost"):0;
    }
 
    public void c(int var1) {
@@ -455,13 +455,13 @@ public final class ItemStack {
 
    public Multimap B() {
       Object var1;
-      if(this.n() && this.e.b("AttributeModifiers", 9)) {
+      if(this.n() && this.e.hasKeyOfType("AttributeModifiers", 9)) {
          var1 = HashMultimap.create();
          NBTTagList var2 = this.e.getList("AttributeModifiers", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             NBTTagCompound var4 = var2.b(var3);
-            ya var5 = GenericAttributes.a(var4);
+            AttributeModifier var5 = GenericAttributes.a(var4);
             if(var5 != null && var5.a().getLeastSignificantBits() != 0L && var5.a().getMostSignificantBits() != 0L) {
                ((Multimap)var1).put(var4.getString("AttributeName"), var5);
             }
@@ -499,7 +499,7 @@ public final class ItemStack {
          return this.i;
       } else {
          this.h = var1;
-         if(this.n() && this.e.b("CanDestroy", 9)) {
+         if(this.n() && this.e.hasKeyOfType("CanDestroy", 9)) {
             NBTTagList var2 = this.e.getList("CanDestroy", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {
@@ -521,7 +521,7 @@ public final class ItemStack {
          return this.k;
       } else {
          this.j = var1;
-         if(this.n() && this.e.b("CanPlaceOn", 9)) {
+         if(this.n() && this.e.hasKeyOfType("CanPlaceOn", 9)) {
             NBTTagList var2 = this.e.getList("CanPlaceOn", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {

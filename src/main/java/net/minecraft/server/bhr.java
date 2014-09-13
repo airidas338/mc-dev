@@ -20,9 +20,9 @@ public class bhr extends WorldGenTrees {
       }
 
       Block var5 = var1.getData(var3).c();
-      if(var5 == Blocks.d || var5 == Blocks.c) {
+      if(var5 == Blocks.DIRT || var5 == Blocks.GRASS) {
          var3 = var3.a();
-         this.a(var1, var3, Blocks.r, this.b);
+         this.a(var1, var3, Blocks.LOG, this.b);
 
          for(int var6 = var3.o(); var6 <= var3.o() + 2; ++var6) {
             int var7 = var6 - var3.o();
@@ -36,7 +36,7 @@ public class bhr extends WorldGenTrees {
                   if(Math.abs(var10) != var8 || Math.abs(var12) != var8 || var2.nextInt(2) != 0) {
                      Location var13 = new Location(var9, var6, var11);
                      if(!var1.getData(var13).c().m()) {
-                        this.a(var1, var13, Blocks.t, this.a);
+                        this.a(var1, var13, Blocks.LEAVES, this.a);
                      }
                   }
                }

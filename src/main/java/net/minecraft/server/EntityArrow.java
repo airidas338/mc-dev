@@ -339,7 +339,7 @@ public class EntityArrow extends Entity implements IProjectile {
       this.e = var1.getShort("yTile");
       this.f = var1.getShort("zTile");
       this.ap = var1.getShort("life");
-      if(var1.b("inTile", 8)) {
+      if(var1.hasKeyOfType("inTile", 8)) {
          this.g = Block.b(var1.getString("inTile"));
       } else {
          this.g = Block.c(var1.getByte("inTile") & 255);
@@ -348,14 +348,14 @@ public class EntityArrow extends Entity implements IProjectile {
       this.h = var1.getByte("inData") & 255;
       this.b = var1.getByte("shake") & 255;
       this.i = var1.getByte("inGround") == 1;
-      if(var1.b("damage", 99)) {
+      if(var1.hasKeyOfType("damage", 99)) {
          this.ar = var1.getDouble("damage");
       }
 
-      if(var1.b("pickup", 99)) {
+      if(var1.hasKeyOfType("pickup", 99)) {
          this.a = var1.getByte("pickup");
-      } else if(var1.b("player", 99)) {
-         this.a = var1.n("player")?1:0;
+      } else if(var1.hasKeyOfType("player", 99)) {
+         this.a = var1.getBoolean("player")?1:0;
       }
 
    }

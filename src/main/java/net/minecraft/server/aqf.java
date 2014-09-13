@@ -37,15 +37,15 @@ public abstract class aqf implements ICommandSender {
    public void b(NBTTagCompound var1) {
       this.e = var1.getString("Command");
       this.b = var1.getInt("SuccessCount");
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.f = var1.getString("CustomName");
       }
 
-      if(var1.b("TrackOutput", 1)) {
-         this.c = var1.n("TrackOutput");
+      if(var1.hasKeyOfType("TrackOutput", 1)) {
+         this.c = var1.getBoolean("TrackOutput");
       }
 
-      if(var1.b("LastOutput", 8) && this.c) {
+      if(var1.hasKeyOfType("LastOutput", 8) && this.c) {
          this.d = hp.a(var1.getString("LastOutput"));
       }
 

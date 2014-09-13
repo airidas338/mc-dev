@@ -9,7 +9,7 @@ public class BlockObsidian extends Block {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a(Blocks.Z);
+      return Item.a(Blocks.OBSIDIAN);
    }
 
    public MaterialMapColor g(IBlock var1) {

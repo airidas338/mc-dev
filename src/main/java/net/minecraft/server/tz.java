@@ -7,16 +7,16 @@ public class tz {
    protected final Map a = Maps.newConcurrentMap();
 
 
-   public boolean a(tk var1) {
+   public boolean a(Achievement var1) {
       return this.a((tq)var1) > 0;
    }
 
-   public boolean b(tk var1) {
+   public boolean b(Achievement var1) {
       return var1.c == null || this.a(var1.c);
    }
 
    public void b(EntityHuman var1, tq var2, int var3) {
-      if(!var2.d() || this.b((tk)var2)) {
+      if(!var2.d() || this.b((Achievement)var2)) {
          this.a(var1, var2, this.a(var2) + var3);
       }
    }

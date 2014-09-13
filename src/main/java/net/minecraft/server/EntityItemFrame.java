@@ -140,11 +140,11 @@ public class EntityItemFrame extends EntityHanging {
       if(var2 != null && !var2.c_()) {
          this.a(ItemStack.a(var2), false);
          this.a(var1.getByte("ItemRotation"), false);
-         if(var1.b("ItemDropChance", 99)) {
+         if(var1.hasKeyOfType("ItemDropChance", 99)) {
             this.c = var1.getFloat("ItemDropChance");
          }
 
-         if(var1.c("Direction")) {
+         if(var1.hasKey("Direction")) {
             this.a(this.p() * 2, false);
          }
       }

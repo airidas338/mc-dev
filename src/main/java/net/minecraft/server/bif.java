@@ -10,7 +10,7 @@ public class bif extends WorldGenerator {
 
 
    public bif(IBlock var1, int var2) {
-      this(var1, var2, bep.a(Blocks.b));
+      this(var1, var2, bep.a(Blocks.STONE));
    }
 
    public bif(IBlock var1, int var2, Predicate var3) {

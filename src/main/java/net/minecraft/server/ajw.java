@@ -49,7 +49,7 @@ public class ajw extends Item {
          } else {
             if(var24.a == brv.b) {
                Location var34 = var24.a();
-               if(var2.getData(var34).c() == Blocks.aH) {
+               if(var2.getData(var34).c() == Blocks.SNOW) {
                   var34 = var34.b();
                }
 

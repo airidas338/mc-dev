@@ -7,7 +7,7 @@ public class axd extends TileEntity {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("RecordItem", 10)) {
+      if(var1.hasKeyOfType("RecordItem", 10)) {
          this.a(ItemStack.a(var1.getCompound("RecordItem")));
       } else if(var1.getInt("Record") > 0) {
          this.a(new ItemStack(Item.b(var1.getInt("Record")), 1, 0));

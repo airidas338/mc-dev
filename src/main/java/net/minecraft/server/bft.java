@@ -11,7 +11,7 @@ public class bft {
       var3.e = new bfn(var0.getByteArray("SkyLight"), 7);
       var3.d = new bfn(var0.getByteArray("BlockLight"), 7);
       var3.c = var0.getByteArray("HeightMap");
-      var3.b = var0.n("TerrainPopulated");
+      var3.b = var0.getBoolean("TerrainPopulated");
       var3.h = var0.getList("Entities", 10);
       var3.i = var0.getList("TileEntities", 10);
       var3.j = var0.getList("TileTicks", 10);

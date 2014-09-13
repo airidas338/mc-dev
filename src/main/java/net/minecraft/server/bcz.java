@@ -27,7 +27,7 @@ public class bcz extends TileEntity implements IUpdatePlayerListBox, vv {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.p = var1.getString("CustomName");
       }
 

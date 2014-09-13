@@ -16,7 +16,7 @@ public class bjh extends bms {
    }
 
    protected void b(NBTTagCompound var1) {
-      this.b = var1.n("tf");
+      this.b = var1.getBoolean("tf");
       this.a = EnumFacing.b(var1.getInt("D"));
    }
 
@@ -117,15 +117,15 @@ public class bjh extends bms {
             this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
-         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, Blocks.f.P(), Blocks.AIR.P(), false);
-         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, Blocks.f.P(), Blocks.AIR.P(), false);
-         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, Blocks.f.P(), Blocks.AIR.P(), false);
-         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, Blocks.f.P(), Blocks.AIR.P(), false);
+         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, Blocks.WOOD.P(), Blocks.AIR.P(), false);
+         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, Blocks.WOOD.P(), Blocks.AIR.P(), false);
+         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, Blocks.WOOD.P(), Blocks.AIR.P(), false);
+         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, Blocks.WOOD.P(), Blocks.AIR.P(), false);
 
          for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
             for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
                if(this.a(var1, var4, this.l.b - 1, var5, var3).c().r() == Material.AIR) {
-                  this.a(var1, Blocks.f.P(), var4, this.l.b - 1, var5, var3);
+                  this.a(var1, Blocks.WOOD.P(), var4, this.l.b - 1, var5, var3);
                }
             }
          }

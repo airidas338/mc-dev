@@ -32,7 +32,7 @@ public class BlockLongGrass extends BlockPlant implements atz {
    public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new ItemStack(Blocks.H, 1, ((EnumFoliage)var4.b(a)).a()));
+         a(var1, var3, new ItemStack(Blocks.LONG_GRASS, 1, ((EnumFoliage)var4.b(a)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }
@@ -58,8 +58,8 @@ public class BlockLongGrass extends BlockPlant implements atz {
          var5 = avk.d;
       }
 
-      if(Blocks.cF.c(var1, var3)) {
-         Blocks.cF.a(var1, var3, var5, 2);
+      if(Blocks.DOUBLE_PLANT.c(var1, var3)) {
+         Blocks.DOUBLE_PLANT.a(var1, var3, var5, 2);
       }
 
    }

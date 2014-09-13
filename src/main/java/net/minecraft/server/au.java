@@ -34,21 +34,21 @@ public class au extends CommandAbstract {
             if(var5 || var6) {
                if(var3 == null) {
                   Iterator var11;
-                  tk var12;
+                  Achievement var12;
                   if(var5) {
-                     var11 = tl.e.iterator();
+                     var11 = AchievementList.e.iterator();
 
                      while(var11.hasNext()) {
-                        var12 = (tk)var11.next();
+                        var12 = (Achievement)var11.next();
                         var4.b((tq)var12);
                      }
 
                      a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.d_()});
                   } else if(var6) {
-                     var11 = Lists.reverse(tl.e).iterator();
+                     var11 = Lists.reverse(AchievementList.e).iterator();
 
                      while(var11.hasNext()) {
-                        var12 = (tk)var11.next();
+                        var12 = (Achievement)var11.next();
                         var4.a((tq)var12);
                      }
 
@@ -56,11 +56,11 @@ public class au extends CommandAbstract {
                   }
 
                } else {
-                  if(var3 instanceof tk) {
-                     tk var7 = (tk)var3;
+                  if(var3 instanceof Achievement) {
+                     Achievement var7 = (Achievement)var3;
                      ArrayList var8;
                      Iterator var9;
-                     tk var10;
+                     Achievement var10;
                      if(var5) {
                         if(var4.A().a(var7)) {
                            throw new di("commands.achievement.alreadyHave", new Object[]{var4.d_(), var3.j()});
@@ -73,7 +73,7 @@ public class au extends CommandAbstract {
                         var9 = Lists.reverse(var8).iterator();
 
                         while(var9.hasNext()) {
-                           var10 = (tk)var9.next();
+                           var10 = (Achievement)var9.next();
                            var4.b((tq)var10);
                         }
                      } else if(var6) {
@@ -81,14 +81,14 @@ public class au extends CommandAbstract {
                            throw new di("commands.achievement.dontHave", new Object[]{var4.d_(), var3.j()});
                         }
 
-                        for(var8 = Lists.newArrayList(Iterators.filter(tl.e.iterator(), new av(this, var4, var3))); var7.c != null && var4.A().a(var7.c); var7 = var7.c) {
+                        for(var8 = Lists.newArrayList(Iterators.filter(AchievementList.e.iterator(), new av(this, var4, var3))); var7.c != null && var4.A().a(var7.c); var7 = var7.c) {
                            var8.remove(var7.c);
                         }
 
                         var9 = var8.iterator();
 
                         while(var9.hasNext()) {
-                           var10 = (tk)var9.next();
+                           var10 = (Achievement)var9.next();
                            var4.a((tq)var10);
                         }
                      }

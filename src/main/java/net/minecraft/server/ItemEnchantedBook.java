@@ -13,7 +13,7 @@ public class ItemEnchantedBook extends Item {
 
    public NBTTagList h(ItemStack var1) {
       NBTTagCompound var2 = var1.o();
-      return var2 != null && var2.b("StoredEnchantments", 9)?(NBTTagList)var2.a("StoredEnchantments"):new NBTTagList();
+      return var2 != null && var2.hasKeyOfType("StoredEnchantments", 9)?(NBTTagList)var2.a("StoredEnchantments"):new NBTTagList();
    }
 
    public void a(ItemStack var1, apo var2) {

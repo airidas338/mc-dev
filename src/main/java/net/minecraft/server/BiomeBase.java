@@ -100,8 +100,8 @@ public abstract class BiomeBase {
 
 
    protected BiomeBase(int var1) {
-      this.ak = Blocks.c.P();
-      this.al = Blocks.d.P();
+      this.ak = Blocks.GRASS.P();
+      this.al = Blocks.DIRT.P();
       this.am = 5169201;
       this.an = a.a;
       this.ao = a.b;
@@ -275,16 +275,16 @@ public abstract class BiomeBase {
 
       for(int var15 = 255; var15 >= 0; --var15) {
          if(var15 <= var2.nextInt(5)) {
-            var3.a(var14, var15, var13, Blocks.h.P());
+            var3.a(var14, var15, var13, Blocks.BEDROCK.P());
          } else {
             IBlock var16 = var3.a(var14, var15, var13);
             if(var16.c().r() == Material.AIR) {
                var11 = -1;
-            } else if(var16.c() == Blocks.b) {
+            } else if(var16.c() == Blocks.STONE) {
                if(var11 == -1) {
                   if(var12 <= 0) {
                      var9 = null;
-                     var10 = Blocks.b.P();
+                     var10 = Blocks.STONE.P();
                   } else if(var15 >= 59 && var15 <= 64) {
                      var9 = this.ak;
                      var10 = this.al;
@@ -292,9 +292,9 @@ public abstract class BiomeBase {
 
                   if(var15 < 63 && (var9 == null || var9.c().r() == Material.AIR)) {
                      if(this.a(new Location(var4, var15, var5)) < 0.15F) {
-                        var9 = Blocks.aI.P();
+                        var9 = Blocks.ICE.P();
                      } else {
-                        var9 = Blocks.j.P();
+                        var9 = Blocks.STATIONARY_WATER.P();
                      }
                   }
 
@@ -303,17 +303,17 @@ public abstract class BiomeBase {
                      var3.a(var14, var15, var13, var9);
                   } else if(var15 < 56 - var12) {
                      var9 = null;
-                     var10 = Blocks.b.P();
-                     var3.a(var14, var15, var13, Blocks.n.P());
+                     var10 = Blocks.STONE.P();
+                     var3.a(var14, var15, var13, Blocks.GRAVEL.P());
                   } else {
                      var3.a(var14, var15, var13, var10);
                   }
                } else if(var11 > 0) {
                   --var11;
                   var3.a(var14, var15, var13, var10);
-                  if(var11 == 0 && var10.c() == Blocks.m) {
+                  if(var11 == 0 && var10.c() == Blocks.SAND) {
                      var11 = var2.nextInt(4) + Math.max(0, var15 - 63);
-                     var10 = var10.b(BlockSand.a) == bac.b?Blocks.cM.P():Blocks.A.P();
+                     var10 = var10.b(BlockSand.a) == bac.b?Blocks.RED_SANDSTONE.P():Blocks.SANDSTONE.P();
                   }
                }
             }

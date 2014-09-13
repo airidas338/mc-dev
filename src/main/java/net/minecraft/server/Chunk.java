@@ -371,7 +371,7 @@ public class Chunk {
       if(this.i.G() == WorldType.DEBUG) {
          IBlock var7 = null;
          if(var1.o() == 60) {
-            var7 = Blocks.cv.P();
+            var7 = Blocks.BARRIER.P();
          }
 
          if(var1.o() == 70) {

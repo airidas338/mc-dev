@@ -9,11 +9,11 @@ import org.apache.logging.log4j.Logger;
 public class GenericAttributes {
 
    private static final Logger f = LogManager.getLogger();
-   public static final IAttribute a = (new yg((IAttribute)null, "generic.maxHealth", 20.0D, 0.0D, Double.MAX_VALUE)).a("Max Health").a(true);
-   public static final IAttribute b = (new yg((IAttribute)null, "generic.followRange", 32.0D, 0.0D, 2048.0D)).a("Follow Range");
-   public static final IAttribute c = (new yg((IAttribute)null, "generic.knockbackResistance", 0.0D, 0.0D, 1.0D)).a("Knockback Resistance");
-   public static final IAttribute d = (new yg((IAttribute)null, "generic.movementSpeed", 0.699999988079071D, 0.0D, Double.MAX_VALUE)).a("Movement Speed").a(true);
-   public static final IAttribute e = new yg((IAttribute)null, "generic.attackDamage", 2.0D, 0.0D, Double.MAX_VALUE);
+   public static final IAttribute a = (new AttributeRanged((IAttribute)null, "generic.maxHealth", 20.0D, 0.0D, Double.MAX_VALUE)).a("Max Health").a(true);
+   public static final IAttribute b = (new AttributeRanged((IAttribute)null, "generic.followRange", 32.0D, 0.0D, 2048.0D)).a("Follow Range");
+   public static final IAttribute c = (new AttributeRanged((IAttribute)null, "generic.knockbackResistance", 0.0D, 0.0D, 1.0D)).a("Knockback Resistance");
+   public static final IAttribute d = (new AttributeRanged((IAttribute)null, "generic.movementSpeed", 0.699999988079071D, 0.0D, Double.MAX_VALUE)).a("Movement Speed").a(true);
+   public static final IAttribute e = new AttributeRanged((IAttribute)null, "generic.attackDamage", 2.0D, 0.0D, Double.MAX_VALUE);
 
 
    public static NBTTagList a(AttributeMapBase var0) {
@@ -39,7 +39,7 @@ public class GenericAttributes {
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
-            ya var6 = (ya)var5.next();
+            AttributeModifier var6 = (AttributeModifier)var5.next();
             if(var6.e()) {
                var4.a((NBTBase)a(var6));
             }
@@ -51,7 +51,7 @@ public class GenericAttributes {
       return var1;
    }
 
-   private static NBTTagCompound a(ya var0) {
+   private static NBTTagCompound a(AttributeModifier var0) {
       NBTTagCompound var1 = new NBTTagCompound();
       var1.setString("Name", var0.b());
       var1.setDouble("Amount", var0.d());
@@ -76,13 +76,13 @@ public class GenericAttributes {
 
    private static void a(AttributeInstance var0, NBTTagCompound var1) {
       var0.a(var1.getDouble("Base"));
-      if(var1.b("Modifiers", 9)) {
+      if(var1.hasKeyOfType("Modifiers", 9)) {
          NBTTagList var2 = var1.getList("Modifiers", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
-            ya var4 = a(var2.b(var3));
+            AttributeModifier var4 = a(var2.b(var3));
             if(var4 != null) {
-               ya var5 = var0.a(var4.a());
+               AttributeModifier var5 = var0.a(var4.a());
                if(var5 != null) {
                   var0.c(var5);
                }
@@ -94,11 +94,11 @@ public class GenericAttributes {
 
    }
 
-   public static ya a(NBTTagCompound var0) {
+   public static AttributeModifier a(NBTTagCompound var0) {
       UUID var1 = new UUID(var0.getLong("UUIDMost"), var0.getLong("UUIDLeast"));
 
       try {
-         return new ya(var1, var0.getString("Name"), var0.getDouble("Amount"), var0.getInt("Operation"));
+         return new AttributeModifier(var1, var0.getString("Name"), var0.getDouble("Amount"), var0.getInt("Operation"));
       } catch (Exception var3) {
          f.warn("Unable to create attribute: " + var3.getMessage());
          return null;

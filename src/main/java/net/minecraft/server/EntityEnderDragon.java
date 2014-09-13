@@ -384,7 +384,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
             for(int var12 = var4; var12 <= var7; ++var12) {
                Block var13 = this.o.getData(new Location(var10, var11, var12)).c();
                if(var13.r() != Material.AIR) {
-                  if(var13 != Blocks.cv && var13 != Blocks.Z && var13 != Blocks.WHITESTONE && var13 != Blocks.h && var13 != Blocks.bX && this.o.Q().b("mobGriefing")) {
+                  if(var13 != Blocks.BARRIER && var13 != Blocks.OBSIDIAN && var13 != Blocks.WHITESTONE && var13 != Blocks.BEDROCK && var13 != Blocks.COMMAND && this.o.Q().b("mobGriefing")) {
                      var9 = this.o.g(new Location(var10, var11, var12)) || var9;
                   } else {
                      var8 = true;
@@ -496,30 +496,30 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
                   Location var12 = var1.a(var8, var7, var9);
                   if(var7 < 0) {
                      if(var10 <= 6.25D) {
-                        this.o.a(var12, Blocks.h.P());
+                        this.o.a(var12, Blocks.BEDROCK.P());
                      }
                   } else if(var7 > 0) {
                      this.o.a(var12, Blocks.AIR.P());
                   } else if(var10 > 6.25D) {
-                     this.o.a(var12, Blocks.h.P());
+                     this.o.a(var12, Blocks.BEDROCK.P());
                   } else {
-                     this.o.a(var12, Blocks.bF.P());
+                     this.o.a(var12, Blocks.ENDER_PORTAL.P());
                   }
                }
             }
          }
       }
 
-      this.o.a(var1, Blocks.h.P());
-      this.o.a(var1.a(), Blocks.h.P());
+      this.o.a(var1, Blocks.BEDROCK.P());
+      this.o.a(var1.a(), Blocks.BEDROCK.P());
       Location var13 = var1.b(2);
-      this.o.a(var13, Blocks.h.P());
-      this.o.a(var13.e(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.EAST));
-      this.o.a(var13.f(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.WEST));
-      this.o.a(var13.c(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.SOUTH));
-      this.o.a(var13.d(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.NORTH));
-      this.o.a(var1.b(3), Blocks.h.P());
-      this.o.a(var1.b(4), Blocks.bI.P());
+      this.o.a(var13, Blocks.BEDROCK.P());
+      this.o.a(var13.e(), Blocks.TORCH.P().a(BlockTorch.a, EnumFacing.EAST));
+      this.o.a(var13.f(), Blocks.TORCH.P().a(BlockTorch.a, EnumFacing.WEST));
+      this.o.a(var13.c(), Blocks.TORCH.P().a(BlockTorch.a, EnumFacing.SOUTH));
+      this.o.a(var13.d(), Blocks.TORCH.P().a(BlockTorch.a, EnumFacing.NORTH));
+      this.o.a(var1.b(3), Blocks.BEDROCK.P());
+      this.o.a(var1.b(4), Blocks.DRAGON_EGG.P());
    }
 
    protected void D() {}

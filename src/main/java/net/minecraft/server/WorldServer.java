@@ -35,7 +35,7 @@ public class WorldServer extends World implements vn {
    protected final abk d = new abk(this);
    private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((PredicateEntityUnderSun)null), new BlockActionDataList((PredicateEntityUnderSun)null)};
    private int T;
-   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.f), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.r), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(Blocks.s), 0, 1, 3, 10)});
+   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.WOOD), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.LOG), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(Blocks.LOG2), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
 
 
@@ -248,11 +248,11 @@ public class WorldServer extends World implements vn {
                var9 = this.q(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                Location var10 = var9.b();
                if(this.w(var10)) {
-                  this.a(var10, Blocks.aI.P());
+                  this.a(var10, Blocks.ICE.P());
                }
 
                if(this.S() && this.f(var9, true)) {
-                  this.a(var9, Blocks.aH.P());
+                  this.a(var9, Blocks.SNOW.P());
                }
 
                if(this.S() && this.b(var10).e()) {

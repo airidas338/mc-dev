@@ -13,7 +13,7 @@ public class ajv extends Item {
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       IBlock var9 = var3.getData(var4);
       Block var10 = var9.c();
-      if(var10 == Blocks.aH && ((Integer)var9.b(BlockSnow.a)).intValue() < 1) {
+      if(var10 == Blocks.SNOW && ((Integer)var9.b(BlockSnow.a)).intValue() < 1) {
          var5 = EnumFacing.UP;
       } else if(!var10.f(var3, var4)) {
          var4 = var4.a(var5);

@@ -50,7 +50,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    public void a(DamageSource var1) {
       super.a(var1);
       if(!var1.c()) {
-         this.a(new ItemStack(Blocks.al, 1), 0.0F);
+         this.a(new ItemStack(Blocks.FURNACE, 1), 0.0F);
       }
 
    }
@@ -138,6 +138,6 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return (this.j()?Blocks.am:Blocks.al).P().a(BlockFurnace.a, EnumFacing.NORTH);
+      return (this.j()?Blocks.BURNING_FURNACE:Blocks.FURNACE).P().a(BlockFurnace.a, EnumFacing.NORTH);
    }
 }

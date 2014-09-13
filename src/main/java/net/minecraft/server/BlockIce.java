@@ -28,7 +28,7 @@ public class BlockIce extends awt {
          this.b(var1, var3, var4, var6);
          Material var7 = var1.getData(var3.b()).c().r();
          if(var7.c() || var7.d()) {
-            var1.a(var3, Blocks.i.P());
+            var1.a(var3, Blocks.WATER.P());
          }
       }
 
@@ -44,7 +44,7 @@ public class BlockIce extends awt {
             var1.g(var2);
          } else {
             this.b(var1, var2, var1.getData(var2), 0);
-            var1.a(var2, Blocks.j.P());
+            var1.a(var2, Blocks.STATIONARY_WATER.P());
          }
       }
    }

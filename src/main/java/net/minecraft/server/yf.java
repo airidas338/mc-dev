@@ -29,8 +29,8 @@ public class yf extends AttributeMapBase {
 
    public AttributeInstance load(IAttribute var1) {
       AttributeInstance var2 = super.load(var1);
-      if(var1 instanceof yg && ((yg)var1).g() != null) {
-         this.d.put(((yg)var1).g(), var2);
+      if(var1 instanceof AttributeRanged && ((AttributeRanged)var1).g() != null) {
+         this.d.put(((AttributeRanged)var1).g(), var2);
       }
 
       return var2;

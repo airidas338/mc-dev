@@ -124,7 +124,7 @@ public abstract class aqi {
          }
 
          NBTTagCompound var12;
-         for(Entity var11 = var1; var3.b("Riding", 10); var3 = var12) {
+         for(Entity var11 = var1; var3.hasKeyOfType("Riding", 10); var3 = var12) {
             var12 = var3.getCompound("Riding");
             Entity var13 = EntityTypes.a(var12.getString("id"), var1.o);
             if(var13 != null) {
@@ -176,7 +176,7 @@ public abstract class aqi {
       this.b = var1.getString("EntityId");
       this.a = var1.getShort("Delay");
       this.c.clear();
-      if(var1.b("SpawnPotentials", 9)) {
+      if(var1.hasKeyOfType("SpawnPotentials", 9)) {
          NBTTagList var2 = var1.getList("SpawnPotentials", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
@@ -184,24 +184,24 @@ public abstract class aqi {
          }
       }
 
-      if(var1.b("SpawnData", 10)) {
+      if(var1.hasKeyOfType("SpawnData", 10)) {
          this.a(new aqj(this, var1.getCompound("SpawnData"), this.b));
       } else {
          this.a((aqj)null);
       }
 
-      if(var1.b("MinSpawnDelay", 99)) {
+      if(var1.hasKeyOfType("MinSpawnDelay", 99)) {
          this.g = var1.getShort("MinSpawnDelay");
          this.h = var1.getShort("MaxSpawnDelay");
          this.i = var1.getShort("SpawnCount");
       }
 
-      if(var1.b("MaxNearbyEntities", 99)) {
+      if(var1.hasKeyOfType("MaxNearbyEntities", 99)) {
          this.k = var1.getShort("MaxNearbyEntities");
          this.l = var1.getShort("RequiredPlayerRange");
       }
 
-      if(var1.b("SpawnRange", 99)) {
+      if(var1.hasKeyOfType("SpawnRange", 99)) {
          this.m = var1.getShort("SpawnRange");
       }
 

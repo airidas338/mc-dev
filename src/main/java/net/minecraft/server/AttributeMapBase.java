@@ -55,7 +55,7 @@ public abstract class AttributeMapBase {
          Entry var3 = (Entry)var2.next();
          AttributeInstance var4 = this.a((String)var3.getKey());
          if(var4 != null) {
-            var4.c((ya)var3.getValue());
+            var4.c((AttributeModifier)var3.getValue());
          }
       }
 
@@ -68,8 +68,8 @@ public abstract class AttributeMapBase {
          Entry var3 = (Entry)var2.next();
          AttributeInstance var4 = this.a((String)var3.getKey());
          if(var4 != null) {
-            var4.c((ya)var3.getValue());
-            var4.b((ya)var3.getValue());
+            var4.c((AttributeModifier)var3.getValue());
+            var4.b((AttributeModifier)var3.getValue());
          }
       }
 

@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class ane extends aks {
 
-   private static final Set c = Sets.newHashSet(new Block[]{Blocks.aL, Blocks.d, Blocks.ak, Blocks.c, Blocks.n, Blocks.bw, Blocks.m, Blocks.aJ, Blocks.aH, Blocks.aW});
+   private static final Set c = Sets.newHashSet(new Block[]{Blocks.CLAY, Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCEL, Blocks.SAND, Blocks.SNOW_BLOCK, Blocks.SNOW, Blocks.SOUL_SAND});
 
 
    public ane(ami var1) {
@@ -12,7 +12,7 @@ public class ane extends aks {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.aH?true:var1 == Blocks.aJ;
+      return var1 == Blocks.SNOW?true:var1 == Blocks.SNOW_BLOCK;
    }
 
 }

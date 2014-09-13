@@ -212,15 +212,15 @@ public class EntityItem extends Entity {
    public void a(NBTTagCompound var1) {
       this.e = var1.getShort("Health") & 255;
       this.c = var1.getShort("Age");
-      if(var1.c("PickupDelay")) {
+      if(var1.hasKey("PickupDelay")) {
          this.d = var1.getShort("PickupDelay");
       }
 
-      if(var1.c("Owner")) {
+      if(var1.hasKey("Owner")) {
          this.g = var1.getString("Owner");
       }
 
-      if(var1.c("Thrower")) {
+      if(var1.hasKey("Thrower")) {
          this.f = var1.getString("Thrower");
       }
 
@@ -237,30 +237,30 @@ public class EntityItem extends Entity {
          ItemStack var2 = this.l();
          int var3 = var2.b;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.d_())) && var1.bg.a(var2)) {
-            if(var2.b() == Item.a(Blocks.r)) {
-               var1.b((tq)tl.g);
+            if(var2.b() == Item.a(Blocks.LOG)) {
+               var1.b((tq)AchievementList.g);
             }
 
-            if(var2.b() == Item.a(Blocks.s)) {
-               var1.b((tq)tl.g);
+            if(var2.b() == Item.a(Blocks.LOG2)) {
+               var1.b((tq)AchievementList.g);
             }
 
             if(var2.b() == Items.aF) {
-               var1.b((tq)tl.t);
+               var1.b((tq)AchievementList.t);
             }
 
             if(var2.b() == Items.i) {
-               var1.b((tq)tl.w);
+               var1.b((tq)AchievementList.w);
             }
 
             if(var2.b() == Items.bv) {
-               var1.b((tq)tl.A);
+               var1.b((tq)AchievementList.A);
             }
 
             if(var2.b() == Items.i && this.n() != null) {
                EntityHuman var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
-                  var4.b((tq)tl.x);
+                  var4.b((tq)AchievementList.x);
                }
             }
 
@@ -300,7 +300,7 @@ public class EntityItem extends Entity {
             b.error("Item entity " + this.F() + " has no item?!");
          }
 
-         return new ItemStack(Blocks.b);
+         return new ItemStack(Blocks.STONE);
       } else {
          return var1;
       }

@@ -30,10 +30,10 @@ public class DispenserRegistry {
       BlockDispenser.M.a(Items.aw, new DispenserBehaviorEmptyBucket());
       BlockDispenser.M.a(Items.d, new DispenserBehaviorFlintAndSteel());
       BlockDispenser.M.a(Items.aW, new DispenserBehaviorBonemeal());
-      BlockDispenser.M.a(Item.a(Blocks.W), new DispenserBehaviorTNT());
+      BlockDispenser.M.a(Item.a(Blocks.TNT), new DispenserBehaviorTNT());
       BlockDispenser.M.a(Items.bX, new DispenserBehaviorSkull());
-      BlockDispenser.M.a(Item.a(Blocks.aU), new DispenserBehaviorPumpkin());
-      BlockDispenser.M.a(Item.a(Blocks.bX), new DispenserBehaviorCommand());
+      BlockDispenser.M.a(Item.a(Blocks.PUMPKIN), new DispenserBehaviorPumpkin());
+      BlockDispenser.M.a(Item.a(Blocks.COMMAND), new DispenserBehaviorCommand());
    }
 
    public static void c() {

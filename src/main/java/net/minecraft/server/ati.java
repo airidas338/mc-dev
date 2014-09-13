@@ -11,7 +11,7 @@ public abstract class ati extends Block {
 
    public static boolean d(IBlock var0) {
       Block var1 = var0.c();
-      return var1 == Blocks.av || var1 == Blocks.D || var1 == Blocks.E || var1 == Blocks.cs;
+      return var1 == Blocks.RAILS || var1 == Blocks.GOLDEN_RAIL || var1 == Blocks.DETECTOR_RAIL || var1 == Blocks.ACTIVATOR_RAIL;
    }
 
    protected ati(boolean var1) {

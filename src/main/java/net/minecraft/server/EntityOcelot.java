@@ -191,7 +191,7 @@ public class EntityOcelot extends EntityTameableAnimal {
          }
 
          Block var2 = this.o.getData(var1.b()).c();
-         if(var2 == Blocks.c || var2.r() == Material.LEAVES) {
+         if(var2 == Blocks.GRASS || var2.r() == Material.LEAVES) {
             return true;
          }
       }

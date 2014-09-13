@@ -32,7 +32,7 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       String var2 = "";
-      if(var1.b("OwnerUUID", 8)) {
+      if(var1.hasKeyOfType("OwnerUUID", 8)) {
          var2 = var1.getString("OwnerUUID");
       } else {
          String var3 = var1.getString("Owner");
@@ -44,8 +44,8 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
          this.m(true);
       }
 
-      this.bk.a(var1.n("Sitting"));
-      this.n(var1.n("Sitting"));
+      this.bk.a(var1.getBoolean("Sitting"));
+      this.n(var1.getBoolean("Sitting"));
    }
 
    protected void l(boolean var1) {

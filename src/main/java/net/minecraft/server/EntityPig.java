@@ -46,7 +46,7 @@ public class EntityPig extends EntityAnimal {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.l(var1.n("Saddle"));
+      this.l(var1.getBoolean("Saddle"));
    }
 
    protected String z() {
@@ -123,7 +123,7 @@ public class EntityPig extends EntityAnimal {
    public void e(float var1, float var2) {
       super.e(var1, var2);
       if(var1 > 5.0F && this.l instanceof EntityHuman) {
-         ((EntityHuman)this.l).b((tq)tl.u);
+         ((EntityHuman)this.l).b((tq)AchievementList.u);
       }
 
    }

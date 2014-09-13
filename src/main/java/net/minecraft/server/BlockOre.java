@@ -9,11 +9,11 @@ public class BlockOre extends Block {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return this == Blocks.q?Items.h:(this == Blocks.ag?Items.i:(this == Blocks.x?Items.aW:(this == Blocks.bP?Items.bO:(this == Blocks.co?Items.cg:Item.a((Block)this)))));
+      return this == Blocks.COAL_ORE?Items.h:(this == Blocks.DIAMOND_ORE?Items.i:(this == Blocks.LAPIS_ORE?Items.aW:(this == Blocks.EMERALD_ORE?Items.bO:(this == Blocks.QUARTZ_ORE?Items.cg:Item.a((Block)this)))));
    }
 
    public int a(Random var1) {
-      return this == Blocks.x?4 + var1.nextInt(5):1;
+      return this == Blocks.LAPIS_ORE?4 + var1.nextInt(5):1;
    }
 
    public int a(int var1, Random var2) {
@@ -33,15 +33,15 @@ public class BlockOre extends Block {
       super.a(var1, var2, var3, var4, var5);
       if(this.a(var3, var1.s, var5) != Item.a((Block)this)) {
          int var6 = 0;
-         if(this == Blocks.q) {
+         if(this == Blocks.COAL_ORE) {
             var6 = MathHelper.a(var1.s, 0, 2);
-         } else if(this == Blocks.ag) {
+         } else if(this == Blocks.DIAMOND_ORE) {
             var6 = MathHelper.a(var1.s, 3, 7);
-         } else if(this == Blocks.bP) {
+         } else if(this == Blocks.EMERALD_ORE) {
             var6 = MathHelper.a(var1.s, 3, 7);
-         } else if(this == Blocks.x) {
+         } else if(this == Blocks.LAPIS_ORE) {
             var6 = MathHelper.a(var1.s, 2, 5);
-         } else if(this == Blocks.co) {
+         } else if(this == Blocks.QUARTZ_ORE) {
             var6 = MathHelper.a(var1.s, 2, 5);
          }
 
@@ -55,6 +55,6 @@ public class BlockOre extends Block {
    }
 
    public int a(IBlock var1) {
-      return this == Blocks.x?akv.l.b():0;
+      return this == Blocks.LAPIS_ORE?akv.l.b():0;
    }
 }

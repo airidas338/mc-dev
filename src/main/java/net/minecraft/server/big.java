@@ -42,7 +42,7 @@ public class big extends WorldGenTreeAbstract {
             return false;
          } else {
             Block var17 = var1.getData(var3.b()).c();
-            if((var17 == Blocks.c || var17 == Blocks.d) && var3.o() < 256 - var4 - 1) {
+            if((var17 == Blocks.GRASS || var17 == Blocks.DIRT) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var18 = 0;
 
@@ -55,7 +55,7 @@ public class big extends WorldGenTreeAbstract {
                         if(Math.abs(var13) != var18 || Math.abs(var15) != var18 || var18 <= 0) {
                            Location var16 = new Location(var12, var11, var14);
                            if(!var1.getData(var16).c().m()) {
-                              this.a(var1, var16, Blocks.t, ayx.b.a());
+                              this.a(var1, var16, Blocks.LEAVES, ayx.b.a());
                            }
                         }
                      }
@@ -71,7 +71,7 @@ public class big extends WorldGenTreeAbstract {
                for(var11 = 0; var11 < var4 - 1; ++var11) {
                   Block var19 = var1.getData(var3.b(var11)).c();
                   if(var19.r() == Material.AIR || var19.r() == Material.LEAVES) {
-                     this.a(var1, var3.b(var11), Blocks.r, ayx.b.a());
+                     this.a(var1, var3.b(var11), Blocks.LOG, ayx.b.a());
                   }
                }
 

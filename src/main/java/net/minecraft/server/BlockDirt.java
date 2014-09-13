@@ -15,7 +15,7 @@ public class BlockDirt extends Block {
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
       if(var1.b(a) == avd.c) {
          Block var4 = var2.getData(var3.a()).c();
-         var1 = var1.a(b, Boolean.valueOf(var4 == Blocks.aJ || var4 == Blocks.aH));
+         var1 = var1.a(b, Boolean.valueOf(var4 == Blocks.SNOW_BLOCK || var4 == Blocks.SNOW));
       }
 
       return var1;

@@ -4,14 +4,14 @@ import com.mojang.authlib.GameProfile;
 import java.io.File;
 import java.util.Iterator;
 
-public class sx extends ss {
+public class WhiteList extends JsonList {
 
-   public sx(File var1) {
+   public WhiteList(File var1) {
       super(var1);
    }
 
-   protected sr a(JsonObject var1) {
-      return new sy(var1);
+   protected JsonListEntry a(JsonObject var1) {
+      return new WhiteListEntry(var1);
    }
 
    public boolean a(GameProfile var1) {
@@ -22,9 +22,9 @@ public class sx extends ss {
       String[] var1 = new String[this.e().size()];
       int var2 = 0;
 
-      sy var4;
+      WhiteListEntry var4;
       for(Iterator var3 = this.e().values().iterator(); var3.hasNext(); var1[var2++] = ((GameProfile)var4.f()).getName()) {
-         var4 = (sy)var3.next();
+         var4 = (WhiteListEntry)var3.next();
       }
 
       return var1;
@@ -37,13 +37,13 @@ public class sx extends ss {
    public GameProfile a(String var1) {
       Iterator var2 = this.e().values().iterator();
 
-      sy var3;
+      WhiteListEntry var3;
       do {
          if(!var2.hasNext()) {
             return null;
          }
 
-         var3 = (sy)var2.next();
+         var3 = (WhiteListEntry)var2.next();
       } while(!var1.equalsIgnoreCase(((GameProfile)var3.f()).getName()));
 
       return (GameProfile)var3.f();

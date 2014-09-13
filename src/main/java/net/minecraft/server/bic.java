@@ -55,7 +55,7 @@ public abstract class bic extends WorldGenTreeAbstract {
    private boolean a(Location var1, World var2) {
       Location var3 = var1.b();
       Block var4 = var2.getData(var3).c();
-      if((var4 == Blocks.c || var4 == Blocks.d) && var1.o() >= 2) {
+      if((var4 == Blocks.GRASS || var4 == Blocks.DIRT) && var1.o() >= 2) {
          this.a(var2, var3);
          this.a(var2, var3.f());
          this.a(var2, var3.d());
@@ -81,7 +81,7 @@ public abstract class bic extends WorldGenTreeAbstract {
                Location var9 = var2.a(var5, 0, var6);
                Material var10 = var1.getData(var9).c().r();
                if(var10 == Material.AIR || var10 == Material.LEAVES) {
-                  this.a(var1, var9, Blocks.t, this.c);
+                  this.a(var1, var9, Blocks.LEAVES, this.c);
                }
             }
          }
@@ -98,7 +98,7 @@ public abstract class bic extends WorldGenTreeAbstract {
                Location var7 = var2.a(var5, 0, var6);
                Material var8 = var1.getData(var7).c().r();
                if(var8 == Material.AIR || var8 == Material.LEAVES) {
-                  this.a(var1, var7, Blocks.t, this.c);
+                  this.a(var1, var7, Blocks.LEAVES, this.c);
                }
             }
          }

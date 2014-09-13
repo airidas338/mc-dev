@@ -42,7 +42,7 @@ public class bdi extends TileEntity {
             var4 = 4;
          }
 
-         var1.c(var2, Blocks.B, var4, this.a);
+         var1.c(var2, Blocks.NOTE_BLOCK, var4, this.a);
       }
    }
 }

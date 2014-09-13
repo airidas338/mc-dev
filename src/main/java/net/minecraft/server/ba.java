@@ -96,7 +96,7 @@ public class ba extends CommandAbstract {
                      if(var9) {
                         Location var27;
                         Iterator var29;
-                        for(var29 = var17.iterator(); var29.hasNext(); var12.a(var27, Blocks.cv.P(), 2)) {
+                        for(var29 = var17.iterator(); var29.hasNext(); var12.a(var27, Blocks.BARRIER.P(), 2)) {
                            var27 = (Location)var29.next();
                            TileEntity var34 = var12.s(var27);
                            if(var34 instanceof IInventory) {
@@ -121,7 +121,7 @@ public class ba extends CommandAbstract {
                      TileEntity var31;
                      bb var30;
                      Iterator var35;
-                     for(var35 = var33.iterator(); var35.hasNext(); var12.a(var30.a, Blocks.cv.P(), 2)) {
+                     for(var35 = var33.iterator(); var35.hasNext(); var12.a(var30.a, Blocks.BARRIER.P(), 2)) {
                         var30 = (bb)var35.next();
                         var31 = var12.s(var30.a);
                         if(var31 instanceof IInventory) {

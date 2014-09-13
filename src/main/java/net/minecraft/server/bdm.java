@@ -29,9 +29,9 @@ public class bdm extends TileEntity {
       this.a = var1.getByte("SkullType");
       this.f = var1.getByte("Rot");
       if(this.a == 3) {
-         if(var1.b("Owner", 10)) {
+         if(var1.hasKeyOfType("Owner", 10)) {
             this.g = ga.a(var1.getCompound("Owner"));
-         } else if(var1.b("ExtraType", 8)) {
+         } else if(var1.hasKeyOfType("ExtraType", 8)) {
             String var2 = var1.getString("ExtraType");
             if(!vb.b(var2)) {
                this.g = new GameProfile((UUID)null, var2);

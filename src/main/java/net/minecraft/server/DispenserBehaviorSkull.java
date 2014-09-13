@@ -11,7 +11,7 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
       World var3 = var1.i();
       EnumFacing var4 = BlockDispenser.b(var1.f());
       Location var5 = var1.d().a(var4);
-      BlockSkull var6 = Blocks.ce;
+      BlockSkull var6 = Blocks.SKULL;
       if(var3.d(var5) && var6.b(var3, var5, var2)) {
          if(!var3.D) {
             var3.a(var5, var6.P().a(BlockSkull.a, EnumFacing.UP), 3);
@@ -21,9 +21,9 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
                   GameProfile var8 = null;
                   if(var2.n()) {
                      NBTTagCompound var9 = var2.o();
-                     if(var9.b("SkullOwner", 10)) {
+                     if(var9.hasKeyOfType("SkullOwner", 10)) {
                         var8 = ga.a(var9.getCompound("SkullOwner"));
-                     } else if(var9.b("SkullOwner", 8)) {
+                     } else if(var9.hasKeyOfType("SkullOwner", 8)) {
                         var8 = new GameProfile((UUID)null, var9.getString("SkullOwner"));
                      }
                   }
@@ -34,7 +34,7 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
                }
 
                ((bdm)var7).b(var4.d().b() * 4);
-               Blocks.ce.a(var3, var5, (bdm)var7);
+               Blocks.SKULL.a(var3, var5, (bdm)var7);
             }
 
             --var2.b;

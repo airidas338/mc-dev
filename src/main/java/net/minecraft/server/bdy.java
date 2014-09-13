@@ -42,7 +42,7 @@ public class bdy {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             Location var3 = (Location)this.e.get(var2);
-            if(this.a.getData(var3).c() == Blocks.cE && !this.b(var3)) {
+            if(this.a.getData(var3).c() == Blocks.SLIME && !this.b(var3)) {
                return false;
             }
          }
@@ -66,7 +66,7 @@ public class bdy {
          if(var3 + this.e.size() > 12) {
             return false;
          } else {
-            while(var2 == Blocks.cE) {
+            while(var2 == Blocks.SLIME) {
                Location var4 = var1.a(this.d.d(), var3);
                var2 = this.a.getData(var4).c();
                if(var2.r() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
@@ -97,7 +97,7 @@ public class bdy {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      Location var9 = (Location)this.e.get(var8);
-                     if(this.a.getData(var9).c() == Blocks.cE && !this.b(var9)) {
+                     if(this.a.getData(var9).c() == Blocks.SLIME && !this.b(var9)) {
                         return false;
                      }
                   }

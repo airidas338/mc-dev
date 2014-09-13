@@ -3,24 +3,24 @@ import com.google.gson.JsonObject;
 import java.io.File;
 import java.net.SocketAddress;
 
-public class sd extends ss {
+public class IpBanList extends JsonList {
 
-   public sd(File var1) {
+   public IpBanList(File var1) {
       super(var1);
    }
 
-   protected sr a(JsonObject var1) {
-      return new se(var1);
+   protected JsonListEntry a(JsonObject var1) {
+      return new IpBanEntry(var1);
    }
 
-   public boolean a(SocketAddress var1) {
+   public boolean isBanned(SocketAddress var1) {
       String var2 = this.c(var1);
       return this.d(var2);
    }
 
-   public se b(SocketAddress var1) {
+   public IpBanEntry b(SocketAddress var1) {
       String var2 = this.c(var1);
-      return (se)this.b(var2);
+      return (IpBanEntry)this.b(var2);
    }
 
    private String c(SocketAddress var1) {

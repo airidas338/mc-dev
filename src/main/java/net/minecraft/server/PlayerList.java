@@ -32,10 +32,10 @@ public abstract class PlayerList {
 	private final MinecraftServer j;
 	public final List e = Lists.newArrayList();
 	public final Map f = Maps.newHashMap();
-	private final sv k;
-	private final sd l;
-	private final sp m;
-	private final sx n;
+	private final GameProfileBanList k;
+	private final IpBanList l;
+	private final OpList m;
+	private final WhiteList n;
 	private final Map o;
 	private IPlayerFileData p;
 	private boolean q;
@@ -46,10 +46,10 @@ public abstract class PlayerList {
 	private int u;
 
 	public PlayerList(MinecraftServer var1) {
-		this.k = new sv(a);
-		this.l = new sd(b);
-		this.m = new sp(c);
-		this.n = new sx(d);
+		this.k = new GameProfileBanList(a);
+		this.l = new IpBanList(b);
+		this.m = new OpList(c);
+		this.n = new WhiteList(d);
 		this.o = Maps.newHashMap();
 		this.j = var1;
 		this.k.a(false);
@@ -111,7 +111,7 @@ public abstract class PlayerList {
 		}
 
 		var2.f_();
-		if (var7 != null && var7.b("Riding", 10)) {
+		if (var7 != null && var7.hasKeyOfType("Riding", 10)) {
 			Entity var16 = EntityTypes.a(var7.getCompound("Riding"), (World) var9);
 			if (var16 != null) {
 				var16.n = true;
@@ -230,7 +230,7 @@ public abstract class PlayerList {
 	public String a(SocketAddress var1, GameProfile var2) {
 		String var4;
 		if (this.k.a(var2)) {
-			sw var5 = (sw) this.k.b((Object) var2);
+			GameProfileBanEntry var5 = (GameProfileBanEntry) this.k.b((Object) var2);
 			var4 = "You are banned from this server!\nReason: " + var5.d();
 			if (var5.c() != null) {
 				var4 = var4 + "\nYour ban will be removed on " + i.format(var5.c());
@@ -239,8 +239,8 @@ public abstract class PlayerList {
 			return var4;
 		} else if (!this.e(var2)) {
 			return "You are not white-listed on this server!";
-		} else if (this.l.a(var1)) {
-			se var3 = this.l.b(var1);
+		} else if (this.l.isBanned(var1)) {
+			IpBanEntry var3 = this.l.b(var1);
 			var4 = "Your IP address is banned from this server!\nReason: " + var3.d();
 			if (var3.c() != null) {
 				var4 = var4 + "\nYour ban will be removed on " + i.format(var3.c());
@@ -505,16 +505,16 @@ public abstract class PlayerList {
 		return var1;
 	}
 
-	public sv i() {
+	public GameProfileBanList i() {
 		return this.k;
 	}
 
-	public sd j() {
+	public IpBanList j() {
 		return this.l;
 	}
 
 	public void a(GameProfile var1) {
-		this.m.a((sr) (new sq(var1, this.j.p())));
+		this.m.a((JsonListEntry) (new OpListEntry(var1, this.j.p())));
 	}
 
 	public void b(GameProfile var1) {
@@ -571,14 +571,14 @@ public abstract class PlayerList {
 	}
 
 	public void d(GameProfile var1) {
-		this.n.a((sr) (new sy(var1)));
+		this.n.a((JsonListEntry) (new WhiteListEntry(var1)));
 	}
 
 	public void c(GameProfile var1) {
 		this.n.c(var1);
 	}
 
-	public sx l() {
+	public WhiteList l() {
 		return this.n;
 	}
 
@@ -586,7 +586,7 @@ public abstract class PlayerList {
 		return this.n.a();
 	}
 
-	public sp n() {
+	public OpList n() {
 		return this.m;
 	}
 

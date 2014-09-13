@@ -33,7 +33,7 @@ public class akw extends Item {
          } else if(var9 == akv.m) {
             IBlock var10 = var3.getData(var4);
             Block var11 = var10.c();
-            if(var11 == Blocks.r && var10.b(BlockWood.a) == ayx.d) {
+            if(var11 == Blocks.LOG && var10.b(BlockWood.a) == ayx.d) {
                if(var5 == EnumFacing.DOWN) {
                   return false;
                }
@@ -44,7 +44,7 @@ public class akw extends Item {
 
                var4 = var4.a(var5);
                if(var3.d(var4)) {
-                  IBlock var12 = Blocks.bN.a(var3, var4, var5, var6, var7, var8, 0, var2);
+                  IBlock var12 = Blocks.COCOA.a(var3, var4, var5, var6, var7, var8, 0, var2);
                   var3.a(var4, var12, 2);
                   if(!var2.by.d) {
                      --var1.b;

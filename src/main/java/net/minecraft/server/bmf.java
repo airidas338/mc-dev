@@ -9,13 +9,13 @@ class bmf extends bmu {
       if(var5) {
          float var6 = var1.nextFloat();
          if(var6 < 0.2F) {
-            this.a = Blocks.bf.a(BlockSmoothBrick.N);
+            this.a = Blocks.SMOOTH_BRICK.a(BlockSmoothBrick.N);
          } else if(var6 < 0.5F) {
-            this.a = Blocks.bf.a(BlockSmoothBrick.M);
+            this.a = Blocks.SMOOTH_BRICK.a(BlockSmoothBrick.M);
          } else if(var6 < 0.55F) {
-            this.a = Blocks.be.a(axu.c.a());
+            this.a = Blocks.MONSTER_EGGS.a(axu.c.a());
          } else {
-            this.a = Blocks.bf.P();
+            this.a = Blocks.SMOOTH_BRICK.P();
          }
       } else {
          this.a = Blocks.AIR.P();

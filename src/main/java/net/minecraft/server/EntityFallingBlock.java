@@ -74,7 +74,7 @@ public class EntityFallingBlock extends Entity {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.w *= -0.5D;
-               if(this.o.getData(var2).c() != Blocks.M) {
+               if(this.o.getData(var2).c() != Blocks.PISTON_MOVING) {
                   this.J();
                   if(!this.e && this.o.a(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
                      if(var1 instanceof avt) {
@@ -122,7 +122,7 @@ public class EntityFallingBlock extends Entity {
          int var4 = MathHelper.f(var1 - 1.0F);
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList(this.o.b((Entity)this, this.aQ()));
-            boolean var6 = var3 == Blocks.cf;
+            boolean var6 = var3 == Blocks.ANVIL;
             DamageSource var7 = var6?DamageSource.n:DamageSource.o;
             Iterator var8 = var5.iterator();
 
@@ -163,9 +163,9 @@ public class EntityFallingBlock extends Entity {
 
    protected void a(NBTTagCompound var1) {
       int var2 = var1.getByte("Data") & 255;
-      if(var1.b("Block", 8)) {
+      if(var1.hasKeyOfType("Block", 8)) {
          this.d = Block.b(var1.getString("Block")).a(var2);
-      } else if(var1.b("TileID", 99)) {
+      } else if(var1.hasKeyOfType("TileID", 99)) {
          this.d = Block.c(var1.getInt("TileID")).a(var2);
       } else {
          this.d = Block.c(var1.getByte("Tile") & 255).a(var2);
@@ -173,24 +173,24 @@ public class EntityFallingBlock extends Entity {
 
       this.a = var1.getByte("Time") & 255;
       Block var3 = this.d.c();
-      if(var1.b("HurtEntities", 99)) {
-         this.f = var1.n("HurtEntities");
+      if(var1.hasKeyOfType("HurtEntities", 99)) {
+         this.f = var1.getBoolean("HurtEntities");
          this.h = var1.getFloat("FallHurtAmount");
          this.g = var1.getInt("FallHurtMax");
-      } else if(var3 == Blocks.cf) {
+      } else if(var3 == Blocks.ANVIL) {
          this.f = true;
       }
 
-      if(var1.b("DropItem", 99)) {
-         this.b = var1.n("DropItem");
+      if(var1.hasKeyOfType("DropItem", 99)) {
+         this.b = var1.getBoolean("DropItem");
       }
 
-      if(var1.b("TileEntityData", 10)) {
+      if(var1.hasKeyOfType("TileEntityData", 10)) {
          this.c = var1.getCompound("TileEntityData");
       }
 
       if(var3 == null || var3.r() == Material.AIR) {
-         this.d = Blocks.m.P();
+         this.d = Blocks.SAND.P();
       }
 
    }

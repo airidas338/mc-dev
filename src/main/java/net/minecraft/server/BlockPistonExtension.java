@@ -22,7 +22,7 @@ public class BlockPistonExtension extends Block {
          if(var5 != null) {
             Location var6 = var2.a(var5.d());
             Block var7 = var1.getData(var6).c();
-            if(var7 == Blocks.J || var7 == Blocks.F) {
+            if(var7 == Blocks.PISTON || var7 == Blocks.PISTON_STICKEY) {
                var1.g(var6);
             }
          }
@@ -36,7 +36,7 @@ public class BlockPistonExtension extends Block {
       EnumFacing var4 = ((EnumFacing)var3.b(a)).d();
       var2 = var2.a(var4);
       IBlock var5 = var1.getData(var2);
-      if((var5.c() == Blocks.J || var5.c() == Blocks.F) && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
+      if((var5.c() == Blocks.PISTON || var5.c() == Blocks.PISTON_STICKEY) && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
          var5.c().b(var1, var2, var5, 0);
          var1.g(var2);
       }
@@ -134,7 +134,7 @@ public class BlockPistonExtension extends Block {
       EnumFacing var5 = (EnumFacing)var3.b(a);
       Location var6 = var2.a(var5.d());
       IBlock var7 = var1.getData(var6);
-      if(var7.c() != Blocks.J && var7.c() != Blocks.F) {
+      if(var7.c() != Blocks.PISTON && var7.c() != Blocks.PISTON_STICKEY) {
          var1.g(var2);
       } else {
          var7.c().a(var1, var6, var7, var4);

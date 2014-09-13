@@ -62,7 +62,7 @@ public abstract class BlockLeaves extends bbo {
                   for(var14 = -var5; var14 <= var5; ++var14) {
                      for(var15 = -var5; var15 <= var5; ++var15) {
                         Block var16 = var1.getData(new Location(var7 + var13, var8 + var14, var9 + var15)).c();
-                        if(var16 != Blocks.r && var16 != Blocks.s) {
+                        if(var16 != Blocks.LOG && var16 != Blocks.LOG2) {
                            if(var16.r() == Material.LEAVES) {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -2;
                            } else {
@@ -131,7 +131,7 @@ public abstract class BlockLeaves extends bbo {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a(Blocks.g);
+      return Item.a(Blocks.SAPLING);
    }
 
    public void a(World var1, Location var2, IBlock var3, float var4, int var5) {

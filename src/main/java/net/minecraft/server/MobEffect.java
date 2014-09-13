@@ -152,10 +152,10 @@ public class MobEffect {
       if(var1 >= 0 && var1 < MobEffectList.a.length && MobEffectList.a[var1] != null) {
          byte var2 = var0.getByte("Amplifier");
          int var3 = var0.getInt("Duration");
-         boolean var4 = var0.n("Ambient");
+         boolean var4 = var0.getBoolean("Ambient");
          boolean var5 = true;
-         if(var0.b("ShowParticles", 1)) {
-            var5 = var0.n("ShowParticles");
+         if(var0.hasKeyOfType("ShowParticles", 1)) {
+            var5 = var0.getBoolean("ShowParticles");
          }
 
          return new MobEffect(var1, var3, var2, var4, var5);

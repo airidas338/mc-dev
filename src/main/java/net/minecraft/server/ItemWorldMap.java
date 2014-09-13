@@ -66,9 +66,9 @@ public class ItemWorldMap extends ake {
                            var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(Blocks.d.g(Blocks.d.P().a(BlockDirt.a, avd.a)), 10);
+                              var21.add(Blocks.DIRT.g(Blocks.DIRT.P().a(BlockDirt.a, avd.a)), 10);
                            } else {
-                              var21.add(Blocks.b.g(Blocks.b.P().a(BlockStone.a, bbb.a)), 100);
+                              var21.add(Blocks.STONE.g(Blocks.STONE.P().a(BlockStone.a, bbb.a)), 100);
                            }
 
                            var26 = 100.0D;
@@ -163,7 +163,7 @@ public class ItemWorldMap extends ake {
    }
 
    public void d(ItemStack var1, World var2, EntityHuman var3) {
-      if(var1.n() && var1.o().n("map_is_scaling")) {
+      if(var1.n() && var1.o().getBoolean("map_is_scaling")) {
          WorldMap var4 = Items.bd.a(var1, var2);
          var1.b(var2.b("map"));
          WorldMap var5 = new WorldMap("map_" + var1.i());

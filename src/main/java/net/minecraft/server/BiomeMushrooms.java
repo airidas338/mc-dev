@@ -9,7 +9,7 @@ public class BiomeMushrooms extends BiomeBase {
       this.as.C = -100;
       this.as.E = 1;
       this.as.K = 1;
-      this.ak = Blocks.bw.P();
+      this.ak = Blocks.MYCEL.P();
       this.at.clear();
       this.au.clear();
       this.av.clear();

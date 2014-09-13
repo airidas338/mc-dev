@@ -60,7 +60,7 @@ public class EntitySheep extends EntityAnimal {
 
    protected void b(boolean var1, int var2) {
       if(!this.ck()) {
-         this.a(new ItemStack(Item.a(Blocks.L), 1, this.cj().a()), 0.0F);
+         this.a(new ItemStack(Item.a(Blocks.WOOL), 1, this.cj().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
@@ -76,7 +76,7 @@ public class EntitySheep extends EntityAnimal {
    }
 
    protected Item A() {
-      return Item.a(Blocks.L);
+      return Item.a(Blocks.WOOL);
    }
 
    public boolean a(EntityHuman var1) throws IOException {
@@ -87,7 +87,7 @@ public class EntitySheep extends EntityAnimal {
             int var3 = 1 + this.V.nextInt(3);
 
             for(int var4 = 0; var4 < var3; ++var4) {
-               EntityItem var5 = this.a(new ItemStack(Item.a(Blocks.L), 1, this.cj().a()), 1.0F);
+               EntityItem var5 = this.a(new ItemStack(Item.a(Blocks.WOOL), 1, this.cj().a()), 1.0F);
                var5.w += (double)(this.V.nextFloat() * 0.05F);
                var5.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var5.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
@@ -109,7 +109,7 @@ public class EntitySheep extends EntityAnimal {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.l(var1.n("Sheared"));
+      this.l(var1.getBoolean("Sheared"));
       this.b(akv.b(var1.getByte("Color")));
    }
 

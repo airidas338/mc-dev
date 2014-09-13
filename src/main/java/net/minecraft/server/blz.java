@@ -26,7 +26,7 @@ public class blz extends bmk {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.b = var1.n("Tall");
+      this.b = var1.getBoolean("Tall");
    }
 
    public static blz a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
@@ -52,80 +52,80 @@ public class blz extends bmk {
 
          this.a(var1, var3, 0, 0, 0, 13, var4 - 1, 14, true, var2, blr.c());
          this.a(var1, var2, var3, this.d, 4, 1, 0);
-         this.a(var1, var3, var2, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.G.P(), Blocks.G.P(), false);
+         this.a(var1, var3, var2, 0.07F, 2, 1, 1, 11, 4, 13, Blocks.WEB.P(), Blocks.WEB.P(), false);
          boolean var5 = true;
          boolean var6 = true;
 
          int var7;
          for(var7 = 1; var7 <= 13; ++var7) {
             if((var7 - 1) % 4 == 0) {
-               this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.f.P(), Blocks.f.P(), false);
-               this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.f.P(), Blocks.f.P(), false);
-               this.a(var1, Blocks.aa.P(), 2, 3, var7, var3);
-               this.a(var1, Blocks.aa.P(), 11, 3, var7, var3);
+               this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+               this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+               this.a(var1, Blocks.TORCH.P(), 2, 3, var7, var3);
+               this.a(var1, Blocks.TORCH.P(), 11, 3, var7, var3);
                if(this.b) {
-                  this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.f.P(), Blocks.f.P(), false);
-                  this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.f.P(), Blocks.f.P(), false);
+                  this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+                  this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
                }
             } else {
-               this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.X.P(), Blocks.X.P(), false);
-               this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.X.P(), Blocks.X.P(), false);
+               this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
+               this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
                if(this.b) {
-                  this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.X.P(), Blocks.X.P(), false);
-                  this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.X.P(), Blocks.X.P(), false);
+                  this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
+                  this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
                }
             }
          }
 
          for(var7 = 3; var7 < 12; var7 += 2) {
-            this.a(var1, var3, 3, 1, var7, 4, 3, var7, Blocks.X.P(), Blocks.X.P(), false);
-            this.a(var1, var3, 6, 1, var7, 7, 3, var7, Blocks.X.P(), Blocks.X.P(), false);
-            this.a(var1, var3, 9, 1, var7, 10, 3, var7, Blocks.X.P(), Blocks.X.P(), false);
+            this.a(var1, var3, 3, 1, var7, 4, 3, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
+            this.a(var1, var3, 6, 1, var7, 7, 3, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
+            this.a(var1, var3, 9, 1, var7, 10, 3, var7, Blocks.BOOKSHELF.P(), Blocks.BOOKSHELF.P(), false);
          }
 
          if(this.b) {
-            this.a(var1, var3, 1, 5, 1, 3, 5, 13, Blocks.f.P(), Blocks.f.P(), false);
-            this.a(var1, var3, 10, 5, 1, 12, 5, 13, Blocks.f.P(), Blocks.f.P(), false);
-            this.a(var1, var3, 4, 5, 1, 9, 5, 2, Blocks.f.P(), Blocks.f.P(), false);
-            this.a(var1, var3, 4, 5, 12, 9, 5, 13, Blocks.f.P(), Blocks.f.P(), false);
-            this.a(var1, Blocks.f.P(), 9, 5, 11, var3);
-            this.a(var1, Blocks.f.P(), 8, 5, 11, var3);
-            this.a(var1, Blocks.f.P(), 9, 5, 10, var3);
-            this.a(var1, var3, 3, 6, 2, 3, 6, 12, Blocks.aO.P(), Blocks.aO.P(), false);
-            this.a(var1, var3, 10, 6, 2, 10, 6, 10, Blocks.aO.P(), Blocks.aO.P(), false);
-            this.a(var1, var3, 4, 6, 2, 9, 6, 2, Blocks.aO.P(), Blocks.aO.P(), false);
-            this.a(var1, var3, 4, 6, 12, 8, 6, 12, Blocks.aO.P(), Blocks.aO.P(), false);
-            this.a(var1, Blocks.aO.P(), 9, 6, 11, var3);
-            this.a(var1, Blocks.aO.P(), 8, 6, 11, var3);
-            this.a(var1, Blocks.aO.P(), 9, 6, 10, var3);
-            var7 = this.a(Blocks.au, 3);
-            this.a(var1, Blocks.au.a(var7), 10, 1, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 2, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 3, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 4, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 5, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 6, 13, var3);
-            this.a(var1, Blocks.au.a(var7), 10, 7, 13, var3);
+            this.a(var1, var3, 1, 5, 1, 3, 5, 13, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+            this.a(var1, var3, 10, 5, 1, 12, 5, 13, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+            this.a(var1, var3, 4, 5, 1, 9, 5, 2, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+            this.a(var1, var3, 4, 5, 12, 9, 5, 13, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+            this.a(var1, Blocks.WOOD.P(), 9, 5, 11, var3);
+            this.a(var1, Blocks.WOOD.P(), 8, 5, 11, var3);
+            this.a(var1, Blocks.WOOD.P(), 9, 5, 10, var3);
+            this.a(var1, var3, 3, 6, 2, 3, 6, 12, Blocks.FENCE.P(), Blocks.FENCE.P(), false);
+            this.a(var1, var3, 10, 6, 2, 10, 6, 10, Blocks.FENCE.P(), Blocks.FENCE.P(), false);
+            this.a(var1, var3, 4, 6, 2, 9, 6, 2, Blocks.FENCE.P(), Blocks.FENCE.P(), false);
+            this.a(var1, var3, 4, 6, 12, 8, 6, 12, Blocks.FENCE.P(), Blocks.FENCE.P(), false);
+            this.a(var1, Blocks.FENCE.P(), 9, 6, 11, var3);
+            this.a(var1, Blocks.FENCE.P(), 8, 6, 11, var3);
+            this.a(var1, Blocks.FENCE.P(), 9, 6, 10, var3);
+            var7 = this.a(Blocks.LADDER, 3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 1, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 2, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 3, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 4, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 5, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 6, 13, var3);
+            this.a(var1, Blocks.LADDER.a(var7), 10, 7, 13, var3);
             byte var8 = 7;
             byte var9 = 7;
-            this.a(var1, Blocks.aO.P(), var8 - 1, 9, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8, 9, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8 - 1, 8, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8, 8, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8 - 1, 7, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8, 7, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8 - 2, 7, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8 + 1, 7, var9, var3);
-            this.a(var1, Blocks.aO.P(), var8 - 1, 7, var9 - 1, var3);
-            this.a(var1, Blocks.aO.P(), var8 - 1, 7, var9 + 1, var3);
-            this.a(var1, Blocks.aO.P(), var8, 7, var9 - 1, var3);
-            this.a(var1, Blocks.aO.P(), var8, 7, var9 + 1, var3);
-            this.a(var1, Blocks.aa.P(), var8 - 2, 8, var9, var3);
-            this.a(var1, Blocks.aa.P(), var8 + 1, 8, var9, var3);
-            this.a(var1, Blocks.aa.P(), var8 - 1, 8, var9 - 1, var3);
-            this.a(var1, Blocks.aa.P(), var8 - 1, 8, var9 + 1, var3);
-            this.a(var1, Blocks.aa.P(), var8, 8, var9 - 1, var3);
-            this.a(var1, Blocks.aa.P(), var8, 8, var9 + 1, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 1, 9, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8, 9, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 1, 8, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8, 8, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 1, 7, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8, 7, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 2, 7, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 + 1, 7, var9, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 1, 7, var9 - 1, var3);
+            this.a(var1, Blocks.FENCE.P(), var8 - 1, 7, var9 + 1, var3);
+            this.a(var1, Blocks.FENCE.P(), var8, 7, var9 - 1, var3);
+            this.a(var1, Blocks.FENCE.P(), var8, 7, var9 + 1, var3);
+            this.a(var1, Blocks.TORCH.P(), var8 - 2, 8, var9, var3);
+            this.a(var1, Blocks.TORCH.P(), var8 + 1, 8, var9, var3);
+            this.a(var1, Blocks.TORCH.P(), var8 - 1, 8, var9 - 1, var3);
+            this.a(var1, Blocks.TORCH.P(), var8 - 1, 8, var9 + 1, var3);
+            this.a(var1, Blocks.TORCH.P(), var8, 8, var9 - 1, var3);
+            this.a(var1, Blocks.TORCH.P(), var8, 8, var9 + 1, var3);
          }
 
          this.a(var1, var3, var2, 3, 3, 5, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));

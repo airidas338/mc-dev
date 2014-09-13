@@ -55,7 +55,7 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
          --var1;
       }
 
-      AxisAlignedBB var3 = Blocks.M.a(this.b, this.c, this.a, var1, this.f);
+      AxisAlignedBB var3 = Blocks.PISTON_MOVING.a(this.b, this.c, this.a, var1, this.f);
       if(var3 != null) {
          List var4 = this.b.b((Entity)null, var3);
          if(!var4.isEmpty()) {
@@ -64,7 +64,7 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
 
             while(var5.hasNext()) {
                Entity var6 = (Entity)var5.next();
-               if(this.a.c() == Blocks.cE && this.g) {
+               if(this.a.c() == Blocks.SLIME && this.g) {
                   switch(bdw.a[this.f.k().ordinal()]) {
                   case 1:
                      var6.v = (double)this.f.g();
@@ -91,7 +91,7 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
          this.j = this.i = 1.0F;
          this.b.t(this.c);
          this.y();
-         if(this.b.getData(this.c).c() == Blocks.M) {
+         if(this.b.getData(this.c).c() == Blocks.PISTON_MOVING) {
             this.b.a(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
@@ -105,7 +105,7 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
          this.a(1.0F, 0.25F);
          this.b.t(this.c);
          this.y();
-         if(this.b.getData(this.c).c() == Blocks.M) {
+         if(this.b.getData(this.c).c() == Blocks.PISTON_MOVING) {
             this.b.a(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
@@ -128,7 +128,7 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
       this.a = Block.c(var1.getInt("blockId")).a(var1.getInt("blockData"));
       this.f = EnumFacing.a(var1.getInt("facing"));
       this.j = this.i = var1.getFloat("progress");
-      this.g = var1.n("extending");
+      this.g = var1.getBoolean("extending");
    }
 
    public void b(NBTTagCompound var1) {

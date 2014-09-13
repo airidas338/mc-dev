@@ -53,7 +53,7 @@ public class ahz {
    }
 
    public void a(NBTTagCompound var1) {
-      if(var1.b("foodLevel", 99)) {
+      if(var1.hasKeyOfType("foodLevel", 99)) {
          this.a = var1.getInt("foodLevel");
          this.d = var1.getInt("foodTickTimer");
          this.b = var1.getFloat("foodSaturationLevel");

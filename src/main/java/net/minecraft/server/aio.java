@@ -52,7 +52,7 @@ public class aio extends aib {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.g.getData(this.h).c() != Blocks.ai?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
+      return this.g.getData(this.h).c() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

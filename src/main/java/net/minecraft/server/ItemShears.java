@@ -10,7 +10,7 @@ public class ItemShears extends Item {
    }
 
    public boolean a(ItemStack var1, World var2, Block var3, Location var4, EntityLiving var5) {
-      if(var3.r() != Material.LEAVES && var3 != Blocks.G && var3 != Blocks.H && var3 != Blocks.bn && var3 != Blocks.bS && var3 != Blocks.L) {
+      if(var3.r() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.LONG_GRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
          return super.a(var1, var2, var3, var4, var5);
       } else {
          var1.a(1, var5);
@@ -19,10 +19,10 @@ public class ItemShears extends Item {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.G || var1 == Blocks.af || var1 == Blocks.bS;
+      return var1 == Blocks.WEB || var1 == Blocks.REDSTONE_WIRE || var1 == Blocks.TRIPWIRE;
    }
 
    public float a(ItemStack var1, Block var2) {
-      return var2 != Blocks.G && var2.r() != Material.LEAVES?(var2 == Blocks.L?5.0F:super.a(var1, var2)):15.0F;
+      return var2 != Blocks.WEB && var2.r() != Material.LEAVES?(var2 == Blocks.WOOL?5.0F:super.a(var1, var2)):15.0F;
    }
 }

@@ -105,7 +105,7 @@ public class BlockFence extends Block {
 
    public boolean e(IBlockAccess var1, Location var2) {
       Block var3 = var1.getData(var2).c();
-      return var3 == Blocks.cv?false:((!(var3 instanceof BlockFence) || var3.J != this.J) && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
+      return var3 == Blocks.BARRIER?false:((!(var3 instanceof BlockFence) || var3.J != this.J) && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
    public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {

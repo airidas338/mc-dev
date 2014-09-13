@@ -80,8 +80,8 @@ public class EntityWolf extends EntityTameableAnimal {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.o(var1.n("Angry"));
-      if(var1.b("CollarColor", 99)) {
+      this.o(var1.getBoolean("Angry"));
+      if(var1.hasKeyOfType("CollarColor", 99)) {
          this.a(akv.a(var1.getByte("CollarColor")));
       }
 

@@ -15,7 +15,7 @@ public class anq extends Item {
    public static boolean b(NBTTagCompound var0) {
       if(var0 == null) {
          return false;
-      } else if(!var0.b("pages", 9)) {
+      } else if(!var0.hasKeyOfType("pages", 9)) {
          return false;
       } else {
          NBTTagList var1 = var0.getList("pages", 8);

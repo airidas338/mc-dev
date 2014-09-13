@@ -9,11 +9,11 @@ public final class ga {
    public static GameProfile a(NBTTagCompound var0) {
       String var1 = null;
       String var2 = null;
-      if(var0.b("Name", 8)) {
+      if(var0.hasKeyOfType("Name", 8)) {
          var1 = var0.getString("Name");
       }
 
-      if(var0.b("Id", 8)) {
+      if(var0.hasKeyOfType("Id", 8)) {
          var2 = var0.getString("Id");
       }
 
@@ -28,7 +28,7 @@ public final class ga {
          }
 
          GameProfile var4 = new GameProfile(var3, var1);
-         if(var0.b("Properties", 10)) {
+         if(var0.hasKeyOfType("Properties", 10)) {
             NBTTagCompound var5 = var0.getCompound("Properties");
             Iterator var6 = var5.c().iterator();
 
@@ -39,7 +39,7 @@ public final class ga {
                for(int var9 = 0; var9 < var8.c(); ++var9) {
                   NBTTagCompound var10 = var8.b(var9);
                   String var11 = var10.getString("Value");
-                  if(var10.b("Signature", 8)) {
+                  if(var10.hasKeyOfType("Signature", 8)) {
                      var4.getProperties().put(var7, new Property(var7, var11, var10.getString("Signature")));
                   } else {
                      var4.getProperties().put(var7, new Property(var7, var11));

@@ -140,7 +140,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       }
 
       if(var3 != null) {
-         if(var3.a == brv.b && this.o.getData(var3.a()).c() == Blocks.aY) {
+         if(var3.a == brv.b && this.o.getData(var3.a()).c() == Blocks.PORTAL) {
             this.aq();
          } else {
             this.a(var3);
@@ -214,7 +214,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       this.c = var1.getShort("xTile");
       this.d = var1.getShort("yTile");
       this.e = var1.getShort("zTile");
-      if(var1.b("inTile", 8)) {
+      if(var1.hasKeyOfType("inTile", 8)) {
          this.f = Block.b(var1.getString("inTile"));
       } else {
          this.f = Block.c(var1.getByte("inTile") & 255);

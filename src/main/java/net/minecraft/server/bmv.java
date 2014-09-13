@@ -73,7 +73,7 @@ public abstract class bmv {
    public void a(World var1, NBTTagCompound var2) {
       this.c = var2.getInt("ChunkX");
       this.d = var2.getInt("ChunkZ");
-      if(var2.c("BB")) {
+      if(var2.hasKey("BB")) {
          this.b = new bjb(var2.getIntArray("BB"));
       }
 

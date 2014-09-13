@@ -137,7 +137,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       } else {
          var4.b(ty.H[Block.a((Block)this)]);
          int var6 = (var5 == avk.c?EnumFoliage.b:EnumFoliage.c).a();
-         a(var1, var2, new ItemStack(Blocks.H, 2, var6));
+         a(var1, var2, new ItemStack(Blocks.LONG_GRASS, 2, var6));
          return true;
       }
    }

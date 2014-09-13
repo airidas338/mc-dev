@@ -19,23 +19,23 @@ public class BlockMonsterEggs extends Block {
 
    public static boolean d(IBlock var0) {
       Block var1 = var0.c();
-      return var0 == Blocks.b.P().a(BlockStone.a, bbb.a) || var1 == Blocks.e || var1 == Blocks.bf;
+      return var0 == Blocks.STONE.P().a(BlockStone.a, bbb.a) || var1 == Blocks.COBBLESTONE || var1 == Blocks.SMOOTH_BRICK;
    }
 
    protected ItemStack i(IBlock var1) {
       switch(axt.a[((axu)var1.b(a)).ordinal()]) {
       case 1:
-         return new ItemStack(Blocks.e);
+         return new ItemStack(Blocks.COBBLESTONE);
       case 2:
-         return new ItemStack(Blocks.bf);
+         return new ItemStack(Blocks.SMOOTH_BRICK);
       case 3:
-         return new ItemStack(Blocks.bf, 1, bbd.b.a());
+         return new ItemStack(Blocks.SMOOTH_BRICK, 1, bbd.b.a());
       case 4:
-         return new ItemStack(Blocks.bf, 1, bbd.c.a());
+         return new ItemStack(Blocks.SMOOTH_BRICK, 1, bbd.c.a());
       case 5:
-         return new ItemStack(Blocks.bf, 1, bbd.d.a());
+         return new ItemStack(Blocks.SMOOTH_BRICK, 1, bbd.d.a());
       default:
-         return new ItemStack(Blocks.b);
+         return new ItemStack(Blocks.STONE);
       }
    }
 

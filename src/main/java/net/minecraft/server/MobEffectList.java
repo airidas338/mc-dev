@@ -184,7 +184,7 @@ public class MobEffectList {
    }
 
    public MobEffectList a(IAttribute var1, String var2, double var3, int var5) {
-      ya var6 = new ya(UUID.fromString(var2), this.a(), var3, var5);
+      AttributeModifier var6 = new AttributeModifier(UUID.fromString(var2), this.a(), var3, var5);
       this.J.put(var1, var6);
       return this;
    }
@@ -196,7 +196,7 @@ public class MobEffectList {
          Entry var5 = (Entry)var4.next();
          AttributeInstance var6 = var2.a((IAttribute)var5.getKey());
          if(var6 != null) {
-            var6.c((ya)var5.getValue());
+            var6.c((AttributeModifier)var5.getValue());
          }
       }
 
@@ -209,15 +209,15 @@ public class MobEffectList {
          Entry var5 = (Entry)var4.next();
          AttributeInstance var6 = var2.a((IAttribute)var5.getKey());
          if(var6 != null) {
-            ya var7 = (ya)var5.getValue();
+            AttributeModifier var7 = (AttributeModifier)var5.getValue();
             var6.c(var7);
-            var6.b(new ya(var7.a(), this.a() + " " + var3, this.a(var3, var7), var7.c()));
+            var6.b(new AttributeModifier(var7.a(), this.a() + " " + var3, this.a(var3, var7), var7.c()));
          }
       }
 
    }
 
-   public double a(int var1, ya var2) {
+   public double a(int var1, AttributeModifier var2) {
       return var2.d() * (double)(var1 + 1);
    }
 

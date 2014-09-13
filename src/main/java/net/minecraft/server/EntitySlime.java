@@ -54,7 +54,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
       }
 
       this.a(var2 + 1);
-      this.bi = var1.n("wasOnGround");
+      this.bi = var1.getBoolean("wasOnGround");
    }
 
    protected ew n() {

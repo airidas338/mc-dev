@@ -80,22 +80,22 @@ public class aqc {
       this.a = ItemStack.a(var2);
       NBTTagCompound var3 = var1.getCompound("sell");
       this.c = ItemStack.a(var3);
-      if(var1.b("buyB", 10)) {
+      if(var1.hasKeyOfType("buyB", 10)) {
          this.b = ItemStack.a(var1.getCompound("buyB"));
       }
 
-      if(var1.b("uses", 99)) {
+      if(var1.hasKeyOfType("uses", 99)) {
          this.d = var1.getInt("uses");
       }
 
-      if(var1.b("maxUses", 99)) {
+      if(var1.hasKeyOfType("maxUses", 99)) {
          this.e = var1.getInt("maxUses");
       } else {
          this.e = 7;
       }
 
-      if(var1.b("rewardExp", 1)) {
-         this.f = var1.n("rewardExp");
+      if(var1.hasKeyOfType("rewardExp", 1)) {
+         this.f = var1.getBoolean("rewardExp");
       } else {
          this.f = true;
       }

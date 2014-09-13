@@ -22,7 +22,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ss {
+public class JsonList {
 
    protected static final Logger a = LogManager.getLogger();
    protected final Gson b;
@@ -32,10 +32,10 @@ public class ss {
    private static final ParameterizedType f = new st();
 
 
-   public ss(File var1) {
+   public JsonList(File var1) {
       this.c = var1;
       GsonBuilder var2 = (new GsonBuilder()).setPrettyPrinting();
-      var2.registerTypeHierarchyAdapter(sr.class, new su(this, (st)null));
+      var2.registerTypeHierarchyAdapter(JsonListEntry.class, new su(this, (st)null));
       this.b = var2.create();
    }
 
@@ -51,7 +51,7 @@ public class ss {
       return this.c;
    }
 
-   public void a(sr var1) {
+   public void a(JsonListEntry var1) {
       this.d.put(this.a(var1.f()), var1);
 
       try {
@@ -62,9 +62,9 @@ public class ss {
 
    }
 
-   public sr b(Object var1) {
+   public JsonListEntry b(Object var1) {
       this.h();
-      return (sr)this.d.get(this.a(var1));
+      return (JsonListEntry)this.d.get(this.a(var1));
    }
 
    public void c(Object var1) {
@@ -99,7 +99,7 @@ public class ss {
       Iterator var2 = this.d.values().iterator();
 
       while(var2.hasNext()) {
-         sr var3 = (sr)var2.next();
+         JsonListEntry var3 = (JsonListEntry)var2.next();
          if(var3.e()) {
             var1.add(var3.f());
          }
@@ -114,8 +114,8 @@ public class ss {
 
    }
 
-   protected sr a(JsonObject var1) {
-      return new sr((Object)null, var1);
+   protected JsonListEntry a(JsonObject var1) {
+      return new JsonListEntry((Object)null, var1);
    }
 
    protected Map e() {
@@ -152,7 +152,7 @@ public class ss {
          Iterator var3 = var1.iterator();
 
          while(var3.hasNext()) {
-            sr var4 = (sr)var3.next();
+            JsonListEntry var4 = (JsonListEntry)var3.next();
             if(var4.f() != null) {
                this.d.put(this.a(var4.f()), var4);
             }

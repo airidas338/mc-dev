@@ -44,11 +44,11 @@ public class BiomeDecorator {
 
 
    public BiomeDecorator() {
-      this.f = new WorldGenSand(Blocks.m, 7);
-      this.g = new WorldGenSand(Blocks.n, 6);
-      this.s = new bhq(Blocks.N, EnumFlowerType.a);
-      this.t = new bhi(Blocks.P);
-      this.u = new bhi(Blocks.Q);
+      this.f = new WorldGenSand(Blocks.SAND, 7);
+      this.g = new WorldGenSand(Blocks.GRAVEL, 6);
+      this.s = new bhq(Blocks.YELLOW_FLOWER, EnumFlowerType.a);
+      this.t = new bhi(Blocks.BROWN_MUSHROOM);
+      this.u = new bhi(Blocks.RED_MUSHROOM);
       this.v = new bhv();
       this.w = new bii();
       this.x = new bhj();
@@ -75,17 +75,17 @@ public class BiomeDecorator {
 
          this.b = var2;
          this.c = var4;
-         this.h = new bif(Blocks.d.P(), this.d.I);
-         this.i = new bif(Blocks.n.P(), this.d.M);
-         this.j = new bif(Blocks.b.P().a(BlockStone.a, bbb.b), this.d.Q);
-         this.k = new bif(Blocks.b.P().a(BlockStone.a, bbb.d), this.d.U);
-         this.l = new bif(Blocks.b.P().a(BlockStone.a, bbb.f), this.d.Y);
-         this.m = new bif(Blocks.q.P(), this.d.ac);
-         this.n = new bif(Blocks.p.P(), this.d.ag);
-         this.o = new bif(Blocks.o.P(), this.d.ak);
-         this.p = new bif(Blocks.aC.P(), this.d.ao);
-         this.q = new bif(Blocks.ag.P(), this.d.as);
-         this.r = new bif(Blocks.x.P(), this.d.aw);
+         this.h = new bif(Blocks.DIRT.P(), this.d.I);
+         this.i = new bif(Blocks.GRAVEL.P(), this.d.M);
+         this.j = new bif(Blocks.STONE.P().a(BlockStone.a, bbb.b), this.d.Q);
+         this.k = new bif(Blocks.STONE.P().a(BlockStone.a, bbb.d), this.d.U);
+         this.l = new bif(Blocks.STONE.P().a(BlockStone.a, bbb.f), this.d.Y);
+         this.m = new bif(Blocks.COAL_ORE.P(), this.d.ac);
+         this.n = new bif(Blocks.IRON_ORE.P(), this.d.ag);
+         this.o = new bif(Blocks.GOLD_ORE.P(), this.d.ak);
+         this.p = new bif(Blocks.REDSTONE_ORE.P(), this.d.ao);
+         this.q = new bif(Blocks.DIAMOND_ORE.P(), this.d.as);
+         this.r = new bif(Blocks.LAPIS_ORE.P(), this.d.aw);
          this.a(var3);
          this.a = null;
          this.b = null;
@@ -254,12 +254,12 @@ public class BiomeDecorator {
          Location var13;
          for(var3 = 0; var3 < 50; ++var3) {
             var13 = this.c.a(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
-            (new bin(Blocks.i)).generate(this.a, this.b, var13);
+            (new bin(Blocks.WATER)).generate(this.a, this.b, var13);
          }
 
          for(var3 = 0; var3 < 20; ++var3) {
             var13 = this.c.a(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(this.b.nextInt(240) + 8) + 8), this.b.nextInt(16) + 8);
-            (new bin(Blocks.k)).generate(this.a, this.b, var13);
+            (new bin(Blocks.LAVA)).generate(this.a, this.b, var13);
          }
       }
 

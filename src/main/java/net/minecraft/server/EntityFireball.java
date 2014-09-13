@@ -179,14 +179,14 @@ public abstract class EntityFireball extends Entity {
       this.e = var1.getShort("xTile");
       this.f = var1.getShort("yTile");
       this.g = var1.getShort("zTile");
-      if(var1.b("inTile", 8)) {
+      if(var1.hasKeyOfType("inTile", 8)) {
          this.h = Block.b(var1.getString("inTile"));
       } else {
          this.h = Block.c(var1.getByte("inTile") & 255);
       }
 
       this.i = var1.getByte("inGround") == 1;
-      if(var1.b("direction", 9)) {
+      if(var1.hasKeyOfType("direction", 9)) {
          NBTTagList var2 = var1.getList("direction", 6);
          this.v = var2.d(0);
          this.w = var2.d(1);

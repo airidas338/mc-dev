@@ -20,7 +20,7 @@ public class anm extends Item {
    }
 
    public float a(ItemStack var1, Block var2) {
-      if(var2 == Blocks.G) {
+      if(var2 == Blocks.WEB) {
          return 15.0F;
       } else {
          Material var3 = var2.r();
@@ -55,7 +55,7 @@ public class anm extends Item {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.G;
+      return var1 == Blocks.WEB;
    }
 
    public int b() {
@@ -72,7 +72,7 @@ public class anm extends Item {
 
    public Multimap i() {
       Multimap var1 = super.i();
-      var1.put(GenericAttributes.e.a(), new ya(f, "Weapon modifier", (double)this.a, 0));
+      var1.put(GenericAttributes.e.a(), new AttributeModifier(f, "Weapon modifier", (double)this.a, 0));
       return var1;
    }
 }

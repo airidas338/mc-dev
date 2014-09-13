@@ -10,23 +10,23 @@ import java.lang.reflect.Type;
 class su implements JsonDeserializer, JsonSerializer {
 
    // $FF: synthetic field
-   final ss a;
+   final JsonList a;
 
 
-   private su(ss var1) {
+   private su(JsonList var1) {
       this.a = var1;
    }
 
-   public JsonElement a(sr var1, Type var2, JsonSerializationContext var3) {
+   public JsonElement a(JsonListEntry var1, Type var2, JsonSerializationContext var3) {
       JsonObject var4 = new JsonObject();
       var1.a(var4);
       return var4;
    }
 
-   public sr a(JsonElement var1, Type var2, JsonDeserializationContext var3) {
+   public JsonListEntry a(JsonElement var1, Type var2, JsonDeserializationContext var3) {
       if(var1.isJsonObject()) {
          JsonObject var4 = var1.getAsJsonObject();
-         sr var5 = this.a.a(var4);
+         JsonListEntry var5 = this.a.a(var4);
          return var5;
       } else {
          return null;
@@ -35,7 +35,7 @@ class su implements JsonDeserializer, JsonSerializer {
 
    // $FF: synthetic method
    public JsonElement serialize(Object var1, Type var2, JsonSerializationContext var3) {
-      return this.a((sr)var1, var2, var3);
+      return this.a((JsonListEntry)var1, var2, var3);
    }
 
    // $FF: synthetic method
@@ -44,7 +44,7 @@ class su implements JsonDeserializer, JsonSerializer {
    }
 
    // $FF: synthetic method
-   su(ss var1, st var2) {
+   su(JsonList var1, st var2) {
       this(var1);
    }
 }

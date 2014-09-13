@@ -16,7 +16,7 @@ public class BlockReed extends Block {
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(var1.getData(var2.b()).c() == Blocks.aM || this.e(var1, var2, var3)) {
+      if(var1.getData(var2.b()).c() == Blocks.SUGAR_CANE_BLOCK || this.e(var1, var2, var3)) {
          if(var1.d(var2.a())) {
             int var5;
             for(var5 = 1; var1.getData(var2.c(var5)).c() == this; ++var5) {
@@ -41,7 +41,7 @@ public class BlockReed extends Block {
       Block var3 = var1.getData(var2.b()).c();
       if(var3 == this) {
          return true;
-      } else if(var3 != Blocks.c && var3 != Blocks.d && var3 != Blocks.m) {
+      } else if(var3 != Blocks.GRASS && var3 != Blocks.DIRT && var3 != Blocks.SAND) {
          return false;
       } else {
          Iterator var4 = en.a.iterator();

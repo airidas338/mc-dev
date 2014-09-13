@@ -78,7 +78,7 @@ public class BlockCobbleWall extends Block {
 
    public boolean e(IBlockAccess var1, Location var2) {
       Block var3 = var1.getData(var2).c();
-      return var3 == Blocks.cv?false:(var3 != this && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
+      return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
    public int a(IBlock var1) {

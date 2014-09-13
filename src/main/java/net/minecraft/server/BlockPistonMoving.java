@@ -119,7 +119,7 @@ public class BlockPistonMoving extends atg {
          }
 
          var5.a(var1, var2);
-         if(var5 == Blocks.J || var5 == Blocks.F) {
+         if(var5 == Blocks.PISTON || var5 == Blocks.PISTON_STICKEY) {
             var6 = 0.0F;
          }
 

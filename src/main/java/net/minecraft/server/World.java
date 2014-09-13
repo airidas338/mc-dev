@@ -783,7 +783,7 @@ public abstract class World implements IBlockAccess {
 
 						IBlock var16;
 						if (!this.af().a(var13) && var15) {
-							var16 = Blocks.b.P();
+							var16 = Blocks.STONE.P();
 						} else {
 							var16 = this.getData(var13);
 						}
@@ -852,7 +852,7 @@ public abstract class World implements IBlockAccess {
 						if (var9 >= -30000000 && var9 < 30000000 && var10 >= -30000000 && var10 < 30000000) {
 							var12 = this.getData(var13);
 						} else {
-							var12 = Blocks.h.P();
+							var12 = Blocks.BEDROCK.P();
 						}
 
 						var12.c().a(this, var13, var12, var1, var2, (Entity) null);
@@ -1240,7 +1240,7 @@ public abstract class World implements IBlockAccess {
 				for (int var9 = var4; var9 < var5; ++var9) {
 					for (int var10 = var6; var10 < var7; ++var10) {
 						Block var11 = this.getData(new Location(var8, var9, var10)).c();
-						if (var11 == Blocks.ab || var11 == Blocks.k || var11 == Blocks.l) {
+						if (var11 == Blocks.FIRE || var11 == Blocks.LAVA || var11 == Blocks.STATIONARY_LAVA) {
 							return true;
 						}
 					}
@@ -1388,7 +1388,7 @@ public abstract class World implements IBlockAccess {
 
 	public boolean a(EntityHuman var1, Location var2, EnumFacing var3) {
 		var2 = var2.a(var3);
-		if (this.getData(var2).c() == Blocks.ab) {
+		if (this.getData(var2).c() == Blocks.FIRE) {
 			this.a(var1, 1004, var2, 0);
 			this.g(var2);
 			return true;
@@ -1685,7 +1685,7 @@ public abstract class World implements IBlockAccess {
 			if (var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
 				IBlock var5 = this.getData(var1);
 				Block var6 = var5.c();
-				if ((var6 == Blocks.j || var6 == Blocks.i) && ((Integer) var5.b(axl.b)).intValue() == 0) {
+				if ((var6 == Blocks.STATIONARY_WATER || var6 == Blocks.WATER) && ((Integer) var5.b(axl.b)).intValue() == 0) {
 					if (!var2) {
 						return true;
 					}
@@ -1715,7 +1715,7 @@ public abstract class World implements IBlockAccess {
 		} else {
 			if (var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
 				Block var5 = this.getData(var1).c();
-				if (var5.r() == Material.AIR && Blocks.aH.c(this, var1)) {
+				if (var5.r() == Material.AIR && Blocks.SNOW.c(this, var1)) {
 					return true;
 				}
 			}
@@ -2036,7 +2036,7 @@ public abstract class World implements IBlockAccess {
 	public boolean a(Block var1, Location var2, boolean var3, EnumFacing var4, Entity var5, ItemStack var6) {
 		Block var7 = this.getData(var2).c();
 		AxisAlignedBB var8 = var3 ? null : var1.a(this, var2, var1.P());
-		return var8 != null && !this.a(var8, var5) ? false : (var7.r() == Material.ORIENTABLE && var1 == Blocks.cf ? true : var7.r().j() && var1.a(this, var2, var4, var6));
+		return var8 != null && !this.a(var8, var5) ? false : (var7.r() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.r().j() && var1.a(this, var2, var4, var6));
 	}
 
 	public int a(Location var1, EnumFacing var2) {
@@ -2374,12 +2374,12 @@ public abstract class World implements IBlockAccess {
 			Location var5 = var1.a(var4);
 			if (this.e(var5)) {
 				IBlock var6 = this.getData(var5);
-				if (Blocks.cj.e(var6.c())) {
+				if (Blocks.REDSTONE_COMPARATOR_OFF.e(var6.c())) {
 					var6.c().a(this, var5, var6, var2);
 				} else if (var6.c().t()) {
 					var5 = var5.a(var4);
 					var6 = this.getData(var5);
-					if (Blocks.cj.e(var6.c())) {
+					if (Blocks.REDSTONE_COMPARATOR_OFF.e(var6.c())) {
 						var6.c().a(this, var5, var6, var2);
 					}
 				}

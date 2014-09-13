@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class ajr extends aks {
 
-   private static final Set c = Sets.newHashSet(new Block[]{Blocks.f, Blocks.X, Blocks.r, Blocks.s, Blocks.ae, Blocks.aU, Blocks.aZ, Blocks.bk, Blocks.au});
+   private static final Set c = Sets.newHashSet(new Block[]{Blocks.WOOD, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.JACK_O_LANTERN, Blocks.MELON, Blocks.LADDER});
 
 
    protected ajr(ami var1) {

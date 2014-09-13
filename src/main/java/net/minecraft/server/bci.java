@@ -13,13 +13,13 @@ public class bci extends TileEntity {
 
    public void a(ItemStack var1) {
       this.f = null;
-      if(var1.n() && var1.o().b("BlockEntityTag", 10)) {
+      if(var1.n() && var1.o().hasKeyOfType("BlockEntityTag", 10)) {
          NBTTagCompound var2 = var1.o().getCompound("BlockEntityTag");
-         if(var2.c("Patterns")) {
+         if(var2.hasKey("Patterns")) {
             this.f = (NBTTagList)var2.getList("Patterns", 10).b();
          }
 
-         if(var2.b("Base", 99)) {
+         if(var2.hasKeyOfType("Base", 99)) {
             this.a = var2.getInt("Base");
          } else {
             this.a = var1.i() & 15;
@@ -65,17 +65,17 @@ public class bci extends TileEntity {
 
    public static int b(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      return var1 != null && var1.c("Base")?var1.getInt("Base"):var0.i();
+      return var1 != null && var1.hasKey("Base")?var1.getInt("Base"):var0.i();
    }
 
    public static int c(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      return var1 != null && var1.c("Patterns")?var1.getList("Patterns", 10).c():0;
+      return var1 != null && var1.hasKey("Patterns")?var1.getList("Patterns", 10).c():0;
    }
 
    public static void e(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      if(var1 != null && var1.b("Patterns", 9)) {
+      if(var1 != null && var1.hasKeyOfType("Patterns", 9)) {
          NBTTagList var2 = var1.getList("Patterns", 10);
          if(var2.c() > 0) {
             var2.a(var2.c() - 1);

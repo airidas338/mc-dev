@@ -18,7 +18,7 @@ public class BlockCrops extends BlockPlant implements atz {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.ak;
+      return var1 == Blocks.FARMLAND;
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
@@ -52,7 +52,7 @@ public class BlockCrops extends BlockPlant implements atz {
          for(int var6 = -1; var6 <= 1; ++var6) {
             float var7 = 0.0F;
             IBlock var8 = var1.getData(var4.a(var5, 0, var6));
-            if(var8.c() == Blocks.ak) {
+            if(var8.c() == Blocks.FARMLAND) {
                var7 = 1.0F;
                if(((Integer)var8.b(BlockSoil.a)).intValue() > 0) {
                   var7 = 3.0F;

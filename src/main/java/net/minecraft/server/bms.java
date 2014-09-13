@@ -29,7 +29,7 @@ public abstract class bms {
    protected abstract void a(NBTTagCompound var1);
 
    public void a(World var1, NBTTagCompound var2) {
-      if(var2.c("BB")) {
+      if(var2.hasKey("BB")) {
          this.l = new bjb(var2.getIntArray("BB"));
       }
 
@@ -162,7 +162,7 @@ public abstract class bms {
    }
 
    protected int a(Block var1, int var2) {
-      if(var1 == Blocks.av) {
+      if(var1 == Blocks.RAILS) {
          if(this.m == EnumFacing.WEST || this.m == EnumFacing.EAST) {
             if(var2 == 1) {
                return 0;
@@ -188,8 +188,8 @@ public abstract class bms {
                return var2 + 3 & 3;
             }
          }
-      } else if(var1 != Blocks.aw && var1 != Blocks.ad && var1 != Blocks.bA && var1 != Blocks.bv && var1 != Blocks.bO) {
-         if(var1 == Blocks.au) {
+      } else if(var1 != Blocks.COBBLESTONE_STAIRS && var1 != Blocks.WOOD_STAIRS && var1 != Blocks.NETHER_BRICK_STAIRS && var1 != Blocks.STONE_STAIRS && var1 != Blocks.SANDSTONE_STAIRS) {
+         if(var1 == Blocks.LADDER) {
             if(this.m == EnumFacing.SOUTH) {
                if(var2 == EnumFacing.NORTH.a()) {
                   return EnumFacing.SOUTH.a();
@@ -231,7 +231,7 @@ public abstract class bms {
                   return EnumFacing.SOUTH.a();
                }
             }
-         } else if(var1 == Blocks.aG) {
+         } else if(var1 == Blocks.STONE_BUTTON) {
             if(this.m == EnumFacing.SOUTH) {
                if(var2 == 3) {
                   return 4;
@@ -273,8 +273,8 @@ public abstract class bms {
                   return 4;
                }
             }
-         } else if(var1 != Blocks.bR && !(var1 instanceof avb)) {
-            if(var1 == Blocks.J || var1 == Blocks.F || var1 == Blocks.ay || var1 == Blocks.z) {
+         } else if(var1 != Blocks.TRIPWIRE_HOOK && !(var1 instanceof avb)) {
+            if(var1 == Blocks.PISTON || var1 == Blocks.PISTON_STICKEY || var1 == Blocks.LEVER || var1 == Blocks.DISPENSER) {
                if(this.m == EnumFacing.SOUTH) {
                   if(var2 == EnumFacing.NORTH.a() || var2 == EnumFacing.SOUTH.a()) {
                      return EnumFacing.a(var2).d().a();
@@ -531,9 +531,9 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.ae) {
-         IBlock var10 = Blocks.ae.P();
-         var1.a(var9, Blocks.ae.f(var1, var9, var10), 2);
+      if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.CHEST) {
+         IBlock var10 = Blocks.CHEST.P();
+         var1.a(var9, Blocks.CHEST.f(var1, var9, var10), 2);
          TileEntity var11 = var1.s(var9);
          if(var11 instanceof bcr) {
             StructurePieceTreaasure.a(var3, var7, (IInventory)((bcr)var11), var8);
@@ -547,8 +547,8 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, int var7, List var8, int var9) {
       Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.z) {
-         var1.a(var10, Blocks.z.a(this.a(Blocks.z, var7)), 2);
+      if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.DISPENSER) {
+         var1.a(var10, Blocks.DISPENSER.a(this.a(Blocks.DISPENSER, var7)), 2);
          TileEntity var11 = var1.s(var10);
          if(var11 instanceof bcx) {
             StructurePieceTreaasure.a(var3, var8, (bcx)var11, var9);
@@ -563,7 +563,7 @@ public abstract class bms {
    protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, EnumFacing var7) {
       Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var8)) {
-         akt.a(var1, var8, var7.f(), Blocks.ao);
+         akt.a(var1, var8, var7.f(), Blocks.WOODEN_DOOR);
       }
 
    }

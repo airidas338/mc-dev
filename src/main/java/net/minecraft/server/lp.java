@@ -38,7 +38,7 @@ public class lp implements Packet {
 
          for(int var9 = 0; var9 < var8; ++var9) {
             UUID var10 = var1.g();
-            var7.add(new ya(var10, "Unknown synced attribute modifier", var1.readDouble(), var1.readByte()));
+            var7.add(new AttributeModifier(var10, "Unknown synced attribute modifier", var1.readDouble(), var1.readByte()));
          }
 
          this.b.add(new lq(this, var4, var5, var7));
@@ -59,7 +59,7 @@ public class lp implements Packet {
          Iterator var4 = var3.c().iterator();
 
          while(var4.hasNext()) {
-            ya var5 = (ya)var4.next();
+            AttributeModifier var5 = (AttributeModifier)var4.next();
             var1.a(var5.a());
             var1.writeDouble(var5.d());
             var1.writeByte(var5.c());

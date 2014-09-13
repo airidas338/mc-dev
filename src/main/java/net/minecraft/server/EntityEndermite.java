@@ -59,7 +59,7 @@ public class EntityEndermite extends EntityMonster {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       this.b = var1.getInt("Lifetime");
-      this.c = var1.n("PlayerSpawned");
+      this.c = var1.getBoolean("PlayerSpawned");
    }
 
    public void b(NBTTagCompound var1) {

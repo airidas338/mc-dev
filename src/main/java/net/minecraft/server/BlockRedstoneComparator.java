@@ -28,14 +28,14 @@ public class BlockRedstoneComparator extends ava implements avs {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       EnumFacing var4 = (EnumFacing)var1.b(N);
-      return Blocks.ck.P().a(N, var4).a(a, var2).a(b, var3);
+      return Blocks.REDSTONE_COMPARATOR_ON.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
    protected IBlock k(IBlock var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       EnumFacing var4 = (EnumFacing)var1.b(N);
-      return Blocks.cj.P().a(N, var4).a(a, var2).a(b, var3);
+      return Blocks.REDSTONE_COMPARATOR_OFF.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
    protected boolean l(IBlock var1) {

@@ -5,7 +5,7 @@ import java.util.UUID;
 public class EntityPigZombie extends EntityZombie {
 
    private static final UUID c = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
-   private static final ya bk = (new ya(c, "Attacking speed boost", 0.05D, 0)).a(false);
+   private static final AttributeModifier bk = (new AttributeModifier(c, "Attacking speed boost", 0.05D, 0)).a(false);
    private int bl;
    private int bm;
    private UUID bn;

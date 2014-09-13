@@ -85,7 +85,7 @@ public class akb extends Item {
          if(!var1.d(var2) && !var4) {
             return false;
          } else {
-            if(var1.t.n() && this.a == Blocks.i) {
+            if(var1.t.n() && this.a == Blocks.WATER) {
                int var5 = var2.n();
                int var6 = var2.o();
                int var7 = var2.p();

@@ -38,7 +38,7 @@ public class ItemArmorStand extends Item {
                      var20.setPositionRotation(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
                      this.a(var20, var3.s);
                      NBTTagCompound var22 = var1.o();
-                     if(var22 != null && var22.b("EntityTag", 10)) {
+                     if(var22 != null && var22.hasKeyOfType("EntityTag", 10)) {
                         NBTTagCompound var23 = new NBTTagCompound();
                         var20.d(var23);
                         var23.a(var22.getCompound("EntityTag"));

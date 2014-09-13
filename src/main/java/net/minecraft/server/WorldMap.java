@@ -99,7 +99,7 @@ public class WorldMap extends PersistentBase {
          this.a(1, var1.o, "frame-" + var7.F(), (double)var9.n(), (double)var9.p(), (double)(var7.b.b() * 90));
       }
 
-      if(var2.n() && var2.o().b("Decorations", 9)) {
+      if(var2.n() && var2.o().hasKeyOfType("Decorations", 9)) {
          NBTTagList var8 = var2.o().getList("Decorations", 10);
 
          for(int var10 = 0; var10 < var8.c(); ++var10) {

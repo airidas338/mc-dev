@@ -69,7 +69,7 @@ public class sf {
    }
 
    public static boolean a(MinecraftServer var0) {
-      sv var1 = new sv(PlayerList.a);
+      GameProfileBanList var1 = new GameProfileBanList(PlayerList.a);
       if(b.exists() && b.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -100,7 +100,7 @@ public class sf {
    }
 
    public static boolean b(MinecraftServer var0) {
-      sd var1 = new sd(PlayerList.b);
+      IpBanList var1 = new IpBanList(PlayerList.b);
       if(a.exists() && a.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -122,7 +122,7 @@ public class sf {
                String var7 = var5.length > 2?var5[2]:null;
                Date var8 = var5.length > 3?b(var5[3], (Date)null):null;
                String var9 = var5.length > 4?var5[4]:null;
-               var1.a((sr)(new se(var4, var6, var7, var8, var9)));
+               var1.a((JsonListEntry)(new IpBanEntry(var4, var6, var7, var8, var9)));
             }
 
             var1.f();
@@ -138,7 +138,7 @@ public class sf {
    }
 
    public static boolean c(MinecraftServer var0) {
-      sp var1 = new sp(PlayerList.c);
+      OpList var1 = new OpList(PlayerList.c);
       if(c.exists() && c.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -168,7 +168,7 @@ public class sf {
    }
 
    public static boolean d(MinecraftServer var0) {
-      sx var1 = new sx(PlayerList.d);
+      WhiteList var1 = new WhiteList(PlayerList.d);
       if(d.exists() && d.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -339,7 +339,7 @@ public class sf {
    private static Date b(String var0, Date var1) {
       Date var2;
       try {
-         var2 = rx.a.parse(var0);
+         var2 = ExpirableListEntry.a.parse(var0);
       } catch (ParseException var4) {
          var2 = var1;
       }

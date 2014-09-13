@@ -9,8 +9,8 @@ public class BiomeTheEnd extends BiomeBase {
       this.av.clear();
       this.aw.clear();
       this.at.add(new BiomeMeta(EntityEnderman.class, 10, 4, 4));
-      this.ak = Blocks.d.P();
-      this.al = Blocks.d.P();
+      this.ak = Blocks.DIRT.P();
+      this.al = Blocks.DIRT.P();
       this.as = new BiomeTheEndDecorator();
    }
 }

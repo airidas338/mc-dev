@@ -135,7 +135,7 @@ public class BlockSkull extends atg {
 
             while(var9.hasNext()) {
                EntityHuman var10 = (EntityHuman)var9.next();
-               var10.b((tq)tl.I);
+               var10.b((tq)AchievementList.I);
             }
 
             var1.d((Entity)var14);
@@ -176,7 +176,7 @@ public class BlockSkull extends atg {
 
    protected bek j() {
       if(this.N == null) {
-         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('~', bei.a(beq.a(Blocks.AIR))).b();
+         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.SOUL_SAND))).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.N;
@@ -184,7 +184,7 @@ public class BlockSkull extends atg {
 
    protected bek l() {
       if(this.O == null) {
-         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('^', M).a('~', bei.a(beq.a(Blocks.AIR))).b();
+         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.SOUL_SAND))).a('^', M).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.O;

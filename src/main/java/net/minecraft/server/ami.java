@@ -45,7 +45,7 @@ public enum ami {
    }
 
    public Item f() {
-      return this == a?Item.a(Blocks.f):(this == b?Item.a(Blocks.e):(this == e?Items.k:(this == c?Items.j:(this == d?Items.i:null))));
+      return this == a?Item.a(Blocks.WOOD):(this == b?Item.a(Blocks.COBBLESTONE):(this == e?Items.k:(this == c?Items.j:(this == d?Items.i:null))));
    }
 
 }

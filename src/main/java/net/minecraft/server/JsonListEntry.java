@@ -1,16 +1,16 @@
 package net.minecraft.server;
 import com.google.gson.JsonObject;
 
-public class sr {
+public class JsonListEntry {
 
    private final Object a;
 
 
-   public sr(Object var1) {
+   public JsonListEntry(Object var1) {
       this.a = var1;
    }
 
-   protected sr(Object var1, JsonObject var2) {
+   protected JsonListEntry(Object var1, JsonObject var2) {
       this.a = var1;
    }
 

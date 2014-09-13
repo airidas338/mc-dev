@@ -118,13 +118,13 @@ public class BlockPiston extends Block {
             ((bdv)var13).h();
          }
 
-         var1.a(var2, Blocks.M.P().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a), 3);
+         var1.a(var2, Blocks.PISTON_MOVING.P().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a), 3);
          var1.a(var2, BlockPistonMoving.a(this.a(var5), var6, false, true));
          if(this.M) {
             Location var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
             Block var9 = var1.getData(var8).c();
             boolean var10 = false;
-            if(var9 == Blocks.M) {
+            if(var9 == Blocks.PISTON_MOVING) {
                TileEntity var11 = var1.s(var8);
                if(var11 instanceof bdv) {
                   bdv var12 = (bdv)var11;
@@ -135,7 +135,7 @@ public class BlockPiston extends Block {
                }
             }
 
-            if(!var10 && var9.r() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.i() == 0 || var9 == Blocks.J || var9 == Blocks.F)) {
+            if(!var10 && var9.r() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.i() == 0 || var9 == Blocks.PISTON || var9 == Blocks.PISTON_STICKEY)) {
                this.a(var1, var2, var6, false);
             }
          } else {
@@ -219,13 +219,13 @@ public class BlockPiston extends Block {
    }
 
    public static boolean a(Block var0, World var1, Location var2, EnumFacing var3, boolean var4) {
-      if(var0 == Blocks.Z) {
+      if(var0 == Blocks.OBSIDIAN) {
          return false;
       } else if(!var1.af().a(var2)) {
          return false;
       } else if(var2.o() >= 0 && (var3 != EnumFacing.DOWN || var2.o() != 0)) {
          if(var2.o() <= var1.U() - 1 && (var3 != EnumFacing.UP || var2.o() != var1.U() - 1)) {
-            if(var0 != Blocks.J && var0 != Blocks.F) {
+            if(var0 != Blocks.PISTON && var0 != Blocks.PISTON_STICKEY) {
                if(var0.g(var1, var2) == -1.0F) {
                   return false;
                }
@@ -288,7 +288,7 @@ public class BlockPiston extends Block {
             var14.c(var19);
             var1.g(var12);
             var12 = var12.a(var10);
-            var1.a(var12, Blocks.M.P().a(a, var3), 4);
+            var1.a(var12, Blocks.PISTON_MOVING.P().a(a, var3), 4);
             var1.a(var12, BlockPistonMoving.a(var19, var3, var4, false));
             --var8;
             var9[var8] = var14;
@@ -297,8 +297,8 @@ public class BlockPiston extends Block {
          Location var16 = var2.a(var3);
          if(var4) {
             bdu var17 = this.M?bdu.b:bdu.a;
-            var19 = Blocks.K.P().a(BlockPistonExtension.a, var3).a(BlockPistonExtension.b, var17);
-            IBlock var20 = Blocks.M.P().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a);
+            var19 = Blocks.PISTON_EXTENSION.P().a(BlockPistonExtension.a, var3).a(BlockPistonExtension.b, var17);
+            IBlock var20 = Blocks.PISTON_MOVING.P().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a);
             var1.a(var16, var20, 4);
             var1.a(var16, BlockPistonMoving.a(var19, var3, true, false));
          }
@@ -313,7 +313,7 @@ public class BlockPiston extends Block {
          }
 
          if(var4) {
-            var1.c(var16, (Block)Blocks.K);
+            var1.c(var16, (Block)Blocks.PISTON_EXTENSION);
             var1.c(var2, (Block)this);
          }
 

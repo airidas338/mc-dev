@@ -30,20 +30,20 @@ public class bll extends bln {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.e = var1.n("placedMainChest");
-      this.f = var1.n("placedHiddenChest");
-      this.g = var1.n("placedTrap1");
-      this.h = var1.n("placedTrap2");
+      this.e = var1.getBoolean("placedMainChest");
+      this.f = var1.getBoolean("placedHiddenChest");
+      this.g = var1.getBoolean("placedTrap1");
+      this.h = var1.getBoolean("placedTrap2");
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
       if(!this.a(var1, var3, 0)) {
          return false;
       } else {
-         int var4 = this.a(Blocks.aw, 3);
-         int var5 = this.a(Blocks.aw, 2);
-         int var6 = this.a(Blocks.aw, 0);
-         int var7 = this.a(Blocks.aw, 1);
+         int var4 = this.a(Blocks.COBBLESTONE_STAIRS, 3);
+         int var5 = this.a(Blocks.COBBLESTONE_STAIRS, 2);
+         int var6 = this.a(Blocks.COBBLESTONE_STAIRS, 0);
+         int var7 = this.a(Blocks.COBBLESTONE_STAIRS, 1);
          this.a(var1, var3, 0, -4, 0, this.a - 1, 0, this.c - 1, false, var2, k);
          this.a(var1, var3, 2, 1, 2, 9, 2, 2, false, var2, k);
          this.a(var1, var3, 2, 1, 12, 9, 2, 12, false, var2, k);
@@ -99,30 +99,30 @@ public class bll extends bln {
          this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
          this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
          this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-         this.a(var1, Blocks.aw.a(var4), 5, 9, 6, var3);
-         this.a(var1, Blocks.aw.a(var4), 6, 9, 6, var3);
-         this.a(var1, Blocks.aw.a(var5), 5, 9, 8, var3);
-         this.a(var1, Blocks.aw.a(var5), 6, 9, 8, var3);
-         this.a(var1, Blocks.aw.a(var4), 4, 0, 0, var3);
-         this.a(var1, Blocks.aw.a(var4), 5, 0, 0, var3);
-         this.a(var1, Blocks.aw.a(var4), 6, 0, 0, var3);
-         this.a(var1, Blocks.aw.a(var4), 7, 0, 0, var3);
-         this.a(var1, Blocks.aw.a(var4), 4, 1, 8, var3);
-         this.a(var1, Blocks.aw.a(var4), 4, 2, 9, var3);
-         this.a(var1, Blocks.aw.a(var4), 4, 3, 10, var3);
-         this.a(var1, Blocks.aw.a(var4), 7, 1, 8, var3);
-         this.a(var1, Blocks.aw.a(var4), 7, 2, 9, var3);
-         this.a(var1, Blocks.aw.a(var4), 7, 3, 10, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 5, 9, 6, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 6, 9, 6, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var5), 5, 9, 8, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var5), 6, 9, 8, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 4, 0, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 5, 0, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 6, 0, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 7, 0, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 4, 1, 8, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 4, 2, 9, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 4, 3, 10, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 7, 1, 8, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 7, 2, 9, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var4), 7, 3, 10, var3);
          this.a(var1, var3, 4, 1, 9, 4, 1, 9, false, var2, k);
          this.a(var1, var3, 7, 1, 9, 7, 1, 9, false, var2, k);
          this.a(var1, var3, 4, 1, 10, 7, 2, 10, false, var2, k);
          this.a(var1, var3, 5, 4, 5, 6, 4, 5, false, var2, k);
-         this.a(var1, Blocks.aw.a(var6), 4, 4, 5, var3);
-         this.a(var1, Blocks.aw.a(var7), 7, 4, 5, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var6), 4, 4, 5, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var7), 7, 4, 5, var3);
 
          for(var8 = 0; var8 < 4; ++var8) {
-            this.a(var1, Blocks.aw.a(var5), 5, 0 - var8, 6 + var8, var3);
-            this.a(var1, Blocks.aw.a(var5), 6, 0 - var8, 6 + var8, var3);
+            this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var5), 5, 0 - var8, 6 + var8, var3);
+            this.a(var1, Blocks.COBBLESTONE_STAIRS.a(var5), 6, 0 - var8, 6 + var8, var3);
             this.a(var1, var3, 5, 0 - var8, 7 + var8, 6, 0 - var8, 9 + var8);
          }
 
@@ -142,71 +142,71 @@ public class bll extends bln {
          this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
          this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
          this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.EAST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 1, -3, 8, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.WEST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 4, -3, 8, var3);
-         this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 2, -3, 8, var3);
-         this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 3, -3, 8, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 7, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 6, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 5, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 4, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 3, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 2, var3);
-         this.a(var1, Blocks.af.P(), 5, -3, 1, var3);
-         this.a(var1, Blocks.af.P(), 4, -3, 1, var3);
-         this.a(var1, Blocks.Y.P(), 3, -3, 1, var3);
+         this.a(var1, Blocks.TRIPWIRE_HOOK.a(this.a(Blocks.TRIPWIRE_HOOK, EnumFacing.EAST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 1, -3, 8, var3);
+         this.a(var1, Blocks.TRIPWIRE_HOOK.a(this.a(Blocks.TRIPWIRE_HOOK, EnumFacing.WEST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 4, -3, 8, var3);
+         this.a(var1, Blocks.TRIPWIRE.P().a(BlockTripwire.M, Boolean.valueOf(true)), 2, -3, 8, var3);
+         this.a(var1, Blocks.TRIPWIRE.P().a(BlockTripwire.M, Boolean.valueOf(true)), 3, -3, 8, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 7, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 6, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 5, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 4, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 3, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 2, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 5, -3, 1, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 4, -3, 1, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 3, -3, 1, var3);
          if(!this.g) {
             this.g = this.a(var1, var3, var2, 3, -2, 1, EnumFacing.NORTH.a(), j, 2);
          }
 
-         this.a(var1, Blocks.bn.a(15), 3, -2, 2, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.NORTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 1, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.SOUTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 5, var3);
-         this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 2, var3);
-         this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 3, var3);
-         this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 4, var3);
-         this.a(var1, Blocks.af.P(), 8, -3, 6, var3);
-         this.a(var1, Blocks.af.P(), 9, -3, 6, var3);
-         this.a(var1, Blocks.af.P(), 9, -3, 5, var3);
-         this.a(var1, Blocks.Y.P(), 9, -3, 4, var3);
-         this.a(var1, Blocks.af.P(), 9, -2, 4, var3);
+         this.a(var1, Blocks.VINE.a(15), 3, -2, 2, var3);
+         this.a(var1, Blocks.TRIPWIRE_HOOK.a(this.a(Blocks.TRIPWIRE_HOOK, EnumFacing.NORTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 1, var3);
+         this.a(var1, Blocks.TRIPWIRE_HOOK.a(this.a(Blocks.TRIPWIRE_HOOK, EnumFacing.SOUTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 5, var3);
+         this.a(var1, Blocks.TRIPWIRE.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 2, var3);
+         this.a(var1, Blocks.TRIPWIRE.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 3, var3);
+         this.a(var1, Blocks.TRIPWIRE.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 4, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 8, -3, 6, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 9, -3, 6, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 9, -3, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 9, -3, 4, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 9, -2, 4, var3);
          if(!this.h) {
             this.h = this.a(var1, var3, var2, 9, -2, 3, EnumFacing.WEST.a(), j, 2);
          }
 
-         this.a(var1, Blocks.bn.a(15), 8, -1, 3, var3);
-         this.a(var1, Blocks.bn.a(15), 8, -2, 3, var3);
+         this.a(var1, Blocks.VINE.a(15), 8, -1, 3, var3);
+         this.a(var1, Blocks.VINE.a(15), 8, -2, 3, var3);
          if(!this.e) {
             this.e = this.a(var1, var3, var2, 8, -3, 3, StructurePieceTreaasure.a(i, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }
 
-         this.a(var1, Blocks.Y.P(), 9, -3, 2, var3);
-         this.a(var1, Blocks.Y.P(), 8, -3, 1, var3);
-         this.a(var1, Blocks.Y.P(), 4, -3, 5, var3);
-         this.a(var1, Blocks.Y.P(), 5, -2, 5, var3);
-         this.a(var1, Blocks.Y.P(), 5, -1, 5, var3);
-         this.a(var1, Blocks.Y.P(), 6, -3, 5, var3);
-         this.a(var1, Blocks.Y.P(), 7, -2, 5, var3);
-         this.a(var1, Blocks.Y.P(), 7, -1, 5, var3);
-         this.a(var1, Blocks.Y.P(), 8, -3, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 9, -3, 2, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 8, -3, 1, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 4, -3, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 5, -2, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 5, -1, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 6, -3, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 7, -2, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 7, -1, 5, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 8, -3, 5, var3);
          this.a(var1, var3, 9, -1, 1, 9, -1, 5, false, var2, k);
          this.a(var1, var3, 8, -3, 8, 10, -1, 10);
-         this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 8, -2, 11, var3);
-         this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 9, -2, 11, var3);
-         this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 10, -2, 11, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 8, -2, 12, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 9, -2, 12, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 10, -2, 12, var3);
+         this.a(var1, Blocks.SMOOTH_BRICK.a(BlockSmoothBrick.O), 8, -2, 11, var3);
+         this.a(var1, Blocks.SMOOTH_BRICK.a(BlockSmoothBrick.O), 9, -2, 11, var3);
+         this.a(var1, Blocks.SMOOTH_BRICK.a(BlockSmoothBrick.O), 10, -2, 11, var3);
+         this.a(var1, Blocks.LEVER.a(BlockLever.a(EnumFacing.a(this.a(Blocks.LEVER, EnumFacing.NORTH.a())))), 8, -2, 12, var3);
+         this.a(var1, Blocks.LEVER.a(BlockLever.a(EnumFacing.a(this.a(Blocks.LEVER, EnumFacing.NORTH.a())))), 9, -2, 12, var3);
+         this.a(var1, Blocks.LEVER.a(BlockLever.a(EnumFacing.a(this.a(Blocks.LEVER, EnumFacing.NORTH.a())))), 10, -2, 12, var3);
          this.a(var1, var3, 8, -3, 8, 8, -3, 10, false, var2, k);
          this.a(var1, var3, 10, -3, 8, 10, -3, 10, false, var2, k);
-         this.a(var1, Blocks.Y.P(), 10, -2, 9, var3);
-         this.a(var1, Blocks.af.P(), 8, -2, 9, var3);
-         this.a(var1, Blocks.af.P(), 8, -2, 10, var3);
-         this.a(var1, Blocks.af.P(), 10, -1, 9, var3);
-         this.a(var1, Blocks.F.a(EnumFacing.UP.a()), 9, -2, 8, var3);
-         this.a(var1, Blocks.F.a(this.a(Blocks.F, EnumFacing.WEST.a())), 10, -2, 8, var3);
-         this.a(var1, Blocks.F.a(this.a(Blocks.F, EnumFacing.WEST.a())), 10, -1, 8, var3);
-         this.a(var1, Blocks.bb.a(this.a(Blocks.bb, EnumFacing.NORTH.b())), 10, -2, 10, var3);
+         this.a(var1, Blocks.MOSSY_COBBLESTONE.P(), 10, -2, 9, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 8, -2, 9, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 8, -2, 10, var3);
+         this.a(var1, Blocks.REDSTONE_WIRE.P(), 10, -1, 9, var3);
+         this.a(var1, Blocks.PISTON_STICKEY.a(EnumFacing.UP.a()), 9, -2, 8, var3);
+         this.a(var1, Blocks.PISTON_STICKEY.a(this.a(Blocks.PISTON_STICKEY, EnumFacing.WEST.a())), 10, -2, 8, var3);
+         this.a(var1, Blocks.PISTON_STICKEY.a(this.a(Blocks.PISTON_STICKEY, EnumFacing.WEST.a())), 10, -1, 8, var3);
+         this.a(var1, Blocks.DIODE_OFF.a(this.a(Blocks.DIODE_OFF, EnumFacing.NORTH.b())), 10, -2, 10, var3);
          if(!this.f) {
             this.f = this.a(var1, var3, var2, 9, -3, 10, StructurePieceTreaasure.a(i, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }

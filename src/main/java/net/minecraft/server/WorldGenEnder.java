@@ -35,7 +35,7 @@ public class WorldGenEnder extends WorldGenerator {
                   var9 = var7 - var3.n();
                   int var10 = var8 - var3.p();
                   if(var9 * var9 + var10 * var10 <= var5 * var5 + 1) {
-                     var1.a(new Location(var7, var6, var8), Blocks.Z.P(), 2);
+                     var1.a(new Location(var7, var6, var8), Blocks.OBSIDIAN.P(), 2);
                   }
                }
             }
@@ -44,7 +44,7 @@ public class WorldGenEnder extends WorldGenerator {
          EntityEnderCrystal var11 = new EntityEnderCrystal(var1);
          var11.setPositionRotation((double)((float)var3.n() + 0.5F), (double)(var3.o() + var4), (double)((float)var3.p() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.d((Entity)var11);
-         var1.a(var3.b(var4), Blocks.h.P(), 2);
+         var1.a(var3.b(var4), Blocks.BEDROCK.P(), 2);
          return true;
       } else {
          return false;

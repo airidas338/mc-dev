@@ -18,7 +18,7 @@ public class bjw extends bkb {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.b = var1.n("Chest");
+      this.b = var1.getBoolean("Chest");
    }
 
    protected void a(NBTTagCompound var1) {
@@ -36,25 +36,25 @@ public class bjw extends bkb {
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
-      this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.P(), Blocks.by.P(), false);
+      this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.P(), Blocks.NETHER_BRICK.P(), false);
       this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
-      this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.bz.P(), Blocks.bz.P(), false);
-      this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.bz.P(), Blocks.bz.P(), false);
-      this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 0, 2, 4, 3, 5, 4, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.bz.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.bz.P(), Blocks.by.P(), false);
+      this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICK.P(), Blocks.NETHER_BRICK.P(), false);
+      this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.NETHER_FENCE.P(), Blocks.NETHER_FENCE.P(), false);
+      this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.NETHER_FENCE.P(), Blocks.NETHER_FENCE.P(), false);
+      this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICK.P(), Blocks.NETHER_BRICK.P(), false);
+      this.a(var1, var3, 0, 2, 4, 3, 5, 4, Blocks.NETHER_BRICK.P(), Blocks.NETHER_BRICK.P(), false);
+      this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.NETHER_FENCE.P(), Blocks.NETHER_BRICK.P(), false);
+      this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.NETHER_FENCE.P(), Blocks.NETHER_BRICK.P(), false);
       if(this.b && var3.b((fd)(new Location(this.a(3, 3), this.d(2), this.b(3, 3))))) {
          this.b = false;
          this.a(var1, var3, var2, 3, 2, 3, a, 2 + var2.nextInt(4));
       }
 
-      this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.by.P(), Blocks.by.P(), false);
+      this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.P(), Blocks.NETHER_BRICK.P(), false);
 
       for(int var4 = 0; var4 <= 4; ++var4) {
          for(int var5 = 0; var5 <= 4; ++var5) {
-            this.b(var1, Blocks.by.P(), var4, -1, var5, var3);
+            this.b(var1, Blocks.NETHER_BRICK.P(), var4, -1, var5, var3);
          }
       }
 

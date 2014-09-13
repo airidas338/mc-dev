@@ -12,7 +12,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       super.a(var1);
       NBTTagList var2 = var1.getList("Items", 10);
       this.a = new ItemStack[this.n_()];
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.f = var1.getString("CustomName");
       }
 

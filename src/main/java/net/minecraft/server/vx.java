@@ -23,7 +23,7 @@ public class vx {
    }
 
    public static vx b(NBTTagCompound var0) {
-      if(var0.b("Lock", 8)) {
+      if(var0.hasKeyOfType("Lock", 8)) {
          String var1 = var0.getString("Lock");
          return new vx(var1);
       } else {

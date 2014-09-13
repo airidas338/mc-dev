@@ -581,7 +581,7 @@ public abstract class EntityHuman extends EntityLiving {
       NBTTagList var2 = var1.getList("Inventory", 10);
       this.bg.b(var2);
       this.bg.c = var1.getInt("SelectedItemSlot");
-      this.bu = var1.n("Sleeping");
+      this.bu = var1.getBoolean("Sleeping");
       this.b = var1.getShort("SleepTimer");
       this.bB = var1.getFloat("XpP");
       this.bz = var1.getInt("XpLevel");
@@ -597,14 +597,14 @@ public abstract class EntityHuman extends EntityLiving {
          this.a(true, true, false);
       }
 
-      if(var1.b("SpawnX", 99) && var1.b("SpawnY", 99) && var1.b("SpawnZ", 99)) {
+      if(var1.hasKeyOfType("SpawnX", 99) && var1.hasKeyOfType("SpawnY", 99) && var1.hasKeyOfType("SpawnZ", 99)) {
          this.c = new Location(var1.getInt("SpawnX"), var1.getInt("SpawnY"), var1.getInt("SpawnZ"));
-         this.d = var1.n("SpawnForced");
+         this.d = var1.getBoolean("SpawnForced");
       }
 
       this.bj.a(var1);
       this.by.b(var1);
-      if(var1.b("EnderItems", 9)) {
+      if(var1.hasKeyOfType("EnderItems", 9)) {
          NBTTagList var3 = var1.getList("EnderItems", 10);
          this.a.a(var3);
       }
@@ -860,7 +860,7 @@ public abstract class EntityHuman extends EntityLiving {
                   }
 
                   if(var2 >= 18.0F) {
-                     this.b((tq)tl.F);
+                     this.b((tq)AchievementList.F);
                   }
 
                   this.p(var1);
@@ -1011,7 +1011,7 @@ public abstract class EntityHuman extends EntityLiving {
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
       IBlock var4 = this.o.getData(this.bv);
-      if(this.bv != null && var4.c() == Blocks.C) {
+      if(this.bv != null && var4.c() == Blocks.BED) {
          this.o.a(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
          Location var5 = BlockBed.a(this.o, this.bv, 0);
          if(var5 == null) {
@@ -1034,11 +1034,11 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    private boolean p() {
-      return this.o.getData(this.bv).c() == Blocks.C;
+      return this.o.getData(this.bv).c() == Blocks.BED;
    }
 
    public static Location a(World var0, Location var1, boolean var2) {
-      if(var0.getData(var1).c() != Blocks.C) {
+      if(var0.getData(var1).c() != Blocks.BED) {
          if(!var2) {
             return null;
          } else {
@@ -1176,7 +1176,7 @@ public abstract class EntityHuman extends EntityLiving {
                if(this.e == null) {
                   this.e = new Location(this);
                } else if(this.e.c((double)MathHelper.c(this.s), (double)MathHelper.c(this.t), (double)MathHelper.c(this.u)) >= 1000000.0D) {
-                  this.b((tq)tl.q);
+                  this.b((tq)AchievementList.q);
                }
             } else if(this.m instanceof EntityBoat) {
                this.a(ty.r, var7);
@@ -1213,7 +1213,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(EntityLiving var1) {
       if(var1 instanceof IMonster) {
-         this.b((tq)tl.s);
+         this.b((tq)AchievementList.s);
       }
 
       MonsterEggInfo var2 = (MonsterEggInfo)EntityTypes.a.get(Integer.valueOf(EntityTypes.a(var1)));

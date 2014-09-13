@@ -20,7 +20,7 @@ public class EntityMinecartMobSpawner extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return Blocks.ac.P();
+      return Blocks.MOB_SPAWNER.P();
    }
 
    protected void a(NBTTagCompound var1) {

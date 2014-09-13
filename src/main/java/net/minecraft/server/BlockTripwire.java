@@ -98,11 +98,11 @@ public class BlockTripwire extends Block {
             if(var8 < 42) {
                Location var9 = var2.a(var7, var8);
                IBlock var10 = var1.getData(var9);
-               if(var10.c() == Blocks.bR) {
+               if(var10.c() == Blocks.TRIPWIRE_HOOK) {
                   if(var10.b(BlockTripwireHook.a) == var7.d()) {
-                     Blocks.bR.a(var1, var9, var10, false, true, var8, var3);
+                     Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
                   }
-               } else if(var10.c() == Blocks.bS) {
+               } else if(var10.c() == Blocks.TRIPWIRE) {
                   ++var8;
                   continue;
                }
@@ -166,10 +166,10 @@ public class BlockTripwire extends Block {
       Location var4 = var1.a(var3);
       IBlock var5 = var0.getData(var4);
       Block var6 = var5.c();
-      if(var6 == Blocks.bR) {
+      if(var6 == Blocks.TRIPWIRE_HOOK) {
          EnumFacing var9 = var3.d();
          return var5.b(BlockTripwireHook.a) == var9;
-      } else if(var6 == Blocks.bS) {
+      } else if(var6 == Blocks.TRIPWIRE) {
          boolean var7 = ((Boolean)var2.b(b)).booleanValue();
          boolean var8 = ((Boolean)var5.b(b)).booleanValue();
          return var7 == var8;

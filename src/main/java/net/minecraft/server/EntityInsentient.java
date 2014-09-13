@@ -231,14 +231,14 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("CanPickUpLoot", 1)) {
-         this.j(var1.n("CanPickUpLoot"));
+      if(var1.hasKeyOfType("CanPickUpLoot", 1)) {
+         this.j(var1.getBoolean("CanPickUpLoot"));
       }
 
-      this.bl = var1.n("PersistenceRequired");
+      this.bl = var1.getBoolean("PersistenceRequired");
       NBTTagList var2;
       int var3;
-      if(var1.b("Equipment", 9)) {
+      if(var1.hasKeyOfType("Equipment", 9)) {
          var2 = var1.getList("Equipment", 10);
 
          for(var3 = 0; var3 < this.bj.length; ++var3) {
@@ -246,7 +246,7 @@ public abstract class EntityInsentient extends EntityLiving {
          }
       }
 
-      if(var1.b("DropChances", 9)) {
+      if(var1.hasKeyOfType("DropChances", 9)) {
          var2 = var1.getList("DropChances", 5);
 
          for(var3 = 0; var3 < var2.c(); ++var3) {
@@ -254,12 +254,12 @@ public abstract class EntityInsentient extends EntityLiving {
          }
       }
 
-      this.bm = var1.n("Leashed");
-      if(this.bm && var1.b("Leash", 10)) {
+      this.bm = var1.getBoolean("Leashed");
+      if(this.bm && var1.hasKeyOfType("Leash", 10)) {
          this.bo = var1.getCompound("Leash");
       }
 
-      this.k(var1.n("NoAI"));
+      this.k(var1.getBoolean("NoAI"));
    }
 
    public void m(float var1) {
@@ -335,7 +335,7 @@ public abstract class EntityInsentient extends EntityLiving {
             if(var2.b() == Items.i && var1.n() != null) {
                EntityHuman var8 = this.o.a(var1.n());
                if(var8 != null) {
-                  var8.b((tq)tl.x);
+                  var8.b((tq)AchievementList.x);
                }
             }
 
@@ -554,7 +554,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public static int c(ItemStack var0) {
-      if(var0.b() != Item.a(Blocks.aU) && var0.b() != Items.bX) {
+      if(var0.b() != Item.a(Blocks.PUMPKIN) && var0.b() != Items.bX) {
          if(var0.b() instanceof ItemArmor) {
             switch(((ItemArmor)var0.b()).b) {
             case 0:
@@ -645,7 +645,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public xq a(vu var1, xq var2) {
-      this.getAttributeInstance(GenericAttributes.b).b(new ya("Random spawn bonus", this.V.nextGaussian() * 0.05D, 1));
+      this.getAttributeInstance(GenericAttributes.b).b(new AttributeModifier("Random spawn bonus", this.V.nextGaussian() * 0.05D, 1));
       return var2;
    }
 
@@ -755,7 +755,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    private void n() {
       if(this.bm && this.bo != null) {
-         if(this.bo.b("UUIDMost", 4) && this.bo.b("UUIDLeast", 4)) {
+         if(this.bo.hasKeyOfType("UUIDMost", 4) && this.bo.hasKeyOfType("UUIDLeast", 4)) {
             UUID var5 = new UUID(this.bo.getLong("UUIDMost"), this.bo.getLong("UUIDLeast"));
             List var6 = this.o.getEntities(EntityLiving.class, this.aQ().b(10.0D, 10.0D, 10.0D));
             Iterator var3 = var6.iterator();
@@ -767,7 +767,7 @@ public abstract class EntityInsentient extends EntityLiving {
                   break;
                }
             }
-         } else if(this.bo.b("X", 99) && this.bo.b("Y", 99) && this.bo.b("Z", 99)) {
+         } else if(this.bo.hasKeyOfType("X", 99) && this.bo.hasKeyOfType("Y", 99) && this.bo.hasKeyOfType("Z", 99)) {
             Location var1 = new Location(this.bo.getInt("X"), this.bo.getInt("Y"), this.bo.getInt("Z"));
             EntityLeash var2 = EntityLeash.b(this.o, var1);
             if(var2 == null) {

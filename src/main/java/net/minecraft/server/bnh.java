@@ -27,7 +27,7 @@ public class bnh extends bnn {
    protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.b = var1.getInt("T");
-      this.a = var1.n("C");
+      this.a = var1.getBoolean("C");
    }
 
    public static bnh a(bnk var0, List var1, Random var2, int var3, int var4, int var5, EnumFacing var6, int var7) {
@@ -46,50 +46,50 @@ public class bnh extends bnn {
       }
 
       this.a(var1, var3, 1, 1, 1, 3, 5, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
-      this.a(var1, var3, 0, 0, 0, 3, 0, 4, Blocks.e.P(), Blocks.e.P(), false);
-      this.a(var1, var3, 1, 0, 1, 2, 0, 3, Blocks.d.P(), Blocks.d.P(), false);
+      this.a(var1, var3, 0, 0, 0, 3, 0, 4, Blocks.COBBLESTONE.P(), Blocks.COBBLESTONE.P(), false);
+      this.a(var1, var3, 1, 0, 1, 2, 0, 3, Blocks.DIRT.P(), Blocks.DIRT.P(), false);
       if(this.a) {
-         this.a(var1, var3, 1, 4, 1, 2, 4, 3, Blocks.r.P(), Blocks.r.P(), false);
+         this.a(var1, var3, 1, 4, 1, 2, 4, 3, Blocks.LOG.P(), Blocks.LOG.P(), false);
       } else {
-         this.a(var1, var3, 1, 5, 1, 2, 5, 3, Blocks.r.P(), Blocks.r.P(), false);
+         this.a(var1, var3, 1, 5, 1, 2, 5, 3, Blocks.LOG.P(), Blocks.LOG.P(), false);
       }
 
-      this.a(var1, Blocks.r.P(), 1, 4, 0, var3);
-      this.a(var1, Blocks.r.P(), 2, 4, 0, var3);
-      this.a(var1, Blocks.r.P(), 1, 4, 4, var3);
-      this.a(var1, Blocks.r.P(), 2, 4, 4, var3);
-      this.a(var1, Blocks.r.P(), 0, 4, 1, var3);
-      this.a(var1, Blocks.r.P(), 0, 4, 2, var3);
-      this.a(var1, Blocks.r.P(), 0, 4, 3, var3);
-      this.a(var1, Blocks.r.P(), 3, 4, 1, var3);
-      this.a(var1, Blocks.r.P(), 3, 4, 2, var3);
-      this.a(var1, Blocks.r.P(), 3, 4, 3, var3);
-      this.a(var1, var3, 0, 1, 0, 0, 3, 0, Blocks.r.P(), Blocks.r.P(), false);
-      this.a(var1, var3, 3, 1, 0, 3, 3, 0, Blocks.r.P(), Blocks.r.P(), false);
-      this.a(var1, var3, 0, 1, 4, 0, 3, 4, Blocks.r.P(), Blocks.r.P(), false);
-      this.a(var1, var3, 3, 1, 4, 3, 3, 4, Blocks.r.P(), Blocks.r.P(), false);
-      this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.f.P(), Blocks.f.P(), false);
-      this.a(var1, var3, 3, 1, 1, 3, 3, 3, Blocks.f.P(), Blocks.f.P(), false);
-      this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.f.P(), Blocks.f.P(), false);
-      this.a(var1, var3, 1, 1, 4, 2, 3, 4, Blocks.f.P(), Blocks.f.P(), false);
-      this.a(var1, Blocks.bj.P(), 0, 2, 2, var3);
-      this.a(var1, Blocks.bj.P(), 3, 2, 2, var3);
+      this.a(var1, Blocks.LOG.P(), 1, 4, 0, var3);
+      this.a(var1, Blocks.LOG.P(), 2, 4, 0, var3);
+      this.a(var1, Blocks.LOG.P(), 1, 4, 4, var3);
+      this.a(var1, Blocks.LOG.P(), 2, 4, 4, var3);
+      this.a(var1, Blocks.LOG.P(), 0, 4, 1, var3);
+      this.a(var1, Blocks.LOG.P(), 0, 4, 2, var3);
+      this.a(var1, Blocks.LOG.P(), 0, 4, 3, var3);
+      this.a(var1, Blocks.LOG.P(), 3, 4, 1, var3);
+      this.a(var1, Blocks.LOG.P(), 3, 4, 2, var3);
+      this.a(var1, Blocks.LOG.P(), 3, 4, 3, var3);
+      this.a(var1, var3, 0, 1, 0, 0, 3, 0, Blocks.LOG.P(), Blocks.LOG.P(), false);
+      this.a(var1, var3, 3, 1, 0, 3, 3, 0, Blocks.LOG.P(), Blocks.LOG.P(), false);
+      this.a(var1, var3, 0, 1, 4, 0, 3, 4, Blocks.LOG.P(), Blocks.LOG.P(), false);
+      this.a(var1, var3, 3, 1, 4, 3, 3, 4, Blocks.LOG.P(), Blocks.LOG.P(), false);
+      this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+      this.a(var1, var3, 3, 1, 1, 3, 3, 3, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+      this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+      this.a(var1, var3, 1, 1, 4, 2, 3, 4, Blocks.WOOD.P(), Blocks.WOOD.P(), false);
+      this.a(var1, Blocks.THIN_GLASS.P(), 0, 2, 2, var3);
+      this.a(var1, Blocks.THIN_GLASS.P(), 3, 2, 2, var3);
       if(this.b > 0) {
-         this.a(var1, Blocks.aO.P(), this.b, 1, 3, var3);
-         this.a(var1, Blocks.aB.P(), this.b, 2, 3, var3);
+         this.a(var1, Blocks.FENCE.P(), this.b, 1, 3, var3);
+         this.a(var1, Blocks.WOOD_PLATE.P(), this.b, 2, 3, var3);
       }
 
       this.a(var1, Blocks.AIR.P(), 1, 1, 0, var3);
       this.a(var1, Blocks.AIR.P(), 1, 2, 0, var3);
-      this.a(var1, var3, var2, 1, 1, 0, EnumFacing.b(this.a(Blocks.ao, 1)));
+      this.a(var1, var3, var2, 1, 1, 0, EnumFacing.b(this.a(Blocks.WOODEN_DOOR, 1)));
       if(this.a(var1, 1, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 1, -1, -1, var3).c().r() != Material.AIR) {
-         this.a(var1, Blocks.aw.a(this.a(Blocks.aw, 3)), 1, 0, -1, var3);
+         this.a(var1, Blocks.COBBLESTONE_STAIRS.a(this.a(Blocks.COBBLESTONE_STAIRS, 3)), 1, 0, -1, var3);
       }
 
       for(int var4 = 0; var4 < 5; ++var4) {
          for(int var5 = 0; var5 < 4; ++var5) {
             this.b(var1, var5, 6, var4, var3);
-            this.b(var1, Blocks.e.P(), var5, -1, var4, var3);
+            this.b(var1, Blocks.COBBLESTONE.P(), var5, -1, var4, var3);
          }
       }
 

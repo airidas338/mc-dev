@@ -6,7 +6,7 @@ import java.util.List;
 final class st implements ParameterizedType {
 
    public Type[] getActualTypeArguments() {
-      return new Type[]{sr.class};
+      return new Type[]{JsonListEntry.class};
    }
 
    public Type getRawType() {

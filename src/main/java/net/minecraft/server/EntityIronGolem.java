@@ -99,7 +99,7 @@ public class EntityIronGolem extends EntityGolem {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.l(var1.n("PlayerCreated"));
+      this.l(var1.getBoolean("PlayerCreated"));
    }
 
    public boolean r(Entity var1) {
@@ -141,7 +141,7 @@ public class EntityIronGolem extends EntityGolem {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Item.a((Block)Blocks.O), 1, (float)EnumFlowerType.b.b());
+         this.a(Item.a((Block)Blocks.RED_ROSE), 1, (float)EnumFlowerType.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);

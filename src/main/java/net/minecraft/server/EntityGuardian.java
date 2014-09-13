@@ -46,7 +46,7 @@ public class EntityGuardian extends EntityMonster {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a(var1.n("Elder"));
+      this.a(var1.getBoolean("Elder"));
    }
 
    public void b(NBTTagCompound var1) {
@@ -304,7 +304,7 @@ public class EntityGuardian extends EntityMonster {
       }
 
       if(var1 && this.cl()) {
-         this.a(new ItemStack(Blocks.v, 1, 1), 1.0F);
+         this.a(new ItemStack(Blocks.SPONGE, 1, 1), 1.0F);
       }
 
    }

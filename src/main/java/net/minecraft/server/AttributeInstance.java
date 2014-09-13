@@ -15,13 +15,13 @@ public interface AttributeInstance {
 
    Collection c();
 
-   boolean a(ya var1);
+   boolean a(AttributeModifier var1);
 
-   ya a(UUID var1);
+   AttributeModifier a(UUID var1);
 
-   void b(ya var1);
+   void b(AttributeModifier var1);
 
-   void c(ya var1);
+   void c(AttributeModifier var1);
 
    double getValue();
 }

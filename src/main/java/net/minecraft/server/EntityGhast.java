@@ -40,7 +40,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
          return false;
       } else if("fireball".equals(var1.p()) && var1.getEntity() instanceof EntityHuman) {
          super.a(var1, 1000.0F);
-         ((EntityHuman)var1.getEntity()).b((tq)tl.z);
+         ((EntityHuman)var1.getEntity()).b((tq)AchievementList.z);
          return true;
       } else {
          return super.a(var1, var2);
@@ -109,7 +109,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("ExplosionPower", 99)) {
+      if(var1.hasKeyOfType("ExplosionPower", 99)) {
          this.a = var1.getInt("ExplosionPower");
       }
 

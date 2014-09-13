@@ -11,7 +11,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
 
    public EntityAnimal(World var1) {
       super(var1);
-      this.bl = Blocks.c;
+      this.bl = Blocks.GRASS;
    }
 
    protected void E() {
@@ -50,7 +50,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    public float a(Location var1) {
-      return this.o.getData(var1.b()).c() == Blocks.c?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.getData(var1.b()).c() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(NBTTagCompound var1) {

@@ -55,10 +55,10 @@ public class bfy implements IChunkLoader, brq {
    }
 
    protected Chunk a(World var1, int var2, int var3, NBTTagCompound var4) {
-      if(!var4.b("Level", 10)) {
+      if(!var4.hasKeyOfType("Level", 10)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
-      } else if(!var4.getCompound("Level").b("Sections", 9)) {
+      } else if(!var4.getCompound("Level").hasKeyOfType("Sections", 9)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing block data, skipping");
          return null;
       } else {
@@ -266,8 +266,8 @@ public class bfy implements IChunkLoader, brq {
       int var4 = var2.getInt("zPos");
       Chunk var5 = new Chunk(var1, var3, var4);
       var5.a(var2.getIntArray("HeightMap"));
-      var5.d(var2.n("TerrainPopulated"));
-      var5.e(var2.n("LightPopulated"));
+      var5.d(var2.getBoolean("TerrainPopulated"));
+      var5.e(var2.getBoolean("LightPopulated"));
       var5.c(var2.getLong("InhabitedTime"));
       NBTTagList var6 = var2.getList("Sections", 10);
       byte var7 = 16;
@@ -280,7 +280,7 @@ public class bfy implements IChunkLoader, brq {
          bfm var13 = new bfm(var12 << 4, var9);
          byte[] var14 = var11.getByteArray("Blocks");
          bff var15 = new bff(var11.getByteArray("Data"));
-         bff var16 = var11.b("Add", 7)?new bff(var11.getByteArray("Add")):null;
+         bff var16 = var11.hasKeyOfType("Add", 7)?new bff(var11.getByteArray("Add")):null;
          char[] var17 = new char[var14.length];
 
          for(int var18 = 0; var18 < var17.length; ++var18) {
@@ -302,7 +302,7 @@ public class bfy implements IChunkLoader, brq {
       }
 
       var5.a(var8);
-      if(var2.b("Biomes", 7)) {
+      if(var2.hasKeyOfType("Biomes", 7)) {
          var5.a(var2.getByteArray("Biomes"));
       }
 
@@ -316,7 +316,7 @@ public class bfy implements IChunkLoader, brq {
                var5.a(var30);
                Entity var35 = var30;
 
-               for(NBTTagCompound var33 = var25; var33.b("Riding", 10); var33 = var33.getCompound("Riding")) {
+               for(NBTTagCompound var33 = var25; var33.hasKeyOfType("Riding", 10); var33 = var33.getCompound("Riding")) {
                   Entity var36 = EntityTypes.a(var33.getCompound("Riding"), var1);
                   if(var36 != null) {
                      var5.a(var36);
@@ -340,13 +340,13 @@ public class bfy implements IChunkLoader, brq {
          }
       }
 
-      if(var2.b("TileTicks", 9)) {
+      if(var2.hasKeyOfType("TileTicks", 9)) {
          NBTTagList var31 = var2.getList("TileTicks", 10);
          if(var31 != null) {
             for(int var29 = 0; var29 < var31.c(); ++var29) {
                NBTTagCompound var34 = var31.b(var29);
                Block var37;
-               if(var34.b("i", 8)) {
+               if(var34.hasKeyOfType("i", 8)) {
                   var37 = Block.b(var34.getString("i"));
                } else {
                   var37 = Block.c(var34.getInt("i"));

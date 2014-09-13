@@ -247,7 +247,7 @@ public class aid extends aib {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.i.getData(this.j).c() != Blocks.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.getData(this.j).c() != Blocks.ANVIL?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

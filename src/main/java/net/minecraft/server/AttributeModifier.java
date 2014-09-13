@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.Validate;
 
-public class ya {
+public class AttributeModifier {
 
    private final double a;
    private final int b;
@@ -16,11 +16,11 @@ public class ya {
    private boolean e;
 
 
-   public ya(String var1, double var2, int var4) {
+   public AttributeModifier(String var1, double var2, int var4) {
       this(MathHelper.a((Random)ThreadLocalRandom.current()), var1, var2, var4);
    }
 
-   public ya(UUID var1, String var2, double var3, int var5) {
+   public AttributeModifier(UUID var1, String var2, double var3, int var5) {
       this.e = true;
       this.d = var1;
       this.c = var2;
@@ -50,7 +50,7 @@ public class ya {
       return this.e;
    }
 
-   public ya a(boolean var1) {
+   public AttributeModifier a(boolean var1) {
       this.e = var1;
       return this;
    }
@@ -59,7 +59,7 @@ public class ya {
       if(this == var1) {
          return true;
       } else if(var1 != null && this.getClass() == var1.getClass()) {
-         ya var2 = (ya)var1;
+         AttributeModifier var2 = (AttributeModifier)var1;
          if(this.d != null) {
             if(!this.d.equals(var2.d)) {
                return false;

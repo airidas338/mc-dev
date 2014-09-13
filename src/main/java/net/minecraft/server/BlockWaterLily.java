@@ -22,7 +22,7 @@ public class BlockWaterLily extends BlockPlant {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.j;
+      return var1 == Blocks.STATIONARY_WATER;
    }
 
    public boolean f(World var1, Location var2, IBlock var3) {

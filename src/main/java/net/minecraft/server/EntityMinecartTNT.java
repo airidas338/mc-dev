@@ -20,7 +20,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return Blocks.W.P();
+      return Blocks.TNT.P();
    }
 
    public void s_() throws IOException {
@@ -57,7 +57,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c()) {
-         this.a(new ItemStack(Blocks.W, 1), 0.0F);
+         this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
@@ -120,7 +120,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("TNTFuse", 99)) {
+      if(var1.hasKeyOfType("TNTFuse", 99)) {
          this.a = var1.getInt("TNTFuse");
       }
 

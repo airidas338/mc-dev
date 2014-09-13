@@ -95,7 +95,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
       this.k = var1.getShort("CookTime");
       this.l = var1.getShort("CookTimeTotal");
       this.j = b(this.h[1]);
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.m = var1.getString("CustomName");
       }
 
@@ -206,7 +206,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == Item.a(Blocks.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
+         if(this.h[0].b() == Item.a(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
             this.h[1] = new ItemStack(Items.ax);
          }
 
@@ -225,7 +225,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
          Item var1 = var0.b();
          if(var1 instanceof aju && Block.a(var1) != Blocks.AIR) {
             Block var2 = Block.a(var1);
-            if(var2 == Blocks.bM) {
+            if(var2 == Blocks.WOOD_STEP) {
                return 150;
             }
 
@@ -233,12 +233,12 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
                return 300;
             }
 
-            if(var2 == Blocks.cA) {
+            if(var2 == Blocks.COAL_BLOCK) {
                return 16000;
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.g)?100:(var1 == Items.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.SAPLING)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 

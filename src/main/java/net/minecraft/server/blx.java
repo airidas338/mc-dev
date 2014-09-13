@@ -33,10 +33,10 @@ public class blx extends bmk {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.a = var1.n("leftLow");
-      this.b = var1.n("leftHigh");
-      this.c = var1.n("rightLow");
-      this.e = var1.n("rightHigh");
+      this.a = var1.getBoolean("leftLow");
+      this.b = var1.getBoolean("leftHigh");
+      this.c = var1.getBoolean("rightLow");
+      this.e = var1.getBoolean("rightHigh");
    }
 
    public void a(bms var1, List var2, Random var3) {
@@ -99,15 +99,15 @@ public class blx extends bmk {
          this.a(var1, var3, 8, 1, 5, 8, 4, 9, false, var2, blr.c());
          this.a(var1, var3, 1, 4, 7, 3, 4, 9, false, var2, blr.c());
          this.a(var1, var3, 1, 3, 5, 3, 3, 6, false, var2, blr.c());
-         this.a(var1, var3, 1, 3, 4, 3, 3, 4, Blocks.U.P(), Blocks.U.P(), false);
-         this.a(var1, var3, 1, 4, 6, 3, 4, 6, Blocks.U.P(), Blocks.U.P(), false);
+         this.a(var1, var3, 1, 3, 4, 3, 3, 4, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
+         this.a(var1, var3, 1, 4, 6, 3, 4, 6, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
          this.a(var1, var3, 5, 1, 7, 7, 1, 8, false, var2, blr.c());
-         this.a(var1, var3, 5, 1, 9, 7, 1, 9, Blocks.U.P(), Blocks.U.P(), false);
-         this.a(var1, var3, 5, 2, 7, 7, 2, 7, Blocks.U.P(), Blocks.U.P(), false);
-         this.a(var1, var3, 4, 5, 7, 4, 5, 9, Blocks.U.P(), Blocks.U.P(), false);
-         this.a(var1, var3, 8, 5, 7, 8, 5, 9, Blocks.U.P(), Blocks.U.P(), false);
-         this.a(var1, var3, 5, 5, 7, 7, 5, 9, Blocks.T.P(), Blocks.T.P(), false);
-         this.a(var1, Blocks.aa.P(), 6, 5, 6, var3);
+         this.a(var1, var3, 5, 1, 9, 7, 1, 9, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
+         this.a(var1, var3, 5, 2, 7, 7, 2, 7, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
+         this.a(var1, var3, 4, 5, 7, 4, 5, 9, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
+         this.a(var1, var3, 8, 5, 7, 8, 5, 9, Blocks.STEP1.P(), Blocks.STEP1.P(), false);
+         this.a(var1, var3, 5, 5, 7, 7, 5, 9, Blocks.DOUBLE_STEP1.P(), Blocks.DOUBLE_STEP1.P(), false);
+         this.a(var1, Blocks.TORCH.P(), 6, 5, 6, var3);
          return true;
       }
    }

@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public abstract class rx extends sr {
+public abstract class ExpirableListEntry extends JsonListEntry {
 
    public static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
    protected final Date b;
@@ -13,7 +13,7 @@ public abstract class rx extends sr {
    protected final String e;
 
 
-   public rx(Object var1, Date var2, String var3, Date var4, String var5) {
+   public ExpirableListEntry(Object var1, Date var2, String var3, Date var4, String var5) {
       super(var1);
       this.b = var2 == null?new Date():var2;
       this.c = var3 == null?"(Unknown)":var3;
@@ -21,7 +21,7 @@ public abstract class rx extends sr {
       this.e = var5 == null?"Banned by an operator.":var5;
    }
 
-   protected rx(Object var1, JsonObject var2) {
+   protected ExpirableListEntry(Object var1, JsonObject var2) {
       super(var1, var2);
 
       Date var3;

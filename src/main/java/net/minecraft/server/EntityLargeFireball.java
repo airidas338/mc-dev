@@ -35,7 +35,7 @@ public class EntityLargeFireball extends EntityFireball {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("ExplosionPower", 99)) {
+      if(var1.hasKeyOfType("ExplosionPower", 99)) {
          this.e = var1.getInt("ExplosionPower");
       }
 

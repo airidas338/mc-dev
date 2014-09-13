@@ -6,9 +6,9 @@ import java.util.UUID;
 
 public class EntityZombie extends EntityMonster {
 
-   protected static final IAttribute b = (new yg((IAttribute)null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
+   protected static final IAttribute b = (new AttributeRanged((IAttribute)null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
    private static final UUID c = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
-   private static final ya bk = new ya(c, "Baby speed boost", 0.5D, 1);
+   private static final AttributeModifier bk = new AttributeModifier(c, "Baby speed boost", 0.5D, 1);
    private final ys bl = new ys(this);
    private int bm;
    private boolean bn = false;
@@ -168,8 +168,8 @@ public class EntityZombie extends EntityMonster {
                      this.o.d((Entity)var7);
                      var7.d(var3);
                      var7.a(this.o.E(new Location(var7)), (xq)null);
-                     this.getAttributeInstance(b).b(new ya("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
-                     var7.getAttributeInstance(b).b(new ya("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
+                     this.getAttributeInstance(b).b(new AttributeModifier("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
+                     var7.getAttributeInstance(b).b(new AttributeModifier("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
                      break;
                   }
                }
@@ -273,19 +273,19 @@ public class EntityZombie extends EntityMonster {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.n("IsBaby")) {
+      if(var1.getBoolean("IsBaby")) {
          this.l(true);
       }
 
-      if(var1.n("IsVillager")) {
+      if(var1.getBoolean("IsVillager")) {
          this.m(true);
       }
 
-      if(var1.b("ConversionTime", 99) && var1.getInt("ConversionTime") > -1) {
+      if(var1.hasKeyOfType("ConversionTime", 99) && var1.getInt("ConversionTime") > -1) {
          this.a(var1.getInt("ConversionTime"));
       }
 
-      this.a(var1.n("CanBreakDoors"));
+      this.a(var1.getBoolean("CanBreakDoors"));
    }
 
    public void a(EntityLiving var1) {
@@ -363,20 +363,20 @@ public class EntityZombie extends EntityMonster {
       if(this.p(4) == null) {
          Calendar var8 = this.o.Y();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
+            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.JACK_O_LANTERN:Blocks.PUMPKIN));
             this.bh[4] = 0.0F;
          }
       }
 
-      this.getAttributeInstance(GenericAttributes.c).b(new ya("Random spawn bonus", this.V.nextDouble() * 0.05000000074505806D, 0));
+      this.getAttributeInstance(GenericAttributes.c).b(new AttributeModifier("Random spawn bonus", this.V.nextDouble() * 0.05000000074505806D, 0));
       double var9 = this.V.nextDouble() * 1.5D * (double)var3;
       if(var9 > 1.0D) {
-         this.getAttributeInstance(GenericAttributes.b).b(new ya("Random zombie-spawn bonus", var9, 2));
+         this.getAttributeInstance(GenericAttributes.b).b(new AttributeModifier("Random zombie-spawn bonus", var9, 2));
       }
 
       if(this.V.nextFloat() < var3 * 0.05F) {
-         this.getAttributeInstance(b).b(new ya("Leader zombie bonus", this.V.nextDouble() * 0.25D + 0.5D, 0));
-         this.getAttributeInstance(GenericAttributes.a).b(new ya("Leader zombie bonus", this.V.nextDouble() * 3.0D + 1.0D, 2));
+         this.getAttributeInstance(b).b(new AttributeModifier("Leader zombie bonus", this.V.nextDouble() * 0.25D + 0.5D, 0));
+         this.getAttributeInstance(GenericAttributes.a).b(new AttributeModifier("Leader zombie bonus", this.V.nextDouble() * 3.0D + 1.0D, 2));
          this.a(true);
       }
 
@@ -444,7 +444,7 @@ public class EntityZombie extends EntityMonster {
             for(int var4 = (int)this.t - 4; var4 < (int)this.t + 4 && var2 < 14; ++var4) {
                for(int var5 = (int)this.u - 4; var5 < (int)this.u + 4 && var2 < 14; ++var5) {
                   Block var6 = this.o.getData(new Location(var3, var4, var5)).c();
-                  if(var6 == Blocks.bi || var6 == Blocks.C) {
+                  if(var6 == Blocks.IRON_FENCE || var6 == Blocks.BED) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;
                      }

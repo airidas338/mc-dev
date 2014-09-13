@@ -38,7 +38,7 @@ public class PortalTravelAgent {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.a(new Location(var11, var12, var13), var14?Blocks.Z.P():Blocks.AIR.P());
+                  this.a.a(new Location(var11, var12, var13), var14?Blocks.OBSIDIAN.P():Blocks.AIR.P());
                }
             }
          }
@@ -70,8 +70,8 @@ public class PortalTravelAgent {
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(Location var15 = var34.a(var13, this.a.V() - 1 - var34.o(), var14); var15.o() >= 0; var15 = var16) {
                   var16 = var15.b();
-                  if(this.a.getData(var15).c() == Blocks.aY) {
-                     while(this.a.getData(var16 = var15.b()).c() == Blocks.aY) {
+                  if(this.a.getData(var15).c() == Blocks.PORTAL) {
+                     while(this.a.getData(var16 = var15.b()).c() == Blocks.PORTAL) {
                         var15 = var16;
                      }
 
@@ -96,19 +96,19 @@ public class PortalTravelAgent {
          double var36 = (double)((Location)var9).o() + 0.5D;
          double var37 = (double)((Location)var9).p() + 0.5D;
          EnumFacing var18 = null;
-         if(this.a.getData(((Location)var9).e()).c() == Blocks.aY) {
+         if(this.a.getData(((Location)var9).e()).c() == Blocks.PORTAL) {
             var18 = EnumFacing.NORTH;
          }
 
-         if(this.a.getData(((Location)var9).f()).c() == Blocks.aY) {
+         if(this.a.getData(((Location)var9).f()).c() == Blocks.PORTAL) {
             var18 = EnumFacing.SOUTH;
          }
 
-         if(this.a.getData(((Location)var9).c()).c() == Blocks.aY) {
+         if(this.a.getData(((Location)var9).c()).c() == Blocks.PORTAL) {
             var18 = EnumFacing.EAST;
          }
 
-         if(this.a.getData(((Location)var9).d()).c() == Blocks.aY) {
+         if(this.a.getData(((Location)var9).d()).c() == Blocks.PORTAL) {
             var18 = EnumFacing.WEST;
          }
 
@@ -322,13 +322,13 @@ public class PortalTravelAgent {
                   var23 = var15 + var21;
                   var24 = var16 + (var20 - 1) * var18 - var19 * var30;
                   boolean var34 = var21 < 0;
-                  this.a.a(new Location(var22, var23, var24), var34?Blocks.Z.P():Blocks.AIR.P());
+                  this.a.a(new Location(var22, var23, var24), var34?Blocks.OBSIDIAN.P():Blocks.AIR.P());
                }
             }
          }
       }
 
-      IBlock var31 = Blocks.aY.P().a(BlockPortal.a, var30 != 0?el.a:el.c);
+      IBlock var31 = Blocks.PORTAL.P().a(BlockPortal.a, var30 != 0?el.a:el.c);
 
       for(var20 = 0; var20 < 4; ++var20) {
          for(var21 = 0; var21 < 4; ++var21) {
@@ -337,7 +337,7 @@ public class PortalTravelAgent {
                var24 = var15 + var22;
                var25 = var16 + (var21 - 1) * var18;
                boolean var35 = var21 == 0 || var21 == 3 || var22 == -1 || var22 == 3;
-               this.a.a(new Location(var23, var24, var25), var35?Blocks.Z.P():var31, 2);
+               this.a.a(new Location(var23, var24, var25), var35?Blocks.OBSIDIAN.P():var31, 2);
             }
          }
 

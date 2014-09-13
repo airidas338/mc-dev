@@ -32,7 +32,7 @@ public class ItemArmor extends Item {
    }
 
    public boolean d_(ItemStack var1) {
-      return this.m != ajp.a?false:(!var1.n()?false:(!var1.o().b("display", 10)?false:var1.o().getCompound("display").b("color", 3)));
+      return this.m != ajp.a?false:(!var1.n()?false:(!var1.o().hasKeyOfType("display", 10)?false:var1.o().getCompound("display").hasKeyOfType("color", 3)));
    }
 
    public int b(ItemStack var1) {
@@ -42,7 +42,7 @@ public class ItemArmor extends Item {
          NBTTagCompound var2 = var1.o();
          if(var2 != null) {
             NBTTagCompound var3 = var2.getCompound("display");
-            if(var3 != null && var3.b("color", 3)) {
+            if(var3 != null && var3.hasKeyOfType("color", 3)) {
                return var3.getInt("color");
             }
          }
@@ -56,7 +56,7 @@ public class ItemArmor extends Item {
          NBTTagCompound var2 = var1.o();
          if(var2 != null) {
             NBTTagCompound var3 = var2.getCompound("display");
-            if(var3.c("color")) {
+            if(var3.hasKey("color")) {
                var3.o("color");
             }
 
@@ -75,7 +75,7 @@ public class ItemArmor extends Item {
          }
 
          NBTTagCompound var4 = var3.getCompound("display");
-         if(!var3.b("display", 10)) {
+         if(!var3.hasKeyOfType("display", 10)) {
             var3.set("display", (NBTBase)var4);
          }
 

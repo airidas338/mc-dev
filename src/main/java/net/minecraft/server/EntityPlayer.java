@@ -75,7 +75,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(NBTTagCompound var1) {
 		super.a(var1);
-		if (var1.b("playerGameType", 99)) {
+		if (var1.hasKeyOfType("playerGameType", 99)) {
 			if (MinecraftServer.M().av()) {
 				this.c.a(MinecraftServer.M().m());
 			} else {
@@ -238,7 +238,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 				this.a.sendPacket((Packet) (new lb(this.bB, this.bA, this.bz)));
 			}
 
-			if (this.W % 20 * 5 == 0 && !this.A().a(tl.L)) {
+			if (this.W % 20 * 5 == 0 && !this.A().a(AchievementList.L)) {
 				this.h_();
 			}
 
@@ -253,13 +253,13 @@ public class EntityPlayer extends EntityHuman implements ail {
 	protected void h_() {
 		BiomeBase var1 = this.o.b(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
 		String var2 = var1.ah;
-		ua var3 = (ua) this.A().b((tq) tl.L);
+		ua var3 = (ua) this.A().b((tq) AchievementList.L);
 		if (var3 == null) {
-			var3 = (ua) this.A().a((tq) tl.L, (tx) new ua());
+			var3 = (ua) this.A().a((tq) AchievementList.L, (tx) new ua());
 		}
 
 		var3.add(var2);
-		if (this.A().b(tl.L) && var3.size() >= BiomeBase.n.size()) {
+		if (this.A().b(AchievementList.L) && var3.size() >= BiomeBase.n.size()) {
 			HashSet var4 = Sets.newHashSet(BiomeBase.n);
 			Iterator var5 = var3.iterator();
 
@@ -280,7 +280,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			}
 
 			if (var4.isEmpty()) {
-				this.b((tq) tl.L);
+				this.b((tq) AchievementList.L);
 			}
 		}
 
@@ -365,13 +365,13 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void c(int var1) throws IOException {
 		if (this.am == 1 && var1 == 1) {
-			this.b((tq) tl.D);
+			this.b((tq) AchievementList.D);
 			this.o.e((Entity) this);
 			this.i = true;
 			this.a.sendPacket((Packet) (new jo(4, 0.0F)));
 		} else {
 			if (this.am == 0 && var1 == 1) {
-				this.b((tq) tl.C);
+				this.b((tq) AchievementList.C);
 				Location var2 = this.b.a(var1).m();
 				if (var2 != null) {
 					this.a.a((double) var2.n(), (double) var2.o(), (double) var2.p(), 0.0F, 0.0F);
@@ -379,7 +379,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 				var1 = 1;
 			} else {
-				this.b((tq) tl.y);
+				this.b((tq) AchievementList.y);
 			}
 
 			this.b.an().a(this, var1);
@@ -743,8 +743,8 @@ public class EntityPlayer extends EntityHuman implements ail {
 			return true;
 		} else if (!"tell".equals(var2) && !"help".equals(var2) && !"me".equals(var2) && !"trigger".equals(var2)) {
 			if (this.b.an().g(this.cc())) {
-				sq sq;
-				if ((sq = (sq) this.b.an().n().b((Object) this.cc())) != null) {
+				OpListEntry sq;
+				if ((sq = (OpListEntry) this.b.an().n().b((Object) this.cc())) != null) {
 					return sq.a() >= var1;
 				}
 				return this.b.p() >= var1;

@@ -63,16 +63,16 @@ public class EntityCreeper extends EntityMonster {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.ac.b(17, Byte.valueOf((byte)(var1.n("powered")?1:0)));
-      if(var1.b("Fuse", 99)) {
+      this.ac.b(17, Byte.valueOf((byte)(var1.getBoolean("powered")?1:0)));
+      if(var1.hasKeyOfType("Fuse", 99)) {
          this.bk = var1.getShort("Fuse");
       }
 
-      if(var1.b("ExplosionRadius", 99)) {
+      if(var1.hasKeyOfType("ExplosionRadius", 99)) {
          this.bl = var1.getByte("ExplosionRadius");
       }
 
-      if(var1.n("ignited")) {
+      if(var1.getBoolean("ignited")) {
          this.cm();
       }
 

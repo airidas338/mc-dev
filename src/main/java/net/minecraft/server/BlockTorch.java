@@ -32,7 +32,7 @@ public class BlockTorch extends Block {
          return true;
       } else {
          Block var3 = var1.getData(var2).c();
-         return var3 instanceof BlockFence || var3 == Blocks.w || var3 == Blocks.bZ || var3 == Blocks.cG;
+         return var3 instanceof BlockFence || var3 == Blocks.GLASS || var3 == Blocks.COBBLE_WALL || var3 == Blocks.STAINED_GLASS;
       }
    }
 

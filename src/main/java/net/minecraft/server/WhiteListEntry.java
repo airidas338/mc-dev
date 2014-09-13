@@ -1,20 +1,15 @@
 package net.minecraft.server;
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
-import java.util.Date;
 import java.util.UUID;
 
-public class sw extends rx {
+public class WhiteListEntry extends JsonListEntry {
 
-   public sw(GameProfile var1) {
-      this(var1, (Date)null, (String)null, (Date)null, (String)null);
+   public WhiteListEntry(GameProfile var1) {
+      super(var1);
    }
 
-   public sw(GameProfile var1, Date var2, String var3, Date var4, String var5) {
-      super(var1, var4, var3, var4, var5);
-   }
-
-   public sw(JsonObject var1) {
+   public WhiteListEntry(JsonObject var1) {
       super(b(var1), var1);
    }
 

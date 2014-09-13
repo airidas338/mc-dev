@@ -56,16 +56,16 @@ public class bie extends WorldGenerator {
                for(var16 = var11; var16 <= var12; ++var16) {
                   var17 = var3.a(var14, var15, var16);
                   if(var14 != var6 && var15 != -1 && var16 != var11 && var14 != var7 && var15 != 4 && var16 != var12) {
-                     if(var1.getData(var17).c() != Blocks.ae) {
+                     if(var1.getData(var17).c() != Blocks.CHEST) {
                         var1.g(var17);
                      }
                   } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().r().a()) {
                      var1.g(var17);
-                  } else if(var1.getData(var17).c().r().a() && var1.getData(var17).c() != Blocks.ae) {
+                  } else if(var1.getData(var17).c().r().a() && var1.getData(var17).c() != Blocks.CHEST) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
-                        var1.a(var17, Blocks.Y.P(), 2);
+                        var1.a(var17, Blocks.MOSSY_COBBLESTONE.P(), 2);
                      } else {
-                        var1.a(var17, Blocks.e.P(), 2);
+                        var1.a(var17, Blocks.COBBLESTONE.P(), 2);
                      }
                   }
                }
@@ -96,7 +96,7 @@ public class bie extends WorldGenerator {
                         }
 
                         if(var20 == 1) {
-                           var1.a(var25, Blocks.ae.f(var1, var25, Blocks.ae.P()), 2);
+                           var1.a(var25, Blocks.CHEST.f(var1, var25, Blocks.CHEST.P()), 2);
                            List var28 = StructurePieceTreaasure.a(c, new StructurePieceTreaasure[]{Items.cd.b(var2)});
                            TileEntity var27 = var1.s(var25);
                            if(var27 instanceof bcr) {
@@ -116,7 +116,7 @@ public class bie extends WorldGenerator {
             }
          }
 
-         var1.a(var3, Blocks.ac.P(), 2);
+         var1.a(var3, Blocks.MOB_SPAWNER.P(), 2);
          TileEntity var23 = var1.s(var3);
          if(var23 instanceof bdg) {
             ((bdg)var23).b().a(this.a(var2));

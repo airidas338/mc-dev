@@ -8,7 +8,7 @@ import java.util.List;
 public class EntityHorse extends EntityAnimal implements vr {
 
    private static final Predicate bq = new abu();
-   private static final IAttribute br = (new yg((IAttribute)null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
+   private static final IAttribute br = (new AttributeRanged((IAttribute)null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
    private static final String[] bs = new String[]{null, "textures/entity/horse/armor/horse_armor_iron.png", "textures/entity/horse/armor/horse_armor_gold.png", "textures/entity/horse/armor/horse_armor_diamond.png"};
    private static final String[] bt = new String[]{"", "meo", "goo", "dio"};
    private static final int[] bu = new int[]{0, 5, 7, 11};
@@ -22,7 +22,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    public int bk;
    public int bm;
    protected boolean bn;
-   private aic bC;
+   private InventoryHorseChest bC;
    private boolean bD;
    protected int bo;
    protected float bp;
@@ -265,7 +265,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void cC() {
       if(!this.o.D && this.cu()) {
-         this.a(Item.a((Block)Blocks.ae), 1);
+         this.a(Item.a((Block)Blocks.CHEST), 1);
          this.o(false);
       }
    }
@@ -305,8 +305,8 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    private void cY() {
-      aic var1 = this.bC;
-      this.bC = new aic("HorseChest", this.cX());
+      InventoryHorseChest var1 = this.bC;
+      this.bC = new InventoryHorseChest("HorseChest", this.cX());
       this.bC.a(this.d_());
       if(var1 != null) {
          var1.b(this);
@@ -424,8 +424,8 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    protected void a(Location var1, Block var2) {
       StepSound var3 = var2.H;
-      if(this.o.getData(var1.a()).c() == Blocks.aH) {
-         var3 = Blocks.aH.H;
+      if(this.o.getData(var1.a()).c() == Blocks.SNOW) {
+         var3 = Blocks.SNOW.H;
       }
 
       if(!var2.r().d()) {
@@ -531,7 +531,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                   var7 = 1.0F;
                   var5 = 30;
                   var6 = 3;
-               } else if(Block.a(var2.b()) == Blocks.cx) {
+               } else if(Block.a(var2.b()) == Blocks.HAY_BLOCK) {
                   var7 = 20.0F;
                   var5 = 180;
                } else if(var2.b() == Items.e) {
@@ -585,7 +585,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                return true;
             }
 
-            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)Blocks.ae)) {
+            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)Blocks.CHEST)) {
                this.o(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var3 = true;
@@ -679,7 +679,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             this.g(1.0F);
          }
 
-         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == Blocks.c) {
+         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == Blocks.GRASS) {
             this.r(true);
          }
 
@@ -819,7 +819,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       this.cC();
    }
 
-   private void a(Entity var1, aic var2) {
+   private void a(Entity var1, InventoryHorseChest var2) {
       if(var2 != null && !this.o.D) {
          for(int var3 = 0; var3 < var2.n_(); ++var3) {
             ItemStack var4 = var2.a(var3);
@@ -942,16 +942,16 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.r(var1.n("EatingHaystack"));
-      this.n(var1.n("Bred"));
-      this.o(var1.n("ChestedHorse"));
-      this.p(var1.n("HasReproduced"));
+      this.r(var1.getBoolean("EatingHaystack"));
+      this.n(var1.getBoolean("Bred"));
+      this.o(var1.getBoolean("ChestedHorse"));
+      this.p(var1.getBoolean("HasReproduced"));
       this.r(var1.getInt("Type"));
       this.s(var1.getInt("Variant"));
       this.t(var1.getInt("Temper"));
-      this.l(var1.n("Tame"));
+      this.l(var1.getBoolean("Tame"));
       String var2 = "";
-      if(var1.b("OwnerUUID", 8)) {
+      if(var1.hasKeyOfType("OwnerUUID", 8)) {
          var2 = var1.getString("OwnerUUID");
       } else {
          String var3 = var1.getString("Owner");
@@ -981,19 +981,19 @@ public class EntityHorse extends EntityAnimal implements vr {
       }
 
       ItemStack var9;
-      if(var1.b("ArmorItem", 10)) {
+      if(var1.hasKeyOfType("ArmorItem", 10)) {
          var9 = ItemStack.a(var1.getCompound("ArmorItem"));
          if(var9 != null && a(var9.b())) {
             this.bC.a(1, var9);
          }
       }
 
-      if(var1.b("SaddleItem", 10)) {
+      if(var1.hasKeyOfType("SaddleItem", 10)) {
          var9 = ItemStack.a(var1.getCompound("SaddleItem"));
          if(var9 != null && var9.b() == Items.aA) {
             this.bC.a(0, var9);
          }
-      } else if(var1.n("Saddle")) {
+      } else if(var1.getBoolean("Saddle")) {
          this.bC.a(0, new ItemStack(Items.aA));
       }
 
@@ -1176,7 +1176,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             return true;
          }
 
-         if(var2 != null && var2.b() == Item.a((Block)Blocks.ae) && !this.cu()) {
+         if(var2 != null && var2.b() == Item.a((Block)Blocks.CHEST) && !this.cu()) {
             this.o(true);
             this.cY();
             return true;

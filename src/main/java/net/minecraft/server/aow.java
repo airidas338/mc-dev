@@ -7,7 +7,7 @@ public class aow {
 
 
    public aow() {
-      this.b = new Object[][]{{Blocks.f, Blocks.e, Items.j, Items.i, Items.k}, {Items.m, Items.q, Items.l, Items.u, Items.B}};
+      this.b = new Object[][]{{Blocks.WOOD, Blocks.COBBLESTONE, Items.j, Items.i, Items.k}, {Items.m, Items.q, Items.l, Items.u, Items.B}};
    }
 
    public void a(aop var1) {

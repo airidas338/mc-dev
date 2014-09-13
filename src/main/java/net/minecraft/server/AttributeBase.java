@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class yb implements IAttribute {
+public abstract class AttributeBase implements IAttribute {
 
    private final IAttribute a;
    private final String b;
@@ -9,7 +9,7 @@ public abstract class yb implements IAttribute {
    private boolean d;
 
 
-   protected yb(IAttribute var1, String var2, double var3) {
+   protected AttributeBase(IAttribute var1, String var2, double var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -30,7 +30,7 @@ public abstract class yb implements IAttribute {
       return this.d;
    }
 
-   public yb a(boolean var1) {
+   public AttributeBase a(boolean var1) {
       this.d = var1;
       return this;
    }

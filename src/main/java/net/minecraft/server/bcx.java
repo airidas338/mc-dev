@@ -106,7 +106,7 @@ public class bcx extends bdf implements IInventory {
          }
       }
 
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.a = var1.getString("CustomName");
       }
 

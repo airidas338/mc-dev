@@ -8,7 +8,7 @@ public class WorldGenClay extends WorldGenerator {
 
 
    public WorldGenClay(int var1) {
-      this.a = Blocks.aL;
+      this.a = Blocks.CLAY;
       this.b = var1;
    }
 
@@ -27,7 +27,7 @@ public class WorldGenClay extends WorldGenerator {
                   for(int var10 = var3.o() - var5; var10 <= var3.o() + var5; ++var10) {
                      Location var11 = new Location(var6, var10, var7);
                      Block var12 = var1.getData(var11).c();
-                     if(var12 == Blocks.d || var12 == Blocks.aL) {
+                     if(var12 == Blocks.DIRT || var12 == Blocks.CLAY) {
                         var1.a(var11, this.a.P(), 2);
                      }
                   }

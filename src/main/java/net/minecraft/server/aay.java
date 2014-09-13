@@ -32,7 +32,7 @@ public class aay extends Navigation {
          int var3 = 0;
 
          do {
-            if(var2 != Blocks.i && var2 != Blocks.j) {
+            if(var2 != Blocks.WATER && var2 != Blocks.STATIONARY_WATER) {
                return var1;
             }
 

@@ -54,7 +54,7 @@ public class ty {
       d();
       e();
       b();
-      tl.a();
+      AchievementList.a();
       EntityTypes.a();
    }
 
@@ -154,20 +154,20 @@ public class ty {
    }
 
    private static void a(tq[] var0) {
-      a(var0, Blocks.j, Blocks.i);
-      a(var0, Blocks.l, Blocks.k);
-      a(var0, Blocks.aZ, Blocks.aU);
-      a(var0, Blocks.am, Blocks.al);
-      a(var0, Blocks.aD, Blocks.aC);
-      a(var0, Blocks.bc, Blocks.bb);
-      a(var0, Blocks.ck, Blocks.cj);
-      a(var0, Blocks.aF, Blocks.aE);
-      a(var0, Blocks.bK, Blocks.bJ);
-      a(var0, Blocks.T, Blocks.U);
-      a(var0, Blocks.bL, Blocks.bM);
-      a(var0, Blocks.cO, Blocks.cP);
-      a(var0, Blocks.c, Blocks.d);
-      a(var0, Blocks.ak, Blocks.d);
+      a(var0, Blocks.STATIONARY_WATER, Blocks.WATER);
+      a(var0, Blocks.STATIONARY_LAVA, Blocks.LAVA);
+      a(var0, Blocks.JACK_O_LANTERN, Blocks.PUMPKIN);
+      a(var0, Blocks.BURNING_FURNACE, Blocks.FURNACE);
+      a(var0, Blocks.GLOWING_REDSTONE_ORE, Blocks.REDSTONE_ORE);
+      a(var0, Blocks.DIODE_ON, Blocks.DIODE_OFF);
+      a(var0, Blocks.REDSTONE_COMPARATOR_ON, Blocks.REDSTONE_COMPARATOR_OFF);
+      a(var0, Blocks.REDSTONE_TORCH_ON, Blocks.REDSTONE_TORCH_OFF);
+      a(var0, Blocks.REDSTONE_LAMP_ON, Blocks.REDSTONE_LAMP_OFF);
+      a(var0, Blocks.DOUBLE_STEP1, Blocks.STEP1);
+      a(var0, Blocks.WOOD_DOUBLE_STEP, Blocks.WOOD_STEP);
+      a(var0, Blocks.DOUBLE_STEP2, Blocks.STEP2);
+      a(var0, Blocks.GRASS, Blocks.DIRT);
+      a(var0, Blocks.FARMLAND, Blocks.DIRT);
    }
 
    private static void a(tq[] var0, Block var1, Block var2) {

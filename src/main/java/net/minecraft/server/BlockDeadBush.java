@@ -10,7 +10,7 @@ public class BlockDeadBush extends BlockPlant {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.m || var1 == Blocks.cz || var1 == Blocks.cu || var1 == Blocks.d;
+      return var1 == Blocks.SAND || var1 == Blocks.HARDENED_CLAY || var1 == Blocks.STAINED_HARDENED_CLAY || var1 == Blocks.DIRT;
    }
 
    public boolean f(World var1, Location var2) {
@@ -24,7 +24,7 @@ public class BlockDeadBush extends BlockPlant {
    public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new ItemStack(Blocks.I, 1, 0));
+         a(var1, var3, new ItemStack(Blocks.DEAD_BUSH, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }

@@ -30,11 +30,11 @@ public class anh extends Item {
 
          if(!var2.a(var4, var5, var1)) {
             return false;
-         } else if(!Blocks.ce.c(var3, var4)) {
+         } else if(!Blocks.SKULL.c(var3, var4)) {
             return false;
          } else {
             if(!var3.D) {
-               var3.a(var4, Blocks.ce.P().a(BlockSkull.a, var5), 3);
+               var3.a(var4, Blocks.SKULL.P().a(BlockSkull.a, var5), 3);
                int var12 = 0;
                if(var5 == EnumFacing.UP) {
                   var12 = MathHelper.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
@@ -47,9 +47,9 @@ public class anh extends Item {
                      GameProfile var15 = null;
                      if(var1.n()) {
                         NBTTagCompound var16 = var1.o();
-                        if(var16.b("SkullOwner", 10)) {
+                        if(var16.hasKeyOfType("SkullOwner", 10)) {
                            var15 = ga.a(var16.getCompound("SkullOwner"));
-                        } else if(var16.b("SkullOwner", 8) && var16.getString("SkullOwner").length() > 0) {
+                        } else if(var16.hasKeyOfType("SkullOwner", 8) && var16.getString("SkullOwner").length() > 0) {
                            var15 = new GameProfile((UUID)null, var16.getString("SkullOwner"));
                         }
                      }
@@ -60,7 +60,7 @@ public class anh extends Item {
                   }
 
                   var14.b(var12);
-                  Blocks.ce.a(var3, var4, var14);
+                  Blocks.SKULL.a(var3, var4, var14);
                }
 
                --var1.b;
@@ -86,13 +86,13 @@ public class anh extends Item {
 
    public String a(ItemStack var1) {
       if(var1.i() == 3 && var1.n()) {
-         if(var1.o().b("SkullOwner", 8)) {
+         if(var1.o().hasKeyOfType("SkullOwner", 8)) {
             return fi.a("item.skull.player.name", new Object[]{var1.o().getString("SkullOwner")});
          }
 
-         if(var1.o().b("SkullOwner", 10)) {
+         if(var1.o().hasKeyOfType("SkullOwner", 10)) {
             NBTTagCompound var2 = var1.o().getCompound("SkullOwner");
-            if(var2.b("Name", 8)) {
+            if(var2.hasKeyOfType("Name", 8)) {
                return fi.a("item.skull.player.name", new Object[]{var2.getString("Name")});
             }
          }
@@ -103,7 +103,7 @@ public class anh extends Item {
 
    public boolean a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("SkullOwner", 8) && var1.getString("SkullOwner").length() > 0) {
+      if(var1.hasKeyOfType("SkullOwner", 8) && var1.getString("SkullOwner").length() > 0) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = bdm.b(var2);
          var1.set("SkullOwner", (NBTBase)ga.a(new NBTTagCompound(), var2));

@@ -21,7 +21,7 @@ public abstract class ayl extends BlockStepAbstract {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a((Block)Blocks.cP);
+      return Item.a((Block)Blocks.STEP2);
    }
 
    public String b(int var1) {

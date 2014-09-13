@@ -8,17 +8,17 @@ final class si implements ProfileLookupCallback {
    // $FF: synthetic field
    final MinecraftServer a;
    // $FF: synthetic field
-   final sp b;
+   final OpList b;
 
 
-   si(MinecraftServer var1, sp var2) {
+   si(MinecraftServer var1, OpList var2) {
       this.a = var1;
       this.b = var2;
    }
 
    public void onProfileLookupSucceeded(GameProfile var1) {
       this.a.aD().a(var1);
-      this.b.a((sr)(new sq(var1, this.a.p())));
+      this.b.a((JsonListEntry)(new OpListEntry(var1, this.a.p())));
    }
 
    public void onProfileLookupFailed(GameProfile var1, Exception var2) {

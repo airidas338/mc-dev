@@ -33,11 +33,11 @@ public class PersistentScoreboard extends PersistentBase {
       } else {
          this.b(var1.getList("Objectives", 10));
          this.c(var1.getList("PlayerScores", 10));
-         if(var1.b("DisplaySlots", 10)) {
+         if(var1.hasKeyOfType("DisplaySlots", 10)) {
             this.c(var1.getCompound("DisplaySlots"));
          }
 
-         if(var1.b("Teams", 9)) {
+         if(var1.hasKeyOfType("Teams", 9)) {
             this.a(var1.getList("Teams", 10));
          }
 
@@ -49,29 +49,29 @@ public class PersistentScoreboard extends PersistentBase {
          NBTTagCompound var3 = var1.b(var2);
          ScoreboardTeam var4 = this.c.createTeam(var3.getString("Name"));
          var4.setDisplayName(var3.getString("DisplayName"));
-         if(var3.b("TeamColor", 8)) {
+         if(var3.hasKeyOfType("TeamColor", 8)) {
             var4.a(EnumChatFormat.b(var3.getString("TeamColor")));
          }
 
          var4.setPrefix(var3.getString("Prefix"));
          var4.setSuffix(var3.getString("Suffix"));
-         if(var3.b("AllowFriendlyFire", 99)) {
-            var4.setAllowFriendlyFire(var3.n("AllowFriendlyFire"));
+         if(var3.hasKeyOfType("AllowFriendlyFire", 99)) {
+            var4.setAllowFriendlyFire(var3.getBoolean("AllowFriendlyFire"));
          }
 
-         if(var3.b("SeeFriendlyInvisibles", 99)) {
-            var4.setCanSeeFriendlyInvisibles(var3.n("SeeFriendlyInvisibles"));
+         if(var3.hasKeyOfType("SeeFriendlyInvisibles", 99)) {
+            var4.setCanSeeFriendlyInvisibles(var3.getBoolean("SeeFriendlyInvisibles"));
          }
 
          bsg var5;
-         if(var3.b("NameTagVisibility", 8)) {
+         if(var3.hasKeyOfType("NameTagVisibility", 8)) {
             var5 = bsg.a(var3.getString("NameTagVisibility"));
             if(var5 != null) {
                var4.a(var5);
             }
          }
 
-         if(var3.b("DeathMessageVisibility", 8)) {
+         if(var3.hasKeyOfType("DeathMessageVisibility", 8)) {
             var5 = bsg.a(var3.getString("DeathMessageVisibility"));
             if(var5 != null) {
                var4.b(var5);
@@ -92,7 +92,7 @@ public class PersistentScoreboard extends PersistentBase {
 
    protected void c(NBTTagCompound var1) {
       for(int var2 = 0; var2 < 19; ++var2) {
-         if(var1.b("slot_" + var2, 8)) {
+         if(var1.hasKeyOfType("slot_" + var2, 8)) {
             String var3 = var1.getString("slot_" + var2);
             ScoreboardObjective var4 = this.c.getObjective(var3);
             this.c.setDisplaySlot(var2, var4);
@@ -120,8 +120,8 @@ public class PersistentScoreboard extends PersistentBase {
          ScoreboardObjective var4 = this.c.getObjective(var3.getString("Objective"));
          ScoreboardScore var5 = this.c.getPlayerScoreForObjective(var3.getString("Name"), var4);
          var5.setScore(var3.getInt("Score"));
-         if(var3.c("Locked")) {
-            var5.a(var3.n("Locked"));
+         if(var3.hasKey("Locked")) {
+            var5.a(var3.getBoolean("Locked"));
          }
       }
 

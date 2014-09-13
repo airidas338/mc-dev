@@ -21,7 +21,7 @@ public class ItemPotion extends Item {
    }
 
    public List h(ItemStack var1) {
-      if(var1.n() && var1.o().b("CustomPotionEffects", 9)) {
+      if(var1.n() && var1.o().hasKeyOfType("CustomPotionEffects", 9)) {
          ArrayList var7 = Lists.newArrayList();
          NBTTagList var3 = var1.o().getList("CustomPotionEffects", 10);
 

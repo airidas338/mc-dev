@@ -36,11 +36,11 @@ public class bgr implements IChunkProvider {
 
 
    public bgr(World var1, boolean var2, long var3) {
-      this.w = new bif(Blocks.co.P(), 14, bep.a(Blocks.aV));
-      this.x = new bhu(Blocks.k, true);
-      this.y = new bhu(Blocks.k, false);
-      this.z = new bhi(Blocks.P);
-      this.A = new bhi(Blocks.Q);
+      this.w = new bif(Blocks.QUARTZ_ORE.P(), 14, bep.a(Blocks.NETHERRACK));
+      this.x = new bhu(Blocks.LAVA, true);
+      this.y = new bhu(Blocks.LAVA, false);
+      this.z = new bhi(Blocks.BROWN_MUSHROOM);
+      this.A = new bhi(Blocks.RED_MUSHROOM);
       this.B = new bjl();
       this.C = new bgu();
       this.h = var1;
@@ -91,11 +91,11 @@ public class bgr implements IChunkProvider {
                      for(int var48 = 0; var48 < 4; ++var48) {
                         IBlock var49 = null;
                         if(var11 * 8 + var30 < var5) {
-                           var49 = Blocks.l.P();
+                           var49 = Blocks.STATIONARY_LAVA.P();
                         }
 
                         if(var44 > 0.0D) {
-                           var49 = Blocks.aV.P();
+                           var49 = Blocks.NETHERRACK.P();
                         }
 
                         int var50 = var41 + var9 * 4;
@@ -133,34 +133,34 @@ public class bgr implements IChunkProvider {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            IBlock var13 = Blocks.aV.P();
-            IBlock var14 = Blocks.aV.P();
+            IBlock var13 = Blocks.NETHERRACK.P();
+            IBlock var14 = Blocks.NETHERRACK.P();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlock var16 = var3.a(var8, var15, var7);
                   if(var16.c() != null && var16.c().r() != Material.AIR) {
-                     if(var16.c() == Blocks.aV) {
+                     if(var16.c() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
                               var13 = null;
-                              var14 = Blocks.aV.P();
+                              var14 = Blocks.NETHERRACK.P();
                            } else if(var15 >= var4 - 4 && var15 <= var4 + 1) {
-                              var13 = Blocks.aV.P();
-                              var14 = Blocks.aV.P();
+                              var13 = Blocks.NETHERRACK.P();
+                              var14 = Blocks.NETHERRACK.P();
                               if(var10) {
-                                 var13 = Blocks.n.P();
-                                 var14 = Blocks.aV.P();
+                                 var13 = Blocks.GRAVEL.P();
+                                 var14 = Blocks.NETHERRACK.P();
                               }
 
                               if(var9) {
-                                 var13 = Blocks.aW.P();
-                                 var14 = Blocks.aW.P();
+                                 var13 = Blocks.SOUL_SAND.P();
+                                 var14 = Blocks.SOUL_SAND.P();
                               }
                            }
 
                            if(var15 < var4 && (var13 == null || var13.c().r() == Material.AIR)) {
-                              var13 = Blocks.l.P();
+                              var13 = Blocks.STATIONARY_LAVA.P();
                            }
 
                            var12 = var11;
@@ -178,7 +178,7 @@ public class bgr implements IChunkProvider {
                      var12 = -1;
                   }
                } else {
-                  var3.a(var8, var15, var7, Blocks.h.P());
+                  var3.a(var8, var15, var7, Blocks.BEDROCK.P());
                }
             }
          }
@@ -351,7 +351,7 @@ public class bgr implements IChunkProvider {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.getData(var2.b()).c() == Blocks.by) {
+         if(this.B.a(this.h, var2) && this.h.getData(var2.b()).c() == Blocks.NETHER_BRICK) {
             return this.B.b();
          }
       }

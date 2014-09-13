@@ -68,7 +68,7 @@ public class bkh extends bmv {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      if(var1.b("Processed", 9)) {
+      if(var1.hasKeyOfType("Processed", 9)) {
          NBTTagList var2 = var1.getList("Processed", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {

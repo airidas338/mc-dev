@@ -117,7 +117,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          double var3 = var2.s - this.s;
          double var5 = var2.u - this.u;
          if(var3 * var3 + var5 * var5 >= 2500.0D) {
-            var2.b((tq)tl.v);
+            var2.b((tq)AchievementList.v);
          }
       } else if(var1.getEntity() instanceof EntityCreeper && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
@@ -184,7 +184,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       if(this.p(4) == null) {
          Calendar var3 = this.o.Y();
          if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
+            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.JACK_O_LANTERN:Blocks.PUMPKIN));
             this.bh[4] = 0.0F;
          }
       }
@@ -242,7 +242,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("SkeletonType", 99)) {
+      if(var1.hasKeyOfType("SkeletonType", 99)) {
          byte var2 = var1.getByte("SkeletonType");
          this.a(var2);
       }

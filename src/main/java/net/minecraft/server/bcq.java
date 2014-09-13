@@ -149,7 +149,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       }
 
       this.h = var1.getShort("BrewTime");
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.k = var1.getString("CustomName");
       }
 

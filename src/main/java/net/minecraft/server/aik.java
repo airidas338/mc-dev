@@ -20,7 +20,7 @@ class aik extends ajk {
 
    public void a(EntityHuman var1, ItemStack var2) {
       if(var2.b() == Items.bz && var2.i() > 0) {
-         this.a.b((tq)tl.B);
+         this.a.b((tq)AchievementList.B);
       }
 
       super.a(var1, var2);

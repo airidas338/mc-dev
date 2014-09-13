@@ -21,7 +21,7 @@ public abstract class bbf extends BlockStepAbstract {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a((Block)Blocks.U);
+      return Item.a((Block)Blocks.STEP1);
    }
 
    public String b(int var1) {

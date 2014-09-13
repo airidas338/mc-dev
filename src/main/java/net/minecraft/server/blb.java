@@ -3,12 +3,12 @@ package net.minecraft.server;
 
 public abstract class blb extends bms {
 
-   protected static final IBlock a = Blocks.cI.a(BlockPrismarine.b);
-   protected static final IBlock b = Blocks.cI.a(BlockPrismarine.M);
-   protected static final IBlock c = Blocks.cI.a(BlockPrismarine.N);
+   protected static final IBlock a = Blocks.PRISMARINE.a(BlockPrismarine.b);
+   protected static final IBlock b = Blocks.PRISMARINE.a(BlockPrismarine.M);
+   protected static final IBlock c = Blocks.PRISMARINE.a(BlockPrismarine.N);
    protected static final IBlock d = b;
-   protected static final IBlock e = Blocks.cJ.P();
-   protected static final IBlock f = Blocks.j.P();
+   protected static final IBlock e = Blocks.SEA_LANTERN.P();
+   protected static final IBlock f = Blocks.STATIONARY_WATER.P();
    protected static final int g = a(2, 0, 0);
    protected static final int h = a(2, 2, 0);
    protected static final int i = a(0, 1, 0);

@@ -54,7 +54,7 @@ public class BlockMushroom extends BlockPlant implements atz {
    public boolean f(World var1, Location var2, IBlock var3) {
       if(var2.o() >= 0 && var2.o() < 256) {
          IBlock var4 = var1.getData(var2.b());
-         return var4.c() == Blocks.bw?true:(var4.c() == Blocks.d && var4.b(BlockDirt.a) == avd.c?true:var1.k(var2) < 13 && this.c(var4.c()));
+         return var4.c() == Blocks.MYCEL?true:(var4.c() == Blocks.DIRT && var4.b(BlockDirt.a) == avd.c?true:var1.k(var2) < 13 && this.c(var4.c()));
       } else {
          return false;
       }
@@ -63,9 +63,9 @@ public class BlockMushroom extends BlockPlant implements atz {
    public boolean d(World var1, Location var2, IBlock var3, Random var4) {
       var1.g(var2);
       bhv var5 = null;
-      if(this == Blocks.P) {
+      if(this == Blocks.BROWN_MUSHROOM) {
          var5 = new bhv(0);
-      } else if(this == Blocks.Q) {
+      } else if(this == Blocks.RED_MUSHROOM) {
          var5 = new bhv(1);
       }
 

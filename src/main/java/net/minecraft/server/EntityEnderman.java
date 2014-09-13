@@ -8,7 +8,7 @@ import java.util.UUID;
 public class EntityEnderman extends EntityMonster {
 
    private static final UUID b = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
-   private static final ya c = (new ya(b, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
+   private static final AttributeModifier c = (new AttributeModifier(b, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
    private static final Set bk = Sets.newIdentityHashSet();
    private boolean bl;
 
@@ -54,7 +54,7 @@ public class EntityEnderman extends EntityMonster {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       IBlock var2;
-      if(var1.b("carried", 8)) {
+      if(var1.hasKeyOfType("carried", 8)) {
          var2 = Block.b(var1.getString("carried")).a(var1.getShort("carriedData") & '\uffff');
       } else {
          var2 = Block.c(var1.getShort("carried")).a(var1.getShort("carriedData") & '\uffff');
@@ -65,7 +65,7 @@ public class EntityEnderman extends EntityMonster {
 
    private boolean c(EntityHuman var1) {
       ItemStack var2 = var1.bg.b[3];
-      if(var2 != null && var2.b() == Item.a(Blocks.aU)) {
+      if(var2 != null && var2.b() == Item.a(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).a();
@@ -269,7 +269,7 @@ public class EntityEnderman extends EntityMonster {
    }
 
    // $FF: synthetic method
-   static ya cn() {
+   static AttributeModifier cn() {
       return c;
    }
 
@@ -289,19 +289,19 @@ public class EntityEnderman extends EntityMonster {
    }
 
    static {
-      bk.add(Blocks.c);
-      bk.add(Blocks.d);
-      bk.add(Blocks.m);
-      bk.add(Blocks.n);
-      bk.add(Blocks.N);
-      bk.add(Blocks.O);
-      bk.add(Blocks.P);
-      bk.add(Blocks.Q);
-      bk.add(Blocks.W);
-      bk.add(Blocks.aK);
-      bk.add(Blocks.aL);
-      bk.add(Blocks.aU);
-      bk.add(Blocks.bk);
-      bk.add(Blocks.bw);
+      bk.add(Blocks.GRASS);
+      bk.add(Blocks.DIRT);
+      bk.add(Blocks.SAND);
+      bk.add(Blocks.GRAVEL);
+      bk.add(Blocks.YELLOW_FLOWER);
+      bk.add(Blocks.RED_ROSE);
+      bk.add(Blocks.BROWN_MUSHROOM);
+      bk.add(Blocks.RED_MUSHROOM);
+      bk.add(Blocks.TNT);
+      bk.add(Blocks.CACTUS);
+      bk.add(Blocks.CLAY);
+      bk.add(Blocks.PUMPKIN);
+      bk.add(Blocks.MELON);
+      bk.add(Blocks.MYCEL);
    }
 }

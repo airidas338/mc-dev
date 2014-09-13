@@ -182,10 +182,10 @@ public class ServerStatisticsManager extends tz {
 
    public void b(EntityPlayer var1) {
       HashMap var2 = Maps.newHashMap();
-      Iterator var3 = tl.e.iterator();
+      Iterator var3 = AchievementList.e.iterator();
 
       while(var3.hasNext()) {
-         tk var4 = (tk)var3.next();
+         Achievement var4 = (Achievement)var3.next();
          if(this.a(var4)) {
             var2.put(var4, Integer.valueOf(this.a((tq)var4)));
             this.e.remove(var4);

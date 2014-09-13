@@ -24,19 +24,19 @@ public class aha {
    }
 
    public void b(NBTTagCompound var1) {
-      if(var1.b("abilities", 10)) {
+      if(var1.hasKeyOfType("abilities", 10)) {
          NBTTagCompound var2 = var1.getCompound("abilities");
-         this.a = var2.n("invulnerable");
-         this.b = var2.n("flying");
-         this.c = var2.n("mayfly");
-         this.d = var2.n("instabuild");
-         if(var2.b("flySpeed", 99)) {
+         this.a = var2.getBoolean("invulnerable");
+         this.b = var2.getBoolean("flying");
+         this.c = var2.getBoolean("mayfly");
+         this.d = var2.getBoolean("instabuild");
+         if(var2.hasKeyOfType("flySpeed", 99)) {
             this.f = var2.getFloat("flySpeed");
             this.g = var2.getFloat("walkSpeed");
          }
 
-         if(var2.b("mayBuild", 1)) {
-            this.e = var2.n("mayBuild");
+         if(var2.hasKeyOfType("mayBuild", 1)) {
+            this.e = var2.getBoolean("mayBuild");
          }
       }
 

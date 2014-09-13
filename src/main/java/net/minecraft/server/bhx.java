@@ -8,7 +8,7 @@ public class bhx extends WorldGenerator {
          var3 = var3.b();
       }
 
-      if(var1.getData(var3).c() != Blocks.aJ) {
+      if(var1.getData(var3).c() != Blocks.SNOW_BLOCK) {
          return false;
       } else {
          var3 = var3.b(var2.nextInt(4));
@@ -31,14 +31,14 @@ public class bhx extends WorldGenerator {
                   float var12 = (float)MathHelper.a(var11) - 0.25F;
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
                      Block var13 = var1.getData(var3.a(var9, var6, var11)).c();
-                     if(var13.r() == Material.AIR || var13 == Blocks.d || var13 == Blocks.aJ || var13 == Blocks.aI) {
-                        this.a(var1, var3.a(var9, var6, var11), Blocks.cB);
+                     if(var13.r() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW_BLOCK || var13 == Blocks.ICE) {
+                        this.a(var1, var3.a(var9, var6, var11), Blocks.PACKET_ICE);
                      }
 
                      if(var6 != 0 && var8 > 1) {
                         var13 = var1.getData(var3.a(var9, -var6, var11)).c();
-                        if(var13.r() == Material.AIR || var13 == Blocks.d || var13 == Blocks.aJ || var13 == Blocks.aI) {
-                           this.a(var1, var3.a(var9, -var6, var11), Blocks.cB);
+                        if(var13.r() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW_BLOCK || var13 == Blocks.ICE) {
+                           this.a(var1, var3.a(var9, -var6, var11), Blocks.PACKET_ICE);
                         }
                      }
                   }
@@ -66,8 +66,8 @@ public class bhx extends WorldGenerator {
                while(true) {
                   if(var15.o() > 50) {
                      Block var17 = var1.getData(var15).c();
-                     if(var17.r() == Material.AIR || var17 == Blocks.d || var17 == Blocks.aJ || var17 == Blocks.aI || var17 == Blocks.cB) {
-                        this.a(var1, var15, Blocks.cB);
+                     if(var17.r() == Material.AIR || var17 == Blocks.DIRT || var17 == Blocks.SNOW_BLOCK || var17 == Blocks.ICE || var17 == Blocks.PACKET_ICE) {
+                        this.a(var1, var15, Blocks.PACKET_ICE);
                         var15 = var15.b();
                         --var16;
                         if(var16 <= 0) {

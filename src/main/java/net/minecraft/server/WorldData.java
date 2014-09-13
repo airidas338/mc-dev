@@ -71,28 +71,28 @@ public class WorldData {
       this.J = 15;
       this.K = new aqq();
       this.b = var1.getLong("RandomSeed");
-      if(var1.b("generatorName", 8)) {
+      if(var1.hasKeyOfType("generatorName", 8)) {
          String var2 = var1.getString("generatorName");
          this.c = WorldType.a(var2);
          if(this.c == null) {
             this.c = WorldType.NORMAL;
          } else if(this.c.f()) {
             int var3 = 0;
-            if(var1.b("generatorVersion", 99)) {
+            if(var1.hasKeyOfType("generatorVersion", 99)) {
                var3 = var1.getInt("generatorVersion");
             }
 
             this.c = this.c.a(var3);
          }
 
-         if(var1.b("generatorOptions", 8)) {
+         if(var1.hasKeyOfType("generatorOptions", 8)) {
             this.d = var1.getString("generatorOptions");
          }
       }
 
       this.u = EnumGamemode.a(var1.getInt("GameType"));
-      if(var1.b("MapFeatures", 99)) {
-         this.v = var1.n("MapFeatures");
+      if(var1.hasKeyOfType("MapFeatures", 99)) {
+         this.v = var1.getBoolean("MapFeatures");
       } else {
          this.v = true;
       }
@@ -101,7 +101,7 @@ public class WorldData {
       this.f = var1.getInt("SpawnY");
       this.g = var1.getInt("SpawnZ");
       this.h = var1.getLong("Time");
-      if(var1.b("DayTime", 99)) {
+      if(var1.hasKeyOfType("DayTime", 99)) {
          this.i = var1.getLong("DayTime");
       } else {
          this.i = this.h;
@@ -113,72 +113,72 @@ public class WorldData {
       this.o = var1.getInt("version");
       this.p = var1.getInt("clearWeatherTime");
       this.r = var1.getInt("rainTime");
-      this.q = var1.n("raining");
+      this.q = var1.getBoolean("raining");
       this.t = var1.getInt("thunderTime");
-      this.s = var1.n("thundering");
-      this.w = var1.n("hardcore");
-      if(var1.b("initialized", 99)) {
-         this.y = var1.n("initialized");
+      this.s = var1.getBoolean("thundering");
+      this.w = var1.getBoolean("hardcore");
+      if(var1.hasKeyOfType("initialized", 99)) {
+         this.y = var1.getBoolean("initialized");
       } else {
          this.y = true;
       }
 
-      if(var1.b("allowCommands", 99)) {
-         this.x = var1.n("allowCommands");
+      if(var1.hasKeyOfType("allowCommands", 99)) {
+         this.x = var1.getBoolean("allowCommands");
       } else {
          this.x = this.u == EnumGamemode.CREATIVE;
       }
 
-      if(var1.b("Player", 10)) {
+      if(var1.hasKeyOfType("Player", 10)) {
          this.l = var1.getCompound("Player");
          this.m = this.l.getInt("Dimension");
       }
 
-      if(var1.b("GameRules", 10)) {
+      if(var1.hasKeyOfType("GameRules", 10)) {
          this.K.a(var1.getCompound("GameRules"));
       }
 
-      if(var1.b("Difficulty", 99)) {
+      if(var1.hasKeyOfType("Difficulty", 99)) {
          this.z = EnumDifficulty.a(var1.getByte("Difficulty"));
       }
 
-      if(var1.b("DifficultyLocked", 1)) {
-         this.A = var1.n("DifficultyLocked");
+      if(var1.hasKeyOfType("DifficultyLocked", 1)) {
+         this.A = var1.getBoolean("DifficultyLocked");
       }
 
-      if(var1.b("BorderCenterX", 99)) {
+      if(var1.hasKeyOfType("BorderCenterX", 99)) {
          this.B = var1.getDouble("BorderCenterX");
       }
 
-      if(var1.b("BorderCenterZ", 99)) {
+      if(var1.hasKeyOfType("BorderCenterZ", 99)) {
          this.C = var1.getDouble("BorderCenterZ");
       }
 
-      if(var1.b("BorderSize", 99)) {
+      if(var1.hasKeyOfType("BorderSize", 99)) {
          this.D = var1.getDouble("BorderSize");
       }
 
-      if(var1.b("BorderSizeLerpTime", 99)) {
+      if(var1.hasKeyOfType("BorderSizeLerpTime", 99)) {
          this.E = var1.getLong("BorderSizeLerpTime");
       }
 
-      if(var1.b("BorderSizeLerpTarget", 99)) {
+      if(var1.hasKeyOfType("BorderSizeLerpTarget", 99)) {
          this.F = var1.getDouble("BorderSizeLerpTarget");
       }
 
-      if(var1.b("BorderSafeZone", 99)) {
+      if(var1.hasKeyOfType("BorderSafeZone", 99)) {
          this.G = var1.getDouble("BorderSafeZone");
       }
 
-      if(var1.b("BorderDamagePerBlock", 99)) {
+      if(var1.hasKeyOfType("BorderDamagePerBlock", 99)) {
          this.H = var1.getDouble("BorderDamagePerBlock");
       }
 
-      if(var1.b("BorderWarningBlocks", 99)) {
+      if(var1.hasKeyOfType("BorderWarningBlocks", 99)) {
          this.I = var1.getInt("BorderWarningBlocks");
       }
 
-      if(var1.b("BorderWarningTime", 99)) {
+      if(var1.hasKeyOfType("BorderWarningTime", 99)) {
          this.J = var1.getInt("BorderWarningTime");
       }
 

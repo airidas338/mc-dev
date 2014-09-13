@@ -22,7 +22,7 @@ public class bdb extends TileEntity {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("Item", 8)) {
+      if(var1.hasKeyOfType("Item", 8)) {
          this.a = Item.d(var1.getString("Item"));
       } else {
          this.a = Item.b(var1.getInt("Item"));

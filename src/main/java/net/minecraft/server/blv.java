@@ -25,7 +25,7 @@ public class blv extends bmk {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.b = var1.n("Chest");
+      this.b = var1.getBoolean("Chest");
    }
 
    public void a(bms var1, List var2, Random var3) {
@@ -44,14 +44,14 @@ public class blv extends bmk {
          this.a(var1, var3, 0, 0, 0, 4, 4, 6, true, var2, blr.c());
          this.a(var1, var2, var3, this.d, 1, 1, 0);
          this.a(var1, var2, var3, bml.a, 1, 1, 6);
-         this.a(var1, var3, 3, 1, 2, 3, 1, 4, Blocks.bf.P(), Blocks.bf.P(), false);
-         this.a(var1, Blocks.U.a(bbg.f.a()), 3, 1, 1, var3);
-         this.a(var1, Blocks.U.a(bbg.f.a()), 3, 1, 5, var3);
-         this.a(var1, Blocks.U.a(bbg.f.a()), 3, 2, 2, var3);
-         this.a(var1, Blocks.U.a(bbg.f.a()), 3, 2, 4, var3);
+         this.a(var1, var3, 3, 1, 2, 3, 1, 4, Blocks.SMOOTH_BRICK.P(), Blocks.SMOOTH_BRICK.P(), false);
+         this.a(var1, Blocks.STEP1.a(bbg.f.a()), 3, 1, 1, var3);
+         this.a(var1, Blocks.STEP1.a(bbg.f.a()), 3, 1, 5, var3);
+         this.a(var1, Blocks.STEP1.a(bbg.f.a()), 3, 2, 2, var3);
+         this.a(var1, Blocks.STEP1.a(bbg.f.a()), 3, 2, 4, var3);
 
          for(int var4 = 2; var4 <= 4; ++var4) {
-            this.a(var1, Blocks.U.a(bbg.f.a()), 2, 1, var4, var3);
+            this.a(var1, Blocks.STEP1.a(bbg.f.a()), 2, 1, var4, var3);
          }
 
          if(!this.b && var3.b((fd)(new Location(this.a(3, 3), this.d(2), this.b(3, 3))))) {

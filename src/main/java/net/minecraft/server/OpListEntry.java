@@ -3,17 +3,17 @@ import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
 
-public class sq extends sr {
+public class OpListEntry extends JsonListEntry {
 
    private final int a;
 
 
-   public sq(GameProfile var1, int var2) {
+   public OpListEntry(GameProfile var1, int var2) {
       super(var1);
       this.a = var2;
    }
 
-   public sq(JsonObject var1) {
+   public OpListEntry(JsonObject var1) {
       super(b(var1), var1);
       this.a = var1.has("level")?var1.get("level").getAsInt():0;
    }

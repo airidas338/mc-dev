@@ -83,7 +83,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
       super.a(var1);
       NBTTagList var2 = var1.getList("Items", 10);
       this.m = new ItemStack[this.n_()];
-      if(var1.b("CustomName", 8)) {
+      if(var1.hasKeyOfType("CustomName", 8)) {
          this.p = var1.getString("CustomName");
       }
 

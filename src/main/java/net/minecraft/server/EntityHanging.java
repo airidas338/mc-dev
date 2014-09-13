@@ -169,10 +169,10 @@ public abstract class EntityHanging extends Entity {
    public void a(NBTTagCompound var1) {
       this.a = new Location(var1.getInt("TileX"), var1.getInt("TileY"), var1.getInt("TileZ"));
       EnumFacing var2;
-      if(var1.b("Direction", 99)) {
+      if(var1.hasKeyOfType("Direction", 99)) {
          var2 = EnumFacing.b(var1.getByte("Direction"));
          this.a = this.a.a(var2);
-      } else if(var1.b("Facing", 99)) {
+      } else if(var1.hasKeyOfType("Facing", 99)) {
          var2 = EnumFacing.b(var1.getByte("Facing"));
       } else {
          var2 = EnumFacing.b(var1.getByte("Dir"));

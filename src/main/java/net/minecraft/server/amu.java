@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class amu extends aks {
 
-   private static final Set c = Sets.newHashSet(new Block[]{Blocks.cs, Blocks.q, Blocks.e, Blocks.E, Blocks.ah, Blocks.ag, Blocks.T, Blocks.D, Blocks.R, Blocks.o, Blocks.aI, Blocks.S, Blocks.p, Blocks.y, Blocks.x, Blocks.aD, Blocks.Y, Blocks.aV, Blocks.cB, Blocks.av, Blocks.aC, Blocks.A, Blocks.cM, Blocks.b, Blocks.U});
+   private static final Set c = Sets.newHashSet(new Block[]{Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.DOUBLE_STEP1, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.GLOWING_REDSTONE_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKET_ICE, Blocks.RAILS, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.RED_SANDSTONE, Blocks.STONE, Blocks.STEP1});
 
 
    protected amu(ami var1) {
@@ -12,7 +12,7 @@ public class amu extends aks {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.Z?this.b.d() == 3:(var1 != Blocks.ah && var1 != Blocks.ag?(var1 != Blocks.bP && var1 != Blocks.bT?(var1 != Blocks.R && var1 != Blocks.o?(var1 != Blocks.S && var1 != Blocks.p?(var1 != Blocks.y && var1 != Blocks.x?(var1 != Blocks.aC && var1 != Blocks.aD?(var1.r() == Material.STONE?true:(var1.r() == Material.ORE?true:var1.r() == Material.HEAVY)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
+      return var1 == Blocks.OBSIDIAN?this.b.d() == 3:(var1 != Blocks.DIAMOND_BLOCK && var1 != Blocks.DIAMOND_ORE?(var1 != Blocks.EMERALD_ORE && var1 != Blocks.EMERALD_BLOCK?(var1 != Blocks.GOLD_BLOCK && var1 != Blocks.GOLD_ORE?(var1 != Blocks.IRON_BLOCK && var1 != Blocks.IRON_ORE?(var1 != Blocks.LAPIS_BLOCK && var1 != Blocks.LAPIS_ORE?(var1 != Blocks.REDSTONE_ORE && var1 != Blocks.GLOWING_REDSTONE_ORE?(var1.r() == Material.STONE?true:(var1.r() == Material.ORE?true:var1.r() == Material.HEAVY)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
    }
 
    public float a(ItemStack var1, Block var2) {
