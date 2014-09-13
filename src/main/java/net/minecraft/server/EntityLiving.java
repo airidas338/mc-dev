@@ -1453,7 +1453,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public ScoreboardTeamBase bN() {
-      return this.o.Z().h(this.aJ().toString());
+      return this.o.Z().getPlayerTeam(this.aJ().toString());
    }
 
    public boolean c(EntityLiving var1) {

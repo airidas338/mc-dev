@@ -10,7 +10,7 @@ public class to extends tq {
       this.a = var4;
       int var5 = Item.b(var4);
       if(var5 != 0) {
-         bsk.a.put(var1 + var5, this.k());
+         IScoreboardCriteria.criteria.put(var1 + var5, this.k());
       }
 
    }

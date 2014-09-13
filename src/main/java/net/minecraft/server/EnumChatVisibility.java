@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 public enum EnumChatVisibility {
 
-   a("FULL", 0, 0, "options.chat.visibility.full"),
-   b("SYSTEM", 1, 1, "options.chat.visibility.system"),
-   c("HIDDEN", 2, 2, "options.chat.visibility.hidden");
+   FULL("FULL", 0, 0, "options.chat.visibility.full"),
+   SYSTEM("SYSTEM", 1, 1, "options.chat.visibility.system"),
+   HIDDEN("HIDDEN", 2, 2, "options.chat.visibility.hidden");
    private static final EnumChatVisibility[] d = new EnumChatVisibility[values().length];
    private final int e;
    private final String f;
    // $FF: synthetic field
-   private static final EnumChatVisibility[] g = new EnumChatVisibility[]{a, b, c};
+   private static final EnumChatVisibility[] g = new EnumChatVisibility[]{FULL, SYSTEM, HIDDEN};
 
 
    private EnumChatVisibility(String var1, int var2, int var3, String var4) {

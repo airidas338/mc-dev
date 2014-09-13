@@ -2,18 +2,18 @@ package net.minecraft.server;
 import java.util.Comparator;
 import java.util.List;
 
-public class bsa {
+public class ScoreboardScore {
 
    public static final Comparator a = new bsb();
    private final Scoreboard b;
-   private final bry c;
+   private final ScoreboardObjective c;
    private final String d;
    private int e;
    private boolean f;
    private boolean g;
 
 
-   public bsa(Scoreboard var1, bry var2, String var3) {
+   public ScoreboardScore(Scoreboard var1, ScoreboardObjective var2, String var3) {
       this.b = var1;
       this.c = var2;
       this.d = var3;
@@ -21,44 +21,44 @@ public class bsa {
    }
 
    public void a(int var1) {
-      if(this.c.c().b()) {
+      if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
-         this.c(this.c() + var1);
+         this.setScore(this.getScore() + var1);
       }
    }
 
    public void b(int var1) {
-      if(this.c.c().b()) {
+      if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
-         this.c(this.c() - var1);
+         this.setScore(this.getScore() - var1);
       }
    }
 
    public void a() {
-      if(this.c.c().b()) {
+      if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
          this.a(1);
       }
    }
 
-   public int c() {
+   public int getScore() {
       return this.e;
    }
 
-   public void c(int var1) {
+   public void setScore(int var1) {
       int var2 = this.e;
       this.e = var1;
       if(var2 != var1 || this.g) {
          this.g = false;
-         this.f().a(this);
+         this.f().handleScoreChanged(this);
       }
 
    }
 
-   public bry d() {
+   public ScoreboardObjective d() {
       return this.c;
    }
 
@@ -78,8 +78,8 @@ public class bsa {
       this.f = var1;
    }
 
-   public void a(List var1) {
-      this.c(this.c.c().a(var1));
+   public void updateForList(List var1) {
+      this.setScore(this.c.getCriteria().a(var1));
    }
 
 }

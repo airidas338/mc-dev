@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
-public class iz implements Packet {
+public class PacketPlayOutChat implements Packet {
 
    private IChatBaseComponent a;
    private byte b;
 
 
-   public iz() {}
+   public PacketPlayOutChat() {}
 
-   public iz(IChatBaseComponent var1) {
+   public PacketPlayOutChat(IChatBaseComponent var1) {
       this(var1, (byte)1);
    }
 
-   public iz(IChatBaseComponent var1, byte var2) {
+   public PacketPlayOutChat(IChatBaseComponent var1, byte var2) {
       this.a = var1;
       this.b = var2;
    }
@@ -28,7 +28,7 @@ public class iz implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 
    public boolean b() {

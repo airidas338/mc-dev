@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-public class iq implements Packet {
+public class PacketPlayOutNamedEntitySpawn implements Packet {
 
    private int a;
    private UUID b;
@@ -17,9 +17,9 @@ public class iq implements Packet {
    private List j;
 
 
-   public iq() {}
+   public PacketPlayOutNamedEntitySpawn() {}
 
-   public iq(EntityHuman var1) {
+   public PacketPlayOutNamedEntitySpawn(EntityHuman var1) {
       this.a = var1.F();
       this.b = var1.cc().getId();
       this.c = MathHelper.c(var1.s * 32.0D);
@@ -57,6 +57,6 @@ public class iq implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

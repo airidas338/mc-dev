@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
-public class ld implements Packet {
+public class PacketPlayOutScoreboardObjective implements Packet {
 
    private String a;
    private String b;
-   private bsl c;
+   private EnumObjectiveValue c;
    private int d;
 
 
-   public ld() {}
+   public PacketPlayOutScoreboardObjective() {}
 
-   public ld(bry var1, int var2) {
-      this.a = var1.b();
-      this.b = var1.d();
-      this.c = var1.c().c();
+   public PacketPlayOutScoreboardObjective(ScoreboardObjective var1, int var2) {
+      this.a = var1.getName();
+      this.b = var1.getDisplayName();
+      this.c = var1.getCriteria().c();
       this.d = var2;
    }
 
@@ -22,7 +22,7 @@ public class ld implements Packet {
       this.d = var1.readByte();
       if(this.d == 0 || this.d == 2) {
          this.b = var1.c(32);
-         this.c = bsl.a(var1.c(16));
+         this.c = EnumObjectiveValue.a(var1.c(16));
       }
 
    }
@@ -38,6 +38,6 @@ public class ld implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

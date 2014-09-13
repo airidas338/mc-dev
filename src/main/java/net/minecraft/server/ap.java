@@ -20,7 +20,7 @@ final class ap implements Predicate {
       } else {
          EntityLiving var2 = (EntityLiving)var1;
          ScoreboardTeamBase var3 = var2.bN();
-         String var4 = var3 == null?"":var3.b();
+         String var4 = var3 == null?"":var3.getName();
          return var4.equals(this.a) != this.b;
       }
    }

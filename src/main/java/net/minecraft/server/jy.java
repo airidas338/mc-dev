@@ -27,7 +27,7 @@ public class jy implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 
    public String toString() {

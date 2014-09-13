@@ -192,7 +192,7 @@ public class ck extends CommandAbstract {
       if(var3 < 0) {
          return false;
       } else {
-         ArrayList var12 = Lists.newArrayList(this.d().d());
+         ArrayList var12 = Lists.newArrayList(this.d().getPlayers());
          String var5 = var2[var3];
          ArrayList var6 = Lists.newArrayList();
          Iterator var7 = var12.iterator();
@@ -225,12 +225,12 @@ public class ck extends CommandAbstract {
       return MinecraftServer.M().a(0).Z();
    }
 
-   protected bry a(String var1, boolean var2) throws di {
+   protected ScoreboardObjective a(String var1, boolean var2) throws di {
       Scoreboard var3 = this.d();
-      bry var4 = var3.b(var1);
+      ScoreboardObjective var4 = var3.getObjective(var1);
       if(var4 == null) {
          throw new di("commands.scoreboard.objectiveNotFound", new Object[]{var1});
-      } else if(var2 && var4.c().b()) {
+      } else if(var2 && var4.getCriteria().isReadOnly()) {
          throw new di("commands.scoreboard.objectiveReadOnly", new Object[]{var1});
       } else {
          return var4;
@@ -239,7 +239,7 @@ public class ck extends CommandAbstract {
 
    protected ScoreboardTeam e(String var1) throws di {
       Scoreboard var2 = this.d();
-      ScoreboardTeam var3 = var2.d(var1);
+      ScoreboardTeam var3 = var2.getTeam(var1);
       if(var3 == null) {
          throw new di("commands.scoreboard.teamNotFound", new Object[]{var1});
       } else {
@@ -251,10 +251,10 @@ public class ck extends CommandAbstract {
       String var4 = var2[var3++];
       String var5 = var2[var3++];
       Scoreboard var6 = this.d();
-      bsk var7 = (bsk)bsk.a.get(var5);
+      IScoreboardCriteria var7 = (IScoreboardCriteria)IScoreboardCriteria.criteria.get(var5);
       if(var7 == null) {
          throw new dp("commands.scoreboard.objectives.add.wrongType", new Object[]{var5});
-      } else if(var6.b(var4) != null) {
+      } else if(var6.getObjective(var4) != null) {
          throw new di("commands.scoreboard.objectives.add.alreadyExists", new Object[]{var4});
       } else if(var4.length() > 16) {
          throw new dl("commands.scoreboard.objectives.add.tooLong", new Object[]{var4, Integer.valueOf(16)});
@@ -268,12 +268,12 @@ public class ck extends CommandAbstract {
             }
 
             if(var8.length() > 0) {
-               var6.a(var4, var7).a(var8);
+               var6.registerObjective(var4, var7).setDisplayName(var8);
             } else {
-               var6.a(var4, var7);
+               var6.registerObjective(var4, var7);
             }
          } else {
-            var6.a(var4, var7);
+            var6.registerObjective(var4, var7);
          }
 
          a(var1, this, "commands.scoreboard.objectives.add.success", new Object[]{var4});
@@ -283,7 +283,7 @@ public class ck extends CommandAbstract {
    protected void c(ICommandSender var1, String[] var2, int var3) throws di {
       String var4 = var2[var3++];
       Scoreboard var5 = this.d();
-      if(var5.d(var4) != null) {
+      if(var5.getTeam(var4) != null) {
          throw new di("commands.scoreboard.teams.add.alreadyExists", new Object[]{var4});
       } else if(var4.length() > 16) {
          throw new dl("commands.scoreboard.teams.add.tooLong", new Object[]{var4, Integer.valueOf(16)});
@@ -297,12 +297,12 @@ public class ck extends CommandAbstract {
             }
 
             if(var6.length() > 0) {
-               var5.e(var4).a(var6);
+               var5.createTeam(var4).setDisplayName(var6);
             } else {
-               var5.e(var4);
+               var5.createTeam(var4);
             }
          } else {
-            var5.e(var4);
+            var5.createTeam(var4);
          }
 
          a(var1, this, "commands.scoreboard.teams.add.success", new Object[]{var4});
@@ -336,20 +336,20 @@ public class ck extends CommandAbstract {
                }
 
                var4.a(var7);
-               var4.b(var7.toString());
-               var4.c(EnumChatFormat.v.toString());
+               var4.setPrefix(var7.toString());
+               var4.setSuffix(EnumChatFormat.v.toString());
             } else if(var5.equalsIgnoreCase("friendlyfire")) {
                if(!var6.equalsIgnoreCase("true") && !var6.equalsIgnoreCase("false")) {
                   throw new dp("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(Arrays.asList(new String[]{"true", "false"}))});
                }
 
-               var4.a(var6.equalsIgnoreCase("true"));
+               var4.setAllowFriendlyFire(var6.equalsIgnoreCase("true"));
             } else if(var5.equalsIgnoreCase("seeFriendlyInvisibles")) {
                if(!var6.equalsIgnoreCase("true") && !var6.equalsIgnoreCase("false")) {
                   throw new dp("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(Arrays.asList(new String[]{"true", "false"}))});
                }
 
-               var4.b(var6.equalsIgnoreCase("true"));
+               var4.setCanSeeFriendlyInvisibles(var6.equalsIgnoreCase("true"));
             } else {
                bsg var8;
                if(var5.equalsIgnoreCase("nametagVisibility")) {
@@ -369,7 +369,7 @@ public class ck extends CommandAbstract {
                }
             }
 
-            a(var1, this, "commands.scoreboard.teams.option.success", new Object[]{var5, var4.b(), var6});
+            a(var1, this, "commands.scoreboard.teams.option.success", new Object[]{var5, var4.getName(), var6});
          }
       }
    }
@@ -378,8 +378,8 @@ public class ck extends CommandAbstract {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
-         var4.d(var5);
-         a(var1, this, "commands.scoreboard.teams.remove.success", new Object[]{var5.b()});
+         var4.removeTeam(var5);
+         a(var1, this, "commands.scoreboard.teams.remove.success", new Object[]{var5.getName()});
       }
    }
 
@@ -391,18 +391,18 @@ public class ck extends CommandAbstract {
             return;
          }
 
-         Collection var6 = var5.d();
+         Collection var6 = var5.getPlayerNameSet();
          var1.a(ag.e, var6.size());
          if(var6.size() <= 0) {
-            throw new di("commands.scoreboard.teams.list.player.empty", new Object[]{var5.b()});
+            throw new di("commands.scoreboard.teams.list.player.empty", new Object[]{var5.getName()});
          }
 
-         ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
+         ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.getName()});
          var7.b().a(EnumChatFormat.c);
          var1.a(var7);
          var1.a(new ChatComponentText(a(var6.toArray())));
       } else {
-         Collection var9 = var4.g();
+         Collection var9 = var4.getTeams();
          var1.a(ag.e, var9.size());
          if(var9.size() <= 0) {
             throw new di("commands.scoreboard.teams.list.empty", new Object[0]);
@@ -415,7 +415,7 @@ public class ck extends CommandAbstract {
 
          while(var11.hasNext()) {
             ScoreboardTeam var8 = (ScoreboardTeam)var11.next();
-            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
+            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.getName(), var8.getDisplayName(), Integer.valueOf(var8.getPlayerNameSet().size())}));
          }
       }
 
@@ -429,7 +429,7 @@ public class ck extends CommandAbstract {
       String var8;
       if(var1 instanceof EntityHuman && var3 == var2.length) {
          var8 = b(var1).d_();
-         if(var4.a(var8, var5)) {
+         if(var4.addPlayerToTeam(var8, var5)) {
             var6.add(var8);
          } else {
             var7.add(var8);
@@ -444,7 +444,7 @@ public class ck extends CommandAbstract {
                while(var10.hasNext()) {
                   Entity var11 = (Entity)var10.next();
                   String var12 = e(var1, var11.aJ().toString());
-                  if(var4.a(var12, var5)) {
+                  if(var4.addPlayerToTeam(var12, var5)) {
                      var6.add(var12);
                   } else {
                      var7.add(var12);
@@ -452,7 +452,7 @@ public class ck extends CommandAbstract {
                }
             } else {
                String var9 = e(var1, var8);
-               if(var4.a(var9, var5)) {
+               if(var4.addPlayerToTeam(var9, var5)) {
                   var6.add(var9);
                } else {
                   var7.add(var9);
@@ -478,7 +478,7 @@ public class ck extends CommandAbstract {
       String var7;
       if(var1 instanceof EntityHuman && var3 == var2.length) {
          var7 = b(var1).d_();
-         if(var4.f(var7)) {
+         if(var4.removePlayerFromTeam(var7)) {
             var5.add(var7);
          } else {
             var6.add(var7);
@@ -493,7 +493,7 @@ public class ck extends CommandAbstract {
                while(var9.hasNext()) {
                   Entity var10 = (Entity)var9.next();
                   String var11 = e(var1, var10.aJ().toString());
-                  if(var4.f(var11)) {
+                  if(var4.removePlayerFromTeam(var11)) {
                      var5.add(var11);
                   } else {
                      var6.add(var11);
@@ -501,7 +501,7 @@ public class ck extends CommandAbstract {
                }
             } else {
                String var8 = e(var1, var7);
-               if(var4.f(var8)) {
+               if(var4.removePlayerFromTeam(var8)) {
                   var5.add(var8);
                } else {
                   var6.add(var8);
@@ -524,33 +524,33 @@ public class ck extends CommandAbstract {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
-         ArrayList var6 = Lists.newArrayList(var5.d());
+         ArrayList var6 = Lists.newArrayList(var5.getPlayerNameSet());
          var1.a(ag.c, var6.size());
          if(var6.isEmpty()) {
-            throw new di("commands.scoreboard.teams.empty.alreadyEmpty", new Object[]{var5.b()});
+            throw new di("commands.scoreboard.teams.empty.alreadyEmpty", new Object[]{var5.getName()});
          } else {
             Iterator var7 = var6.iterator();
 
             while(var7.hasNext()) {
                String var8 = (String)var7.next();
-               var4.a(var8, var5);
+               var4.removePlayerFromTeam(var8, var5);
             }
 
-            a(var1, this, "commands.scoreboard.teams.empty.success", new Object[]{Integer.valueOf(var6.size()), var5.b()});
+            a(var1, this, "commands.scoreboard.teams.empty.success", new Object[]{Integer.valueOf(var6.size()), var5.getName()});
          }
       }
    }
 
    protected void h(ICommandSender var1, String var2) throws di {
       Scoreboard var3 = this.d();
-      bry var4 = this.a(var2, false);
-      var3.k(var4);
+      ScoreboardObjective var4 = this.a(var2, false);
+      var3.unregisterObjective(var4);
       a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[]{var2});
    }
 
    protected void d(ICommandSender var1) throws di {
       Scoreboard var2 = this.d();
-      Collection var3 = var2.c();
+      Collection var3 = var2.getObjectives();
       if(var3.size() <= 0) {
          throw new di("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
@@ -560,8 +560,8 @@ public class ck extends CommandAbstract {
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
-            bry var6 = (bry)var5.next();
-            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
+            ScoreboardObjective var6 = (ScoreboardObjective)var5.next();
+            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.getName(), var6.getDisplayName(), var6.getCriteria().getName()}));
          }
 
       }
@@ -570,8 +570,8 @@ public class ck extends CommandAbstract {
    protected void j(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
-      int var6 = Scoreboard.i(var5);
-      bry var7 = null;
+      int var6 = Scoreboard.getSlotForName(var5);
+      ScoreboardObjective var7 = null;
       if(var2.length == 4) {
          var7 = this.a(var2[var3], false);
       }
@@ -579,11 +579,11 @@ public class ck extends CommandAbstract {
       if(var6 < 0) {
          throw new di("commands.scoreboard.objectives.setdisplay.invalidSlot", new Object[]{var5});
       } else {
-         var4.a(var6, var7);
+         var4.setDisplaySlot(var6, var7);
          if(var7 != null) {
-            a(var1, this, "commands.scoreboard.objectives.setdisplay.successSet", new Object[]{Scoreboard.b(var6), var7.b()});
+            a(var1, this, "commands.scoreboard.objectives.setdisplay.successSet", new Object[]{Scoreboard.getSlotName(var6), var7.getName()});
          } else {
-            a(var1, this, "commands.scoreboard.objectives.setdisplay.successCleared", new Object[]{Scoreboard.b(var6)});
+            a(var1, this, "commands.scoreboard.objectives.setdisplay.successCleared", new Object[]{Scoreboard.getSlotName(var6)});
          }
 
       }
@@ -593,7 +593,7 @@ public class ck extends CommandAbstract {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
-         Map var6 = var4.c(var5);
+         Map var6 = var4.getPlayerObjectives(var5);
          var1.a(ag.e, var6.size());
          if(var6.size() <= 0) {
             throw new di("commands.scoreboard.players.list.player.empty", new Object[]{var5});
@@ -605,11 +605,11 @@ public class ck extends CommandAbstract {
          Iterator var8 = var6.values().iterator();
 
          while(var8.hasNext()) {
-            bsa var9 = (bsa)var8.next();
-            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
+            ScoreboardScore var9 = (ScoreboardScore)var8.next();
+            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.getScore()), var9.d().getDisplayName(), var9.d().getName()}));
          }
       } else {
-         Collection var10 = var4.d();
+         Collection var10 = var4.getPlayers();
          var1.a(ag.e, var10.size());
          if(var10.size() <= 0) {
             throw new di("commands.scoreboard.players.list.empty", new Object[0]);
@@ -627,7 +627,7 @@ public class ck extends CommandAbstract {
       String var4 = var2[var3 - 1];
       int var5 = var3;
       String var6 = e(var1, var2[var3++]);
-      bry var7 = this.a(var2[var3++], true);
+      ScoreboardObjective var7 = this.a(var2[var3++], true);
       int var8 = var4.equalsIgnoreCase("set")?a(var2[var3++]):a(var2[var3++], 0);
       if(var2.length > var3) {
          Entity var9 = b(var1, var2[var5]);
@@ -645,27 +645,27 @@ public class ck extends CommandAbstract {
       }
 
       Scoreboard var13 = this.d();
-      bsa var14 = var13.c(var6, var7);
+      ScoreboardScore var14 = var13.getPlayerScoreForObjective(var6, var7);
       if(var4.equalsIgnoreCase("set")) {
-         var14.c(var8);
+         var14.setScore(var8);
       } else if(var4.equalsIgnoreCase("add")) {
          var14.a(var8);
       } else {
          var14.b(var8);
       }
 
-      a(var1, this, "commands.scoreboard.players.set.success", new Object[]{var7.b(), var6, Integer.valueOf(var14.c())});
+      a(var1, this, "commands.scoreboard.players.set.success", new Object[]{var7.getName(), var6, Integer.valueOf(var14.getScore())});
    }
 
    protected void m(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var2.length > var3) {
-         bry var6 = this.a(var2[var3++], false);
-         var4.d(var5, var6);
-         a(var1, this, "commands.scoreboard.players.resetscore.success", new Object[]{var6.b(), var5});
+         ScoreboardObjective var6 = this.a(var2[var3++], false);
+         var4.resetPlayerScores(var5, var6);
+         a(var1, this, "commands.scoreboard.players.resetscore.success", new Object[]{var6.getName(), var5});
       } else {
-         var4.d(var5, (bry)null);
+         var4.resetPlayerScores(var5, (ScoreboardObjective)null);
          a(var1, this, "commands.scoreboard.players.reset.success", new Object[]{var5});
       }
 
@@ -674,31 +674,31 @@ public class ck extends CommandAbstract {
    protected void n(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = d(var1, var2[var3++]);
-      bry var6 = this.a(var2[var3], false);
-      if(var6.c() != bsk.c) {
-         throw new di("commands.scoreboard.players.enable.noTrigger", new Object[]{var6.b()});
+      ScoreboardObjective var6 = this.a(var2[var3], false);
+      if(var6.getCriteria() != IScoreboardCriteria.c) {
+         throw new di("commands.scoreboard.players.enable.noTrigger", new Object[]{var6.getName()});
       } else {
-         bsa var7 = var4.c(var5, var6);
+         ScoreboardScore var7 = var4.getPlayerScoreForObjective(var5, var6);
          var7.a(false);
-         a(var1, this, "commands.scoreboard.players.enable.success", new Object[]{var6.b(), var5});
+         a(var1, this, "commands.scoreboard.players.enable.success", new Object[]{var6.getName(), var5});
       }
    }
 
    protected void o(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
-      bry var6 = this.a(var2[var3++], false);
+      ScoreboardObjective var6 = this.a(var2[var3++], false);
       if(!var4.b(var5, var6)) {
-         throw new di("commands.scoreboard.players.test.notFound", new Object[]{var6.b(), var5});
+         throw new di("commands.scoreboard.players.test.notFound", new Object[]{var6.getName(), var5});
       } else {
          int var7 = var2[var3].equals("*")?Integer.MIN_VALUE:a(var2[var3]);
          ++var3;
          int var8 = var3 < var2.length && !var2[var3].equals("*")?a(var2[var3], var7):Integer.MAX_VALUE;
-         bsa var9 = var4.c(var5, var6);
-         if(var9.c() >= var7 && var9.c() <= var8) {
-            a(var1, this, "commands.scoreboard.players.test.success", new Object[]{Integer.valueOf(var9.c()), Integer.valueOf(var7), Integer.valueOf(var8)});
+         ScoreboardScore var9 = var4.getPlayerScoreForObjective(var5, var6);
+         if(var9.getScore() >= var7 && var9.getScore() <= var8) {
+            a(var1, this, "commands.scoreboard.players.test.success", new Object[]{Integer.valueOf(var9.getScore()), Integer.valueOf(var7), Integer.valueOf(var8)});
          } else {
-            throw new di("commands.scoreboard.players.test.failed", new Object[]{Integer.valueOf(var9.c()), Integer.valueOf(var7), Integer.valueOf(var8)});
+            throw new di("commands.scoreboard.players.test.failed", new Object[]{Integer.valueOf(var9.getScore()), Integer.valueOf(var7), Integer.valueOf(var8)});
          }
       }
    }
@@ -706,43 +706,43 @@ public class ck extends CommandAbstract {
    protected void p(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
-      bry var6 = this.a(var2[var3++], true);
+      ScoreboardObjective var6 = this.a(var2[var3++], true);
       String var7 = var2[var3++];
       String var8 = e(var1, var2[var3++]);
-      bry var9 = this.a(var2[var3], false);
-      bsa var10 = var4.c(var5, var6);
+      ScoreboardObjective var9 = this.a(var2[var3], false);
+      ScoreboardScore var10 = var4.getPlayerScoreForObjective(var5, var6);
       if(!var4.b(var8, var9)) {
-         throw new di("commands.scoreboard.players.operation.notFound", new Object[]{var9.b(), var8});
+         throw new di("commands.scoreboard.players.operation.notFound", new Object[]{var9.getName(), var8});
       } else {
-         bsa var11 = var4.c(var8, var9);
+         ScoreboardScore var11 = var4.getPlayerScoreForObjective(var8, var9);
          if(var7.equals("+=")) {
-            var10.c(var10.c() + var11.c());
+            var10.setScore(var10.getScore() + var11.getScore());
          } else if(var7.equals("-=")) {
-            var10.c(var10.c() - var11.c());
+            var10.setScore(var10.getScore() - var11.getScore());
          } else if(var7.equals("*=")) {
-            var10.c(var10.c() * var11.c());
+            var10.setScore(var10.getScore() * var11.getScore());
          } else if(var7.equals("/=")) {
-            if(var11.c() != 0) {
-               var10.c(var10.c() / var11.c());
+            if(var11.getScore() != 0) {
+               var10.setScore(var10.getScore() / var11.getScore());
             }
          } else if(var7.equals("%=")) {
-            if(var11.c() != 0) {
-               var10.c(var10.c() % var11.c());
+            if(var11.getScore() != 0) {
+               var10.setScore(var10.getScore() % var11.getScore());
             }
          } else if(var7.equals("=")) {
-            var10.c(var11.c());
+            var10.setScore(var11.getScore());
          } else if(var7.equals("<")) {
-            var10.c(Math.min(var10.c(), var11.c()));
+            var10.setScore(Math.min(var10.getScore(), var11.getScore()));
          } else if(var7.equals(">")) {
-            var10.c(Math.max(var10.c(), var11.c()));
+            var10.setScore(Math.max(var10.getScore(), var11.getScore()));
          } else {
             if(!var7.equals("><")) {
                throw new di("commands.scoreboard.players.operation.invalidOperation", new Object[]{var7});
             }
 
-            int var12 = var10.c();
-            var10.c(var11.c());
-            var11.c(var12);
+            int var12 = var10.getScore();
+            var10.setScore(var11.getScore());
+            var11.setScore(var12);
          }
 
          a(var1, this, "commands.scoreboard.players.operation.success", new Object[0]);
@@ -760,7 +760,7 @@ public class ck extends CommandAbstract {
 
             if(var2[1].equalsIgnoreCase("add")) {
                if(var2.length == 4) {
-                  Set var4 = bsk.a.keySet();
+                  Set var4 = IScoreboardCriteria.criteria.keySet();
                   return a(var2, var4);
                }
             } else if(var2[1].equalsIgnoreCase("remove")) {
@@ -793,7 +793,7 @@ public class ck extends CommandAbstract {
                } else if(!var2[1].equalsIgnoreCase("list") && !var2[1].equalsIgnoreCase("test")) {
                   if(var2[1].equalsIgnoreCase("operation")) {
                      if(var2.length == 3) {
-                        return a(var2, this.d().d());
+                        return a(var2, this.d().getPlayers());
                      }
 
                      if(var2.length == 4) {
@@ -814,7 +814,7 @@ public class ck extends CommandAbstract {
                   }
                } else {
                   if(var2.length == 3) {
-                     return a(var2, this.d().d());
+                     return a(var2, this.d().getPlayers());
                   }
 
                   if(var2.length == 4 && var2[1].equalsIgnoreCase("test")) {
@@ -883,14 +883,14 @@ public class ck extends CommandAbstract {
    }
 
    protected List a(boolean var1) {
-      Collection var2 = this.d().c();
+      Collection var2 = this.d().getObjectives();
       ArrayList var3 = Lists.newArrayList();
       Iterator var4 = var2.iterator();
 
       while(var4.hasNext()) {
-         bry var5 = (bry)var4.next();
-         if(!var1 || !var5.c().b()) {
-            var3.add(var5.b());
+         ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
+         if(!var1 || !var5.getCriteria().isReadOnly()) {
+            var3.add(var5.getName());
          }
       }
 
@@ -898,14 +898,14 @@ public class ck extends CommandAbstract {
    }
 
    protected List e() {
-      Collection var1 = this.d().c();
+      Collection var1 = this.d().getObjectives();
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = var1.iterator();
 
       while(var3.hasNext()) {
-         bry var4 = (bry)var3.next();
-         if(var4.c() == bsk.c) {
-            var2.add(var4.b());
+         ScoreboardObjective var4 = (ScoreboardObjective)var3.next();
+         if(var4.getCriteria() == IScoreboardCriteria.c) {
+            var2.add(var4.getName());
          }
       }
 

@@ -32,7 +32,7 @@ public class PacketEncoder extends MessageToByteEncoder {
          var5.b(var4.intValue());
 
          try {
-            if(var2 instanceof iq) {
+            if(var2 instanceof PacketPlayOutNamedEntitySpawn) {
                var2 = var2;
             }
 

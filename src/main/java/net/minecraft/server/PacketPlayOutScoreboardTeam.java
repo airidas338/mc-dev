@@ -3,7 +3,7 @@ import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class le implements Packet {
+public class PacketPlayOutScoreboardTeam implements Packet {
 
    private String a = "";
    private String b = "";
@@ -16,34 +16,34 @@ public class le implements Packet {
    private int i;
 
 
-   public le() {
+   public PacketPlayOutScoreboardTeam() {
       this.e = bsg.a.e;
       this.f = -1;
       this.g = Lists.newArrayList();
    }
 
-   public le(ScoreboardTeam var1, int var2) {
+   public PacketPlayOutScoreboardTeam(ScoreboardTeam var1, int var2) {
       this.e = bsg.a.e;
       this.f = -1;
       this.g = Lists.newArrayList();
-      this.a = var1.b();
+      this.a = var1.getName();
       this.h = var2;
       if(var2 == 0 || var2 == 2) {
-         this.b = var1.c();
-         this.c = var1.e();
-         this.d = var1.f();
+         this.b = var1.getDisplayName();
+         this.c = var1.getPrefix();
+         this.d = var1.getSuffix();
          this.i = var1.k();
          this.e = var1.i().e;
          this.f = var1.l().b();
       }
 
       if(var2 == 0) {
-         this.g.addAll(var1.d());
+         this.g.addAll(var1.getPlayerNameSet());
       }
 
    }
 
-   public le(ScoreboardTeam var1, Collection var2, int var3) {
+   public PacketPlayOutScoreboardTeam(ScoreboardTeam var1, Collection var2, int var3) {
       this.e = bsg.a.e;
       this.f = -1;
       this.g = Lists.newArrayList();
@@ -51,7 +51,7 @@ public class le implements Packet {
          throw new IllegalArgumentException("Method must be join or leave for player constructor");
       } else if(var2 != null && !var2.isEmpty()) {
          this.h = var3;
-         this.a = var1.b();
+         this.a = var1.getName();
          this.g.addAll(var2);
       } else {
          throw new IllegalArgumentException("Players cannot be null/empty");
@@ -105,6 +105,6 @@ public class le implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

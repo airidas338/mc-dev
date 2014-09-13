@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class im implements Packet {
+public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
 
    private int a;
    private int b;
@@ -10,9 +10,9 @@ public class im implements Packet {
    private int e;
 
 
-   public im() {}
+   public PacketPlayOutSpawnEntityExperienceOrb() {}
 
-   public im(EntityExperienceOrb var1) {
+   public PacketPlayOutSpawnEntityExperienceOrb(EntityExperienceOrb var1) {
       this.a = var1.F();
       this.b = MathHelper.c(var1.s * 32.0D);
       this.c = MathHelper.c(var1.t * 32.0D);
@@ -37,6 +37,6 @@ public class im implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

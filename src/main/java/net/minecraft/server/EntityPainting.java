@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class EntityPainting extends EntityHanging {
 
-   public adn c;
+   public EnumArt c;
 
 
    public EntityPainting(World var1) {
@@ -15,11 +15,11 @@ public class EntityPainting extends EntityHanging {
    public EntityPainting(World var1, Location var2, EnumFacing var3) {
       super(var1, var2);
       ArrayList var4 = Lists.newArrayList();
-      adn[] var5 = adn.values();
+      EnumArt[] var5 = EnumArt.values();
       int var6 = var5.length;
 
       for(int var7 = 0; var7 < var6; ++var7) {
-         adn var8 = var5[var7];
+         EnumArt var8 = var5[var7];
          this.c = var8;
          this.a(var3);
          if(this.j()) {
@@ -28,7 +28,7 @@ public class EntityPainting extends EntityHanging {
       }
 
       if(!var4.isEmpty()) {
-         this.c = (adn)var4.get(this.V.nextInt(var4.size()));
+         this.c = (EnumArt)var4.get(this.V.nextInt(var4.size()));
       }
 
       this.a(var3);
@@ -41,18 +41,18 @@ public class EntityPainting extends EntityHanging {
 
    public void a(NBTTagCompound var1) {
       String var2 = var1.getString("Motive");
-      adn[] var3 = adn.values();
+      EnumArt[] var3 = EnumArt.values();
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         adn var6 = var3[var5];
+         EnumArt var6 = var3[var5];
          if(var6.B.equals(var2)) {
             this.c = var6;
          }
       }
 
       if(this.c == null) {
-         this.c = adn.a;
+         this.c = EnumArt.KEBAB;
       }
 
       super.a(var1);

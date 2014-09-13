@@ -8,12 +8,12 @@ public class kw implements Packet {
 
    public kw() {}
 
-   public kw(int var1, bry var2) {
+   public kw(int var1, ScoreboardObjective var2) {
       this.a = var1;
       if(var2 == null) {
          this.b = "";
       } else {
-         this.b = var2.b();
+         this.b = var2.getName();
       }
 
    }
@@ -29,6 +29,6 @@ public class kw implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

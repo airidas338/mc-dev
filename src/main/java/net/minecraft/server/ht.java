@@ -29,10 +29,10 @@ public class ht extends hj {
       MinecraftServer var1 = MinecraftServer.M();
       if(var1 != null && var1.N() && vb.b(this.d)) {
          Scoreboard var2 = var1.a(0).Z();
-         bry var3 = var2.b(this.c);
+         ScoreboardObjective var3 = var2.getObjective(this.c);
          if(var2.b(this.b, var3)) {
-            bsa var4 = var2.c(this.b, var3);
-            this.b(String.format("%d", new Object[]{Integer.valueOf(var4.c())}));
+            ScoreboardScore var4 = var2.getPlayerScoreForObjective(this.b, var3);
+            this.b(String.format("%d", new Object[]{Integer.valueOf(var4.getScore())}));
          } else {
             this.d = "";
          }

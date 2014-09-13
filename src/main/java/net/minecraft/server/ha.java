@@ -5,7 +5,7 @@ enum ha {
    ha(String var1, int var2, int var3) {
       gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutKeepAlive.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jw.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, iz.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutChat.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutUpdateTime.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, la.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, lh.class);
@@ -15,12 +15,12 @@ enum ha {
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kv.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kl.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, ir.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, iq.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutNamedEntitySpawn.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, ln.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, il.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, io.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, ip.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, im.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutSpawnEntity.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutSpawnEntityLiving.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutSpawnEntityPainting.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutSpawnEntityExperienceOrb.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kz.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, km.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jy.class);
@@ -47,7 +47,7 @@ enum ha {
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jv.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, ju.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jo.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, in.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutSpawnEntityWeather.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, je.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jd.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, jh.class);
@@ -62,10 +62,10 @@ enum ha {
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kh.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kd.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, iy.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, ld.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, lf.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutScoreboardObjective.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutScoreboardScore.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, kw.class);
-      gy.b.a(EnumPacketDirection.CLIENTBOUND, le.class);
+      gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutScoreboardTeam.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, ji.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, PacketPlayOutKickDisconnect.class);
       gy.b.a(EnumPacketDirection.CLIENTBOUND, ix.class);

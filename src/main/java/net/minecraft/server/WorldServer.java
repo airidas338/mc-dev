@@ -690,7 +690,7 @@ public class WorldServer extends World implements vn {
 
    public boolean c(Entity var1) {
       if(super.c(var1)) {
-         this.I.an().a(var1.s, var1.t, var1.u, 512.0D, this.t.q(), new in(var1));
+         this.I.an().a(var1.s, var1.t, var1.u, 512.0D, this.t.q(), new PacketPlayOutSpawnEntityWeather(var1));
          return true;
       } else {
          return false;
@@ -714,7 +714,7 @@ public class WorldServer extends World implements vn {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((Packet)(new jm(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
+            ((EntityPlayer)var13).a.sendPacket((Packet)(new jm(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
          }
       }
 
@@ -820,7 +820,7 @@ public class WorldServer extends World implements vn {
          Location var22 = var21.c();
          double var23 = var22.c(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((Packet)var19);
+            var21.a.sendPacket((Packet)var19);
          }
       }
 

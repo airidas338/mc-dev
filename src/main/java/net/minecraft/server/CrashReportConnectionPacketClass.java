@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class rm implements Callable {
+class CrashReportConnectionPacketClass implements Callable {
 
    // $FF: synthetic field
    final Packet a;
@@ -9,7 +9,7 @@ class rm implements Callable {
    final PlayerConnection b;
 
 
-   rm(PlayerConnection var1, Packet var2) {
+   CrashReportConnectionPacketClass(PlayerConnection var1, Packet var2) {
       this.b = var1;
       this.a = var2;
    }

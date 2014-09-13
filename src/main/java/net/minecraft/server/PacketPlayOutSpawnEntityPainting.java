@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ip implements Packet {
+public class PacketPlayOutSpawnEntityPainting implements Packet {
 
    private int a;
    private Location b;
@@ -8,9 +8,9 @@ public class ip implements Packet {
    private String d;
 
 
-   public ip() {}
+   public PacketPlayOutSpawnEntityPainting() {}
 
-   public ip(EntityPainting var1) {
+   public PacketPlayOutSpawnEntityPainting(EntityPainting var1) {
       this.a = var1.F();
       this.b = var1.n();
       this.c = var1.b;
@@ -19,7 +19,7 @@ public class ip implements Packet {
 
    public void a(hd var1) {
       this.a = var1.e();
-      this.d = var1.c(adn.A);
+      this.d = var1.c(EnumArt.A);
       this.b = var1.c();
       this.c = EnumFacing.b(var1.readUnsignedByte());
    }
@@ -32,6 +32,6 @@ public class ip implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

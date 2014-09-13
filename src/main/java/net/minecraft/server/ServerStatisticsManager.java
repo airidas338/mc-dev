@@ -177,7 +177,7 @@ public class ServerStatisticsManager extends tz {
          }
       }
 
-      var1.a.a((Packet)(new is(var3)));
+      var1.a.sendPacket((Packet)(new is(var3)));
    }
 
    public void b(EntityPlayer var1) {
@@ -192,7 +192,7 @@ public class ServerStatisticsManager extends tz {
          }
       }
 
-      var1.a.a((Packet)(new is(var2)));
+      var1.a.sendPacket((Packet)(new is(var2)));
    }
 
    public boolean e() {

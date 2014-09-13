@@ -106,12 +106,12 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void g_() {
 		super.g_();
-		this.a.a((Packet) (new ke(this.br(), kg.a)));
+		this.a.sendPacket((Packet) (new ke(this.br(), kg.a)));
 	}
 
 	public void j() {
 		super.j();
-		this.a.a((Packet) (new ke(this.br(), kg.b)));
+		this.a.sendPacket((Packet) (new ke(this.br(), kg.b)));
 	}
 
 	public void s_() throws IOException {
@@ -138,7 +138,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 				var3.remove();
 			}
 
-			this.a.a((Packet) (new km(var2)));
+			this.a.sendPacket((Packet) (new km(var2)));
 		}
 
 		if (!this.f.isEmpty()) {
@@ -165,9 +165,9 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 			if (!var6.isEmpty()) {
 				if (var6.size() == 1) {
-					this.a.a((Packet) (new jq((Chunk) var6.get(0), true, '\uffff')));
+					this.a.sendPacket((Packet) (new jq((Chunk) var6.get(0), true, '\uffff')));
 				} else {
-					this.a.a((Packet) (new js(var6)));
+					this.a.sendPacket((Packet) (new js(var6)));
 				}
 
 				Iterator var12 = var9.iterator();
@@ -210,13 +210,13 @@ public class EntityPlayer extends EntityHuman implements ail {
 				if (var6 != null && var6.b().f()) {
 					Packet var8 = ((ake) var6.b()).c(var6, this.o, this);
 					if (var8 != null) {
-						this.a.a(var8);
+						this.a.sendPacket(var8);
 					}
 				}
 			}
 
 			if (this.bm() != this.bK || this.bL != this.bj.a() || this.bj.e() == 0.0F != this.bM) {
-				this.a.a((Packet) (new lc(this.bm(), this.bj.a(), this.bj.e())));
+				this.a.sendPacket((Packet) (new lc(this.bm(), this.bj.a(), this.bj.e())));
 				this.bK = this.bm();
 				this.bL = this.bj.a();
 				this.bM = this.bj.e() == 0.0F;
@@ -224,18 +224,18 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 			if (this.bm() + this.bM() != this.bJ) {
 				this.bJ = this.bm() + this.bM();
-				Collection var5 = this.co().a(bsk.g);
+				Collection var5 = this.co().getObjectivesForCriteria(IScoreboardCriteria.g);
 				Iterator var7 = var5.iterator();
 
 				while (var7.hasNext()) {
-					bry var9 = (bry) var7.next();
-					this.co().c(this.d_(), var9).a(Arrays.asList(new EntityHuman[] { this }));
+					ScoreboardObjective var9 = (ScoreboardObjective) var7.next();
+					this.co().getPlayerScoreForObjective(this.d_(), var9).updateForList(Arrays.asList(new EntityHuman[] { this }));
 				}
 			}
 
 			if (this.bA != this.bN) {
 				this.bN = this.bA;
-				this.a.a((Packet) (new lb(this.bB, this.bA, this.bz)));
+				this.a.sendPacket((Packet) (new lb(this.bB, this.bA, this.bz)));
 			}
 
 			if (this.W % 20 * 5 == 0 && !this.A().a(tl.L)) {
@@ -304,12 +304,12 @@ public class EntityPlayer extends EntityHuman implements ail {
 			this.bg.n();
 		}
 
-		Collection var6 = this.o.Z().a(bsk.d);
+		Collection var6 = this.o.Z().getObjectivesForCriteria(IScoreboardCriteria.d);
 		Iterator var3 = var6.iterator();
 
 		while (var3.hasNext()) {
-			bry var4 = (bry) var3.next();
-			bsa var5 = this.co().c(this.d_(), var4);
+			ScoreboardObjective var4 = (ScoreboardObjective) var3.next();
+			ScoreboardScore var5 = this.co().getPlayerScoreForObjective(this.d_(), var4);
 			var5.a();
 		}
 
@@ -368,7 +368,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			this.b((tq) tl.D);
 			this.o.e((Entity) this);
 			this.i = true;
-			this.a.a((Packet) (new jo(4, 0.0F)));
+			this.a.sendPacket((Packet) (new jo(4, 0.0F)));
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((tq) tl.C);
@@ -398,7 +398,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		if (var1 != null) {
 			Packet var2 = var1.x_();
 			if (var2 != null) {
-				this.a.a(var2);
+				this.a.sendPacket(var2);
 			}
 		}
 
@@ -415,7 +415,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			kl var3 = new kl(this, var1);
 			this.u().s().a((Entity) this, (Packet) var3);
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
-			this.a.a((Packet) var3);
+			this.a.sendPacket((Packet) var3);
 		}
 
 		return var2;
@@ -437,7 +437,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		Entity var2 = this.m;
 		super.a(var1);
 		if (var1 != var2) {
-			this.a.a((Packet) (new ky(0, this, this.m)));
+			this.a.sendPacket((Packet) (new ky(0, this, this.m)));
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 		}
 
@@ -465,7 +465,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(bdj var1) {
 		var1.a((EntityHuman) this);
-		this.a.a((Packet) (new kc(var1.v())));
+		this.a.sendPacket((Packet) (new kc(var1.v())));
 	}
 
 	private void cr() {
@@ -474,7 +474,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(vv var1) {
 		this.cr();
-		this.a.a((Packet) (new je(this.bT, var1.k(), var1.e_())));
+		this.a.sendPacket((Packet) (new je(this.bT, var1.k(), var1.e_())));
 		this.bi = var1.a(this.bg, this);
 		this.bi.d = this.bT;
 		this.bi.a((ail) this);
@@ -488,18 +488,18 @@ public class EntityPlayer extends EntityHuman implements ail {
 		if (var1 instanceof vy) {
 			vy var2 = (vy) var1;
 			if (var2.q_() && !this.a(var2.i()) && !this.v()) {
-				this.a.a((Packet) (new iz(new ChatMessage("container.isLocked", new Object[] { var1.e_() }), (byte) 2)));
-				this.a.a((Packet) (new jv("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
+				this.a.sendPacket((Packet) (new PacketPlayOutChat(new ChatMessage("container.isLocked", new Object[] { var1.e_() }), (byte) 2)));
+				this.a.sendPacket((Packet) (new jv("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
 				return;
 			}
 		}
 
 		this.cr();
 		if (var1 instanceof vv) {
-			this.a.a((Packet) (new je(this.bT, ((vv) var1).k(), var1.e_(), var1.n_())));
+			this.a.sendPacket((Packet) (new je(this.bT, ((vv) var1).k(), var1.e_(), var1.n_())));
 			this.bi = ((vv) var1).a(this.bg, this);
 		} else {
-			this.a.a((Packet) (new je(this.bT, "minecraft:container", var1.e_(), var1.n_())));
+			this.a.sendPacket((Packet) (new je(this.bT, "minecraft:container", var1.e_(), var1.n_())));
 			this.bi = new aim(this.bg, var1, this);
 		}
 
@@ -514,13 +514,13 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bi.a((ail) this);
 		aje var2 = ((ajf) this.bi).e();
 		IChatBaseComponent var3 = var1.e_();
-		this.a.a((Packet) (new je(this.bT, "minecraft:villager", var3, var2.n_())));
+		this.a.sendPacket((Packet) (new je(this.bT, "minecraft:villager", var3, var2.n_())));
 		aqd var4 = var1.b_(this);
 		if (var4 != null) {
 			hd var5 = new hd(Unpooled.buffer());
 			var5.writeInt(this.bT);
 			var4.a(var5);
-			this.a.a((Packet) (new ji("MC|TrList", var5)));
+			this.a.sendPacket((Packet) (new ji("MC|TrList", var5)));
 		}
 
 	}
@@ -531,7 +531,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		}
 
 		this.cr();
-		this.a.a((Packet) (new je(this.bT, "EntityHorse", var2.e_(), var2.n_(), var1.F())));
+		this.a.sendPacket((Packet) (new je(this.bT, "EntityHorse", var2.e_(), var2.n_(), var1.F())));
 		this.bi = new aiy(this.bg, var2, var1, this);
 		this.bi.d = this.bT;
 		this.bi.a((ail) this);
@@ -540,7 +540,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public void a(ItemStack var1) {
 		Item var2 = var1.b();
 		if (var2 == Items.bN) {
-			this.a.a((Packet) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
+			this.a.sendPacket((Packet) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
 		}
 
 	}
@@ -548,7 +548,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public void a(aib var1, int var2, ItemStack var3) {
 		if (!(var1.a(var2) instanceof ajj)) {
 			if (!this.g) {
-				this.a.a((Packet) (new jh(var1.d, var2, var3)));
+				this.a.sendPacket((Packet) (new jh(var1.d, var2, var3)));
 			}
 		}
 	}
@@ -558,29 +558,29 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(aib var1, List var2) {
-		this.a.a((Packet) (new jf(var1.d, var2)));
-		this.a.a((Packet) (new jh(-1, -1, this.bg.p())));
+		this.a.sendPacket((Packet) (new jf(var1.d, var2)));
+		this.a.sendPacket((Packet) (new jh(-1, -1, this.bg.p())));
 	}
 
 	public void a(aib var1, int var2, int var3) {
-		this.a.a((Packet) (new jg(var1.d, var2, var3)));
+		this.a.sendPacket((Packet) (new jg(var1.d, var2, var3)));
 	}
 
 	public void a(aib var1, IInventory var2) {
 		for (int var3 = 0; var3 < var2.g(); ++var3) {
-			this.a.a((Packet) (new jg(var1.d, var3, var2.a_(var3))));
+			this.a.sendPacket((Packet) (new jg(var1.d, var3, var2.a_(var3))));
 		}
 
 	}
 
 	public void n() {
-		this.a.a((Packet) (new jd(this.bi.d)));
+		this.a.sendPacket((Packet) (new jd(this.bi.d)));
 		this.p();
 	}
 
 	public void o() {
 		if (!this.g) {
-			this.a.a((Packet) (new jh(-1, -1, this.bg.p())));
+			this.a.sendPacket((Packet) (new jh(-1, -1, this.bg.p())));
 		}
 	}
 
@@ -608,11 +608,11 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public void a(tq var1, int var2) {
 		if (var1 != null) {
 			this.bI.b(this, var1, var2);
-			Iterator var3 = this.co().a(var1.k()).iterator();
+			Iterator var3 = this.co().getObjectivesForCriteria(var1.k()).iterator();
 
 			while (var3.hasNext()) {
-				bry var4 = (bry) var3.next();
-				this.co().c(this.d_(), var4).a(var2);
+				ScoreboardObjective var4 = (ScoreboardObjective) var3.next();
+				this.co().getPlayerScoreForObjective(this.d_(), var4).a(var2);
 			}
 
 			if (this.bI.e()) {
@@ -625,11 +625,11 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public void a(tq var1) {
 		if (var1 != null) {
 			this.bI.a(this, var1, 0);
-			Iterator var2 = this.co().a(var1.k()).iterator();
+			Iterator var2 = this.co().getObjectivesForCriteria(var1.k()).iterator();
 
 			while (var2.hasNext()) {
-				bry var3 = (bry) var2.next();
-				this.co().c(this.d_(), var3).c(0);
+				ScoreboardObjective var3 = (ScoreboardObjective) var2.next();
+				this.co().getPlayerScoreForObjective(this.d_(), var3).setScore(0);
 			}
 
 			if (this.bI.e()) {
@@ -655,11 +655,11 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void b(IChatBaseComponent var1) {
-		this.a.a((Packet) (new iz(var1)));
+		this.a.sendPacket((Packet) (new PacketPlayOutChat(var1)));
 	}
 
 	protected void s() {
-		this.a.a((Packet) (new jk(this, (byte) 9)));
+		this.a.sendPacket((Packet) (new jk(this, (byte) 9)));
 		super.s();
 	}
 
@@ -681,17 +681,17 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	protected void a(MobEffect var1) {
 		super.a(var1);
-		this.a.a((Packet) (new lr(this.F(), var1)));
+		this.a.sendPacket((Packet) (new lr(this.F(), var1)));
 	}
 
 	protected void a(MobEffect var1, boolean var2) {
 		super.a(var1, var2);
-		this.a.a((Packet) (new lr(this.F(), var1)));
+		this.a.sendPacket((Packet) (new lr(this.F(), var1)));
 	}
 
 	protected void b(MobEffect var1) {
 		super.b(var1);
-		this.a.a((Packet) (new kn(this.F(), var1)));
+		this.a.sendPacket((Packet) (new kn(this.F(), var1)));
 	}
 
 	public void a(double var1, double var3, double var5) {
@@ -708,7 +708,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void t() {
 		if (this.a != null) {
-			this.a.a((Packet) (new kd(this.by)));
+			this.a.sendPacket((Packet) (new kd(this.by)));
 			this.B();
 		}
 	}
@@ -719,7 +719,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(EnumGamemode var1) throws IOException {
 		this.c.a(var1);
-		this.a.a((Packet) (new jo(3, (float) var1.a())));
+		this.a.sendPacket((Packet) (new jo(3, (float) var1.a())));
 		if (var1 == EnumGamemode.SPECTATOR) {
 			this.a((Entity) null);
 		} else {
@@ -735,7 +735,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(IChatBaseComponent var1) {
-		this.a.a((Packet) (new iz(var1)));
+		this.a.sendPacket((Packet) (new PacketPlayOutChat(var1)));
 	}
 
 	public boolean a(int var1, String var2) {
@@ -775,7 +775,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(String var1, String var2) {
-		this.a.a((Packet) (new ko(var1, var2)));
+		this.a.sendPacket((Packet) (new ko(var1, var2)));
 	}
 
 	public Location c() {
@@ -792,7 +792,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void d(Entity var1) {
 		if (var1 instanceof EntityHuman) {
-			this.a.a((Packet) (new km(new int[] { var1.F() })));
+			this.a.sendPacket((Packet) (new km(new int[] { var1.F() })));
 		} else {
 			this.bH.add(Integer.valueOf(var1.F()));
 		}
@@ -818,7 +818,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		Entity var2 = this.C();
 		this.bS = (Entity) (var1 == null ? this : var1);
 		if (var2 != this.bS) {
-			this.a.a((Packet) (new ku(this.bS)));
+			this.a.sendPacket((Packet) (new ku(this.bS)));
 			this.a(this.bS.s, this.bS.t, this.bS.u);
 		}
 

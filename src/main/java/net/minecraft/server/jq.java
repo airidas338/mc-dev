@@ -38,7 +38,7 @@ public class jq implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 
    protected static int a(int var0, boolean var1, boolean var2) {

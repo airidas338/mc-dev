@@ -27,73 +27,73 @@ public class ScoreboardTeam extends ScoreboardTeamBase {
       this.d = var2;
    }
 
-   public String b() {
+   public String getName() {
       return this.b;
    }
 
-   public String c() {
+   public String getDisplayName() {
       return this.d;
    }
 
-   public void a(String var1) {
+   public void setDisplayName(String var1) {
       if(var1 == null) {
          throw new IllegalArgumentException("Name cannot be null");
       } else {
          this.d = var1;
-         this.a.b(this);
+         this.a.handleTeamChanged(this);
       }
    }
 
-   public Collection d() {
+   public Collection getPlayerNameSet() {
       return this.c;
    }
 
-   public String e() {
+   public String getPrefix() {
       return this.e;
    }
 
-   public void b(String var1) {
+   public void setPrefix(String var1) {
       if(var1 == null) {
          throw new IllegalArgumentException("Prefix cannot be null");
       } else {
          this.e = var1;
-         this.a.b(this);
+         this.a.handleTeamChanged(this);
       }
    }
 
-   public String f() {
+   public String getSuffix() {
       return this.f;
    }
 
-   public void c(String var1) {
+   public void setSuffix(String var1) {
       this.f = var1;
-      this.a.b(this);
+      this.a.handleTeamChanged(this);
    }
 
-   public String d(String var1) {
-      return this.e() + var1 + this.f();
+   public String getFormattedName(String var1) {
+      return this.getPrefix() + var1 + this.getSuffix();
    }
 
-   public static String a(ScoreboardTeamBase var0, String var1) {
-      return var0 == null?var1:var0.d(var1);
+   public static String getPlayerDisplayName(ScoreboardTeamBase var0, String var1) {
+      return var0 == null?var1:var0.getFormattedName(var1);
    }
 
-   public boolean g() {
+   public boolean allowFriendlyFire() {
       return this.g;
    }
 
-   public void a(boolean var1) {
+   public void setAllowFriendlyFire(boolean var1) {
       this.g = var1;
-      this.a.b(this);
+      this.a.handleTeamChanged(this);
    }
 
-   public boolean h() {
+   public boolean canSeeFriendlyInvisibles() {
       return this.h;
    }
 
-   public void b(boolean var1) {
+   public void setCanSeeFriendlyInvisibles(boolean var1) {
       this.h = var1;
-      this.a.b(this);
+      this.a.handleTeamChanged(this);
    }
 
    public bsg i() {
@@ -106,21 +106,21 @@ public class ScoreboardTeam extends ScoreboardTeamBase {
 
    public void a(bsg var1) {
       this.i = var1;
-      this.a.b(this);
+      this.a.handleTeamChanged(this);
    }
 
    public void b(bsg var1) {
       this.j = var1;
-      this.a.b(this);
+      this.a.handleTeamChanged(this);
    }
 
    public int k() {
       int var1 = 0;
-      if(this.g()) {
+      if(this.allowFriendlyFire()) {
          var1 |= 1;
       }
 
-      if(this.h()) {
+      if(this.canSeeFriendlyInvisibles()) {
          var1 |= 2;
       }
 

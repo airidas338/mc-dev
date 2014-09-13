@@ -136,14 +136,14 @@ public class ct extends CommandAbstract {
    }
 
    protected List e() {
-      Collection var1 = MinecraftServer.M().a(0).Z().c();
+      Collection var1 = MinecraftServer.M().a(0).Z().getObjectives();
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = var1.iterator();
 
       while(var3.hasNext()) {
-         bry var4 = (bry)var3.next();
-         if(!var4.c().b()) {
-            var2.add(var4.b());
+         ScoreboardObjective var4 = (ScoreboardObjective)var3.next();
+         if(!var4.getCriteria().isReadOnly()) {
+            var2.add(var4.getName());
          }
       }
 

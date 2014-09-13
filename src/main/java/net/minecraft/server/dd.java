@@ -36,18 +36,18 @@ public class dd extends CommandAbstract {
          }
 
          Scoreboard var8 = MinecraftServer.M().a(0).Z();
-         bry var5 = var8.b(var2[0]);
-         if(var5 != null && var5.c() == bsk.c) {
+         ScoreboardObjective var5 = var8.getObjective(var2[0]);
+         if(var5 != null && var5.getCriteria() == IScoreboardCriteria.c) {
             int var6 = a(var2[2]);
             if(!var8.b(var3.d_(), var5)) {
                throw new di("commands.trigger.invalidObjective", new Object[]{var2[0]});
             } else {
-               bsa var7 = var8.c(var3.d_(), var5);
+               ScoreboardScore var7 = var8.getPlayerScoreForObjective(var3.d_(), var5);
                if(var7.g()) {
                   throw new di("commands.trigger.disabled", new Object[]{var2[0]});
                } else {
                   if("set".equals(var2[1])) {
-                     var7.c(var6);
+                     var7.setScore(var6);
                   } else {
                      if(!"add".equals(var2[1])) {
                         throw new di("commands.trigger.invalidMode", new Object[]{var2[1]});
@@ -73,12 +73,12 @@ public class dd extends CommandAbstract {
       if(var2.length == 1) {
          Scoreboard var4 = MinecraftServer.M().a(0).Z();
          ArrayList var5 = Lists.newArrayList();
-         Iterator var6 = var4.c().iterator();
+         Iterator var6 = var4.getObjectives().iterator();
 
          while(var6.hasNext()) {
-            bry var7 = (bry)var6.next();
-            if(var7.c() == bsk.c) {
-               var5.add(var7.b());
+            ScoreboardObjective var7 = (ScoreboardObjective)var6.next();
+            if(var7.getCriteria() == IScoreboardCriteria.c) {
+               var5.add(var7.getName());
             }
          }
 

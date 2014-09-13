@@ -2,9 +2,9 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class bsj extends bsi {
+public class ScoreboardHealthCriteria extends ScoreboardBaseCriteria {
 
-   public bsj(String var1) {
+   public ScoreboardHealthCriteria(String var1) {
       super(var1);
    }
 
@@ -23,11 +23,11 @@ public class bsj extends bsi {
       return MathHelper.f(var2);
    }
 
-   public boolean b() {
+   public boolean isReadOnly() {
       return true;
    }
 
-   public bsl c() {
-      return bsl.b;
+   public EnumObjectiveValue c() {
+      return EnumObjectiveValue.HEARTS;
    }
 }

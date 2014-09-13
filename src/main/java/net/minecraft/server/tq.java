@@ -9,7 +9,7 @@ public class tq {
    private final IChatBaseComponent a;
    public boolean f;
    private final tv b;
-   private final bsk c;
+   private final IScoreboardCriteria c;
    private Class d;
    private static NumberFormat k = NumberFormat.getIntegerInstance(Locale.US);
    public static tv g = new tr();
@@ -24,7 +24,7 @@ public class tq {
       this.a = var2;
       this.b = var3;
       this.c = new bsm(this);
-      bsk.a.put(this.c.a(), this.c);
+      IScoreboardCriteria.criteria.put(this.c.getName(), this.c);
    }
 
    public tq(String var1, IChatBaseComponent var2) {
@@ -83,7 +83,7 @@ public class tq {
       return "Stat{id=" + this.e + ", nameId=" + this.a + ", awardLocallyOnly=" + this.f + ", formatter=" + this.b + ", objectiveCriteria=" + this.c + '}';
    }
 
-   public bsk k() {
+   public IScoreboardCriteria k() {
       return this.c;
    }
 

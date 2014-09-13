@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bsm extends bsi {
+public class bsm extends ScoreboardBaseCriteria {
 
    private final tq j;
 

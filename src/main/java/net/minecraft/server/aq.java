@@ -35,7 +35,7 @@ final class aq implements Predicate {
             var5 = var5.substring(0, var5.length() - 4);
          }
 
-         bry var7 = var2.b(var5);
+         ScoreboardObjective var7 = var2.getObjective(var5);
          if(var7 == null) {
             return false;
          }
@@ -45,8 +45,8 @@ final class aq implements Predicate {
             return false;
          }
 
-         bsa var9 = var2.c(var8, var7);
-         var10 = var9.c();
+         ScoreboardScore var9 = var2.getPlayerScoreForObjective(var8, var7);
+         var10 = var9.getScore();
          if(var10 < ((Integer)var4.getValue()).intValue() && var6) {
             return false;
          }

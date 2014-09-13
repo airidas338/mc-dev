@@ -200,7 +200,7 @@ public class PlayerInteractManager {
          this.a.a(this.b, 2001, var1, Block.f(var2));
          boolean var7 = this.c(var1);
          if(this.d()) {
-            this.b.a.a((Packet)(new iw(this.a, var1)));
+            this.b.a.sendPacket((Packet)(new iw(this.a, var1)));
          } else {
             ItemStack var5 = this.b.bY();
             boolean var6 = this.b.b(var2.c());

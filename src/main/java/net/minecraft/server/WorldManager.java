@@ -58,7 +58,7 @@ public class WorldManager implements IWorldAccess {
             double var8 = (double)var2.o() - var5.t;
             double var10 = (double)var2.p() - var5.u;
             if(var6 * var6 + var8 * var8 + var10 * var10 < 1024.0D) {
-               var5.a.a((Packet)(new it(var1, var2, var3)));
+               var5.a.sendPacket((Packet)(new it(var1, var2, var3)));
             }
          }
       }

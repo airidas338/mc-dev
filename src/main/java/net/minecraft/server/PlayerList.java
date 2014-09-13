@@ -77,12 +77,12 @@ public abstract class PlayerList {
 		Location var11 = var9.M();
 		this.a(var2, (EntityPlayer) null, var9);
 		PlayerConnection var12 = new PlayerConnection(this.j, var1, var2);
-		var12.a((Packet) (new jw(var2.F(), var2.c.b(), var10.t(), var9.t.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
-		var12.a((Packet) (new ji("MC|Brand", (new hd(Unpooled.buffer())).a(this.c().getServerModName()))));
-		var12.a((Packet) (new ix(var10.y(), var10.z())));
-		var12.a((Packet) (new lh(var11)));
-		var12.a((Packet) (new kd(var2.by)));
-		var12.a((Packet) (new kv(var2.bg.c)));
+		var12.sendPacket((Packet) (new jw(var2.F(), var2.c.b(), var10.t(), var9.t.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
+		var12.sendPacket((Packet) (new ji("MC|Brand", (new hd(Unpooled.buffer())).a(this.c().getServerModName()))));
+		var12.sendPacket((Packet) (new ix(var10.y(), var10.z())));
+		var12.sendPacket((Packet) (new lh(var11)));
+		var12.sendPacket((Packet) (new kd(var2.by)));
+		var12.sendPacket((Packet) (new kv(var2.bg.c)));
 		var2.A().d();
 		var2.A().b(var2);
 		this.a((ScoreboardServer) var9.Z(), var2);
@@ -107,7 +107,7 @@ public abstract class PlayerList {
 
 		while (var14.hasNext()) {
 			MobEffect var15 = (MobEffect) var14.next();
-			var12.a((Packet) (new lr(var2.F(), var15)));
+			var12.sendPacket((Packet) (new lr(var2.F(), var15)));
 		}
 
 		var2.f_();
@@ -125,22 +125,22 @@ public abstract class PlayerList {
 
 	protected void a(ScoreboardServer var1, EntityPlayer var2) {
 		HashSet var3 = Sets.newHashSet();
-		Iterator var4 = var1.g().iterator();
+		Iterator var4 = var1.getTeams().iterator();
 
 		while (var4.hasNext()) {
 			ScoreboardTeam var5 = (ScoreboardTeam) var4.next();
-			var2.a.a((Packet) (new le(var5, 0)));
+			var2.a.sendPacket((Packet) (new PacketPlayOutScoreboardTeam(var5, 0)));
 		}
 
 		for (int var9 = 0; var9 < 19; ++var9) {
-			bry var10 = var1.a(var9);
+			ScoreboardObjective var10 = var1.getObjectiveForSlot(var9);
 			if (var10 != null && !var3.contains(var10)) {
 				List var6 = var1.d(var10);
 				Iterator var7 = var6.iterator();
 
 				while (var7.hasNext()) {
 					Packet var8 = (Packet) var7.next();
-					var2.a.a(var8);
+					var2.a.sendPacket(var8);
 				}
 
 				var3.add(var10);
@@ -201,7 +201,7 @@ public abstract class PlayerList {
 
 		for (int var3 = 0; var3 < this.e.size(); ++var3) {
 			EntityPlayer var4 = (EntityPlayer) this.e.get(var3);
-			var1.a.a((Packet) (new kh(kj.a, new EntityPlayer[] { var4 })));
+			var1.a.sendPacket((Packet) (new kh(kj.a, new EntityPlayer[] { var4 })));
 		}
 
 	}
@@ -311,7 +311,7 @@ public abstract class PlayerList {
 				var7.setPositionRotation((double) ((float) var9.n() + 0.5F), (double) ((float) var9.o() + 0.1F), (double) ((float) var9.p() + 0.5F), 0.0F, 0.0F);
 				var7.a(var4, var5);
 			} else {
-				var7.a.a((Packet) (new jo(0, 0.0F)));
+				var7.a.sendPacket((Packet) (new jo(0, 0.0F)));
 			}
 		}
 
@@ -321,11 +321,11 @@ public abstract class PlayerList {
 			var7.b(var7.s, var7.t + 1.0D, var7.u);
 		}
 
-		var7.a.a((Packet) (new kp(var7.am, var7.o.aa(), var7.o.P().u(), var7.c.b())));
+		var7.a.sendPacket((Packet) (new kp(var7.am, var7.o.aa(), var7.o.P().u(), var7.c.b())));
 		var9 = var8.M();
 		var7.a.a(var7.s, var7.t, var7.u, var7.y, var7.z);
-		var7.a.a((Packet) (new lh(var9)));
-		var7.a.a((Packet) (new lb(var7.bB, var7.bA, var7.bz)));
+		var7.a.sendPacket((Packet) (new lh(var9)));
+		var7.a.sendPacket((Packet) (new lb(var7.bB, var7.bA, var7.bz)));
 		this.b(var7, var8);
 		var8.t().a(var7);
 		var8.d(var7);
@@ -341,7 +341,7 @@ public abstract class PlayerList {
 		WorldServer var4 = this.j.a(var1.am);
 		var1.am = var2;
 		WorldServer var5 = this.j.a(var1.am);
-		var1.a.a((Packet) (new kp(var1.am, var1.o.aa(), var1.o.P().u(), var1.c.b())));
+		var1.a.sendPacket((Packet) (new kp(var1.am, var1.o.aa(), var1.o.P().u(), var1.c.b())));
 		var4.f(var1);
 		var1.I = false;
 		this.a(var1, var3, var4, var5);
@@ -354,7 +354,7 @@ public abstract class PlayerList {
 
 		while (var6.hasNext()) {
 			MobEffect var7 = (MobEffect) var6.next();
-			var1.a.a((Packet) (new lr(var1.F(), var7)));
+			var1.a.sendPacket((Packet) (new lr(var1.F(), var7)));
 		}
 
 	}
@@ -424,7 +424,7 @@ public abstract class PlayerList {
 
 	public void a(Packet var1) {
 		for (int var2 = 0; var2 < this.e.size(); ++var2) {
-			((EntityPlayer) this.e.get(var2)).a.a(var1);
+			((EntityPlayer) this.e.get(var2)).a.sendPacket(var1);
 		}
 
 	}
@@ -433,7 +433,7 @@ public abstract class PlayerList {
 		for (int var3 = 0; var3 < this.e.size(); ++var3) {
 			EntityPlayer var4 = (EntityPlayer) this.e.get(var3);
 			if (var4.am == var2) {
-				var4.a.a(var1);
+				var4.a.sendPacket(var1);
 			}
 		}
 
@@ -442,7 +442,7 @@ public abstract class PlayerList {
 	public void a(EntityHuman var1, IChatBaseComponent var2) {
 		ScoreboardTeamBase var3 = var1.bN();
 		if (var3 != null) {
-			Collection var4 = var3.d();
+			Collection var4 = var3.getPlayerNameSet();
 			Iterator var5 = var4.iterator();
 
 			while (var5.hasNext()) {
@@ -556,7 +556,7 @@ public abstract class PlayerList {
 				double var16 = var4 - var13.t;
 				double var18 = var6 - var13.u;
 				if (var14 * var14 + var16 * var16 + var18 * var18 < var8 * var8) {
-					var13.a.a(var11);
+					var13.a.sendPacket(var11);
 				}
 			}
 		}
@@ -599,12 +599,12 @@ public abstract class PlayerList {
 
 	public void b(EntityPlayer var1, WorldServer var2) {
 		WorldBorder var3 = this.j.c[0].af();
-		var1.a.a((Packet) (new kr(var3, kt.d)));
-		var1.a.a((Packet) (new PacketPlayOutUpdateTime(var2.K(), var2.L(), var2.Q().b("doDaylightCycle"))));
+		var1.a.sendPacket((Packet) (new kr(var3, kt.d)));
+		var1.a.sendPacket((Packet) (new PacketPlayOutUpdateTime(var2.K(), var2.L(), var2.Q().b("doDaylightCycle"))));
 		if (var2.S()) {
-			var1.a.a((Packet) (new jo(1, 0.0F)));
-			var1.a.a((Packet) (new jo(7, var2.j(1.0F))));
-			var1.a.a((Packet) (new jo(8, var2.h(1.0F))));
+			var1.a.sendPacket((Packet) (new jo(1, 0.0F)));
+			var1.a.sendPacket((Packet) (new jo(7, var2.j(1.0F))));
+			var1.a.sendPacket((Packet) (new jo(8, var2.h(1.0F))));
 		}
 
 	}
@@ -612,7 +612,7 @@ public abstract class PlayerList {
 	public void f(EntityPlayer var1) {
 		var1.a(var1.bh);
 		var1.r();
-		var1.a.a((Packet) (new kv(var1.bg.c)));
+		var1.a.sendPacket((Packet) (new kv(var1.bg.c)));
 	}
 
 	public int p() {
@@ -681,7 +681,7 @@ public abstract class PlayerList {
 	public void a(IChatBaseComponent var1, boolean var2) {
 		this.j.a(var1);
 		int var3 = var2 ? 1 : 0;
-		this.a((Packet) (new iz(var1, (byte) var3)));
+		this.a((Packet) (new PacketPlayOutChat(var1, (byte) var3)));
 	}
 
 	public void a(IChatBaseComponent var1) {

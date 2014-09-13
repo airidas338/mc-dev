@@ -427,10 +427,10 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void b(Entity var1, int var2) {
       this.s(var2);
-      Collection var3 = this.co().a(bsk.f);
+      Collection var3 = this.co().getObjectivesForCriteria(IScoreboardCriteria.f);
       if(var1 instanceof EntityHuman) {
          this.b(ty.B);
-         var3.addAll(this.co().a(bsk.e));
+         var3.addAll(this.co().getObjectivesForCriteria(IScoreboardCriteria.e));
          var3.addAll(this.e(var1));
       } else {
          this.b(ty.z);
@@ -439,33 +439,33 @@ public abstract class EntityHuman extends EntityLiving {
       Iterator var4 = var3.iterator();
 
       while(var4.hasNext()) {
-         bry var5 = (bry)var4.next();
-         bsa var6 = this.co().c(this.d_(), var5);
+         ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
+         ScoreboardScore var6 = this.co().getPlayerScoreForObjective(this.d_(), var5);
          var6.a();
       }
 
    }
 
    private Collection e(Entity var1) {
-      ScoreboardTeam var2 = this.co().h(this.d_());
+      ScoreboardTeam var2 = this.co().getPlayerTeam(this.d_());
       if(var2 != null) {
          int var3 = var2.l().b();
-         if(var3 >= 0 && var3 < bsk.i.length) {
-            Iterator var4 = this.co().a(bsk.i[var3]).iterator();
+         if(var3 >= 0 && var3 < IScoreboardCriteria.i.length) {
+            Iterator var4 = this.co().getObjectivesForCriteria(IScoreboardCriteria.i[var3]).iterator();
 
             while(var4.hasNext()) {
-               bry var5 = (bry)var4.next();
-               bsa var6 = this.co().c(var1.d_(), var5);
+               ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
+               ScoreboardScore var6 = this.co().getPlayerScoreForObjective(var1.d_(), var5);
                var6.a();
             }
          }
       }
 
-      ScoreboardTeam var7 = this.co().h(var1.d_());
+      ScoreboardTeam var7 = this.co().getPlayerTeam(var1.d_());
       if(var7 != null) {
          int var8 = var7.l().b();
-         if(var8 >= 0 && var8 < bsk.h.length) {
-            return this.co().a(bsk.h[var8]);
+         if(var8 >= 0 && var8 < IScoreboardCriteria.h.length) {
+            return this.co().getObjectivesForCriteria(IScoreboardCriteria.h[var8]);
          }
       }
 
@@ -684,7 +684,7 @@ public abstract class EntityHuman extends EntityLiving {
    public boolean a(EntityHuman var1) {
       ScoreboardTeamBase var2 = this.bN();
       ScoreboardTeamBase var3 = var1.bN();
-      return var2 == null?true:(!var2.a(var3)?true:var2.g());
+      return var2 == null?true:(!var2.a(var3)?true:var2.allowFriendlyFire());
    }
 
    protected void i(float var1) {
@@ -844,7 +844,7 @@ public abstract class EntityHuman extends EntityLiving {
                   }
 
                   if(var1 instanceof EntityPlayer && var1.G) {
-                     ((EntityPlayer)var1).a.a((Packet)(new kz(var1)));
+                     ((EntityPlayer)var1).a.sendPacket((Packet)(new kz(var1)));
                      var1.G = false;
                      var1.v = var8;
                      var1.w = var10;
@@ -1411,11 +1411,11 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public ScoreboardTeamBase bN() {
-      return this.co().h(this.d_());
+      return this.co().getPlayerTeam(this.d_());
    }
 
    public IChatBaseComponent e_() {
-      ChatComponentText var1 = new ChatComponentText(ScoreboardTeam.a(this.bN(), this.d_()));
+      ChatComponentText var1 = new ChatComponentText(ScoreboardTeam.getPlayerDisplayName(this.bN(), this.d_()));
       var1.b().a(new hm(hn.e, "/msg " + this.d_() + " "));
       var1.b().a(this.aP());
       var1.b().a(this.d_());

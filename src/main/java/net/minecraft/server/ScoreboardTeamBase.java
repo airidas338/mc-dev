@@ -7,13 +7,13 @@ public abstract class ScoreboardTeamBase {
       return var1 == null?false:this == var1;
    }
 
-   public abstract String b();
+   public abstract String getName();
 
-   public abstract String d(String var1);
+   public abstract String getFormattedName(String var1);
 
-   public abstract boolean g();
+   public abstract boolean allowFriendlyFire();
 
-   public abstract Collection d();
+   public abstract Collection getPlayerNameSet();
 
    public abstract bsg j();
 }

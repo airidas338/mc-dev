@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class in implements Packet {
+public class PacketPlayOutSpawnEntityWeather implements Packet {
 
    private int a;
    private int b;
@@ -10,9 +10,9 @@ public class in implements Packet {
    private int e;
 
 
-   public in() {}
+   public PacketPlayOutSpawnEntityWeather() {}
 
-   public in(Entity var1) {
+   public PacketPlayOutSpawnEntityWeather(Entity var1) {
       this.a = var1.F();
       this.b = MathHelper.c(var1.s * 32.0D);
       this.c = MathHelper.c(var1.t * 32.0D);
@@ -40,6 +40,6 @@ public class in implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }

@@ -19,30 +19,30 @@ public class ScoreboardServer extends Scoreboard {
       this.a = var1;
    }
 
-   public void a(bsa var1) {
-      super.a(var1);
+   public void handleScoreChanged(ScoreboardScore var1) {
+      super.handleScoreChanged(var1);
       if(this.b.contains(var1.d())) {
-         this.a.an().a((Packet)(new lf(var1)));
+         this.a.an().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
       }
 
       this.b();
    }
 
-   public void a(String var1) {
-      super.a(var1);
-      this.a.an().a((Packet)(new lf(var1)));
+   public void handlePlayerRemoved(String var1) {
+      super.handlePlayerRemoved(var1);
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
       this.b();
    }
 
-   public void a(String var1, bry var2) {
+   public void a(String var1, ScoreboardObjective var2) {
       super.a(var1, var2);
-      this.a.an().a((Packet)(new lf(var1, var2)));
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardScore(var1, var2)));
       this.b();
    }
 
-   public void a(int var1, bry var2) {
-      bry var3 = this.a(var1);
-      super.a(var1, var2);
+   public void setDisplaySlot(int var1, ScoreboardObjective var2) {
+      ScoreboardObjective var3 = this.getObjectiveForSlot(var1);
+      super.setDisplaySlot(var1, var2);
       if(var3 != var2 && var3 != null) {
          if(this.h(var3) > 0) {
             this.a.an().a((Packet)(new kw(var1, var2)));
@@ -62,10 +62,10 @@ public class ScoreboardServer extends Scoreboard {
       this.b();
    }
 
-   public boolean a(String var1, String var2) {
-      if(super.a(var1, var2)) {
-         ScoreboardTeam var3 = this.d(var2);
-         this.a.an().a((Packet)(new le(var3, Arrays.asList(new String[]{var1}), 3)));
+   public boolean addPlayerToTeam(String var1, String var2) {
+      if(super.addPlayerToTeam(var1, var2)) {
+         ScoreboardTeam var3 = this.getTeam(var2);
+         this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var3, Arrays.asList(new String[]{var1}), 3)));
          this.b();
          return true;
       } else {
@@ -73,27 +73,27 @@ public class ScoreboardServer extends Scoreboard {
       }
    }
 
-   public void a(String var1, ScoreboardTeam var2) {
-      super.a(var1, var2);
-      this.a.an().a((Packet)(new le(var2, Arrays.asList(new String[]{var1}), 4)));
+   public void removePlayerFromTeam(String var1, ScoreboardTeam var2) {
+      super.removePlayerFromTeam(var1, var2);
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var2, Arrays.asList(new String[]{var1}), 4)));
       this.b();
    }
 
-   public void a(bry var1) {
+   public void a(ScoreboardObjective var1) {
       super.a(var1);
       this.b();
    }
 
-   public void b(bry var1) {
-      super.b(var1);
+   public void handleObjectiveChanged(ScoreboardObjective var1) {
+      super.handleObjectiveChanged(var1);
       if(this.b.contains(var1)) {
-         this.a.an().a((Packet)(new ld(var1, 2)));
+         this.a.an().a((Packet)(new PacketPlayOutScoreboardObjective(var1, 2)));
       }
 
       this.b();
    }
 
-   public void c(bry var1) {
+   public void c(ScoreboardObjective var1) {
       super.c(var1);
       if(this.b.contains(var1)) {
          this.g(var1);
@@ -104,19 +104,19 @@ public class ScoreboardServer extends Scoreboard {
 
    public void a(ScoreboardTeam var1) {
       super.a(var1);
-      this.a.an().a((Packet)(new le(var1, 0)));
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 0)));
       this.b();
    }
 
-   public void b(ScoreboardTeam var1) {
-      super.b(var1);
-      this.a.an().a((Packet)(new le(var1, 2)));
+   public void handleTeamChanged(ScoreboardTeam var1) {
+      super.handleTeamChanged(var1);
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 2)));
       this.b();
    }
 
-   public void c(ScoreboardTeam var1) {
-      super.c(var1);
-      this.a.an().a((Packet)(new le(var1, 1)));
+   public void handleTeamRemoved(ScoreboardTeam var1) {
+      super.handleTeamRemoved(var1);
+      this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 1)));
       this.b();
    }
 
@@ -131,12 +131,12 @@ public class ScoreboardServer extends Scoreboard {
 
    }
 
-   public List d(bry var1) {
+   public List d(ScoreboardObjective var1) {
       ArrayList var2 = Lists.newArrayList();
-      var2.add(new ld(var1, 0));
+      var2.add(new PacketPlayOutScoreboardObjective(var1, 0));
 
       for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
+         if(this.getObjectiveForSlot(var3) == var1) {
             var2.add(new kw(var3, var1));
          }
       }
@@ -144,14 +144,14 @@ public class ScoreboardServer extends Scoreboard {
       Iterator var5 = this.i(var1).iterator();
 
       while(var5.hasNext()) {
-         bsa var4 = (bsa)var5.next();
-         var2.add(new lf(var4));
+         ScoreboardScore var4 = (ScoreboardScore)var5.next();
+         var2.add(new PacketPlayOutScoreboardScore(var4));
       }
 
       return var2;
    }
 
-   public void e(bry var1) {
+   public void e(ScoreboardObjective var1) {
       List var2 = this.d(var1);
       Iterator var3 = this.a.an().e.iterator();
 
@@ -161,19 +161,19 @@ public class ScoreboardServer extends Scoreboard {
 
          while(var5.hasNext()) {
             Packet var6 = (Packet)var5.next();
-            var4.a.a(var6);
+            var4.a.sendPacket(var6);
          }
       }
 
       this.b.add(var1);
    }
 
-   public List f(bry var1) {
+   public List f(ScoreboardObjective var1) {
       ArrayList var2 = Lists.newArrayList();
-      var2.add(new ld(var1, 1));
+      var2.add(new PacketPlayOutScoreboardObjective(var1, 1));
 
       for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
+         if(this.getObjectiveForSlot(var3) == var1) {
             var2.add(new kw(var3, var1));
          }
       }
@@ -181,7 +181,7 @@ public class ScoreboardServer extends Scoreboard {
       return var2;
    }
 
-   public void g(bry var1) {
+   public void g(ScoreboardObjective var1) {
       List var2 = this.f(var1);
       Iterator var3 = this.a.an().e.iterator();
 
@@ -191,18 +191,18 @@ public class ScoreboardServer extends Scoreboard {
 
          while(var5.hasNext()) {
             Packet var6 = (Packet)var5.next();
-            var4.a.a(var6);
+            var4.a.sendPacket(var6);
          }
       }
 
       this.b.remove(var1);
    }
 
-   public int h(bry var1) {
+   public int h(ScoreboardObjective var1) {
       int var2 = 0;
 
       for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
+         if(this.getObjectiveForSlot(var3) == var1) {
             ++var2;
          }
       }

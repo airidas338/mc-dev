@@ -1,21 +1,20 @@
 package net.minecraft.server;
-public interface ik extends PacketListener {
 
-	void a(il var1);
+public interface PacketPlayOutListener extends PacketListener {
 
-	void a(PacketPlayInBlockPlace mx);
+	void a(PacketPlayOutSpawnEntity var1);
 
-	void a(im var1);
+	void a(PacketPlayOutSpawnEntityExperienceOrb var1);
 
-	void a(in var1);
+	void a(PacketPlayOutSpawnEntityWeather var1);
 
-	void a(io var1);
+	void a(PacketPlayOutSpawnEntityLiving var1);
 
-	void a(ld var1);
+	void a(PacketPlayOutScoreboardObjective var1);
 
-	void a(ip var1);
+	void a(PacketPlayOutSpawnEntityPainting var1);
 
-	void a(iq var1);
+	void a(PacketPlayOutNamedEntitySpawn var1);
 
 	void a(ir var1);
 
@@ -31,7 +30,7 @@ public interface ik extends PacketListener {
 
 	void a(iw var1);
 
-	void a(iz var1);
+	void a(PacketPlayOutChat var1);
 
 	void a(iy var1);
 
@@ -107,9 +106,9 @@ public interface ik extends PacketListener {
 
 	void a(lc var1);
 
-	void a(le var1);
+	void a(PacketPlayOutScoreboardTeam var1);
 
-	void a(lf var1);
+	void a(PacketPlayOutScoreboardScore var1);
 
 	void a(lh var1);
 

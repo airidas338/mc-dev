@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 
-public class io implements Packet {
+public class PacketPlayOutSpawnEntityLiving implements Packet {
 
    private int a;
    private int b;
@@ -19,9 +19,9 @@ public class io implements Packet {
    private List m;
 
 
-   public io() {}
+   public PacketPlayOutSpawnEntityLiving() {}
 
-   public io(EntityLiving var1) {
+   public PacketPlayOutSpawnEntityLiving(EntityLiving var1) {
       this.a = var1.F();
       this.b = (byte)EntityTypes.a(var1);
       this.c = MathHelper.c(var1.s * 32.0D);
@@ -95,6 +95,6 @@ public class io implements Packet {
    }
 
    public void a(PacketListener var1) {
-      ((ik)var1).a(this);
+      ((PacketPlayOutListener)var1).a(this);
    }
 }
