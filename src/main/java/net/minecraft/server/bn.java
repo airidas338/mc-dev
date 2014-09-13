@@ -94,7 +94,7 @@ public class bn extends CommandAbstract {
                            }
                         } else if(var16 != var7.n() && var16 != var8.n() && var15 != var7.o() && var15 != var8.o() && var14 != var7.p() && var14 != var8.p()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a(var17, aty.a.P(), 2);
+                              var10.a(var17, Blocks.a.P(), 2);
                               var24.add(var17);
                            }
                            continue;
@@ -107,7 +107,7 @@ public class bn extends CommandAbstract {
                            ((vq)var28).l();
                         }
 
-                        var10.a(var17, aty.cv.P(), var5 == aty.cv?2:4);
+                        var10.a(var17, Blocks.cv.P(), var5 == Blocks.cv?2:4);
                      }
 
                      var19 = var5.a(var6);

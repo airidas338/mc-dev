@@ -144,7 +144,7 @@ public class biv {
             }
          }
 
-         if(var6 == aty.a) {
+         if(var6 == Blocks.a) {
             var5 = 0;
          }
 
@@ -244,9 +244,9 @@ public class biv {
    public static biv e() {
       biv var0 = new biv();
       var0.a(BiomeBase.q.az);
-      var0.c().add(new biw(1, aty.h));
-      var0.c().add(new biw(2, aty.d));
-      var0.c().add(new biw(1, aty.c));
+      var0.c().add(new biw(1, Blocks.h));
+      var0.c().add(new biw(2, Blocks.d));
+      var0.c().add(new biw(1, Blocks.c));
       var0.d();
       var0.b().put("village", Maps.newHashMap());
       return var0;

@@ -237,7 +237,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                         int var9 = var1 + var7;
                         int var10 = var15 + var19;
                         Block var11 = this.o.getData(new Location(var20, var9, var10)).c();
-                        if(var11.r() != Material.AIR && var11 != aty.h && var11 != aty.bF && var11 != aty.bG && var11 != aty.bX && var11 != aty.cv) {
+                        if(var11.r() != Material.AIR && var11 != Blocks.h && var11 != Blocks.bF && var11 != Blocks.bG && var11 != Blocks.bX && var11 != Blocks.cv) {
                            var18 = this.o.b(new Location(var20, var9, var10), true) || var18;
                         }
                      }

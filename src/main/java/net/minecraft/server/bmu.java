@@ -7,7 +7,7 @@ public abstract class bmu {
 
 
    protected bmu() {
-      this.a = aty.a.P();
+      this.a = Blocks.a.P();
    }
 
    public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);

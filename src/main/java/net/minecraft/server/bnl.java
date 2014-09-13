@@ -93,8 +93,8 @@ public class bnl extends bno {
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
-      IBlock var4 = this.a(aty.n.P());
-      IBlock var5 = this.a(aty.e.P());
+      IBlock var4 = this.a(Blocks.n.P());
+      IBlock var5 = this.a(Blocks.e.P());
 
       for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
          for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {

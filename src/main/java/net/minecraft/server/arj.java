@@ -55,7 +55,7 @@ public class arj implements IBlockAccess {
          }
       }
 
-      return aty.a.P();
+      return Blocks.a.P();
    }
 
    public boolean d(Location var1) {

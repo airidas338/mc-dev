@@ -16,9 +16,9 @@ public class amz extends Item {
          Block var11 = var3.getData(var10).c();
          if(!var3.a(var11, var10, false, var5, (Entity)null, var1)) {
             return false;
-         } else if(aty.af.c(var3, var10)) {
+         } else if(Blocks.af.c(var3, var10)) {
             --var1.b;
-            var3.a(var10, aty.af.P());
+            var3.a(var10, Blocks.af.P());
             return true;
          } else {
             return false;

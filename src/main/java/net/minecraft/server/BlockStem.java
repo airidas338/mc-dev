@@ -3,7 +3,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BlockStem extends auc implements atz {
+public class BlockStem extends BlockPlant implements atz {
 
    public static final bew a = bew.a("age", 0, 7);
    public static final beu b = beu.a("facing", (Predicate)(new baz()));
@@ -35,7 +35,7 @@ public class BlockStem extends auc implements atz {
    }
 
    protected boolean c(Block var1) {
-      return var1 == aty.ak;
+      return var1 == Blocks.ak;
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
@@ -59,7 +59,7 @@ public class BlockStem extends auc implements atz {
 
                var2 = var2.a(en.a.a(var4));
                Block var9 = var1.getData(var2.b()).c();
-               if(var1.getData(var2).c().J == Material.AIR && (var9 == aty.ak || var9 == aty.d || var9 == aty.c)) {
+               if(var1.getData(var2).c().J == Material.AIR && (var9 == Blocks.ak || var9 == Blocks.d || var9 == Blocks.c)) {
                   var1.a(var2, this.M.P());
                }
             }
@@ -102,7 +102,7 @@ public class BlockStem extends auc implements atz {
    }
 
    protected Item j() {
-      return this.M == aty.aU?Items.bg:(this.M == aty.bk?Items.bh:null);
+      return this.M == Blocks.aU?Items.bg:(this.M == Blocks.bk?Items.bh:null);
    }
 
    public Item a(IBlock var1, Random var2, int var3) {

@@ -100,7 +100,7 @@ public class bgu extends bgt {
                      for(int var44 = var38 + 1; !var56 && var44 >= var55 - 1; --var44) {
                         if(var44 >= 0 && var44 < 128) {
                            IBlock var45 = var5.a(var42, var44, var43);
-                           if(var45.c() == aty.k || var45.c() == aty.l) {
+                           if(var45.c() == Blocks.k || var45.c() == Blocks.l) {
                               var56 = true;
                            }
 
@@ -123,8 +123,8 @@ public class bgu extends bgt {
                            double var49 = ((double)(var48 - 1) + 0.5D - var8) / var31;
                            if(var49 > -0.7D && var58 * var58 + var49 * var49 + var46 * var46 < 1.0D) {
                               IBlock var51 = var5.a(var42, var48, var57);
-                              if(var51.c() == aty.aV || var51.c() == aty.d || var51.c() == aty.c) {
-                                 var5.a(var42, var48, var57, aty.a.P());
+                              if(var51.c() == Blocks.aV || var51.c() == Blocks.d || var51.c() == Blocks.c) {
+                                 var5.a(var42, var48, var57, Blocks.a.P());
                               }
                            }
                         }

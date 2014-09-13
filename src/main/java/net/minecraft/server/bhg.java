@@ -20,7 +20,7 @@ public class bhg extends WorldGenerator {
             label47: {
                if(!var1.d(var3.b())) {
                   Block var4 = var1.getData(var3.b()).c();
-                  if(var4 == aty.c || var4 == aty.d || var4 == aty.b) {
+                  if(var4 == Blocks.c || var4 == Blocks.d || var4 == Blocks.b) {
                      break label47;
                   }
                }

@@ -7,7 +7,7 @@ public class BiomeTaiga extends BiomeBase {
    private static final bio aE = new bio(false);
    private static final bib aF = new bib(false, false);
    private static final bib aG = new bib(false, true);
-   private static final bhg aH = new bhg(aty.Y, 0);
+   private static final bhg aH = new bhg(Blocks.Y, 0);
    private int aI;
 
 
@@ -65,12 +65,12 @@ public class BiomeTaiga extends BiomeBase {
 
    public void a(World var1, Random var2, bgk var3, int var4, int var5, double var6) {
       if(this.aI == 1 || this.aI == 2) {
-         this.ak = aty.c.P();
-         this.al = aty.d.P();
+         this.ak = Blocks.c.P();
+         this.al = Blocks.d.P();
          if(var6 > 1.75D) {
-            this.ak = aty.d.P().a(BlockDirt.a, avd.b);
+            this.ak = Blocks.d.P().a(BlockDirt.a, avd.b);
          } else if(var6 > -0.95D) {
-            this.ak = aty.d.P().a(BlockDirt.a, avd.c);
+            this.ak = Blocks.d.P().a(BlockDirt.a, avd.c);
          }
       }
 

@@ -47,7 +47,7 @@ public class cm extends CommandAbstract {
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
                   var6.b(var3, true);
-                  if(var4 == aty.a) {
+                  if(var4 == Blocks.a) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
@@ -62,7 +62,7 @@ public class cm extends CommandAbstract {
                   ((vq)var13).l();
                }
 
-               var6.a(var3, aty.a.P(), var4 == aty.a?2:4);
+               var6.a(var3, Blocks.a.P(), var4 == Blocks.a?2:4);
             }
 
             IBlock var10 = var4.a(var5);

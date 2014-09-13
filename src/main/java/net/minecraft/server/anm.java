@@ -20,7 +20,7 @@ public class anm extends Item {
    }
 
    public float a(amj var1, Block var2) {
-      if(var2 == aty.G) {
+      if(var2 == Blocks.G) {
          return 15.0F;
       } else {
          Material var3 = var2.r();
@@ -55,7 +55,7 @@ public class anm extends Item {
    }
 
    public boolean b(Block var1) {
-      return var1 == aty.G;
+      return var1 == Blocks.G;
    }
 
    public int b() {

@@ -9,12 +9,12 @@ final class oh extends eg {
       World var3 = var1.i();
       Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
       if(var3.d(var4)) {
-         var3.a(var4, aty.ab.P());
+         var3.a(var4, Blocks.ab.P());
          if(var2.a(1, var3.s)) {
             var2.b = 0;
          }
-      } else if(var3.getData(var4).c() == aty.W) {
-         aty.W.d(var3, var4, aty.W.P().a(BlockTNT.a, Boolean.valueOf(true)));
+      } else if(var3.getData(var4).c() == Blocks.W) {
+         Blocks.W.d(var3, var4, Blocks.W.P().a(BlockTNT.a, Boolean.valueOf(true)));
          var3.g(var4);
       } else {
          this.b = false;

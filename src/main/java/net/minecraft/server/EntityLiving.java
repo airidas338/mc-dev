@@ -735,7 +735,7 @@ public abstract class EntityLiving extends Entity {
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
       Block var4 = this.o.getData(new Location(var1, var2, var3)).c();
-      return (var4 == aty.au || var4 == aty.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
+      return (var4 == Blocks.au || var4 == Blocks.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
 
    public boolean ai() {

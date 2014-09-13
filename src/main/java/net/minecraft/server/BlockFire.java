@@ -21,7 +21,7 @@ public class BlockFire extends Block {
       int var4 = var3.n();
       int var5 = var3.o();
       int var6 = var3.p();
-      if(!World.a(var2, var3.b()) && !aty.ab.e(var2, var3.b())) {
+      if(!World.a(var2, var3.b()) && !Blocks.ab.e(var2, var3.b())) {
          boolean var7 = (var4 + var5 + var6 & 1) == 1;
          boolean var8 = (var4 / 2 + var5 / 2 + var6 / 2 & 1) == 1;
          int var9 = 0;
@@ -42,41 +42,41 @@ public class BlockFire extends Block {
    }
 
    public static void j() {
-      aty.ab.a(aty.f, 5, 20);
-      aty.ab.a(aty.bL, 5, 20);
-      aty.ab.a(aty.bM, 5, 20);
-      aty.ab.a(aty.bo, 5, 20);
-      aty.ab.a(aty.bp, 5, 20);
-      aty.ab.a(aty.bq, 5, 20);
-      aty.ab.a(aty.br, 5, 20);
-      aty.ab.a(aty.bs, 5, 20);
-      aty.ab.a(aty.bt, 5, 20);
-      aty.ab.a(aty.aO, 5, 20);
-      aty.ab.a(aty.aP, 5, 20);
-      aty.ab.a(aty.aQ, 5, 20);
-      aty.ab.a(aty.aR, 5, 20);
-      aty.ab.a(aty.aS, 5, 20);
-      aty.ab.a(aty.aT, 5, 20);
-      aty.ab.a(aty.ad, 5, 20);
-      aty.ab.a(aty.bV, 5, 20);
-      aty.ab.a(aty.bU, 5, 20);
-      aty.ab.a(aty.bW, 5, 20);
-      aty.ab.a(aty.r, 5, 5);
-      aty.ab.a(aty.s, 5, 5);
-      aty.ab.a(aty.t, 30, 60);
-      aty.ab.a(aty.u, 30, 60);
-      aty.ab.a(aty.X, 30, 20);
-      aty.ab.a(aty.W, 15, 100);
-      aty.ab.a(aty.H, 60, 100);
-      aty.ab.a(aty.cF, 60, 100);
-      aty.ab.a(aty.N, 60, 100);
-      aty.ab.a(aty.O, 60, 100);
-      aty.ab.a(aty.I, 60, 100);
-      aty.ab.a(aty.L, 30, 60);
-      aty.ab.a(aty.bn, 15, 100);
-      aty.ab.a(aty.cA, 5, 5);
-      aty.ab.a(aty.cx, 60, 20);
-      aty.ab.a(aty.cy, 60, 20);
+      Blocks.ab.a(Blocks.f, 5, 20);
+      Blocks.ab.a(Blocks.bL, 5, 20);
+      Blocks.ab.a(Blocks.bM, 5, 20);
+      Blocks.ab.a(Blocks.bo, 5, 20);
+      Blocks.ab.a(Blocks.bp, 5, 20);
+      Blocks.ab.a(Blocks.bq, 5, 20);
+      Blocks.ab.a(Blocks.br, 5, 20);
+      Blocks.ab.a(Blocks.bs, 5, 20);
+      Blocks.ab.a(Blocks.bt, 5, 20);
+      Blocks.ab.a(Blocks.aO, 5, 20);
+      Blocks.ab.a(Blocks.aP, 5, 20);
+      Blocks.ab.a(Blocks.aQ, 5, 20);
+      Blocks.ab.a(Blocks.aR, 5, 20);
+      Blocks.ab.a(Blocks.aS, 5, 20);
+      Blocks.ab.a(Blocks.aT, 5, 20);
+      Blocks.ab.a(Blocks.ad, 5, 20);
+      Blocks.ab.a(Blocks.bV, 5, 20);
+      Blocks.ab.a(Blocks.bU, 5, 20);
+      Blocks.ab.a(Blocks.bW, 5, 20);
+      Blocks.ab.a(Blocks.r, 5, 5);
+      Blocks.ab.a(Blocks.s, 5, 5);
+      Blocks.ab.a(Blocks.t, 30, 60);
+      Blocks.ab.a(Blocks.u, 30, 60);
+      Blocks.ab.a(Blocks.X, 30, 20);
+      Blocks.ab.a(Blocks.W, 15, 100);
+      Blocks.ab.a(Blocks.H, 60, 100);
+      Blocks.ab.a(Blocks.cF, 60, 100);
+      Blocks.ab.a(Blocks.N, 60, 100);
+      Blocks.ab.a(Blocks.O, 60, 100);
+      Blocks.ab.a(Blocks.I, 60, 100);
+      Blocks.ab.a(Blocks.L, 30, 60);
+      Blocks.ab.a(Blocks.bn, 15, 100);
+      Blocks.ab.a(Blocks.cA, 5, 5);
+      Blocks.ab.a(Blocks.cx, 60, 20);
+      Blocks.ab.a(Blocks.cy, 60, 20);
    }
 
    public void a(Block var1, int var2, int var3) {
@@ -111,8 +111,8 @@ public class BlockFire extends Block {
          }
 
          Block var5 = var1.getData(var2.b()).c();
-         boolean var6 = var5 == aty.aV;
-         if(var1.t instanceof bgh && var5 == aty.h) {
+         boolean var6 = var5 == Blocks.aV;
+         if(var1.t instanceof bgh && var5 == Blocks.h) {
             var6 = true;
          }
 
@@ -222,8 +222,8 @@ public class BlockFire extends Block {
             var1.g(var2);
          }
 
-         if(var7.c() == aty.W) {
-            aty.W.d(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
+         if(var7.c() == Blocks.W) {
+            Blocks.W.d(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
          }
       }
 
@@ -280,7 +280,7 @@ public class BlockFire extends Block {
    }
 
    public void c(World var1, Location var2, IBlock var3) {
-      if(var1.t.q() > 0 || !aty.aY.d(var1, var2)) {
+      if(var1.t.q() > 0 || !Blocks.aY.d(var1, var2)) {
          if(!World.a((IBlockAccess)var1, var2.b()) && !this.e(var1, var2)) {
             var1.g(var2);
          } else {

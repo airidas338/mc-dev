@@ -10,7 +10,7 @@ public class bda extends bcm implements IUpdatePlayerListBox {
 
    public void c() {
       if(++this.h % 20 * 4 == 0) {
-         this.b.c(this.c, aty.bQ, 1, this.g);
+         this.b.c(this.c, Blocks.bQ, 1, this.g);
       }
 
       this.f = this.a;
@@ -67,12 +67,12 @@ public class bda extends bcm implements IUpdatePlayerListBox {
 
    public void b() {
       ++this.g;
-      this.b.c(this.c, aty.bQ, 1, this.g);
+      this.b.c(this.c, Blocks.bQ, 1, this.g);
    }
 
    public void d() {
       --this.g;
-      this.b.c(this.c, aty.bQ, 1, this.g);
+      this.b.c(this.c, Blocks.bQ, 1, this.g);
    }
 
    public boolean a(EntityHuman var1) {

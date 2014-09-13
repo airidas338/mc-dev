@@ -162,7 +162,7 @@ public final class SpawnerCreature {
                return false;
             } else {
                Block var5 = var1.getData(var4).c();
-               boolean var6 = var5 != aty.h && var5 != aty.cv;
+               boolean var6 = var5 != Blocks.h && var5 != Blocks.cv;
                return var6 && !var3.t() && !var3.r().d() && !var1.getData(var2.a()).c().t();
             }
          }

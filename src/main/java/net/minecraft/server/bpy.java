@@ -25,7 +25,7 @@ public class bpy extends bpu {
       if(this.i && var1.V()) {
          var2 = (int)var1.aQ().b;
 
-         for(Block var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == aty.i || var3 == aty.j; var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
+         for(Block var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == Blocks.i || var3 == Blocks.j; var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
             ++var2;
          }
 
@@ -133,8 +133,8 @@ public class bpy extends bpu {
                Location var16 = new Location(var13, var14, var15);
                Block var17 = var0.getData(var16).c();
                if(var17.r() != Material.AIR) {
-                  if(var17 != aty.bd && var17 != aty.cw) {
-                     if(var17 != aty.i && var17 != aty.j) {
+                  if(var17 != Blocks.bd && var17 != Blocks.cw) {
+                     if(var17 != Blocks.i && var17 != Blocks.j) {
                         if(!var10 && var17 instanceof BlockDoor && var17.r() == Material.WOOD) {
                            return 0;
                         }
@@ -158,7 +158,7 @@ public class bpy extends bpu {
                         return -3;
                      }
 
-                     if(var17 == aty.bd || var17 == aty.cw) {
+                     if(var17 == Blocks.bd || var17 == Blocks.cw) {
                         return -4;
                      }
 

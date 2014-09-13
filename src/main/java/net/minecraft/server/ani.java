@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class ani extends aju {
 
-   private final awq b;
-   private final awq c;
+   private final BlockStepAbstract b;
+   private final BlockStepAbstract c;
 
 
-   public ani(Block var1, awq var2, awq var3) {
+   public ani(Block var1, BlockStepAbstract var2, BlockStepAbstract var3) {
       super(var1);
       this.b = var2;
       this.c = var3;
@@ -33,7 +33,7 @@ public class ani extends aju {
          if(var10.c() == this.b) {
             bex var11 = this.b.l();
             Comparable var12 = var10.b(var11);
-            awr var13 = (awr)var10.b(awq.a);
+            awr var13 = (awr)var10.b(BlockStepAbstract.a);
             if((var5 == ej.b && var13 == awr.b || var5 == ej.a && var13 == awr.a) && var12 == var9) {
                IBlock var14 = this.c.P().a(var11, var12);
                if(var3.b(this.c.a(var3, var4, var14)) && var3.a(var4, var14, 3)) {

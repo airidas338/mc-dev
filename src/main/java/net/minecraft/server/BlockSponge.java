@@ -31,7 +31,7 @@ public class BlockSponge extends Block {
    protected void e(World var1, Location var2, IBlock var3) {
       if(!((Boolean)var3.b(a)).booleanValue() && this.d(var1, var2)) {
          var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
-         var1.b(2001, var2, Block.a((Block)aty.j));
+         var1.b(2001, var2, Block.a((Block)Blocks.j));
       }
 
    }
@@ -54,7 +54,7 @@ public class BlockSponge extends Block {
             ej var12 = var9[var11];
             Location var13 = var7.a(var12);
             if(var1.getData(var13).c().r() == Material.WATER) {
-               var1.a(var13, aty.a.P(), 2);
+               var1.a(var13, Blocks.a.P(), 2);
                var4.add(var13);
                ++var5;
                if(var8 < 6) {
@@ -72,7 +72,7 @@ public class BlockSponge extends Block {
 
       while(var14.hasNext()) {
          var7 = (Location)var14.next();
-         var1.c(var7, aty.a);
+         var1.c(var7, Blocks.a);
       }
 
       return var5 > 0;

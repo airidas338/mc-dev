@@ -11,8 +11,8 @@ public class bis extends WorldGenerator {
 
             for(int var6 = 0; var6 < var5; ++var6) {
                ej var7 = var4[var6];
-               if(aty.bn.a(var1, var3, var7)) {
-                  IBlock var8 = aty.bn.P().a(BlockVine.b, Boolean.valueOf(var7 == ej.c)).a(BlockVine.M, Boolean.valueOf(var7 == ej.f)).a(BlockVine.N, Boolean.valueOf(var7 == ej.d)).a(BlockVine.O, Boolean.valueOf(var7 == ej.e));
+               if(Blocks.bn.a(var1, var3, var7)) {
+                  IBlock var8 = Blocks.bn.P().a(BlockVine.b, Boolean.valueOf(var7 == ej.c)).a(BlockVine.M, Boolean.valueOf(var7 == ej.f)).a(BlockVine.N, Boolean.valueOf(var7 == ej.d)).a(BlockVine.O, Boolean.valueOf(var7 == ej.e));
                   var1.a(var3, var8, 2);
                   break;
                }

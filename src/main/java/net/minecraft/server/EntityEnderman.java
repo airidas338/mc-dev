@@ -65,7 +65,7 @@ public class EntityEnderman extends EntityMonster {
 
    private boolean c(EntityHuman var1) {
       amj var2 = var1.bg.b[3];
-      if(var2 != null && var2.b() == Item.a(aty.aU)) {
+      if(var2 != null && var2.b() == Item.a(Blocks.aU)) {
          return false;
       } else {
          ChunkCoordinates var3 = var1.d(1.0F).a();
@@ -289,19 +289,19 @@ public class EntityEnderman extends EntityMonster {
    }
 
    static {
-      bk.add(aty.c);
-      bk.add(aty.d);
-      bk.add(aty.m);
-      bk.add(aty.n);
-      bk.add(aty.N);
-      bk.add(aty.O);
-      bk.add(aty.P);
-      bk.add(aty.Q);
-      bk.add(aty.W);
-      bk.add(aty.aK);
-      bk.add(aty.aL);
-      bk.add(aty.aU);
-      bk.add(aty.bk);
-      bk.add(aty.bw);
+      bk.add(Blocks.c);
+      bk.add(Blocks.d);
+      bk.add(Blocks.m);
+      bk.add(Blocks.n);
+      bk.add(Blocks.N);
+      bk.add(Blocks.O);
+      bk.add(Blocks.P);
+      bk.add(Blocks.Q);
+      bk.add(Blocks.W);
+      bk.add(Blocks.aK);
+      bk.add(Blocks.aL);
+      bk.add(Blocks.aU);
+      bk.add(Blocks.bk);
+      bk.add(Blocks.bw);
    }
 }

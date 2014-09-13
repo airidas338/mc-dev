@@ -503,7 +503,7 @@ public abstract class Entity implements ICommandSender {
 				double var61 = this.s - var7;
 				double var63 = this.t - var9;
 				double var66 = this.u - var11;
-				if (var62 != aty.au) {
+				if (var62 != Blocks.au) {
 					var63 = 0.0D;
 				}
 
@@ -596,8 +596,8 @@ public abstract class Entity implements ICommandSender {
 
 	protected void a(Location var1, Block var2) {
 		StepSound var3 = var2.H;
-		if (this.o.getData(var1.a()).c() == aty.aH) {
-			var3 = aty.aH.H;
+		if (this.o.getData(var1.a()).c() == Blocks.aH) {
+			var3 = Blocks.aH.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		} else if (!var2.r().d()) {
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());

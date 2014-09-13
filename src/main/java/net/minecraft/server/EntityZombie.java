@@ -363,7 +363,7 @@ public class EntityZombie extends EntityMonster {
       if(this.p(4) == null) {
          Calendar var8 = this.o.Y();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.c(4, new amj(this.V.nextFloat() < 0.1F?aty.aZ:aty.aU));
+            this.c(4, new amj(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
             this.bh[4] = 0.0F;
          }
       }
@@ -444,7 +444,7 @@ public class EntityZombie extends EntityMonster {
             for(int var4 = (int)this.t - 4; var4 < (int)this.t + 4 && var2 < 14; ++var4) {
                for(int var5 = (int)this.u - 4; var5 < (int)this.u + 4 && var2 < 14; ++var5) {
                   Block var6 = this.o.getData(new Location(var3, var4, var5)).c();
-                  if(var6 == aty.bi || var6 == aty.C) {
+                  if(var6 == Blocks.bi || var6 == Blocks.C) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;
                      }

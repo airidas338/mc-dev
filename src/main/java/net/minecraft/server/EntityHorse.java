@@ -265,7 +265,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void cC() {
       if(!this.o.D && this.cu()) {
-         this.a(Item.a((Block)aty.ae), 1);
+         this.a(Item.a((Block)Blocks.ae), 1);
          this.o(false);
       }
    }
@@ -424,8 +424,8 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    protected void a(Location var1, Block var2) {
       StepSound var3 = var2.H;
-      if(this.o.getData(var1.a()).c() == aty.aH) {
-         var3 = aty.aH.H;
+      if(this.o.getData(var1.a()).c() == Blocks.aH) {
+         var3 = Blocks.aH.H;
       }
 
       if(!var2.r().d()) {
@@ -531,7 +531,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                   var7 = 1.0F;
                   var5 = 30;
                   var6 = 3;
-               } else if(Block.a(var2.b()) == aty.cx) {
+               } else if(Block.a(var2.b()) == Blocks.cx) {
                   var7 = 20.0F;
                   var5 = 180;
                } else if(var2.b() == Items.e) {
@@ -585,7 +585,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                return true;
             }
 
-            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)aty.ae)) {
+            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)Blocks.ae)) {
                this.o(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var3 = true;
@@ -679,7 +679,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             this.g(1.0F);
          }
 
-         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == aty.c) {
+         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == Blocks.c) {
             this.r(true);
          }
 
@@ -1176,7 +1176,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             return true;
          }
 
-         if(var2 != null && var2.b() == Item.a((Block)aty.ae) && !this.cu()) {
+         if(var2 != null && var2.b() == Item.a((Block)Blocks.ae) && !this.cu()) {
             this.o(true);
             this.cY();
             return true;

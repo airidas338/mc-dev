@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockTallPlant extends auc implements atz {
+public class BlockTallPlant extends BlockPlant implements atz {
 
    public static final bev a = bev.a("variant", avk.class);
    public static final bev b = bev.a("half", avj.class);
@@ -51,11 +51,11 @@ public class BlockTallPlant extends auc implements atz {
          Object var7 = var4?this:var1.getData(var5).c();
          Object var8 = var4?var1.getData(var6).c():this;
          if(var7 == this) {
-            var1.a(var5, aty.a.P(), 3);
+            var1.a(var5, Blocks.a.P(), 3);
          }
 
          if(var8 == this) {
-            var1.a(var6, aty.a.P(), 3);
+            var1.a(var6, Blocks.a.P(), 3);
             if(!var4) {
                this.b(var1, var6, var3, 0);
             }
@@ -124,7 +124,7 @@ public class BlockTallPlant extends auc implements atz {
             }
          }
       } else if(var4.by.d && var1.getData(var2.a()).c() == this) {
-         var1.a(var2.a(), aty.a.P(), 2);
+         var1.a(var2.a(), Blocks.a.P(), 2);
       }
 
       super.a(var1, var2, var3, var4);
@@ -137,7 +137,7 @@ public class BlockTallPlant extends auc implements atz {
       } else {
          var4.b(ty.H[Block.a((Block)this)]);
          int var6 = (var5 == avk.c?EnumFoliage.b:EnumFoliage.c).a();
-         a(var1, var2, new amj(aty.H, 2, var6));
+         a(var1, var2, new amj(Blocks.H, 2, var6));
          return true;
       }
    }

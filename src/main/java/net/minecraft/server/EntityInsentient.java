@@ -554,7 +554,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public static int c(amj var0) {
-      if(var0.b() != Item.a(aty.aU) && var0.b() != Items.bX) {
+      if(var0.b() != Item.a(Blocks.aU) && var0.b() != Items.bX) {
          if(var0.b() instanceof ItemArmor) {
             switch(((ItemArmor)var0.b()).b) {
             case 0:

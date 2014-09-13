@@ -11,27 +11,27 @@ public class bin extends WorldGenerator {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      if(var1.getData(var3.a()).c() != aty.b) {
+      if(var1.getData(var3.a()).c() != Blocks.b) {
          return false;
-      } else if(var1.getData(var3.b()).c() != aty.b) {
+      } else if(var1.getData(var3.b()).c() != Blocks.b) {
          return false;
-      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != aty.b) {
+      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != Blocks.b) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.getData(var3.e()).c() == aty.b) {
+         if(var1.getData(var3.e()).c() == Blocks.b) {
             ++var4;
          }
 
-         if(var1.getData(var3.f()).c() == aty.b) {
+         if(var1.getData(var3.f()).c() == Blocks.b) {
             ++var4;
          }
 
-         if(var1.getData(var3.c()).c() == aty.b) {
+         if(var1.getData(var3.c()).c() == Blocks.b) {
             ++var4;
          }
 
-         if(var1.getData(var3.d()).c() == aty.b) {
+         if(var1.getData(var3.d()).c() == Blocks.b) {
             ++var4;
          }
 

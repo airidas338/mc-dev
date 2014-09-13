@@ -162,7 +162,7 @@ public abstract class bms {
    }
 
    protected int a(Block var1, int var2) {
-      if(var1 == aty.av) {
+      if(var1 == Blocks.av) {
          if(this.m == ej.e || this.m == ej.f) {
             if(var2 == 1) {
                return 0;
@@ -188,8 +188,8 @@ public abstract class bms {
                return var2 + 3 & 3;
             }
          }
-      } else if(var1 != aty.aw && var1 != aty.ad && var1 != aty.bA && var1 != aty.bv && var1 != aty.bO) {
-         if(var1 == aty.au) {
+      } else if(var1 != Blocks.aw && var1 != Blocks.ad && var1 != Blocks.bA && var1 != Blocks.bv && var1 != Blocks.bO) {
+         if(var1 == Blocks.au) {
             if(this.m == ej.d) {
                if(var2 == ej.c.a()) {
                   return ej.d.a();
@@ -231,7 +231,7 @@ public abstract class bms {
                   return ej.d.a();
                }
             }
-         } else if(var1 == aty.aG) {
+         } else if(var1 == Blocks.aG) {
             if(this.m == ej.d) {
                if(var2 == 3) {
                   return 4;
@@ -273,8 +273,8 @@ public abstract class bms {
                   return 4;
                }
             }
-         } else if(var1 != aty.bR && !(var1 instanceof avb)) {
-            if(var1 == aty.J || var1 == aty.F || var1 == aty.ay || var1 == aty.z) {
+         } else if(var1 != Blocks.bR && !(var1 instanceof avb)) {
+            if(var1 == Blocks.J || var1 == Blocks.F || var1 == Blocks.ay || var1 == Blocks.z) {
                if(this.m == ej.d) {
                   if(var2 == ej.c.a() || var2 == ej.d.a()) {
                      return ej.a(var2).d().a();
@@ -409,14 +409,14 @@ public abstract class bms {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      return !var5.b((fd)(new Location(var6, var7, var8)))?aty.a.P():var1.getData(new Location(var6, var7, var8));
+      return !var5.b((fd)(new Location(var6, var7, var8)))?Blocks.a.P():var1.getData(new Location(var6, var7, var8));
    }
 
    protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       for(int var9 = var4; var9 <= var7; ++var9) {
          for(int var10 = var3; var10 <= var6; ++var10) {
             for(int var11 = var5; var11 <= var8; ++var11) {
-               this.a(var1, aty.a.P(), var10, var9, var11, var2);
+               this.a(var1, Blocks.a.P(), var10, var9, var11, var2);
             }
          }
       }
@@ -509,7 +509,7 @@ public abstract class bms {
       Location var6 = new Location(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((fd)var6)) {
          while(!var1.d(var6) && var6.o() < 255) {
-            var1.a(var6, aty.a.P(), 2);
+            var1.a(var6, Blocks.a.P(), 2);
             var6 = var6.a();
          }
 
@@ -531,9 +531,9 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var9) && var1.getData(var9).c() != aty.ae) {
-         IBlock var10 = aty.ae.P();
-         var1.a(var9, aty.ae.f(var1, var9, var10), 2);
+      if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.ae) {
+         IBlock var10 = Blocks.ae.P();
+         var1.a(var9, Blocks.ae.f(var1, var9, var10), 2);
          bcm var11 = var1.s(var9);
          if(var11 instanceof bcr) {
             StructurePieceTreaasure.a(var3, var7, (vq)((bcr)var11), var8);
@@ -547,8 +547,8 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, int var7, List var8, int var9) {
       Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var10) && var1.getData(var10).c() != aty.z) {
-         var1.a(var10, aty.z.a(this.a(aty.z, var7)), 2);
+      if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.z) {
+         var1.a(var10, Blocks.z.a(this.a(Blocks.z, var7)), 2);
          bcm var11 = var1.s(var10);
          if(var11 instanceof bcx) {
             StructurePieceTreaasure.a(var3, var8, (bcx)var11, var9);
@@ -563,7 +563,7 @@ public abstract class bms {
    protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, ej var7) {
       Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var8)) {
-         akt.a(var1, var8, var7.f(), aty.ao);
+         akt.a(var1, var8, var7.f(), Blocks.ao);
       }
 
    }

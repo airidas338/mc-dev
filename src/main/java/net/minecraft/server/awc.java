@@ -10,8 +10,8 @@ public enum awc {
 
    private awc(String var1, int var2) {}
 
-   public avy a() {
-      return this == a?aty.N:aty.O;
+   public BlockFlowers a() {
+      return this == a?Blocks.N:Blocks.O;
    }
 
 }

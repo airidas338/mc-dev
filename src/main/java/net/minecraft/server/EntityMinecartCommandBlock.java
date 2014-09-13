@@ -37,7 +37,7 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return aty.bX.P();
+      return Blocks.bX.P();
    }
 
    public aqf j() {

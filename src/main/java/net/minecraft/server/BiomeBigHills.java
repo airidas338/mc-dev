@@ -13,7 +13,7 @@ public class BiomeBigHills extends BiomeBase {
 
    protected BiomeBigHills(int var1, boolean var2) {
       super(var1);
-      this.aD = new bif(aty.be.P().a(BlockMonsterEggs.a, axu.a), 9);
+      this.aD = new bif(Blocks.be.P().a(BlockMonsterEggs.a, axu.a), 9);
       this.aE = new bio(false);
       this.aF = 0;
       this.aG = 1;
@@ -42,8 +42,8 @@ public class BiomeBigHills extends BiomeBase {
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
          Location var9 = var3.a(var6, var7, var8);
-         if(var1.getData(var9).c() == aty.b) {
-            var1.a(var9, aty.bP.P(), 2);
+         if(var1.getData(var9).c() == Blocks.b) {
+            var1.a(var9, Blocks.bP.P(), 2);
          }
       }
 
@@ -57,14 +57,14 @@ public class BiomeBigHills extends BiomeBase {
    }
 
    public void a(World var1, Random var2, bgk var3, int var4, int var5, double var6) {
-      this.ak = aty.c.P();
-      this.al = aty.d.P();
+      this.ak = Blocks.c.P();
+      this.al = Blocks.d.P();
       if((var6 < -1.0D || var6 > 2.0D) && this.aI == this.aH) {
-         this.ak = aty.n.P();
-         this.al = aty.n.P();
+         this.ak = Blocks.n.P();
+         this.al = Blocks.n.P();
       } else if(var6 > 1.0D && this.aI != this.aG) {
-         this.ak = aty.b.P();
-         this.al = aty.b.P();
+         this.ak = Blocks.b.P();
+         this.al = Blocks.b.P();
       }
 
       this.b(var1, var2, var3, var4, var5, var6);

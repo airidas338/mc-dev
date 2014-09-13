@@ -58,7 +58,7 @@ public class cf extends CommandAbstract {
          try {
             var6 = f(var1, var2[var16]);
          } catch (dk var15) {
-            if(Block.b(var2[var16]) != aty.a) {
+            if(Block.b(var2[var16]) != Blocks.a) {
                throw var15;
             }
 

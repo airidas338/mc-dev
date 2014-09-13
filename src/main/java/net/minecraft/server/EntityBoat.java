@@ -221,10 +221,10 @@ public class EntityBoat extends Entity {
                int var12 = MathHelper.c(this.t) + var25;
                Location var27 = new Location(var23, var12, var10);
                Block var14 = this.o.getData(var27).c();
-               if(var14 == aty.aH) {
+               if(var14 == Blocks.aH) {
                   this.o.g(var27);
                   this.D = false;
-               } else if(var14 == aty.bx) {
+               } else if(var14 == Blocks.bx) {
                   this.o.b(var27, true);
                   this.D = false;
                }
@@ -243,7 +243,7 @@ public class EntityBoat extends Entity {
                this.J();
 
                for(var22 = 0; var22 < 3; ++var22) {
-                  this.a(Item.a(aty.f), 1, 0.0F);
+                  this.a(Item.a(Blocks.f), 1, 0.0F);
                }
 
                for(var22 = 0; var22 < 2; ++var22) {
@@ -327,7 +327,7 @@ public class EntityBoat extends Entity {
 
                int var6;
                for(var6 = 0; var6 < 3; ++var6) {
-                  this.a(Item.a(aty.f), 1, 0.0F);
+                  this.a(Item.a(Blocks.f), 1, 0.0F);
                }
 
                for(var6 = 0; var6 < 2; ++var6) {

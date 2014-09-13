@@ -33,14 +33,14 @@ public class BlockRepeater extends ava {
       Integer var2 = (Integer)var1.b(b);
       Boolean var3 = (Boolean)var1.b(a);
       ej var4 = (ej)var1.b(N);
-      return aty.bc.P().a(N, var4).a(b, var2).a(a, var3);
+      return Blocks.bc.P().a(N, var4).a(b, var2).a(a, var3);
    }
 
    protected IBlock k(IBlock var1) {
       Integer var2 = (Integer)var1.b(b);
       Boolean var3 = (Boolean)var1.b(a);
       ej var4 = (ej)var1.b(N);
-      return aty.bb.P().a(N, var4).a(b, var2).a(a, var3);
+      return Blocks.bb.P().a(N, var4).a(b, var2).a(a, var3);
    }
 
    public Item a(IBlock var1, Random var2, int var3) {

@@ -15,20 +15,20 @@ public class BlockMycel extends Block {
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
       Block var4 = var2.getData(var3.a()).c();
-      return var1.a(a, Boolean.valueOf(var4 == aty.aJ || var4 == aty.aH));
+      return var1.a(a, Boolean.valueOf(var4 == Blocks.aJ || var4 == Blocks.aH));
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
       if(!var1.D) {
          if(var1.l(var2.a()) < 4 && var1.getData(var2.a()).c().n() > 2) {
-            var1.a(var2, aty.d.P().a(BlockDirt.a, avd.a));
+            var1.a(var2, Blocks.d.P().a(BlockDirt.a, avd.a));
          } else {
             if(var1.l(var2.a()) >= 9) {
                for(int var5 = 0; var5 < 4; ++var5) {
                   Location var6 = var2.a(var4.nextInt(3) - 1, var4.nextInt(5) - 3, var4.nextInt(3) - 1);
                   IBlock var7 = var1.getData(var6);
                   Block var8 = var1.getData(var6.a()).c();
-                  if(var7.c() == aty.d && var7.b(BlockDirt.a) == avd.a && var1.l(var6.a()) >= 4 && var8.n() <= 2) {
+                  if(var7.c() == Blocks.d && var7.b(BlockDirt.a) == avd.a && var1.l(var6.a()) >= 4 && var8.n() <= 2) {
                      var1.a(var6, this.P());
                   }
                }
@@ -39,7 +39,7 @@ public class BlockMycel extends Block {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return aty.d.a(aty.d.P().a(BlockDirt.a, avd.a), var2, var3);
+      return Blocks.d.a(Blocks.d.P().a(BlockDirt.a, avd.a), var2, var3);
    }
 
    public int c(IBlock var1) {

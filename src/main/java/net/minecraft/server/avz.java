@@ -4,10 +4,10 @@ import com.google.common.base.Predicate;
 class avz implements Predicate {
 
    // $FF: synthetic field
-   final avy a;
+   final BlockFlowers a;
 
 
-   avz(avy var1) {
+   avz(BlockFlowers var1) {
       this.a = var1;
    }
 

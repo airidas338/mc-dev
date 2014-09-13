@@ -7,7 +7,7 @@ public class EntityMushroomCow extends EntityCow {
    public EntityMushroomCow(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
-      this.bl = aty.bw;
+      this.bl = Blocks.bw;
    }
 
    public boolean a(EntityHuman var1) throws IOException {
@@ -39,7 +39,7 @@ public class EntityMushroomCow extends EntityCow {
             this.o.d((Entity)var3);
 
             for(int var4 = 0; var4 < 5; ++var4) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new amj(aty.Q))));
+               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new amj(Blocks.Q))));
             }
 
             var2.a(1, (EntityLiving)var1);

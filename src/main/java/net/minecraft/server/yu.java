@@ -128,7 +128,7 @@ public class yu extends PathfinderGoal {
    }
 
    private boolean a(Block var1) {
-      return var1 instanceof BlockStairs || var1 instanceof awq;
+      return var1 instanceof BlockStairs || var1 instanceof BlockStepAbstract;
    }
 
    public boolean f() {

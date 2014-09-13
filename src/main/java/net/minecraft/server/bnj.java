@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class bnj extends bnn {
 
-   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Item.a(aty.Z), 0, 3, 7, 5), new StructurePieceTreaasure(Item.a(aty.g), 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Item.a(Blocks.Z), 0, 3, 7, 5), new StructurePieceTreaasure(Item.a(Blocks.g), 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
    private boolean b;
 
 
@@ -42,41 +42,41 @@ public class bnj extends bnn {
          this.l.a(0, this.h - this.l.e + 6 - 1, 0);
       }
 
-      this.a(var1, var3, 0, 1, 0, 9, 4, 6, aty.a.P(), aty.a.P(), false);
-      this.a(var1, var3, 0, 0, 0, 9, 0, 6, aty.e.P(), aty.e.P(), false);
-      this.a(var1, var3, 0, 4, 0, 9, 4, 6, aty.e.P(), aty.e.P(), false);
-      this.a(var1, var3, 0, 5, 0, 9, 5, 6, aty.U.P(), aty.U.P(), false);
-      this.a(var1, var3, 1, 5, 1, 8, 5, 5, aty.a.P(), aty.a.P(), false);
-      this.a(var1, var3, 1, 1, 0, 2, 3, 0, aty.f.P(), aty.f.P(), false);
-      this.a(var1, var3, 0, 1, 0, 0, 4, 0, aty.r.P(), aty.r.P(), false);
-      this.a(var1, var3, 3, 1, 0, 3, 4, 0, aty.r.P(), aty.r.P(), false);
-      this.a(var1, var3, 0, 1, 6, 0, 4, 6, aty.r.P(), aty.r.P(), false);
-      this.a(var1, aty.f.P(), 3, 3, 1, var3);
-      this.a(var1, var3, 3, 1, 2, 3, 3, 2, aty.f.P(), aty.f.P(), false);
-      this.a(var1, var3, 4, 1, 3, 5, 3, 3, aty.f.P(), aty.f.P(), false);
-      this.a(var1, var3, 0, 1, 1, 0, 3, 5, aty.f.P(), aty.f.P(), false);
-      this.a(var1, var3, 1, 1, 6, 5, 3, 6, aty.f.P(), aty.f.P(), false);
-      this.a(var1, var3, 5, 1, 0, 5, 3, 0, aty.aO.P(), aty.aO.P(), false);
-      this.a(var1, var3, 9, 1, 0, 9, 3, 0, aty.aO.P(), aty.aO.P(), false);
-      this.a(var1, var3, 6, 1, 4, 9, 4, 6, aty.e.P(), aty.e.P(), false);
-      this.a(var1, aty.k.P(), 7, 1, 5, var3);
-      this.a(var1, aty.k.P(), 8, 1, 5, var3);
-      this.a(var1, aty.bi.P(), 9, 2, 5, var3);
-      this.a(var1, aty.bi.P(), 9, 2, 4, var3);
-      this.a(var1, var3, 7, 2, 4, 8, 2, 5, aty.a.P(), aty.a.P(), false);
-      this.a(var1, aty.e.P(), 6, 1, 3, var3);
-      this.a(var1, aty.al.P(), 6, 2, 3, var3);
-      this.a(var1, aty.al.P(), 6, 3, 3, var3);
-      this.a(var1, aty.T.P(), 8, 1, 1, var3);
-      this.a(var1, aty.bj.P(), 0, 2, 2, var3);
-      this.a(var1, aty.bj.P(), 0, 2, 4, var3);
-      this.a(var1, aty.bj.P(), 2, 2, 6, var3);
-      this.a(var1, aty.bj.P(), 4, 2, 6, var3);
-      this.a(var1, aty.aO.P(), 2, 1, 4, var3);
-      this.a(var1, aty.aB.P(), 2, 2, 4, var3);
-      this.a(var1, aty.f.P(), 1, 1, 5, var3);
-      this.a(var1, aty.ad.a(this.a(aty.ad, 3)), 2, 1, 5, var3);
-      this.a(var1, aty.ad.a(this.a(aty.ad, 1)), 1, 1, 4, var3);
+      this.a(var1, var3, 0, 1, 0, 9, 4, 6, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 0, 0, 9, 0, 6, Blocks.e.P(), Blocks.e.P(), false);
+      this.a(var1, var3, 0, 4, 0, 9, 4, 6, Blocks.e.P(), Blocks.e.P(), false);
+      this.a(var1, var3, 0, 5, 0, 9, 5, 6, Blocks.U.P(), Blocks.U.P(), false);
+      this.a(var1, var3, 1, 5, 1, 8, 5, 5, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.f.P(), Blocks.f.P(), false);
+      this.a(var1, var3, 0, 1, 0, 0, 4, 0, Blocks.r.P(), Blocks.r.P(), false);
+      this.a(var1, var3, 3, 1, 0, 3, 4, 0, Blocks.r.P(), Blocks.r.P(), false);
+      this.a(var1, var3, 0, 1, 6, 0, 4, 6, Blocks.r.P(), Blocks.r.P(), false);
+      this.a(var1, Blocks.f.P(), 3, 3, 1, var3);
+      this.a(var1, var3, 3, 1, 2, 3, 3, 2, Blocks.f.P(), Blocks.f.P(), false);
+      this.a(var1, var3, 4, 1, 3, 5, 3, 3, Blocks.f.P(), Blocks.f.P(), false);
+      this.a(var1, var3, 0, 1, 1, 0, 3, 5, Blocks.f.P(), Blocks.f.P(), false);
+      this.a(var1, var3, 1, 1, 6, 5, 3, 6, Blocks.f.P(), Blocks.f.P(), false);
+      this.a(var1, var3, 5, 1, 0, 5, 3, 0, Blocks.aO.P(), Blocks.aO.P(), false);
+      this.a(var1, var3, 9, 1, 0, 9, 3, 0, Blocks.aO.P(), Blocks.aO.P(), false);
+      this.a(var1, var3, 6, 1, 4, 9, 4, 6, Blocks.e.P(), Blocks.e.P(), false);
+      this.a(var1, Blocks.k.P(), 7, 1, 5, var3);
+      this.a(var1, Blocks.k.P(), 8, 1, 5, var3);
+      this.a(var1, Blocks.bi.P(), 9, 2, 5, var3);
+      this.a(var1, Blocks.bi.P(), 9, 2, 4, var3);
+      this.a(var1, var3, 7, 2, 4, 8, 2, 5, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, Blocks.e.P(), 6, 1, 3, var3);
+      this.a(var1, Blocks.al.P(), 6, 2, 3, var3);
+      this.a(var1, Blocks.al.P(), 6, 3, 3, var3);
+      this.a(var1, Blocks.T.P(), 8, 1, 1, var3);
+      this.a(var1, Blocks.bj.P(), 0, 2, 2, var3);
+      this.a(var1, Blocks.bj.P(), 0, 2, 4, var3);
+      this.a(var1, Blocks.bj.P(), 2, 2, 6, var3);
+      this.a(var1, Blocks.bj.P(), 4, 2, 6, var3);
+      this.a(var1, Blocks.aO.P(), 2, 1, 4, var3);
+      this.a(var1, Blocks.aB.P(), 2, 2, 4, var3);
+      this.a(var1, Blocks.f.P(), 1, 1, 5, var3);
+      this.a(var1, Blocks.ad.a(this.a(Blocks.ad, 3)), 2, 1, 5, var3);
+      this.a(var1, Blocks.ad.a(this.a(Blocks.ad, 1)), 1, 1, 4, var3);
       if(!this.b && var3.b((fd)(new Location(this.a(5, 5), this.d(1), this.b(5, 5))))) {
          this.b = true;
          this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
@@ -85,14 +85,14 @@ public class bnj extends bnn {
       int var4;
       for(var4 = 6; var4 <= 8; ++var4) {
          if(this.a(var1, var4, 0, -1, var3).c().r() == Material.AIR && this.a(var1, var4, -1, -1, var3).c().r() != Material.AIR) {
-            this.a(var1, aty.aw.a(this.a(aty.aw, 3)), var4, 0, -1, var3);
+            this.a(var1, Blocks.aw.a(this.a(Blocks.aw, 3)), var4, 0, -1, var3);
          }
       }
 
       for(var4 = 0; var4 < 7; ++var4) {
          for(int var5 = 0; var5 < 10; ++var5) {
             this.b(var1, var5, 6, var4, var3);
-            this.b(var1, aty.e.P(), var5, -1, var4, var3);
+            this.b(var1, Blocks.e.P(), var5, -1, var4, var3);
          }
       }
 

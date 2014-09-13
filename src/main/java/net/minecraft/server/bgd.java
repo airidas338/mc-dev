@@ -50,7 +50,7 @@ public abstract class bgd {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new Location(var1, 0, var2)) == aty.c;
+      return this.b.c(new Location(var1, 0, var2)) == Blocks.c;
    }
 
    public float a(long var1, float var3) {

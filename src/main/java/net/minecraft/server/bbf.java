@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class bbf extends awq {
+public abstract class bbf extends BlockStepAbstract {
 
    public static final bet b = bet.a("seamless");
    public static final bev M = bev.a("variant", bbg.class);
@@ -21,7 +21,7 @@ public abstract class bbf extends awq {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a((Block)aty.U);
+      return Item.a((Block)Blocks.U);
    }
 
    public String b(int var1) {

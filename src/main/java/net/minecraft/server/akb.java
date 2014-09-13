@@ -12,7 +12,7 @@ public class akb extends Item {
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
-      boolean var4 = this.a == aty.a;
+      boolean var4 = this.a == Blocks.a;
       MovingObjectPosition var5 = this.a(var2, var3, var4);
       if(var5 == null) {
          return var1;
@@ -42,7 +42,7 @@ public class akb extends Item {
                   return this.a(var1, var3, Items.ay);
                }
             } else {
-               if(this.a == aty.a) {
+               if(this.a == Blocks.a) {
                   return new amj(Items.aw);
                }
 
@@ -77,7 +77,7 @@ public class akb extends Item {
    }
 
    public boolean a(World var1, Location var2) {
-      if(this.a == aty.a) {
+      if(this.a == Blocks.a) {
          return false;
       } else {
          Material var3 = var1.getData(var2).c().r();
@@ -85,7 +85,7 @@ public class akb extends Item {
          if(!var1.d(var2) && !var4) {
             return false;
          } else {
-            if(var1.t.n() && this.a == aty.i) {
+            if(var1.t.n() && this.a == Blocks.i) {
                int var5 = var2.n();
                int var6 = var2.o();
                int var7 = var2.p();

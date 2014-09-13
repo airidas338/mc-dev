@@ -1011,7 +1011,7 @@ public abstract class EntityHuman extends EntityLiving {
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
       IBlock var4 = this.o.getData(this.bv);
-      if(this.bv != null && var4.c() == aty.C) {
+      if(this.bv != null && var4.c() == Blocks.C) {
          this.o.a(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
          Location var5 = BlockBed.a(this.o, this.bv, 0);
          if(var5 == null) {
@@ -1034,11 +1034,11 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    private boolean p() {
-      return this.o.getData(this.bv).c() == aty.C;
+      return this.o.getData(this.bv).c() == Blocks.C;
    }
 
    public static Location a(World var0, Location var1, boolean var2) {
-      if(var0.getData(var1).c() != aty.C) {
+      if(var0.getData(var1).c() != Blocks.C) {
          if(!var2) {
             return null;
          } else {

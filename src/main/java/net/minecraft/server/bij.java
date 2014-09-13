@@ -40,7 +40,7 @@ public class bij extends WorldGenTreeAbstract {
             return false;
          } else {
             Block var18 = var1.getData(var3.b()).c();
-            if((var18 == aty.c || var18 == aty.d) && var3.o() < 256 - var4 - 1) {
+            if((var18 == Blocks.c || var18 == Blocks.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                this.a(var1, var3.a(1, -1, 0));
                this.a(var1, var3.a(1, -1, 1));
@@ -65,10 +65,10 @@ public class bij extends WorldGenTreeAbstract {
                   Location var15 = new Location(var10, var14, var11);
                   Material var16 = var1.getData(var15).c().r();
                   if(var16 == Material.AIR || var16 == Material.LEAVES) {
-                     this.a(var1, var15, aty.s, ayx.f.a() - 4);
-                     this.a(var1, var15.f(), aty.s, ayx.f.a() - 4);
-                     this.a(var1, var15.d(), aty.s, ayx.f.a() - 4);
-                     this.a(var1, var15.f().d(), aty.s, ayx.f.a() - 4);
+                     this.a(var1, var15, Blocks.s, ayx.f.a() - 4);
+                     this.a(var1, var15.f(), Blocks.s, ayx.f.a() - 4);
+                     this.a(var1, var15.d(), Blocks.s, ayx.f.a() - 4);
+                     this.a(var1, var15.f().d(), Blocks.s, ayx.f.a() - 4);
                      var12 = var14;
                   }
                }
@@ -112,7 +112,7 @@ public class bij extends WorldGenTreeAbstract {
 
                         int var21;
                         for(var21 = 0; var21 < var22; ++var21) {
-                           this.a(var1, new Location(var3.n() + var13, var12 - var21 - 1, var3.p() + var14), aty.s, ayx.f.a() - 4);
+                           this.a(var1, new Location(var3.n() + var13, var12 - var21 - 1, var3.p() + var14), Blocks.s, ayx.f.a() - 4);
                         }
 
                         int var17;
@@ -146,7 +146,7 @@ public class bij extends WorldGenTreeAbstract {
    private void a(World var1, int var2, int var3, int var4) {
       Block var5 = var1.getData(new Location(var2, var3, var4)).c();
       if(var5.r() == Material.AIR) {
-         this.a(var1, new Location(var2, var3, var4), aty.u, 1);
+         this.a(var1, new Location(var2, var3, var4), Blocks.u, 1);
       }
 
    }

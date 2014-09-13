@@ -13,7 +13,7 @@ public class BlockStone extends Block {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return var1.b(a) == bbb.a?Item.a(aty.e):Item.a(aty.b);
+      return var1.b(a) == bbb.a?Item.a(Blocks.e):Item.a(Blocks.b);
    }
 
    public int a(IBlock var1) {

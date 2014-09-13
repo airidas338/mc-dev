@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockSapling extends auc implements atz {
+public class BlockSapling extends BlockPlant implements atz {
 
    public static final bev a = bev.a("type", ayx.class);
    public static final bew b = bew.a("stage", 0, 1);
@@ -99,7 +99,7 @@ public class BlockSapling extends auc implements atz {
       case 6:
       }
 
-      IBlock var9 = aty.a.P();
+      IBlock var9 = Blocks.a.P();
       if(var8) {
          var1.a(var2.a(var6, 0, var7), var9, 4);
          var1.a(var2.a(var6 + 1, 0, var7), var9, 4);

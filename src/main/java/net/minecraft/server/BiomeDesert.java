@@ -6,8 +6,8 @@ public class BiomeDesert extends BiomeBase {
    public BiomeDesert(int var1) {
       super(var1);
       this.au.clear();
-      this.ak = aty.m.P();
-      this.al = aty.m.P();
+      this.ak = Blocks.m.P();
+      this.al = Blocks.m.P();
       this.as.A = -999;
       this.as.D = 2;
       this.as.F = 50;

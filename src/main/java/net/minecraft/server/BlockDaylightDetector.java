@@ -52,11 +52,11 @@ public class BlockDaylightDetector extends atg {
             return true;
          } else {
             if(this.b) {
-               var1.a(var2, aty.cl.P().a(a, var3.b(a)), 4);
-               aty.cl.d(var1, var2);
+               var1.a(var2, Blocks.cl.P().a(a, var3.b(a)), 4);
+               Blocks.cl.d(var1, var2);
             } else {
-               var1.a(var2, aty.cm.P().a(a, var3.b(a)), 4);
-               aty.cm.d(var1, var2);
+               var1.a(var2, Blocks.cm.P().a(a, var3.b(a)), 4);
+               Blocks.cm.d(var1, var2);
             }
 
             return true;
@@ -67,7 +67,7 @@ public class BlockDaylightDetector extends atg {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a((Block)aty.cl);
+      return Item.a((Block)Blocks.cl);
    }
 
    public boolean d() {

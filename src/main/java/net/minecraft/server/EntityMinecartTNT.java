@@ -20,7 +20,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return aty.W.P();
+      return Blocks.W.P();
    }
 
    public void s_() throws IOException {
@@ -57,7 +57,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c()) {
-         this.a(new amj(aty.W, 1), 0.0F);
+         this.a(new amj(Blocks.W, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {

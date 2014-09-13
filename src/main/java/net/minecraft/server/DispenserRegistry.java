@@ -30,10 +30,10 @@ public class DispenserRegistry {
       BlockDispenser.M.a(Items.aw, new og());
       BlockDispenser.M.a(Items.d, new oh());
       BlockDispenser.M.a(Items.aW, new oi());
-      BlockDispenser.M.a(Item.a(aty.W), new oj());
+      BlockDispenser.M.a(Item.a(Blocks.W), new oj());
       BlockDispenser.M.a(Items.bX, new ok());
-      BlockDispenser.M.a(Item.a(aty.aU), new ol());
-      BlockDispenser.M.a(Item.a(aty.bX), new om());
+      BlockDispenser.M.a(Item.a(Blocks.aU), new ol());
+      BlockDispenser.M.a(Item.a(Blocks.bX), new om());
    }
 
    public static void c() {

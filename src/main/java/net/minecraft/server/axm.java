@@ -22,8 +22,8 @@ public abstract class axm extends baa {
          while(var6.hasNext()) {
             Location var7 = (Location)var6.next();
             IBlock var8 = var1.getData(var7);
-            if(var8.c().r() == Material.LEAVES && !((Boolean)var8.b(axg.b)).booleanValue()) {
-               var1.a(var7, var8.a(axg.b, Boolean.valueOf(true)), 4);
+            if(var8.c().r() == Material.LEAVES && !((Boolean)var8.b(BlockLeaves.b)).booleanValue()) {
+               var1.a(var7, var8.a(BlockLeaves.b, Boolean.valueOf(true)), 4);
             }
          }
 

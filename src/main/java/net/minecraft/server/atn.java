@@ -23,7 +23,7 @@ final class atn implements Runnable {
          }
 
          IBlock var4 = this.a.getData(var3);
-         if(var4.c() == aty.bY) {
+         if(var4.c() == Blocks.bY) {
             ((WorldServer)this.a).a((Runnable)(new ato(this, var3)));
          }
       }

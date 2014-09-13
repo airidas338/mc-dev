@@ -3,10 +3,10 @@ import java.util.Random;
 
 public class bhi extends WorldGenerator {
 
-   private auc a;
+   private BlockPlant a;
 
 
-   public bhi(auc var1) {
+   public bhi(BlockPlant var1) {
       this.a = var1;
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class bcf extends awq {
+public abstract class bcf extends BlockStepAbstract {
 
    public static final bev b = bev.a("variant", ayx.class);
 
@@ -18,7 +18,7 @@ public abstract class bcf extends awq {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a((Block)aty.bM);
+      return Item.a((Block)Blocks.bM);
    }
 
    public String b(int var1) {

@@ -12,7 +12,7 @@ public class BiomeIcePlains extends BiomeBase {
       super(var1);
       this.aD = var2;
       if(var2) {
-         this.ak = aty.aJ.P();
+         this.ak = Blocks.aJ.P();
       }
 
       this.au.clear();

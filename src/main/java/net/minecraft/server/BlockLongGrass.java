@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockLongGrass extends auc implements atz {
+public class BlockLongGrass extends BlockPlant implements atz {
 
    public static final bev a = bev.a("type", EnumFoliage.class);
 
@@ -32,7 +32,7 @@ public class BlockLongGrass extends auc implements atz {
    public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new amj(aty.H, 1, ((EnumFoliage)var4.b(a)).a()));
+         a(var1, var3, new amj(Blocks.H, 1, ((EnumFoliage)var4.b(a)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }
@@ -58,8 +58,8 @@ public class BlockLongGrass extends auc implements atz {
          var5 = avk.d;
       }
 
-      if(aty.cF.c(var1, var3)) {
-         aty.cF.a(var1, var3, var5, 2);
+      if(Blocks.cF.c(var1, var3)) {
+         Blocks.cF.a(var1, var3, var5, 2);
       }
 
    }

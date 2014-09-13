@@ -103,7 +103,7 @@ public abstract class ava extends avb {
          return var6;
       } else {
          IBlock var7 = var1.getData(var5);
-         return Math.max(var6, var7.c() == aty.af?((Integer)var7.b(BlockRedstoneWire.O)).intValue():0);
+         return Math.max(var6, var7.c() == Blocks.af?((Integer)var7.b(BlockRedstoneWire.O)).intValue():0);
       }
    }
 
@@ -117,7 +117,7 @@ public abstract class ava extends avb {
    protected int c(IBlockAccess var1, Location var2, ej var3) {
       IBlock var4 = var1.getData(var2);
       Block var5 = var4.c();
-      return this.c(var5)?(var5 == aty.af?((Integer)var4.b(BlockRedstoneWire.O)).intValue():var1.a(var2, var3)):0;
+      return this.c(var5)?(var5 == Blocks.af?((Integer)var4.b(BlockRedstoneWire.O)).intValue():var1.a(var2, var3)):0;
    }
 
    public boolean g() {
@@ -173,7 +173,7 @@ public abstract class ava extends avb {
    }
 
    public static boolean d(Block var0) {
-      return aty.bb.e(var0) || aty.cj.e(var0);
+      return Blocks.bb.e(var0) || Blocks.cj.e(var0);
    }
 
    public boolean e(Block var1) {

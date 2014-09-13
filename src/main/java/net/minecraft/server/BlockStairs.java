@@ -413,7 +413,7 @@ public class BlockStairs extends Block {
    }
 
    public void c(World var1, Location var2, IBlock var3) {
-      this.a(var1, var2, this.P, aty.a);
+      this.a(var1, var2, this.P, Blocks.a);
       this.O.c(var1, var2, this.P);
    }
 

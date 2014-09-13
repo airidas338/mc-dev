@@ -9,11 +9,11 @@ public class BlockOre extends Block {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return this == aty.q?Items.h:(this == aty.ag?Items.i:(this == aty.x?Items.aW:(this == aty.bP?Items.bO:(this == aty.co?Items.cg:Item.a((Block)this)))));
+      return this == Blocks.q?Items.h:(this == Blocks.ag?Items.i:(this == Blocks.x?Items.aW:(this == Blocks.bP?Items.bO:(this == Blocks.co?Items.cg:Item.a((Block)this)))));
    }
 
    public int a(Random var1) {
-      return this == aty.x?4 + var1.nextInt(5):1;
+      return this == Blocks.x?4 + var1.nextInt(5):1;
    }
 
    public int a(int var1, Random var2) {
@@ -33,15 +33,15 @@ public class BlockOre extends Block {
       super.a(var1, var2, var3, var4, var5);
       if(this.a(var3, var1.s, var5) != Item.a((Block)this)) {
          int var6 = 0;
-         if(this == aty.q) {
+         if(this == Blocks.q) {
             var6 = MathHelper.a(var1.s, 0, 2);
-         } else if(this == aty.ag) {
+         } else if(this == Blocks.ag) {
             var6 = MathHelper.a(var1.s, 3, 7);
-         } else if(this == aty.bP) {
+         } else if(this == Blocks.bP) {
             var6 = MathHelper.a(var1.s, 3, 7);
-         } else if(this == aty.x) {
+         } else if(this == Blocks.x) {
             var6 = MathHelper.a(var1.s, 2, 5);
-         } else if(this == aty.co) {
+         } else if(this == Blocks.co) {
             var6 = MathHelper.a(var1.s, 2, 5);
          }
 
@@ -55,6 +55,6 @@ public class BlockOre extends Block {
    }
 
    public int a(IBlock var1) {
-      return this == aty.x?akv.l.b():0;
+      return this == Blocks.x?akv.l.b():0;
    }
 }

@@ -74,7 +74,7 @@ public class EntityFallingBlock extends Entity {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.w *= -0.5D;
-               if(this.o.getData(var2).c() != aty.M) {
+               if(this.o.getData(var2).c() != Blocks.M) {
                   this.J();
                   if(!this.e && this.o.a(var1, var2, true, ej.b, (Entity)null, (amj)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
                      if(var1 instanceof avt) {
@@ -122,7 +122,7 @@ public class EntityFallingBlock extends Entity {
          int var4 = MathHelper.f(var1 - 1.0F);
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList(this.o.b((Entity)this, this.aQ()));
-            boolean var6 = var3 == aty.cf;
+            boolean var6 = var3 == Blocks.cf;
             DamageSource var7 = var6?DamageSource.n:DamageSource.o;
             Iterator var8 = var5.iterator();
 
@@ -146,7 +146,7 @@ public class EntityFallingBlock extends Entity {
    }
 
    protected void b(NBTTagCompound var1) {
-      Block var2 = this.d != null?this.d.c():aty.a;
+      Block var2 = this.d != null?this.d.c():Blocks.a;
       RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2);
       var1.a("Block", var3 == null?"":var3.toString());
       var1.a("Data", (byte)var2.c(this.d));
@@ -177,7 +177,7 @@ public class EntityFallingBlock extends Entity {
          this.f = var1.n("HurtEntities");
          this.h = var1.h("FallHurtAmount");
          this.g = var1.f("FallHurtMax");
-      } else if(var3 == aty.cf) {
+      } else if(var3 == Blocks.cf) {
          this.f = true;
       }
 
@@ -190,7 +190,7 @@ public class EntityFallingBlock extends Entity {
       }
 
       if(var3 == null || var3.r() == Material.AIR) {
-         this.d = aty.m.P();
+         this.d = Blocks.m.P();
       }
 
    }

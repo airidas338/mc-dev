@@ -8,7 +8,7 @@ final class ol extends eg {
    protected amj b(dz var1, amj var2) {
       World var3 = var1.i();
       Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
-      BlockPumpkin var5 = (BlockPumpkin)aty.aU;
+      BlockPumpkin var5 = (BlockPumpkin)Blocks.aU;
       if(var3.d(var4) && var5.d(var3, var4)) {
          if(!var3.D) {
             var3.a(var4, var5.P(), 3);

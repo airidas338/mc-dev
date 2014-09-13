@@ -7,7 +7,7 @@ public class bgk {
 
 
    public bgk() {
-      this.b = aty.a.P();
+      this.b = Blocks.a.P();
    }
 
    public IBlock a(int var1, int var2, int var3) {

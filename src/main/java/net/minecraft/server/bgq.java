@@ -52,11 +52,11 @@ public class bgq implements bfe {
       }
 
       if(this.d.b().containsKey("lake")) {
-         this.h = new bhy(aty.j);
+         this.h = new bhy(Blocks.j);
       }
 
       if(this.d.b().containsKey("lava_lake")) {
-         this.i = new bhy(aty.l);
+         this.i = new bhy(Blocks.l);
       }
 
       this.g = this.d.b().containsKey("dungeon");
@@ -68,7 +68,7 @@ public class bgq implements bfe {
 
          for(int var9 = var8.d(); var9 < var8.d() + var8.b(); ++var9) {
             IBlock var10 = var8.c();
-            if(var10.c() != aty.a) {
+            if(var10.c() != Blocks.a) {
                var11 = false;
                this.c[var9] = var10;
             }

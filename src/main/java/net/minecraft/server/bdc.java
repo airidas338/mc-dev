@@ -206,7 +206,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == Item.a(aty.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
+         if(this.h[0].b() == Item.a(Blocks.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
             this.h[1] = new amj(Items.ax);
          }
 
@@ -223,9 +223,9 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
          return 0;
       } else {
          Item var1 = var0.b();
-         if(var1 instanceof aju && Block.a(var1) != aty.a) {
+         if(var1 instanceof aju && Block.a(var1) != Blocks.a) {
             Block var2 = Block.a(var1);
-            if(var2 == aty.bM) {
+            if(var2 == Blocks.bM) {
                return 150;
             }
 
@@ -233,12 +233,12 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
                return 300;
             }
 
-            if(var2 == aty.cA) {
+            if(var2 == Blocks.cA) {
                return 16000;
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(aty.g)?100:(var1 == Items.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.g)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 

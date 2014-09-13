@@ -858,7 +858,7 @@ public class Block {
          } else {
             boolean var15 = false;
             boolean var16 = var14 instanceof BlockStairs;
-            boolean var17 = var14 instanceof awq;
+            boolean var17 = var14 instanceof BlockStepAbstract;
             boolean var18 = var14 == var6;
             boolean var19 = var14.t;
             boolean var20 = var14.s == 0;

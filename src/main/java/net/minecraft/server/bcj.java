@@ -33,13 +33,13 @@ public enum bcj {
    C("HALF_VERTICAL_MIRROR", 28, "half_vertical_right", "vhr", " ##", " ##", " ##"),
    D("HALF_HORIZONTAL_MIRROR", 29, "half_horizontal_bottom", "hhb", "   ", "###", "###"),
    E("BORDER", 30, "border", "bo", "###", "# #", "###"),
-   F("CURLY_BORDER", 31, "curly_border", "cbo", new amj(aty.bn)),
+   F("CURLY_BORDER", 31, "curly_border", "cbo", new amj(Blocks.bn)),
    G("CREEPER", 32, "creeper", "cre", new amj(Items.bX, 1, 4)),
    H("GRADIENT", 33, "gradient", "gra", "# #", " # ", " # "),
    I("GRADIENT_UP", 34, "gradient_up", "gru", " # ", " # ", "# #"),
-   J("BRICKS", 35, "bricks", "bri", new amj(aty.V)),
+   J("BRICKS", 35, "bricks", "bri", new amj(Blocks.V)),
    K("SKULL", 36, "skull", "sku", new amj(Items.bX, 1, 1)),
-   L("FLOWER", 37, "flower", "flo", new amj(aty.O, 1, EnumFlowerType.j.b())),
+   L("FLOWER", 37, "flower", "flo", new amj(Blocks.O, 1, EnumFlowerType.j.b())),
    M("MOJANG", 38, "mojang", "moj", new amj(Items.ao, 1, 1));
    private String N;
    private String O;

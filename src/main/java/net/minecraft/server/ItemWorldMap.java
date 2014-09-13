@@ -66,9 +66,9 @@ public class ItemWorldMap extends ake {
                            var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(aty.d.g(aty.d.P().a(BlockDirt.a, avd.a)), 10);
+                              var21.add(Blocks.d.g(Blocks.d.P().a(BlockDirt.a, avd.a)), 10);
                            } else {
-                              var21.add(aty.b.g(aty.b.P().a(BlockStone.a, bbb.a)), 100);
+                              var21.add(Blocks.b.g(Blocks.b.P().a(BlockStone.a, bbb.a)), 100);
                            }
 
                            var26 = 100.0D;
@@ -76,7 +76,7 @@ public class ItemWorldMap extends ake {
                            for(var28 = 0; var28 < var4; ++var28) {
                               for(int var29 = 0; var29 < var4; ++var29) {
                                  int var30 = var22.b(var28 + var23, var29 + var24) + 1;
-                                 IBlock var31 = aty.a.P();
+                                 IBlock var31 = Blocks.a.P();
                                  if(var30 > 1) {
                                     do {
                                        --var30;

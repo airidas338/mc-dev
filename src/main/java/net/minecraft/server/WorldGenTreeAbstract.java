@@ -8,14 +8,14 @@ public abstract class WorldGenTreeAbstract extends WorldGenerator {
    }
 
    protected boolean a(Block var1) {
-      return var1.r() == Material.AIR || var1.r() == Material.LEAVES || var1 == aty.c || var1 == aty.d || var1 == aty.r || var1 == aty.s || var1 == aty.g || var1 == aty.bn;
+      return var1.r() == Material.AIR || var1.r() == Material.LEAVES || var1 == Blocks.c || var1 == Blocks.d || var1 == Blocks.r || var1 == Blocks.s || var1 == Blocks.g || var1 == Blocks.bn;
    }
 
    public void a(World var1, Random var2, Location var3) {}
 
    protected void a(World var1, Location var2) {
-      if(var1.getData(var2).c() != aty.d) {
-         this.a(var1, var2, aty.d.P());
+      if(var1.getData(var2).c() != Blocks.d) {
+         this.a(var1, var2, Blocks.d.P());
       }
 
    }

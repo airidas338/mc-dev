@@ -121,7 +121,7 @@ public class BlockSkull extends atg {
             for(var6 = 0; var6 < var4.c(); ++var6) {
                for(int var12 = 0; var12 < var4.b(); ++var12) {
                   bei var8 = var5.a(var6, var12, 0);
-                  var1.a(var8.d(), aty.a.P(), 2);
+                  var1.a(var8.d(), Blocks.a.P(), 2);
                }
             }
 
@@ -148,7 +148,7 @@ public class BlockSkull extends atg {
             for(var16 = 0; var16 < var4.c(); ++var16) {
                for(int var17 = 0; var17 < var4.b(); ++var17) {
                   bei var11 = var5.a(var16, var17, 0);
-                  var1.b(var11.d(), aty.a);
+                  var1.b(var11.d(), Blocks.a);
                }
             }
 
@@ -176,7 +176,7 @@ public class BlockSkull extends atg {
 
    protected bek j() {
       if(this.N == null) {
-         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(aty.aW))).a('~', bei.a(beq.a(aty.a))).b();
+         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('~', bei.a(beq.a(Blocks.a))).b();
       }
 
       return this.N;
@@ -184,7 +184,7 @@ public class BlockSkull extends atg {
 
    protected bek l() {
       if(this.O == null) {
-         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(aty.aW))).a('^', M).a('~', bei.a(beq.a(aty.a))).b();
+         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('^', M).a('~', bei.a(beq.a(Blocks.a))).b();
       }
 
       return this.O;

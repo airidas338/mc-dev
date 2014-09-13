@@ -16,7 +16,7 @@ public class BlockFenceGate extends avb {
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
       el var4 = ((ej)var1.b(N)).k();
-      if(var4 == el.c && (var2.getData(var3.e()).c() == aty.bZ || var2.getData(var3.f()).c() == aty.bZ) || var4 == el.a && (var2.getData(var3.c()).c() == aty.bZ || var2.getData(var3.d()).c() == aty.bZ)) {
+      if(var4 == el.c && (var2.getData(var3.e()).c() == Blocks.bZ || var2.getData(var3.f()).c() == Blocks.bZ) || var4 == el.a && (var2.getData(var3.c()).c() == Blocks.bZ || var2.getData(var3.d()).c() == Blocks.bZ)) {
          var1 = var1.a(M, Boolean.valueOf(true));
       }
 

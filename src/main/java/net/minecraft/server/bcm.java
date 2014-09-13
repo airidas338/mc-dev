@@ -94,7 +94,7 @@ public abstract class bcm {
          IBlock var1 = this.b.getData(this.c);
          this.h = var1.c().c(var1);
          this.b.b(this.c, this);
-         if(this.w() != aty.a) {
+         if(this.w() != Blocks.a) {
             this.b.e(this.c, this.w());
          }
       }

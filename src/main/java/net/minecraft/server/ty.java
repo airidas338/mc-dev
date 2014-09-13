@@ -154,20 +154,20 @@ public class ty {
    }
 
    private static void a(tq[] var0) {
-      a(var0, aty.j, aty.i);
-      a(var0, aty.l, aty.k);
-      a(var0, aty.aZ, aty.aU);
-      a(var0, aty.am, aty.al);
-      a(var0, aty.aD, aty.aC);
-      a(var0, aty.bc, aty.bb);
-      a(var0, aty.ck, aty.cj);
-      a(var0, aty.aF, aty.aE);
-      a(var0, aty.bK, aty.bJ);
-      a(var0, aty.T, aty.U);
-      a(var0, aty.bL, aty.bM);
-      a(var0, aty.cO, aty.cP);
-      a(var0, aty.c, aty.d);
-      a(var0, aty.ak, aty.d);
+      a(var0, Blocks.j, Blocks.i);
+      a(var0, Blocks.l, Blocks.k);
+      a(var0, Blocks.aZ, Blocks.aU);
+      a(var0, Blocks.am, Blocks.al);
+      a(var0, Blocks.aD, Blocks.aC);
+      a(var0, Blocks.bc, Blocks.bb);
+      a(var0, Blocks.ck, Blocks.cj);
+      a(var0, Blocks.aF, Blocks.aE);
+      a(var0, Blocks.bK, Blocks.bJ);
+      a(var0, Blocks.T, Blocks.U);
+      a(var0, Blocks.bL, Blocks.bM);
+      a(var0, Blocks.cO, Blocks.cP);
+      a(var0, Blocks.c, Blocks.d);
+      a(var0, Blocks.ak, Blocks.d);
    }
 
    private static void a(tq[] var0, Block var1, Block var2) {

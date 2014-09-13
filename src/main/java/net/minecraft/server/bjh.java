@@ -107,25 +107,25 @@ public class bjh extends bms {
          return false;
       } else {
          if(this.b) {
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.b + 3 - 1, this.l.f, aty.a.P(), aty.a.P(), false);
-            this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.b + 3 - 1, this.l.f - 1, aty.a.P(), aty.a.P(), false);
-            this.a(var1, var3, this.l.a + 1, this.l.e - 2, this.l.c, this.l.d - 1, this.l.e, this.l.f, aty.a.P(), aty.a.P(), false);
-            this.a(var1, var3, this.l.a, this.l.e - 2, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, aty.a.P(), aty.a.P(), false);
-            this.a(var1, var3, this.l.a + 1, this.l.b + 3, this.l.c + 1, this.l.d - 1, this.l.b + 3, this.l.f - 1, aty.a.P(), aty.a.P(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.b + 3 - 1, this.l.f, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.b + 3 - 1, this.l.f - 1, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.e - 2, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, this.l.a, this.l.e - 2, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.b + 3, this.l.c + 1, this.l.d - 1, this.l.b + 3, this.l.f - 1, Blocks.a.P(), Blocks.a.P(), false);
          } else {
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.e, this.l.f, aty.a.P(), aty.a.P(), false);
-            this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, aty.a.P(), aty.a.P(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.a.P(), Blocks.a.P(), false);
          }
 
-         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, aty.f.P(), aty.a.P(), false);
-         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, aty.f.P(), aty.a.P(), false);
-         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, aty.f.P(), aty.a.P(), false);
-         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, aty.f.P(), aty.a.P(), false);
+         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, Blocks.f.P(), Blocks.a.P(), false);
+         this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, Blocks.f.P(), Blocks.a.P(), false);
+         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, Blocks.f.P(), Blocks.a.P(), false);
+         this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, Blocks.f.P(), Blocks.a.P(), false);
 
          for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
             for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
                if(this.a(var1, var4, this.l.b - 1, var5, var3).c().r() == Material.AIR) {
-                  this.a(var1, aty.f.P(), var4, this.l.b - 1, var5, var3);
+                  this.a(var1, Blocks.f.P(), var4, this.l.b - 1, var5, var3);
                }
             }
          }

@@ -101,7 +101,7 @@ public class bgs extends bgt {
                      for(int var44 = var38 + 1; !var58 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
                            IBlock var45 = var5.a(var42, var44, var43);
-                           if(var45.c() == aty.i || var45.c() == aty.j) {
+                           if(var45.c() == Blocks.i || var45.c() == Blocks.j) {
                               var58 = true;
                            }
 
@@ -125,21 +125,21 @@ public class bgs extends bgt {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var31;
                               if(var50 > -0.7D && var60 * var60 + var50 * var50 + var46 * var46 < 1.0D) {
                                  IBlock var52 = var5.a(var42, var49, var59);
-                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), aty.a.P());
-                                 if(var52.c() == aty.c || var52.c() == aty.bw) {
+                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.a.P());
+                                 if(var52.c() == Blocks.c || var52.c() == Blocks.bw) {
                                     var48 = true;
                                  }
 
                                  if(this.a(var52, var53)) {
                                     if(var49 - 1 < 10) {
-                                       var5.a(var42, var49, var59, aty.l.P());
+                                       var5.a(var42, var49, var59, Blocks.l.P());
                                     } else {
-                                       var5.a(var42, var49, var59, aty.a.P());
-                                       if(var53.c() == aty.m) {
-                                          var5.a(var42, var49 + 1, var59, var53.b(BlockSand.a) == bac.b?aty.cM.P():aty.A.P());
+                                       var5.a(var42, var49, var59, Blocks.a.P());
+                                       if(var53.c() == Blocks.m) {
+                                          var5.a(var42, var49 + 1, var59, var53.b(BlockSand.a) == bac.b?Blocks.cM.P():Blocks.A.P());
                                        }
 
-                                       if(var48 && var5.a(var42, var49 - 1, var59).c() == aty.d) {
+                                       if(var48 && var5.a(var42, var49 - 1, var59).c() == Blocks.d) {
                                           var5.a(var42, var49 - 1, var59, this.c.b(new Location(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
                                        }
                                     }
@@ -161,7 +161,7 @@ public class bgs extends bgt {
    }
 
    protected boolean a(IBlock var1, IBlock var2) {
-      return var1.c() == aty.b?true:(var1.c() == aty.d?true:(var1.c() == aty.c?true:(var1.c() == aty.cz?true:(var1.c() == aty.cu?true:(var1.c() == aty.A?true:(var1.c() == aty.cM?true:(var1.c() == aty.bw?true:(var1.c() == aty.aH?true:(var1.c() == aty.m || var1.c() == aty.n) && var2.c().r() != Material.WATER))))))));
+      return var1.c() == Blocks.b?true:(var1.c() == Blocks.d?true:(var1.c() == Blocks.c?true:(var1.c() == Blocks.cz?true:(var1.c() == Blocks.cu?true:(var1.c() == Blocks.A?true:(var1.c() == Blocks.cM?true:(var1.c() == Blocks.bw?true:(var1.c() == Blocks.aH?true:(var1.c() == Blocks.m || var1.c() == Blocks.n) && var2.c().r() != Material.WATER))))))));
    }
 
    protected void a(World var1, int var2, int var3, int var4, int var5, bgk var6) {

@@ -36,11 +36,11 @@ public class bgr implements bfe {
 
 
    public bgr(World var1, boolean var2, long var3) {
-      this.w = new bif(aty.co.P(), 14, bep.a(aty.aV));
-      this.x = new bhu(aty.k, true);
-      this.y = new bhu(aty.k, false);
-      this.z = new bhi(aty.P);
-      this.A = new bhi(aty.Q);
+      this.w = new bif(Blocks.co.P(), 14, bep.a(Blocks.aV));
+      this.x = new bhu(Blocks.k, true);
+      this.y = new bhu(Blocks.k, false);
+      this.z = new bhi(Blocks.P);
+      this.A = new bhi(Blocks.Q);
       this.B = new bjl();
       this.C = new bgu();
       this.h = var1;
@@ -91,11 +91,11 @@ public class bgr implements bfe {
                      for(int var48 = 0; var48 < 4; ++var48) {
                         IBlock var49 = null;
                         if(var11 * 8 + var30 < var5) {
-                           var49 = aty.l.P();
+                           var49 = Blocks.l.P();
                         }
 
                         if(var44 > 0.0D) {
-                           var49 = aty.aV.P();
+                           var49 = Blocks.aV.P();
                         }
 
                         int var50 = var41 + var9 * 4;
@@ -133,34 +133,34 @@ public class bgr implements bfe {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            IBlock var13 = aty.aV.P();
-            IBlock var14 = aty.aV.P();
+            IBlock var13 = Blocks.aV.P();
+            IBlock var14 = Blocks.aV.P();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlock var16 = var3.a(var8, var15, var7);
                   if(var16.c() != null && var16.c().r() != Material.AIR) {
-                     if(var16.c() == aty.aV) {
+                     if(var16.c() == Blocks.aV) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
                               var13 = null;
-                              var14 = aty.aV.P();
+                              var14 = Blocks.aV.P();
                            } else if(var15 >= var4 - 4 && var15 <= var4 + 1) {
-                              var13 = aty.aV.P();
-                              var14 = aty.aV.P();
+                              var13 = Blocks.aV.P();
+                              var14 = Blocks.aV.P();
                               if(var10) {
-                                 var13 = aty.n.P();
-                                 var14 = aty.aV.P();
+                                 var13 = Blocks.n.P();
+                                 var14 = Blocks.aV.P();
                               }
 
                               if(var9) {
-                                 var13 = aty.aW.P();
-                                 var14 = aty.aW.P();
+                                 var13 = Blocks.aW.P();
+                                 var14 = Blocks.aW.P();
                               }
                            }
 
                            if(var15 < var4 && (var13 == null || var13.c().r() == Material.AIR)) {
-                              var13 = aty.l.P();
+                              var13 = Blocks.l.P();
                            }
 
                            var12 = var11;
@@ -178,7 +178,7 @@ public class bgr implements bfe {
                      var12 = -1;
                   }
                } else {
-                  var3.a(var8, var15, var7, aty.h.P());
+                  var3.a(var8, var15, var7, Blocks.h.P());
                }
             }
          }
@@ -351,7 +351,7 @@ public class bgr implements bfe {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.getData(var2.b()).c() == aty.by) {
+         if(this.B.a(this.h, var2) && this.h.getData(var2.b()).c() == Blocks.by) {
             return this.B.b();
          }
       }

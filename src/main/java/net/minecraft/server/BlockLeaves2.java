@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.common.base.Predicate;
 
-public class BlockLeaves2 extends axg {
+public class BlockLeaves2 extends BlockLeaves {
 
    public static final bev P = bev.a("variant", ayx.class, (Predicate)(new ayh()));
 

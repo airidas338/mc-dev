@@ -331,7 +331,7 @@ public class bfh {
    }
 
    private Block f(int var1, int var2, int var3) {
-      Block var4 = aty.a;
+      Block var4 = Blocks.a;
       if(var2 >= 0 && var2 >> 4 < this.d.length) {
          bfm var5 = this.d[var2 >> 4];
          if(var5 != null) {
@@ -371,14 +371,14 @@ public class bfh {
       if(this.i.G() == WorldType.DEBUG) {
          IBlock var7 = null;
          if(var1.o() == 60) {
-            var7 = aty.cv.P();
+            var7 = Blocks.cv.P();
          }
 
          if(var1.o() == 70) {
             var7 = bgp.b(var1.n(), var1.p());
          }
 
-         return var7 == null?aty.a.P():var7;
+         return var7 == null?Blocks.a.P():var7;
       } else {
          try {
             if(var1.o() >= 0 && var1.o() >> 4 < this.d.length) {
@@ -391,7 +391,7 @@ public class bfh {
                }
             }
 
-            return aty.a.P();
+            return Blocks.a.P();
          } catch (Throwable var6) {
             CrashReport var3 = CrashReport.a(var6, "Getting block state");
             CrashReportSystemDetails var4 = var3.a("Block being got");
@@ -433,7 +433,7 @@ public class bfh {
          bfm var11 = this.d[var4 >> 4];
          boolean var12 = false;
          if(var11 == null) {
-            if(var9 == aty.a) {
+            if(var9 == Blocks.a) {
                return null;
             }
 

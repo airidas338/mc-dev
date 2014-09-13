@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockCrops extends auc implements atz {
+public class BlockCrops extends BlockPlant implements atz {
 
    public static final bew a = bew.a("age", 0, 7);
 
@@ -18,7 +18,7 @@ public class BlockCrops extends auc implements atz {
    }
 
    protected boolean c(Block var1) {
-      return var1 == aty.ak;
+      return var1 == Blocks.ak;
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
@@ -52,7 +52,7 @@ public class BlockCrops extends auc implements atz {
          for(int var6 = -1; var6 <= 1; ++var6) {
             float var7 = 0.0F;
             IBlock var8 = var1.getData(var4.a(var5, 0, var6));
-            if(var8.c() == aty.ak) {
+            if(var8.c() == Blocks.ak) {
                var7 = 1.0F;
                if(((Integer)var8.b(BlockSoil.a)).intValue() > 0) {
                   var7 = 3.0F;

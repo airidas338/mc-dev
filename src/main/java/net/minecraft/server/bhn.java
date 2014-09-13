@@ -5,16 +5,16 @@ import java.util.Random;
 
 public class bhn extends WorldGenerator {
 
-   private static final beq a = beq.a((Block)aty.m).a(BlockSand.a, Predicates.equalTo(bac.a));
+   private static final beq a = beq.a((Block)Blocks.m).a(BlockSand.a, Predicates.equalTo(bac.a));
    private final IBlock b;
    private final IBlock c;
    private final IBlock d;
 
 
    public bhn() {
-      this.b = aty.U.P().a(bbf.M, bbg.b).a(awq.a, awr.b);
-      this.c = aty.A.P();
-      this.d = aty.i.P();
+      this.b = Blocks.U.P().a(bbf.M, bbg.b).a(BlockStepAbstract.a, awr.b);
+      this.c = Blocks.A.P();
+      this.d = Blocks.i.P();
    }
 
    public boolean generate(World var1, Random var2, Location var3) {

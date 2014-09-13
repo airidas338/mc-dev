@@ -6,7 +6,7 @@ public class aon {
 
 
    public aon() {
-      this.a = new Object[][]{{aty.R, new amj(Items.k, 9)}, {aty.S, new amj(Items.j, 9)}, {aty.ah, new amj(Items.i, 9)}, {aty.bT, new amj(Items.bO, 9)}, {aty.y, new amj(Items.aW, 9, akv.l.b())}, {aty.cn, new amj(Items.aC, 9)}, {aty.cA, new amj(Items.h, 9, 0)}, {aty.cx, new amj(Items.O, 9)}, {aty.cE, new amj(Items.aM, 9)}};
+      this.a = new Object[][]{{Blocks.R, new amj(Items.k, 9)}, {Blocks.S, new amj(Items.j, 9)}, {Blocks.ah, new amj(Items.i, 9)}, {Blocks.bT, new amj(Items.bO, 9)}, {Blocks.y, new amj(Items.aW, 9, akv.l.b())}, {Blocks.cn, new amj(Items.aC, 9)}, {Blocks.cA, new amj(Items.h, 9, 0)}, {Blocks.cx, new amj(Items.O, 9)}, {Blocks.cE, new amj(Items.aM, 9)}};
    }
 
    public void a(aop var1) {

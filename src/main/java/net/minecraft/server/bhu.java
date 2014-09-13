@@ -13,29 +13,29 @@ public class bhu extends WorldGenerator {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      if(var1.getData(var3.a()).c() != aty.aV) {
+      if(var1.getData(var3.a()).c() != Blocks.aV) {
          return false;
-      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != aty.aV) {
+      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != Blocks.aV) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.getData(var3.e()).c() == aty.aV) {
+         if(var1.getData(var3.e()).c() == Blocks.aV) {
             ++var4;
          }
 
-         if(var1.getData(var3.f()).c() == aty.aV) {
+         if(var1.getData(var3.f()).c() == Blocks.aV) {
             ++var4;
          }
 
-         if(var1.getData(var3.c()).c() == aty.aV) {
+         if(var1.getData(var3.c()).c() == Blocks.aV) {
             ++var4;
          }
 
-         if(var1.getData(var3.d()).c() == aty.aV) {
+         if(var1.getData(var3.d()).c() == Blocks.aV) {
             ++var4;
          }
 
-         if(var1.getData(var3.b()).c() == aty.aV) {
+         if(var1.getData(var3.b()).c() == Blocks.aV) {
             ++var4;
          }
 

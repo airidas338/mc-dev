@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class amu extends aks {
 
-   private static final Set c = Sets.newHashSet(new Block[]{aty.cs, aty.q, aty.e, aty.E, aty.ah, aty.ag, aty.T, aty.D, aty.R, aty.o, aty.aI, aty.S, aty.p, aty.y, aty.x, aty.aD, aty.Y, aty.aV, aty.cB, aty.av, aty.aC, aty.A, aty.cM, aty.b, aty.U});
+   private static final Set c = Sets.newHashSet(new Block[]{Blocks.cs, Blocks.q, Blocks.e, Blocks.E, Blocks.ah, Blocks.ag, Blocks.T, Blocks.D, Blocks.R, Blocks.o, Blocks.aI, Blocks.S, Blocks.p, Blocks.y, Blocks.x, Blocks.aD, Blocks.Y, Blocks.aV, Blocks.cB, Blocks.av, Blocks.aC, Blocks.A, Blocks.cM, Blocks.b, Blocks.U});
 
 
    protected amu(ami var1) {
@@ -12,7 +12,7 @@ public class amu extends aks {
    }
 
    public boolean b(Block var1) {
-      return var1 == aty.Z?this.b.d() == 3:(var1 != aty.ah && var1 != aty.ag?(var1 != aty.bP && var1 != aty.bT?(var1 != aty.R && var1 != aty.o?(var1 != aty.S && var1 != aty.p?(var1 != aty.y && var1 != aty.x?(var1 != aty.aC && var1 != aty.aD?(var1.r() == Material.STONE?true:(var1.r() == Material.ORE?true:var1.r() == Material.HEAVY)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
+      return var1 == Blocks.Z?this.b.d() == 3:(var1 != Blocks.ah && var1 != Blocks.ag?(var1 != Blocks.bP && var1 != Blocks.bT?(var1 != Blocks.R && var1 != Blocks.o?(var1 != Blocks.S && var1 != Blocks.p?(var1 != Blocks.y && var1 != Blocks.x?(var1 != Blocks.aC && var1 != Blocks.aD?(var1.r() == Material.STONE?true:(var1.r() == Material.ORE?true:var1.r() == Material.HEAVY)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
    }
 
    public float a(amj var1, Block var2) {

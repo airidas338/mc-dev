@@ -104,7 +104,7 @@ public class EntityItemFrame extends EntityHanging {
       this.H().b(8, var1);
       this.H().i(8);
       if(var2 && this.a != null) {
-         this.o.e(this.a, aty.a);
+         this.o.e(this.a, Blocks.a);
       }
 
    }
@@ -120,7 +120,7 @@ public class EntityItemFrame extends EntityHanging {
    private void a(int var1, boolean var2) {
       this.H().b(9, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
-         this.o.e(this.a, aty.a);
+         this.o.e(this.a, Blocks.a);
       }
 
    }

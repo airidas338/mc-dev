@@ -42,7 +42,7 @@ public class EntityItem extends Entity {
       this.e = 5;
       this.a = (float)(Math.random() * 3.141592653589793D * 2.0D);
       this.a(0.25F, 0.25F);
-      this.a(new amj(aty.a, 0));
+      this.a(new amj(Blocks.a, 0));
    }
 
    protected void h() {
@@ -237,11 +237,11 @@ public class EntityItem extends Entity {
          amj var2 = this.l();
          int var3 = var2.b;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.d_())) && var1.bg.a(var2)) {
-            if(var2.b() == Item.a(aty.r)) {
+            if(var2.b() == Item.a(Blocks.r)) {
                var1.b((tq)tl.g);
             }
 
-            if(var2.b() == Item.a(aty.s)) {
+            if(var2.b() == Item.a(Blocks.s)) {
                var1.b((tq)tl.g);
             }
 
@@ -300,7 +300,7 @@ public class EntityItem extends Entity {
             b.error("Item entity " + this.F() + " has no item?!");
          }
 
-         return new amj(aty.b);
+         return new amj(Blocks.b);
       } else {
          return var1;
       }

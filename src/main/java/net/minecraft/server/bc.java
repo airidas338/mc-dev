@@ -46,7 +46,7 @@ public class bc extends CommandAbstract {
                         Location var16 = var15.a((fd)var11);
                         boolean var17 = false;
                         IBlock var18 = var9.getData(var15);
-                        if(!var10 || var18.c() != aty.a) {
+                        if(!var10 || var18.c() != Blocks.a) {
                            if(var18 == var9.getData(var16)) {
                               bcm var19 = var9.s(var15);
                               bcm var20 = var9.s(var16);

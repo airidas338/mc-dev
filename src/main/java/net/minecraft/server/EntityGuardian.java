@@ -304,7 +304,7 @@ public class EntityGuardian extends EntityMonster {
       }
 
       if(var1 && this.cl()) {
-         this.a(new amj(aty.v, 1, 1), 1.0F);
+         this.a(new amj(Blocks.v, 1, 1), 1.0F);
       }
 
    }

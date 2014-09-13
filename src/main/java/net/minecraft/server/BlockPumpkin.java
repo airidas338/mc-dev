@@ -32,7 +32,7 @@ public class BlockPumpkin extends avb {
       if((var3 = this.l().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.l().b(); ++var4) {
             bei var5 = var3.a(0, var4, 0);
-            var1.a(var5.d(), aty.a.P(), 2);
+            var1.a(var5.d(), Blocks.a.P(), 2);
          }
 
          EntitySnowman var9 = new EntitySnowman(var1);
@@ -46,12 +46,12 @@ public class BlockPumpkin extends avb {
 
          for(var6 = 0; var6 < this.l().b(); ++var6) {
             bei var7 = var3.a(0, var6, 0);
-            var1.b(var7.d(), aty.a);
+            var1.b(var7.d(), Blocks.a);
          }
       } else if((var3 = this.T().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.T().c(); ++var4) {
             for(int var11 = 0; var11 < this.T().b(); ++var11) {
-               var1.a(var3.a(var4, var11, 0).d(), aty.a.P(), 2);
+               var1.a(var3.a(var4, var11, 0).d(), Blocks.a.P(), 2);
             }
          }
 
@@ -68,7 +68,7 @@ public class BlockPumpkin extends avb {
          for(var6 = 0; var6 < this.T().c(); ++var6) {
             for(int var14 = 0; var14 < this.T().b(); ++var14) {
                bei var8 = var3.a(var6, var14, 0);
-               var1.b(var8.d(), aty.a);
+               var1.b(var8.d(), Blocks.a);
             }
          }
       }
@@ -97,7 +97,7 @@ public class BlockPumpkin extends avb {
 
    protected bek j() {
       if(this.a == null) {
-         this.a = ben.a().a(new String[]{" ", "#", "#"}).a('#', bei.a(beq.a(aty.aJ))).b();
+         this.a = ben.a().a(new String[]{" ", "#", "#"}).a('#', bei.a(beq.a(Blocks.aJ))).b();
       }
 
       return this.a;
@@ -105,7 +105,7 @@ public class BlockPumpkin extends avb {
 
    protected bek l() {
       if(this.b == null) {
-         this.b = ben.a().a(new String[]{"^", "#", "#"}).a('^', bei.a(beq.a(aty.aU))).a('#', bei.a(beq.a(aty.aJ))).b();
+         this.b = ben.a().a(new String[]{"^", "#", "#"}).a('^', bei.a(beq.a(Blocks.aU))).a('#', bei.a(beq.a(Blocks.aJ))).b();
       }
 
       return this.b;
@@ -113,7 +113,7 @@ public class BlockPumpkin extends avb {
 
    protected bek S() {
       if(this.M == null) {
-         this.M = ben.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', bei.a(beq.a(aty.S))).a('~', bei.a(beq.a(aty.a))).b();
+         this.M = ben.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.a))).b();
       }
 
       return this.M;
@@ -121,7 +121,7 @@ public class BlockPumpkin extends avb {
 
    protected bek T() {
       if(this.O == null) {
-         this.O = ben.a().a(new String[]{"~^~", "###", "~#~"}).a('^', bei.a(beq.a(aty.aU))).a('#', bei.a(beq.a(aty.S))).a('~', bei.a(beq.a(aty.a))).b();
+         this.O = ben.a().a(new String[]{"~^~", "###", "~#~"}).a('^', bei.a(beq.a(Blocks.aU))).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.a))).b();
       }
 
       return this.O;

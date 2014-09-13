@@ -17,11 +17,11 @@ public class amy extends Item {
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       IBlock var9 = var3.getData(var4);
-      if(var9.c() == aty.aN && !((Boolean)var9.b(BlockJukebox.a)).booleanValue()) {
+      if(var9.c() == Blocks.aN && !((Boolean)var9.b(BlockJukebox.a)).booleanValue()) {
          if(var3.D) {
             return true;
          } else {
-            ((BlockJukebox)aty.aN).a(var3, var4, var9, var1);
+            ((BlockJukebox)Blocks.aN).a(var3, var4, var9, var1);
             var3.a((EntityHuman)null, 1005, var4, Item.b((Item)this));
             --var1.b;
             return true;

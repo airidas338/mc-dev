@@ -8,7 +8,7 @@ public class bhw extends WorldGenerator {
 
 
    public bhw(int var1) {
-      this.a = aty.cB;
+      this.a = Blocks.cB;
       this.b = var1;
    }
 
@@ -17,7 +17,7 @@ public class bhw extends WorldGenerator {
          var3 = var3.b();
       }
 
-      if(var1.getData(var3).c() != aty.aJ) {
+      if(var1.getData(var3).c() != Blocks.aJ) {
          return false;
       } else {
          int var4 = var2.nextInt(this.b - 2) + 2;
@@ -31,7 +31,7 @@ public class bhw extends WorldGenerator {
                   for(int var10 = var3.o() - var5; var10 <= var3.o() + var5; ++var10) {
                      Location var11 = new Location(var6, var10, var7);
                      Block var12 = var1.getData(var11).c();
-                     if(var12 == aty.d || var12 == aty.aJ || var12 == aty.aI) {
+                     if(var12 == Blocks.d || var12 == Blocks.aJ || var12 == Blocks.aI) {
                         var1.a(var11, this.a.P(), 2);
                      }
                   }

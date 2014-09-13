@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockDeadBush extends auc {
+public class BlockDeadBush extends BlockPlant {
 
    protected BlockDeadBush() {
       super(Material.REPLACAEBLE_PLAN);
@@ -10,7 +10,7 @@ public class BlockDeadBush extends auc {
    }
 
    protected boolean c(Block var1) {
-      return var1 == aty.m || var1 == aty.cz || var1 == aty.cu || var1 == aty.d;
+      return var1 == Blocks.m || var1 == Blocks.cz || var1 == Blocks.cu || var1 == Blocks.d;
    }
 
    public boolean f(World var1, Location var2) {
@@ -24,7 +24,7 @@ public class BlockDeadBush extends auc {
    public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new amj(aty.I, 1, 0));
+         a(var1, var3, new amj(Blocks.I, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }

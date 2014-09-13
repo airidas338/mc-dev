@@ -16,7 +16,7 @@ public class ale extends Item {
          } else {
             if(var3.getData(var4).c().r() == Material.AIR) {
                var3.a((double)var4.n() + 0.5D, (double)var4.o() + 0.5D, (double)var4.p() + 0.5D, "item.fireCharge.use", 1.0F, (g.nextFloat() - g.nextFloat()) * 0.2F + 1.0F);
-               var3.a(var4, aty.ab.P());
+               var3.a(var4, Blocks.ab.P());
             }
 
             if(!var2.by.d) {

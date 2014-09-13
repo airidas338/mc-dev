@@ -21,7 +21,7 @@ public class bfg extends bfh {
    public void b() {}
 
    public Block a(Location var1) {
-      return aty.a;
+      return Blocks.a;
    }
 
    public int b(Location var1) {

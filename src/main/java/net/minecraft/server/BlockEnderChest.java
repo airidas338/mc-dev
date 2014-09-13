@@ -28,7 +28,7 @@ public class BlockEnderChest extends atg {
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return Item.a(aty.Z);
+      return Item.a(Blocks.Z);
    }
 
    public int a(Random var1) {

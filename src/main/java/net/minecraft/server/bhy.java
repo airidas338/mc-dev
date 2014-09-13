@@ -71,7 +71,7 @@ public class bhy extends WorldGenerator {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.a(var3.a(var6, var8, var30), var8 >= 4?aty.a.P():this.a.P(), 2);
+                     var1.a(var3.a(var6, var8, var30), var8 >= 4?Blocks.a.P():this.a.P(), 2);
                   }
                }
             }
@@ -82,12 +82,12 @@ public class bhy extends WorldGenerator {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      Location var32 = var3.a(var6, var8 - 1, var30);
-                     if(var1.getData(var32).c() == aty.d && var1.b(EnumSkyBlock.SKY, var3.a(var6, var8, var30)) > 0) {
+                     if(var1.getData(var32).c() == Blocks.d && var1.b(EnumSkyBlock.SKY, var3.a(var6, var8, var30)) > 0) {
                         BiomeBase var33 = var1.b(var32);
-                        if(var33.ak.c() == aty.bw) {
-                           var1.a(var32, aty.bw.P(), 2);
+                        if(var33.ak.c() == Blocks.bw) {
+                           var1.a(var32, Blocks.bw.P(), 2);
                         } else {
-                           var1.a(var32, aty.c.P(), 2);
+                           var1.a(var32, Blocks.c.P(), 2);
                         }
                      }
                   }
@@ -101,7 +101,7 @@ public class bhy extends WorldGenerator {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                      if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.getData(var3.a(var6, var8, var30)).c().r().a()) {
-                        var1.a(var3.a(var6, var8, var30), aty.b.P(), 2);
+                        var1.a(var3.a(var6, var8, var30), Blocks.b.P(), 2);
                      }
                   }
                }
@@ -113,7 +113,7 @@ public class bhy extends WorldGenerator {
                for(var30 = 0; var30 < 16; ++var30) {
                   byte var34 = 4;
                   if(var1.v(var3.a(var6, var34, var30))) {
-                     var1.a(var3.a(var6, var34, var30), aty.aI.P(), 2);
+                     var1.a(var3.a(var6, var34, var30), Blocks.aI.P(), 2);
                   }
                }
             }

@@ -42,7 +42,7 @@ public class bdi extends bcm {
             var4 = 4;
          }
 
-         var1.c(var2, aty.B, var4, this.a);
+         var1.c(var2, Blocks.B, var4, this.a);
       }
    }
 }

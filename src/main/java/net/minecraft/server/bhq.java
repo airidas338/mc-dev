@@ -3,15 +3,15 @@ import java.util.Random;
 
 public class bhq extends WorldGenerator {
 
-   private avy a;
+   private BlockFlowers a;
    private IBlock b;
 
 
-   public bhq(avy var1, EnumFlowerType var2) {
+   public bhq(BlockFlowers var1, EnumFlowerType var2) {
       this.a(var1, var2);
    }
 
-   public void a(avy var1, EnumFlowerType var2) {
+   public void a(BlockFlowers var1, EnumFlowerType var2) {
       this.a = var1;
       this.b = var1.P().a(var1.l(), var2);
    }

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class bje {
 
-   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.aC, 0, 4, 9, 5), new StructurePieceTreaasure(Items.aW, akv.l.b(), 4, 9, 5), new StructurePieceTreaasure(Items.i, 0, 1, 2, 3), new StructurePieceTreaasure(Items.h, 0, 3, 8, 10), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 1), new StructurePieceTreaasure(Item.a(aty.av), 0, 4, 8, 1), new StructurePieceTreaasure(Items.bh, 0, 2, 4, 10), new StructurePieceTreaasure(Items.bg, 0, 2, 4, 10), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.aC, 0, 4, 9, 5), new StructurePieceTreaasure(Items.aW, akv.l.b(), 4, 9, 5), new StructurePieceTreaasure(Items.i, 0, 1, 2, 3), new StructurePieceTreaasure(Items.h, 0, 3, 8, 10), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 1), new StructurePieceTreaasure(Item.a(Blocks.av), 0, 4, 8, 1), new StructurePieceTreaasure(Items.bh, 0, 2, 4, 10), new StructurePieceTreaasure(Items.bg, 0, 2, 4, 10), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1)});
 
 
    public static void a() {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class BlockWaterLily extends auc {
+public class BlockWaterLily extends BlockPlant {
 
    protected BlockWaterLily() {
       float var1 = 0.5F;
@@ -22,7 +22,7 @@ public class BlockWaterLily extends auc {
    }
 
    protected boolean c(Block var1) {
-      return var1 == aty.j;
+      return var1 == Blocks.j;
    }
 
    public boolean f(World var1, Location var2, IBlock var3) {

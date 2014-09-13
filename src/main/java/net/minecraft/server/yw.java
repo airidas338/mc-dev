@@ -5,7 +5,7 @@ import com.google.common.base.Predicates;
 
 public class yw extends PathfinderGoal {
 
-   private static final Predicate b = beq.a((Block)aty.H).a(BlockLongGrass.a, Predicates.equalTo(EnumFoliage.b));
+   private static final Predicate b = beq.a((Block)Blocks.H).a(BlockLongGrass.a, Predicates.equalTo(EnumFoliage.b));
    private EntityInsentient c;
    private World d;
    int a;
@@ -22,7 +22,7 @@ public class yw extends PathfinderGoal {
          return false;
       } else {
          Location var1 = new Location(this.c.s, this.c.t, this.c.u);
-         return b.apply(this.d.getData(var1))?true:this.d.getData(var1.b()).c() == aty.c;
+         return b.apply(this.d.getData(var1))?true:this.d.getData(var1.b()).c() == Blocks.c;
       }
    }
 
@@ -56,10 +56,10 @@ public class yw extends PathfinderGoal {
             this.c.v();
          } else {
             Location var2 = var1.b();
-            if(this.d.getData(var2).c() == aty.c) {
+            if(this.d.getData(var2).c() == Blocks.c) {
                if(this.d.Q().b("mobGriefing")) {
-                  this.d.b(2001, var2, Block.a((Block)aty.c));
-                  this.d.a(var2, aty.d.P(), 2);
+                  this.d.b(2001, var2, Block.a((Block)Blocks.c));
+                  this.d.a(var2, Blocks.d.P(), 2);
                }
 
                this.c.v();

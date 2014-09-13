@@ -17,7 +17,7 @@ class ato implements Runnable {
       bcm var1 = this.b.a.s(this.a);
       if(var1 instanceof bck) {
          ((bck)var1).m();
-         this.b.a.c(this.a, aty.bY, 1, 0);
+         this.b.a.c(this.a, Blocks.bY, 1, 0);
       }
 
    }

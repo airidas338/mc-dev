@@ -7,7 +7,7 @@ public class WorldGenGrass extends WorldGenerator {
 
 
    public WorldGenGrass(EnumFoliage var1) {
-      this.a = aty.H.P().a(BlockLongGrass.a, var1);
+      this.a = Blocks.H.P().a(BlockLongGrass.a, var1);
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
@@ -18,7 +18,7 @@ public class WorldGenGrass extends WorldGenerator {
 
       for(int var5 = 0; var5 < 128; ++var5) {
          Location var6 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var6) && aty.H.f(var1, var6, this.a)) {
+         if(var1.d(var6) && Blocks.H.f(var1, var6, this.a)) {
             var1.a(var6, this.a, 2);
          }
       }

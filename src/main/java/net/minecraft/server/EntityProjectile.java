@@ -140,7 +140,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       }
 
       if(var3 != null) {
-         if(var3.a == brv.b && this.o.getData(var3.a()).c() == aty.aY) {
+         if(var3.a == brv.b && this.o.getData(var3.a()).c() == Blocks.aY) {
             this.aq();
          } else {
             this.a(var3);

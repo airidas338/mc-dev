@@ -27,7 +27,7 @@ public class WorldGenBonusChest extends WorldGenerator {
          for(int var5 = 0; var5 < 4; ++var5) {
             Location var6 = var3.a(var2.nextInt(4) - var2.nextInt(4), var2.nextInt(3) - var2.nextInt(3), var2.nextInt(4) - var2.nextInt(4));
             if(var1.d(var6) && World.a((IBlockAccess)var1, var6.b())) {
-               var1.a(var6, aty.ae.P(), 2);
+               var1.a(var6, Blocks.ae.P(), 2);
                bcm var7 = var1.s(var6);
                if(var7 instanceof bcr) {
                   StructurePieceTreaasure.a(var2, this.a, (vq)((bcr)var7), this.b);
@@ -38,19 +38,19 @@ public class WorldGenBonusChest extends WorldGenerator {
                Location var10 = var6.c();
                Location var11 = var6.d();
                if(var1.d(var9) && World.a((IBlockAccess)var1, var9.b())) {
-                  var1.a(var9, aty.aa.P(), 2);
+                  var1.a(var9, Blocks.aa.P(), 2);
                }
 
                if(var1.d(var8) && World.a((IBlockAccess)var1, var8.b())) {
-                  var1.a(var8, aty.aa.P(), 2);
+                  var1.a(var8, Blocks.aa.P(), 2);
                }
 
                if(var1.d(var10) && World.a((IBlockAccess)var1, var10.b())) {
-                  var1.a(var10, aty.aa.P(), 2);
+                  var1.a(var10, Blocks.aa.P(), 2);
                }
 
                if(var1.d(var11) && World.a((IBlockAccess)var1, var11.b())) {
-                  var1.a(var11, aty.aa.P(), 2);
+                  var1.a(var11, Blocks.aa.P(), 2);
                }
 
                return true;

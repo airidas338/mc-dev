@@ -191,7 +191,7 @@ public class BlockDoor extends Block {
    }
 
    private Item j() {
-      return this == aty.aA?Items.aB:(this == aty.ap?Items.ar:(this == aty.aq?Items.as:(this == aty.ar?Items.at:(this == aty.as?Items.au:(this == aty.at?Items.av:Items.aq)))));
+      return this == Blocks.aA?Items.aB:(this == Blocks.ap?Items.ar:(this == Blocks.aq?Items.as:(this == Blocks.ar?Items.at:(this == Blocks.as?Items.au:(this == Blocks.at?Items.av:Items.aq)))));
    }
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {

@@ -45,7 +45,7 @@ class aif extends ajk {
 
       this.c.a = 0;
       IBlock var5 = this.a.getData(this.b);
-      if(!var1.by.d && !this.a.D && var5.c() == aty.cf && var1.bb().nextFloat() < 0.12F) {
+      if(!var1.by.d && !this.a.D && var5.c() == Blocks.cf && var1.bb().nextFloat() < 0.12F) {
          int var4 = ((Integer)var5.b(BlockAnvil.b)).intValue();
          ++var4;
          if(var4 > 2) {

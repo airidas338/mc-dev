@@ -33,7 +33,7 @@ public class BlockSoil extends Block {
          if(var5 > 0) {
             var1.a(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
          } else if(!this.d(var1, var2)) {
-            var1.a(var2, aty.d.P());
+            var1.a(var2, Blocks.d.P());
          }
       } else if(var5 < 7) {
          var1.a(var2, var3.a(a, Integer.valueOf(7)), 2);
@@ -48,7 +48,7 @@ public class BlockSoil extends Block {
                return;
             }
 
-            var1.a(var2, aty.d.P());
+            var1.a(var2, Blocks.d.P());
          }
 
          super.a(var1, var2, var3, var4);
@@ -78,13 +78,13 @@ public class BlockSoil extends Block {
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       super.a(var1, var2, var3, var4);
       if(var1.getData(var2.a()).c().r().a()) {
-         var1.a(var2, aty.d.P());
+         var1.a(var2, Blocks.d.P());
       }
 
    }
 
    public Item a(IBlock var1, Random var2, int var3) {
-      return aty.d.a(aty.d.P().a(BlockDirt.a, avd.a), var2, var3);
+      return Blocks.d.a(Blocks.d.P().a(BlockDirt.a, avd.a), var2, var3);
    }
 
    public IBlock a(int var1) {

@@ -49,7 +49,7 @@ public class ajw extends Item {
          } else {
             if(var24.a == brv.b) {
                Location var34 = var24.a();
-               if(var2.getData(var34).c() == aty.aH) {
+               if(var2.getData(var34).c() == Blocks.aH) {
                   var34 = var34.b();
                }
 

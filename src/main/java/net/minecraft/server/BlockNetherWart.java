@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockNetherWart extends auc {
+public class BlockNetherWart extends BlockPlant {
 
    public static final bew a = bew.a("age", 0, 3);
 
@@ -15,7 +15,7 @@ public class BlockNetherWart extends auc {
    }
 
    protected boolean c(Block var1) {
-      return var1 == aty.aW;
+      return var1 == Blocks.aW;
    }
 
    public boolean f(World var1, Location var2, IBlock var3) {

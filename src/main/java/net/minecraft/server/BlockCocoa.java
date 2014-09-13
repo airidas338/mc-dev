@@ -27,7 +27,7 @@ public class BlockCocoa extends avb implements atz {
    public boolean e(World var1, Location var2, IBlock var3) {
       var2 = var2.a((ej)var3.b(N));
       IBlock var4 = var1.getData(var2);
-      return var4.c() == aty.r && var4.b(BlockWood.a) == ayx.d;
+      return var4.c() == Blocks.r && var4.b(BlockWood.a) == ayx.d;
    }
 
    public boolean d() {
@@ -87,7 +87,7 @@ public class BlockCocoa extends avb implements atz {
    }
 
    private void f(World var1, Location var2, IBlock var3) {
-      var1.a(var2, aty.a.P(), 3);
+      var1.a(var2, Blocks.a.P(), 3);
       this.b(var1, var2, var3, 0);
    }
 

@@ -79,10 +79,10 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
          Location var8 = new Location(var2, var7, var4);
          IBlock var9 = this.b.getData(var8);
          float[] var10;
-         if(var9.c() == aty.cG) {
+         if(var9.c() == Blocks.cG) {
             var10 = EntitySheep.a((akv)var9.b(BlockStainedGlass.a));
          } else {
-            if(var9.c() != aty.cH) {
+            if(var9.c() != Blocks.cH) {
                if(var9.c().n() >= 15) {
                   this.i = false;
                   this.f.clear();
@@ -122,7 +122,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
             for(int var17 = var2 - var7; var17 <= var2 + var7 && var16; ++var17) {
                for(int var11 = var4 - var7; var11 <= var4 + var7; ++var11) {
                   Block var12 = this.b.getData(new Location(var17, var14, var11)).c();
-                  if(var12 != aty.bT && var12 != aty.R && var12 != aty.ah && var12 != aty.S) {
+                  if(var12 != Blocks.bT && var12 != Blocks.R && var12 != Blocks.ah && var12 != Blocks.S) {
                      var16 = false;
                      break;
                   }

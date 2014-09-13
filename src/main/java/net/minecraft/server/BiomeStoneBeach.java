@@ -5,8 +5,8 @@ public class BiomeStoneBeach extends BiomeBase {
    public BiomeStoneBeach(int var1) {
       super(var1);
       this.au.clear();
-      this.ak = aty.b.P();
-      this.al = aty.b.P();
+      this.ak = Blocks.b.P();
+      this.al = Blocks.b.P();
       this.as.A = -999;
       this.as.D = 0;
       this.as.F = 0;

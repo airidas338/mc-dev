@@ -16,26 +16,26 @@ public class aok {
    }
 
    private aok() {
-      this.a(aty.p, new amj(Items.j), 0.7F);
-      this.a(aty.o, new amj(Items.k), 1.0F);
-      this.a(aty.ag, new amj(Items.i), 1.0F);
-      this.a((Block)aty.m, new amj(aty.w), 0.1F);
+      this.a(Blocks.p, new amj(Items.j), 0.7F);
+      this.a(Blocks.o, new amj(Items.k), 1.0F);
+      this.a(Blocks.ag, new amj(Items.i), 1.0F);
+      this.a((Block)Blocks.m, new amj(Blocks.w), 0.1F);
       this.a(Items.al, new amj(Items.am), 0.35F);
       this.a(Items.bi, new amj(Items.bj), 0.35F);
       this.a(Items.bk, new amj(Items.bl), 0.35F);
       this.a(Items.bo, new amj(Items.bp), 0.35F);
       this.a(Items.bm, new amj(Items.bn), 0.35F);
-      this.a(aty.e, new amj(aty.b), 0.1F);
-      this.a(new amj(aty.bf, 1, BlockSmoothBrick.b), new amj(aty.bf, 1, BlockSmoothBrick.N), 0.1F);
+      this.a(Blocks.e, new amj(Blocks.b), 0.1F);
+      this.a(new amj(Blocks.bf, 1, BlockSmoothBrick.b), new amj(Blocks.bf, 1, BlockSmoothBrick.N), 0.1F);
       this.a(Items.aI, new amj(Items.aH), 0.3F);
-      this.a(aty.aL, new amj(aty.cz), 0.35F);
-      this.a((Block)aty.aK, new amj(Items.aW, 1, akv.n.b()), 0.2F);
-      this.a(aty.r, new amj(Items.h, 1, 1), 0.15F);
-      this.a(aty.s, new amj(Items.h, 1, 1), 0.15F);
-      this.a(aty.bP, new amj(Items.bO), 1.0F);
+      this.a(Blocks.aL, new amj(Blocks.cz), 0.35F);
+      this.a((Block)Blocks.aK, new amj(Items.aW, 1, akv.n.b()), 0.2F);
+      this.a(Blocks.r, new amj(Items.h, 1, 1), 0.15F);
+      this.a(Blocks.s, new amj(Items.h, 1, 1), 0.15F);
+      this.a(Blocks.bP, new amj(Items.bO), 1.0F);
       this.a(Items.bS, new amj(Items.bT), 0.35F);
-      this.a(aty.aV, new amj(Items.cf), 0.1F);
-      this.a(new amj(aty.v, 1, 1), new amj(aty.v, 1, 0), 0.15F);
+      this.a(Blocks.aV, new amj(Items.cf), 0.1F);
+      this.a(new amj(Blocks.v, 1, 1), new amj(Blocks.v, 1, 0), 0.15F);
       ali[] var1 = ali.values();
       int var2 = var1.length;
 
@@ -46,10 +46,10 @@ public class aok {
          }
       }
 
-      this.a(aty.q, new amj(Items.h), 0.1F);
-      this.a(aty.aC, new amj(Items.aC), 0.7F);
-      this.a(aty.x, new amj(Items.aW, 1, akv.l.b()), 0.2F);
-      this.a(aty.co, new amj(Items.cg), 0.2F);
+      this.a(Blocks.q, new amj(Items.h), 0.1F);
+      this.a(Blocks.aC, new amj(Items.aC), 0.7F);
+      this.a(Blocks.x, new amj(Items.aW, 1, akv.l.b()), 0.2F);
+      this.a(Blocks.co, new amj(Items.cg), 0.2F);
    }
 
    public void a(Block var1, amj var2, float var3) {

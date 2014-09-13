@@ -247,7 +247,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.bR || var1 == Items.bW || var1 == Item.a((Block)aty.N);
+      return var1 == Items.bR || var1 == Items.bW || var1 == Item.a((Block)Blocks.N);
    }
 
    public EntityRabbit b(EntityAgeable var1) {
@@ -310,7 +310,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    protected void cn() {
-      this.o.a(ew.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(aty.cb.a(7))});
+      this.o.a(ew.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(Blocks.cb.a(7))});
       this.bs = 100;
    }
 

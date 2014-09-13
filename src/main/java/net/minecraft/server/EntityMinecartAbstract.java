@@ -211,7 +211,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          IBlock var5 = this.o.getData(var4);
          if(ati.d(var5)) {
             this.a(var4, var5);
-            if(var5.c() == aty.cs) {
+            if(var5.c() == Blocks.cs) {
                this.a(var14, var2, var16, ((Boolean)var5.b(BlockPoweredRail.M)).booleanValue());
             }
          } else {
@@ -289,7 +289,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
       boolean var4 = false;
       boolean var5 = false;
       ati var6 = (ati)var2.c();
-      if(var6 == aty.D) {
+      if(var6 == Blocks.D) {
          var4 = ((Boolean)var2.b(BlockPoweredRail.M)).booleanValue();
          var5 = !var4;
       }
@@ -527,14 +527,14 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          if(var1.b("DisplayTile", 8)) {
             var3 = Block.b(var1.j("DisplayTile"));
             if(var3 == null) {
-               this.a(aty.a.P());
+               this.a(Blocks.a.P());
             } else {
                this.a(var3.a(var2));
             }
          } else {
             var3 = Block.c(var1.f("DisplayTile"));
             if(var3 == null) {
-               this.a(aty.a.P());
+               this.a(Blocks.a.P());
             } else {
                this.a(var3.a(var2));
             }
@@ -669,7 +669,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
    }
 
    public IBlock u() {
-      return aty.a.P();
+      return Blocks.a.P();
    }
 
    public int v() {
