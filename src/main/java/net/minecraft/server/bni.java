@@ -69,10 +69,10 @@ public class bni extends bnn {
       this.a(var1, aty.bj.P(), 0, 3, 6, var3);
       this.a(var1, aty.bj.P(), 4, 3, 6, var3);
       this.a(var1, aty.bj.P(), 2, 3, 8, var3);
-      this.a(var1, aty.aa.P().a(bbl.a, this.m.d()), 2, 4, 7, var3);
-      this.a(var1, aty.aa.P().a(bbl.a, this.m.e()), 1, 4, 6, var3);
-      this.a(var1, aty.aa.P().a(bbl.a, this.m.f()), 3, 4, 6, var3);
-      this.a(var1, aty.aa.P().a(bbl.a, this.m), 2, 4, 5, var3);
+      this.a(var1, aty.aa.P().a(BlockTorch.a, this.m.d()), 2, 4, 7, var3);
+      this.a(var1, aty.aa.P().a(BlockTorch.a, this.m.e()), 1, 4, 6, var3);
+      this.a(var1, aty.aa.P().a(BlockTorch.a, this.m.f()), 3, 4, 6, var3);
+      this.a(var1, aty.aa.P().a(BlockTorch.a, this.m), 2, 4, 5, var3);
       int var4 = this.a(aty.au, 4);
 
       int var5;
@@ -83,7 +83,7 @@ public class bni extends bnn {
       this.a(var1, aty.a.P(), 2, 1, 0, var3);
       this.a(var1, aty.a.P(), 2, 2, 0, var3);
       this.a(var1, var3, var2, 2, 1, 0, ej.b(this.a(aty.ao, 1)));
-      if(this.a(var1, 2, 0, -1, var3).c().r() == Material.a && this.a(var1, 2, -1, -1, var3).c().r() != Material.a) {
+      if(this.a(var1, 2, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 2, -1, -1, var3).c().r() != Material.AIR) {
          this.a(var1, aty.aw.a(this.a(aty.aw, 3)), 2, 0, -1, var3);
       }
 

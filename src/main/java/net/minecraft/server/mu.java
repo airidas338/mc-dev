@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mu implements id {
+public class mu implements Packet {
 
    private Location a;
    private IChatBaseComponent[] b;

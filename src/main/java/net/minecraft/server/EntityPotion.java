@@ -53,7 +53,7 @@ public class EntityPotion extends EntityProjectile {
       return this.c.i();
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(!this.o.D) {
          List var2 = Items.bz.h(this.c);
          if(var2 != null && !var2.isEmpty()) {
@@ -96,7 +96,7 @@ public class EntityPotion extends EntityProjectile {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("Potion", 10)) {
          this.c = amj.a(var1.m("Potion"));
@@ -110,10 +110,10 @@ public class EntityPotion extends EntityProjectile {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.c != null) {
-         var1.a("Potion", (gd)this.c.b(new fn()));
+         var1.a("Potion", (NBTBase)this.c.b(new NBTTagCompound()));
       }
 
    }

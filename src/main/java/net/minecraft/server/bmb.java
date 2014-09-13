@@ -15,12 +15,12 @@ public class bmb extends bmk {
       this.l = var3;
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Mob", this.a);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = var1.n("Mob");
    }
@@ -98,18 +98,18 @@ public class bmb extends bmk {
          }
       }
 
-      this.a(var1, aty.bG.a(var6).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 8, var3);
-      this.a(var1, aty.bG.a(var6).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 8, var3);
-      this.a(var1, aty.bG.a(var6).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 8, var3);
-      this.a(var1, aty.bG.a(var7).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 12, var3);
-      this.a(var1, aty.bG.a(var7).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 12, var3);
-      this.a(var1, aty.bG.a(var7).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 12, var3);
-      this.a(var1, aty.bG.a(var8).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 9, var3);
-      this.a(var1, aty.bG.a(var8).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 10, var3);
-      this.a(var1, aty.bG.a(var8).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 11, var3);
-      this.a(var1, aty.bG.a(var9).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 9, var3);
-      this.a(var1, aty.bG.a(var9).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 10, var3);
-      this.a(var1, aty.bG.a(var9).a(avq.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 11, var3);
+      this.a(var1, aty.bG.a(var6).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 8, var3);
+      this.a(var1, aty.bG.a(var6).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 8, var3);
+      this.a(var1, aty.bG.a(var6).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 8, var3);
+      this.a(var1, aty.bG.a(var7).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 12, var3);
+      this.a(var1, aty.bG.a(var7).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 12, var3);
+      this.a(var1, aty.bG.a(var7).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 12, var3);
+      this.a(var1, aty.bG.a(var8).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 9, var3);
+      this.a(var1, aty.bG.a(var8).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 10, var3);
+      this.a(var1, aty.bG.a(var8).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 11, var3);
+      this.a(var1, aty.bG.a(var9).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 9, var3);
+      this.a(var1, aty.bG.a(var9).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 10, var3);
+      this.a(var1, aty.bG.a(var9).a(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 11, var3);
       if(!this.a) {
          int var12 = this.d(3);
          Location var10 = new Location(this.a(5, 6), var12, this.b(5, 6));

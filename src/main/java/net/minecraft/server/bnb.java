@@ -22,7 +22,7 @@ public class bnb extends bnn {
       this.d = this.a(var3);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("CA", Block.c.b(this.a));
       var1.a("CB", Block.c.b(this.b));
@@ -30,7 +30,7 @@ public class bnb extends bnn {
       var1.a("CD", Block.c.b(this.d));
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = Block.c(var1.f("CA"));
       this.b = Block.c(var1.f("CB"));

@@ -170,7 +170,7 @@ public class abl extends bqc {
    }
 
    private void d(Location var1) {
-      ej var2 = avf.h(this.b, var1);
+      ej var2 = BlockDoor.h(this.b, var1);
       ej var3 = var2.d();
       int var4 = this.a(var1, var2, 5);
       int var5 = this.a(var1, var3, var4 + 1);
@@ -211,16 +211,16 @@ public class abl extends bqc {
    }
 
    private boolean f(Location var1) {
-      Block var2 = this.b.p(var1).c();
-      return var2 instanceof avf?var2.r() == Material.d:false;
+      Block var2 = this.b.getData(var1).c();
+      return var2 instanceof BlockDoor?var2.r() == Material.WOOD:false;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.f = var1.f("Tick");
       fv var2 = var1.c("Villages", 10);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          abi var5 = new abi();
          var5.a(var4);
          this.e.add(var5);
@@ -228,19 +228,19 @@ public class abl extends bqc {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Tick", this.f);
       fv var2 = new fv();
       Iterator var3 = this.e.iterator();
 
       while(var3.hasNext()) {
          abi var4 = (abi)var3.next();
-         fn var5 = new fn();
+         NBTTagCompound var5 = new NBTTagCompound();
          var4.b(var5);
-         var2.a((gd)var5);
+         var2.a((NBTBase)var5);
       }
 
-      var1.a("Villages", (gd)var2);
+      var1.a("Villages", (NBTBase)var2);
    }
 
    public static String a(bgd var0) {

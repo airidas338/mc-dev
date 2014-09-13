@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Callable;
 
-public abstract class aqf implements ae {
+public abstract class aqf implements ICommandSender {
 
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
    private int b;
@@ -22,7 +22,7 @@ public abstract class aqf implements ae {
       return this.d;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       var1.a("Command", this.e);
       var1.a("SuccessCount", this.b);
       var1.a("CustomName", this.f);
@@ -34,7 +34,7 @@ public abstract class aqf implements ae {
       this.g.b(var1);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       this.e = var1.j("Command");
       this.b = var1.f("SuccessCount");
       if(var1.b("CustomName", 8)) {

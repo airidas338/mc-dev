@@ -10,9 +10,9 @@ public abstract class bqc {
       this.a = var1;
    }
 
-   public abstract void a(fn var1);
+   public abstract void a(NBTTagCompound var1);
 
-   public abstract void b(fn var1);
+   public abstract void b(NBTTagCompound var1);
 
    public void c() {
       this.a(true);

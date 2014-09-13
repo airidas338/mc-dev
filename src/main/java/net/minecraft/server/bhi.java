@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bhi extends bhp {
+public class bhi extends WorldGenerator {
 
    private auc a;
 

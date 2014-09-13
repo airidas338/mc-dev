@@ -18,7 +18,7 @@ public class ys extends yv {
       } else if(!this.a.o.Q().b("mobGriefing")) {
          return false;
       } else {
-         avf var10000 = this.c;
+         BlockDoor var10000 = this.c;
          return !var10000.f(this.a.o, this.b);
       }
    }
@@ -32,7 +32,7 @@ public class ys extends yv {
       double var1 = this.a.b(this.b);
       boolean var3;
       if(this.g <= 240) {
-         avf var10000 = this.c;
+         BlockDoor var10000 = this.c;
          if(!var10000.f(this.a.o, this.b) && var1 < 4.0D) {
             var3 = true;
             return var3;

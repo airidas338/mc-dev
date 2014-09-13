@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class bpx extends bpu {
 
-   public void a(ard var1, Entity var2) {
+   public void a(IBlockAccess var1, Entity var2) {
       super.a(var1, var2);
    }
 
@@ -45,8 +45,8 @@ public class bpx extends bpu {
          for(int var6 = var3; var6 < var3 + this.d; ++var6) {
             for(int var7 = var4; var7 < var4 + this.e; ++var7) {
                Location var8 = new Location(var5, var6, var7);
-               Block var9 = this.a.p(var8).c();
-               if(var9.r() != Material.h) {
+               Block var9 = this.a.getData(var8).c();
+               if(var9.r() != Material.WATER) {
                   return 0;
                }
             }

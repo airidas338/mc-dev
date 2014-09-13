@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class aaf extends zb {
+public class aaf extends PathfinderGoal {
 
    private EntityVillager a;
    private EntityIronGolem b;

@@ -16,11 +16,11 @@ abstract class bmk extends bms {
       this.d = bml.a;
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       var1.a("EntryDoor", this.d.name());
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       this.d = bml.valueOf(var1.j("EntryDoor"));
    }
 

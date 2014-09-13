@@ -12,7 +12,7 @@ class ase extends asl {
       this.aD = var1;
    }
 
-   public bhc a(Random var1) {
+   public WorldGenTreeAbstract a(Random var1) {
       return var1.nextBoolean()?BiomeForest.aD:BiomeForest.aE;
    }
 }

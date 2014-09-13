@@ -32,11 +32,11 @@ public class ea implements dz {
    }
 
    public Block e() {
-      return this.a.p(this.b).c();
+      return this.a.getData(this.b).c();
    }
 
    public int f() {
-      IBlock var1 = this.a.p(this.b);
+      IBlock var1 = this.a.getData(this.b);
       return var1.c().c(var1);
    }
 

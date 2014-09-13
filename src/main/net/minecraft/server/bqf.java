@@ -24,7 +24,7 @@ public class bqf {
       this.a = var2;
    }
 
-   public id a(amj var1) {
+   public Packet a(amj var1) {
       if(this.d) {
          this.d = false;
          return new jx(var1.i(), this.c.e, this.c.h.values(), this.c.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);

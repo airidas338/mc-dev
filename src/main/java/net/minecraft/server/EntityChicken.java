@@ -79,7 +79,7 @@ public class EntityChicken extends EntityAnimal {
       this.a("mob.chicken.step", 0.15F, 1.0F);
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.G;
    }
 
@@ -106,7 +106,7 @@ public class EntityChicken extends EntityAnimal {
       return var1 != null && var1.b() == Items.N;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.br = var1.n("IsChickenJockey");
       if(var1.c("EggLayTime")) {
@@ -119,7 +119,7 @@ public class EntityChicken extends EntityAnimal {
       return this.cj()?10:super.b(var1);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("IsChickenJockey", this.br);
       var1.a("EggLayTime", this.bq);

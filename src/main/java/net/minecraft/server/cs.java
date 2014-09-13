@@ -65,7 +65,7 @@ class cs {
          }
 
          var2 = var2.b();
-      } while(var1.p(var2).c().r() == Material.a);
+      } while(var1.getData(var2).c().r() == Material.AIR);
 
       return var2.o() + 1;
    }
@@ -80,10 +80,10 @@ class cs {
          }
 
          var2 = var2.b();
-         var3 = var1.p(var2).c().r();
-      } while(var3 == Material.a);
+         var3 = var1.getData(var2).c().r();
+      } while(var3 == Material.AIR);
 
-      return !var3.d() && var3 != Material.o;
+      return !var3.d() && var3 != Material.FIRE;
    }
 
    public void a(Random var1, double var2, double var4, double var6, double var8) {

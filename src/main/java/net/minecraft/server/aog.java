@@ -53,7 +53,7 @@ public class aog implements aoo {
 
       if(var3 != null && var2 >= 1 && anr.h(var3) < 2) {
          amj var6 = new amj(Items.bN, var2);
-         var6.d((fn)var3.o().b());
+         var6.d((NBTTagCompound)var3.o().b());
          var6.o().a("generation", anr.h(var3) + 1);
          if(var3.s()) {
             var6.c(var3.q());

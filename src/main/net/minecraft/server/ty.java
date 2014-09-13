@@ -15,34 +15,34 @@ public class ty {
    public static List c = Lists.newArrayList();
    public static List d = Lists.newArrayList();
    public static List e = Lists.newArrayList();
-   public static tq f = (new tn("stat.leaveGame", new hz("stat.leaveGame", new Object[0]))).i().h();
-   public static tq g = (new tn("stat.playOneMinute", new hz("stat.playOneMinute", new Object[0]), tq.h)).i().h();
-   public static tq h = (new tn("stat.timeSinceDeath", new hz("stat.timeSinceDeath", new Object[0]), tq.h)).i().h();
-   public static tq i = (new tn("stat.walkOneCm", new hz("stat.walkOneCm", new Object[0]), tq.i)).i().h();
-   public static tq j = (new tn("stat.crouchOneCm", new hz("stat.crouchOneCm", new Object[0]), tq.i)).i().h();
-   public static tq k = (new tn("stat.sprintOneCm", new hz("stat.sprintOneCm", new Object[0]), tq.i)).i().h();
-   public static tq l = (new tn("stat.swimOneCm", new hz("stat.swimOneCm", new Object[0]), tq.i)).i().h();
-   public static tq m = (new tn("stat.fallOneCm", new hz("stat.fallOneCm", new Object[0]), tq.i)).i().h();
-   public static tq n = (new tn("stat.climbOneCm", new hz("stat.climbOneCm", new Object[0]), tq.i)).i().h();
-   public static tq o = (new tn("stat.flyOneCm", new hz("stat.flyOneCm", new Object[0]), tq.i)).i().h();
-   public static tq p = (new tn("stat.diveOneCm", new hz("stat.diveOneCm", new Object[0]), tq.i)).i().h();
-   public static tq q = (new tn("stat.minecartOneCm", new hz("stat.minecartOneCm", new Object[0]), tq.i)).i().h();
-   public static tq r = (new tn("stat.boatOneCm", new hz("stat.boatOneCm", new Object[0]), tq.i)).i().h();
-   public static tq s = (new tn("stat.pigOneCm", new hz("stat.pigOneCm", new Object[0]), tq.i)).i().h();
-   public static tq t = (new tn("stat.horseOneCm", new hz("stat.horseOneCm", new Object[0]), tq.i)).i().h();
-   public static tq u = (new tn("stat.jump", new hz("stat.jump", new Object[0]))).i().h();
-   public static tq v = (new tn("stat.drop", new hz("stat.drop", new Object[0]))).i().h();
-   public static tq w = (new tn("stat.damageDealt", new hz("stat.damageDealt", new Object[0]), tq.j)).h();
-   public static tq x = (new tn("stat.damageTaken", new hz("stat.damageTaken", new Object[0]), tq.j)).h();
-   public static tq y = (new tn("stat.deaths", new hz("stat.deaths", new Object[0]))).h();
-   public static tq z = (new tn("stat.mobKills", new hz("stat.mobKills", new Object[0]))).h();
-   public static tq A = (new tn("stat.animalsBred", new hz("stat.animalsBred", new Object[0]))).h();
-   public static tq B = (new tn("stat.playerKills", new hz("stat.playerKills", new Object[0]))).h();
-   public static tq C = (new tn("stat.fishCaught", new hz("stat.fishCaught", new Object[0]))).h();
-   public static tq D = (new tn("stat.junkFished", new hz("stat.junkFished", new Object[0]))).h();
-   public static tq E = (new tn("stat.treasureFished", new hz("stat.treasureFished", new Object[0]))).h();
-   public static tq F = (new tn("stat.talkedToVillager", new hz("stat.talkedToVillager", new Object[0]))).h();
-   public static tq G = (new tn("stat.tradedWithVillager", new hz("stat.tradedWithVillager", new Object[0]))).h();
+   public static tq f = (new tn("stat.leaveGame", new ChatMessage("stat.leaveGame", new Object[0]))).i().h();
+   public static tq g = (new tn("stat.playOneMinute", new ChatMessage("stat.playOneMinute", new Object[0]), tq.h)).i().h();
+   public static tq h = (new tn("stat.timeSinceDeath", new ChatMessage("stat.timeSinceDeath", new Object[0]), tq.h)).i().h();
+   public static tq i = (new tn("stat.walkOneCm", new ChatMessage("stat.walkOneCm", new Object[0]), tq.i)).i().h();
+   public static tq j = (new tn("stat.crouchOneCm", new ChatMessage("stat.crouchOneCm", new Object[0]), tq.i)).i().h();
+   public static tq k = (new tn("stat.sprintOneCm", new ChatMessage("stat.sprintOneCm", new Object[0]), tq.i)).i().h();
+   public static tq l = (new tn("stat.swimOneCm", new ChatMessage("stat.swimOneCm", new Object[0]), tq.i)).i().h();
+   public static tq m = (new tn("stat.fallOneCm", new ChatMessage("stat.fallOneCm", new Object[0]), tq.i)).i().h();
+   public static tq n = (new tn("stat.climbOneCm", new ChatMessage("stat.climbOneCm", new Object[0]), tq.i)).i().h();
+   public static tq o = (new tn("stat.flyOneCm", new ChatMessage("stat.flyOneCm", new Object[0]), tq.i)).i().h();
+   public static tq p = (new tn("stat.diveOneCm", new ChatMessage("stat.diveOneCm", new Object[0]), tq.i)).i().h();
+   public static tq q = (new tn("stat.minecartOneCm", new ChatMessage("stat.minecartOneCm", new Object[0]), tq.i)).i().h();
+   public static tq r = (new tn("stat.boatOneCm", new ChatMessage("stat.boatOneCm", new Object[0]), tq.i)).i().h();
+   public static tq s = (new tn("stat.pigOneCm", new ChatMessage("stat.pigOneCm", new Object[0]), tq.i)).i().h();
+   public static tq t = (new tn("stat.horseOneCm", new ChatMessage("stat.horseOneCm", new Object[0]), tq.i)).i().h();
+   public static tq u = (new tn("stat.jump", new ChatMessage("stat.jump", new Object[0]))).i().h();
+   public static tq v = (new tn("stat.drop", new ChatMessage("stat.drop", new Object[0]))).i().h();
+   public static tq w = (new tn("stat.damageDealt", new ChatMessage("stat.damageDealt", new Object[0]), tq.j)).h();
+   public static tq x = (new tn("stat.damageTaken", new ChatMessage("stat.damageTaken", new Object[0]), tq.j)).h();
+   public static tq y = (new tn("stat.deaths", new ChatMessage("stat.deaths", new Object[0]))).h();
+   public static tq z = (new tn("stat.mobKills", new ChatMessage("stat.mobKills", new Object[0]))).h();
+   public static tq A = (new tn("stat.animalsBred", new ChatMessage("stat.animalsBred", new Object[0]))).h();
+   public static tq B = (new tn("stat.playerKills", new ChatMessage("stat.playerKills", new Object[0]))).h();
+   public static tq C = (new tn("stat.fishCaught", new ChatMessage("stat.fishCaught", new Object[0]))).h();
+   public static tq D = (new tn("stat.junkFished", new ChatMessage("stat.junkFished", new Object[0]))).h();
+   public static tq E = (new tn("stat.treasureFished", new ChatMessage("stat.treasureFished", new Object[0]))).h();
+   public static tq F = (new tn("stat.talkedToVillager", new ChatMessage("stat.talkedToVillager", new Object[0]))).h();
+   public static tq G = (new tn("stat.tradedWithVillager", new ChatMessage("stat.tradedWithVillager", new Object[0]))).h();
    public static final tq[] H = new tq[4096];
    public static final tq[] I = new tq[32000];
    public static final tq[] J = new tq[32000];
@@ -84,7 +84,7 @@ public class ty {
             int var3 = alq.b(var6);
             String var4 = a(var6);
             if(var4 != null) {
-               I[var3] = (new to("stat.craftItem.", var4, new hz("stat.craftItem", new Object[]{(new amj(var6)).C()}), var6)).h();
+               I[var3] = (new to("stat.craftItem.", var4, new ChatMessage("stat.craftItem", new Object[]{(new amj(var6)).C()}), var6)).h();
             }
          }
       }
@@ -102,7 +102,7 @@ public class ty {
             int var3 = Block.a(var1);
             String var4 = a(var2);
             if(var4 != null && var1.I()) {
-               H[var3] = (new to("stat.mineBlock.", var4, new hz("stat.mineBlock", new Object[]{(new amj(var1)).C()}), var2)).h();
+               H[var3] = (new to("stat.mineBlock.", var4, new ChatMessage("stat.mineBlock", new Object[]{(new amj(var1)).C()}), var2)).h();
                e.add((to)H[var3]);
             }
          }
@@ -120,7 +120,7 @@ public class ty {
             int var2 = alq.b(var1);
             String var3 = a(var1);
             if(var3 != null) {
-               J[var2] = (new to("stat.useItem.", var3, new hz("stat.useItem", new Object[]{(new amj(var1)).C()}), var1)).h();
+               J[var2] = (new to("stat.useItem.", var3, new ChatMessage("stat.useItem", new Object[]{(new amj(var1)).C()}), var1)).h();
                if(!(var1 instanceof aju)) {
                   d.add((to)J[var2]);
                }
@@ -140,7 +140,7 @@ public class ty {
             int var2 = alq.b(var1);
             String var3 = a(var1);
             if(var3 != null && var1.m()) {
-               K[var2] = (new to("stat.breakItem.", var3, new hz("stat.breakItem", new Object[]{(new amj(var1)).C()}), var1)).h();
+               K[var2] = (new to("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new amj(var1)).C()}), var1)).h();
             }
          }
       }
@@ -185,12 +185,12 @@ public class ty {
 
    public static tq a(MonsterEggInfo var0) {
       String var1 = EntityTypes.b(var0.a);
-      return var1 == null?null:(new tq("stat.killEntity." + var1, new hz("stat.entityKill", new Object[]{new hz("entity." + var1 + ".name", new Object[0])}))).h();
+      return var1 == null?null:(new tq("stat.killEntity." + var1, new ChatMessage("stat.entityKill", new Object[]{new ChatMessage("entity." + var1 + ".name", new Object[0])}))).h();
    }
 
    public static tq b(MonsterEggInfo var0) {
       String var1 = EntityTypes.b(var0.a);
-      return var1 == null?null:(new tq("stat.entityKilledBy." + var1, new hz("stat.entityKilledBy", new Object[]{new hz("entity." + var1 + ".name", new Object[0])}))).h();
+      return var1 == null?null:(new tq("stat.entityKilledBy." + var1, new ChatMessage("stat.entityKilledBy", new Object[]{new ChatMessage("entity." + var1 + ".name", new Object[0])}))).h();
    }
 
    public static tq a(String var0) {

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityWither extends EntityMonster implements afr {
+public class EntityWither extends EntityMonster implements IRangedEntity {
 
    private float[] b = new float[2];
    private float[] c = new float[2];
@@ -25,7 +25,7 @@ public class EntityWither extends EntityMonster implements afr {
       this.ab = true;
       ((aay)this.s()).d(true);
       this.i.a(0, new yy(this));
-      this.i.a(2, new zz(this, 1.0D, 40, 20.0F));
+      this.i.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 40, 20.0F));
       this.i.a(5, new zy(this, 1.0D));
       this.i.a(6, new zh(this, EntityHuman.class, 8.0F));
       this.i.a(7, new zx(this));
@@ -42,12 +42,12 @@ public class EntityWither extends EntityMonster implements afr {
       this.ac.a(20, new Integer(0));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Invul", this.cj());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.r(var1.f("Invul"));
    }
@@ -236,8 +236,8 @@ public class EntityWither extends EntityMonster implements afr {
                         int var20 = var12 + var17;
                         int var9 = var1 + var7;
                         int var10 = var15 + var19;
-                        Block var11 = this.o.p(new Location(var20, var9, var10)).c();
-                        if(var11.r() != Material.a && var11 != aty.h && var11 != aty.bF && var11 != aty.bG && var11 != aty.bX && var11 != aty.cv) {
+                        Block var11 = this.o.getData(new Location(var20, var9, var10)).c();
+                        if(var11.r() != Material.AIR && var11 != aty.h && var11 != aty.bF && var11 != aty.bG && var11 != aty.bX && var11 != aty.cv) {
                            var18 = this.o.b(new Location(var20, var9, var10), true) || var18;
                         }
                      }

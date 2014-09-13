@@ -3,7 +3,7 @@ import com.google.common.collect.Multimap;
 
 import java.util.Set;
 
-public class aks extends alq {
+public class aks extends Item {
 
    private Set c;
    protected float a = 4.0F;
@@ -18,7 +18,7 @@ public class aks extends alq {
       this.d(var2.a());
       this.a = var2.b();
       this.d = var1 + var2.c();
-      this.a(akf.i);
+      this.a(CreativeModeTab.i);
    }
 
    public float a(amj var1, Block var2) {

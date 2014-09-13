@@ -26,7 +26,7 @@ public class aok {
       this.a(Items.bo, new amj(Items.bp), 0.35F);
       this.a(Items.bm, new amj(Items.bn), 0.35F);
       this.a(aty.e, new amj(aty.b), 0.1F);
-      this.a(new amj(aty.bf, 1, bbc.b), new amj(aty.bf, 1, bbc.N), 0.1F);
+      this.a(new amj(aty.bf, 1, BlockSmoothBrick.b), new amj(aty.bf, 1, BlockSmoothBrick.N), 0.1F);
       this.a(Items.aI, new amj(Items.aH), 0.3F);
       this.a(aty.aL, new amj(aty.cz), 0.35F);
       this.a((Block)aty.aK, new amj(Items.aW, 1, akv.n.b()), 0.2F);
@@ -53,10 +53,10 @@ public class aok {
    }
 
    public void a(Block var1, amj var2, float var3) {
-      this.a(alq.a(var1), var2, var3);
+      this.a(Item.a(var1), var2, var3);
    }
 
-   public void a(alq var1, amj var2, float var3) {
+   public void a(Item var1, amj var2, float var3) {
       this.a(new amj(var1, 1, 32767), var2, var3);
    }
 

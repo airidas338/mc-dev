@@ -12,15 +12,15 @@ public class bpw {
       this.c = var1;
    }
 
-   public bpv a(ard var1, Entity var2, Entity var3, float var4) {
+   public bpv a(IBlockAccess var1, Entity var2, Entity var3, float var4) {
       return this.a(var1, var2, var3.s, var3.aQ().b, var3.u, var4);
    }
 
-   public bpv a(ard var1, Entity var2, Location var3, float var4) {
+   public bpv a(IBlockAccess var1, Entity var2, Location var3, float var4) {
       return this.a(var1, var2, (double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), var4);
    }
 
-   private bpv a(ard var1, Entity var2, double var3, double var5, double var7, float var9) {
+   private bpv a(IBlockAccess var1, Entity var2, double var3, double var5, double var7, float var9) {
       this.a.a();
       this.c.a(var1, var2);
       bpt var10 = this.c.a(var2);

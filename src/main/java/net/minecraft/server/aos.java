@@ -89,7 +89,7 @@ public class aos implements aoo {
          for(int var3 = 0; var3 < var1.n_(); ++var3) {
             amj var4 = var1.a(var3);
             if(var4 != null && var4.n()) {
-               var2.d((fn)var4.o().b());
+               var2.d((NBTTagCompound)var4.o().b());
             }
          }
       }

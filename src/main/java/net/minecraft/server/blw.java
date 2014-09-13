@@ -16,12 +16,12 @@ public class blw extends bmk {
       this.a = var4 != ej.c && var4 != ej.d?var3.c():var3.e();
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Steps", this.a);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = var1.f("Steps");
    }

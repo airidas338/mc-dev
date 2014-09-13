@@ -39,12 +39,12 @@ public class EntityPig extends EntityAnimal {
       this.ac.a(16, Byte.valueOf((byte)0));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Saddle", this.cj());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.l(var1.n("Saddle"));
    }
@@ -76,7 +76,7 @@ public class EntityPig extends EntityAnimal {
       }
    }
 
-   protected alq A() {
+   protected Item A() {
       return this.au()?Items.am:Items.al;
    }
 
@@ -110,7 +110,7 @@ public class EntityPig extends EntityAnimal {
 
    }
 
-   public void a(ads var1) {
+   public void a(EntityLightning var1) {
       if(!this.o.D) {
          EntityPigZombie var2 = new EntityPigZombie(this.o);
          var2.c(0, new amj(Items.B));

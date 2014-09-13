@@ -9,7 +9,7 @@ public interface IDataManager {
 
    bfq a(bgd var1);
 
-   void a(WorldData var1, fn var2);
+   void a(WorldData var1, NBTTagCompound var2);
 
    void a(WorldData var1);
 

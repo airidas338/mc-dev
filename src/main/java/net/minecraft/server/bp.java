@@ -12,11 +12,11 @@ public class bp extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.gamemode.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di, IOException {
+   public void a(ICommandSender var1, String[] var2) throws di, IOException {
       if(var2.length <= 0) {
          throw new dp("commands.gamemode.usage", new Object[0]);
       } else {
@@ -25,10 +25,10 @@ public class bp extends CommandAbstract {
          var4.a(var3);
          var4.O = 0.0F;
          if(var1.e().Q().b("sendCommandFeedback")) {
-            var4.a((IChatBaseComponent)(new hz("gameMode.changed", new Object[0])));
+            var4.a((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
          }
 
-         hz var5 = new hz("gameMode." + var3.b(), new Object[0]);
+         ChatMessage var5 = new ChatMessage("gameMode." + var3.b(), new Object[0]);
          if(var4 != var1) {
             a(var1, this, 1, "commands.gamemode.success.other", new Object[]{var4.d_(), var5});
          } else {
@@ -38,11 +38,11 @@ public class bp extends CommandAbstract {
       }
    }
 
-   protected EnumGamemode h(ae var1, String var2) throws dk {
+   protected EnumGamemode h(ICommandSender var1, String var2) throws dk {
       return !var2.equalsIgnoreCase(EnumGamemode.SURVIVAL.b()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(EnumGamemode.CREATIVE.b()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(EnumGamemode.ADVENTURE.b()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(EnumGamemode.SPECTATOR.b()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, EnumGamemode.values().length - 2)):EnumGamemode.SPECTATOR):EnumGamemode.ADVENTURE):EnumGamemode.CREATIVE):EnumGamemode.SURVIVAL;
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"survival", "creative", "adventure", "spectator"}):(var2.length == 2?a(var2, this.d()):null);
    }
 

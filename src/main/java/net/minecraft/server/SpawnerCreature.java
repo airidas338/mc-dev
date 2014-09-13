@@ -64,7 +64,7 @@ public final class SpawnerCreature {
                      int var17 = var16.n();
                      int var18 = var16.o();
                      int var19 = var16.p();
-                     Block var20 = var1.p(var16).c();
+                     Block var20 = var1.getData(var16).c();
                      if(!var20.t()) {
                         int var21 = 0;
                         int var22 = 0;
@@ -153,17 +153,17 @@ public final class SpawnerCreature {
       if(!var1.af().a(var2)) {
          return false;
       } else {
-         Block var3 = var1.p(var2).c();
+         Block var3 = var1.getData(var2).c();
          if(var0 == xo.c) {
-            return var3.r().d() && var1.p(var2.b()).c().r().d() && !var1.p(var2.a()).c().t();
+            return var3.r().d() && var1.getData(var2.b()).c().r().d() && !var1.getData(var2.a()).c().t();
          } else {
             Location var4 = var2.b();
-            if(!World.a((ard)var1, var4)) {
+            if(!World.a((IBlockAccess)var1, var4)) {
                return false;
             } else {
-               Block var5 = var1.p(var4).c();
+               Block var5 = var1.getData(var4).c();
                boolean var6 = var5 != aty.h && var5 != aty.cv;
-               return var6 && !var3.t() && !var3.r().d() && !var1.p(var2.a()).c().t();
+               return var6 && !var3.t() && !var3.r().d() && !var1.getData(var2.a()).c().t();
             }
          }
       }

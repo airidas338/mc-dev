@@ -12,7 +12,7 @@ class bco implements Callable {
    }
 
    public String a() {
-      int var1 = Block.a(this.a.b.p(this.a.c).c());
+      int var1 = Block.a(this.a.b.getData(this.a.c).c());
 
       try {
          return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.c(var1).a(), Block.c(var1).getClass().getCanonicalName()});

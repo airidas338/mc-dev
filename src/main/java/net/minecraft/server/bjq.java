@@ -21,12 +21,12 @@ public class bjq extends bkb {
       return a(var7) && bms.a(var0, var7) == null?new bjq(var6, var1, var7, var5):null;
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.b = var1.f("Seed");
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Seed", this.b);
    }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zj extends zb {
+public class zj extends PathfinderGoal {
 
    private EntityVillager b;
    private EntityVillager c;

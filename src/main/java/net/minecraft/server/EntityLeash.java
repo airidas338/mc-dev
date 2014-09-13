@@ -37,13 +37,13 @@ public class EntityLeash extends EntityHanging {
 
    public void b(Entity var1) {}
 
-   public boolean d(fn var1) {
+   public boolean d(NBTTagCompound var1) {
       return false;
    }
 
-   public void b(fn var1) {}
+   public void b(NBTTagCompound var1) {}
 
-   public void a(fn var1) {}
+   public void a(NBTTagCompound var1) {}
 
    public boolean e(EntityHuman var1) {
       amj var2 = var1.bz();
@@ -86,7 +86,7 @@ public class EntityLeash extends EntityHanging {
    }
 
    public boolean j() {
-      return this.o.p(this.a).c() instanceof avv;
+      return this.o.getData(this.a).c() instanceof BlockFence;
    }
 
    public static EntityLeash a(World var0, Location var1) {

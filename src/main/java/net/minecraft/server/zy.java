@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zy extends zb {
+public class zy extends PathfinderGoal {
 
    private EntityCreature a;
    private double b;

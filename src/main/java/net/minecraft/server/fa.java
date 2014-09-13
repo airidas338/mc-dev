@@ -21,9 +21,9 @@ public class fa {
 
    public fv a() {
       fv var1 = new fv();
-      var1.a((gd)(new fs(this.a)));
-      var1.a((gd)(new fs(this.b)));
-      var1.a((gd)(new fs(this.c)));
+      var1.a((NBTBase)(new NBTTagFloat(this.a)));
+      var1.a((NBTBase)(new NBTTagFloat(this.b)));
+      var1.a((NBTBase)(new NBTTagFloat(this.c)));
       return var1;
    }
 

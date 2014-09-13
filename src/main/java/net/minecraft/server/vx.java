@@ -18,11 +18,11 @@ public class vx {
       return this.b;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       var1.a("Lock", this.b);
    }
 
-   public static vx b(fn var0) {
+   public static vx b(NBTTagCompound var0) {
       if(var0.b("Lock", 8)) {
          String var1 = var0.j("Lock");
          return new vx(var1);

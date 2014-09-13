@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class bdk implements ae {
+class bdk implements ICommandSender {
 
    // $FF: synthetic field
    final bdj a;

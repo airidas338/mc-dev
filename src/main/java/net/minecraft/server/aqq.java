@@ -54,8 +54,8 @@ public class aqq {
       return var2 != null?var2.c():0;
    }
 
-   public fn a() {
-      fn var1 = new fn();
+   public NBTTagCompound a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       Iterator var2 = this.a.keySet().iterator();
 
       while(var2.hasNext()) {
@@ -67,7 +67,7 @@ public class aqq {
       return var1;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       Set var2 = var1.c();
       Iterator var3 = var2.iterator();
 

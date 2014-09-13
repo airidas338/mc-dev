@@ -27,7 +27,7 @@ public class qx {
       this.c = var1;
       var1.a(this.b.by);
       this.b.t();
-      this.b.b.an().a((id)(new kh(kj.b, new EntityPlayer[]{this.b})));
+      this.b.b.an().a((Packet)(new kh(kj.b, new EntityPlayer[]{this.b})));
    }
 
    public EnumGamemode b() {
@@ -56,8 +56,8 @@ public class qx {
       int var4;
       if(this.h) {
          int var1 = this.g - this.j;
-         Block var2 = this.a.p(this.i).c();
-         if(var2.r() == Material.a) {
+         Block var2 = this.a.getData(this.i).c();
+         if(var2.r() == Material.AIR) {
             this.h = false;
          } else {
             var3 = var2.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
@@ -73,8 +73,8 @@ public class qx {
             }
          }
       } else if(this.d) {
-         Block var5 = this.a.p(this.f).c();
-         if(var5.r() == Material.a) {
+         Block var5 = this.a.getData(this.f).c();
+         if(var5.r() == Material.AIR) {
             this.a.c(this.b.F(), this.f, -1);
             this.k = -1;
             this.d = false;
@@ -98,7 +98,7 @@ public class qx {
          }
 
       } else {
-         Block var3 = this.a.p(var1).c();
+         Block var3 = this.a.getData(var1).c();
          if(this.c.c()) {
             if(this.c == EnumGamemode.SPECTATOR) {
                return;
@@ -119,12 +119,12 @@ public class qx {
          this.a.a((EntityHuman)null, var1, var2);
          this.e = this.g;
          float var6 = 1.0F;
-         if(var3.r() != Material.a) {
+         if(var3.r() != Material.AIR) {
             var3.a(this.a, var1, (EntityHuman)this.b);
             var6 = var3.a((EntityHuman)this.b, this.b.o, var1);
          }
 
-         if(var3.r() != Material.a && var6 >= 1.0F) {
+         if(var3.r() != Material.AIR && var6 >= 1.0F) {
             this.b(var1);
          } else {
             this.d = true;
@@ -140,8 +140,8 @@ public class qx {
    public void a(Location var1) {
       if(var1.equals(this.f)) {
          int var2 = this.g - this.e;
-         Block var3 = this.a.p(var1).c();
-         if(var3.r() != Material.a) {
+         Block var3 = this.a.getData(var1).c();
+         if(var3.r() != Material.AIR) {
             float var4 = var3.a((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
@@ -164,7 +164,7 @@ public class qx {
    }
 
    private boolean c(Location var1) {
-      IBlock var2 = this.a.p(var1);
+      IBlock var2 = this.a.getData(var1);
       var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
       boolean var3 = this.a.g(var1);
       if(var3) {
@@ -178,7 +178,7 @@ public class qx {
       if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof anm) {
          return false;
       } else {
-         IBlock var2 = this.a.p(var1);
+         IBlock var2 = this.a.getData(var1);
          bcm var3 = this.a.s(var1);
          if(this.c.c()) {
             if(this.c == EnumGamemode.SPECTATOR) {
@@ -200,7 +200,7 @@ public class qx {
          this.a.a(this.b, 2001, var1, Block.f(var2));
          boolean var7 = this.c(var1);
          if(this.d()) {
-            this.b.a.a((id)(new iw(this.a, var1)));
+            this.b.a.a((Packet)(new iw(this.a, var1)));
          } else {
             amj var5 = this.b.bY();
             boolean var6 = this.b.b(var2.c());
@@ -255,10 +255,10 @@ public class qx {
       if(this.c == EnumGamemode.SPECTATOR) {
          bcm var13 = var2.s(var4);
          if(var13 instanceof vy) {
-            Block var15 = var2.p(var4).c();
+            Block var15 = var2.getData(var4).c();
             vy var14 = (vy)var13;
-            if(var14 instanceof bcr && var15 instanceof auj) {
-               var14 = ((auj)var15).d(var2, var4);
+            if(var14 instanceof bcr && var15 instanceof BlockChest) {
+               var14 = ((BlockChest)var15).d(var2, var4);
             }
 
             if(var14 != null) {
@@ -273,7 +273,7 @@ public class qx {
          return false;
       } else {
          if(!var1.aw() || var1.bz() == null) {
-            IBlock var9 = var2.p(var4);
+            IBlock var9 = var2.getData(var4);
             if(var9.c().a(var2, var4, var9, var1, var5, var6, var7, var8)) {
                return true;
             }

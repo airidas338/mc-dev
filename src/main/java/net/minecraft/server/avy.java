@@ -7,7 +7,7 @@ public abstract class avy extends auc {
 
 
    protected avy() {
-      super(Material.k);
+      super(Material.PLANT);
       this.j(this.L.b().a(this.l(), this.j() == awc.b?EnumFlowerType.b:EnumFlowerType.a));
    }
 

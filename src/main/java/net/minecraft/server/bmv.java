@@ -49,28 +49,28 @@ public abstract class bmv {
 
    }
 
-   public fn a(int var1, int var2) {
-      fn var3 = new fn();
+   public NBTTagCompound a(int var1, int var2) {
+      NBTTagCompound var3 = new NBTTagCompound();
       var3.a("id", bmq.a(this));
       var3.a("ChunkX", var1);
       var3.a("ChunkZ", var2);
-      var3.a("BB", (gd)this.b.g());
+      var3.a("BB", (NBTBase)this.b.g());
       fv var4 = new fv();
       Iterator var5 = this.a.iterator();
 
       while(var5.hasNext()) {
          bms var6 = (bms)var5.next();
-         var4.a((gd)var6.b());
+         var4.a((NBTBase)var6.b());
       }
 
-      var3.a("Children", (gd)var4);
+      var3.a("Children", (NBTBase)var4);
       this.a(var3);
       return var3;
    }
 
-   public void a(fn var1) {}
+   public void a(NBTTagCompound var1) {}
 
-   public void a(World var1, fn var2) {
+   public void a(World var1, NBTTagCompound var2) {
       this.c = var2.f("ChunkX");
       this.d = var2.f("ChunkZ");
       if(var2.c("BB")) {
@@ -86,7 +86,7 @@ public abstract class bmv {
       this.b(var2);
    }
 
-   public void b(fn var1) {}
+   public void b(NBTTagCompound var1) {}
 
    protected void a(World var1, Random var2, int var3) {
       int var4 = 63 - var3;

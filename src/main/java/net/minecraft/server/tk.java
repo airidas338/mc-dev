@@ -8,7 +8,7 @@ public class tk extends tq {
 	public final amj d;
 	private boolean m;
 
-	public tk(String var1, String var2, int var3, int var4, alq var5, tk var6) {
+	public tk(String var1, String var2, int var3, int var4, Item var5, tk var6) {
 		this(var1, var2, var3, var4, new amj(var5), var6);
 	}
 
@@ -17,7 +17,7 @@ public class tk extends tq {
 	}
 
 	public tk(String var1, String var2, int var3, int var4, amj var5, tk var6) {
-		super(var1, new hz("achievement." + var2, new Object[0]));
+		super(var1, new ChatMessage("achievement." + var2, new Object[0]));
 		this.d = var5;
 		this.k = "achievement." + var2 + ".desc";
 		this.a = var3;

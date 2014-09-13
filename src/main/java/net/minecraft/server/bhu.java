@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bhu extends bhp {
+public class bhu extends WorldGenerator {
 
    private final Block a;
    private final boolean b;
@@ -13,29 +13,29 @@ public class bhu extends bhp {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      if(var1.p(var3.a()).c() != aty.aV) {
+      if(var1.getData(var3.a()).c() != aty.aV) {
          return false;
-      } else if(var1.p(var3).c().r() != Material.a && var1.p(var3).c() != aty.aV) {
+      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != aty.aV) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.p(var3.e()).c() == aty.aV) {
+         if(var1.getData(var3.e()).c() == aty.aV) {
             ++var4;
          }
 
-         if(var1.p(var3.f()).c() == aty.aV) {
+         if(var1.getData(var3.f()).c() == aty.aV) {
             ++var4;
          }
 
-         if(var1.p(var3.c()).c() == aty.aV) {
+         if(var1.getData(var3.c()).c() == aty.aV) {
             ++var4;
          }
 
-         if(var1.p(var3.d()).c() == aty.aV) {
+         if(var1.getData(var3.d()).c() == aty.aV) {
             ++var4;
          }
 
-         if(var1.p(var3.b()).c() == aty.aV) {
+         if(var1.getData(var3.b()).c() == aty.aV) {
             ++var4;
          }
 

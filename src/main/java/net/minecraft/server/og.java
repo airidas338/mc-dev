@@ -7,15 +7,15 @@ final class og extends eg {
 
    public amj b(dz var1, amj var2) {
       World var3 = var1.i();
-      Location var4 = var1.d().a(ave.b(var1.f()));
-      IBlock var5 = var3.p(var4);
+      Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
+      IBlock var5 = var3.getData(var4);
       Block var6 = var5.c();
       Material var7 = var6.r();
-      alq var8;
-      if(Material.h.equals(var7) && var6 instanceof axl && ((Integer)var5.b(axl.b)).intValue() == 0) {
+      Item var8;
+      if(Material.WATER.equals(var7) && var6 instanceof axl && ((Integer)var5.b(axl.b)).intValue() == 0) {
          var8 = Items.ax;
       } else {
-         if(!Material.i.equals(var7) || !(var6 instanceof axl) || ((Integer)var5.b(axl.b)).intValue() != 0) {
+         if(!Material.LAVA.equals(var7) || !(var6 instanceof axl) || ((Integer)var5.b(axl.b)).intValue() != 0) {
             return super.b(var1, var2);
          }
 

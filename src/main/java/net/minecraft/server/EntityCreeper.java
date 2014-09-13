@@ -50,7 +50,7 @@ public class EntityCreeper extends EntityMonster {
       this.ac.a(18, Byte.valueOf((byte)0));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.ac.a(17) == 1) {
          var1.a("powered", true);
@@ -61,7 +61,7 @@ public class EntityCreeper extends EntityMonster {
       var1.a("ignited", this.cl());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.ac.b(17, Byte.valueOf((byte)(var1.n("powered")?1:0)));
       if(var1.b("Fuse", 99)) {
@@ -115,10 +115,10 @@ public class EntityCreeper extends EntityMonster {
    public void a(DamageSource var1) {
       super.a(var1);
       if(var1.getEntity() instanceof EntitySkeleton) {
-         int var2 = alq.b(Items.cq);
-         int var3 = alq.b(Items.cB);
+         int var2 = Item.b(Items.cq);
+         int var3 = Item.b(Items.cB);
          int var4 = var2 + this.V.nextInt(var3 - var2 + 1);
-         this.a(alq.b(var4), 1);
+         this.a(Item.b(var4), 1);
       } else if(var1.getEntity() instanceof EntityCreeper && var1.getEntity() != this && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
          this.a(new amj(Items.bX, 1, 4), 0.0F);
@@ -134,7 +134,7 @@ public class EntityCreeper extends EntityMonster {
       return this.ac.a(17) == 1;
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.H;
    }
 
@@ -146,7 +146,7 @@ public class EntityCreeper extends EntityMonster {
       this.ac.b(16, Byte.valueOf((byte)var1));
    }
 
-   public void a(ads var1) {
+   public void a(EntityLightning var1) {
       super.a(var1);
       this.ac.b(17, Byte.valueOf((byte)1));
    }

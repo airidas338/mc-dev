@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class jp implements id {
+public class jp implements Packet {
 
    private int a;
 

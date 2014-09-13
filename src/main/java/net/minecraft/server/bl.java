@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 
-class bl implements ae {
+class bl implements ICommandSender {
 
    // $FF: synthetic field
    final Entity a;
    // $FF: synthetic field
-   final ae b;
+   final ICommandSender b;
    // $FF: synthetic field
    final Location c;
    // $FF: synthetic field
@@ -19,7 +19,7 @@ class bl implements ae {
    final bk g;
 
 
-   bl(bk var1, Entity var2, ae var3, Location var4, double var5, double var7, double var9) {
+   bl(bk var1, Entity var2, ICommandSender var3, Location var4, double var5, double var7, double var9) {
       this.g = var1;
       this.a = var2;
       this.b = var3;

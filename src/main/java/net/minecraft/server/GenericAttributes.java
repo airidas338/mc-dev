@@ -22,14 +22,14 @@ public class GenericAttributes {
 
       while(var2.hasNext()) {
          AttributeInstance var3 = (AttributeInstance)var2.next();
-         var1.a((gd)a(var3));
+         var1.a((NBTBase)a(var3));
       }
 
       return var1;
    }
 
-   private static fn a(AttributeInstance var0) {
-      fn var1 = new fn();
+   private static NBTTagCompound a(AttributeInstance var0) {
+      NBTTagCompound var1 = new NBTTagCompound();
       IAttribute var2 = var0.a();
       var1.a("Name", var2.a());
       var1.a("Base", var0.b());
@@ -41,18 +41,18 @@ public class GenericAttributes {
          while(var5.hasNext()) {
             ya var6 = (ya)var5.next();
             if(var6.e()) {
-               var4.a((gd)a(var6));
+               var4.a((NBTBase)a(var6));
             }
          }
 
-         var1.a("Modifiers", (gd)var4);
+         var1.a("Modifiers", (NBTBase)var4);
       }
 
       return var1;
    }
 
-   private static fn a(ya var0) {
-      fn var1 = new fn();
+   private static NBTTagCompound a(ya var0) {
+      NBTTagCompound var1 = new NBTTagCompound();
       var1.a("Name", var0.b());
       var1.a("Amount", var0.d());
       var1.a("Operation", var0.c());
@@ -63,7 +63,7 @@ public class GenericAttributes {
 
    public static void a(AttributeMapBase var0, fv var1) {
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          AttributeInstance var4 = var0.a(var3.j("Name"));
          if(var4 != null) {
             a(var4, var3);
@@ -74,7 +74,7 @@ public class GenericAttributes {
 
    }
 
-   private static void a(AttributeInstance var0, fn var1) {
+   private static void a(AttributeInstance var0, NBTTagCompound var1) {
       var0.a(var1.i("Base"));
       if(var1.b("Modifiers", 9)) {
          fv var2 = var1.c("Modifiers", 10);
@@ -94,7 +94,7 @@ public class GenericAttributes {
 
    }
 
-   public static ya a(fn var0) {
+   public static ya a(NBTTagCompound var0) {
       UUID var1 = new UUID(var0.g("UUIDMost"), var0.g("UUIDLeast"));
 
       try {

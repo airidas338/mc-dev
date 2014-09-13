@@ -8,7 +8,7 @@ public abstract class ayl extends awq {
 
 
    public ayl() {
-      super(Material.e);
+      super(Material.STONE);
       IBlock var1 = this.L.b();
       if(this.j()) {
          var1 = var1.a(b, Boolean.valueOf(false));
@@ -17,11 +17,11 @@ public abstract class ayl extends awq {
       }
 
       this.j(var1.a(M, aym.a));
-      this.a(akf.b);
+      this.a(CreativeModeTab.b);
    }
 
-   public alq a(IBlock var1, Random var2, int var3) {
-      return alq.a((Block)aty.cP);
+   public Item a(IBlock var1, Random var2, int var3) {
+      return Item.a((Block)aty.cP);
    }
 
    public String b(int var1) {

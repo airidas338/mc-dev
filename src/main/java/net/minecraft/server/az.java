@@ -7,7 +7,7 @@ public class az extends CommandAbstract {
       return "clear";
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.clear.usage";
    }
 
@@ -15,12 +15,12 @@ public class az extends CommandAbstract {
       return 2;
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       EntityPlayer var3 = var2.length == 0?b(var1):a(var1, var2[0]);
-      alq var4 = var2.length >= 2?f(var1, var2[1]):null;
+      Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
       int var6 = var2.length >= 4?a(var2[3], -1):-1;
-      fn var7 = null;
+      NBTTagCompound var7 = null;
       if(var2.length >= 5) {
          try {
             var7 = gg.a(a(var2, 4));
@@ -43,7 +43,7 @@ public class az extends CommandAbstract {
             throw new di("commands.clear.failure", new Object[]{var3.d_()});
          } else {
             if(var6 == 0) {
-               var1.a(new hz("commands.clear.testing", new Object[]{var3.d_(), Integer.valueOf(var8)}));
+               var1.a(new ChatMessage("commands.clear.testing", new Object[]{var3.d_(), Integer.valueOf(var8)}));
             } else {
                a(var1, this, "commands.clear.success", new Object[]{var3.d_(), Integer.valueOf(var8)});
             }
@@ -52,8 +52,8 @@ public class az extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, alq.e.c()):null);
+   public List a(ICommandSender var1, String[] var2, Location var3) {
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.e.c()):null);
    }
 
    protected String[] d() {

@@ -44,7 +44,7 @@ public class EntityCow extends EntityAnimal {
       return 0.4F;
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.aF;
    }
 

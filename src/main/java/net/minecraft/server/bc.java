@@ -11,11 +11,11 @@ public class bc extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.compare.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 9) {
          throw new dp("commands.compare.usage", new Object[0]);
       } else {
@@ -45,18 +45,18 @@ public class bc extends CommandAbstract {
                         Location var15 = new Location(var14, var13, var12);
                         Location var16 = var15.a((fd)var11);
                         boolean var17 = false;
-                        IBlock var18 = var9.p(var15);
+                        IBlock var18 = var9.getData(var15);
                         if(!var10 || var18.c() != aty.a) {
-                           if(var18 == var9.p(var16)) {
+                           if(var18 == var9.getData(var16)) {
                               bcm var19 = var9.s(var15);
                               bcm var20 = var9.s(var16);
                               if(var19 != null && var20 != null) {
-                                 fn var21 = new fn();
+                                 NBTTagCompound var21 = new NBTTagCompound();
                                  var19.b(var21);
                                  var21.o("x");
                                  var21.o("y");
                                  var21.o("z");
-                                 fn var22 = new fn();
+                                 NBTTagCompound var22 = new NBTTagCompound();
                                  var20.b(var22);
                                  var22.o("x");
                                  var22.o("y");
@@ -91,7 +91,7 @@ public class bc extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"masked", "all"}):null)));
    }
 }

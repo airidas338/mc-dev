@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class asw extends BiomeDecorator {
 
-   protected bhp M;
+   protected WorldGenerator M;
 
 
    public asw() {

@@ -63,12 +63,12 @@ public class EntityOcelot extends EntityTameableAnimal {
 
    public void e(float var1, float var2) {}
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("CatType", this.cr());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.r(var1.f("CatType"));
    }
@@ -89,7 +89,7 @@ public class EntityOcelot extends EntityTameableAnimal {
       return 0.4F;
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.aF;
    }
 
@@ -190,8 +190,8 @@ public class EntityOcelot extends EntityTameableAnimal {
             return false;
          }
 
-         Block var2 = this.o.p(var1.b()).c();
-         if(var2 == aty.c || var2.r() == Material.j) {
+         Block var2 = this.o.getData(var1.b()).c();
+         if(var2 == aty.c || var2.r() == Material.LEAVES) {
             return true;
          }
       }
@@ -212,7 +212,7 @@ public class EntityOcelot extends EntityTameableAnimal {
          this.bm = new yp(this, new abz(this), 16.0F, 0.8D, 1.33D);
       }
 
-      this.i.a((zb)this.bm);
+      this.i.a((PathfinderGoal)this.bm);
       if(!this.cj()) {
          this.i.a(4, this.bm);
       }

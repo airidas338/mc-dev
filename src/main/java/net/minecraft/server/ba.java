@@ -15,11 +15,11 @@ public class ba extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.clone.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 9) {
          throw new dp("commands.clone.usage", new Object[0]);
       } else {
@@ -73,19 +73,19 @@ public class ba extends CommandAbstract {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
                               Location var22 = new Location(var21, var20, var19);
                               Location var23 = var22.a((fd)var18);
-                              IBlock var24 = var12.p(var22);
+                              IBlock var24 = var12.getData(var22);
                               if((!var13 || var24.c() != aty.a) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
                                  bcm var25 = var12.s(var22);
                                  if(var25 != null) {
-                                    fn var26 = new fn();
+                                    NBTTagCompound var26 = new NBTTagCompound();
                                     var25.b(var26);
                                     var15.add(new bb(var23, var24, var26));
                                     var17.addLast(var22);
                                  } else if(!var24.c().m() && !var24.c().d()) {
-                                    var16.add(new bb(var23, var24, (fn)null));
+                                    var16.add(new bb(var23, var24, (NBTTagCompound)null));
                                     var17.addFirst(var22);
                                  } else {
-                                    var14.add(new bb(var23, var24, (fn)null));
+                                    var14.add(new bb(var23, var24, (NBTTagCompound)null));
                                     var17.addLast(var22);
                                  }
                               }
@@ -188,7 +188,7 @@ public class ba extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.c.c()):null)))));
    }
 }

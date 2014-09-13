@@ -43,11 +43,11 @@ public abstract class bcm {
       return this.b != null;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.c = new Location(var1.f("x"), var1.f("y"), var1.f("z"));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       String var2 = (String)g.get(this.getClass());
       if(var2 == null) {
          throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
@@ -59,7 +59,7 @@ public abstract class bcm {
       }
    }
 
-   public static bcm c(fn var0) {
+   public static bcm c(NBTTagCompound var0) {
       bcm var1 = null;
 
       try {
@@ -82,7 +82,7 @@ public abstract class bcm {
 
    public int u() {
       if(this.h == -1) {
-         IBlock var1 = this.b.p(this.c);
+         IBlock var1 = this.b.getData(this.c);
          this.h = var1.c().c(var1);
       }
 
@@ -91,7 +91,7 @@ public abstract class bcm {
 
    public void o_() {
       if(this.b != null) {
-         IBlock var1 = this.b.p(this.c);
+         IBlock var1 = this.b.getData(this.c);
          this.h = var1.c().c(var1);
          this.b.b(this.c, this);
          if(this.w() != aty.a) {
@@ -107,13 +107,13 @@ public abstract class bcm {
 
    public Block w() {
       if(this.e == null) {
-         this.e = this.b.p(this.c).c();
+         this.e = this.b.getData(this.c).c();
       }
 
       return this.e;
    }
 
-   public id x_() {
+   public Packet x_() {
       return null;
    }
 

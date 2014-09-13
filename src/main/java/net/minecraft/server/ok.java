@@ -9,18 +9,18 @@ final class ok extends eg {
 
    protected amj b(dz var1, amj var2) {
       World var3 = var1.i();
-      ej var4 = ave.b(var1.f());
+      ej var4 = BlockDispenser.b(var1.f());
       Location var5 = var1.d().a(var4);
-      baj var6 = aty.ce;
+      BlockSkull var6 = aty.ce;
       if(var3.d(var5) && var6.b(var3, var5, var2)) {
          if(!var3.D) {
-            var3.a(var5, var6.P().a(baj.a, ej.b), 3);
+            var3.a(var5, var6.P().a(BlockSkull.a, ej.b), 3);
             bcm var7 = var3.s(var5);
             if(var7 instanceof bdm) {
                if(var2.i() == 3) {
                   GameProfile var8 = null;
                   if(var2.n()) {
-                     fn var9 = var2.o();
+                     NBTTagCompound var9 = var2.o();
                      if(var9.b("SkullOwner", 10)) {
                         var8 = ga.a(var9.m("SkullOwner"));
                      } else if(var9.b("SkullOwner", 8)) {

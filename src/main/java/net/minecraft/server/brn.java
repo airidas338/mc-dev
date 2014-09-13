@@ -42,7 +42,7 @@ public class brn {
                   }
 
                   FileInputStream var5 = new FileInputStream(var4);
-                  fn var6 = fz.a((InputStream)var5);
+                  NBTTagCompound var6 = fz.a((InputStream)var5);
                   var5.close();
                   var3.a(var6.m("data"));
                }
@@ -85,10 +85,10 @@ public class brn {
          try {
             File var2 = this.b.a(var1.a);
             if(var2 != null) {
-               fn var3 = new fn();
+               NBTTagCompound var3 = new NBTTagCompound();
                var1.b(var3);
-               fn var4 = new fn();
-               var4.a("data", (gd)var3);
+               NBTTagCompound var4 = new NBTTagCompound();
+               var4.a("data", (NBTBase)var3);
                FileOutputStream var5 = new FileOutputStream(var2);
                fz.a(var4, (OutputStream)var5);
                var5.close();
@@ -110,15 +110,15 @@ public class brn {
          File var1 = this.b.a("idcounts");
          if(var1 != null && var1.exists()) {
             DataInputStream var2 = new DataInputStream(new FileInputStream(var1));
-            fn var3 = fz.a(var2);
+            NBTTagCompound var3 = fz.a(var2);
             var2.close();
             Iterator var4 = var3.c().iterator();
 
             while(var4.hasNext()) {
                String var5 = (String)var4.next();
-               gd var6 = var3.a(var5);
-               if(var6 instanceof gb) {
-                  gb var7 = (gb)var6;
+               NBTBase var6 = var3.a(var5);
+               if(var6 instanceof NBTTagShort) {
+                  NBTTagShort var7 = (NBTTagShort)var6;
                   short var9 = var7.e();
                   this.d.put(var5, Short.valueOf(var9));
                }
@@ -145,7 +145,7 @@ public class brn {
          try {
             File var3 = this.b.a("idcounts");
             if(var3 != null) {
-               fn var4 = new fn();
+               NBTTagCompound var4 = new NBTTagCompound();
                Iterator var5 = this.d.keySet().iterator();
 
                while(var5.hasNext()) {

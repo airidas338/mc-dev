@@ -21,7 +21,7 @@ public class bgr implements bfe {
    private final bhs t = new bhs();
    private final bhz u = new bhz();
    private final bht v = new bht();
-   private final bhp w;
+   private final WorldGenerator w;
    private final bhu x;
    private final bhu y;
    private final bhi z;
@@ -139,7 +139,7 @@ public class bgr implements bfe {
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlock var16 = var3.a(var8, var15, var7);
-                  if(var16.c() != null && var16.c().r() != Material.a) {
+                  if(var16.c() != null && var16.c().r() != Material.AIR) {
                      if(var16.c() == aty.aV) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
@@ -159,7 +159,7 @@ public class bgr implements bfe {
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.c().r() == Material.a)) {
+                           if(var15 < var4 && (var13 == null || var13.c().r() == Material.AIR)) {
                               var13 = aty.l.P();
                            }
 
@@ -351,7 +351,7 @@ public class bgr implements bfe {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.p(var2.b()).c() == aty.by) {
+         if(this.B.a(this.h, var2) && this.h.getData(var2.b()).c() == aty.by) {
             return this.B.b();
          }
       }

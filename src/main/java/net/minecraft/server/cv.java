@@ -11,11 +11,11 @@ public class cv extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.summon.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.summon.usage", new Object[0]);
       } else {
@@ -36,10 +36,10 @@ public class cv extends CommandAbstract {
          if(!var12.e(var4)) {
             throw new di("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {
-            var12.c((Entity)(new ads(var12, var6, var8, var10)));
+            var12.c((Entity)(new EntityLightning(var12, var6, var8, var10)));
             a(var1, this, "commands.summon.success", new Object[0]);
          } else {
-            fn var13 = new fn();
+            NBTTagCompound var13 = new NBTTagCompound();
             boolean var14 = false;
             if(var2.length >= 5) {
                IChatBaseComponent var15 = a(var1, var2, 4);
@@ -72,7 +72,7 @@ public class cv extends CommandAbstract {
                var12.d(var21);
                Entity var16 = var21;
 
-               for(fn var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.m("Riding")) {
+               for(NBTTagCompound var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.m("Riding")) {
                   Entity var18 = EntityTypes.a(var17.m("Riding"), var12);
                   if(var18 != null) {
                      var18.b(var6, var8, var10, var18.y, var18.z);
@@ -89,7 +89,7 @@ public class cv extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

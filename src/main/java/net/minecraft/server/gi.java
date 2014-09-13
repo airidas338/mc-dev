@@ -12,8 +12,8 @@ class gi extends gh {
       this.a = var1;
    }
 
-   public gd a() {
-      fn var1 = new fn();
+   public NBTBase a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       Iterator var2 = this.b.iterator();
 
       while(var2.hasNext()) {

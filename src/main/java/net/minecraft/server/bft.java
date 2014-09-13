@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class bft {
 
-   public static bfu a(fn var0) {
+   public static bfu a(NBTTagCompound var0) {
       int var1 = var0.f("xPos");
       int var2 = var0.f("zPos");
       bfu var3 = new bfu(var1, var2);
@@ -25,7 +25,7 @@ public class bft {
       return var3;
    }
 
-   public static void a(bfu var0, fn var1, WorldChunkManager var2) {
+   public static void a(bfu var0, NBTTagCompound var1, WorldChunkManager var2) {
       var1.a("xPos", var0.k);
       var1.a("zPos", var0.l);
       var1.a("LastUpdate", var0.a);
@@ -86,17 +86,17 @@ public class bft {
                }
             }
 
-            fn var24 = new fn();
+            NBTTagCompound var24 = new NBTTagCompound();
             var24.a("Y", (byte)(var5 & 255));
             var24.a("Blocks", var19);
             var24.a("Data", var20.a());
             var24.a("SkyLight", var21.a());
             var24.a("BlockLight", var23.a());
-            var16.a((gd)var24);
+            var16.a((NBTBase)var24);
          }
       }
 
-      var1.a("Sections", (gd)var16);
+      var1.a("Sections", (NBTBase)var16);
       byte[] var17 = new byte[256];
 
       for(int var18 = 0; var18 < 16; ++var18) {
@@ -106,10 +106,10 @@ public class bft {
       }
 
       var1.a("Biomes", var17);
-      var1.a("Entities", (gd)var0.h);
-      var1.a("TileEntities", (gd)var0.i);
+      var1.a("Entities", (NBTBase)var0.h);
+      var1.a("TileEntities", (NBTBase)var0.i);
       if(var0.j != null) {
-         var1.a("TileTicks", (gd)var0.j);
+         var1.a("TileTicks", (NBTBase)var0.j);
       }
 
    }

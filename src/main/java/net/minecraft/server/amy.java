@@ -2,7 +2,7 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 
-public class amy extends alq {
+public class amy extends Item {
 
    private static final Map b = Maps.newHashMap();
    public final String a;
@@ -11,18 +11,18 @@ public class amy extends alq {
    protected amy(String var1) {
       this.a = var1;
       this.h = 1;
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
       b.put("records." + var1, this);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.p(var4);
-      if(var9.c() == aty.aN && !((Boolean)var9.b(axc.a)).booleanValue()) {
+      IBlock var9 = var3.getData(var4);
+      if(var9.c() == aty.aN && !((Boolean)var9.b(BlockJukebox.a)).booleanValue()) {
          if(var3.D) {
             return true;
          } else {
-            ((axc)aty.aN).a(var3, var4, var9, var1);
-            var3.a((EntityHuman)null, 1005, var4, alq.b((alq)this));
+            ((BlockJukebox)aty.aN).a(var3, var4, var9, var1);
+            var3.a((EntityHuman)null, 1005, var4, Item.b((Item)this));
             --var1.b;
             return true;
          }

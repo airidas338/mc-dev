@@ -138,7 +138,7 @@ public class wq {
       }
    }
 
-   public fn a(fn var1) {
+   public NBTTagCompound a(NBTTagCompound var1) {
       var1.a("Id", (byte)this.a());
       var1.a("Amplifier", (byte)this.c());
       var1.a("Duration", this.b());
@@ -147,7 +147,7 @@ public class wq {
       return var1;
    }
 
-   public static wq b(fn var0) {
+   public static wq b(NBTTagCompound var0) {
       byte var1 = var0.d("Id");
       if(var1 >= 0 && var1 < wp.a.length && wp.a[var1] != null) {
          byte var2 = var0.d("Amplifier");

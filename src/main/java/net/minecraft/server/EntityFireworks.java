@@ -25,8 +25,8 @@ public class EntityFireworks extends Entity {
       int var9 = 1;
       if(var8 != null && var8.n()) {
          this.ac.b(8, var8);
-         fn var10 = var8.o();
-         fn var11 = var10.m("Fireworks");
+         NBTTagCompound var10 = var8.o();
+         NBTTagCompound var11 = var10.m("Fireworks");
          if(var11 != null) {
             var9 += var11.d("Flight");
          }
@@ -84,22 +84,22 @@ public class EntityFireworks extends Entity {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Life", this.a);
       var1.a("LifeTime", this.b);
       amj var2 = this.ac.f(8);
       if(var2 != null) {
-         fn var3 = new fn();
+         NBTTagCompound var3 = new NBTTagCompound();
          var2.b(var3);
-         var1.a("FireworksItem", (gd)var3);
+         var1.a("FireworksItem", (NBTBase)var3);
       }
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.a = var1.f("Life");
       this.b = var1.f("LifeTime");
-      fn var2 = var1.m("FireworksItem");
+      NBTTagCompound var2 = var1.m("FireworksItem");
       if(var2 != null) {
          amj var3 = amj.a(var2);
          if(var3 != null) {

@@ -28,14 +28,14 @@ public abstract class EntityFlying extends EntityInsentient {
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+            var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+            var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
          }
 
          this.d(this.v, this.w, this.x);

@@ -10,7 +10,7 @@ public class bpy extends bpu {
    private boolean j;
 
 
-   public void a(ard var1, Entity var2) {
+   public void a(IBlockAccess var1, Entity var2) {
       super.a(var1, var2);
       this.j = this.h;
    }
@@ -25,7 +25,7 @@ public class bpy extends bpu {
       if(this.i && var1.V()) {
          var2 = (int)var1.aQ().b;
 
-         for(Block var3 = this.a.p(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == aty.i || var3 == aty.j; var3 = this.a.p(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
+         for(Block var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == aty.i || var3 == aty.j; var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
             ++var2;
          }
 
@@ -123,7 +123,7 @@ public class bpy extends bpu {
       return a(this.a, var1, var2, var3, var4, this.c, this.d, this.e, this.h, this.g, this.f);
    }
 
-   public static int a(ard var0, Entity var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
+   public static int a(IBlockAccess var0, Entity var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
       boolean var11 = false;
       Location var12 = new Location(var1);
 
@@ -131,11 +131,11 @@ public class bpy extends bpu {
          for(int var14 = var3; var14 < var3 + var6; ++var14) {
             for(int var15 = var4; var15 < var4 + var7; ++var15) {
                Location var16 = new Location(var13, var14, var15);
-               Block var17 = var0.p(var16).c();
-               if(var17.r() != Material.a) {
+               Block var17 = var0.getData(var16).c();
+               if(var17.r() != Material.AIR) {
                   if(var17 != aty.bd && var17 != aty.cw) {
                      if(var17 != aty.i && var17 != aty.j) {
-                        if(!var10 && var17 instanceof avf && var17.r() == Material.d) {
+                        if(!var10 && var17 instanceof BlockDoor && var17.r() == Material.WOOD) {
                            return 0;
                         }
                      } else {
@@ -149,12 +149,12 @@ public class bpy extends bpu {
                      var11 = true;
                   }
 
-                  if(var1.o.p(var16).c() instanceof ati) {
-                     if(!(var1.o.p(var12).c() instanceof ati) && !(var1.o.p(var12.b()).c() instanceof ati)) {
+                  if(var1.o.getData(var16).c() instanceof ati) {
+                     if(!(var1.o.getData(var12).c() instanceof ati) && !(var1.o.getData(var12.b()).c() instanceof ati)) {
                         return -3;
                      }
-                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof avf) || var17.r() != Material.d)) {
-                     if(var17 instanceof avv || var17 instanceof avw || var17 instanceof bbx) {
+                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof BlockDoor) || var17.r() != Material.WOOD)) {
+                     if(var17 instanceof BlockFence || var17 instanceof BlockFenceGate || var17 instanceof BlockCobbleWall) {
                         return -3;
                      }
 
@@ -163,7 +163,7 @@ public class bpy extends bpu {
                      }
 
                      Material var18 = var17.r();
-                     if(var18 != Material.i) {
+                     if(var18 != Material.LAVA) {
                         return 0;
                      }
 

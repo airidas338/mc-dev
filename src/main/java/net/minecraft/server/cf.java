@@ -17,11 +17,11 @@ public class cf extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.replaceitem.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.replaceitem.usage", new Object[0]);
       } else {
@@ -54,7 +54,7 @@ public class cf extends CommandAbstract {
          int var16 = var4 + 1;
          int var5 = this.e(var2[var4]);
 
-         alq var6;
+         Item var6;
          try {
             var6 = f(var1, var2[var16]);
          } catch (dk var15) {
@@ -125,8 +125,8 @@ public class cf extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
-      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, alq.e.c())):a(var2, a.keySet())));
+   public List a(ICommandSender var1, String[] var2, Location var3) {
+      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, Item.e.c())):a(var2, a.keySet())));
    }
 
    protected String[] d() {

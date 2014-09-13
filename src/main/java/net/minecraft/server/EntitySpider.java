@@ -59,7 +59,7 @@ public class EntitySpider extends EntityMonster {
       this.a("mob.spider.step", 0.15F, 1.0F);
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.F;
    }
 

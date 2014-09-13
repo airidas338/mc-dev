@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class yy extends zb {
+public class yy extends PathfinderGoal {
 
    private EntityInsentient a;
 

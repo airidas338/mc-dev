@@ -44,8 +44,8 @@ public enum ami {
       return this.j;
    }
 
-   public alq f() {
-      return this == a?alq.a(aty.f):(this == b?alq.a(aty.e):(this == e?Items.k:(this == c?Items.j:(this == d?Items.i:null))));
+   public Item f() {
+      return this == a?Item.a(aty.f):(this == b?Item.a(aty.e):(this == e?Items.k:(this == c?Items.j:(this == d?Items.i:null))));
    }
 
 }

@@ -6,16 +6,16 @@ class fo implements Callable {
    // $FF: synthetic field
    final String a;
    // $FF: synthetic field
-   final fn b;
+   final NBTTagCompound b;
 
 
-   fo(fn var1, String var2) {
+   fo(NBTTagCompound var1, String var2) {
       this.b = var1;
       this.a = var2;
    }
 
    public String a() {
-      return gd.a[((gd)fn.b(this.b).get(this.a)).a()];
+      return NBTBase.a[((NBTBase)NBTTagCompound.b(this.b).get(this.a)).getTypeId()];
    }
 
    // $FF: synthetic method

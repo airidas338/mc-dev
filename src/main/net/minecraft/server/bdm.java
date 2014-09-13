@@ -46,7 +46,7 @@ public class bdm extends bcm {
       return this.g;
    }
 
-   public id x_() {
+   public Packet x_() {
       fn var1 = new fn();
       this.b(var1);
       return new iu(this.c, 4, var1);

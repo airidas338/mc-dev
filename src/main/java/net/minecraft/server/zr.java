@@ -45,7 +45,7 @@ public class zr extends zn {
       if(!var1.d(var2.a())) {
          return false;
       } else {
-         IBlock var3 = var1.p(var2);
+         IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(var4 == aty.ae) {
             bcm var5 = var1.s(var2);
@@ -57,7 +57,7 @@ public class zr extends zn {
                return true;
             }
 
-            if(var4 == aty.C && var3.b(atp.a) != atq.a) {
+            if(var4 == aty.C && var3.b(BlockBed.a) != atq.a) {
                return true;
             }
          }

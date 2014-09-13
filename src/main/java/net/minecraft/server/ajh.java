@@ -20,7 +20,7 @@ public class ajh extends wa {
       }
 
       for(var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          int var4 = var3.d("Slot") & 255;
          if(var4 >= 0 && var4 < this.n_()) {
             this.a(var4, amj.a(var3));
@@ -35,10 +35,10 @@ public class ajh extends wa {
       for(int var2 = 0; var2 < this.n_(); ++var2) {
          amj var3 = this.a(var2);
          if(var3 != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var2);
             var3.b(var4);
-            var1.a((gd)var4);
+            var1.a((NBTBase)var4);
          }
       }
 

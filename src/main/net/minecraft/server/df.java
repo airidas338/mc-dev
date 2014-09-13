@@ -29,7 +29,7 @@ public class df extends CommandAbstract {
             var3.an().a(false);
             a(var1, this, "commands.whitelist.disabled", new Object[0]);
          } else if(var2[0].equals("list")) {
-            var1.a(new hz("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
+            var1.a(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
             String[] var4 = var3.an().m();
             var1.a(new ChatComponentText(a(var4)));
          } else {

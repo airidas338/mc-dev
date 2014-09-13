@@ -11,16 +11,16 @@ public class br extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.give.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 2) {
          throw new dp("commands.give.usage", new Object[0]);
       } else {
          EntityPlayer var3 = a(var1, var2[0]);
-         alq var4 = f(var1, var2[1]);
+         Item var4 = f(var1, var2[1]);
          int var5 = var2.length >= 3?a(var2[2], 1, 64):1;
          int var6 = var2.length >= 4?a(var2[3]):0;
          amj var7 = new amj(var4, var5, var6);
@@ -61,8 +61,8 @@ public class br extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, alq.e.c()):null);
+   public List a(ICommandSender var1, String[] var2, Location var3) {
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.e.c()):null);
    }
 
    protected String[] d() {

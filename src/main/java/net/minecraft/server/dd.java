@@ -15,11 +15,11 @@ public class dd extends CommandAbstract {
       return 0;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.trigger.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 3) {
          throw new dp("commands.trigger.usage", new Object[0]);
       } else {
@@ -69,7 +69,7 @@ public class dd extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Scoreboard var4 = MinecraftServer.M().a(0).Z();
          ArrayList var5 = Lists.newArrayList();

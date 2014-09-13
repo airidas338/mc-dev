@@ -77,10 +77,10 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       int var7;
       for(var7 = var3 + 1; var7 < this.b.V(); ++var7) {
          Location var8 = new Location(var2, var7, var4);
-         IBlock var9 = this.b.p(var8);
+         IBlock var9 = this.b.getData(var8);
          float[] var10;
          if(var9.c() == aty.cG) {
-            var10 = EntitySheep.a((akv)var9.b(bar.a));
+            var10 = EntitySheep.a((akv)var9.b(BlockStainedGlass.a));
          } else {
             if(var9.c() != aty.cH) {
                if(var9.c().n() >= 15) {
@@ -93,7 +93,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
                continue;
             }
 
-            var10 = EntitySheep.a((akv)var9.b(bas.a));
+            var10 = EntitySheep.a((akv)var9.b(BlockStainedGlassPane.a));
          }
 
          if(!var6) {
@@ -121,7 +121,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
             for(int var17 = var2 - var7; var17 <= var2 + var7 && var16; ++var17) {
                for(int var11 = var4 - var7; var11 <= var4 + var7; ++var11) {
-                  Block var12 = this.b.p(new Location(var17, var14, var11)).c();
+                  Block var12 = this.b.getData(new Location(var17, var14, var11)).c();
                   if(var12 != aty.bT && var12 != aty.R && var12 != aty.ah && var12 != aty.S) {
                      var16 = false;
                      break;
@@ -150,20 +150,20 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
    }
 
-   public id x_() {
-      fn var1 = new fn();
+   public Packet x_() {
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new iu(this.c, 3, var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.k = var1.f("Primary");
       this.l = var1.f("Secondary");
       this.j = var1.f("Levels");
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Primary", this.k);
       var1.a("Secondary", this.l);

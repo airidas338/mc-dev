@@ -5,7 +5,7 @@ import com.google.common.base.Predicates;
 
 import java.util.List;
 
-public class yp extends zb {
+public class yp extends PathfinderGoal {
 
    public final Predicate a = new yq(this);
    protected EntityCreature b;

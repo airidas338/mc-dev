@@ -21,42 +21,42 @@ class gk extends gh {
       this.b = var2;
    }
 
-   public gd a() {
+   public NBTBase a() {
       try {
          if(c.matcher(this.b).matches()) {
-            return new fq(Double.parseDouble(this.b.substring(0, this.b.length() - 1)));
+            return new NBTTagDouble(Double.parseDouble(this.b.substring(0, this.b.length() - 1)));
          }
 
          if(d.matcher(this.b).matches()) {
-            return new fs(Float.parseFloat(this.b.substring(0, this.b.length() - 1)));
+            return new NBTTagFloat(Float.parseFloat(this.b.substring(0, this.b.length() - 1)));
          }
 
          if(e.matcher(this.b).matches()) {
-            return new fm(Byte.parseByte(this.b.substring(0, this.b.length() - 1)));
+            return new NBTTagByte(Byte.parseByte(this.b.substring(0, this.b.length() - 1)));
          }
 
          if(f.matcher(this.b).matches()) {
-            return new fw(Long.parseLong(this.b.substring(0, this.b.length() - 1)));
+            return new NBTTagLong(Long.parseLong(this.b.substring(0, this.b.length() - 1)));
          }
 
          if(g.matcher(this.b).matches()) {
-            return new gb(Short.parseShort(this.b.substring(0, this.b.length() - 1)));
+            return new NBTTagShort(Short.parseShort(this.b.substring(0, this.b.length() - 1)));
          }
 
          if(h.matcher(this.b).matches()) {
-            return new fu(Integer.parseInt(this.b));
+            return new NBTTagInt(Integer.parseInt(this.b));
          }
 
          if(i.matcher(this.b).matches()) {
-            return new fq(Double.parseDouble(this.b));
+            return new NBTTagDouble(Double.parseDouble(this.b));
          }
 
          if(this.b.equalsIgnoreCase("true") || this.b.equalsIgnoreCase("false")) {
-            return new fm((byte)(Boolean.parseBoolean(this.b)?1:0));
+            return new NBTTagByte((byte)(Boolean.parseBoolean(this.b)?1:0));
          }
       } catch (NumberFormatException var6) {
          this.b = this.b.replaceAll("\\\\\"", "\"");
-         return new gc(this.b);
+         return new NBTTagString(this.b);
       }
 
       if(this.b.startsWith("[") && this.b.endsWith("]")) {
@@ -70,9 +70,9 @@ class gk extends gh {
                var3[var4] = Integer.parseInt(var8[var4].trim());
             }
 
-            return new ft(var3);
+            return new NBTTagIntArray(var3);
          } catch (NumberFormatException var5) {
-            return new gc(this.b);
+            return new NBTTagString(this.b);
          }
       } else {
          if(this.b.startsWith("\"") && this.b.endsWith("\"")) {
@@ -91,7 +91,7 @@ class gk extends gh {
             }
          }
 
-         return new gc(var1.toString());
+         return new NBTTagString(var1.toString());
       }
    }
 

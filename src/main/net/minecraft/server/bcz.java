@@ -103,7 +103,7 @@ public class bcz extends bcm implements IUpdatePlayerListBox, vv {
    }
 
    public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new hz(this.d_(), new Object[0]));
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
    }
 
    public aib a(ahb var1, EntityHuman var2) {

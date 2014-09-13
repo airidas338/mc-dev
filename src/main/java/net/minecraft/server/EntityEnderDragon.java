@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityEnderDragon extends EntityInsentient implements acy, IMonster {
+public class EntityEnderDragon extends EntityInsentient implements IComplexPart, IMonster {
 
    public double a;
    public double b;
    public double c;
    public double[][] bi = new double[64][3];
    public int bj = -1;
-   public acz[] bk;
-   public acz bl;
-   public acz bm;
-   public acz bn;
-   public acz bo;
-   public acz bp;
-   public acz bq;
-   public acz br;
+   public EntityComplexPart[] bk;
+   public EntityComplexPart bl;
+   public EntityComplexPart bm;
+   public EntityComplexPart bn;
+   public EntityComplexPart bo;
+   public EntityComplexPart bp;
+   public EntityComplexPart bq;
+   public EntityComplexPart br;
    public float bs;
    public float bt;
    public boolean bu;
@@ -32,7 +32,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
 
    public EntityEnderDragon(World var1) {
       super(var1);
-      this.bk = new acz[]{this.bl = new acz(this, "head", 6.0F, 6.0F), this.bm = new acz(this, "body", 8.0F, 8.0F), this.bn = new acz(this, "tail", 4.0F, 4.0F), this.bo = new acz(this, "tail", 4.0F, 4.0F), this.bp = new acz(this, "tail", 4.0F, 4.0F), this.bq = new acz(this, "wing", 4.0F, 4.0F), this.br = new acz(this, "wing", 4.0F, 4.0F)};
+      this.bk = new EntityComplexPart[]{this.bl = new EntityComplexPart(this, "head", 6.0F, 6.0F), this.bm = new EntityComplexPart(this, "body", 8.0F, 8.0F), this.bn = new EntityComplexPart(this, "tail", 4.0F, 4.0F), this.bo = new EntityComplexPart(this, "tail", 4.0F, 4.0F), this.bp = new EntityComplexPart(this, "tail", 4.0F, 4.0F), this.bq = new EntityComplexPart(this, "wing", 4.0F, 4.0F), this.br = new EntityComplexPart(this, "wing", 4.0F, 4.0F)};
       this.h(this.bt());
       this.a(16.0F, 8.0F);
       this.T = true;
@@ -241,7 +241,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
          this.bl.b(this.s + (double)(var35 * 5.5F * var3), this.t + (var9[1] - var31[1]) * 1.0D + (double)(var29 * 5.5F), this.u - (double)(var34 * 5.5F * var3), 0.0F, 0.0F);
 
          for(int var32 = 0; var32 < 3; ++var32) {
-            acz var33 = null;
+            EntityComplexPart var33 = null;
             if(var32 == 0) {
                var33 = this.bn;
             }
@@ -382,8 +382,8 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
       for(int var10 = var2; var10 <= var5; ++var10) {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
-               Block var13 = this.o.p(new Location(var10, var11, var12)).c();
-               if(var13.r() != Material.a) {
+               Block var13 = this.o.getData(new Location(var10, var11, var12)).c();
+               if(var13.r() != Material.AIR) {
                   if(var13 != aty.cv && var13 != aty.Z && var13 != aty.bH && var13 != aty.h && var13 != aty.bX && this.o.Q().b("mobGriefing")) {
                      var9 = this.o.g(new Location(var10, var11, var12)) || var9;
                   } else {
@@ -404,7 +404,7 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
       return var8;
    }
 
-   public boolean a(acz var1, DamageSource var2, float var3) {
+   public boolean a(EntityComplexPart var1, DamageSource var2, float var3) {
       if(var1 != this.bl) {
          var3 = var3 / 4.0F + 1.0F;
       }
@@ -514,10 +514,10 @@ public class EntityEnderDragon extends EntityInsentient implements acy, IMonster
       this.o.a(var1.a(), aty.h.P());
       Location var13 = var1.b(2);
       this.o.a(var13, aty.h.P());
-      this.o.a(var13.e(), aty.aa.P().a(bbl.a, ej.f));
-      this.o.a(var13.f(), aty.aa.P().a(bbl.a, ej.e));
-      this.o.a(var13.c(), aty.aa.P().a(bbl.a, ej.d));
-      this.o.a(var13.d(), aty.aa.P().a(bbl.a, ej.c));
+      this.o.a(var13.e(), aty.aa.P().a(BlockTorch.a, ej.f));
+      this.o.a(var13.f(), aty.aa.P().a(BlockTorch.a, ej.e));
+      this.o.a(var13.c(), aty.aa.P().a(BlockTorch.a, ej.d));
+      this.o.a(var13.d(), aty.aa.P().a(BlockTorch.a, ej.c));
       this.o.a(var1.b(3), aty.h.P());
       this.o.a(var1.b(4), aty.bI.P());
    }

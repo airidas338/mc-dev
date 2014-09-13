@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class lv implements id {
+public class lv implements Packet {
 
    private lw a;
 

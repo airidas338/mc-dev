@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class lh implements id {
+public class lh implements Packet {
 
    private Location a;
 

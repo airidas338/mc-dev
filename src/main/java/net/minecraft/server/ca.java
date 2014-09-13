@@ -12,15 +12,15 @@ public class ca extends CommandAbstract {
       return 3;
    }
 
-   public boolean a(ae var1) {
+   public boolean a(ICommandSender var1) {
       return MinecraftServer.M().an().j().b() && super.a(var1);
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.unbanip.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length == 1 && var2[0].length() > 1) {
          Matcher var3 = aw.a.matcher(var2[0]);
          if(var3.matches()) {
@@ -34,7 +34,7 @@ public class ca extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().an().j().a()):null;
    }
 }

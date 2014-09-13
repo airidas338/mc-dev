@@ -11,16 +11,16 @@ public class cz extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.testfor.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.testfor.usage", new Object[0]);
       } else {
          Entity var3 = b(var1, var2[0]);
-         fn var4 = null;
+         NBTTagCompound var4 = null;
          if(var2.length >= 2) {
             try {
                var4 = gg.a(a(var2, 1));
@@ -30,7 +30,7 @@ public class cz extends CommandAbstract {
          }
 
          if(var4 != null) {
-            fn var5 = new fn();
+            NBTTagCompound var5 = new NBTTagCompound();
             var3.e(var5);
             if(!cy.a(var4, var5, true)) {
                throw new di("commands.testfor.failure", new Object[]{var3.d_()});
@@ -45,7 +45,7 @@ public class cz extends CommandAbstract {
       return var2 == 0;
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

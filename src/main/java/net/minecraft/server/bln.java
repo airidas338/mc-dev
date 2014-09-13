@@ -28,14 +28,14 @@ abstract class bln extends bms {
 
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       var1.a("Width", this.a);
       var1.a("Height", this.b);
       var1.a("Depth", this.c);
       var1.a("HPos", this.d);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       this.a = var1.f("Width");
       this.b = var1.f("Height");
       this.c = var1.f("Depth");

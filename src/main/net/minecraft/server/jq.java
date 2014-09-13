@@ -3,7 +3,7 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class jq implements id {
+public class jq implements Packet {
 
    private int a;
    private int b;

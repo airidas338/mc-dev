@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class apy extends apf {
 
    public apy(int var1, RegistryMaterials var2, int var3) {
-      super(var1, var2, var3, apg.f);
+      super(var1, var2, var3, EnchantmentSlotType.ARMOR_HEAD);
       this.c("waterWorker");
    }
 

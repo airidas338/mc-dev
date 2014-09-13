@@ -20,7 +20,7 @@ class py implements ActionListener {
    public void actionPerformed(ActionEvent var1) {
       String var2 = this.a.getText().trim();
       if(var2.length() > 0) {
-         pw.a(this.b).a(var2, (ae)MinecraftServer.M());
+         pw.a(this.b).a(var2, (ICommandSender)MinecraftServer.M());
       }
 
       this.a.setText("");

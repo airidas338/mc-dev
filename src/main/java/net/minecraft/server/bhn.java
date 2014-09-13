@@ -3,9 +3,9 @@ import com.google.common.base.Predicates;
 import java.util.Iterator;
 import java.util.Random;
 
-public class bhn extends bhp {
+public class bhn extends WorldGenerator {
 
-   private static final beq a = beq.a((Block)aty.m).a(bab.a, Predicates.equalTo(bac.a));
+   private static final beq a = beq.a((Block)aty.m).a(BlockSand.a, Predicates.equalTo(bac.a));
    private final IBlock b;
    private final IBlock c;
    private final IBlock d;
@@ -22,7 +22,7 @@ public class bhn extends bhp {
          var3 = var3.b();
       }
 
-      if(!a.a(var1.p(var3))) {
+      if(!a.a(var1.getData(var3))) {
          return false;
       } else {
          int var4;

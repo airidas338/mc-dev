@@ -11,11 +11,11 @@ public class bu extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.kill.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length == 0) {
          EntityPlayer var4 = b(var1);
          var4.G();

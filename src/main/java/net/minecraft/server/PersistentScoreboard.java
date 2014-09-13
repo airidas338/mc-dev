@@ -8,7 +8,7 @@ public class PersistentScoreboard extends bqc {
 
    private static final Logger b = LogManager.getLogger();
    private Scoreboard c;
-   private fn d;
+   private NBTTagCompound d;
 
 
    public PersistentScoreboard() {
@@ -27,7 +27,7 @@ public class PersistentScoreboard extends bqc {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       if(this.c == null) {
          this.d = var1;
       } else {
@@ -46,7 +46,7 @@ public class PersistentScoreboard extends bqc {
 
    protected void a(fv var1) {
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          ScoreboardTeam var4 = this.c.e(var3.j("Name"));
          var4.a(var3.j("DisplayName"));
          if(var3.b("TeamColor", 8)) {
@@ -90,7 +90,7 @@ public class PersistentScoreboard extends bqc {
 
    }
 
-   protected void c(fn var1) {
+   protected void c(NBTTagCompound var1) {
       for(int var2 = 0; var2 < 19; ++var2) {
          if(var1.b("slot_" + var2, 8)) {
             String var3 = var1.j("slot_" + var2);
@@ -103,7 +103,7 @@ public class PersistentScoreboard extends bqc {
 
    protected void b(fv var1) {
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          bsk var4 = (bsk)bsk.a.get(var3.j("CriteriaName"));
          if(var4 != null) {
             bry var5 = this.c.a(var3.j("Name"), var4);
@@ -116,7 +116,7 @@ public class PersistentScoreboard extends bqc {
 
    protected void c(fv var1) {
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          bry var4 = this.c.b(var3.j("Objective"));
          bsa var5 = this.c.c(var3.j("Name"), var4);
          var5.c(var3.f("Score"));
@@ -127,13 +127,13 @@ public class PersistentScoreboard extends bqc {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       if(this.c == null) {
          b.warn("Tried to save scoreboard without having a scoreboard...");
       } else {
-         var1.a("Objectives", (gd)this.b());
-         var1.a("PlayerScores", (gd)this.e());
-         var1.a("Teams", (gd)this.a());
+         var1.a("Objectives", (NBTBase)this.b());
+         var1.a("PlayerScores", (NBTBase)this.e());
+         var1.a("Teams", (NBTBase)this.a());
          this.d(var1);
       }
    }
@@ -145,7 +145,7 @@ public class PersistentScoreboard extends bqc {
 
       while(var3.hasNext()) {
          ScoreboardTeam var4 = (ScoreboardTeam)var3.next();
-         fn var5 = new fn();
+         NBTTagCompound var5 = new NBTTagCompound();
          var5.a("Name", var4.b());
          var5.a("DisplayName", var4.c());
          if(var4.l().b() >= 0) {
@@ -163,18 +163,18 @@ public class PersistentScoreboard extends bqc {
 
          while(var7.hasNext()) {
             String var8 = (String)var7.next();
-            var6.a((gd)(new gc(var8)));
+            var6.a((NBTBase)(new NBTTagString(var8)));
          }
 
-         var5.a("Players", (gd)var6);
-         var1.a((gd)var5);
+         var5.a("Players", (NBTBase)var6);
+         var1.a((NBTBase)var5);
       }
 
       return var1;
    }
 
-   protected void d(fn var1) {
-      fn var2 = new fn();
+   protected void d(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
       boolean var3 = false;
 
       for(int var4 = 0; var4 < 19; ++var4) {
@@ -186,7 +186,7 @@ public class PersistentScoreboard extends bqc {
       }
 
       if(var3) {
-         var1.a("DisplaySlots", (gd)var2);
+         var1.a("DisplaySlots", (NBTBase)var2);
       }
 
    }
@@ -199,12 +199,12 @@ public class PersistentScoreboard extends bqc {
       while(var3.hasNext()) {
          bry var4 = (bry)var3.next();
          if(var4.c() != null) {
-            fn var5 = new fn();
+            NBTTagCompound var5 = new NBTTagCompound();
             var5.a("Name", var4.b());
             var5.a("CriteriaName", var4.c().a());
             var5.a("DisplayName", var4.d());
             var5.a("RenderType", var4.e().a());
-            var1.a((gd)var5);
+            var1.a((NBTBase)var5);
          }
       }
 
@@ -219,12 +219,12 @@ public class PersistentScoreboard extends bqc {
       while(var3.hasNext()) {
          bsa var4 = (bsa)var3.next();
          if(var4.d() != null) {
-            fn var5 = new fn();
+            NBTTagCompound var5 = new NBTTagCompound();
             var5.a("Name", var4.e());
             var5.a("Objective", var4.d().b());
             var5.a("Score", var4.c());
             var5.a("Locked", var4.g());
-            var1.a((gd)var5);
+            var1.a((NBTBase)var5);
          }
       }
 

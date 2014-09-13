@@ -9,7 +9,7 @@ public class atb extends atg {
 
 
    protected atb() {
-      super(Material.d);
+      super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
@@ -23,7 +23,7 @@ public class atb extends atg {
       return false;
    }
 
-   public boolean b(ard var1, Location var2) {
+   public boolean b(IBlockAccess var1, Location var2) {
       return true;
    }
 
@@ -35,7 +35,7 @@ public class atb extends atg {
       return new bci();
    }
 
-   public alq a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlock var1, Random var2, int var3) {
       return Items.cE;
    }
 
@@ -43,13 +43,13 @@ public class atb extends atg {
       bcm var6 = var1.s(var2);
       if(var6 instanceof bci) {
          amj var7 = new amj(Items.cE, 1, ((bci)var6).b());
-         fn var8 = new fn();
+         NBTTagCompound var8 = new NBTTagCompound();
          var6.b(var8);
          var8.o("x");
          var8.o("y");
          var8.o("z");
          var8.o("id");
-         var7.a("BlockEntityTag", (gd)var8);
+         var7.a("BlockEntityTag", (NBTBase)var8);
          a(var1, var2, var7);
       } else {
          super.a(var1, var2, var3, var4, var5);
@@ -60,13 +60,13 @@ public class atb extends atg {
    public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
       if(var5 instanceof bci) {
          amj var6 = new amj(Items.cE, 1, ((bci)var5).b());
-         fn var7 = new fn();
+         NBTTagCompound var7 = new NBTTagCompound();
          var5.b(var7);
          var7.o("x");
          var7.o("y");
          var7.o("z");
          var7.o("id");
-         var6.a("BlockEntityTag", (gd)var7);
+         var6.a("BlockEntityTag", (NBTBase)var7);
          a(var1, var3, var6);
       } else {
          super.a(var1, var2, var3, var4, (bcm)null);

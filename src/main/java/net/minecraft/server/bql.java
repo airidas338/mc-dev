@@ -9,11 +9,11 @@ public class bql extends WorldData {
       this.b = var1;
    }
 
-   public fn a() {
+   public NBTTagCompound a() {
       return this.b.a();
    }
 
-   public fn a(fn var1) {
+   public NBTTagCompound a(NBTTagCompound var1) {
       return this.b.a(var1);
    }
 
@@ -41,7 +41,7 @@ public class bql extends WorldData {
       return this.b.g();
    }
 
-   public fn i() {
+   public NBTTagCompound i() {
       return this.b.i();
    }
 

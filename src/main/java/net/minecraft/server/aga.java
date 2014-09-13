@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class aga extends zb {
+class aga extends PathfinderGoal {
 
    private EntitySlime a;
 

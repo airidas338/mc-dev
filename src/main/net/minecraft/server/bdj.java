@@ -45,7 +45,7 @@ public class bdj extends bcm {
       this.i.a(var1);
    }
 
-   public id x_() {
+   public Packet x_() {
       IChatBaseComponent[] var1 = new IChatBaseComponent[4];
       System.arraycopy(this.a, 0, var1, 0, 4);
       return new ll(this.b, this.c, var1);

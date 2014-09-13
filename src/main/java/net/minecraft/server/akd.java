@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public class akd extends alq {
+public class akd extends Item {
 
    public akd() {
       this.a(true);
       this.d(0);
-      this.a(akf.l);
+      this.a(CreativeModeTab.l);
    }
 
    public String e_(amj var1) {

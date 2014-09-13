@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zh extends zb {
+public class zh extends PathfinderGoal {
 
    protected EntityInsentient a;
    protected Entity b;

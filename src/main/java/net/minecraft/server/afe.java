@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-class afe extends zb {
+class afe extends PathfinderGoal {
 
    private EntityGhast a;
 

@@ -23,7 +23,7 @@ public enum ajp {
    }
 
    public int a(int var1) {
-      return ajn.d()[var1] * this.g;
+      return ItemArmor.d()[var1] * this.g;
    }
 
    public int b(int var1) {
@@ -34,7 +34,7 @@ public enum ajp {
       return this.i;
    }
 
-   public alq b() {
+   public Item b() {
       return this == a?Items.aF:(this == b?Items.j:(this == d?Items.k:(this == c?Items.j:(this == e?Items.i:null))));
    }
 

@@ -53,7 +53,7 @@ public class EntitySquid extends EntityWaterAnimal {
       return 0.4F;
    }
 
-   protected alq A() {
+   protected Item A() {
       return null;
    }
 
@@ -71,7 +71,7 @@ public class EntitySquid extends EntityWaterAnimal {
    }
 
    public boolean V() {
-      return this.o.a(this.aQ().b(0.0D, -0.6000000238418579D, 0.0D), Material.h, (Entity)this);
+      return this.o.a(this.aQ().b(0.0D, -0.6000000238418579D, 0.0D), Material.WATER, (Entity)this);
    }
 
    public void m() throws IOException {

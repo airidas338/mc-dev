@@ -68,7 +68,7 @@ public class anr extends alq {
                var3.a("pages", (gd)var4);
                if(var2 instanceof EntityPlayer && var2.bY() == var1) {
                   ajk var10 = var2.bi.a((vq)var2.bg, var2.bg.c);
-                  ((EntityPlayer)var2).a.a((id)(new jh(0, var10.e, var1)));
+                  ((EntityPlayer)var2).a.a((Packet)(new jh(0, var10.e, var1)));
                }
 
             }

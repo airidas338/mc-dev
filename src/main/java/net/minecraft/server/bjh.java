@@ -10,12 +10,12 @@ public class bjh extends bms {
 
    public bjh() {}
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       var1.a("tf", this.b);
       var1.a("D", this.a.b());
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       this.b = var1.n("tf");
       this.a = ej.b(var1.f("D"));
    }
@@ -124,7 +124,7 @@ public class bjh extends bms {
 
          for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
             for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
-               if(this.a(var1, var4, this.l.b - 1, var5, var3).c().r() == Material.a) {
+               if(this.a(var1, var4, this.l.b - 1, var5, var3).c().r() == Material.AIR) {
                   this.a(var1, aty.f.P(), var4, this.l.b - 1, var5, var3);
                }
             }

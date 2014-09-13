@@ -278,7 +278,7 @@ public class EntityGuardian extends EntityMonster {
             while(var7.hasNext()) {
                EntityPlayer var8 = (EntityPlayer)var7.next();
                if(!var8.a(var5) || var8.b(var5).c() < 2 || var8.b(var5).b() < 1200) {
-                  var8.a.a((id)(new jo(10, 0.0F)));
+                  var8.a.a((Packet)(new jo(10, 0.0F)));
                   var8.c(new wq(var5.H, 6000, 2));
                }
             }

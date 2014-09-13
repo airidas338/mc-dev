@@ -196,8 +196,8 @@ public class aop {
       for(var12 = Maps.newHashMap(); var4 < var2.length; var4 += 2) {
          Character var13 = (Character)var2[var4];
          amj var14 = null;
-         if(var2[var4 + 1] instanceof alq) {
-            var14 = new amj((alq)var2[var4 + 1]);
+         if(var2[var4 + 1] instanceof Item) {
+            var14 = new amj((Item)var2[var4 + 1]);
          } else if(var2[var4 + 1] instanceof Block) {
             var14 = new amj((Block)var2[var4 + 1], 1, 32767);
          } else if(var2[var4 + 1] instanceof amj) {
@@ -232,8 +232,8 @@ public class aop {
          Object var7 = var4[var6];
          if(var7 instanceof amj) {
             var3.add(((amj)var7).k());
-         } else if(var7 instanceof alq) {
-            var3.add(new amj((alq)var7));
+         } else if(var7 instanceof Item) {
+            var3.add(new amj((Item)var7));
          } else {
             if(!(var7 instanceof Block)) {
                throw new IllegalArgumentException("Invalid shapeless recipe: unknown type " + var7.getClass().getName() + "!");

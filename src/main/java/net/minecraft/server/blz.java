@@ -19,12 +19,12 @@ public class blz extends bmk {
       this.b = var3.d() > 6;
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Tall", this.b);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.b = var1.n("Tall");
    }

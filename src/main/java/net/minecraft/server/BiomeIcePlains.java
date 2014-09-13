@@ -39,7 +39,7 @@ public class BiomeIcePlains extends BiomeBase {
       super.a(var1, var2, var3);
    }
 
-   public bhc a(Random var1) {
+   public WorldGenTreeAbstract a(Random var1) {
       return new bio(false);
    }
 

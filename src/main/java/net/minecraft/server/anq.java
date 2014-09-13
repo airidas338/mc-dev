@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class anq extends alq {
+public class anq extends Item {
 
    public anq() {
       this.c(1);
@@ -8,11 +8,11 @@ public class anq extends alq {
 
    public amj a(amj var1, World var2, EntityHuman var3) {
       var3.a(var1);
-      var3.b(ty.J[alq.b((alq)this)]);
+      var3.b(ty.J[Item.b((Item)this)]);
       return var1;
    }
 
-   public static boolean b(fn var0) {
+   public static boolean b(NBTTagCompound var0) {
       if(var0 == null) {
          return false;
       } else if(!var0.b("pages", 9)) {

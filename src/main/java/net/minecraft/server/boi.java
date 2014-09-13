@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class boi extends Material {
 
-   public boi(boh var1) {
+   public boi(MaterialMapColor var1) {
       super(var1);
    }
 

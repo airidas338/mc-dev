@@ -49,33 +49,33 @@ public class aoi implements aoo {
 
       var7 += var5 + var8;
       if(var4 <= 3 && var3 <= 1) {
-         fn var15;
-         fn var18;
+         NBTTagCompound var15;
+         NBTTagCompound var18;
          if(var4 >= 1 && var3 == 1 && var7 == 0) {
             this.a = new amj(Items.cb);
             if(var6 > 0) {
-               var15 = new fn();
-               var18 = new fn();
+               var15 = new NBTTagCompound();
+               var18 = new NBTTagCompound();
                fv var25 = new fv();
 
                for(int var22 = 0; var22 < var1.n_(); ++var22) {
                   amj var26 = var1.a(var22);
                   if(var26 != null && var26.b() == Items.cc && var26.n() && var26.o().b("Explosion", 10)) {
-                     var25.a((gd)var26.o().m("Explosion"));
+                     var25.a((NBTBase)var26.o().m("Explosion"));
                   }
                }
 
-               var18.a("Explosions", (gd)var25);
+               var18.a("Explosions", (NBTBase)var25);
                var18.a("Flight", (byte)var4);
-               var15.a("Fireworks", (gd)var18);
+               var15.a("Fireworks", (NBTBase)var18);
                this.a.d(var15);
             }
 
             return true;
          } else if(var4 == 1 && var3 == 0 && var6 == 0 && var5 > 0 && var8 <= 1) {
             this.a = new amj(Items.cc);
-            var15 = new fn();
-            var18 = new fn();
+            var15 = new NBTTagCompound();
+            var18 = new NBTTagCompound();
             byte var21 = 0;
             ArrayList var12 = Lists.newArrayList();
 
@@ -108,7 +108,7 @@ public class aoi implements aoo {
 
             var18.a("Colors", var24);
             var18.a("Type", var21);
-            var15.a("Explosion", (gd)var18);
+            var15.a("Explosion", (NBTBase)var18);
             this.a.d(var15);
             return true;
          } else if(var4 == 0 && var3 == 0 && var6 == 1 && var5 > 0 && var5 == var7) {
@@ -133,7 +133,7 @@ public class aoi implements aoo {
             }
 
             if(this.a != null && this.a.n()) {
-               fn var23 = this.a.o().m("Explosion");
+               NBTTagCompound var23 = this.a.o().m("Explosion");
                if(var23 == null) {
                   return false;
                } else {

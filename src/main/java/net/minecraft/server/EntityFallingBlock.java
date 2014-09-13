@@ -13,7 +13,7 @@ public class EntityFallingBlock extends Entity {
    private boolean f;
    private int g = 40;
    private float h = 2.0F;
-   public fn c;
+   public NBTTagCompound c;
 
 
    public EntityFallingBlock(World var1) {
@@ -46,7 +46,7 @@ public class EntityFallingBlock extends Entity {
 
    public void s_() {
       Block var1 = this.d.c();
-      if(var1.r() == Material.a) {
+      if(var1.r() == Material.AIR) {
          this.J();
       } else {
          this.p = this.s;
@@ -55,7 +55,7 @@ public class EntityFallingBlock extends Entity {
          Location var2;
          if(this.a++ == 0) {
             var2 = new Location(this);
-            if(this.o.p(var2).c() == var1) {
+            if(this.o.getData(var2).c() == var1) {
                this.o.g(var2);
             } else if(!this.o.D) {
                this.J();
@@ -74,7 +74,7 @@ public class EntityFallingBlock extends Entity {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.w *= -0.5D;
-               if(this.o.p(var2).c() != aty.M) {
+               if(this.o.getData(var2).c() != aty.M) {
                   this.J();
                   if(!this.e && this.o.a(var1, var2, true, ej.b, (Entity)null, (amj)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
                      if(var1 instanceof avt) {
@@ -84,13 +84,13 @@ public class EntityFallingBlock extends Entity {
                      if(this.c != null && var1 instanceof avs) {
                         bcm var3 = this.o.s(var2);
                         if(var3 != null) {
-                           fn var4 = new fn();
+                           NBTTagCompound var4 = new NBTTagCompound();
                            var3.b(var4);
                            Iterator var5 = this.c.c().iterator();
 
                            while(var5.hasNext()) {
                               String var6 = (String)var5.next();
-                              gd var7 = this.c.a(var6);
+                              NBTBase var7 = this.c.a(var6);
                               if(!var6.equals("x") && !var6.equals("y") && !var6.equals("z")) {
                                  var4.a(var6, var7.b());
                               }
@@ -132,12 +132,12 @@ public class EntityFallingBlock extends Entity {
             }
 
             if(var6 && (double)this.V.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
-               int var10 = ((Integer)this.d.b(asz.b)).intValue();
+               int var10 = ((Integer)this.d.b(BlockAnvil.b)).intValue();
                ++var10;
                if(var10 > 2) {
                   this.e = true;
                } else {
-                  this.d = this.d.a(asz.b, Integer.valueOf(var10));
+                  this.d = this.d.a(BlockAnvil.b, Integer.valueOf(var10));
                }
             }
          }
@@ -145,7 +145,7 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       Block var2 = this.d != null?this.d.c():aty.a;
       RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2);
       var1.a("Block", var3 == null?"":var3.toString());
@@ -156,12 +156,12 @@ public class EntityFallingBlock extends Entity {
       var1.a("FallHurtAmount", this.h);
       var1.a("FallHurtMax", this.g);
       if(this.c != null) {
-         var1.a("TileEntityData", (gd)this.c);
+         var1.a("TileEntityData", (NBTBase)this.c);
       }
 
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       int var2 = var1.d("Data") & 255;
       if(var1.b("Block", 8)) {
          this.d = Block.b(var1.j("Block")).a(var2);
@@ -189,7 +189,7 @@ public class EntityFallingBlock extends Entity {
          this.c = var1.m("TileEntityData");
       }
 
-      if(var3 == null || var3.r() == Material.a) {
+      if(var3 == null || var3.r() == Material.AIR) {
          this.d = aty.m.P();
       }
 

@@ -6,11 +6,11 @@ public class ch extends CommandAbstract {
       return "save-off";
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.save-off.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       MinecraftServer var3 = MinecraftServer.M();
       boolean var4 = false;
 

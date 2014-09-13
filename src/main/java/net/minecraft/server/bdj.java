@@ -10,7 +10,7 @@ public class bdj extends bcm {
    private final af i = new af();
 
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
@@ -21,7 +21,7 @@ public class bdj extends bcm {
       this.i.b(var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.g = false;
       super.a(var1);
       bdk var2 = new bdk(this);
@@ -45,7 +45,7 @@ public class bdj extends bcm {
       this.i.a(var1);
    }
 
-   public id x_() {
+   public Packet x_() {
       IChatBaseComponent[] var1 = new IChatBaseComponent[4];
       System.arraycopy(this.a, 0, var1, 0, 4);
       return new ll(this.b, this.c, var1);

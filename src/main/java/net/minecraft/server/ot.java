@@ -4,7 +4,7 @@ package net.minecraft.server;
 final class ot extends eg {
 
    public amj b(dz var1, amj var2) {
-      ej var3 = ave.b(var1.f());
+      ej var3 = BlockDispenser.b(var1.f());
       double var4 = var1.a() + (double)var3.g();
       double var6 = (double)((float)var1.d().o() + 0.2F);
       double var8 = var1.c() + (double)var3.i();

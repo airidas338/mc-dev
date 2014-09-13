@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-public class EntityWitch extends EntityMonster implements afr {
+public class EntityWitch extends EntityMonster implements IRangedEntity {
 
    private static final UUID b = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
    private static final ya c = (new ya(b, "Drinking speed penalty", -0.25D, 0)).a(false);
-   private static final alq[] bk = new alq[]{Items.aT, Items.aY, Items.aC, Items.bB, Items.bA, Items.H, Items.y, Items.y};
+   private static final Item[] bk = new Item[]{Items.aT, Items.aY, Items.aC, Items.bB, Items.bA, Items.H, Items.y, Items.y};
    private int bl;
 
 
@@ -16,7 +16,7 @@ public class EntityWitch extends EntityMonster implements afr {
       super(var1);
       this.a(0.6F, 1.95F);
       this.i.a(1, new yy(this));
-      this.i.a(2, new zz(this, 1.0D, 60, 10.0F));
+      this.i.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 60, 10.0F));
       this.i.a(2, new zy(this, 1.0D));
       this.i.a(2, this.a);
       this.i.a(3, new zh(this, EntityHuman.class, 8.0F));
@@ -79,7 +79,7 @@ public class EntityWitch extends EntityMonster implements afr {
             }
          } else {
             short var5 = -1;
-            if(this.V.nextFloat() < 0.15F && this.a(Material.h) && !this.a(wp.o)) {
+            if(this.V.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(wp.o)) {
                var5 = 8237;
             } else if(this.V.nextFloat() < 0.15F && this.au() && !this.a(wp.n)) {
                var5 = 16307;
@@ -127,7 +127,7 @@ public class EntityWitch extends EntityMonster implements afr {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = this.V.nextInt(3);
-         alq var6 = bk[this.V.nextInt(bk.length)];
+         Item var6 = bk[this.V.nextInt(bk.length)];
          if(var2 > 0) {
             var5 += this.V.nextInt(var2 + 1);
          }

@@ -61,7 +61,7 @@ public class EntityTypes {
       return var2;
    }
 
-   public static Entity a(fn var0, World var1) {
+   public static Entity a(NBTTagCompound var0, World var1) {
       Entity var2 = null;
       if("Minecart".equals(var0.j("id"))) {
          var0.a("id", EnumMinecartType.a(var0.f("Type")).b());
@@ -145,7 +145,7 @@ public class EntityTypes {
       String var2 = b(var0);
       if(var2 == null && var0 instanceof EntityHuman) {
          var2 = "Player";
-      } else if(var2 == null && var0 instanceof ads) {
+      } else if(var2 == null && var0 instanceof EntityLightning) {
          var2 = "LightningBolt";
       }
 

@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-public class lp implements id {
+public class lp implements Packet {
 
    private int a;
    private final List b = Lists.newArrayList();

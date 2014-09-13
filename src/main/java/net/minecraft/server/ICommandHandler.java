@@ -4,11 +4,11 @@ import java.util.Map;
 
 public interface ICommandHandler {
 
-   int a(ae var1, String var2);
+   int a(ICommandSender var1, String var2);
 
-   List a(ae var1, String var2, Location var3);
+   List a(ICommandSender var1, String var2, Location var3);
 
-   List a(ae var1);
+   List a(ICommandSender var1);
 
    Map a();
 }

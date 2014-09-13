@@ -10,11 +10,11 @@ public class co extends CommandAbstract {
       return 3;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.setidletimeout.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length != 1) {
          throw new dp("commands.setidletimeout.usage", new Object[0]);
       } else {

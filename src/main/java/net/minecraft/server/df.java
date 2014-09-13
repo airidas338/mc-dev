@@ -13,11 +13,11 @@ public class df extends CommandAbstract {
       return 3;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.whitelist.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.whitelist.usage", new Object[0]);
       } else {
@@ -29,7 +29,7 @@ public class df extends CommandAbstract {
             var3.an().a(false);
             a(var1, this, "commands.whitelist.disabled", new Object[0]);
          } else if(var2[0].equals("list")) {
-            var1.a(new hz("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
+            var1.a(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
             String[] var4 = var3.an().m();
             var1.a(new ChatComponentText(a(var4)));
          } else {
@@ -67,7 +67,7 @@ public class df extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"on", "off", "list", "add", "remove", "reload"});
       } else {

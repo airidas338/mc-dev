@@ -70,8 +70,8 @@ public class PortalTravelAgent {
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(Location var15 = var34.a(var13, this.a.V() - 1 - var34.o(), var14); var15.o() >= 0; var15 = var16) {
                   var16 = var15.b();
-                  if(this.a.p(var15).c() == aty.aY) {
-                     while(this.a.p(var16 = var15.b()).c() == aty.aY) {
+                  if(this.a.getData(var15).c() == aty.aY) {
+                     while(this.a.getData(var16 = var15.b()).c() == aty.aY) {
                         var15 = var16;
                      }
 
@@ -96,19 +96,19 @@ public class PortalTravelAgent {
          double var36 = (double)((Location)var9).o() + 0.5D;
          double var37 = (double)((Location)var9).p() + 0.5D;
          ej var18 = null;
-         if(this.a.p(((Location)var9).e()).c() == aty.aY) {
+         if(this.a.getData(((Location)var9).e()).c() == aty.aY) {
             var18 = ej.c;
          }
 
-         if(this.a.p(((Location)var9).f()).c() == aty.aY) {
+         if(this.a.getData(((Location)var9).f()).c() == aty.aY) {
             var18 = ej.d;
          }
 
-         if(this.a.p(((Location)var9).c()).c() == aty.aY) {
+         if(this.a.getData(((Location)var9).c()).c() == aty.aY) {
             var18 = ej.f;
          }
 
-         if(this.a.p(((Location)var9).d()).c() == aty.aY) {
+         if(this.a.getData(((Location)var9).d()).c() == aty.aY) {
             var18 = ej.e;
          }
 
@@ -234,7 +234,7 @@ public class PortalTravelAgent {
                               var26 = var13 + (var24 - 1) * var21 + var23 * var22;
                               var27 = var19 + var25;
                               int var28 = var16 + (var24 - 1) * var22 - var23 * var21;
-                              if(var25 < 0 && !this.a.p(new Location(var26, var27, var28)).c().r().a() || var25 >= 0 && !this.a.d(new Location(var26, var27, var28))) {
+                              if(var25 < 0 && !this.a.getData(new Location(var26, var27, var28)).c().r().a() || var25 >= 0 && !this.a.d(new Location(var26, var27, var28))) {
                                  continue label271;
                               }
                            }
@@ -279,7 +279,7 @@ public class PortalTravelAgent {
                               var25 = var13 + (var23 - 1) * var21;
                               var26 = var19 + var24;
                               var27 = var16 + (var23 - 1) * var22;
-                              if(var24 < 0 && !this.a.p(new Location(var25, var26, var27)).c().r().a() || var24 >= 0 && !this.a.d(new Location(var25, var26, var27))) {
+                              if(var24 < 0 && !this.a.getData(new Location(var25, var26, var27)).c().r().a() || var24 >= 0 && !this.a.d(new Location(var25, var26, var27))) {
                                  continue label219;
                               }
                            }
@@ -328,7 +328,7 @@ public class PortalTravelAgent {
          }
       }
 
-      IBlock var31 = aty.aY.P().a(ayy.a, var30 != 0?el.a:el.c);
+      IBlock var31 = aty.aY.P().a(BlockPortal.a, var30 != 0?el.a:el.c);
 
       for(var20 = 0; var20 < 4; ++var20) {
          for(var21 = 0; var21 < 4; ++var21) {
@@ -346,7 +346,7 @@ public class PortalTravelAgent {
                var23 = var29 + (var21 - 1) * var30;
                var24 = var15 + var22;
                var25 = var16 + (var21 - 1) * var18;
-               this.a.c(new Location(var23, var24, var25), this.a.p(new Location(var23, var24, var25)).c());
+               this.a.c(new Location(var23, var24, var25), this.a.getData(new Location(var23, var24, var25)).c());
             }
          }
       }

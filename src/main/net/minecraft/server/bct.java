@@ -15,7 +15,7 @@ public class bct extends bcm {
       this.a.b(var1);
    }
 
-   public id x_() {
+   public Packet x_() {
       fn var1 = new fn();
       this.b(var1);
       return new iu(this.c, 2, var1);

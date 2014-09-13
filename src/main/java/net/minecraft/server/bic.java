@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class bic extends bhc {
+public abstract class bic extends WorldGenTreeAbstract {
 
    protected final int a;
    protected final int b;
@@ -39,7 +39,7 @@ public abstract class bic extends bhc {
 
             for(int var7 = -var6; var7 <= var6 && var4; ++var7) {
                for(int var8 = -var6; var8 <= var6 && var4; ++var8) {
-                  if(var2.o() + var5 < 0 || var2.o() + var5 >= 256 || !this.a(var1.p(var2.a(var7, var5, var8)).c())) {
+                  if(var2.o() + var5 < 0 || var2.o() + var5 >= 256 || !this.a(var1.getData(var2.a(var7, var5, var8)).c())) {
                      var4 = false;
                   }
                }
@@ -54,7 +54,7 @@ public abstract class bic extends bhc {
 
    private boolean a(Location var1, World var2) {
       Location var3 = var1.b();
-      Block var4 = var2.p(var3).c();
+      Block var4 = var2.getData(var3).c();
       if((var4 == aty.c || var4 == aty.d) && var1.o() >= 2) {
          this.a(var2, var3);
          this.a(var2, var3.f());
@@ -79,8 +79,8 @@ public abstract class bic extends bhc {
             int var8 = var6 - 1;
             if(var5 * var5 + var6 * var6 <= var4 || var7 * var7 + var8 * var8 <= var4 || var5 * var5 + var8 * var8 <= var4 || var7 * var7 + var6 * var6 <= var4) {
                Location var9 = var2.a(var5, 0, var6);
-               Material var10 = var1.p(var9).c().r();
-               if(var10 == Material.a || var10 == Material.j) {
+               Material var10 = var1.getData(var9).c().r();
+               if(var10 == Material.AIR || var10 == Material.LEAVES) {
                   this.a(var1, var9, aty.t, this.c);
                }
             }
@@ -96,8 +96,8 @@ public abstract class bic extends bhc {
          for(int var6 = -var3; var6 <= var3; ++var6) {
             if(var5 * var5 + var6 * var6 <= var4) {
                Location var7 = var2.a(var5, 0, var6);
-               Material var8 = var1.p(var7).c().r();
-               if(var8 == Material.a || var8 == Material.j) {
+               Material var8 = var1.getData(var7).c().r();
+               if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(var1, var7, aty.t, this.c);
                }
             }

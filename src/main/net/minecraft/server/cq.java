@@ -20,6 +20,6 @@ public class cq extends CommandAbstract {
 
    public void a(ae var1, String[] var2) throws di {
       Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).o:MinecraftServer.M().a(0);
-      var1.a(new hz("commands.seed.success", new Object[]{Long.valueOf(((World)var3).J())}));
+      var1.a(new ChatMessage("commands.seed.success", new Object[]{Long.valueOf(((World)var3).J())}));
    }
 }

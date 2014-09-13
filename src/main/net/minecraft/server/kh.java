@@ -5,7 +5,7 @@ import com.mojang.authlib.properties.Property;
 import java.util.Iterator;
 import java.util.List;
 
-public class kh implements id {
+public class kh implements Packet {
 
    private kj a;
    private final List b = Lists.newArrayList();

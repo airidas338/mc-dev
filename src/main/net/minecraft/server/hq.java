@@ -29,11 +29,11 @@ public class hq {
       } else if(var1 instanceof ChatComponentText) {
          var3 = new ChatComponentText(((ChatComponentText)var1).g());
       } else {
-         if(!(var1 instanceof hz)) {
+         if(!(var1 instanceof ChatMessage)) {
             return var1;
          }
 
-         Object[] var8 = ((hz)var1).j();
+         Object[] var8 = ((ChatMessage)var1).j();
 
          for(int var11 = 0; var11 < var8.length; ++var11) {
             Object var12 = var8[var11];
@@ -42,7 +42,7 @@ public class hq {
             }
          }
 
-         var3 = new hz(((hz)var1).i(), var8);
+         var3 = new ChatMessage(((ChatMessage)var1).i(), var8);
       }
 
       ChatModifier var9 = var1.b();

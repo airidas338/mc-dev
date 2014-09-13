@@ -2,13 +2,13 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public class EntitySnowman extends EntityGolem implements afr {
+public class EntitySnowman extends EntityGolem implements IRangedEntity {
 
    public EntitySnowman(World var1) {
       super(var1);
       this.a(0.7F, 1.9F);
       ((aay)this.s()).a(true);
-      this.i.a(1, new zz(this, 1.25D, 20, 10.0F));
+      this.i.a(1, new PathfinderGoalArrowAttack(this, 1.25D, 20, 10.0F));
       this.i.a(2, new zy(this, 1.0D));
       this.i.a(3, new zh(this, EntityHuman.class, 6.0F));
       this.i.a(4, new zx(this));
@@ -39,7 +39,7 @@ public class EntitySnowman extends EntityGolem implements afr {
             var1 = MathHelper.c(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
             var2 = MathHelper.c(this.t);
             var3 = MathHelper.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
-            if(this.o.p(new Location(var1, var2, var3)).c().r() == Material.a && this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && aty.aH.c(this.o, new Location(var1, var2, var3))) {
+            if(this.o.getData(new Location(var1, var2, var3)).c().r() == Material.AIR && this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && aty.aH.c(this.o, new Location(var1, var2, var3))) {
                this.o.a(new Location(var1, var2, var3), aty.aH.P());
             }
          }
@@ -47,7 +47,7 @@ public class EntitySnowman extends EntityGolem implements afr {
 
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.aD;
    }
 

@@ -21,7 +21,7 @@ public class bo extends CommandAbstract {
       } else {
          EnumDifficulty var3 = this.e(var2[0]);
          MinecraftServer.M().a(var3);
-         a(var1, this, "commands.difficulty.success", new Object[]{new hz(var3.b(), new Object[0])});
+         a(var1, this, "commands.difficulty.success", new Object[]{new ChatMessage(var3.b(), new Object[0])});
       }
    }
 

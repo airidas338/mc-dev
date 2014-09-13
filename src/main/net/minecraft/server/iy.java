@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class iy implements id {
+public class iy implements Packet {
 
    private String[] a;
 

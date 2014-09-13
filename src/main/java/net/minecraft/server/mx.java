@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public class mx implements id {
+public class mx implements Packet {
 
    private static final Location a = new Location(-1, -1, -1);
    private Location b;

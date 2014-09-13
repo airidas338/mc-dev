@@ -3,11 +3,11 @@ import java.util.Random;
 
 class agr implements agw {
 
-   public alq a;
+   public Item a;
    public agx b;
 
 
-   public agr(alq var1, agx var2) {
+   public agr(Item var1, agx var2) {
       this.a = var1;
       this.b = var2;
    }

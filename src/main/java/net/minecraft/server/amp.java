@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class amp extends alq {
+public class amp extends Item {
 
    private static final eo a = new amq();
    private final EnumMinecartType b;
@@ -10,12 +10,12 @@ public class amp extends alq {
    public amp(EnumMinecartType var1) {
       this.h = 1;
       this.b = var1;
-      this.a(akf.e);
-      ave.M.a(this, a);
+      this.a(CreativeModeTab.e);
+      BlockDispenser.M.a(this, a);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.p(var4);
+      IBlock var9 = var3.getData(var4);
       if(ati.d(var9)) {
          if(!var3.D) {
             atl var10 = var9.c() instanceof ati?(atl)var9.b(((ati)var9.c()).l()):atl.a;

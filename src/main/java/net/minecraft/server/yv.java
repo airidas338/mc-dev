@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 
 
-public abstract class yv extends zb {
+public abstract class yv extends PathfinderGoal {
 
    protected EntityInsentient a;
    protected Location b;
-   protected avf c;
+   protected BlockDoor c;
    boolean d;
    float e;
    float f;
@@ -67,8 +67,8 @@ public abstract class yv extends zb {
 
    }
 
-   private avf a(Location var1) {
-      Block var2 = this.a.o.p(var1).c();
-      return var2 instanceof avf && var2.r() == Material.d?(avf)var2:null;
+   private BlockDoor a(Location var1) {
+      Block var2 = this.a.o.getData(var1).c();
+      return var2 instanceof BlockDoor && var2.r() == Material.WOOD?(BlockDoor)var2:null;
    }
 }

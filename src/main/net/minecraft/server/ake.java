@@ -6,7 +6,7 @@ public class ake extends alq {
       return true;
    }
 
-   public id c(amj var1, World var2, EntityHuman var3) {
+   public Packet c(amj var1, World var2, EntityHuman var3) {
       return null;
    }
 }

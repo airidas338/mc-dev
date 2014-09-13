@@ -721,7 +721,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          var2.b().a(this.aJ().toString());
          return var2;
       } else {
-         hz var1 = new hz(this.d_(), new Object[0]);
+         ChatMessage var1 = new ChatMessage(this.d_(), new Object[0]);
          var1.b().a(this.aP());
          var1.b().a(this.aJ().toString());
          return var1;

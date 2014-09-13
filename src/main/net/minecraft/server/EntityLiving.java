@@ -873,7 +873,7 @@ public abstract class EntityLiving extends Entity {
          this.aq = -1;
          this.ap = true;
          if(this.o instanceof WorldServer) {
-            ((WorldServer)this.o).s().a((Entity)this, (id)(new ir(this, 0)));
+            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ir(this, 0)));
          }
       }
 
@@ -1152,7 +1152,7 @@ public abstract class EntityLiving extends Entity {
             amj var3 = this.h[var2];
             amj var4 = this.p(var2);
             if(!amj.b(var4, var3)) {
-               ((WorldServer)this.o).s().a((Entity)this, (id)(new la(this.F(), var2, var4)));
+               ((WorldServer)this.o).s().a((Entity)this, (Packet)(new la(this.F(), var2, var4)));
                if(var3 != null) {
                   this.c.a(var3.B());
                }
@@ -1384,15 +1384,15 @@ public abstract class EntityLiving extends Entity {
       if(!var1.I && !this.o.D) {
          EntityTracker var3 = ((WorldServer)this.o).s();
          if(var1 instanceof EntityItem) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityArrow) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityExperienceOrb) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
       }
 

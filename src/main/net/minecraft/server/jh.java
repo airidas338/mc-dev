@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public class jh implements id {
+public class jh implements Packet {
 
    private int a;
    private int b;

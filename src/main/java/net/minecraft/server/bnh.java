@@ -18,13 +18,13 @@ public class bnh extends bnn {
       this.b = var3.nextInt(3);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("T", this.b);
       var1.a("C", this.a);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.b = var1.f("T");
       this.a = var1.n("C");
@@ -82,7 +82,7 @@ public class bnh extends bnn {
       this.a(var1, aty.a.P(), 1, 1, 0, var3);
       this.a(var1, aty.a.P(), 1, 2, 0, var3);
       this.a(var1, var3, var2, 1, 1, 0, ej.b(this.a(aty.ao, 1)));
-      if(this.a(var1, 1, 0, -1, var3).c().r() == Material.a && this.a(var1, 1, -1, -1, var3).c().r() != Material.a) {
+      if(this.a(var1, 1, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 1, -1, -1, var3).c().r() != Material.AIR) {
          this.a(var1, aty.aw.a(this.a(aty.aw, 3)), 1, 0, -1, var3);
       }
 

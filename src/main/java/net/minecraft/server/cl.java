@@ -70,14 +70,14 @@ public class cl extends ab implements y {
       CommandAbstract.a((y)this);
    }
 
-   public void a(ae var1, ac var2, int var3, String var4, Object ... var5) {
+   public void a(ICommandSender var1, ac var2, int var3, String var4, Object ... var5) {
       boolean var6 = true;
       MinecraftServer var7 = MinecraftServer.M();
       if(!var1.t_()) {
          var6 = false;
       }
 
-      hz var8 = new hz("chat.type.admin", new Object[]{var1.d_(), new hz(var4, var5)});
+      ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.d_(), new ChatMessage(var4, var5)});
       var8.b().a(EnumChatFormat.h);
       var8.b().b(Boolean.valueOf(true));
       if(var6) {
@@ -101,7 +101,7 @@ public class cl extends ab implements y {
       }
 
       if((var3 & 1) != 1 && var11) {
-         var1.a(new hz(var4, var5));
+         var1.a(new ChatMessage(var4, var5));
       }
 
    }

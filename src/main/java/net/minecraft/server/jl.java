@@ -2,15 +2,15 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public class jl implements id {
+public class jl implements Packet {
 
    private int a;
-   private fn b;
+   private NBTTagCompound b;
 
 
    public jl() {}
 
-   public jl(int var1, fn var2) {
+   public jl(int var1, NBTTagCompound var2) {
       this.a = var1;
       this.b = var2;
    }

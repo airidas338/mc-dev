@@ -20,14 +20,14 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
       this.H().a(24, "");
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       this.a.b(var1);
       this.H().b(23, this.j().l());
       this.H().b(24, hp.a(this.j().k()));
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a.a(var1);
    }

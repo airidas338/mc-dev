@@ -37,12 +37,12 @@ public class EntityMagmaCube extends EntitySlime {
       return new EntityMagmaCube(this.o);
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.bE;
    }
 
    protected void b(boolean var1, int var2) {
-      alq var3 = this.A();
+      Item var3 = this.A();
       if(var3 != null && this.ck() > 1) {
          int var4 = this.V.nextInt(4) - 2;
          if(var2 > 0) {

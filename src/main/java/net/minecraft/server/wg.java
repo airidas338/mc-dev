@@ -23,7 +23,7 @@ public class wg {
    public void a() {
       this.j();
       if(this.b.j_()) {
-         Block var1 = this.b.o.p(new Location(this.b.s, this.b.aQ().b, this.b.u)).c();
+         Block var1 = this.b.o.getData(new Location(this.b.s, this.b.aQ().b, this.b.u)).c();
          if(var1 == aty.au) {
             this.h = "ladder";
          } else if(var1 == aty.bn) {
@@ -53,7 +53,7 @@ public class wg {
 
    public IChatBaseComponent b() {
       if(this.a.size() == 0) {
-         return new hz("death.attack.generic", new Object[]{this.b.e_()});
+         return new ChatMessage("death.attack.generic", new Object[]{this.b.e_()});
       } else {
          wf var1 = this.i();
          wf var2 = (wf)this.a.get(this.a.size() - 1);
@@ -67,22 +67,22 @@ public class wg {
                   Entity var9 = var1.a().getEntity();
                   amj var8 = var9 instanceof EntityLiving?((EntityLiving)var9).bz():null;
                   if(var8 != null && var8.s()) {
-                     var3 = new hz("death.fell.assist.item", new Object[]{this.b.e_(), var6, var8.C()});
+                     var3 = new ChatMessage("death.fell.assist.item", new Object[]{this.b.e_(), var6, var8.C()});
                   } else {
-                     var3 = new hz("death.fell.assist", new Object[]{this.b.e_(), var6});
+                     var3 = new ChatMessage("death.fell.assist", new Object[]{this.b.e_(), var6});
                   }
                } else if(var4 != null) {
                   amj var7 = var5 instanceof EntityLiving?((EntityLiving)var5).bz():null;
                   if(var7 != null && var7.s()) {
-                     var3 = new hz("death.fell.finish.item", new Object[]{this.b.e_(), var4, var7.C()});
+                     var3 = new ChatMessage("death.fell.finish.item", new Object[]{this.b.e_(), var4, var7.C()});
                   } else {
-                     var3 = new hz("death.fell.finish", new Object[]{this.b.e_(), var4});
+                     var3 = new ChatMessage("death.fell.finish", new Object[]{this.b.e_(), var4});
                   }
                } else {
-                  var3 = new hz("death.fell.killer", new Object[]{this.b.e_()});
+                  var3 = new ChatMessage("death.fell.killer", new Object[]{this.b.e_()});
                }
             } else {
-               var3 = new hz("death.fell.accident." + this.a(var1), new Object[]{this.b.e_()});
+               var3 = new ChatMessage("death.fell.accident." + this.a(var1), new Object[]{this.b.e_()});
             }
          } else {
             var3 = var2.a().b(this.b);

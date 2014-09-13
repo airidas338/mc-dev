@@ -107,10 +107,10 @@ public abstract class EntityLiving extends Entity {
       }
 
       if(!this.o.D && this.O > 3.0F && var3) {
-         IBlock var6 = this.o.p(var5);
+         IBlock var6 = this.o.getData(var5);
          Block var7 = var6.c();
          float var8 = (float)MathHelper.f(this.O - 3.0F);
-         if(var7.r() != Material.a) {
+         if(var7.r() != Material.AIR) {
             double var9 = (double)Math.min(0.2F + var8 / 15.0F, 10.0F);
             if(var9 > 2.5D) {
                var9 = 2.5D;
@@ -149,7 +149,7 @@ public abstract class EntityLiving extends Entity {
       }
 
       boolean var7 = var1 && ((EntityHuman)this).by.a;
-      if(this.ai() && this.a(Material.h)) {
+      if(this.ai() && this.a(Material.WATER)) {
          if(!this.aX() && !this.k(wp.o.H) && !var7) {
             this.h(this.j(this.aA()));
             if(this.aA() == -20) {
@@ -303,7 +303,7 @@ public abstract class EntityLiving extends Entity {
       return this.aO;
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("HealF", this.bm());
       var1.a("Health", (short)((int)Math.ceil((double)this.bm())));
       var1.a("HurtTime", (short)this.as);
@@ -322,7 +322,7 @@ public abstract class EntityLiving extends Entity {
          }
       }
 
-      var1.a("Attributes", (gd)GenericAttributes.a(this.getAttributeMap()));
+      var1.a("Attributes", (NBTBase)GenericAttributes.a(this.getAttributeMap()));
       var2 = this.at();
       var3 = var2.length;
 
@@ -339,15 +339,15 @@ public abstract class EntityLiving extends Entity {
 
          while(var7.hasNext()) {
             wq var8 = (wq)var7.next();
-            var6.a((gd)var8.a(new fn()));
+            var6.a((NBTBase)var8.a(new NBTTagCompound()));
          }
 
-         var1.a("ActiveEffects", (gd)var6);
+         var1.a("ActiveEffects", (NBTBase)var6);
       }
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.l(var1.h("AbsorptionAmount"));
       if(var1.b("Attributes", 9) && this.o != null && !this.o.D) {
          GenericAttributes.a(this.getAttributeMap(), var1.c("Attributes", 10));
@@ -357,7 +357,7 @@ public abstract class EntityLiving extends Entity {
          fv var2 = var1.c("ActiveEffects", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
-            fn var4 = var2.b(var3);
+            NBTTagCompound var4 = var2.b(var3);
             wq var5 = wq.b(var4);
             if(var5 != null) {
                this.g.put(Integer.valueOf(var5.a()), var5);
@@ -368,13 +368,13 @@ public abstract class EntityLiving extends Entity {
       if(var1.b("HealF", 99)) {
          this.h(var1.h("HealF"));
       } else {
-         gd var6 = var1.a("Health");
+         NBTBase var6 = var1.a("Health");
          if(var6 == null) {
             this.h(this.bt());
-         } else if(var6.a() == 5) {
-            this.h(((fs)var6).h());
-         } else if(var6.a() == 2) {
-            this.h((float)((gb)var6).e());
+         } else if(var6.getTypeId() == 5) {
+            this.h(((NBTTagFloat)var6).h());
+         } else if(var6.getTypeId() == 2) {
+            this.h((float)((NBTTagShort)var6).e());
          }
       }
 
@@ -662,7 +662,7 @@ public abstract class EntityLiving extends Entity {
          var6 = var6.a(-this.z * 3.1415927F / 180.0F);
          var6 = var6.b(-this.y * 3.1415927F / 180.0F);
          var6 = var6.b(this.s, this.t + (double)this.aR(), this.u);
-         this.o.a(ew.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{alq.b(var1.b())});
+         this.o.a(ew.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.b(var1.b())});
       }
 
    }
@@ -734,7 +734,7 @@ public abstract class EntityLiving extends Entity {
       int var1 = MathHelper.c(this.s);
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
-      Block var4 = this.o.p(new Location(var1, var2, var3)).c();
+      Block var4 = this.o.getData(new Location(var1, var2, var3)).c();
       return (var4 == aty.au || var4 == aty.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
 
@@ -753,8 +753,8 @@ public abstract class EntityLiving extends Entity {
          int var6 = MathHelper.c(this.s);
          int var7 = MathHelper.c(this.t - 0.20000000298023224D);
          int var8 = MathHelper.c(this.u);
-         Block var9 = this.o.p(new Location(var6, var7, var8)).c();
-         if(var9.r() != Material.a) {
+         Block var9 = this.o.getData(new Location(var6, var7, var8)).c();
+         if(var9.r() != Material.AIR) {
             StepSound var10 = var9.H;
             this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
          }
@@ -773,8 +773,8 @@ public abstract class EntityLiving extends Entity {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          amj var5 = var2[var4];
-         if(var5 != null && var5.b() instanceof ajn) {
-            int var6 = ((ajn)var5.b()).c;
+         if(var5 != null && var5.b() instanceof ItemArmor) {
+            int var6 = ((ItemArmor)var5.b()).c;
             var1 += var6;
          }
       }
@@ -873,7 +873,7 @@ public abstract class EntityLiving extends Entity {
          this.aq = -1;
          this.ap = true;
          if(this.o instanceof WorldServer) {
-            ((WorldServer)this.o).s().a((Entity)this, (id)(new ir(this, 0)));
+            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ir(this, 0)));
          }
       }
 
@@ -960,12 +960,12 @@ public abstract class EntityLiving extends Entity {
                int var13 = (int)(this.u + (double)var11);
                AxisAlignedBB var2 = this.aQ().c((double)var10, 1.0D, (double)var11);
                if(this.o.a(var2).isEmpty()) {
-                  if(World.a((ard)this.o, new Location(var12, (int)this.t, var13))) {
+                  if(World.a((IBlockAccess)this.o, new Location(var12, (int)this.t, var13))) {
                      this.a(this.s + (double)var10, this.t + 1.0D, this.u + (double)var11);
                      return;
                   }
 
-                  if(World.a((ard)this.o, new Location(var12, (int)this.t - 1, var13)) || this.o.p(new Location(var12, (int)this.t - 1, var13)).c().r() == Material.h) {
+                  if(World.a((IBlockAccess)this.o, new Location(var12, (int)this.t - 1, var13)) || this.o.getData(new Location(var12, (int)this.t - 1, var13)).c().r() == Material.WATER) {
                      var3 = this.s + (double)var10;
                      var5 = this.t + 1.0D;
                      var7 = this.u + (double)var11;
@@ -1052,7 +1052,7 @@ public abstract class EntityLiving extends Entity {
          } else {
             float var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
             }
 
             float var4 = 0.16277136F / (var3 * var3 * var3);
@@ -1065,7 +1065,7 @@ public abstract class EntityLiving extends Entity {
             this.a(var1, var2, var5);
             var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
             }
 
             if(this.j_()) {
@@ -1152,7 +1152,7 @@ public abstract class EntityLiving extends Entity {
             amj var3 = this.h[var2];
             amj var4 = this.p(var2);
             if(!amj.b(var4, var3)) {
-               ((WorldServer)this.o).s().a((Entity)this, (id)(new la(this.F(), var2, var4)));
+               ((WorldServer)this.o).s().a((Entity)this, (Packet)(new la(this.F(), var2, var4)));
                if(var3 != null) {
                   this.c.a(var3.B());
                }
@@ -1384,15 +1384,15 @@ public abstract class EntityLiving extends Entity {
       if(!var1.I && !this.o.D) {
          EntityTracker var3 = ((WorldServer)this.o).s();
          if(var1 instanceof EntityItem) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityArrow) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityExperienceOrb) {
-            var3.a(var1, (id)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
          }
       }
 

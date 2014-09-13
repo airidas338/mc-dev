@@ -24,11 +24,11 @@ public abstract class CommandAbstract implements ac {
 		return Collections.emptyList();
 	}
 
-	public boolean a(ae var1) {
+	public boolean a(ICommandSender var1) {
 		return var1.a(this.a(), this.c());
 	}
 
-	public List a(ae var1, String[] var2, Location var3) {
+	public List a(ICommandSender var1, String[] var2, Location var3) {
 		return null;
 	}
 
@@ -74,7 +74,7 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static Location a(ae var0, String[] var1, int var2, boolean var3) throws dk {
+	public static Location a(ICommandSender var0, String[] var1, int var2, boolean var3) throws dk {
 		Location var4 = var0.c();
 		return new Location(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
@@ -123,7 +123,7 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static EntityPlayer b(ae var0) throws dm {
+	public static EntityPlayer b(ICommandSender var0) throws dm {
 		if (var0 instanceof EntityPlayer) {
 			return (EntityPlayer) var0;
 		} else {
@@ -131,7 +131,7 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static EntityPlayer a(ae var0, String var1) throws dm {
+	public static EntityPlayer a(ICommandSender var0, String var1) throws dm {
 		EntityPlayer var2 = ah.a(var0, var1);
 		if (var2 == null) {
 			try {
@@ -152,11 +152,11 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static Entity b(ae var0, String var1) throws dj {
+	public static Entity b(ICommandSender var0, String var1) throws dj {
 		return a(var0, var1, Entity.class);
 	}
 
-	public static Entity a(ae var0, String var1, Class var2) throws dj {
+	public static Entity a(ICommandSender var0, String var1, Class var2) throws dj {
 		Object var3 = ah.a(var0, var1, var2);
 		MinecraftServer var4 = MinecraftServer.M();
 		if (var3 == null) {
@@ -182,11 +182,11 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static List c(ae var0, String var1) throws dj {
+	public static List c(ICommandSender var0, String var1) throws dj {
 		return (List) (ah.b(var1) ? ah.b(var0, var1, Entity.class) : Lists.newArrayList(new Entity[] { b(var0, var1) }));
 	}
 
-	public static String d(ae var0, String var1) throws dm {
+	public static String d(ICommandSender var0, String var1) throws dm {
 		try {
 			return a(var0, var1).d_();
 		} catch (dm var3) {
@@ -198,7 +198,7 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static String e(ae var0, String var1) throws dj {
+	public static String e(ICommandSender var0, String var1) throws dj {
 		try {
 			return a(var0, var1).d_();
 		} catch (dm var5) {
@@ -214,11 +214,11 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static IChatBaseComponent a(ae var0, String[] var1, int var2) throws dm {
+	public static IChatBaseComponent a(ICommandSender var0, String[] var1, int var2) throws dm {
 		return b(var0, var1, var2, false);
 	}
 
-	public static IChatBaseComponent b(ae var0, String[] var1, int var2, boolean var3) throws dm {
+	public static IChatBaseComponent b(ICommandSender var0, String[] var1, int var2, boolean var3) throws dm {
 		ChatComponentText var4 = new ChatComponentText("");
 
 		for (int var5 = var2; var5 < var1.length; ++var5) {
@@ -331,9 +331,9 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static alq f(ae var0, String var1) throws dk {
+	public static Item f(ICommandSender var0, String var1) throws dk {
 		RegistryMaterials var2 = new RegistryMaterials(var1);
-		alq var3 = (alq) alq.e.a(var2);
+		Item var3 = (Item) Item.e.a(var2);
 		if (var3 == null) {
 			throw new dk("commands.give.notFound", new Object[] { var2 });
 		} else {
@@ -341,7 +341,7 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static Block g(ae var0, String var1) throws dk {
+	public static Block g(ICommandSender var0, String var1) throws dk {
 		RegistryMaterials var2 = new RegistryMaterials(var1);
 		if (!Block.c.d(var2)) {
 			throw new dk("commands.give.notFound", new Object[] { var2 });
@@ -457,11 +457,11 @@ public abstract class CommandAbstract implements ac {
 		return false;
 	}
 
-	public static void a(ae var0, ac var1, String var2, Object... var3) {
+	public static void a(ICommandSender var0, ac var1, String var2, Object... var3) {
 		a(var0, var1, 0, var2, var3);
 	}
 
-	public static void a(ae var0, ac var1, int var2, String var3, Object... var4) {
+	public static void a(ICommandSender var0, ac var1, int var2, String var3, Object... var4) {
 		if (a != null) {
 			a.a(var0, var1, var2, var3, var4);
 		}

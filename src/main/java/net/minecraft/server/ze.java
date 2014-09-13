@@ -47,9 +47,9 @@ public class ze extends zn {
       if(this.f()) {
          World var1 = this.c.o;
          Location var2 = this.b.a();
-         IBlock var3 = var1.p(var2);
+         IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
-         if(this.f == 0 && var4 instanceof auu && ((Integer)var3.b(auu.a)).intValue() == 7) {
+         if(this.f == 0 && var4 instanceof BlockCrops && ((Integer)var3.b(BlockCrops.a)).intValue() == 7) {
             var1.b(var2, true);
          } else if(this.f == 1 && var4 == aty.a) {
             wa var5 = this.c.co();
@@ -87,12 +87,12 @@ public class ze extends zn {
    }
 
    protected boolean a(World var1, Location var2) {
-      Block var3 = var1.p(var2).c();
+      Block var3 = var1.getData(var2).c();
       if(var3 == aty.ak) {
          var2 = var2.a();
-         IBlock var4 = var1.p(var2);
+         IBlock var4 = var1.getData(var2);
          var3 = var4.c();
-         if(var3 instanceof auu && ((Integer)var4.b(auu.a)).intValue() == 7 && this.e && (this.f == 0 || this.f < 0)) {
+         if(var3 instanceof BlockCrops && ((Integer)var4.b(BlockCrops.a)).intValue() == 7 && this.e && (this.f == 0 || this.f < 0)) {
             this.f = 0;
             return true;
          }

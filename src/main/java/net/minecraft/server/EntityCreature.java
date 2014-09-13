@@ -8,7 +8,7 @@ public abstract class EntityCreature extends EntityInsentient {
    public static final ya bj = (new ya(bi, "Fleeing speed bonus", 2.0D, 2)).a(false);
    private Location a;
    private float b;
-   private zb c;
+   private PathfinderGoal c;
    private boolean bk;
 
 

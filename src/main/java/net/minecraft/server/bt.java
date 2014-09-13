@@ -11,11 +11,11 @@ public class bt extends CommandAbstract {
       return 3;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.kick.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length > 0 && var2[0].length() > 1) {
          EntityPlayer var3 = MinecraftServer.M().an().a(var2[0]);
          String var4 = "Kicked by an operator.";
@@ -41,7 +41,7 @@ public class bt extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length >= 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

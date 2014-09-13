@@ -56,7 +56,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          this.k = (long)this.e;
          this.j = this.d();
          this.i = (int)this.j;
-         this.a((id)(new jp(this.i)));
+         this.a((Packet)(new jp(this.i)));
       }
 
       this.d.b.b();
@@ -80,7 +80,7 @@ public class rj implements ls, IUpdatePlayerListBox {
 
    public void c(String var1) {
       ChatComponentText var2 = new ChatComponentText(var1);
-      this.a.a(new jj(var2), new rk(this, var2), new GenericFutureListener[0]);
+      this.a.a(new PacketPlayOutKickDisconnect(var2), new rk(this, var2), new GenericFutureListener[0]);
       this.a.k();
       Futures.getUnchecked(this.d.a((Runnable)(new rl(this))));
    }
@@ -137,7 +137,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                if(this.b.m != null) {
                   if(var9 > 4.0D) {
                      Entity var49 = this.b.m;
-                     this.b.a.a((id)(new lo(var49)));
+                     this.b.a.a((Packet)(new lo(var49)));
                      this.a(this.b.s, this.b.t, this.b.u, this.b.y, this.b.z);
                   }
 
@@ -297,7 +297,7 @@ public class rj implements ls, IUpdatePlayerListBox {
       }
 
       this.b.a(this.o, this.p, this.q, var10, var11);
-      this.b.a.a((id)(new ii(var1, var3, var5, var7, var8, var9)));
+      this.b.a.a((Packet)(new ii(var1, var3, var5, var7, var8, var9)));
    }
 
    public void a(ml var1) {
@@ -337,7 +337,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                if(!this.d.a((World)var2, var3, (EntityHuman)this.b) && var2.af().a(var3)) {
                   this.b.c.a(var3, var1.b());
                } else {
-                  this.b.a.a((id)(new iw(var2, var3)));
+                  this.b.a.a((Packet)(new iw(var2, var3)));
                }
             } else {
                if(var1.c() == mm.c) {
@@ -347,7 +347,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                }
 
                if(var2.p(var3).c().r() != Material.a) {
-                  this.b.a.a((id)(new iw(var2, var3)));
+                  this.b.a.a((Packet)(new iw(var2, var3)));
                }
             }
 
@@ -373,9 +373,9 @@ public class rj implements ls, IUpdatePlayerListBox {
 
          this.b.c.a(this.b, var2, var3);
       } else if(var5.o() >= this.d.al() - 1 && (var6 == ej.b || var5.o() >= this.d.al())) {
-         hz var7 = new hz("build.tooHigh", new Object[]{Integer.valueOf(this.d.al())});
+         ChatMessage var7 = new ChatMessage("build.tooHigh", new Object[]{Integer.valueOf(this.d.al())});
          var7.b().a(EnumChatFormat.m);
-         this.b.a.a((id)(new iz(var7)));
+         this.b.a.a((Packet)(new iz(var7)));
          var4 = true;
       } else {
          if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((World)var2, var5, (EntityHuman)this.b) && var2.af().a(var5)) {
@@ -386,8 +386,8 @@ public class rj implements ls, IUpdatePlayerListBox {
       }
 
       if(var4) {
-         this.b.a.a((id)(new iw(var2, var5)));
-         this.b.a.a((id)(new iw(var2, var5.a(var6))));
+         this.b.a.a((Packet)(new iw(var2, var5)));
+         this.b.a.a((Packet)(new iw(var2, var5.a(var6))));
       }
 
       var3 = this.b.bg.h();
@@ -403,7 +403,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          this.b.bi.b();
          this.b.g = false;
          if(!amj.b(this.b.bg.h(), var1.c())) {
-            this.a((id)(new jh(this.b.bi.d, var8.e, this.b.bg.h())));
+            this.a((Packet)(new jh(this.b.bi.d, var8.e, this.b.bg.h())));
          }
       }
 
@@ -433,7 +433,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                WorldServer var7 = this.b.u();
                WorldServer var8 = (WorldServer)var2.o;
                this.b.am = var2.am;
-               this.a((id)(new kp(this.b.am, var7.aa(), var7.P().u(), this.b.c.b())));
+               this.a((Packet)(new kp(this.b.am, var7.aa(), var7.P().u(), this.b.c.b())));
                var7.f(this.b);
                this.b.I = false;
                this.b.b(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -462,7 +462,7 @@ public class rj implements ls, IUpdatePlayerListBox {
    public void a(IChatBaseComponent var1) {
       c.info(this.b.d_() + " lost connection: " + var1);
       this.d.aF();
-      hz var2 = new hz("multiplayer.player.left", new Object[]{this.b.e_()});
+      ChatMessage var2 = new ChatMessage("multiplayer.player.left", new Object[]{this.b.e_()});
       var2.b().a(EnumChatFormat.o);
       this.d.an().a((IChatBaseComponent)var2);
       this.b.q();
@@ -474,7 +474,7 @@ public class rj implements ls, IUpdatePlayerListBox {
 
    }
 
-   public void a(id var1) {
+   public void a(Packet var1) {
       if(var1 instanceof iz) {
          iz var2 = (iz)var1;
          ahg var3 = this.b.y();
@@ -510,9 +510,9 @@ public class rj implements ls, IUpdatePlayerListBox {
    public void a(lu var1) {
       ig.a(var1, this, this.b.u());
       if(this.b.y() == ahg.c) {
-         hz var4 = new hz("chat.cannotSend", new Object[0]);
+         ChatMessage var4 = new ChatMessage("chat.cannotSend", new Object[0]);
          var4.b().a(EnumChatFormat.m);
-         this.a((id)(new iz(var4)));
+         this.a((Packet)(new iz(var4)));
       } else {
          this.b.z();
          String var2 = var1.a();
@@ -528,7 +528,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          if(var2.startsWith("/")) {
             this.d(var2);
          } else {
-            hz var5 = new hz("chat.type.text", new Object[]{this.b.e_(), var2});
+            ChatMessage var5 = new ChatMessage("chat.type.text", new Object[]{this.b.e_(), var2});
             this.d.an().a(var5, false);
          }
 
@@ -671,14 +671,14 @@ public class rj implements ls, IUpdatePlayerListBox {
          } else {
             amj var5 = this.b.bi.a(var1.b(), var1.c(), var1.f(), this.b);
             if(amj.b(var1.e(), var5)) {
-               this.b.a.a((id)(new jc(var1.a(), var1.d(), true)));
+               this.b.a.a((Packet)(new jc(var1.a(), var1.d(), true)));
                this.b.g = true;
                this.b.bi.b();
                this.b.o();
                this.b.g = false;
             } else {
                this.n.a(this.b.bi.d, Short.valueOf(var1.d()));
-               this.b.a.a((id)(new jc(var1.a(), var1.d(), false)));
+               this.b.a.a((Packet)(new jc(var1.a(), var1.d(), false)));
                this.b.bi.a(this.b, false);
                ArrayList var6 = Lists.newArrayList();
 
@@ -806,7 +806,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          var2.add(var4);
       }
 
-      this.b.a.a((id)(new iy((String[])var2.toArray(new String[var2.size()]))));
+      this.b.a.a((Packet)(new iy((String[])var2.toArray(new String[var2.size()]))));
    }
 
    public void a(lx var1) {
@@ -892,7 +892,7 @@ public class rj implements ls, IUpdatePlayerListBox {
          }
       } else if("MC|AdvCdm".equals(var1.a())) {
          if(!this.d.aj()) {
-            this.b.a((IChatBaseComponent)(new hz("advMode.notEnabled", new Object[0])));
+            this.b.a((IChatBaseComponent)(new ChatMessage("advMode.notEnabled", new Object[0])));
          } else if(this.b.a(2, "") && this.b.by.d) {
             var2 = var1.b();
 
@@ -921,7 +921,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                   }
 
                   var46.h();
-                  this.b.a((IChatBaseComponent)(new hz("advMode.setCommand.success", new Object[]{var50})));
+                  this.b.a((IChatBaseComponent)(new ChatMessage("advMode.setCommand.success", new Object[]{var50})));
                }
             } catch (Exception var33) {
                c.error("Couldn\'t set command block", var33);
@@ -929,7 +929,7 @@ public class rj implements ls, IUpdatePlayerListBox {
                var2.release();
             }
          } else {
-            this.b.a((IChatBaseComponent)(new hz("advMode.notAllowed", new Object[0])));
+            this.b.a((IChatBaseComponent)(new ChatMessage("advMode.notAllowed", new Object[0])));
          }
       } else if("MC|Beacon".equals(var1.a())) {
          if(this.b.bi instanceof aig) {

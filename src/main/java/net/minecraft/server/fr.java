@@ -3,13 +3,13 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class fr extends gd {
+public class fr extends NBTBase {
 
-   void a(DataInput var1, int var2, fx var3) throws IOException  {}
+   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {}
 
    void a(DataOutput var1) {}
 
-   public byte a() {
+   public byte getTypeId() {
       return (byte)0;
    }
 
@@ -17,7 +17,7 @@ public class fr extends gd {
       return "END";
    }
 
-   public gd b() {
+   public NBTBase b() {
       return new fr();
    }
 }

@@ -63,9 +63,9 @@ public class hp implements JsonDeserializer, JsonSerializer {
                   }
                }
 
-               var5 = new hz(var6, var8);
+               var5 = new ChatMessage(var6, var8);
             } else {
-               var5 = new hz(var6, new Object[0]);
+               var5 = new ChatMessage(var6, new Object[0]);
             }
          } else if(var4.has("score")) {
             JsonObject var13 = var4.getAsJsonObject("score");
@@ -138,8 +138,8 @@ public class hp implements JsonDeserializer, JsonSerializer {
 
          if(var1 instanceof ChatComponentText) {
             var4.addProperty("text", ((ChatComponentText)var1).g());
-         } else if(var1 instanceof hz) {
-            hz var11 = (hz)var1;
+         } else if(var1 instanceof ChatMessage) {
+            ChatMessage var11 = (ChatMessage)var1;
             var4.addProperty("translate", var11.i());
             if(var11.j() != null && var11.j().length > 0) {
                JsonArray var15 = new JsonArray();

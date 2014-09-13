@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class zx extends zb {
+public class zx extends PathfinderGoal {
 
    private EntityInsentient a;
    private double b;

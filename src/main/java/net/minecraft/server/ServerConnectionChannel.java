@@ -27,6 +27,7 @@ class ServerConnectionChannel extends ChannelInitializer {
       } catch (ChannelException var3) {
          ;
       }
+      System.out.println("New channel " + var1.remoteAddress() + " and open = " + var1.isOpen());
       var1.pipeline().addLast("timeout", new ReadTimeoutHandler(30)).addLast("legacy_query", new LegacyPingHandler(this.a)).addLast("splitter", new PacketSplitter()).addLast("decoder", new PacketDecoder(EnumPacketDirection.SERVERBOUND)).addLast("prepender", new PacketPrepender()).addLast("encoder", new PacketEncoder(EnumPacketDirection.CLIENTBOUND));
       NetworkManager var2 = new NetworkManager(EnumPacketDirection.SERVERBOUND);
       ServerConnection.a(this.a).add(var2);

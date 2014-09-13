@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bil extends bhc {
+public class bil extends WorldGenTreeAbstract {
 
    public bil(boolean var1) {
       super(var1);
@@ -26,7 +26,7 @@ public class bil extends bhc {
             for(var8 = var3.n() - var7; var8 <= var3.n() + var7 && var5; ++var8) {
                for(var9 = var3.p() - var7; var9 <= var3.p() + var7 && var5; ++var9) {
                   if(var6 >= 0 && var6 < 256) {
-                     if(!this.a(var1.p(new Location(var8, var6, var9)).c())) {
+                     if(!this.a(var1.getData(new Location(var8, var6, var9)).c())) {
                         var5 = false;
                      }
                   } else {
@@ -39,7 +39,7 @@ public class bil extends bhc {
          if(!var5) {
             return false;
          } else {
-            Block var20 = var1.p(var3.b()).c();
+            Block var20 = var1.getData(var3.b()).c();
             if((var20 == aty.c || var20 == aty.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                ej var21 = en.a.a(var2);
@@ -59,8 +59,8 @@ public class bil extends bhc {
                   }
 
                   Location var15 = new Location(var10, var14, var11);
-                  Material var16 = var1.p(var15).c().r();
-                  if(var16 == Material.a || var16 == Material.j) {
+                  Material var16 = var1.getData(var15).c().r();
+                  if(var16 == Material.AIR || var16 == Material.LEAVES) {
                      this.a(var1, var15, aty.s, ayx.e.a() - 4);
                      var12 = var14;
                   }
@@ -104,8 +104,8 @@ public class bil extends bhc {
                         var10 += var24.g();
                         var11 += var24.i();
                         Location var18 = new Location(var10, var17, var11);
-                        Material var19 = var1.p(var18).c().r();
-                        if(var19 == Material.a || var19 == Material.j) {
+                        Material var19 = var1.getData(var18).c().r();
+                        if(var19 == Material.AIR || var19 == Material.LEAVES) {
                            this.a(var1, var18, aty.s, ayx.e.a() - 4);
                            var12 = var17;
                         }
@@ -147,8 +147,8 @@ public class bil extends bhc {
    }
 
    private void b(World var1, Location var2) {
-      Material var3 = var1.p(var2).c().r();
-      if(var3 == Material.a || var3 == Material.j) {
+      Material var3 = var1.getData(var2).c().r();
+      if(var3 == Material.AIR || var3 == Material.LEAVES) {
          this.a(var1, var2, aty.u, 0);
       }
 

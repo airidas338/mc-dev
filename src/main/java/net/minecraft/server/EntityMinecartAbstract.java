@@ -208,11 +208,11 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          }
 
          Location var4 = new Location(var14, var2, var16);
-         IBlock var5 = this.o.p(var4);
+         IBlock var5 = this.o.getData(var4);
          if(ati.d(var5)) {
             this.a(var4, var5);
             if(var5.c() == aty.cs) {
-               this.a(var14, var2, var16, ((Boolean)var5.b(azc.M)).booleanValue());
+               this.a(var14, var2, var16, ((Boolean)var5.b(BlockPoweredRail.M)).booleanValue());
             }
          } else {
             this.n();
@@ -290,7 +290,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
       boolean var5 = false;
       ati var6 = (ati)var2.c();
       if(var6 == aty.D) {
-         var4 = ((Boolean)var2.b(azc.M)).booleanValue();
+         var4 = ((Boolean)var2.b(BlockPoweredRail.M)).booleanValue();
          var5 = !var4;
       }
 
@@ -431,15 +431,15 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
             this.v += this.v / var40 * var42;
             this.x += this.x / var40 * var42;
          } else if(var9 == atl.b) {
-            if(this.o.p(var1.e()).c().t()) {
+            if(this.o.getData(var1.e()).c().t()) {
                this.v = 0.02D;
-            } else if(this.o.p(var1.f()).c().t()) {
+            } else if(this.o.getData(var1.f()).c().t()) {
                this.v = -0.02D;
             }
          } else if(var9 == atl.a) {
-            if(this.o.p(var1.c()).c().t()) {
+            if(this.o.getData(var1.c()).c().t()) {
                this.x = 0.02D;
-            } else if(this.o.p(var1.d()).c().t()) {
+            } else if(this.o.getData(var1.d()).c().t()) {
                this.x = -0.02D;
             }
          }
@@ -477,7 +477,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          --var8;
       }
 
-      IBlock var10 = this.o.p(new Location(var7, var8, var9));
+      IBlock var10 = this.o.getData(new Location(var7, var8, var9));
       if(ati.d(var10)) {
          atl var11 = (atl)var10.b(((ati)var10.c()).l());
          int[][] var12 = c[var11.a()];
@@ -520,7 +520,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
       }
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       if(var1.n("CustomDisplayTile")) {
          int var2 = var1.f("DisplayData");
          Block var3;
@@ -549,7 +549,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
 
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       if(this.x()) {
          var1.a("CustomDisplayTile", true);
          IBlock var2 = this.t();
@@ -721,7 +721,7 @@ public abstract class EntityMinecartAbstract extends Entity implements vz {
          var2.b().a(this.aJ().toString());
          return var2;
       } else {
-         hz var1 = new hz(this.d_(), new Object[0]);
+         ChatMessage var1 = new ChatMessage(this.d_(), new Object[0]);
          var1.b().a(this.aP());
          var1.b().a(this.aJ().toString());
          return var1;

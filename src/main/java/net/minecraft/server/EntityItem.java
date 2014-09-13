@@ -66,7 +66,7 @@ public class EntityItem extends Entity {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.p(new Location(this)).c().r() == Material.i) {
+            if(this.o.getData(new Location(this)).c().r() == Material.LAVA) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -80,7 +80,7 @@ public class EntityItem extends Entity {
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
+            var2 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
          }
 
          this.v *= (double)var2;
@@ -158,7 +158,7 @@ public class EntityItem extends Entity {
    }
 
    public boolean W() {
-      if(this.o.a(this.aQ(), Material.h, (Entity)this)) {
+      if(this.o.a(this.aQ(), Material.WATER, (Entity)this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }
@@ -191,7 +191,7 @@ public class EntityItem extends Entity {
       }
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Health", (short)((byte)this.e));
       var1.a("Age", (short)this.c);
       var1.a("PickupDelay", (short)this.d);
@@ -204,12 +204,12 @@ public class EntityItem extends Entity {
       }
 
       if(this.l() != null) {
-         var1.a("Item", (gd)this.l().b(new fn()));
+         var1.a("Item", (NBTBase)this.l().b(new NBTTagCompound()));
       }
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.e = var1.e("Health") & 255;
       this.c = var1.e("Age");
       if(var1.c("PickupDelay")) {
@@ -224,7 +224,7 @@ public class EntityItem extends Entity {
          this.f = var1.j("Thrower");
       }
 
-      fn var2 = var1.m("Item");
+      NBTTagCompound var2 = var1.m("Item");
       this.a(amj.a(var2));
       if(this.l() == null) {
          this.J();
@@ -237,11 +237,11 @@ public class EntityItem extends Entity {
          amj var2 = this.l();
          int var3 = var2.b;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.d_())) && var1.bg.a(var2)) {
-            if(var2.b() == alq.a(aty.r)) {
+            if(var2.b() == Item.a(aty.r)) {
                var1.b((tq)tl.g);
             }
 
-            if(var2.b() == alq.a(aty.s)) {
+            if(var2.b() == Item.a(aty.s)) {
                var1.b((tq)tl.g);
             }
 

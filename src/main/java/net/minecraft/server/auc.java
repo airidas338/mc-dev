@@ -8,15 +8,15 @@ public class auc extends Block {
       this.a(true);
       float var2 = 0.2F;
       this.a(0.5F - var2, 0.0F, 0.5F - var2, 0.5F + var2, var2 * 3.0F, 0.5F + var2);
-      this.a(akf.c);
+      this.a(CreativeModeTab.c);
    }
 
    protected auc() {
-      this(Material.k);
+      this(Material.PLANT);
    }
 
    public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && this.c(var1.p(var2.b()).c());
+      return super.c(var1, var2) && this.c(var1.getData(var2.b()).c());
    }
 
    protected boolean c(Block var1) {
@@ -41,7 +41,7 @@ public class auc extends Block {
    }
 
    public boolean f(World var1, Location var2, IBlock var3) {
-      return this.c(var1.p(var2.b()).c());
+      return this.c(var1.getData(var2.b()).c());
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlock var3) {

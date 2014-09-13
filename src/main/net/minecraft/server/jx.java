@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Collection;
 
-public class jx implements id {
+public class jx implements Packet {
 
    private int a;
    private byte b;

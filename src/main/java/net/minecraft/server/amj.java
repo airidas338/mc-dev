@@ -10,8 +10,8 @@ public final class amj {
    public static final DecimalFormat a = new DecimalFormat("#.###");
    public int b;
    public int c;
-   private alq d;
-   private fn e;
+   private Item d;
+   private NBTTagCompound e;
    private int f;
    private EntityItemFrame g;
    private Block h;
@@ -29,18 +29,18 @@ public final class amj {
    }
 
    public amj(Block var1, int var2, int var3) {
-      this(alq.a(var1), var2, var3);
+      this(Item.a(var1), var2, var3);
    }
 
-   public amj(alq var1) {
+   public amj(Item var1) {
       this(var1, 1);
    }
 
-   public amj(alq var1, int var2) {
+   public amj(Item var1, int var2) {
       this(var1, var2, 0);
    }
 
-   public amj(alq var1, int var2, int var3) {
+   public amj(Item var1, int var2, int var3) {
       this.h = null;
       this.i = false;
       this.j = null;
@@ -54,7 +54,7 @@ public final class amj {
 
    }
 
-   public static amj a(fn var0) {
+   public static amj a(NBTTagCompound var0) {
       amj var1 = new amj();
       var1.c(var0);
       return var1.b() != null?var1:null;
@@ -70,21 +70,21 @@ public final class amj {
    public amj a(int var1) {
       amj var2 = new amj(this.d, var1, this.f);
       if(this.e != null) {
-         var2.e = (fn)this.e.b();
+         var2.e = (NBTTagCompound)this.e.b();
       }
 
       this.b -= var1;
       return var2;
    }
 
-   public alq b() {
+   public Item b() {
       return this.d;
    }
 
    public boolean a(EntityHuman var1, World var2, Location var3, ej var4, float var5, float var6, float var7) {
       boolean var8 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7);
       if(var8) {
-         var1.b(ty.J[alq.b(this.d)]);
+         var1.b(ty.J[Item.b(this.d)]);
       }
 
       return var8;
@@ -102,23 +102,23 @@ public final class amj {
       return this.b().b(this, var1, var2);
    }
 
-   public fn b(fn var1) {
-      RegistryMaterials var2 = (RegistryMaterials)alq.e.c(this.d);
+   public NBTTagCompound b(NBTTagCompound var1) {
+      RegistryMaterials var2 = (RegistryMaterials)Item.e.c(this.d);
       var1.a("id", var2 == null?"minecraft:air":var2.toString());
       var1.a("Count", (byte)this.b);
       var1.a("Damage", (short)this.f);
       if(this.e != null) {
-         var1.a("tag", (gd)this.e);
+         var1.a("tag", (NBTBase)this.e);
       }
 
       return var1;
    }
 
-   public void c(fn var1) {
+   public void c(NBTTagCompound var1) {
       if(var1.b("id", 8)) {
-         this.d = alq.d(var1.j("id"));
+         this.d = Item.d(var1.j("id"));
       } else {
-         this.d = alq.b(var1.e("id"));
+         this.d = Item.b(var1.e("id"));
       }
 
       this.b = var1.d("Count");
@@ -209,8 +209,8 @@ public final class amj {
                --this.b;
                if(var2 instanceof EntityHuman) {
                   EntityHuman var3 = (EntityHuman)var2;
-                  var3.b(ty.K[alq.b(this.d)]);
-                  if(this.b == 0 && this.b() instanceof ajz) {
+                  var3.b(ty.K[Item.b(this.d)]);
+                  if(this.b == 0 && this.b() instanceof ItemBow) {
                      var3.bZ();
                   }
                }
@@ -229,7 +229,7 @@ public final class amj {
    public void a(EntityLiving var1, EntityHuman var2) {
       boolean var3 = this.d.a(this, var1, (EntityLiving)var2);
       if(var3) {
-         var2.b(ty.J[alq.b(this.d)]);
+         var2.b(ty.J[Item.b(this.d)]);
       }
 
    }
@@ -237,7 +237,7 @@ public final class amj {
    public void a(World var1, Block var2, Location var3, EntityHuman var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
-         var4.b(ty.J[alq.b(this.d)]);
+         var4.b(ty.J[Item.b(this.d)]);
       }
 
    }
@@ -253,7 +253,7 @@ public final class amj {
    public amj k() {
       amj var1 = new amj(this.d, this.b, this.f);
       if(this.e != null) {
-         var1.e = (fn)this.e.b();
+         var1.e = (NBTTagCompound)this.e.b();
       }
 
       return var1;
@@ -300,7 +300,7 @@ public final class amj {
    }
 
    public void a(World var1, EntityHuman var2, int var3) {
-      var2.a(ty.I[alq.b(this.d)], var3);
+      var2.a(ty.I[Item.b(this.d)], var3);
       this.d.d(this, var1, var2);
    }
 
@@ -320,16 +320,16 @@ public final class amj {
       return this.e != null;
    }
 
-   public fn o() {
+   public NBTTagCompound o() {
       return this.e;
    }
 
-   public fn a(String var1, boolean var2) {
+   public NBTTagCompound a(String var1, boolean var2) {
       if(this.e != null && this.e.b(var1, 10)) {
          return this.e.m(var1);
       } else if(var2) {
-         fn var3 = new fn();
-         this.a(var1, (gd)var3);
+         NBTTagCompound var3 = new NBTTagCompound();
+         this.a(var1, (NBTBase)var3);
          return var3;
       } else {
          return null;
@@ -340,14 +340,14 @@ public final class amj {
       return this.e == null?null:this.e.c("ench", 10);
    }
 
-   public void d(fn var1) {
+   public void d(NBTTagCompound var1) {
       this.e = var1;
    }
 
    public String q() {
       String var1 = this.b().a(this);
       if(this.e != null && this.e.b("display", 10)) {
-         fn var2 = this.e.m("display");
+         NBTTagCompound var2 = this.e.m("display");
          if(var2.b("Name", 8)) {
             var1 = var2.j("Name");
          }
@@ -358,11 +358,11 @@ public final class amj {
 
    public amj c(String var1) {
       if(this.e == null) {
-         this.e = new fn();
+         this.e = new NBTTagCompound();
       }
 
       if(!this.e.b("display", 10)) {
-         this.e.a("display", (gd)(new fn()));
+         this.e.a("display", (NBTBase)(new NBTTagCompound()));
       }
 
       this.e.m("display").a("Name", var1);
@@ -372,12 +372,12 @@ public final class amj {
    public void r() {
       if(this.e != null) {
          if(this.e.b("display", 10)) {
-            fn var1 = this.e.m("display");
+            NBTTagCompound var1 = this.e.m("display");
             var1.o("Name");
             if(var1.c_()) {
                this.e.o("display");
                if(this.e.c_()) {
-                  this.d((fn)null);
+                  this.d((NBTTagCompound)null);
                }
             }
 
@@ -399,27 +399,27 @@ public final class amj {
 
    public void a(apf var1, int var2) {
       if(this.e == null) {
-         this.d(new fn());
+         this.d(new NBTTagCompound());
       }
 
       if(!this.e.b("ench", 9)) {
-         this.e.a("ench", (gd)(new fv()));
+         this.e.a("ench", (NBTBase)(new fv()));
       }
 
       fv var3 = this.e.c("ench", 10);
-      fn var4 = new fn();
+      NBTTagCompound var4 = new NBTTagCompound();
       var4.a("id", (short)var1.B);
       var4.a("lvl", (short)((byte)var2));
-      var3.a((gd)var4);
+      var3.a((NBTBase)var4);
    }
 
    public boolean w() {
       return this.e != null && this.e.b("ench", 9);
    }
 
-   public void a(String var1, gd var2) {
+   public void a(String var1, NBTBase var2) {
       if(this.e == null) {
-         this.d(new fn());
+         this.d(new NBTTagCompound());
       }
 
       this.e.a(var1, var2);
@@ -447,7 +447,7 @@ public final class amj {
 
    public void c(int var1) {
       if(!this.n()) {
-         this.e = new fn();
+         this.e = new NBTTagCompound();
       }
 
       this.e.a("RepairCost", var1);
@@ -460,7 +460,7 @@ public final class amj {
          fv var2 = this.e.c("AttributeModifiers", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
-            fn var4 = var2.b(var3);
+            NBTTagCompound var4 = var2.b(var3);
             ya var5 = GenericAttributes.a(var4);
             if(var5 != null && var5.a().getLeastSignificantBits() != 0L && var5.a().getMostSignificantBits() != 0L) {
                ((Multimap)var1).put(var4.j("AttributeName"), var5);
@@ -473,7 +473,7 @@ public final class amj {
       return (Multimap)var1;
    }
 
-   public void a(alq var1) {
+   public void a(Item var1) {
       this.d = var1;
    }
 
@@ -485,7 +485,7 @@ public final class amj {
 
       IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
       if(this.d != null) {
-         fn var3 = new fn();
+         NBTTagCompound var3 = new NBTTagCompound();
          this.b(var3);
          var2.b().a(new hr(hs.c, new ChatComponentText(var3.toString())));
          var2.b().a(this.u().e);

@@ -134,7 +134,7 @@ public class hd extends ByteBuf {
       this.writeByte((int)var1);
    }
 
-   public void a(fn var1) throws IOException {
+   public void a(NBTTagCompound var1) throws IOException {
       if(var1 == null) {
          this.writeByte(0);
       } else {
@@ -143,14 +143,14 @@ public class hd extends ByteBuf {
 
    }
 
-   public fn h() throws IOException {
+   public NBTTagCompound h() throws IOException {
       int var1 = this.readerIndex();
       byte var2 = this.readByte();
       if(var2 == 0) {
          return null;
       } else {
          this.readerIndex(var1);
-         return fz.a((DataInput)(new ByteBufInputStream(this)), new fx(2097152L));
+         return fz.a((DataInput)(new ByteBufInputStream(this)), new NBTReadLimiter(2097152L));
       }
    }
 
@@ -158,10 +158,10 @@ public class hd extends ByteBuf {
       if(var1 == null) {
          this.writeShort(-1);
       } else {
-         this.writeShort(alq.b(var1.b()));
+         this.writeShort(Item.b(var1.b()));
          this.writeByte(var1.b);
          this.writeShort(var1.i());
-         fn var2 = null;
+         NBTTagCompound var2 = null;
          if(var1.b().m() || var1.b().p()) {
             var2 = var1.o();
          }
@@ -177,7 +177,7 @@ public class hd extends ByteBuf {
       if(var2 >= 0) {
          byte var3 = this.readByte();
          short var4 = this.readShort();
-         var1 = new amj(alq.b(var2), var3, var4);
+         var1 = new amj(Item.b(var2), var3, var4);
          var1.d(this.h());
       }
 

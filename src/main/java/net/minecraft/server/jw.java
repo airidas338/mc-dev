@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class jw implements id {
+public class jw implements Packet {
 
    private int a;
    private boolean b;

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class bdl implements ae {
+class bdl implements ICommandSender {
 
    // $FF: synthetic field
    final EntityHuman a;

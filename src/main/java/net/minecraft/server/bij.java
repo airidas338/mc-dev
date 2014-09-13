@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bij extends bhc {
+public class bij extends WorldGenTreeAbstract {
 
    public bij(boolean var1) {
       super(var1);
@@ -26,7 +26,7 @@ public class bij extends bhc {
             for(var8 = var3.n() - var7; var8 <= var3.n() + var7 && var5; ++var8) {
                for(var9 = var3.p() - var7; var9 <= var3.p() + var7 && var5; ++var9) {
                   if(var6 >= 0 && var6 < 256) {
-                     if(!this.a(var1.p(new Location(var8, var6, var9)).c())) {
+                     if(!this.a(var1.getData(new Location(var8, var6, var9)).c())) {
                         var5 = false;
                      }
                   } else {
@@ -39,7 +39,7 @@ public class bij extends bhc {
          if(!var5) {
             return false;
          } else {
-            Block var18 = var1.p(var3.b()).c();
+            Block var18 = var1.getData(var3.b()).c();
             if((var18 == aty.c || var18 == aty.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                this.a(var1, var3.a(1, -1, 0));
@@ -63,8 +63,8 @@ public class bij extends bhc {
                   }
 
                   Location var15 = new Location(var10, var14, var11);
-                  Material var16 = var1.p(var15).c().r();
-                  if(var16 == Material.a || var16 == Material.j) {
+                  Material var16 = var1.getData(var15).c().r();
+                  if(var16 == Material.AIR || var16 == Material.LEAVES) {
                      this.a(var1, var15, aty.s, ayx.f.a() - 4);
                      this.a(var1, var15.f(), aty.s, ayx.f.a() - 4);
                      this.a(var1, var15.d(), aty.s, ayx.f.a() - 4);
@@ -144,8 +144,8 @@ public class bij extends bhc {
    }
 
    private void a(World var1, int var2, int var3, int var4) {
-      Block var5 = var1.p(new Location(var2, var3, var4)).c();
-      if(var5.r() == Material.a) {
+      Block var5 = var1.getData(new Location(var2, var3, var4)).c();
+      if(var5.r() == Material.AIR) {
          this.a(var1, new Location(var2, var3, var4), aty.u, 1);
       }
 

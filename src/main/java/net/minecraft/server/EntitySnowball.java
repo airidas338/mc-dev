@@ -15,7 +15,7 @@ public class EntitySnowball extends EntityProjectile {
       super(var1, var2, var4, var6);
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(var1.d != null) {
          byte var2 = 0;
          if(var1.d instanceof EntityBlaze) {

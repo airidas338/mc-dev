@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.security.PrivateKey;
 import javax.crypto.SecretKey;
 
-public class nj implements id {
+public class nj implements Packet {
 
    private byte[] a = new byte[0];
    private byte[] b = new byte[0];
@@ -23,10 +23,10 @@ public class nj implements id {
    }
 
    public SecretKey a(PrivateKey var1) {
-      return ug.a(var1, this.a);
+      return MinecraftEncryption.a(var1, this.a);
    }
 
    public byte[] b(PrivateKey var1) {
-      return var1 == null?this.b:ug.b(var1, this.b);
+      return var1 == null?this.b:MinecraftEncryption.b(var1, this.b);
    }
 }

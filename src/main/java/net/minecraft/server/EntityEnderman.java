@@ -44,14 +44,14 @@ public class EntityEnderman extends EntityMonster {
       this.ac.a(18, new Byte((byte)0));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       IBlock var2 = this.ck();
       var1.a("carried", (short)Block.a(var2.c()));
       var1.a("carriedData", (short)var2.c().c(var2));
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       IBlock var2;
       if(var1.b("carried", 8)) {
@@ -65,7 +65,7 @@ public class EntityEnderman extends EntityMonster {
 
    private boolean c(EntityHuman var1) {
       amj var2 = var1.bg.b[3];
-      if(var2 != null && var2.b() == alq.a(aty.aU)) {
+      if(var2 != null && var2.b() == Item.a(aty.aU)) {
          return false;
       } else {
          ChunkCoordinates var3 = var1.d(1.0F).a();
@@ -145,7 +145,7 @@ public class EntityEnderman extends EntityMonster {
 
          while(!var15 && var14.o() > 0) {
             Location var16 = var14.b();
-            Block var17 = this.o.p(var16).c();
+            Block var17 = this.o.getData(var16).c();
             if(var17.r().c()) {
                var15 = true;
             } else {
@@ -197,12 +197,12 @@ public class EntityEnderman extends EntityMonster {
       return "mob.endermen.death";
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.bu;
    }
 
    protected void b(boolean var1, int var2) {
-      alq var3 = this.A();
+      Item var3 = this.A();
       if(var3 != null) {
          int var4 = this.V.nextInt(2 + var2);
 

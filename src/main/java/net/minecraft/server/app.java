@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class app extends apf {
 
    protected app(int var1, RegistryMaterials var2, int var3) {
-      super(var1, var2, var3, apg.g);
+      super(var1, var2, var3, EnchantmentSlotType.WEAPON);
       this.c("fire");
    }
 

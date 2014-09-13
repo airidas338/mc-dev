@@ -12,7 +12,7 @@ public class ajr extends aks {
    }
 
    public float a(amj var1, Block var2) {
-      return var2.r() != Material.d && var2.r() != Material.k && var2.r() != Material.l?super.a(var1, var2):this.a;
+      return var2.r() != Material.WOOD && var2.r() != Material.PLANT && var2.r() != Material.REPLACAEBLE_PLAN?super.a(var1, var2):this.a;
    }
 
 }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ng implements id {
+public class ng implements Packet {
 
    private IChatBaseComponent a;
 

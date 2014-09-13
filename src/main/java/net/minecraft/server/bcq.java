@@ -9,7 +9,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
    private amj[] g = new amj[4];
    private int h;
    private boolean[] i;
-   private alq j;
+   private Item j;
    private String k;
 
 
@@ -51,13 +51,13 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
          boolean[] var1 = this.m();
          if(!Arrays.equals(var1, this.i)) {
             this.i = var1;
-            IBlock var2 = this.b.p(this.v());
-            if(!(var2.c() instanceof aub)) {
+            IBlock var2 = this.b.getData(this.v());
+            if(!(var2.c() instanceof BlockBrewingStand)) {
                return;
             }
 
-            for(int var3 = 0; var3 < aub.a.length; ++var3) {
-               var2 = var2.a(aub.a[var3], Boolean.valueOf(var1[var3]));
+            for(int var3 = 0; var3 < BlockBrewingStand.a.length; ++var3) {
+               var2 = var2.a(BlockBrewingStand.a[var3], Boolean.valueOf(var1[var3]));
             }
 
             this.b.a(this.c, var2, 2);
@@ -78,7 +78,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
                if(this.g[var3] != null && this.g[var3].b() == Items.bz) {
                   int var4 = this.g[var3].i();
                   int var5 = this.c(var4, var1);
-                  if(!amw.f(var4) && amw.f(var5)) {
+                  if(!ItemPotion.f(var4) && ItemPotion.f(var5)) {
                      var2 = true;
                      break;
                   }
@@ -113,7 +113,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
                   if(var3 != var4) {
                      this.g[var2].b(var4);
                   }
-               } else if(!amw.f(var3) && amw.f(var4)) {
+               } else if(!ItemPotion.f(var3) && ItemPotion.f(var4)) {
                   this.g[var2].b(var4);
                }
             }
@@ -135,13 +135,13 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       return var2 == null?var1:(var2.b().l(var2)?ans.a(var1, var2.b().j(var2)):var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = var1.c("Items", 10);
       this.g = new amj[this.n_()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          byte var5 = var4.d("Slot");
          if(var5 >= 0 && var5 < this.g.length) {
             this.g[var5] = amj.a(var4);
@@ -155,21 +155,21 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("BrewTime", (short)this.h);
       fv var2 = new fv();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          if(this.g[var3] != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var3);
             this.g[var3].b(var4);
-            var2.a((gd)var4);
+            var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (gd)var2);
+      var1.a("Items", (NBTBase)var2);
       if(this.k_()) {
          var1.a("CustomName", this.k);
       }

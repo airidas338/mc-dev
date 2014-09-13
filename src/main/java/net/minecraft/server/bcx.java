@@ -93,13 +93,13 @@ public class bcx extends bdf implements vq {
       return this.a != null;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = var1.c("Items", 10);
       this.g = new amj[this.n_()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          int var5 = var4.d("Slot") & 255;
          if(var5 >= 0 && var5 < this.g.length) {
             this.g[var5] = amj.a(var4);
@@ -112,20 +112,20 @@ public class bcx extends bdf implements vq {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       fv var2 = new fv();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          if(this.g[var3] != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var3);
             this.g[var3].b(var4);
-            var2.a((gd)var4);
+            var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (gd)var2);
+      var1.a("Items", (NBTBase)var2);
       if(this.k_()) {
          var1.a("CustomName", this.a);
       }

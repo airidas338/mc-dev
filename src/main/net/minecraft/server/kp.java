@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class kp implements id {
+public class kp implements Packet {
 
    private int a;
    private EnumDifficulty b;

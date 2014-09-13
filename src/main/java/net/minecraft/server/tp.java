@@ -65,14 +65,14 @@ public class tp extends tz {
       if(var2.d() && var4 == 0 && var3 > 0) {
          this.g = true;
          if(this.c.az()) {
-            this.c.an().a((IChatBaseComponent)(new hz("chat.type.achievement", new Object[]{var1.e_(), var2.j()})));
+            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement", new Object[]{var1.e_(), var2.j()})));
          }
       }
 
       if(var2.d() && var4 > 0 && var3 == 0) {
          this.g = true;
          if(this.c.az()) {
-            this.c.an().a((IChatBaseComponent)(new hz("chat.type.achievement.taken", new Object[]{var1.e_(), var2.j()})));
+            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement.taken", new Object[]{var1.e_(), var2.j()})));
          }
       }
 
@@ -177,7 +177,7 @@ public class tp extends tz {
          }
       }
 
-      var1.a.a((id)(new is(var3)));
+      var1.a.a((Packet)(new is(var3)));
    }
 
    public void b(EntityPlayer var1) {
@@ -192,7 +192,7 @@ public class tp extends tz {
          }
       }
 
-      var1.a.a((id)(new is(var2)));
+      var1.a.a((Packet)(new is(var2)));
    }
 
    public boolean e() {

@@ -436,7 +436,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          }
 
          if(var2 != null) {
-            hz var3 = new hz("entity.Villager." + var2, new Object[0]);
+            ChatMessage var3 = new ChatMessage("entity.Villager." + var2, new Object[0]);
             var3.b().a(this.aP());
             var3.b().a(this.aJ().toString());
             return var3;

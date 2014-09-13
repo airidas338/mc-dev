@@ -23,7 +23,7 @@ public class blx extends bmk {
       this.e = var2.nextInt(3) > 0;
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("leftLow", this.a);
       var1.a("leftHigh", this.b);
@@ -31,7 +31,7 @@ public class blx extends bmk {
       var1.a("rightHigh", this.e);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = var1.n("leftLow");
       this.b = var1.n("leftHigh");

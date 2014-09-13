@@ -27,12 +27,12 @@ public class BiomeTaiga extends BiomeBase {
 
    }
 
-   public bhc a(Random var1) {
-      return (bhc)((this.aI == 1 || this.aI == 2) && var1.nextInt(3) == 0?(this.aI != 2 && var1.nextInt(13) != 0?aF:aG):(var1.nextInt(3) == 0?aD:aE));
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)((this.aI == 1 || this.aI == 2) && var1.nextInt(3) == 0?(this.aI != 2 && var1.nextInt(13) != 0?aF:aG):(var1.nextInt(3) == 0?aD:aE));
    }
 
-   public bhp b(Random var1) {
-      return var1.nextInt(5) > 0?new biq(bbi.c):new biq(bbi.b);
+   public WorldGenerator b(Random var1) {
+      return var1.nextInt(5) > 0?new WorldGenGrass(EnumFoliage.c):new WorldGenGrass(EnumFoliage.b);
    }
 
    public void a(World var1, Random var2, Location var3) {
@@ -68,9 +68,9 @@ public class BiomeTaiga extends BiomeBase {
          this.ak = aty.c.P();
          this.al = aty.d.P();
          if(var6 > 1.75D) {
-            this.ak = aty.d.P().a(avc.a, avd.b);
+            this.ak = aty.d.P().a(BlockDirt.a, avd.b);
          } else if(var6 > -0.95D) {
-            this.ak = aty.d.P().a(avc.a, avd.c);
+            this.ak = aty.d.P().a(BlockDirt.a, avd.c);
          }
       }
 

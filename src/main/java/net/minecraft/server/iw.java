@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class iw implements id {
+public class iw implements Packet {
 
    private Location a;
    private IBlock b;
@@ -10,7 +10,7 @@ public class iw implements id {
 
    public iw(World var1, Location var2) {
       this.a = var2;
-      this.b = var1.p(var2);
+      this.b = var1.getData(var2);
    }
 
    public void a(hd var1) {

@@ -8,7 +8,7 @@ public class EntityEnderPearl extends EntityProjectile {
       super(var1, var2);
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       EntityLiving var2 = this.n();
       if(var1.d != null) {
          var1.d.a(DamageSource.a((Entity)this, var2), 0.0F);

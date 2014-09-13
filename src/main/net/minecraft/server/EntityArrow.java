@@ -225,7 +225,7 @@ public class EntityArrow extends Entity implements aho {
                      }
 
                      if(this.c != null && var6.d != this.c && var6.d instanceof EntityHuman && this.c instanceof EntityPlayer) {
-                        ((EntityPlayer)this.c).a.a((id)(new jo(6, 0.0F)));
+                        ((EntityPlayer)this.c).a.a((Packet)(new jo(6, 0.0F)));
                      }
                   }
 

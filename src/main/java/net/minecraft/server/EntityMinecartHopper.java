@@ -111,15 +111,15 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      this.a(alq.a((Block)aty.cp), 1, 0.0F);
+      this.a(Item.a((Block)aty.cp), 1, 0.0F);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("TransferCooldown", this.b);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       this.b = var1.f("TransferCooldown");
    }

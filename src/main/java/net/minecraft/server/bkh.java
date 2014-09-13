@@ -50,29 +50,29 @@ public class bkh extends bmv {
       this.c.add(var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = new fv();
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {
          aqm var4 = (aqm)var3.next();
-         fn var5 = new fn();
+         NBTTagCompound var5 = new NBTTagCompound();
          var5.a("X", var4.a);
          var5.a("Z", var4.b);
-         var2.a((gd)var5);
+         var2.a((NBTBase)var5);
       }
 
-      var1.a("Processed", (gd)var2);
+      var1.a("Processed", (NBTBase)var2);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(var1.b("Processed", 9)) {
          fv var2 = var1.c("Processed", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
-            fn var4 = var2.b(var3);
+            NBTTagCompound var4 = var2.b(var3);
             this.c.add(new aqm(var4.f("X"), var4.f("Z")));
          }
       }

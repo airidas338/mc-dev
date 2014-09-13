@@ -98,19 +98,19 @@ public class bji extends bms {
       }
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       fv var2 = new fv();
       Iterator var3 = this.a.iterator();
 
       while(var3.hasNext()) {
          bjb var4 = (bjb)var3.next();
-         var2.a((gd)var4.g());
+         var2.a((NBTBase)var4.g());
       }
 
-      var1.a("Entrances", (gd)var2);
+      var1.a("Entrances", (NBTBase)var2);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       fv var2 = var1.c("Entrances", 11);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {

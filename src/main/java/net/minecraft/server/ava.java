@@ -7,7 +7,7 @@ public abstract class ava extends avb {
 
 
    protected ava(boolean var1) {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.M = var1;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
@@ -17,17 +17,17 @@ public abstract class ava extends avb {
    }
 
    public boolean c(World var1, Location var2) {
-      return World.a((ard)var1, var2.b())?super.c(var1, var2):false;
+      return World.a((IBlockAccess)var1, var2.b())?super.c(var1, var2):false;
    }
 
    public boolean d(World var1, Location var2) {
-      return World.a((ard)var1, var2.b());
+      return World.a((IBlockAccess)var1, var2.b());
    }
 
    public void a(World var1, Location var2, IBlock var3, Random var4) {}
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!this.b((ard)var1, var2, var3)) {
+      if(!this.b((IBlockAccess)var1, var2, var3)) {
          boolean var5 = this.e(var1, var2, var3);
          if(this.M && !var5) {
             var1.a(var2, this.k(var3), 2);
@@ -45,11 +45,11 @@ public abstract class ava extends avb {
       return this.M;
    }
 
-   public int b(ard var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return this.a(var1, var2, var3, var4);
    }
 
-   public int a(ard var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return !this.l(var3)?0:(var3.b(N) == var4?this.a(var1, var2, var3):0);
    }
 
@@ -71,7 +71,7 @@ public abstract class ava extends avb {
    }
 
    protected void g(World var1, Location var2, IBlock var3) {
-      if(!this.b((ard)var1, var2, var3)) {
+      if(!this.b((IBlockAccess)var1, var2, var3)) {
          boolean var4 = this.e(var1, var2, var3);
          if((this.M && !var4 || !this.M && var4) && !var1.a(var2, (Block)this)) {
             byte var5 = -1;
@@ -87,7 +87,7 @@ public abstract class ava extends avb {
       }
    }
 
-   public boolean b(ard var1, Location var2, IBlock var3) {
+   public boolean b(IBlockAccess var1, Location var2, IBlock var3) {
       return false;
    }
 
@@ -102,22 +102,22 @@ public abstract class ava extends avb {
       if(var6 >= 15) {
          return var6;
       } else {
-         IBlock var7 = var1.p(var5);
-         return Math.max(var6, var7.c() == aty.af?((Integer)var7.b(azt.O)).intValue():0);
+         IBlock var7 = var1.getData(var5);
+         return Math.max(var6, var7.c() == aty.af?((Integer)var7.b(BlockRedstoneWire.O)).intValue():0);
       }
    }
 
-   protected int c(ard var1, Location var2, IBlock var3) {
+   protected int c(IBlockAccess var1, Location var2, IBlock var3) {
       ej var4 = (ej)var3.b(N);
       ej var5 = var4.e();
       ej var6 = var4.f();
       return Math.max(this.c(var1, var2.a(var5), var5), this.c(var1, var2.a(var6), var6));
    }
 
-   protected int c(ard var1, Location var2, ej var3) {
-      IBlock var4 = var1.p(var2);
+   protected int c(IBlockAccess var1, Location var2, ej var3) {
+      IBlock var4 = var1.getData(var2);
       Block var5 = var4.c();
-      return this.c(var5)?(var5 == aty.af?((Integer)var4.b(azt.O)).intValue():var1.a(var2, var3)):0;
+      return this.c(var5)?(var5 == aty.af?((Integer)var4.b(BlockRedstoneWire.O)).intValue():var1.a(var2, var3)):0;
    }
 
    public boolean g() {
@@ -168,7 +168,7 @@ public abstract class ava extends avb {
       return var1.g();
    }
 
-   protected int a(ard var1, Location var2, IBlock var3) {
+   protected int a(IBlockAccess var1, Location var2, IBlock var3) {
       return 15;
    }
 
@@ -183,7 +183,7 @@ public abstract class ava extends avb {
    public boolean i(World var1, Location var2, IBlock var3) {
       ej var4 = ((ej)var3.b(N)).d();
       Location var5 = var2.a(var4);
-      return d(var1.p(var5).c())?var1.p(var5).b(N) != var4:false;
+      return d(var1.getData(var5).c())?var1.getData(var5).b(N) != var4:false;
    }
 
    protected int m(IBlock var1) {

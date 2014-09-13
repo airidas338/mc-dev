@@ -52,7 +52,7 @@ public class ahz {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       if(var1.b("foodLevel", 99)) {
          this.a = var1.f("foodLevel");
          this.d = var1.f("foodTickTimer");
@@ -62,7 +62,7 @@ public class ahz {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("foodLevel", this.a);
       var1.a("foodTickTimer", this.d);
       var1.a("foodSaturationLevel", this.b);

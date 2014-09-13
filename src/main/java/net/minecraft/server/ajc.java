@@ -19,6 +19,6 @@ class ajc extends ajk {
    }
 
    public boolean a(amj var1) {
-      return var1 == null?false:(var1.b() instanceof ajn?((ajn)var1.b()).b == this.a:(var1.b() != alq.a(aty.aU) && var1.b() != Items.bX?false:this.a == 0));
+      return var1 == null?false:(var1.b() instanceof ItemArmor?((ItemArmor)var1.b()).b == this.a:(var1.b() != Item.a(aty.aU) && var1.b() != Items.bX?false:this.a == 0));
    }
 }

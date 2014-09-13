@@ -2,7 +2,7 @@ package net.minecraft.server;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class no implements id {
+public class no implements Packet {
 
    private static final Gson a = (new GsonBuilder()).registerTypeAdapter(ServerPingServerData.class, new nu()).registerTypeAdapter(ServerPingPlayerSample.class, new nr()).registerTypeAdapter(ServerPing.class, new ns()).registerTypeHierarchyAdapter(IChatBaseComponent.class, new hp()).registerTypeHierarchyAdapter(ChatModifier.class, new hx()).registerTypeAdapterFactory(new ut()).create();
    private ServerPing b;

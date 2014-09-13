@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public final class ga {
 
-   public static GameProfile a(fn var0) {
+   public static GameProfile a(NBTTagCompound var0) {
       String var1 = null;
       String var2 = null;
       if(var0.b("Name", 8)) {
@@ -29,7 +29,7 @@ public final class ga {
 
          GameProfile var4 = new GameProfile(var3, var1);
          if(var0.b("Properties", 10)) {
-            fn var5 = var0.m("Properties");
+            NBTTagCompound var5 = var0.m("Properties");
             Iterator var6 = var5.c().iterator();
 
             while(var6.hasNext()) {
@@ -37,7 +37,7 @@ public final class ga {
                fv var8 = var5.c(var7, 10);
 
                for(int var9 = 0; var9 < var8.c(); ++var9) {
-                  fn var10 = var8.b(var9);
+                  NBTTagCompound var10 = var8.b(var9);
                   String var11 = var10.j("Value");
                   if(var10.b("Signature", 8)) {
                      var4.getProperties().put(var7, new Property(var7, var11, var10.j("Signature")));
@@ -52,7 +52,7 @@ public final class ga {
       }
    }
 
-   public static fn a(fn var0, GameProfile var1) {
+   public static NBTTagCompound a(NBTTagCompound var0, GameProfile var1) {
       if(!vb.b(var1.getName())) {
          var0.a("Name", var1.getName());
       }
@@ -62,27 +62,27 @@ public final class ga {
       }
 
       if(!var1.getProperties().isEmpty()) {
-         fn var2 = new fn();
+         NBTTagCompound var2 = new NBTTagCompound();
          Iterator var3 = var1.getProperties().keySet().iterator();
 
          while(var3.hasNext()) {
             String var4 = (String)var3.next();
             fv var5 = new fv();
 
-            fn var8;
-            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.a((gd)var8)) {
+            NBTTagCompound var8;
+            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.a((NBTBase)var8)) {
                Property var7 = (Property)var6.next();
-               var8 = new fn();
+               var8 = new NBTTagCompound();
                var8.a("Value", var7.getValue());
                if(var7.hasSignature()) {
                   var8.a("Signature", var7.getSignature());
                }
             }
 
-            var2.a(var4, (gd)var5);
+            var2.a(var4, (NBTBase)var5);
          }
 
-         var0.a("Properties", (gd)var2);
+         var0.a("Properties", (NBTBase)var2);
       }
 
       return var0;

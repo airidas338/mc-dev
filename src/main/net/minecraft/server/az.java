@@ -43,7 +43,7 @@ public class az extends CommandAbstract {
             throw new di("commands.clear.failure", new Object[]{var3.d_()});
          } else {
             if(var6 == 0) {
-               var1.a(new hz("commands.clear.testing", new Object[]{var3.d_(), Integer.valueOf(var8)}));
+               var1.a(new ChatMessage("commands.clear.testing", new Object[]{var3.d_(), Integer.valueOf(var8)}));
             } else {
                a(var1, this, "commands.clear.success", new Object[]{var3.d_(), Integer.valueOf(var8)});
             }

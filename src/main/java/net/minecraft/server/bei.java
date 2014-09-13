@@ -17,7 +17,7 @@ public class bei {
 
    public IBlock a() {
       if(this.c == null && this.a.e(this.b)) {
-         this.c = this.a.p(this.b);
+         this.c = this.a.getData(this.b);
       }
 
       return this.c;

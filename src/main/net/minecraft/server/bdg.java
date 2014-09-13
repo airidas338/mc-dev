@@ -19,7 +19,7 @@ public class bdg extends bcm implements IUpdatePlayerListBox {
       this.a.c();
    }
 
-   public id x_() {
+   public Packet x_() {
       fn var1 = new fn();
       this.b(var1);
       var1.o("SpawnPotentials");

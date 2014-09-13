@@ -8,7 +8,7 @@ final class oi extends eg {
    protected amj b(dz var1, amj var2) {
       if(akv.a == akv.a(var2.i())) {
          World var3 = var1.i();
-         Location var4 = var1.d().a(ave.b(var1.f()));
+         Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
          if(akw.a(var2, var3, var4)) {
             if(!var3.D) {
                var3.b(2005, var4, 0);

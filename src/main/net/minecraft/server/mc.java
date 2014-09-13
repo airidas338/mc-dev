@@ -2,7 +2,7 @@ package net.minecraft.server;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
 
-public class mc implements id {
+public class mc implements Packet {
 
    private String a;
    private hd b;

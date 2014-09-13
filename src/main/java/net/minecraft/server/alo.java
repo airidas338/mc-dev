@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class alo extends alq {
+public class alo extends Item {
 
    protected ami a;
 
@@ -10,26 +10,26 @@ public class alo extends alq {
       this.a = var1;
       this.h = 1;
       this.d(var1.a());
-      this.a(akf.i);
+      this.a(CreativeModeTab.i);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
-         IBlock var9 = var3.p(var4);
+         IBlock var9 = var3.getData(var4);
          Block var10 = var9.c();
-         if(var5 != ej.a && var3.p(var4.a()).c().r() == Material.a) {
+         if(var5 != ej.a && var3.getData(var4.a()).c().r() == Material.AIR) {
             if(var10 == aty.c) {
                return this.a(var1, var2, var3, var4, aty.ak.P());
             }
 
             if(var10 == aty.d) {
-               switch(alp.a[((avd)var9.b(avc.a)).ordinal()]) {
+               switch(alp.a[((avd)var9.b(BlockDirt.a)).ordinal()]) {
                case 1:
                   return this.a(var1, var2, var3, var4, aty.ak.P());
                case 2:
-                  return this.a(var1, var2, var3, var4, aty.d.P().a(avc.a, avd.a));
+                  return this.a(var1, var2, var3, var4, aty.d.P().a(BlockDirt.a, avd.a));
                }
             }
          }

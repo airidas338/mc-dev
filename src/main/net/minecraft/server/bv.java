@@ -21,10 +21,10 @@ public class bv extends CommandAbstract {
 
    public void a(ae var1, String[] var2) throws di {
       if(var2.length >= 1 && var2[0].equalsIgnoreCase("ips")) {
-         var1.a(new hz("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.M().an().j().a().length)}));
+         var1.a(new ChatMessage("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.M().an().j().a().length)}));
          var1.a(new ChatComponentText(a(MinecraftServer.M().an().j().a())));
       } else {
-         var1.a(new hz("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.M().an().i().a().length)}));
+         var1.a(new ChatMessage("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.M().an().i().a().length)}));
          var1.a(new ChatComponentText(a(MinecraftServer.M().an().i().a())));
       }
 

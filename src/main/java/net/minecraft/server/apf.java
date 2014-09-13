@@ -25,20 +25,20 @@ public abstract class apf {
    public static final apf n = new apc(18, new RegistryMaterials("bane_of_arthropods"), 5, 2);
    public static final apf o = new apr(19, new RegistryMaterials("knockback"), 5);
    public static final apf p = new app(20, new RegistryMaterials("fire_aspect"), 2);
-   public static final apf q = new aps(21, new RegistryMaterials("looting"), 2, apg.g);
+   public static final apf q = new aps(21, new RegistryMaterials("looting"), 2, EnchantmentSlotType.WEAPON);
    public static final apf r = new ape(32, new RegistryMaterials("efficiency"), 10);
    public static final apf s = new apw(33, new RegistryMaterials("silk_touch"), 1);
    public static final apf t = new apd(34, new RegistryMaterials("unbreaking"), 5);
-   public static final apf u = new aps(35, new RegistryMaterials("fortune"), 2, apg.h);
+   public static final apf u = new aps(35, new RegistryMaterials("fortune"), 2, EnchantmentSlotType.DIGGER);
    public static final apf v = new aoy(48, new RegistryMaterials("power"), 10);
    public static final apf w = new apb(49, new RegistryMaterials("punch"), 2);
    public static final apf x = new aoz(50, new RegistryMaterials("flame"), 2);
    public static final apf y = new apa(51, new RegistryMaterials("infinity"), 1);
-   public static final apf z = new aps(61, new RegistryMaterials("luck_of_the_sea"), 2, apg.i);
-   public static final apf A = new apq(62, new RegistryMaterials("lure"), 2, apg.i);
+   public static final apf z = new aps(61, new RegistryMaterials("luck_of_the_sea"), 2, EnchantmentSlotType.FISHING_ROD);
+   public static final apf A = new apq(62, new RegistryMaterials("lure"), 2, EnchantmentSlotType.FISHING_ROD);
    public final int B;
    private final int F;
-   public apg C;
+   public EnchantmentSlotType C;
    protected String D;
 
 
@@ -46,7 +46,7 @@ public abstract class apf {
       return var0 >= 0 && var0 < a.length?a[var0]:null;
    }
 
-   protected apf(int var1, RegistryMaterials var2, int var3, apg var4) {
+   protected apf(int var1, RegistryMaterials var2, int var3, EnchantmentSlotType var4) {
       this.B = var1;
       this.F = var3;
       this.C = var4;

@@ -85,7 +85,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
          }
 
          j.info("Generating keypair");
-         this.a(ug.b());
+         this.a(MinecraftEncryption.b());
          j.info("Starting Minecraft server on " + (this.s().length() == 0?"*":this.s()) + ":" + this.Q());
 
          try {
@@ -243,7 +243,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
       return this.n.a("snooper-enabled", true);
    }
 
-   public void a(String var1, ae var2) {
+   public void a(String var1, ICommandSender var2) {
       this.k.add(new oz(var1, var2));
    }
 

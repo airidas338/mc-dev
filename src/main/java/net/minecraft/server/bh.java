@@ -11,20 +11,20 @@ public class bh extends CommandAbstract {
       return 0;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.me.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length <= 0) {
          throw new dp("commands.me.usage", new Object[0]);
       } else {
          IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof EntityHuman));
-         MinecraftServer.M().an().a((IChatBaseComponent)(new hz("chat.type.emote", new Object[]{var1.e_(), var3})));
+         MinecraftServer.M().an().a((IChatBaseComponent)(new ChatMessage("chat.type.emote", new Object[]{var1.e_(), var3})));
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return a(var2, MinecraftServer.M().I());
    }
 }

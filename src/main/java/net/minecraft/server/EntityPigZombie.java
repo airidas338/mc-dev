@@ -74,7 +74,7 @@ public class EntityPigZombie extends EntityZombie {
       return this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ());
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Anger", (short)this.bl);
       if(this.bn != null) {
@@ -85,7 +85,7 @@ public class EntityPigZombie extends EntityZombie {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.bl = var1.e("Anger");
       String var2 = var1.j("HurtBy");

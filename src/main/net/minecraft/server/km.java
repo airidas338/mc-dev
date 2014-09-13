@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class km implements id {
+public class km implements Packet {
 
    private int[] a;
 

@@ -52,17 +52,17 @@ public class EntityEndermite extends EntityMonster {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
-   protected alq A() {
+   protected Item A() {
       return null;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.b = var1.f("Lifetime");
       this.c = var1.n("PlayerSpawned");
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Lifetime", this.b);
       var1.a("PlayerSpawned", this.c);

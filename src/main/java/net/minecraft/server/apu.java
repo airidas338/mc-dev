@@ -11,10 +11,10 @@ public class apu extends apf {
 
 
    public apu(int var1, RegistryMaterials var2, int var3, int var4) {
-      super(var1, var2, var3, apg.b);
+      super(var1, var2, var3, EnchantmentSlotType.ARMOR);
       this.a = var4;
       if(var4 == 2) {
-         this.C = apg.c;
+         this.C = EnchantmentSlotType.ARMOR_FEET;
       }
 
    }

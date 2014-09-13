@@ -47,19 +47,19 @@ public class bs extends CommandAbstract {
       }
 
       int var7 = Math.min((var13 + 1) * 7, var3.size());
-      hz var14 = new hz("commands.help.header", new Object[]{Integer.valueOf(var13 + 1), Integer.valueOf(var5 + 1)});
+      ChatMessage var14 = new ChatMessage("commands.help.header", new Object[]{Integer.valueOf(var13 + 1), Integer.valueOf(var5 + 1)});
       var14.b().a(EnumChatFormat.c);
       var1.a(var14);
 
       for(int var15 = var13 * 7; var15 < var7; ++var15) {
          ac var10 = (ac)var3.get(var15);
-         hz var11 = new hz(var10.c(var1), new Object[0]);
+         ChatMessage var11 = new ChatMessage(var10.c(var1), new Object[0]);
          var11.b().a(new hm(hn.e, "/" + var10.c() + " "));
          var1.a(var11);
       }
 
       if(var13 == 0 && var1 instanceof EntityHuman) {
-         hz var16 = new hz("commands.help.footer", new Object[0]);
+         ChatMessage var16 = new ChatMessage("commands.help.footer", new Object[0]);
          var16.b().a(EnumChatFormat.k);
          var1.a(var16);
       }

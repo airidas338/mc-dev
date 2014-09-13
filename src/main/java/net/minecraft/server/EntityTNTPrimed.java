@@ -69,11 +69,11 @@ public class EntityTNTPrimed extends Entity {
       this.o.a(this, this.s, this.t + (double)(this.K / 2.0F), this.u, var1, true);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       var1.a("Fuse", (byte)this.a);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       this.a = var1.d("Fuse");
    }
 

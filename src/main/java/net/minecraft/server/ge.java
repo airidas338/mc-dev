@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class ge extends gd {
+public abstract class ge extends NBTBase {
 
    public abstract long c();
 

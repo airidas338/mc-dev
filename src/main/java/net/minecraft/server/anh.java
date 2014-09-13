@@ -2,13 +2,13 @@ package net.minecraft.server;
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
 
-public class anh extends alq {
+public class anh extends Item {
 
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper"};
 
 
    public anh() {
-      this.a(akf.c);
+      this.a(CreativeModeTab.c);
       this.d(0);
       this.a(true);
    }
@@ -17,11 +17,11 @@ public class anh extends alq {
       if(var5 == ej.a) {
          return false;
       } else {
-         IBlock var9 = var3.p(var4);
+         IBlock var9 = var3.getData(var4);
          Block var10 = var9.c();
          boolean var11 = var10.f(var3, var4);
          if(!var11) {
-            if(!var3.p(var4).c().r().a()) {
+            if(!var3.getData(var4).c().r().a()) {
                return false;
             }
 
@@ -34,7 +34,7 @@ public class anh extends alq {
             return false;
          } else {
             if(!var3.D) {
-               var3.a(var4, aty.ce.P().a(baj.a, var5), 3);
+               var3.a(var4, aty.ce.P().a(BlockSkull.a, var5), 3);
                int var12 = 0;
                if(var5 == ej.b) {
                   var12 = MathHelper.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
@@ -46,7 +46,7 @@ public class anh extends alq {
                   if(var1.i() == 3) {
                      GameProfile var15 = null;
                      if(var1.n()) {
-                        fn var16 = var1.o();
+                        NBTTagCompound var16 = var1.o();
                         if(var16.b("SkullOwner", 10)) {
                            var15 = ga.a(var16.m("SkullOwner"));
                         } else if(var16.b("SkullOwner", 8) && var16.j("SkullOwner").length() > 0) {
@@ -91,7 +91,7 @@ public class anh extends alq {
          }
 
          if(var1.o().b("SkullOwner", 10)) {
-            fn var2 = var1.o().m("SkullOwner");
+            NBTTagCompound var2 = var1.o().m("SkullOwner");
             if(var2.b("Name", 8)) {
                return fi.a("item.skull.player.name", new Object[]{var2.j("Name")});
             }
@@ -101,12 +101,12 @@ public class anh extends alq {
       return super.a(var1);
    }
 
-   public boolean a(fn var1) {
+   public boolean a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("SkullOwner", 8) && var1.j("SkullOwner").length() > 0) {
          GameProfile var2 = new GameProfile((UUID)null, var1.j("SkullOwner"));
          var2 = bdm.b(var2);
-         var1.a("SkullOwner", (gd)ga.a(new fn(), var2));
+         var1.a("SkullOwner", (NBTBase)ga.a(new NBTTagCompound(), var2));
          return true;
       } else {
          return false;

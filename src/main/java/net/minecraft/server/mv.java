@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mv implements id {
+public class mv implements Packet {
 
    public void a(hd var1) {}
 

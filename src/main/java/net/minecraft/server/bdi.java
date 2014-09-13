@@ -6,12 +6,12 @@ public class bdi extends bcm {
    public boolean f;
 
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("note", this.a);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a = var1.d("note");
       this.a = (byte)MathHelper.a(this.a, 0, 24);
@@ -23,22 +23,22 @@ public class bdi extends bcm {
    }
 
    public void a(World var1, Location var2) {
-      if(var1.p(var2.a()).c().r() == Material.a) {
-         Material var3 = var1.p(var2.b()).c().r();
+      if(var1.getData(var2.a()).c().r() == Material.AIR) {
+         Material var3 = var1.getData(var2.b()).c().r();
          byte var4 = 0;
-         if(var3 == Material.e) {
+         if(var3 == Material.STONE) {
             var4 = 1;
          }
 
-         if(var3 == Material.p) {
+         if(var3 == Material.SAND) {
             var4 = 2;
          }
 
-         if(var3 == Material.s) {
+         if(var3 == Material.SHATTERABLE) {
             var4 = 3;
          }
 
-         if(var3 == Material.d) {
+         if(var3 == Material.WOOD) {
             var4 = 4;
          }
 

@@ -51,12 +51,12 @@ public class bmx extends bmv {
       return this.c;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Valid", this.c);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       this.c = var1.n("Valid");
    }

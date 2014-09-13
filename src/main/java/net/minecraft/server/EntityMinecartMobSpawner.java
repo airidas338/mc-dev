@@ -23,12 +23,12 @@ public class EntityMinecartMobSpawner extends EntityMinecartAbstract {
       return aty.ac.P();
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       this.a.a(var1);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a.b(var1);
    }

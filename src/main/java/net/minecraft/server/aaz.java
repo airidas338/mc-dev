@@ -45,7 +45,7 @@ public abstract class aaz {
          Location var3 = new Location(this.b);
          int var4 = (int)(var2 + 8.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
-         bpv var6 = this.j.a((ard)var5, (Entity)this.b, var1, var2);
+         bpv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, var1, var2);
          this.c.B.b();
          return var6;
       }
@@ -69,7 +69,7 @@ public abstract class aaz {
          Location var3 = (new Location(this.b)).a();
          int var4 = (int)(var2 + 16.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
-         bpv var6 = this.j.a((ard)var5, (Entity)this.b, var1, var2);
+         bpv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, var1, var2);
          this.c.B.b();
          return var6;
       }

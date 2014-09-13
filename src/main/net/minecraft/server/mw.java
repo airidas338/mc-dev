@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.UUID;
 
-public class mw implements id {
+public class mw implements Packet {
 
    private UUID a;
 

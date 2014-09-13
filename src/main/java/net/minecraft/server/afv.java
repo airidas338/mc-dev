@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-class afv extends zb {
+class afv extends PathfinderGoal {
 
    private EntitySilverfish a;
    private int b;
@@ -33,12 +33,12 @@ class afv extends zb {
             for(int var5 = 0; var5 <= 10 && var5 >= -10; var5 = var5 <= 0?1 - var5:0 - var5) {
                for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                   Location var7 = var3.a(var5, var4, var6);
-                  IBlock var8 = var1.p(var7);
+                  IBlock var8 = var1.getData(var7);
                   if(var8.c() == aty.be) {
                      if(var1.Q().b("mobGriefing")) {
                         var1.b(var7, true);
                      } else {
-                        var1.a(var7, ((axu)var8.b(axs.a)).d(), 3);
+                        var1.a(var7, ((axu)var8.b(BlockMonsterEggs.a)).d(), 3);
                      }
 
                      if(var2.nextBoolean()) {

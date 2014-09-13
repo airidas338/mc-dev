@@ -21,11 +21,11 @@ public class ck extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.scoreboard.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(!this.b(var1, var2)) {
          if(var2.length < 1) {
             throw new dp("commands.scoreboard.usage", new Object[0]);
@@ -176,7 +176,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   private boolean b(ae var1, String[] var2) throws di {
+   private boolean b(ICommandSender var1, String[] var2) throws di {
       int var3 = -1;
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
@@ -205,7 +205,7 @@ public class ck extends CommandAbstract {
                this.a(var1, var2);
                var6.add(var8);
             } catch (di var11) {
-               hz var10 = new hz(var11.getMessage(), var11.a());
+               ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
                var10.b().a(EnumChatFormat.m);
                var1.a(var10);
             }
@@ -247,7 +247,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void b(ae var1, String[] var2, int var3) throws di {
+   protected void b(ICommandSender var1, String[] var2, int var3) throws di {
       String var4 = var2[var3++];
       String var5 = var2[var3++];
       Scoreboard var6 = this.d();
@@ -280,7 +280,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void c(ae var1, String[] var2, int var3) throws di {
+   protected void c(ICommandSender var1, String[] var2, int var3) throws di {
       String var4 = var2[var3++];
       Scoreboard var5 = this.d();
       if(var5.d(var4) != null) {
@@ -309,7 +309,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void d(ae var1, String[] var2, int var3) throws di {
+   protected void d(ICommandSender var1, String[] var2, int var3) throws di {
       ScoreboardTeam var4 = this.e(var2[var3++]);
       if(var4 != null) {
          String var5 = var2[var3++].toLowerCase();
@@ -374,7 +374,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void e(ae var1, String[] var2, int var3) throws di {
+   protected void e(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -383,7 +383,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void f(ae var1, String[] var2, int var3) throws di {
+   protected void f(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          ScoreboardTeam var5 = this.e(var2[var3]);
@@ -397,7 +397,7 @@ public class ck extends CommandAbstract {
             throw new di("commands.scoreboard.teams.list.player.empty", new Object[]{var5.b()});
          }
 
-         hz var7 = new hz("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
+         ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
          var7.b().a(EnumChatFormat.c);
          var1.a(var7);
          var1.a(new ChatComponentText(a(var6.toArray())));
@@ -408,20 +408,20 @@ public class ck extends CommandAbstract {
             throw new di("commands.scoreboard.teams.list.empty", new Object[0]);
          }
 
-         hz var10 = new hz("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
+         ChatMessage var10 = new ChatMessage("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
          var10.b().a(EnumChatFormat.c);
          var1.a(var10);
          Iterator var11 = var9.iterator();
 
          while(var11.hasNext()) {
             ScoreboardTeam var8 = (ScoreboardTeam)var11.next();
-            var1.a(new hz("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
+            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
          }
       }
 
    }
 
-   protected void g(ae var1, String[] var2, int var3) throws di {
+   protected void g(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       HashSet var6 = Sets.newHashSet();
@@ -471,7 +471,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void h(ae var1, String[] var2, int var3) throws di {
+   protected void h(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       HashSet var5 = Sets.newHashSet();
       HashSet var6 = Sets.newHashSet();
@@ -520,7 +520,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void i(ae var1, String[] var2, int var3) throws di {
+   protected void i(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -541,33 +541,33 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void h(ae var1, String var2) throws di {
+   protected void h(ICommandSender var1, String var2) throws di {
       Scoreboard var3 = this.d();
       bry var4 = this.a(var2, false);
       var3.k(var4);
       a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[]{var2});
    }
 
-   protected void d(ae var1) throws di {
+   protected void d(ICommandSender var1) throws di {
       Scoreboard var2 = this.d();
       Collection var3 = var2.c();
       if(var3.size() <= 0) {
          throw new di("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
-         hz var4 = new hz("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
+         ChatMessage var4 = new ChatMessage("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
          var4.b().a(EnumChatFormat.c);
          var1.a(var4);
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
             bry var6 = (bry)var5.next();
-            var1.a(new hz("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
+            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
          }
 
       }
    }
 
-   protected void j(ae var1, String[] var2, int var3) throws di {
+   protected void j(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       int var6 = Scoreboard.i(var5);
@@ -589,7 +589,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void k(ae var1, String[] var2, int var3) throws di {
+   protected void k(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
@@ -599,14 +599,14 @@ public class ck extends CommandAbstract {
             throw new di("commands.scoreboard.players.list.player.empty", new Object[]{var5});
          }
 
-         hz var7 = new hz("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
+         ChatMessage var7 = new ChatMessage("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
          var7.b().a(EnumChatFormat.c);
          var1.a(var7);
          Iterator var8 = var6.values().iterator();
 
          while(var8.hasNext()) {
             bsa var9 = (bsa)var8.next();
-            var1.a(new hz("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
+            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
          }
       } else {
          Collection var10 = var4.d();
@@ -615,7 +615,7 @@ public class ck extends CommandAbstract {
             throw new di("commands.scoreboard.players.list.empty", new Object[0]);
          }
 
-         hz var11 = new hz("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
+         ChatMessage var11 = new ChatMessage("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
          var11.b().a(EnumChatFormat.c);
          var1.a(var11);
          var1.a(new ChatComponentText(a(var10.toArray())));
@@ -623,7 +623,7 @@ public class ck extends CommandAbstract {
 
    }
 
-   protected void l(ae var1, String[] var2, int var3) throws di {
+   protected void l(ICommandSender var1, String[] var2, int var3) throws di {
       String var4 = var2[var3 - 1];
       int var5 = var3;
       String var6 = e(var1, var2[var3++]);
@@ -633,8 +633,8 @@ public class ck extends CommandAbstract {
          Entity var9 = b(var1, var2[var5]);
 
          try {
-            fn var10 = gg.a(a(var2, var3));
-            fn var11 = new fn();
+            NBTTagCompound var10 = gg.a(a(var2, var3));
+            NBTTagCompound var11 = new NBTTagCompound();
             var9.e(var11);
             if(!cy.a(var10, var11, true)) {
                throw new di("commands.scoreboard.players.set.tagMismatch", new Object[]{var6});
@@ -657,7 +657,7 @@ public class ck extends CommandAbstract {
       a(var1, this, "commands.scoreboard.players.set.success", new Object[]{var7.b(), var6, Integer.valueOf(var14.c())});
    }
 
-   protected void m(ae var1, String[] var2, int var3) throws di {
+   protected void m(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var2.length > var3) {
@@ -671,7 +671,7 @@ public class ck extends CommandAbstract {
 
    }
 
-   protected void n(ae var1, String[] var2, int var3) throws di {
+   protected void n(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = d(var1, var2[var3++]);
       bry var6 = this.a(var2[var3], false);
@@ -684,7 +684,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void o(ae var1, String[] var2, int var3) throws di {
+   protected void o(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       bry var6 = this.a(var2[var3++], false);
@@ -703,7 +703,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   protected void p(ae var1, String[] var2, int var3) throws di {
+   protected void p(ICommandSender var1, String[] var2, int var3) throws di {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       bry var6 = this.a(var2[var3++], true);
@@ -749,7 +749,7 @@ public class ck extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {

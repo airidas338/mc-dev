@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class aju extends alq {
+public class aju extends Item {
 
    protected final Block a;
 
@@ -16,9 +16,9 @@ public class aju extends alq {
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.p(var4);
+      IBlock var9 = var3.getData(var4);
       Block var10 = var9.c();
-      if(var10 == aty.aH && ((Integer)var9.b(bao.a)).intValue() < 1) {
+      if(var10 == aty.aH && ((Integer)var9.b(BlockSnow.a)).intValue() < 1) {
          var5 = ej.b;
       } else if(!var10.f(var3, var4)) {
          var4 = var4.a(var5);
@@ -34,7 +34,7 @@ public class aju extends alq {
          int var11 = this.a(var1.i());
          IBlock var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
          if(var3.a(var4, var12, 3)) {
-            var12 = var3.p(var4);
+            var12 = var3.getData(var4);
             if(var12.c() == this.a) {
                a(var3, var4, var1);
                this.a.a(var3, var4, var12, (EntityLiving)var2, var1);
@@ -54,10 +54,10 @@ public class aju extends alq {
       if(var2.n() && var2.o().b("BlockEntityTag", 10)) {
          bcm var3 = var0.s(var1);
          if(var3 != null) {
-            fn var4 = new fn();
-            fn var5 = (fn)var4.b();
+            NBTTagCompound var4 = new NBTTagCompound();
+            NBTTagCompound var5 = (NBTTagCompound)var4.b();
             var3.b(var4);
-            fn var6 = (fn)var2.o().a("BlockEntityTag");
+            NBTTagCompound var6 = (NBTTagCompound)var2.o().a("BlockEntityTag");
             var4.a(var6);
             var4.a("x", var1.n());
             var4.a("y", var1.o());
@@ -86,7 +86,7 @@ public class aju extends alq {
    }
 
    // $FF: synthetic method
-   public alq c(String var1) {
+   public Item c(String var1) {
       return this.b(var1);
    }
 }

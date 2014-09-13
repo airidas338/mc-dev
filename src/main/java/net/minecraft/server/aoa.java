@@ -11,8 +11,8 @@ public class aoa implements aoo {
       for(int var5 = 0; var5 < var1.n_(); ++var5) {
          amj var6 = var1.a(var5);
          if(var6 != null) {
-            if(var6.b() instanceof ajn) {
-               ajn var7 = (ajn)var6.b();
+            if(var6.b() instanceof ItemArmor) {
+               ItemArmor var7 = (ItemArmor)var6.b();
                if(var7.w_() != ajp.a || var3 != null) {
                   return false;
                }
@@ -36,7 +36,7 @@ public class aoa implements aoo {
       int[] var3 = new int[3];
       int var4 = 0;
       int var5 = 0;
-      ajn var6 = null;
+      ItemArmor var6 = null;
 
       int var7;
       int var9;
@@ -46,8 +46,8 @@ public class aoa implements aoo {
       for(var7 = 0; var7 < var1.n_(); ++var7) {
          amj var8 = var1.a(var7);
          if(var8 != null) {
-            if(var8.b() instanceof ajn) {
-               var6 = (ajn)var8.b();
+            if(var8.b() instanceof ItemArmor) {
+               var6 = (ItemArmor)var8.b();
                if(var6.w_() != ajp.a || var2 != null) {
                   return null;
                }

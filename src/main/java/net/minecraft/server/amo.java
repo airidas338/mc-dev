@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-public class amo extends alq {
+public class amo extends Item {
 
    public amo() {
       this.c(1);
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
    }
 
    public amj b(amj var1, World var2, EntityHuman var3) {
@@ -16,7 +16,7 @@ public class amo extends alq {
          var3.bj();
       }
 
-      var3.b(ty.J[alq.b((alq)this)]);
+      var3.b(ty.J[Item.b((Item)this)]);
       return var1.b <= 0?new amj(Items.aw):var1;
    }
 

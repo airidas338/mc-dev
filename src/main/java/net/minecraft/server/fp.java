@@ -6,16 +6,16 @@ class fp implements Callable {
    // $FF: synthetic field
    final int a;
    // $FF: synthetic field
-   final fn b;
+   final NBTTagCompound b;
 
 
-   fp(fn var1, int var2) {
+   fp(NBTTagCompound var1, int var2) {
       this.b = var1;
       this.a = var2;
    }
 
    public String a() {
-      return gd.a[this.a];
+      return NBTBase.a[this.a];
    }
 
    // $FF: synthetic method

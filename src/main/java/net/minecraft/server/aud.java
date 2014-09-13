@@ -10,10 +10,10 @@ public abstract class aud extends Block {
 
 
    protected aud(boolean var1) {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
       this.a(true);
-      this.a(akf.d);
+      this.a(CreativeModeTab.d);
       this.M = var1;
    }
 
@@ -34,7 +34,7 @@ public abstract class aud extends Block {
    }
 
    public boolean a(World var1, Location var2, ej var3) {
-      return var1.p(var2.a(var3.d())).c().t();
+      return var1.getData(var2.a(var3.d())).c().t();
    }
 
    public boolean c(World var1, Location var2) {
@@ -43,7 +43,7 @@ public abstract class aud extends Block {
 
       for(int var5 = 0; var5 < var4; ++var5) {
          ej var6 = var3[var5];
-         if(var1.p(var2.a(var6)).c().t()) {
+         if(var1.getData(var2.a(var6)).c().t()) {
             return true;
          }
       }
@@ -52,13 +52,13 @@ public abstract class aud extends Block {
    }
 
    public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return var1.p(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, ej.a).a(b, Boolean.valueOf(false));
+      return var1.getData(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, ej.a).a(b, Boolean.valueOf(false));
    }
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(this.e(var1, var2, var3)) {
          ej var5 = (ej)var3.b(a);
-         if(!var1.p(var2.a(var5.d())).c().t()) {
+         if(!var1.getData(var2.a(var5.d())).c().t()) {
             this.b(var1, var2, var3, 0);
             var1.g(var2);
          }
@@ -76,8 +76,8 @@ public abstract class aud extends Block {
       }
    }
 
-   public void a(ard var1, Location var2) {
-      this.d(var1.p(var2));
+   public void a(IBlockAccess var1, Location var2) {
+      this.d(var1.getData(var2));
    }
 
    private void d(IBlock var1) {
@@ -131,11 +131,11 @@ public abstract class aud extends Block {
       super.b(var1, var2, var3);
    }
 
-   public int a(ard var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(ard var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(var3.b(a) == var4?15:0);
    }
 

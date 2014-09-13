@@ -23,7 +23,7 @@ public class ahb implements vq {
       return 9;
    }
 
-   private int c(alq var1) {
+   private int c(Item var1) {
       for(int var2 = 0; var2 < this.a.length; ++var2) {
          if(this.a[var2] != null && this.a[var2].b() == var1) {
             return var2;
@@ -53,7 +53,7 @@ public class ahb implements vq {
       return -1;
    }
 
-   public int a(alq var1, int var2, int var3, fn var4) {
+   public int a(Item var1, int var2, int var3, NBTTagCompound var4) {
       int var5 = 0;
 
       int var6;
@@ -126,7 +126,7 @@ public class ahb implements vq {
    }
 
    private int e(amj var1) {
-      alq var2 = var1.b();
+      Item var2 = var1.b();
       int var3 = var1.b;
       int var4 = this.d(var1);
       if(var4 < 0) {
@@ -139,7 +139,7 @@ public class ahb implements vq {
          if(this.a[var4] == null) {
             this.a[var4] = new amj(var2, 0, var1.i());
             if(var1.n()) {
-               this.a[var4].d((fn)var1.o().b());
+               this.a[var4].d((NBTTagCompound)var1.o().b());
             }
          }
 
@@ -172,7 +172,7 @@ public class ahb implements vq {
 
    }
 
-   public boolean a(alq var1) {
+   public boolean a(Item var1) {
       int var2 = this.c(var1);
       if(var2 < 0) {
          return false;
@@ -185,7 +185,7 @@ public class ahb implements vq {
       }
    }
 
-   public boolean b(alq var1) {
+   public boolean b(Item var1) {
       int var2 = this.c(var1);
       return var2 >= 0;
    }
@@ -223,7 +223,7 @@ public class ahb implements vq {
          } catch (Throwable var5) {
             CrashReport var3 = CrashReport.a(var5, "Adding item to inventory");
             CrashReportSystemDetails var4 = var3.a("Item being added");
-            var4.a("Item ID", (Object)Integer.valueOf(alq.b(var1.b())));
+            var4.a("Item ID", (Object)Integer.valueOf(Item.b(var1.b())));
             var4.a("Item data", (Object)Integer.valueOf(var1.i()));
             var4.a("Item name", (Callable)(new ahc(this, var1)));
             throw new ReportedException(var3);
@@ -296,22 +296,22 @@ public class ahb implements vq {
 
    public fv a(fv var1) {
       int var2;
-      fn var3;
+      NBTTagCompound var3;
       for(var2 = 0; var2 < this.a.length; ++var2) {
          if(this.a[var2] != null) {
-            var3 = new fn();
+            var3 = new NBTTagCompound();
             var3.a("Slot", (byte)var2);
             this.a[var2].b(var3);
-            var1.a((gd)var3);
+            var1.a((NBTBase)var3);
          }
       }
 
       for(var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null) {
-            var3 = new fn();
+            var3 = new NBTTagCompound();
             var3.a("Slot", (byte)(var2 + 100));
             this.b[var2].b(var3);
-            var1.a((gd)var3);
+            var1.a((NBTBase)var3);
          }
       }
 
@@ -323,7 +323,7 @@ public class ahb implements vq {
       this.b = new amj[4];
 
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         fn var3 = var1.b(var2);
+         NBTTagCompound var3 = var1.b(var2);
          int var4 = var3.d("Slot") & 255;
          amj var5 = amj.a(var3);
          if(var5 != null) {
@@ -362,7 +362,7 @@ public class ahb implements vq {
    }
 
    public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new hz(this.d_(), new Object[0]));
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
    }
 
    public int p_() {
@@ -386,8 +386,8 @@ public class ahb implements vq {
       int var1 = 0;
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].b() instanceof ajn) {
-            int var3 = ((ajn)this.b[var2].b()).c;
+         if(this.b[var2] != null && this.b[var2].b() instanceof ItemArmor) {
+            int var3 = ((ItemArmor)this.b[var2].b()).c;
             var1 += var3;
          }
       }
@@ -402,7 +402,7 @@ public class ahb implements vq {
       }
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].b() instanceof ajn) {
+         if(this.b[var2] != null && this.b[var2].b() instanceof ItemArmor) {
             this.b[var2].a((int)var1, (EntityLiving)this.d);
             if(this.b[var2].b == 0) {
                this.b[var2] = null;

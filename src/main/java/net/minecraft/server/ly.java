@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ly implements id {
+public class ly implements Packet {
 
    private int a;
    private short b;

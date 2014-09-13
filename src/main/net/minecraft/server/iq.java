@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-public class iq implements id {
+public class iq implements Packet {
 
    private int a;
    private UUID b;

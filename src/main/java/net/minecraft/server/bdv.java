@@ -91,7 +91,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
          this.j = this.i = 1.0F;
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).c() == aty.M) {
+         if(this.b.getData(this.c).c() == aty.M) {
             this.b.a(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
@@ -105,7 +105,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
          this.a(1.0F, 0.25F);
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).c() == aty.M) {
+         if(this.b.getData(this.c).c() == aty.M) {
             this.b.a(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
@@ -123,7 +123,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
       }
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a = Block.c(var1.f("blockId")).a(var1.f("blockData"));
       this.f = ej.a(var1.f("facing"));
@@ -131,7 +131,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
       this.g = var1.n("extending");
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("blockId", Block.a(this.a.c()));
       var1.a("blockData", this.a.c().c(this.a));

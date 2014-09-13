@@ -12,11 +12,11 @@ public class cy extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.testforblock.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 4) {
          throw new dp("commands.testforblock.usage", new Object[0]);
       } else {
@@ -35,7 +35,7 @@ public class cy extends CommandAbstract {
             if(!var6.e(var3)) {
                throw new di("commands.testforblock.outOfWorld", new Object[0]);
             } else {
-               fn var7 = new fn();
+               NBTTagCompound var7 = new NBTTagCompound();
                boolean var8 = false;
                if(var2.length >= 6 && var4.x()) {
                   String var9 = a(var1, var2, 5).c();
@@ -48,7 +48,7 @@ public class cy extends CommandAbstract {
                   }
                }
 
-               IBlock var14 = var6.p(var3);
+               IBlock var14 = var6.getData(var3);
                Block var10 = var14.c();
                if(var10 != var4) {
                   throw new di("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.H(), var4.H()});
@@ -66,7 +66,7 @@ public class cy extends CommandAbstract {
                         throw new di("commands.testforblock.failed.tileEntity", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
                      }
 
-                     fn var12 = new fn();
+                     NBTTagCompound var12 = new NBTTagCompound();
                      var15.b(var12);
                      if(!a(var7, var12, true)) {
                         throw new di("commands.testforblock.failed.nbt", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
@@ -81,7 +81,7 @@ public class cy extends CommandAbstract {
       }
    }
 
-   public static boolean a(gd var0, gd var1, boolean var2) {
+   public static boolean a(NBTBase var0, NBTBase var1, boolean var2) {
       if(var0 == var1) {
          return true;
       } else if(var0 == null) {
@@ -90,13 +90,13 @@ public class cy extends CommandAbstract {
          return false;
       } else if(!var0.getClass().equals(var1.getClass())) {
          return false;
-      } else if(var0 instanceof fn) {
-         fn var9 = (fn)var0;
-         fn var10 = (fn)var1;
+      } else if(var0 instanceof NBTTagCompound) {
+         NBTTagCompound var9 = (NBTTagCompound)var0;
+         NBTTagCompound var10 = (NBTTagCompound)var1;
          Iterator var11 = var9.c().iterator();
 
          String var12;
-         gd var13;
+         NBTBase var13;
          do {
             if(!var11.hasNext()) {
                return true;
@@ -116,7 +116,7 @@ public class cy extends CommandAbstract {
             int var5 = 0;
 
             while(var5 < var3.c()) {
-               gd var6 = var3.g(var5);
+               NBTBase var6 = var3.g(var5);
                boolean var7 = false;
                int var8 = 0;
 
@@ -146,7 +146,7 @@ public class cy extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):null);
    }
 }

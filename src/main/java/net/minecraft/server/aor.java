@@ -44,7 +44,7 @@ public class aor implements aoo {
          amj var10 = (amj)var2.get(0);
          var4 = (amj)var2.get(1);
          if(var10.b() == var4.b() && var10.b == 1 && var4.b == 1 && var10.b().m()) {
-            alq var11 = var10.b();
+            Item var11 = var10.b();
             int var6 = var11.l() - var10.h();
             int var7 = var11.l() - var4.h();
             int var8 = var6 + var7 + var11.l() * 5 / 100;

@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public class alc extends alq {
+public class alc extends Item {
 
    public alc() {
       this.h = 16;
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
@@ -18,7 +18,7 @@ public class alc extends alq {
             var2.d((Entity)(new EntityEnderPearl(var2, var3)));
          }
 
-         var3.b(ty.J[alq.b((alq)this)]);
+         var3.b(ty.J[Item.b((Item)this)]);
          return var1;
       }
    }

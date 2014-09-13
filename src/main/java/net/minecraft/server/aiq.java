@@ -72,28 +72,28 @@ public class aiq extends aib {
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
                      if((var4 != 0 || var5 != 0) && this.i.d(this.j.a(var5, 0, var4)) && this.i.d(this.j.a(var5, 1, var4))) {
-                        if(this.i.p(this.j.a(var5 * 2, 0, var4 * 2)).c() == aty.X) {
+                        if(this.i.getData(this.j.a(var5 * 2, 0, var4 * 2)).c() == aty.X) {
                            ++var3;
                         }
 
-                        if(this.i.p(this.j.a(var5 * 2, 1, var4 * 2)).c() == aty.X) {
+                        if(this.i.getData(this.j.a(var5 * 2, 1, var4 * 2)).c() == aty.X) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.i.p(this.j.a(var5 * 2, 0, var4)).c() == aty.X) {
+                           if(this.i.getData(this.j.a(var5 * 2, 0, var4)).c() == aty.X) {
                               ++var3;
                            }
 
-                           if(this.i.p(this.j.a(var5 * 2, 1, var4)).c() == aty.X) {
+                           if(this.i.getData(this.j.a(var5 * 2, 1, var4)).c() == aty.X) {
                               ++var3;
                            }
 
-                           if(this.i.p(this.j.a(var5, 0, var4 * 2)).c() == aty.X) {
+                           if(this.i.getData(this.j.a(var5, 0, var4 * 2)).c() == aty.X) {
                               ++var3;
                            }
 
-                           if(this.i.p(this.j.a(var5, 1, var4 * 2)).c() == aty.X) {
+                           if(this.i.getData(this.j.a(var5, 1, var4 * 2)).c() == aty.X) {
                               ++var3;
                            }
                         }
@@ -146,7 +146,7 @@ public class aiq extends aib {
             if(var6 != null) {
                var1.b(var5);
                if(var7) {
-                  var3.a((alq)Items.cd);
+                  var3.a((Item)Items.cd);
                }
 
                for(int var8 = 0; var8 < var6.size(); ++var8) {
@@ -201,7 +201,7 @@ public class aiq extends aib {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.i.p(this.j).c() != aty.bC?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.getData(this.j).c() != aty.bC?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
    public amj b(EntityHuman var1, int var2) {

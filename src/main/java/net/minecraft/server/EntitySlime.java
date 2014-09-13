@@ -40,13 +40,13 @@ public class EntitySlime extends EntityInsentient implements IMonster {
       return this.ac.a(16);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Size", this.ck() - 1);
       var1.a("wasOnGround", this.bi);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       int var2 = var1.f("Size");
       if(var2 < 0) {
@@ -197,7 +197,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
       return "mob.slime." + (this.ck() > 1?"big":"small");
    }
 
-   protected alq A() {
+   protected Item A() {
       return this.ck() == 1?Items.aM:null;
    }
 

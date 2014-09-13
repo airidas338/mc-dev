@@ -7,27 +7,27 @@ public class BiomeDecorator {
    protected Random b;
    protected Location c;
    protected bgl d;
-   protected bhp e = new bhl(4);
-   protected bhp f;
-   protected bhp g;
-   protected bhp h;
-   protected bhp i;
-   protected bhp j;
-   protected bhp k;
-   protected bhp l;
-   protected bhp m;
-   protected bhp n;
-   protected bhp o;
-   protected bhp p;
-   protected bhp q;
-   protected bhp r;
+   protected WorldGenerator e = new bhl(4);
+   protected WorldGenerator f;
+   protected WorldGenerator g;
+   protected WorldGenerator h;
+   protected WorldGenerator i;
+   protected WorldGenerator j;
+   protected WorldGenerator k;
+   protected WorldGenerator l;
+   protected WorldGenerator m;
+   protected WorldGenerator n;
+   protected WorldGenerator o;
+   protected WorldGenerator p;
+   protected WorldGenerator q;
+   protected WorldGenerator r;
    protected bhq s;
-   protected bhp t;
-   protected bhp u;
-   protected bhp v;
-   protected bhp w;
-   protected bhp x;
-   protected bhp y;
+   protected WorldGenerator t;
+   protected WorldGenerator u;
+   protected WorldGenerator v;
+   protected WorldGenerator w;
+   protected WorldGenerator x;
+   protected WorldGenerator y;
    protected int z;
    protected int A;
    protected int B;
@@ -77,9 +77,9 @@ public class BiomeDecorator {
          this.c = var4;
          this.h = new bif(aty.d.P(), this.d.I);
          this.i = new bif(aty.n.P(), this.d.M);
-         this.j = new bif(aty.b.P().a(bba.a, bbb.b), this.d.Q);
-         this.k = new bif(aty.b.P().a(bba.a, bbb.d), this.d.U);
-         this.l = new bif(aty.b.P().a(bba.a, bbb.f), this.d.Y);
+         this.j = new bif(aty.b.P().a(BlockStone.a, bbb.b), this.d.Q);
+         this.k = new bif(aty.b.P().a(BlockStone.a, bbb.d), this.d.U);
+         this.l = new bif(aty.b.P().a(BlockStone.a, bbb.f), this.d.Y);
          this.m = new bif(aty.q.P(), this.d.ac);
          this.n = new bif(aty.p.P(), this.d.ag);
          this.o = new bif(aty.o.P(), this.d.ak);
@@ -126,7 +126,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < var2; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         bhc var6 = var1.a(this.b);
+         WorldGenTreeAbstract var6 = var1.a(this.b);
          var6.e();
          var7 = this.a.m(this.c.a(var4, 0, var5));
          if(var6.generate(this.a, this.b, var7)) {
@@ -148,7 +148,7 @@ public class BiomeDecorator {
          var7 = this.c.a(var4, var10, var5);
          EnumFlowerType var8 = var1.a(this.b, var7);
          avy var9 = var8.a().a();
-         if(var9.r() != Material.a) {
+         if(var9.r() != Material.AIR) {
             this.s.a(var9, var8);
             this.s.generate(this.a, this.b, var7);
          }
@@ -265,7 +265,7 @@ public class BiomeDecorator {
 
    }
 
-   protected void a(int var1, bhp var2, int var3, int var4) {
+   protected void a(int var1, WorldGenerator var2, int var3, int var4) {
       int var5;
       if(var4 < var3) {
          var5 = var3;
@@ -286,7 +286,7 @@ public class BiomeDecorator {
 
    }
 
-   protected void b(int var1, bhp var2, int var3, int var4) {
+   protected void b(int var1, WorldGenerator var2, int var3, int var4) {
       for(int var5 = 0; var5 < var1; ++var5) {
          Location var6 = this.c.a(this.b.nextInt(16), this.b.nextInt(var4) + this.b.nextInt(var4) + var3 - var4, this.b.nextInt(16));
          var2.generate(this.a, this.b, var6);

@@ -91,20 +91,20 @@ public class EntityArmorStand extends EntityLiving {
       }
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       fv var2 = new fv();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
-         fn var4 = new fn();
+         NBTTagCompound var4 = new NBTTagCompound();
          if(this.g[var3] != null) {
             this.g[var3].b(var4);
          }
 
-         var2.a((gd)var4);
+         var2.a((NBTBase)var4);
       }
 
-      var1.a("Equipment", (gd)var2);
+      var1.a("Equipment", (NBTBase)var2);
       if(this.aM() && (this.aL() == null || this.aL().length() == 0)) {
          var1.a("CustomNameVisible", this.aM());
       }
@@ -115,10 +115,10 @@ public class EntityArmorStand extends EntityLiving {
       var1.a("DisabledSlots", this.bg);
       var1.a("NoGravity", this.p());
       var1.a("NoBasePlate", this.r());
-      var1.a("Pose", (gd)this.y());
+      var1.a("Pose", (NBTBase)this.y());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("Equipment", 9)) {
          fv var2 = var1.c("Equipment", 10);
@@ -135,11 +135,11 @@ public class EntityArmorStand extends EntityLiving {
       this.j(var1.n("NoGravity"));
       this.l(var1.n("NoBasePlate"));
       this.T = this.p();
-      fn var4 = var1.m("Pose");
+      NBTTagCompound var4 = var1.m("Pose");
       this.h(var4);
    }
 
-   private void h(fn var1) {
+   private void h(NBTTagCompound var1) {
       fv var2 = var1.c("Head", 5);
       if(var2.c() > 0) {
          this.a(new fa(var2));
@@ -184,30 +184,30 @@ public class EntityArmorStand extends EntityLiving {
 
    }
 
-   private fn y() {
-      fn var1 = new fn();
+   private NBTTagCompound y() {
+      NBTTagCompound var1 = new NBTTagCompound();
       if(!a.equals(this.bh)) {
-         var1.a("Head", (gd)this.bh.a());
+         var1.a("Head", (NBTBase)this.bh.a());
       }
 
       if(!b.equals(this.bi)) {
-         var1.a("Body", (gd)this.bi.a());
+         var1.a("Body", (NBTBase)this.bi.a());
       }
 
       if(!c.equals(this.bj)) {
-         var1.a("LeftArm", (gd)this.bj.a());
+         var1.a("LeftArm", (NBTBase)this.bj.a());
       }
 
       if(!d.equals(this.bk)) {
-         var1.a("RightArm", (gd)this.bk.a());
+         var1.a("RightArm", (NBTBase)this.bk.a());
       }
 
       if(!e.equals(this.bl)) {
-         var1.a("LeftLeg", (gd)this.bl.a());
+         var1.a("LeftLeg", (NBTBase)this.bl.a());
       }
 
       if(!f.equals(this.bm)) {
-         var1.a("RightLeg", (gd)this.bm.a());
+         var1.a("RightLeg", (NBTBase)this.bm.a());
       }
 
       return var1;
@@ -237,8 +237,8 @@ public class EntityArmorStand extends EntityLiving {
          byte var3 = 0;
          amj var4 = var1.bY();
          boolean var5 = var4 != null;
-         if(var5 && var4.b() instanceof ajn) {
-            ajn var6 = (ajn)var4.b();
+         if(var5 && var4.b() instanceof ItemArmor) {
+            ItemArmor var6 = (ItemArmor)var4.b();
             if(var6.b == 3) {
                var3 = 1;
             } else if(var6.b == 2) {
@@ -250,7 +250,7 @@ public class EntityArmorStand extends EntityLiving {
             }
          }
 
-         if(var5 && (var4.b() == Items.bX || var4.b() == alq.a(aty.aU))) {
+         if(var5 && (var4.b() == Items.bX || var4.b() == Item.a(aty.aU))) {
             var3 = 4;
          }
 
@@ -306,7 +306,7 @@ public class EntityArmorStand extends EntityLiving {
             int var4 = var1.bg.c;
             amj var5 = var1.bg.a(var4);
             amj var6;
-            if(var1.by.d && (var3 == null || var3.b() == alq.a(aty.a)) && var5 != null) {
+            if(var1.by.d && (var3 == null || var3.b() == Item.a(aty.a)) && var5 != null) {
                var6 = var5.k();
                var6.b = 1;
                this.c(var2, var6);

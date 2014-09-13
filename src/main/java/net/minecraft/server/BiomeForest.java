@@ -52,8 +52,8 @@ public class BiomeForest extends BiomeBase {
       }
    }
 
-   public bhc a(Random var1) {
-      return (bhc)(this.aG == 3 && var1.nextInt(3) > 0?aF:(this.aG != 2 && var1.nextInt(5) != 0?this.aA:aE));
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)(this.aG == 3 && var1.nextInt(3) > 0?aF:(this.aG != 2 && var1.nextInt(5) != 0?this.aA:aE));
    }
 
    public EnumFlowerType a(Random var1, Location var2) {
@@ -81,7 +81,7 @@ public class BiomeForest extends BiomeBase {
                   bhv var9 = new bhv();
                   var9.generate(var1, var2, var8);
                } else {
-                  bhc var12 = this.a(var2);
+                  WorldGenTreeAbstract var12 = this.a(var2);
                   var12.e();
                   if(var12.generate(var1, var2, var8)) {
                      var12.a(var1, var2, var8);

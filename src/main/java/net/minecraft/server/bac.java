@@ -2,18 +2,18 @@ package net.minecraft.server;
 
 public enum bac implements va {
 
-   a("SAND", 0, 0, "sand", "default", boh.d),
-   b("RED_SAND", 1, 1, "red_sand", "red", boh.l);
+   a("SAND", 0, 0, "sand", "default", MaterialMapColor.d),
+   b("RED_SAND", 1, 1, "red_sand", "red", MaterialMapColor.l);
    private static final bac[] c = new bac[values().length];
    private final int d;
    private final String e;
-   private final boh f;
+   private final MaterialMapColor f;
    private final String g;
    // $FF: synthetic field
    private static final bac[] h = new bac[]{a, b};
 
 
-   private bac(String var1, int var2, int var3, String var4, String var5, boh var6) {
+   private bac(String var1, int var2, int var3, String var4, String var5, MaterialMapColor var6) {
       this.d = var3;
       this.e = var4;
       this.f = var6;
@@ -28,7 +28,7 @@ public enum bac implements va {
       return this.e;
    }
 
-   public boh c() {
+   public MaterialMapColor c() {
       return this.f;
    }
 

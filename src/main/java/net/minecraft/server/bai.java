@@ -4,7 +4,7 @@ import java.util.Random;
 public class bai extends atg {
 
    protected bai() {
-      super(Material.d);
+      super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
@@ -18,7 +18,7 @@ public class bai extends atg {
       return false;
    }
 
-   public boolean b(ard var1, Location var2) {
+   public boolean b(IBlockAccess var1, Location var2) {
       return true;
    }
 
@@ -30,7 +30,7 @@ public class bai extends atg {
       return new bdj();
    }
 
-   public alq a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlock var1, Random var2, int var3) {
       return Items.ap;
    }
 

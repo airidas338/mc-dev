@@ -50,15 +50,15 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    public float a(Location var1) {
-      return this.o.p(var1.b()).c() == aty.c?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.getData(var1.b()).c() == aty.c?10.0F:this.o.o(var1) - 0.5F;
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("InLove", this.bk);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.bk = var1.f("InLove");
    }
@@ -68,7 +68,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
       int var2 = MathHelper.c(this.aQ().b);
       int var3 = MathHelper.c(this.u);
       Location var4 = new Location(var1, var2, var3);
-      return this.o.p(var4.b()).c() == this.bl && this.o.k(var4) > 8 && super.bQ();
+      return this.o.getData(var4.b()).c() == this.bl && this.o.k(var4) > 8 && super.bQ();
    }
 
    public int w() {

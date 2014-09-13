@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class iz implements id {
+public class iz implements Packet {
 
    private IChatBaseComponent a;
    private byte b;

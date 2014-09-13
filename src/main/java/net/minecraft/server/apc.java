@@ -11,7 +11,7 @@ public class apc extends apf {
 
 
    public apc(int var1, RegistryMaterials var2, int var3, int var4) {
-      super(var1, var2, var3, apg.g);
+      super(var1, var2, var3, EnchantmentSlotType.WEAPON);
       this.a = var4;
    }
 

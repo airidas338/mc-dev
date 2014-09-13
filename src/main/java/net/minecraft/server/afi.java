@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class afi extends zb {
+class afi extends PathfinderGoal {
 
    private EntityGuardian a;
    private int b;

@@ -10,14 +10,14 @@ class gu implements Runnable {
    // $FF: synthetic field
    final gy b;
    // $FF: synthetic field
-   final id c;
+   final Packet c;
    // $FF: synthetic field
    final GenericFutureListener[] d;
    // $FF: synthetic field
    final NetworkManager e;
 
 
-   gu(NetworkManager var1, gy var2, gy var3, id var4, GenericFutureListener[] var5) {
+   gu(NetworkManager var1, gy var2, gy var3, Packet var4, GenericFutureListener[] var5) {
       this.e = var1;
       this.a = var2;
       this.b = var3;

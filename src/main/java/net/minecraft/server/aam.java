@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class aam extends zb {
+public class aam extends PathfinderGoal {
 
    private static final Logger a = LogManager.getLogger();
    private EntityInsentient b;

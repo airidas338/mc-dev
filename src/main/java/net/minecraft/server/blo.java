@@ -12,12 +12,12 @@ public class blo extends bln {
       super(var1, var2, 64, var3, 7, 5, 9);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Witch", this.e);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.e = var1.n("Witch");
    }
@@ -42,7 +42,7 @@ public class blo extends bln {
          this.a(var1, aty.a.P(), 1, 3, 4, var3);
          this.a(var1, aty.a.P(), 5, 3, 4, var3);
          this.a(var1, aty.a.P(), 5, 3, 5, var3);
-         this.a(var1, aty.ca.P().a(awd.b, awf.r), 1, 3, 5, var3);
+         this.a(var1, aty.ca.P().a(BlockFlowerPot.b, awf.r), 1, 3, 5, var3);
          this.a(var1, aty.ai.P(), 3, 2, 6, var3);
          this.a(var1, aty.bE.P(), 4, 2, 6, var3);
          this.a(var1, aty.aO.P(), 1, 2, 1, var3);

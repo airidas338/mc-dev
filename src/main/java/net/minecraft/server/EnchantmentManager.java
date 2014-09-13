@@ -62,10 +62,10 @@ public class EnchantmentManager {
          int var4 = ((Integer)var3.next()).intValue();
          apf var5 = apf.c(var4);
          if(var5 != null) {
-            fn var6 = new fn();
+            NBTTagCompound var6 = new NBTTagCompound();
             var6.a("id", (short)var4);
             var6.a("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
-            var2.a((gd)var6);
+            var2.a((NBTBase)var6);
             if(var1.b() == Items.cd) {
                Items.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
             }
@@ -74,7 +74,7 @@ public class EnchantmentManager {
 
       if(var2.c() > 0) {
          if(var1.b() != Items.cd) {
-            var1.a("ench", (gd)var2);
+            var1.a("ench", (NBTBase)var2);
          }
       } else if(var1.n()) {
          var1.o().o("ench");
@@ -232,7 +232,7 @@ public class EnchantmentManager {
    }
 
    public static int a(Random var0, int var1, int var2, amj var3) {
-      alq var4 = var3.b();
+      Item var4 = var3.b();
       int var5 = var4.b();
       if(var5 <= 0) {
          return 0;
@@ -250,7 +250,7 @@ public class EnchantmentManager {
       List var3 = b(var0, var1, var2);
       boolean var4 = var1.b() == Items.aL;
       if(var4) {
-         var1.a((alq)Items.cd);
+         var1.a((Item)Items.cd);
       }
 
       if(var3 != null) {
@@ -270,7 +270,7 @@ public class EnchantmentManager {
    }
 
    public static List b(Random var0, amj var1, int var2) {
-      alq var3 = var1.b();
+      Item var3 = var1.b();
       int var4 = var3.b();
       if(var4 <= 0) {
          return null;
@@ -330,7 +330,7 @@ public class EnchantmentManager {
    }
 
    public static Map b(int var0, amj var1) {
-      alq var2 = var1.b();
+      Item var2 = var1.b();
       HashMap var3 = null;
       boolean var4 = var1.b() == Items.aL;
       apf[] var5 = apf.b;

@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class apb extends apf {
 
    public apb(int var1, RegistryMaterials var2, int var3) {
-      super(var1, var2, var3, apg.k);
+      super(var1, var2, var3, EnchantmentSlotType.BOW);
       this.c("arrowKnockback");
    }
 

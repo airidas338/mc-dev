@@ -12,7 +12,7 @@ public class StructurePieceTreaasure extends vk {
    private int d;
 
 
-   public StructurePieceTreaasure(alq var1, int var2, int var3, int var4, int var5) {
+   public StructurePieceTreaasure(Item var1, int var2, int var3, int var4, int var5) {
       super(var5);
       this.b = new amj(var1, 1, var2);
       this.c = var3;

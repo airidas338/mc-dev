@@ -20,7 +20,7 @@ public class aut implements vv {
    }
 
    public IChatBaseComponent e_() {
-      return new hz(aty.ai.a() + ".name", new Object[0]);
+      return new ChatMessage(aty.ai.a() + ".name", new Object[0]);
    }
 
    public aib a(ahb var1, EntityHuman var2) {

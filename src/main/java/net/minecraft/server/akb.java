@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class akb extends alq {
+public class akb extends Item {
 
    private Block a;
 
@@ -8,12 +8,12 @@ public class akb extends alq {
    public akb(Block var1) {
       this.h = 1;
       this.a = var1;
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
       boolean var4 = this.a == aty.a;
-      bru var5 = this.a(var2, var3, var4);
+      MovingObjectPosition var5 = this.a(var2, var3, var4);
       if(var5 == null) {
          return var1;
       } else {
@@ -28,17 +28,17 @@ public class akb extends alq {
                   return var1;
                }
 
-               IBlock var7 = var2.p(var6);
+               IBlock var7 = var2.getData(var6);
                Material var8 = var7.c().r();
-               if(var8 == Material.h && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               if(var8 == Material.WATER && ((Integer)var7.b(axl.b)).intValue() == 0) {
                   var2.g(var6);
-                  var3.b(ty.J[alq.b((alq)this)]);
+                  var3.b(ty.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ax);
                }
 
-               if(var8 == Material.i && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               if(var8 == Material.LAVA && ((Integer)var7.b(axl.b)).intValue() == 0) {
                   var2.g(var6);
-                  var3.b(ty.J[alq.b((alq)this)]);
+                  var3.b(ty.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ay);
                }
             } else {
@@ -52,7 +52,7 @@ public class akb extends alq {
                }
 
                if(this.a(var2, var9) && !var3.by.d) {
-                  var3.b(ty.J[alq.b((alq)this)]);
+                  var3.b(ty.J[Item.b((Item)this)]);
                   return new amj(Items.aw);
                }
             }
@@ -62,7 +62,7 @@ public class akb extends alq {
       }
    }
 
-   private amj a(amj var1, EntityHuman var2, alq var3) {
+   private amj a(amj var1, EntityHuman var2, Item var3) {
       if(var2.by.d) {
          return var1;
       } else if(--var1.b <= 0) {
@@ -80,7 +80,7 @@ public class akb extends alq {
       if(this.a == aty.a) {
          return false;
       } else {
-         Material var3 = var1.p(var2).c().r();
+         Material var3 = var1.getData(var2).c().r();
          boolean var4 = !var3.a();
          if(!var1.d(var2) && !var4) {
             return false;

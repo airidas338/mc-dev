@@ -6,7 +6,7 @@ public abstract class ati extends Block {
 
 
    public static boolean d(World var0, Location var1) {
-      return d(var0.p(var1));
+      return d(var0.getData(var1));
    }
 
    public static boolean d(IBlock var0) {
@@ -15,10 +15,10 @@ public abstract class ati extends Block {
    }
 
    protected ati(boolean var1) {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.a = var1;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-      this.a(akf.e);
+      this.a(CreativeModeTab.e);
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
@@ -29,13 +29,13 @@ public abstract class ati extends Block {
       return false;
    }
 
-   public bru a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
       this.a(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
-   public void a(ard var1, Location var2) {
-      IBlock var3 = var1.p(var2);
+   public void a(IBlockAccess var1, Location var2) {
+      IBlock var3 = var1.getData(var2);
       atl var4 = var3.c() == this?(atl)var3.b(this.l()):null;
       if(var4 != null && var4.c()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
@@ -50,7 +50,7 @@ public abstract class ati extends Block {
    }
 
    public boolean c(World var1, Location var2) {
-      return World.a((ard)var1, var2.b());
+      return World.a((IBlockAccess)var1, var2.b());
    }
 
    public void c(World var1, Location var2, IBlock var3) {
@@ -67,17 +67,17 @@ public abstract class ati extends Block {
       if(!var1.D) {
          atl var5 = (atl)var3.b(this.l());
          boolean var6 = false;
-         if(!World.a((ard)var1, var2.b())) {
+         if(!World.a((IBlockAccess)var1, var2.b())) {
             var6 = true;
          }
 
-         if(var5 == atl.c && !World.a((ard)var1, var2.f())) {
+         if(var5 == atl.c && !World.a((IBlockAccess)var1, var2.f())) {
             var6 = true;
-         } else if(var5 == atl.d && !World.a((ard)var1, var2.e())) {
+         } else if(var5 == atl.d && !World.a((IBlockAccess)var1, var2.e())) {
             var6 = true;
-         } else if(var5 == atl.e && !World.a((ard)var1, var2.c())) {
+         } else if(var5 == atl.e && !World.a((IBlockAccess)var1, var2.c())) {
             var6 = true;
-         } else if(var5 == atl.f && !World.a((ard)var1, var2.d())) {
+         } else if(var5 == atl.f && !World.a((IBlockAccess)var1, var2.d())) {
             var6 = true;
          }
 

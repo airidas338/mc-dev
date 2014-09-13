@@ -77,7 +77,7 @@ public class abi {
    }
 
    private boolean a(Location var1, Location var2) {
-      if(!World.a((ard)this.a, var2.b())) {
+      if(!World.a((IBlockAccess)this.a, var2.b())) {
          return false;
       } else {
          int var3 = var2.n() - var1.n() / 2;
@@ -86,7 +86,7 @@ public class abi {
          for(int var5 = var3; var5 < var3 + var1.n(); ++var5) {
             for(int var6 = var2.o(); var6 < var2.o() + var1.o(); ++var6) {
                for(int var7 = var4; var7 < var4 + var1.p(); ++var7) {
-                  if(this.a.p(new Location(var5, var6, var7)).c().t()) {
+                  if(this.a.getData(new Location(var5, var6, var7)).c().t()) {
                      return false;
                   }
                }
@@ -301,8 +301,8 @@ public class abi {
    }
 
    private boolean f(Location var1) {
-      Block var2 = this.a.p(var1).c();
-      return var2 instanceof avf?var2.r() == Material.d:false;
+      Block var2 = this.a.getData(var1).c();
+      return var2 instanceof BlockDoor?var2.r() == Material.WOOD:false;
    }
 
    private void n() {
@@ -339,7 +339,7 @@ public class abi {
       return this.a(var1) <= -15;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.h = var1.f("PopSize");
       this.e = var1.f("Radius");
       this.l = var1.f("Golems");
@@ -351,7 +351,7 @@ public class abi {
       fv var2 = var1.c("Doors", 10);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          abh var5 = new abh(new Location(var4.f("X"), var4.f("Y"), var4.f("Z")), var4.f("IDX"), var4.f("IDZ"), var4.f("TS"));
          this.b.add(var5);
       }
@@ -359,13 +359,13 @@ public class abi {
       fv var6 = var1.c("Players", 10);
 
       for(int var7 = 0; var7 < var6.c(); ++var7) {
-         fn var8 = var6.b(var7);
+         NBTTagCompound var8 = var6.b(var7);
          this.j.put(var8.j("Name"), Integer.valueOf(var8.f("S")));
       }
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("PopSize", this.h);
       var1.a("Radius", this.e);
       var1.a("Golems", this.l);
@@ -383,29 +383,29 @@ public class abi {
 
       while(var3.hasNext()) {
          abh var4 = (abh)var3.next();
-         fn var5 = new fn();
+         NBTTagCompound var5 = new NBTTagCompound();
          var5.a("X", var4.d().n());
          var5.a("Y", var4.d().o());
          var5.a("Z", var4.d().p());
          var5.a("IDX", var4.f());
          var5.a("IDZ", var4.g());
          var5.a("TS", var4.h());
-         var2.a((gd)var5);
+         var2.a((NBTBase)var5);
       }
 
-      var1.a("Doors", (gd)var2);
+      var1.a("Doors", (NBTBase)var2);
       fv var7 = new fv();
       Iterator var8 = this.j.keySet().iterator();
 
       while(var8.hasNext()) {
          String var9 = (String)var8.next();
-         fn var6 = new fn();
+         NBTTagCompound var6 = new NBTTagCompound();
          var6.a("Name", var9);
          var6.a("S", ((Integer)this.j.get(var9)).intValue());
-         var7.a((gd)var6);
+         var7.a((NBTBase)var6);
       }
 
-      var1.a("Players", (gd)var7);
+      var1.a("Players", (NBTBase)var7);
    }
 
    public void h() {

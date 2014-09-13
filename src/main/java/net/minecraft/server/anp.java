@@ -7,7 +7,7 @@ public class anp extends ann {
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
-      bru var4 = this.a(var2, var3, true);
+      MovingObjectPosition var4 = this.a(var2, var3, true);
       if(var4 == null) {
          return var1;
       } else {
@@ -22,14 +22,14 @@ public class anp extends ann {
             }
 
             Location var6 = var5.a();
-            IBlock var7 = var2.p(var5);
-            if(var7.c().r() == Material.h && ((Integer)var7.b(axl.b)).intValue() == 0 && var2.d(var6)) {
+            IBlock var7 = var2.getData(var5);
+            if(var7.c().r() == Material.WATER && ((Integer)var7.b(axl.b)).intValue() == 0 && var2.d(var6)) {
                var2.a(var6, aty.bx.P());
                if(!var3.by.d) {
                   --var1.b;
                }
 
-               var3.b(ty.J[alq.b((alq)this)]);
+               var3.b(ty.J[Item.b((Item)this)]);
             }
          }
 

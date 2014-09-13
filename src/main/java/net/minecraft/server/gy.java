@@ -47,13 +47,13 @@ public enum gy {
       }
    }
 
-   public Integer a(EnumPacketDirection var1, id var2) {
+   public Integer a(EnumPacketDirection var1, Packet var2) {
       return (Integer)((BiMap)this.h.get(var1)).inverse().get(var2.getClass());
    }
 
-   public id a(EnumPacketDirection var1, int var2) throws InstantiationException, IllegalAccessException {
+   public Packet a(EnumPacketDirection var1, int var2) throws InstantiationException, IllegalAccessException {
       Class var3 = (Class)((BiMap)this.h.get(var1)).get(Integer.valueOf(var2));
-      return var3 == null?null:(id)var3.newInstance();
+      return var3 == null?null:(Packet)var3.newInstance();
    }
 
    public int a() {
@@ -64,7 +64,7 @@ public enum gy {
       return (gy)e.get(var0);
    }
 
-   public static gy a(id var0) {
+   public static gy a(Packet var0) {
       return (gy)f.get(var0.getClass());
    }
 

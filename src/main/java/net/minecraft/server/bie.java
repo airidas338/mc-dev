@@ -6,7 +6,7 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class bie extends bhp {
+public class bie extends WorldGenerator {
 
    private static final Logger a = LogManager.getLogger();
    private static final String[] b = new String[]{"Skeleton", "Zombie", "Zombie", "Spider"};
@@ -33,7 +33,7 @@ public class bie extends bhp {
          for(var15 = -1; var15 <= 4; ++var15) {
             for(var16 = var11; var16 <= var12; ++var16) {
                var17 = var3.a(var14, var15, var16);
-               Material var18 = var1.p(var17).c().r();
+               Material var18 = var1.getData(var17).c().r();
                boolean var19 = var18.a();
                if(var15 == -1 && !var19) {
                   return false;
@@ -56,12 +56,12 @@ public class bie extends bhp {
                for(var16 = var11; var16 <= var12; ++var16) {
                   var17 = var3.a(var14, var15, var16);
                   if(var14 != var6 && var15 != -1 && var16 != var11 && var14 != var7 && var15 != 4 && var16 != var12) {
-                     if(var1.p(var17).c() != aty.ae) {
+                     if(var1.getData(var17).c() != aty.ae) {
                         var1.g(var17);
                      }
-                  } else if(var17.o() >= 0 && !var1.p(var17.b()).c().r().a()) {
+                  } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().r().a()) {
                      var1.g(var17);
-                  } else if(var1.p(var17).c().r().a() && var1.p(var17).c() != aty.ae) {
+                  } else if(var1.getData(var17).c().r().a() && var1.getData(var17).c() != aty.ae) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
                         var1.a(var17, aty.Y.P(), 2);
                      } else {
@@ -90,7 +90,7 @@ public class bie extends bhp {
 
                         while(var21.hasNext()) {
                            ej var22 = (ej)var21.next();
-                           if(var1.p(var25.a(var22)).c().r().a()) {
+                           if(var1.getData(var25.a(var22)).c().r().a()) {
                               ++var20;
                            }
                         }

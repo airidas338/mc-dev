@@ -46,7 +46,7 @@ public abstract class EntityHuman extends EntityLiving {
    private int i;
    private final GameProfile bF;
    private boolean bG = false;
-   public ado bE;
+   public EntityFishingHook bE;
 
 
    public EntityHuman(World var1, GameProfile var2) {
@@ -246,9 +246,9 @@ public abstract class EntityHuman extends EntityLiving {
             var7 = var7.b(-this.y * 3.1415927F / 180.0F);
             var7 = var7.b(this.s, this.t + (double)this.aR(), this.u);
             if(var1.f()) {
-               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{alq.b(var1.b()), var1.i()});
+               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b()), var1.i()});
             } else {
-               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{alq.b(var1.b())});
+               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b())});
             }
          }
 
@@ -560,7 +560,7 @@ public abstract class EntityHuman extends EntityLiving {
          var2 *= var5;
       }
 
-      if(this.a(Material.h) && !EnchantmentManager.j(this)) {
+      if(this.a(Material.WATER) && !EnchantmentManager.j(this)) {
          var2 /= 5.0F;
       }
 
@@ -575,7 +575,7 @@ public abstract class EntityHuman extends EntityLiving {
       return this.bg.b(var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.ao = a(this.bF);
       fv var2 = var1.c("Inventory", 10);
@@ -611,9 +611,9 @@ public abstract class EntityHuman extends EntityLiving {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Inventory", (gd)this.bg.a(new fv()));
+      var1.a("Inventory", (NBTBase)this.bg.a(new fv()));
       var1.a("SelectedItemSlot", this.bg.c);
       var1.a("Sleeping", this.bu);
       var1.a("SleepTimer", (short)this.b);
@@ -631,10 +631,10 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.bj.b(var1);
       this.by.a(var1);
-      var1.a("EnderItems", (gd)this.a.h());
+      var1.a("EnderItems", (NBTBase)this.a.h());
       amj var2 = this.bg.h();
       if(var2 != null && var2.b() != null) {
-         var1.a("SelectedItem", (gd)var2.b(new fn()));
+         var1.a("SelectedItem", (NBTBase)var2.b(new NBTTagCompound()));
       }
 
    }
@@ -844,7 +844,7 @@ public abstract class EntityHuman extends EntityLiving {
                   }
 
                   if(var1 instanceof EntityPlayer && var1.G) {
-                     ((EntityPlayer)var1).a.a((id)(new kz(var1)));
+                     ((EntityPlayer)var1).a.a((Packet)(new kz(var1)));
                      var1.G = false;
                      var1.v = var8;
                      var1.w = var10;
@@ -871,8 +871,8 @@ public abstract class EntityHuman extends EntityLiving {
                   EnchantmentManager.b(this, var1);
                   amj var15 = this.bY();
                   Object var16 = var1;
-                  if(var1 instanceof acz) {
-                     acy var17 = ((acz)var1).a;
+                  if(var1 instanceof EntityComplexPart) {
+                     IComplexPart var17 = ((EntityComplexPart)var1).a;
                      if(var17 instanceof EntityLiving) {
                         var16 = (EntityLiving)var17;
                      }
@@ -955,7 +955,7 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.a(0.2F, 0.2F);
       if(this.o.e(var1)) {
-         ej var7 = (ej)this.o.p(var1).b(avb.N);
+         ej var7 = (ej)this.o.getData(var1).b(avb.N);
          float var3 = 0.5F;
          float var8 = 0.5F;
          switch(ahe.a[var7.ordinal()]) {
@@ -1010,10 +1010,10 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
-      IBlock var4 = this.o.p(this.bv);
+      IBlock var4 = this.o.getData(this.bv);
       if(this.bv != null && var4.c() == aty.C) {
-         this.o.a(this.bv, var4.a(atp.b, Boolean.valueOf(false)), 4);
-         Location var5 = atp.a(this.o, this.bv, 0);
+         this.o.a(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
+         Location var5 = BlockBed.a(this.o, this.bv, 0);
          if(var5 == null) {
             var5 = this.bv.a();
          }
@@ -1034,22 +1034,22 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    private boolean p() {
-      return this.o.p(this.bv).c() == aty.C;
+      return this.o.getData(this.bv).c() == aty.C;
    }
 
    public static Location a(World var0, Location var1, boolean var2) {
-      if(var0.p(var1).c() != aty.C) {
+      if(var0.getData(var1).c() != aty.C) {
          if(!var2) {
             return null;
          } else {
-            Material var3 = var0.p(var1).c().r();
-            Material var4 = var0.p(var1.a()).c().r();
+            Material var3 = var0.getData(var1).c().r();
+            Material var4 = var0.getData(var1.a()).c().r();
             boolean var5 = !var3.a() && !var3.d();
             boolean var6 = !var4.a() && !var4.d();
             return var5 && var6?var1:null;
          }
       } else {
-         return atp.a(var0, var1, 0);
+         return BlockBed.a(var0, var1, 0);
       }
    }
 
@@ -1126,7 +1126,7 @@ public abstract class EntityHuman extends EntityLiving {
    public void k(double var1, double var3, double var5) {
       if(this.m == null) {
          int var7;
-         if(this.a(Material.h)) {
+         if(this.a(Material.WATER)) {
             var7 = Math.round(MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(ty.p, var7);
@@ -1328,7 +1328,7 @@ public abstract class EntityHuman extends EntityLiving {
          return false;
       } else {
          Location var4 = var1.a(var2.d());
-         Block var5 = this.o.p(var4).c();
+         Block var5 = this.o.getData(var4).c();
          return var3.d(var5) || var3.x();
       }
    }
@@ -1483,7 +1483,7 @@ public abstract class EntityHuman extends EntityLiving {
          if(var3 >= 0 && var3 < this.bg.b.length) {
             var4 = var3 + 1;
             if(var2 != null && var2.b() != null) {
-               if(var2.b() instanceof ajn) {
+               if(var2.b() instanceof ItemArmor) {
                   if(EntityInsentient.c(var2) != var4) {
                      return false;
                   }

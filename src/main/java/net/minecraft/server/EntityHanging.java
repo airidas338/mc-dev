@@ -94,7 +94,7 @@ public abstract class EntityHanging extends Entity {
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
                Location var7 = var3.a(var4, var5).b(var6);
-               Block var8 = this.o.p(var7).c();
+               Block var8 = this.o.getData(var7).c();
                if(!var8.r().a() && !ava.d(var8)) {
                   return false;
                }
@@ -159,14 +159,14 @@ public abstract class EntityHanging extends Entity {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Facing", (byte)this.b.b());
       var1.a("TileX", this.n().n());
       var1.a("TileY", this.n().o());
       var1.a("TileZ", this.n().p());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.a = new Location(var1.f("TileX"), var1.f("TileY"), var1.f("TileZ"));
       ej var2;
       if(var1.b("Direction", 99)) {

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-public class iq implements id {
+public class iq implements Packet {
 
    private int a;
    private UUID b;
@@ -28,7 +28,7 @@ public class iq implements id {
       this.f = (byte)((int)(var1.y * 256.0F / 360.0F));
       this.g = (byte)((int)(var1.z * 256.0F / 360.0F));
       amj var2 = var1.bg.h();
-      this.h = var2 == null?0:alq.b(var2.b());
+      this.h = var2 == null?0:Item.b(var2.b());
       this.i = var1.H();
    }
 

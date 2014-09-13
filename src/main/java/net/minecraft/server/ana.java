@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public class ana extends alq {
+public class ana extends Item {
 
    public ana() {
       this.h = 1;
-      this.a(akf.e);
+      this.a(CreativeModeTab.e);
    }
 
    public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {

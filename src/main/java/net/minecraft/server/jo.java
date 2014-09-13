@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class jo implements id {
+public class jo implements Packet {
 
    public static final String[] a = new String[]{"tile.bed.notValid"};
    private int b;

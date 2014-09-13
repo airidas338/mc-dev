@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class kd implements id {
+public class kd implements Packet {
 
    private boolean a;
    private boolean b;

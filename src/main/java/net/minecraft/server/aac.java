@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class aac extends zb {
+public class aac extends PathfinderGoal {
 
    private EntityHorse a;
    private double b;

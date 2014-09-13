@@ -58,7 +58,7 @@ public abstract class EntityFireball extends Entity {
          super.s_();
          this.e(1);
          if(this.i) {
-            if(this.o.p(new Location(this.e, this.f, this.g)).c() == this.h) {
+            if(this.o.getData(new Location(this.e, this.f, this.g)).c() == this.h) {
                ++this.ap;
                if(this.ap == 600) {
                   this.J();
@@ -79,7 +79,7 @@ public abstract class EntityFireball extends Entity {
 
          ChunkCoordinates var1 = new ChunkCoordinates(this.s, this.t, this.u);
          ChunkCoordinates var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
-         bru var3 = this.o.a(var1, var2);
+         MovingObjectPosition var3 = this.o.a(var1, var2);
          var1 = new ChunkCoordinates(this.s, this.t, this.u);
          var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var3 != null) {
@@ -95,7 +95,7 @@ public abstract class EntityFireball extends Entity {
             if(var9.ad() && (!var9.k(this.a) || this.aq >= 25)) {
                float var10 = 0.3F;
                AxisAlignedBB var11 = var9.aQ().b((double)var10, (double)var10, (double)var10);
-               bru var12 = var11.a(var1, var2);
+               MovingObjectPosition var12 = var11.a(var1, var2);
                if(var12 != null) {
                   double var13 = var1.f(var12.c);
                   if(var13 < var6 || var6 == 0.0D) {
@@ -107,7 +107,7 @@ public abstract class EntityFireball extends Entity {
          }
 
          if(var4 != null) {
-            var3 = new bru(var4);
+            var3 = new MovingObjectPosition(var4);
          }
 
          if(var3 != null) {
@@ -163,19 +163,19 @@ public abstract class EntityFireball extends Entity {
       return 0.95F;
    }
 
-   protected abstract void a(bru var1);
+   protected abstract void a(MovingObjectPosition var1);
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("xTile", (short)this.e);
       var1.a("yTile", (short)this.f);
       var1.a("zTile", (short)this.g);
       RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.h);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("inGround", (byte)(this.i?1:0));
-      var1.a("direction", (gd)this.a(new double[]{this.v, this.w, this.x}));
+      var1.a("direction", (NBTBase)this.a(new double[]{this.v, this.w, this.x}));
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.e = var1.e("xTile");
       this.f = var1.e("yTile");
       this.g = var1.e("zTile");

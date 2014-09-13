@@ -109,10 +109,10 @@ public class EntityArrow extends Entity implements aho {
       }
 
       Location var18 = new Location(this.d, this.e, this.f);
-      IBlock var2 = this.o.p(var18);
+      IBlock var2 = this.o.getData(var18);
       Block var3 = var2.c();
-      if(var3.r() != Material.a) {
-         var3.a((ard)this.o, var18);
+      if(var3.r() != Material.AIR) {
+         var3.a((IBlockAccess)this.o, var18);
          AxisAlignedBB var4 = var3.a(this.o, var18, var2);
          if(var4 != null && var4.a(new ChunkCoordinates(this.s, this.t, this.u))) {
             this.i = true;
@@ -143,7 +143,7 @@ public class EntityArrow extends Entity implements aho {
          ++this.aq;
          ChunkCoordinates var19 = new ChunkCoordinates(this.s, this.t, this.u);
          ChunkCoordinates var5 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
-         bru var6 = this.o.a(var19, var5, false, true, false);
+         MovingObjectPosition var6 = this.o.a(var19, var5, false, true, false);
          var19 = new ChunkCoordinates(this.s, this.t, this.u);
          var5 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var6 != null) {
@@ -161,7 +161,7 @@ public class EntityArrow extends Entity implements aho {
             if(var12.ad() && (var12 != this.c || this.aq >= 5)) {
                var13 = 0.3F;
                AxisAlignedBB var14 = var12.aQ().b((double)var13, (double)var13, (double)var13);
-               bru var15 = var14.a(var19, var5);
+               MovingObjectPosition var15 = var14.a(var19, var5);
                if(var15 != null) {
                   double var16 = var19.f(var15.c);
                   if(var16 < var9 || var9 == 0.0D) {
@@ -173,7 +173,7 @@ public class EntityArrow extends Entity implements aho {
          }
 
          if(var7 != null) {
-            var6 = new bru(var7);
+            var6 = new MovingObjectPosition(var7);
          }
 
          if(var6 != null && var6.d != null && var6.d instanceof EntityHuman) {
@@ -225,7 +225,7 @@ public class EntityArrow extends Entity implements aho {
                      }
 
                      if(this.c != null && var6.d != this.c && var6.d instanceof EntityHuman && this.c instanceof EntityPlayer) {
-                        ((EntityPlayer)this.c).a.a((id)(new jo(6, 0.0F)));
+                        ((EntityPlayer)this.c).a.a((Packet)(new jo(6, 0.0F)));
                      }
                   }
 
@@ -246,7 +246,7 @@ public class EntityArrow extends Entity implements aho {
                this.d = var21.n();
                this.e = var21.o();
                this.f = var21.p();
-               var2 = this.o.p(var21);
+               var2 = this.o.getData(var21);
                this.g = var2.c();
                this.h = this.g.c(var2);
                this.v = (double)((float)(var6.c.a - this.s));
@@ -260,7 +260,7 @@ public class EntityArrow extends Entity implements aho {
                this.i = true;
                this.b = 7;
                this.a(false);
-               if(this.g.r() != Material.a) {
+               if(this.g.r() != Material.AIR) {
                   this.g.a(this.o, var21, var2, (Entity)this);
                }
             }
@@ -320,7 +320,7 @@ public class EntityArrow extends Entity implements aho {
       }
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("xTile", (short)this.d);
       var1.a("yTile", (short)this.e);
       var1.a("zTile", (short)this.f);
@@ -334,7 +334,7 @@ public class EntityArrow extends Entity implements aho {
       var1.a("damage", this.ar);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.d = var1.e("xTile");
       this.e = var1.e("yTile");
       this.f = var1.e("zTile");

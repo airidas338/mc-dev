@@ -53,7 +53,7 @@ public interface ik extends PacketListener {
 
 	void a(ji var1);
 
-	void a(jj var1);
+	void a(PacketPlayOutKickDisconnect var1);
 
 	void a(kl var1);
 

@@ -12,19 +12,19 @@ public class bdm extends bcm {
    private GameProfile g = null;
 
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("SkullType", (byte)(this.a & 255));
       var1.a("Rot", (byte)(this.f & 255));
       if(this.g != null) {
-         fn var2 = new fn();
+         NBTTagCompound var2 = new NBTTagCompound();
          ga.a(var2, this.g);
-         var1.a("Owner", (gd)var2);
+         var1.a("Owner", (NBTBase)var2);
       }
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a = var1.d("SkullType");
       this.f = var1.d("Rot");
@@ -46,8 +46,8 @@ public class bdm extends bcm {
       return this.g;
    }
 
-   public id x_() {
-      fn var1 = new fn();
+   public Packet x_() {
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new iu(this.c, 4, var1);
    }

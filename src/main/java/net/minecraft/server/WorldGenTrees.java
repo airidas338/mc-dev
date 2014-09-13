@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class WorldGenTrees extends bhc {
+public class WorldGenTrees extends WorldGenTreeAbstract {
 
    private final int a;
    private final boolean b;
@@ -40,7 +40,7 @@ public class WorldGenTrees extends bhc {
             for(int var8 = var3.n() - var7; var8 <= var3.n() + var7 && var5; ++var8) {
                for(var9 = var3.p() - var7; var9 <= var3.p() + var7 && var5; ++var9) {
                   if(var6 >= 0 && var6 < 256) {
-                     if(!this.a(var1.p(new Location(var8, var6, var9)).c())) {
+                     if(!this.a(var1.getData(new Location(var8, var6, var9)).c())) {
                         var5 = false;
                      }
                   } else {
@@ -53,7 +53,7 @@ public class WorldGenTrees extends bhc {
          if(!var5) {
             return false;
          } else {
-            Block var19 = var1.p(var3.b()).c();
+            Block var19 = var1.getData(var3.b()).c();
             if((var19 == aty.c || var19 == aty.d || var19 == aty.ak) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var7 = 3;
@@ -75,8 +75,8 @@ public class WorldGenTrees extends bhc {
                         int var15 = var14 - var3.p();
                         if(Math.abs(var13) != var11 || Math.abs(var15) != var11 || var2.nextInt(2) != 0 && var10 != 0) {
                            var16 = new Location(var12, var9, var14);
-                           Block var17 = var1.p(var16).c();
-                           if(var17.r() == Material.a || var17.r() == Material.j || var17.r() == Material.l) {
+                           Block var17 = var1.getData(var16).c();
+                           if(var17.r() == Material.AIR || var17.r() == Material.LEAVES || var17.r() == Material.REPLACAEBLE_PLAN) {
                               this.a(var1, var16, aty.t, this.d);
                            }
                         }
@@ -85,24 +85,24 @@ public class WorldGenTrees extends bhc {
                }
 
                for(var9 = 0; var9 < var4; ++var9) {
-                  Block var21 = var1.p(var3.b(var9)).c();
-                  if(var21.r() == Material.a || var21.r() == Material.j || var21.r() == Material.l) {
+                  Block var21 = var1.getData(var3.b(var9)).c();
+                  if(var21.r() == Material.AIR || var21.r() == Material.LEAVES || var21.r() == Material.REPLACAEBLE_PLAN) {
                      this.a(var1, var3.b(var9), aty.r, this.c);
                      if(this.b && var9 > 0) {
                         if(var2.nextInt(3) > 0 && var1.d(var3.a(-1, var9, 0))) {
-                           this.a(var1, var3.a(-1, var9, 0), aty.bn, bbv.S);
+                           this.a(var1, var3.a(-1, var9, 0), aty.bn, BlockVine.S);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.d(var3.a(1, var9, 0))) {
-                           this.a(var1, var3.a(1, var9, 0), aty.bn, bbv.T);
+                           this.a(var1, var3.a(1, var9, 0), aty.bn, BlockVine.T);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.d(var3.a(0, var9, -1))) {
-                           this.a(var1, var3.a(0, var9, -1), aty.bn, bbv.Q);
+                           this.a(var1, var3.a(0, var9, -1), aty.bn, BlockVine.Q);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.d(var3.a(0, var9, 1))) {
-                           this.a(var1, var3.a(0, var9, 1), aty.bn, bbv.R);
+                           this.a(var1, var3.a(0, var9, 1), aty.bn, BlockVine.R);
                         }
                      }
                   }
@@ -116,25 +116,25 @@ public class WorldGenTrees extends bhc {
                      for(var12 = var3.n() - var11; var12 <= var3.n() + var11; ++var12) {
                         for(var13 = var3.p() - var11; var13 <= var3.p() + var11; ++var13) {
                            Location var24 = new Location(var12, var9, var13);
-                           if(var1.p(var24).c().r() == Material.j) {
+                           if(var1.getData(var24).c().r() == Material.LEAVES) {
                               Location var23 = var24.e();
                               var16 = var24.f();
                               Location var25 = var24.c();
                               Location var18 = var24.d();
-                              if(var2.nextInt(4) == 0 && var1.p(var23).c().r() == Material.a) {
-                                 this.a(var1, var23, bbv.S);
+                              if(var2.nextInt(4) == 0 && var1.getData(var23).c().r() == Material.AIR) {
+                                 this.a(var1, var23, BlockVine.S);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.p(var16).c().r() == Material.a) {
-                                 this.a(var1, var16, bbv.T);
+                              if(var2.nextInt(4) == 0 && var1.getData(var16).c().r() == Material.AIR) {
+                                 this.a(var1, var16, BlockVine.T);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.p(var25).c().r() == Material.a) {
-                                 this.a(var1, var25, bbv.Q);
+                              if(var2.nextInt(4) == 0 && var1.getData(var25).c().r() == Material.AIR) {
+                                 this.a(var1, var25, BlockVine.Q);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.p(var18).c().r() == Material.a) {
-                                 this.a(var1, var18, bbv.R);
+                              if(var2.nextInt(4) == 0 && var1.getData(var18).c().r() == Material.AIR) {
+                                 this.a(var1, var18, BlockVine.R);
                               }
                            }
                         }
@@ -168,7 +168,7 @@ public class WorldGenTrees extends bhc {
       this.a(var1, var2, aty.bn, var3);
       int var4 = 4;
 
-      for(var2 = var2.b(); var1.p(var2).c().r() == Material.a && var4 > 0; --var4) {
+      for(var2 = var2.b(); var1.getData(var2).c().r() == Material.AIR && var4 > 0; --var4) {
          this.a(var1, var2, aty.bn, var3);
          var2 = var2.b();
       }

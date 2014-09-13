@@ -2,15 +2,15 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class aml extends alq {
+public class aml extends Item {
 
    public aml() {
-      this.a(akf.i);
+      this.a(CreativeModeTab.i);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      Block var9 = var3.p(var4).c();
-      if(var9 instanceof avv) {
+      Block var9 = var3.getData(var4).c();
+      if(var9 instanceof BlockFence) {
          if(var3.D) {
             return true;
          } else {

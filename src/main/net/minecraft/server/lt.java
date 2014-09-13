@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import org.apache.commons.lang3.StringUtils;
 
-public class lt implements id {
+public class lt implements Packet {
 
    private String a;
    private Location b;

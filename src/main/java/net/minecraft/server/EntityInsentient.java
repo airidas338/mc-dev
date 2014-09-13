@@ -24,7 +24,7 @@ public abstract class EntityInsentient extends EntityLiving {
    private boolean bl;
    private boolean bm;
    private Entity bn;
-   private fn bo;
+   private NBTTagCompound bo;
 
 
    public EntityInsentient(World var1) {
@@ -164,12 +164,12 @@ public abstract class EntityInsentient extends EntityLiving {
       return null;
    }
 
-   protected alq A() {
+   protected Item A() {
       return null;
    }
 
    protected void b(boolean var1, int var2) {
-      alq var3 = this.A();
+      Item var3 = this.A();
       if(var3 != null) {
          int var4 = this.V.nextInt(3);
          if(var2 > 0) {
@@ -183,33 +183,33 @@ public abstract class EntityInsentient extends EntityLiving {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("CanPickUpLoot", this.bX());
       var1.a("PersistenceRequired", this.bl);
       fv var2 = new fv();
 
-      fn var4;
+      NBTTagCompound var4;
       for(int var3 = 0; var3 < this.bj.length; ++var3) {
-         var4 = new fn();
+         var4 = new NBTTagCompound();
          if(this.bj[var3] != null) {
             this.bj[var3].b(var4);
          }
 
-         var2.a((gd)var4);
+         var2.a((NBTBase)var4);
       }
 
-      var1.a("Equipment", (gd)var2);
+      var1.a("Equipment", (NBTBase)var2);
       fv var6 = new fv();
 
       for(int var7 = 0; var7 < this.bh.length; ++var7) {
-         var6.a((gd)(new fs(this.bh[var7])));
+         var6.a((NBTBase)(new NBTTagFloat(this.bh[var7])));
       }
 
-      var1.a("DropChances", (gd)var6);
+      var1.a("DropChances", (NBTBase)var6);
       var1.a("Leashed", this.bm);
       if(this.bn != null) {
-         var4 = new fn();
+         var4 = new NBTTagCompound();
          if(this.bn instanceof EntityLiving) {
             var4.a("UUIDMost", this.bn.aJ().getMostSignificantBits());
             var4.a("UUIDLeast", this.bn.aJ().getLeastSignificantBits());
@@ -220,7 +220,7 @@ public abstract class EntityInsentient extends EntityLiving {
             var4.a("Z", var5.p());
          }
 
-         var1.a("Leash", (gd)var4);
+         var1.a("Leash", (NBTBase)var4);
       }
 
       if(this.cd()) {
@@ -229,7 +229,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("CanPickUpLoot", 1)) {
          this.j(var1.n("CanPickUpLoot"));
@@ -307,16 +307,16 @@ public abstract class EntityInsentient extends EntityLiving {
                   } else {
                      var4 = var6.g() > var7.g();
                   }
-               } else if(var2.b() instanceof ajz && var5.b() instanceof ajz) {
+               } else if(var2.b() instanceof ItemBow && var5.b() instanceof ItemBow) {
                   var4 = var2.n() && !var5.n();
                } else {
                   var4 = false;
                }
-            } else if(var2.b() instanceof ajn && !(var5.b() instanceof ajn)) {
+            } else if(var2.b() instanceof ItemArmor && !(var5.b() instanceof ItemArmor)) {
                var4 = true;
-            } else if(var2.b() instanceof ajn && var5.b() instanceof ajn) {
-               ajn var9 = (ajn)var2.b();
-               ajn var10 = (ajn)var5.b();
+            } else if(var2.b() instanceof ItemArmor && var5.b() instanceof ItemArmor) {
+               ItemArmor var9 = (ItemArmor)var2.b();
+               ItemArmor var10 = (ItemArmor)var5.b();
                if(var9.c == var10.c) {
                   var4 = var2.i() > var5.i() || var2.n() && !var5.n();
                } else {
@@ -543,7 +543,7 @@ public abstract class EntityInsentient extends EntityLiving {
             }
 
             if(var5 == null) {
-               alq var6 = a(var4 + 1, var2);
+               Item var6 = a(var4 + 1, var2);
                if(var6 != null) {
                   this.c(var4 + 1, new amj(var6));
                }
@@ -554,9 +554,9 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public static int c(amj var0) {
-      if(var0.b() != alq.a(aty.aU) && var0.b() != Items.bX) {
-         if(var0.b() instanceof ajn) {
-            switch(((ajn)var0.b()).b) {
+      if(var0.b() != Item.a(aty.aU) && var0.b() != Items.bX) {
+         if(var0.b() instanceof ItemArmor) {
+            switch(((ItemArmor)var0.b()).b) {
             case 0:
                return 4;
             case 1:
@@ -574,7 +574,7 @@ public abstract class EntityInsentient extends EntityLiving {
       }
    }
 
-   public static alq a(int var0, int var1) {
+   public static Item a(int var0, int var1) {
       switch(var0) {
       case 4:
          if(var1 == 0) {
@@ -726,7 +726,7 @@ public abstract class EntityInsentient extends EntityLiving {
          }
 
          if(!this.o.D && var1 && this.o instanceof WorldServer) {
-            ((WorldServer)this.o).s().a((Entity)this, (id)(new ky(1, this, (Entity)null)));
+            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, (Entity)null)));
          }
       }
 
@@ -748,7 +748,7 @@ public abstract class EntityInsentient extends EntityLiving {
       this.bm = true;
       this.bn = var1;
       if(!this.o.D && var2 && this.o instanceof WorldServer) {
-         ((WorldServer)this.o).s().a((Entity)this, (id)(new ky(1, this, this.bn)));
+         ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, this.bn)));
       }
 
    }

@@ -4,7 +4,7 @@ import java.util.Random;
 public class apv extends apf {
 
    public apv(int var1, RegistryMaterials var2, int var3) {
-      super(var1, var2, var3, apg.e);
+      super(var1, var2, var3, EnchantmentSlotType.ARMOR_TORSO);
       this.c("thorns");
    }
 
@@ -21,7 +21,7 @@ public class apv extends apf {
    }
 
    public boolean a(amj var1) {
-      return var1.b() instanceof ajn?true:super.a(var1);
+      return var1.b() instanceof ItemArmor?true:super.a(var1);
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {

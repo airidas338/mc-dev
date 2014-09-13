@@ -16,12 +16,12 @@ public class bnl extends bno {
       this.a = Math.max(var4.c(), var4.e());
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Length", this.a);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = var1.f("Length");
    }

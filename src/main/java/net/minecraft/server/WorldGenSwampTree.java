@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class WorldGenSwampTree extends bhc {
+public class WorldGenSwampTree extends WorldGenTreeAbstract {
 
    public WorldGenSwampTree() {
       super(false);
@@ -9,7 +9,7 @@ public class WorldGenSwampTree extends bhc {
 
    public boolean generate(World var1, Random var2, Location var3) {
       int var4;
-      for(var4 = var2.nextInt(4) + 5; var1.p(var3.b()).c().r() == Material.h; var3 = var3.b()) {
+      for(var4 = var2.nextInt(4) + 5; var1.getData(var3.b()).c().r() == Material.WATER; var3 = var3.b()) {
          ;
       }
 
@@ -30,8 +30,8 @@ public class WorldGenSwampTree extends bhc {
             for(var8 = var3.n() - var7; var8 <= var3.n() + var7 && var5; ++var8) {
                for(var9 = var3.p() - var7; var9 <= var3.p() + var7 && var5; ++var9) {
                   if(var6 >= 0 && var6 < 256) {
-                     Block var10 = var1.p(new Location(var8, var6, var9)).c();
-                     if(var10.r() != Material.a && var10.r() != Material.j) {
+                     Block var10 = var1.getData(new Location(var8, var6, var9)).c();
+                     if(var10.r() != Material.AIR && var10.r() != Material.LEAVES) {
                         if(var10 != aty.j && var10 != aty.i) {
                            var5 = false;
                         } else if(var6 > var3.o()) {
@@ -48,7 +48,7 @@ public class WorldGenSwampTree extends bhc {
          if(!var5) {
             return false;
          } else {
-            Block var17 = var1.p(var3.b()).c();
+            Block var17 = var1.getData(var3.b()).c();
             if((var17 == aty.c || var17 == aty.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
 
@@ -67,7 +67,7 @@ public class WorldGenSwampTree extends bhc {
                         int var13 = var12 - var3.p();
                         if(Math.abs(var11) != var9 || Math.abs(var13) != var9 || var2.nextInt(2) != 0 && var8 != 0) {
                            var14 = new Location(var20, var18, var12);
-                           if(!var1.p(var14).c().m()) {
+                           if(!var1.getData(var14).c().m()) {
                               this.a(var1, var14, aty.t);
                            }
                         }
@@ -76,8 +76,8 @@ public class WorldGenSwampTree extends bhc {
                }
 
                for(var18 = 0; var18 < var4; ++var18) {
-                  Block var19 = var1.p(var3.b(var18)).c();
-                  if(var19.r() == Material.a || var19.r() == Material.j || var19 == aty.i || var19 == aty.j) {
+                  Block var19 = var1.getData(var3.b(var18)).c();
+                  if(var19.r() == Material.AIR || var19.r() == Material.LEAVES || var19 == aty.i || var19 == aty.j) {
                      this.a(var1, var3.b(var18), aty.r);
                   }
                }
@@ -89,25 +89,25 @@ public class WorldGenSwampTree extends bhc {
                   for(var20 = var3.n() - var9; var20 <= var3.n() + var9; ++var20) {
                      for(var11 = var3.p() - var9; var11 <= var3.p() + var9; ++var11) {
                         Location var21 = new Location(var20, var18, var11);
-                        if(var1.p(var21).c().r() == Material.j) {
+                        if(var1.getData(var21).c().r() == Material.LEAVES) {
                            Location var22 = var21.e();
                            var14 = var21.f();
                            Location var15 = var21.c();
                            Location var16 = var21.d();
-                           if(var2.nextInt(4) == 0 && var1.p(var22).c().r() == Material.a) {
-                              this.a(var1, var22, bbv.S);
+                           if(var2.nextInt(4) == 0 && var1.getData(var22).c().r() == Material.AIR) {
+                              this.a(var1, var22, BlockVine.S);
                            }
 
-                           if(var2.nextInt(4) == 0 && var1.p(var14).c().r() == Material.a) {
-                              this.a(var1, var14, bbv.T);
+                           if(var2.nextInt(4) == 0 && var1.getData(var14).c().r() == Material.AIR) {
+                              this.a(var1, var14, BlockVine.T);
                            }
 
-                           if(var2.nextInt(4) == 0 && var1.p(var15).c().r() == Material.a) {
-                              this.a(var1, var15, bbv.Q);
+                           if(var2.nextInt(4) == 0 && var1.getData(var15).c().r() == Material.AIR) {
+                              this.a(var1, var15, BlockVine.Q);
                            }
 
-                           if(var2.nextInt(4) == 0 && var1.p(var16).c().r() == Material.a) {
-                              this.a(var1, var16, bbv.R);
+                           if(var2.nextInt(4) == 0 && var1.getData(var16).c().r() == Material.AIR) {
+                              this.a(var1, var16, BlockVine.R);
                            }
                         }
                      }
@@ -128,7 +128,7 @@ public class WorldGenSwampTree extends bhc {
       this.a(var1, var2, aty.bn, var3);
       int var4 = 4;
 
-      for(var2 = var2.b(); var1.p(var2).c().r() == Material.a && var4 > 0; --var4) {
+      for(var2 = var2.b(); var1.getData(var2).c().r() == Material.AIR && var4 > 0; --var4) {
          this.a(var1, var2, aty.bn, var3);
          var2 = var2.b();
       }

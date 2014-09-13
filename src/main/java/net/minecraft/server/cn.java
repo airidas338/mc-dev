@@ -11,11 +11,11 @@ public class cn extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.setworldspawn.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       Location var3;
       if(var2.length == 0) {
          var3 = b(var1).c();
@@ -28,11 +28,11 @@ public class cn extends CommandAbstract {
       }
 
       var1.e().B(var3);
-      MinecraftServer.M().an().a((id)(new lh(var3)));
+      MinecraftServer.M().an().a((Packet)(new lh(var3)));
       a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

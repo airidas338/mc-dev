@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class aab extends zb {
+public class aab extends PathfinderGoal {
 
    private EntityCreature a;
 

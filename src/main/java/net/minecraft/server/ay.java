@@ -11,11 +11,11 @@ public class ay extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.blockdata.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 4) {
          throw new dp("commands.blockdata.usage", new Object[0]);
       } else {
@@ -29,11 +29,11 @@ public class ay extends CommandAbstract {
             if(var5 == null) {
                throw new di("commands.blockdata.notValid", new Object[0]);
             } else {
-               fn var6 = new fn();
+               NBTTagCompound var6 = new NBTTagCompound();
                var5.b(var6);
-               fn var7 = (fn)var6.b();
+               NBTTagCompound var7 = (NBTTagCompound)var6.b();
 
-               fn var8;
+               NBTTagCompound var8;
                try {
                   var8 = gg.a(a(var1, var2, 3).c());
                } catch (gf var10) {
@@ -58,7 +58,7 @@ public class ay extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

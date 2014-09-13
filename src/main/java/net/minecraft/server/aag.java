@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class aag extends zb {
+public class aag extends PathfinderGoal {
 
    private EntityCreature a;
    private double b;
@@ -13,12 +13,12 @@ public class aag extends zb {
    private EntityHuman h;
    private int i;
    private boolean j;
-   private alq k;
+   private Item k;
    private boolean l;
    private boolean m;
 
 
-   public aag(EntityCreature var1, double var2, alq var4, boolean var5) {
+   public aag(EntityCreature var1, double var2, Item var4, boolean var5) {
       this.a = var1;
       this.b = var2;
       this.k = var4;

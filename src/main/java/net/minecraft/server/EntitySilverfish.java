@@ -61,7 +61,7 @@ public class EntitySilverfish extends EntityMonster {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
-   protected alq A() {
+   protected Item A() {
       return null;
    }
 
@@ -71,7 +71,7 @@ public class EntitySilverfish extends EntityMonster {
    }
 
    public float a(Location var1) {
-      return this.o.p(var1.b()).c() == aty.b?10.0F:super.a(var1);
+      return this.o.getData(var1.b()).c() == aty.b?10.0F:super.a(var1);
    }
 
    protected boolean m_() {

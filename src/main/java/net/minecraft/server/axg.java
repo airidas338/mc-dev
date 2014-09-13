@@ -9,9 +9,9 @@ public abstract class axg extends bbo {
 
 
    public axg() {
-      super(Material.j, false);
+      super(Material.LEAVES, false);
       this.a(true);
-      this.a(akf.c);
+      this.a(CreativeModeTab.c);
       this.c(0.2F);
       this.e(1);
       this.a(h);
@@ -28,8 +28,8 @@ public abstract class axg extends bbo {
             for(int var10 = -var4; var10 <= var4; ++var10) {
                for(int var11 = -var4; var11 <= var4; ++var11) {
                   Location var12 = var2.a(var9, var10, var11);
-                  IBlock var13 = var1.p(var12);
-                  if(var13.c().r() == Material.j && !((Boolean)var13.b(b)).booleanValue()) {
+                  IBlock var13 = var1.getData(var12);
+                  if(var13.c().r() == Material.LEAVES && !((Boolean)var13.b(b)).booleanValue()) {
                      var1.a(var12, var13.a(b, Boolean.valueOf(true)), 4);
                   }
                }
@@ -61,9 +61,9 @@ public abstract class axg extends bbo {
                for(var13 = -var5; var13 <= var5; ++var13) {
                   for(var14 = -var5; var14 <= var5; ++var14) {
                      for(var15 = -var5; var15 <= var5; ++var15) {
-                        Block var16 = var1.p(new Location(var7 + var13, var8 + var14, var9 + var15)).c();
+                        Block var16 = var1.getData(new Location(var7 + var13, var8 + var14, var9 + var15)).c();
                         if(var16 != aty.r && var16 != aty.s) {
-                           if(var16.r() == Material.j) {
+                           if(var16.r() == Material.LEAVES) {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -2;
                            } else {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -1;
@@ -122,7 +122,7 @@ public abstract class axg extends bbo {
    }
 
    private void d(World var1, Location var2) {
-      this.b(var1, var2, var1.p(var2), 0);
+      this.b(var1, var2, var1.getData(var2), 0);
       var1.g(var2);
    }
 
@@ -130,8 +130,8 @@ public abstract class axg extends bbo {
       return var1.nextInt(20) == 0?1:0;
    }
 
-   public alq a(IBlock var1, Random var2, int var3) {
-      return alq.a(aty.g);
+   public Item a(IBlock var1, Random var2, int var3) {
+      return Item.a(aty.g);
    }
 
    public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
@@ -145,7 +145,7 @@ public abstract class axg extends bbo {
          }
 
          if(var1.s.nextInt(var6) == 0) {
-            alq var7 = this.a(var3, var1.s, var5);
+            Item var7 = this.a(var3, var1.s, var5);
             a(var1, var2, new amj(var7, 1, this.a(var3)));
          }
 

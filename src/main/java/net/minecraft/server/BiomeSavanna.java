@@ -14,8 +14,8 @@ public class BiomeSavanna extends BiomeBase {
       this.as.C = 20;
    }
 
-   public bhc a(Random var1) {
-      return (bhc)(var1.nextInt(5) > 0?aD:this.aA);
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)(var1.nextInt(5) > 0?aD:this.aA);
    }
 
    protected BiomeBase d(int var1) {

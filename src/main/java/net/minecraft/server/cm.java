@@ -11,11 +11,11 @@ public class cm extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.setblock.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 4) {
          throw new dp("commands.setblock.usage", new Object[0]);
       } else {
@@ -31,7 +31,7 @@ public class cm extends CommandAbstract {
          if(!var6.e(var3)) {
             throw new di("commands.setblock.outOfWorld", new Object[0]);
          } else {
-            fn var7 = new fn();
+            NBTTagCompound var7 = new NBTTagCompound();
             boolean var8 = false;
             if(var2.length >= 7 && var4.x()) {
                String var9 = a(var1, var2, 6).c();
@@ -87,7 +87,7 @@ public class cm extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
    }
 }

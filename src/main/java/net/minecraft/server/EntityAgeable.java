@@ -94,13 +94,13 @@ public abstract class EntityAgeable extends EntityCreature {
       this.a(this.i_());
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Age", this.l());
       var1.a("ForcedAge", this.b);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.b(var1.f("Age"));
       this.b = var1.f("ForcedAge");

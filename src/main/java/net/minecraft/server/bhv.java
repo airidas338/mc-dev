@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bhv extends bhp {
+public class bhv extends WorldGenerator {
 
    private int a = -1;
 
@@ -35,8 +35,8 @@ public class bhv extends bhp {
             for(var9 = var3.n() - var8; var9 <= var3.n() + var8 && var6; ++var9) {
                for(var10 = var3.p() - var8; var10 <= var3.p() + var8 && var6; ++var10) {
                   if(var7 >= 0 && var7 < 256) {
-                     Block var11 = var1.p(new Location(var9, var7, var10)).c();
-                     if(var11.r() != Material.a && var11.r() != Material.j) {
+                     Block var11 = var1.getData(new Location(var9, var7, var10)).c();
+                     if(var11.r() != Material.AIR && var11.r() != Material.LEAVES) {
                         var6 = false;
                      }
                   } else {
@@ -49,7 +49,7 @@ public class bhv extends bhp {
          if(!var6) {
             return false;
          } else {
-            Block var15 = var1.p(var3.b()).c();
+            Block var15 = var1.getData(var3.b()).c();
             if(var15 != aty.d && var15 != aty.c && var15 != aty.bw) {
                return false;
             } else {
@@ -131,7 +131,7 @@ public class bhv extends bhp {
 
                         if(var13 != 0 || var3.o() >= var3.o() + var5 - 1) {
                            Location var14 = new Location(var17, var9, var12);
-                           if(!var1.p(var14).c().m()) {
+                           if(!var1.getData(var14).c().m()) {
                               this.a(var1, var14, Block.c(Block.a(aty.bg) + var4), var13);
                            }
                         }
@@ -140,7 +140,7 @@ public class bhv extends bhp {
                }
 
                for(var9 = 0; var9 < var5; ++var9) {
-                  Block var18 = var1.p(var3.b(var9)).c();
+                  Block var18 = var1.getData(var3.b(var9)).c();
                   if(!var18.m()) {
                      this.a(var1, var3.b(var9), Block.c(Block.a(aty.bg) + var4), 10);
                   }

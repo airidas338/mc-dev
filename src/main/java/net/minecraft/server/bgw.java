@@ -100,7 +100,7 @@ public class bgw implements bfe {
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlock var9 = var1.a(var2, var8, var3);
-               if(var9.c().r() == Material.a) {
+               if(var9.c().r() == Material.AIR) {
                   var5 = -1;
                } else if(var9.c() == aty.b) {
                   if(var5 == -1) {

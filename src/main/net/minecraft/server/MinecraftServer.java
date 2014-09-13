@@ -491,7 +491,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 				this.b.a(var4.P().k());
 				if (this.y % 20 == 0) {
 					this.b.a("timeSync");
-					this.v.a((id) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.t.q());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.t.q());
 					this.b.b();
 				}
 

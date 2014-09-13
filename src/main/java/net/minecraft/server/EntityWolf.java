@@ -72,13 +72,13 @@ public class EntityWolf extends EntityTameableAnimal {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Angry", this.ct());
       var1.a("CollarColor", (byte)this.cu().b());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.o(var1.n("Angry"));
       if(var1.b("CollarColor", 99)) {
@@ -103,8 +103,8 @@ public class EntityWolf extends EntityTameableAnimal {
       return 0.4F;
    }
 
-   protected alq A() {
-      return alq.b(-1);
+   protected Item A() {
+      return Item.b(-1);
    }
 
    public void m() throws IOException {

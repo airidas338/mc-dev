@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 
-public class aln extends alq {
+public class aln extends Item {
 
    private final Class a;
 
 
    public aln(Class var1) {
       this.a = var1;
-      this.a(akf.c);
+      this.a(CreativeModeTab.c);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {

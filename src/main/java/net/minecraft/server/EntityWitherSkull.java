@@ -30,7 +30,7 @@ public class EntityWitherSkull extends EntityFireball {
       return var5;
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(!this.o.D) {
          if(var1.d != null) {
             if(this.a != null) {

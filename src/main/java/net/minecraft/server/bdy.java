@@ -29,8 +29,8 @@ public class bdy {
    public boolean a() {
       this.e.clear();
       this.f.clear();
-      Block var1 = this.a.p(this.c).c();
-      if(!bdq.a(var1, this.a, this.c, this.d, false)) {
+      Block var1 = this.a.getData(this.c).c();
+      if(!BlockPiston.a(var1, this.a, this.c, this.d, false)) {
          if(var1.i() != 1) {
             return false;
          } else {
@@ -42,7 +42,7 @@ public class bdy {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             Location var3 = (Location)this.e.get(var2);
-            if(this.a.p(var3).c() == aty.cE && !this.b(var3)) {
+            if(this.a.getData(var3).c() == aty.cE && !this.b(var3)) {
                return false;
             }
          }
@@ -52,10 +52,10 @@ public class bdy {
    }
 
    private boolean a(Location var1) {
-      Block var2 = this.a.p(var1).c();
-      if(var2.r() == Material.a) {
+      Block var2 = this.a.getData(var1).c();
+      if(var2.r() == Material.AIR) {
          return true;
-      } else if(!bdq.a(var2, this.a, var1, this.d, false)) {
+      } else if(!BlockPiston.a(var2, this.a, var1, this.d, false)) {
          return true;
       } else if(var1.equals(this.b)) {
          return true;
@@ -68,8 +68,8 @@ public class bdy {
          } else {
             while(var2 == aty.cE) {
                Location var4 = var1.a(this.d.d(), var3);
-               var2 = this.a.p(var4).c();
-               if(var2.r() == Material.a || !bdq.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
+               var2 = this.a.getData(var4).c();
+               if(var2.r() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
 
@@ -97,7 +97,7 @@ public class bdy {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      Location var9 = (Location)this.e.get(var8);
-                     if(this.a.p(var9).c() == aty.cE && !this.b(var9)) {
+                     if(this.a.getData(var9).c() == aty.cE && !this.b(var9)) {
                         return false;
                      }
                   }
@@ -105,12 +105,12 @@ public class bdy {
                   return true;
                }
 
-               var2 = this.a.p(var6).c();
-               if(var2.r() == Material.a) {
+               var2 = this.a.getData(var6).c();
+               if(var2.r() == Material.AIR) {
                   return true;
                }
 
-               if(!bdq.a(var2, this.a, var6, this.d, true) || var6.equals(this.b)) {
+               if(!BlockPiston.a(var2, this.a, var6, this.d, true) || var6.equals(this.b)) {
                   return false;
                }
 

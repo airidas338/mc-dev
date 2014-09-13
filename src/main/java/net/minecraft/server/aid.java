@@ -247,7 +247,7 @@ public class aid extends aib {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.i.p(this.j).c() != aty.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.getData(this.j).c() != aty.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
    public amj b(EntityHuman var1, int var2) {

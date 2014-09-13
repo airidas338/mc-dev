@@ -160,12 +160,12 @@ public abstract class BiomeBase {
       return this;
    }
 
-   public bhc a(Random var1) {
-      return (bhc)(var1.nextInt(10) == 0?this.aB:this.aA);
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)(var1.nextInt(10) == 0?this.aB:this.aA);
    }
 
-   public bhp b(Random var1) {
-      return new biq(bbi.b);
+   public WorldGenerator b(Random var1) {
+      return new WorldGenGrass(EnumFoliage.b);
    }
 
    public EnumFlowerType a(Random var1, Location var2) {
@@ -278,7 +278,7 @@ public abstract class BiomeBase {
             var3.a(var14, var15, var13, aty.h.P());
          } else {
             IBlock var16 = var3.a(var14, var15, var13);
-            if(var16.c().r() == Material.a) {
+            if(var16.c().r() == Material.AIR) {
                var11 = -1;
             } else if(var16.c() == aty.b) {
                if(var11 == -1) {
@@ -290,7 +290,7 @@ public abstract class BiomeBase {
                      var10 = this.al;
                   }
 
-                  if(var15 < 63 && (var9 == null || var9.c().r() == Material.a)) {
+                  if(var15 < 63 && (var9 == null || var9.c().r() == Material.AIR)) {
                      if(this.a(new Location(var4, var15, var5)) < 0.15F) {
                         var9 = aty.aI.P();
                      } else {
@@ -313,7 +313,7 @@ public abstract class BiomeBase {
                   var3.a(var14, var15, var13, var10);
                   if(var11 == 0 && var10.c() == aty.m) {
                      var11 = var2.nextInt(4) + Math.max(0, var15 - 63);
-                     var10 = var10.b(bab.a) == bac.b?aty.cM.P():aty.A.P();
+                     var10 = var10.b(BlockSand.a) == bac.b?aty.cM.P():aty.A.P();
                   }
                }
             }

@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
-public abstract class Entity implements ae {
+public abstract class Entity implements ICommandSender {
 
 	private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 	private static int b;
@@ -477,10 +477,10 @@ public abstract class Entity implements ae {
 			int var59 = MathHelper.c(this.t - 0.20000000298023224D);
 			int var56 = MathHelper.c(this.u);
 			Location var26 = new Location(var58, var59, var56);
-			Block var62 = this.o.p(var26).c();
-			if (var62.r() == Material.a) {
-				Block var28 = this.o.p(var26.b()).c();
-				if (var28 instanceof avv || var28 instanceof bbx || var28 instanceof avw) {
+			Block var62 = this.o.getData(var26).c();
+			if (var62.r() == Material.AIR) {
+				Block var28 = this.o.getData(var26.b()).c();
+				if (var28 instanceof BlockFence || var28 instanceof BlockCobbleWall || var28 instanceof BlockFenceGate) {
 					var62 = var28;
 					var26 = var26.b();
 				}
@@ -513,7 +513,7 @@ public abstract class Entity implements ae {
 
 				this.M = (float) ((double) this.M + (double) MathHelper.a(var61 * var61 + var66 * var66) * 0.6D);
 				this.N = (float) ((double) this.N + (double) MathHelper.a(var61 * var61 + var63 * var63 + var66 * var66) * 0.6D);
-				if (this.N > (float) this.h && var62.r() != Material.a) {
+				if (this.N > (float) this.h && var62.r() != Material.AIR) {
 					this.h = (int) this.N + 1;
 					if (this.V()) {
 						float var34 = MathHelper.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
@@ -577,7 +577,7 @@ public abstract class Entity implements ae {
 				for (int var4 = var1.o(); var4 <= var2.o(); ++var4) {
 					for (int var5 = var1.p(); var5 <= var2.p(); ++var5) {
 						Location var6 = new Location(var3, var4, var5);
-						IBlock var7 = this.o.p(var6);
+						IBlock var7 = this.o.getData(var6);
 
 						try {
 							var7.c().a(this.o, var6, var7, this);
@@ -596,7 +596,7 @@ public abstract class Entity implements ae {
 
 	protected void a(Location var1, Block var2) {
 		StepSound var3 = var2.H;
-		if (this.o.p(var1.a()).c() == aty.aH) {
+		if (this.o.getData(var1.a()).c() == aty.aH) {
 			var3 = aty.aH.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		} else if (!var2.r().d()) {
@@ -672,7 +672,7 @@ public abstract class Entity implements ae {
 	}
 
 	public boolean W() {
-		if (this.o.a(this.aQ().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.h, this)) {
+		if (this.o.a(this.aQ().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
 			if (!this.Y && !this.aa) {
 				this.X();
 			}
@@ -725,7 +725,7 @@ public abstract class Entity implements ae {
 		int var2 = MathHelper.c(this.t - 0.20000000298023224D);
 		int var3 = MathHelper.c(this.u);
 		Location var4 = new Location(var1, var2, var3);
-		IBlock var5 = this.o.p(var4);
+		IBlock var5 = this.o.getData(var4);
 		Block var6 = var5.c();
 		if (var6.b() != -1) {
 			this.o.a(ew.L, this.s + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, this.aQ().b + 0.1D, this.u + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D,
@@ -741,7 +741,7 @@ public abstract class Entity implements ae {
 	public boolean a(Material var1) {
 		double var2 = this.t + (double) this.aR();
 		Location var4 = new Location(this.s, var2, this.u);
-		IBlock var5 = this.o.p(var4);
+		IBlock var5 = this.o.getData(var4);
 		Block var6 = var5.c();
 		if (var6.r() == var1) {
 			float var7 = axl.b(var5.c().c(var5)) - 0.11111111F;
@@ -754,7 +754,7 @@ public abstract class Entity implements ae {
 	}
 
 	public boolean ab() {
-		return this.o.a(this.aQ().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.i);
+		return this.o.a(this.aQ().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
 	}
 
 	public void a(float var1, float var2, float var3) {
@@ -944,7 +944,7 @@ public abstract class Entity implements ae {
 	public void b(Entity var1, int var2) {
 	}
 
-	public boolean c(fn var1) {
+	public boolean c(NBTTagCompound var1) {
 		String var2 = this.ag();
 		if (!this.I && var2 != null) {
 			var1.a("id", var2);
@@ -955,7 +955,7 @@ public abstract class Entity implements ae {
 		}
 	}
 
-	public boolean d(fn var1) {
+	public boolean d(NBTTagCompound var1) {
 		String var2 = this.ag();
 		if (!this.I && var2 != null && this.l == null) {
 			var1.a("id", var2);
@@ -966,11 +966,11 @@ public abstract class Entity implements ae {
 		}
 	}
 
-	public void e(fn var1) {
+	public void e(NBTTagCompound var1) {
 		try {
-			var1.a("Pos", (gd) this.a(new double[] { this.s, this.t, this.u }));
-			var1.a("Motion", (gd) this.a(new double[] { this.v, this.w, this.x }));
-			var1.a("Rotation", (gd) this.a(new float[] { this.y, this.z }));
+			var1.a("Pos", (NBTBase) this.a(new double[] { this.s, this.t, this.u }));
+			var1.a("Motion", (NBTBase) this.a(new double[] { this.v, this.w, this.x }));
+			var1.a("Rotation", (NBTBase) this.a(new float[] { this.y, this.z }));
 			var1.a("FallDistance", this.O);
 			var1.a("Fire", (short) this.i);
 			var1.a("Air", (short) this.aA());
@@ -992,9 +992,9 @@ public abstract class Entity implements ae {
 
 			this.b(var1);
 			if (this.m != null) {
-				fn var2 = new fn();
+				NBTTagCompound var2 = new NBTTagCompound();
 				if (this.m.c(var2)) {
-					var1.a("Riding", (gd) var2);
+					var1.a("Riding", (NBTBase) var2);
 				}
 			}
 
@@ -1006,7 +1006,7 @@ public abstract class Entity implements ae {
 		}
 	}
 
-	public void f(fn var1) {
+	public void f(NBTTagCompound var1) {
 		try {
 			fv var2 = var1.c("Pos", 6);
 			fv var6 = var1.c("Motion", 6);
@@ -1074,9 +1074,9 @@ public abstract class Entity implements ae {
 		return EntityTypes.b(this);
 	}
 
-	protected abstract void a(fn var1);
+	protected abstract void a(NBTTagCompound var1);
 
-	protected abstract void b(fn var1);
+	protected abstract void b(NBTTagCompound var1);
 
 	public void ah() {
 	}
@@ -1088,7 +1088,7 @@ public abstract class Entity implements ae {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			double var6 = var3[var5];
-			var2.a((gd) (new fq(var6)));
+			var2.a((NBTBase) (new NBTTagDouble(var6)));
 		}
 
 		return var2;
@@ -1101,17 +1101,17 @@ public abstract class Entity implements ae {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			float var6 = var3[var5];
-			var2.a((gd) (new fs(var6)));
+			var2.a((NBTBase) (new NBTTagFloat(var6)));
 		}
 
 		return var2;
 	}
 
-	public EntityItem a(alq var1, int var2) {
+	public EntityItem a(Item var1, int var2) {
 		return this.a(var1, var2, 0.0F);
 	}
 
-	public EntityItem a(alq var1, int var2, float var3) {
+	public EntityItem a(Item var1, int var2, float var3) {
 		return this.a(new amj(var1, var2, 0), var3);
 	}
 
@@ -1138,7 +1138,7 @@ public abstract class Entity implements ae {
 				double var2 = this.s + (double) (((float) ((var1 >> 0) % 2) - 0.5F) * this.J * 0.8F);
 				double var4 = this.t + (double) (((float) ((var1 >> 1) % 2) - 0.5F) * 0.1F);
 				double var6 = this.u + (double) (((float) ((var1 >> 2) % 2) - 0.5F) * this.J * 0.8F);
-				if (this.o.p(new Location(var2, var4 + (double) this.aR(), var6)).c().u()) {
+				if (this.o.getData(new Location(var2, var4 + (double) this.aR(), var6)).c().u()) {
 					return true;
 				}
 			}
@@ -1349,7 +1349,7 @@ public abstract class Entity implements ae {
 		this.ac.b(1, Short.valueOf((short) var1));
 	}
 
-	public void a(ads var1) {
+	public void a(EntityLightning var1) {
 		this.a(DamageSource.b, 5.0F);
 		++this.i;
 		if (this.i == 0) {
@@ -1477,7 +1477,7 @@ public abstract class Entity implements ae {
 	}
 
 	public void n(Entity var1) {
-		fn var2 = new fn();
+		NBTTagCompound var2 = new NBTTagCompound();
 		var1.e(var2);
 		this.f(var2);
 		this.aj = var1.aj;
@@ -1599,7 +1599,7 @@ public abstract class Entity implements ae {
 	}
 
 	protected hr aP() {
-		fn var1 = new fn();
+		NBTTagCompound var1 = new NBTTagCompound();
 		String var2 = EntityTypes.b(this);
 		var1.a("id", this.aJ().toString());
 		if (var2 != null) {
@@ -1677,7 +1677,7 @@ public abstract class Entity implements ae {
 		this.as.a(var1.aT());
 	}
 
-	public fn aU() {
+	public NBTTagCompound aU() {
 		return null;
 	}
 

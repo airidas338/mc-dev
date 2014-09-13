@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class iv implements id {
+public class iv implements Packet {
 
    private Location a;
    private int b;

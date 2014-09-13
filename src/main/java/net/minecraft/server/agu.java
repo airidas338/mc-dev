@@ -9,7 +9,7 @@ class agu implements agw {
    public agx d;
 
 
-   public agu(alq var1, agx var2, alq var3, agx var4) {
+   public agu(Item var1, agx var2, Item var3, agx var4) {
       this.a = new amj(var1);
       this.b = var2;
       this.c = new amj(var3);

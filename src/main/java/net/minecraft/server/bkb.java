@@ -6,7 +6,7 @@ import java.util.Random;
 
 abstract class bkb extends bms {
 
-   protected static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 5), new StructurePieceTreaasure(Items.j, 0, 1, 5, 5), new StructurePieceTreaasure(Items.k, 0, 1, 3, 15), new StructurePieceTreaasure(Items.B, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ah, 0, 1, 1, 5), new StructurePieceTreaasure(Items.d, 0, 1, 1, 5), new StructurePieceTreaasure(Items.by, 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 10), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 8), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 5), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 3), new StructurePieceTreaasure(alq.a(aty.Z), 0, 2, 4, 2)});
+   protected static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 5), new StructurePieceTreaasure(Items.j, 0, 1, 5, 5), new StructurePieceTreaasure(Items.k, 0, 1, 3, 15), new StructurePieceTreaasure(Items.B, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ah, 0, 1, 1, 5), new StructurePieceTreaasure(Items.d, 0, 1, 1, 5), new StructurePieceTreaasure(Items.by, 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 10), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 8), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 5), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 3), new StructurePieceTreaasure(Item.a(aty.Z), 0, 2, 4, 2)});
 
 
    public bkb() {}
@@ -15,9 +15,9 @@ abstract class bkb extends bms {
       super(var1);
    }
 
-   protected void b(fn var1) {}
+   protected void b(NBTTagCompound var1) {}
 
-   protected void a(fn var1) {}
+   protected void a(NBTTagCompound var1) {}
 
    private int a(List var1) {
       boolean var2 = false;

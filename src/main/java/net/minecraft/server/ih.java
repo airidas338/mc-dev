@@ -5,12 +5,12 @@ import java.io.IOException;
 final class ih implements Runnable {
 
    // $FF: synthetic field
-   final id a;
+   final Packet a;
    // $FF: synthetic field
    final PacketListener b;
 
 
-   ih(id var1, PacketListener var2) {
+   ih(Packet var1, PacketListener var2) {
       this.a = var1;
       this.b = var2;
    }

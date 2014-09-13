@@ -85,7 +85,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
          }
 
          j.info("Generating keypair");
-         this.a(ug.b());
+         this.a(MinecraftEncryption.b());
          j.info("Starting Minecraft server on " + (this.s().length() == 0?"*":this.s()) + ":" + this.Q());
 
          try {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mq implements id {
+public class mq implements Packet {
 
    private String a;
    private mr b;

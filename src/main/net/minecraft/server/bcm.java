@@ -113,7 +113,7 @@ public abstract class bcm {
       return this.e;
    }
 
-   public id x_() {
+   public Packet x_() {
       return null;
    }
 

@@ -5,7 +5,7 @@ public class ajs extends aju {
    public ajs() {
       super(aty.cK);
       this.h = 16;
-      this.a(akf.c);
+      this.a(CreativeModeTab.c);
       this.a(true);
       this.d(0);
    }
@@ -13,7 +13,7 @@ public class ajs extends aju {
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(var5 == ej.a) {
          return false;
-      } else if(!var3.p(var4).c().r().a()) {
+      } else if(!var3.getData(var4).c().r().a()) {
          return false;
       } else {
          var4 = var4.a(var5);
@@ -26,9 +26,9 @@ public class ajs extends aju {
          } else {
             if(var5 == ej.b) {
                int var9 = MathHelper.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.a(var4, aty.cK.P().a(baw.a, Integer.valueOf(var9)), 3);
+               var3.a(var4, aty.cK.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
-               var3.a(var4, aty.cL.P().a(bbz.a, var5), 3);
+               var3.a(var4, aty.cL.P().a(BlockWallSign.a, var5), 3);
             }
 
             --var1.b;
@@ -50,7 +50,7 @@ public class ajs extends aju {
    }
 
    private akv h(amj var1) {
-      fn var2 = var1.a("BlockEntityTag", false);
+      NBTTagCompound var2 = var1.a("BlockEntityTag", false);
       akv var3 = null;
       if(var2 != null && var2.c("Base")) {
          var3 = akv.a(var2.f("Base"));

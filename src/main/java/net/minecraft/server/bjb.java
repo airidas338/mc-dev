@@ -138,7 +138,7 @@ public class bjb {
       return Objects.toStringHelper(this).add("x0", this.a).add("y0", this.b).add("z0", this.c).add("x1", this.d).add("y1", this.e).add("z1", this.f).toString();
    }
 
-   public ft g() {
-      return new ft(new int[]{this.a, this.b, this.c, this.d, this.e, this.f});
+   public NBTTagIntArray g() {
+      return new NBTTagIntArray(new int[]{this.a, this.b, this.c, this.d, this.e, this.f});
    }
 }

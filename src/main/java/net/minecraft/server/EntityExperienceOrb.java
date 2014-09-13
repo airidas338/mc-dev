@@ -46,7 +46,7 @@ public class EntityExperienceOrb extends Entity {
       this.q = this.t;
       this.r = this.u;
       this.w -= 0.029999999329447746D;
-      if(this.o.p(new Location(this)).c().r() == Material.i) {
+      if(this.o.getData(new Location(this)).c().r() == Material.LAVA) {
          this.w = 0.20000000298023224D;
          this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
          this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -84,7 +84,7 @@ public class EntityExperienceOrb extends Entity {
       this.d(this.v, this.w, this.x);
       float var13 = 0.98F;
       if(this.C) {
-         var13 = this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
+         var13 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
       }
 
       this.v *= (double)var13;
@@ -103,7 +103,7 @@ public class EntityExperienceOrb extends Entity {
    }
 
    public boolean W() {
-      return this.o.a(this.aQ(), Material.h, (Entity)this);
+      return this.o.a(this.aQ(), Material.WATER, (Entity)this);
    }
 
    protected void f(int var1) {
@@ -124,13 +124,13 @@ public class EntityExperienceOrb extends Entity {
       }
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Health", (short)((byte)this.d));
       var1.a("Age", (short)this.b);
       var1.a("Value", (short)this.e);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.d = var1.e("Health") & 255;
       this.b = var1.e("Age");
       this.e = var1.e("Value");

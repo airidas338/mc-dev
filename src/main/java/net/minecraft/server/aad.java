@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class aad extends zb {
+public class aad extends PathfinderGoal {
 
    private EntityTameableAnimal a;
    private boolean b;

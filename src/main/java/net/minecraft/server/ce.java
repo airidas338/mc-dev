@@ -6,11 +6,11 @@ public class ce extends CommandAbstract {
       return "publish";
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.publish.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       String var3 = MinecraftServer.M().a(EnumGamemode.SURVIVAL, false);
       if(var3 != null) {
          a(var1, this, "commands.publish.started", new Object[]{var3});

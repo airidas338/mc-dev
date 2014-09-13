@@ -110,14 +110,14 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
       return true;
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("PushX", this.a);
       var1.a("PushZ", this.b);
       var1.a("Fuel", (short)this.c);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       this.a = var1.i("PushX");
       this.b = var1.i("PushZ");
@@ -138,6 +138,6 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return (this.j()?aty.am:aty.al).P().a(awj.a, ej.c);
+      return (this.j()?aty.am:aty.al).P().a(BlockFurnace.a, ej.c);
    }
 }

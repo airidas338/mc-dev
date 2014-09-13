@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bio extends bhc {
+public class bio extends WorldGenTreeAbstract {
 
    public bio(boolean var1) {
       super(var1);
@@ -27,8 +27,8 @@ public class bio extends bhc {
             for(var11 = var3.n() - var21; var11 <= var3.n() + var21 && var8; ++var11) {
                for(int var12 = var3.p() - var21; var12 <= var3.p() + var21 && var8; ++var12) {
                   if(var9 >= 0 && var9 < 256) {
-                     Block var13 = var1.p(new Location(var11, var9, var12)).c();
-                     if(var13.r() != Material.a && var13.r() != Material.j) {
+                     Block var13 = var1.getData(new Location(var11, var9, var12)).c();
+                     if(var13.r() != Material.AIR && var13.r() != Material.LEAVES) {
                         var8 = false;
                      }
                   } else {
@@ -41,7 +41,7 @@ public class bio extends bhc {
          if(!var8) {
             return false;
          } else {
-            Block var20 = var1.p(var3.b()).c();
+            Block var20 = var1.getData(var3.b()).c();
             if((var20 == aty.c || var20 == aty.d || var20 == aty.ak) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var21 = var2.nextInt(2);
@@ -60,7 +60,7 @@ public class bio extends bhc {
                         int var18 = var17 - var3.p();
                         if(Math.abs(var16) != var21 || Math.abs(var18) != var21 || var21 <= 0) {
                            Location var19 = new Location(var15, var14, var17);
-                           if(!var1.p(var19).c().m()) {
+                           if(!var1.getData(var19).c().m()) {
                               this.a(var1, var19, aty.t, ayx.b.a());
                            }
                         }
@@ -82,8 +82,8 @@ public class bio extends bhc {
                var23 = var2.nextInt(3);
 
                for(var14 = 0; var14 < var4 - var23; ++var14) {
-                  Block var24 = var1.p(var3.b(var14)).c();
-                  if(var24.r() == Material.a || var24.r() == Material.j) {
+                  Block var24 = var1.getData(var3.b(var14)).c();
+                  if(var24.r() == Material.AIR || var24.r() == Material.LEAVES) {
                      this.a(var1, var3.b(var14), aty.r, ayx.b.a());
                   }
                }

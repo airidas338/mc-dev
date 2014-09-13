@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class is implements id {
+public class is implements Packet {
 
    private Map a;
 

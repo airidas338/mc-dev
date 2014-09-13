@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bis extends bhp {
+public class bis extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
       for(; var3.o() < 128; var3 = var3.a()) {
@@ -12,7 +12,7 @@ public class bis extends bhp {
             for(int var6 = 0; var6 < var5; ++var6) {
                ej var7 = var4[var6];
                if(aty.bn.a(var1, var3, var7)) {
-                  IBlock var8 = aty.bn.P().a(bbv.b, Boolean.valueOf(var7 == ej.c)).a(bbv.M, Boolean.valueOf(var7 == ej.f)).a(bbv.N, Boolean.valueOf(var7 == ej.d)).a(bbv.O, Boolean.valueOf(var7 == ej.e));
+                  IBlock var8 = aty.bn.P().a(BlockVine.b, Boolean.valueOf(var7 == ej.c)).a(BlockVine.M, Boolean.valueOf(var7 == ej.f)).a(BlockVine.N, Boolean.valueOf(var7 == ej.d)).a(BlockVine.O, Boolean.valueOf(var7 == ej.e));
                   var1.a(var3, var8, 2);
                   break;
                }

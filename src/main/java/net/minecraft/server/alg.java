@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class alg extends alq {
+public class alg extends Item {
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
       if(!var3.D) {

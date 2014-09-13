@@ -11,11 +11,11 @@ public class bk extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.execute.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 5) {
          throw new dp("commands.execute.usage", new Object[0]);
       } else {
@@ -33,7 +33,7 @@ public class bk extends CommandAbstract {
             Block var19 = g(var1, var2[8]);
             int var20 = a(var2[9], -1, 15);
             Location var21 = new Location(var13, var15, var17);
-            IBlock var22 = var12.p(var21);
+            IBlock var22 = var12.getData(var21);
             if(var22.c() != var19 || var20 >= 0 && var22.c().c(var22) != var20) {
                throw new di("commands.execute.failed", new Object[]{"detect", var3.d_()});
             }
@@ -56,7 +56,7 @@ public class bk extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.c.c()):null)));
    }
 

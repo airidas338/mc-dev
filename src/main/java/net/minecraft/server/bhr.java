@@ -15,11 +15,11 @@ public class bhr extends WorldGenTrees {
 
    public boolean generate(World var1, Random var2, Location var3) {
       Block var4;
-      while(((var4 = var1.p(var3).c()).r() == Material.a || var4.r() == Material.j) && var3.o() > 0) {
+      while(((var4 = var1.getData(var3).c()).r() == Material.AIR || var4.r() == Material.LEAVES) && var3.o() > 0) {
          var3 = var3.b();
       }
 
-      Block var5 = var1.p(var3).c();
+      Block var5 = var1.getData(var3).c();
       if(var5 == aty.d || var5 == aty.c) {
          var3 = var3.a();
          this.a(var1, var3, aty.r, this.b);
@@ -35,7 +35,7 @@ public class bhr extends WorldGenTrees {
                   int var12 = var11 - var3.p();
                   if(Math.abs(var10) != var8 || Math.abs(var12) != var8 || var2.nextInt(2) != 0) {
                      Location var13 = new Location(var9, var6, var11);
-                     if(!var1.p(var13).c().m()) {
+                     if(!var1.getData(var13).c().m()) {
                         this.a(var1, var13, aty.t, this.a);
                      }
                   }

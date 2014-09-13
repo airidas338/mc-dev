@@ -20,11 +20,11 @@ public class cr extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.spreadplayers.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 6) {
          throw new dp("commands.spreadplayers.usage", new Object[0]);
       } else {
@@ -62,13 +62,13 @@ public class cr extends CommandAbstract {
          if(var14.isEmpty()) {
             throw new dj();
          } else {
-            var1.a(new hz("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
+            var1.a(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
             this.a(var1, var14, new cs(var5, var7), var9, var11, ((Entity)var14.get(0)).o, var13);
          }
       }
    }
 
-   private void a(ae var1, List var2, cs var3, double var4, double var6, World var8, boolean var9) throws di {
+   private void a(ICommandSender var1, List var2, cs var3, double var4, double var6, World var8, boolean var9) throws di {
       Random var10 = new Random();
       double var11 = var3.a - var6;
       double var13 = var3.b - var6;
@@ -79,7 +79,7 @@ public class cr extends CommandAbstract {
       double var21 = this.a(var2, var8, var19, var9);
       a(var1, this, "commands.spreadplayers.success." + (var9?"teams":"players"), new Object[]{Integer.valueOf(var19.length), Double.valueOf(var3.a), Double.valueOf(var3.b)});
       if(var19.length > 1) {
-         var1.a(new hz("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
+         var1.a(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
       }
 
    }

@@ -79,8 +79,8 @@ public class ajb extends aib {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.b() instanceof ajn && !((ajk)this.c.get(5 + ((ajn)var3.b()).b)).e()) {
-            int var6 = 5 + ((ajn)var3.b()).b;
+         } else if(var3.b() instanceof ItemArmor && !((ajk)this.c.get(5 + ((ItemArmor)var3.b()).b)).e()) {
+            int var6 = 5 + ((ItemArmor)var3.b()).b;
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
             }

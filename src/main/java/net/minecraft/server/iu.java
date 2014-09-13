@@ -2,16 +2,16 @@ package net.minecraft.server;
 import java.io.IOException;
 
 
-public class iu implements id {
+public class iu implements Packet {
 
    private Location a;
    private int b;
-   private fn c;
+   private NBTTagCompound c;
 
 
    public iu() {}
 
-   public iu(Location var1, int var2, fn var3) {
+   public iu(Location var1, int var2, NBTTagCompound var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

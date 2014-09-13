@@ -4,8 +4,8 @@ import java.util.Random;
 final class ou extends eg {
 
    public amj b(dz var1, amj var2) {
-      ej var3 = ave.b(var1.f());
-      ex var4 = ave.a(var1);
+      ej var3 = BlockDispenser.b(var1.f());
+      ex var4 = BlockDispenser.a(var1);
       double var5 = var4.a() + (double)((float)var3.g() * 0.3F);
       double var7 = var4.b() + (double)((float)var3.g() * 0.3F);
       double var9 = var4.c() + (double)((float)var3.i() * 0.3F);

@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
 
-public class alb extends alq {
+public class alb extends Item {
 
    public alb() {
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
    }
 
    public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.p(var4);
-      if(var2.a(var4.a(var5), var5, var1) && var9.c() == aty.bG && !((Boolean)var9.b(avq.b)).booleanValue()) {
+      IBlock var9 = var3.getData(var4);
+      if(var2.a(var4.a(var5), var5, var1) && var9.c() == aty.bG && !((Boolean)var9.b(BlockEnderPortalFrame.b)).booleanValue()) {
          if(var3.D) {
             return true;
          } else {
-            var3.a(var4, var9.a(avq.b, Boolean.valueOf(true)), 2);
+            var3.a(var4, var9.a(BlockEnderPortalFrame.b, Boolean.valueOf(true)), 2);
             var3.e(var4, aty.bG);
             --var1.b;
 
@@ -27,7 +27,7 @@ public class alb extends alq {
                var3.a(ew.l, var11, var13, var15, var17, var19, var21, new int[0]);
             }
 
-            ej var24 = (ej)var9.b(avq.a);
+            ej var24 = (ej)var9.b(BlockEnderPortalFrame.a);
             int var23 = 0;
             int var12 = 0;
             boolean var25 = false;
@@ -36,9 +36,9 @@ public class alb extends alq {
 
             for(int var16 = -2; var16 <= 2; ++var16) {
                Location var29 = var4.a(var26, var16);
-               IBlock var18 = var3.p(var29);
+               IBlock var18 = var3.getData(var29);
                if(var18.c() == aty.bG) {
-                  if(!((Boolean)var18.b(avq.b)).booleanValue()) {
+                  if(!((Boolean)var18.b(BlockEnderPortalFrame.b)).booleanValue()) {
                      var14 = false;
                      break;
                   }
@@ -57,8 +57,8 @@ public class alb extends alq {
                int var28;
                for(var28 = var23; var28 <= var12; ++var28) {
                   Location var32 = var27.a(var26, var28);
-                  IBlock var30 = var3.p(var32);
-                  if(var30.c() != aty.bG || !((Boolean)var30.b(avq.b)).booleanValue()) {
+                  IBlock var30 = var3.getData(var32);
+                  if(var30.c() != aty.bG || !((Boolean)var30.b(BlockEnderPortalFrame.b)).booleanValue()) {
                      var14 = false;
                      break;
                   }
@@ -71,8 +71,8 @@ public class alb extends alq {
 
                   for(var31 = 1; var31 <= 3; ++var31) {
                      var33 = var27.a(var24, var31);
-                     IBlock var20 = var3.p(var33);
-                     if(var20.c() != aty.bG || !((Boolean)var20.b(avq.b)).booleanValue()) {
+                     IBlock var20 = var3.getData(var33);
+                     if(var20.c() != aty.bG || !((Boolean)var20.b(BlockEnderPortalFrame.b)).booleanValue()) {
                         var14 = false;
                         break;
                      }
@@ -99,8 +99,8 @@ public class alb extends alq {
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
-      bru var4 = this.a(var2, var3, false);
-      if(var4 != null && var4.a == brv.b && var2.p(var4.a()).c() == aty.bG) {
+      MovingObjectPosition var4 = this.a(var2, var3, false);
+      if(var4 != null && var4.a == brv.b && var2.getData(var4.a()).c() == aty.bG) {
          return var1;
       } else {
          if(!var2.D) {
@@ -115,7 +115,7 @@ public class alb extends alq {
                   --var1.b;
                }
 
-               var3.b(ty.J[alq.b((alq)this)]);
+               var3.b(ty.J[Item.b((Item)this)]);
             }
          }
 

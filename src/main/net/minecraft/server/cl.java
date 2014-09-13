@@ -77,7 +77,7 @@ public class cl extends ab implements y {
          var6 = false;
       }
 
-      hz var8 = new hz("chat.type.admin", new Object[]{var1.d_(), new hz(var4, var5)});
+      ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.d_(), new ChatMessage(var4, var5)});
       var8.b().a(EnumChatFormat.h);
       var8.b().b(Boolean.valueOf(true));
       if(var6) {
@@ -101,7 +101,7 @@ public class cl extends ab implements y {
       }
 
       if((var3 & 1) != 1 && var11) {
-         var1.a(new hz(var4, var5));
+         var1.a(new ChatMessage(var4, var5));
       }
 
    }

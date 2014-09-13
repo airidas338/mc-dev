@@ -12,9 +12,9 @@ public class bjj extends bms {
       this.l = var3;
    }
 
-   protected void a(fn var1) {}
+   protected void a(NBTTagCompound var1) {}
 
-   protected void b(fn var1) {}
+   protected void b(NBTTagCompound var1) {}
 
    public static bjb a(List var0, Random var1, int var2, int var3, int var4, ej var5) {
       bjb var6 = new bjb(var2, var3 - 5, var4, var2, var3 + 2, var4);

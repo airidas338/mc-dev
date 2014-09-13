@@ -12,11 +12,11 @@ public class cw extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.tp.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.tp.usage", new Object[0]);
       } else {
@@ -112,7 +112,7 @@ public class cw extends CommandAbstract {
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.M().I());
    }
 

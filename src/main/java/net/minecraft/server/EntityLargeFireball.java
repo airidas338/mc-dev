@@ -14,7 +14,7 @@ public class EntityLargeFireball extends EntityFireball {
       super(var1, var2, var3, var5, var7);
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(!this.o.D) {
          if(var1.d != null) {
             var1.d.a(DamageSource.a((EntityFireball)this, this.a), 6.0F);
@@ -28,12 +28,12 @@ public class EntityLargeFireball extends EntityFireball {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("ExplosionPower", this.e);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("ExplosionPower", 99)) {
          this.e = var1.f("ExplosionPower");

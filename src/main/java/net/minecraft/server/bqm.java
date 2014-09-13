@@ -83,8 +83,8 @@ public class bqm implements IDataManager, brl {
 
    public WorldData d() {
       File var1 = new File(this.b, "level.dat");
-      fn var2;
-      fn var3;
+      NBTTagCompound var2;
+      NBTTagCompound var3;
       if(var1.exists()) {
          try {
             var2 = fz.a((InputStream)(new FileInputStream(var1)));
@@ -109,10 +109,10 @@ public class bqm implements IDataManager, brl {
       return null;
    }
 
-   public void a(WorldData var1, fn var2) {
-      fn var3 = var1.a(var2);
-      fn var4 = new fn();
-      var4.a("Data", (gd)var3);
+   public void a(WorldData var1, NBTTagCompound var2) {
+      NBTTagCompound var3 = var1.a(var2);
+      NBTTagCompound var4 = new NBTTagCompound();
+      var4.a("Data", (NBTBase)var3);
 
       try {
          File var5 = new File(this.b, "level.dat_new");
@@ -139,9 +139,9 @@ public class bqm implements IDataManager, brl {
    }
 
    public void a(WorldData var1) {
-      fn var2 = var1.a();
-      fn var3 = new fn();
-      var3.a("Data", (gd)var2);
+      NBTTagCompound var2 = var1.a();
+      NBTTagCompound var3 = new NBTTagCompound();
+      var3.a("Data", (NBTBase)var2);
 
       try {
          File var4 = new File(this.b, "level.dat_new");
@@ -169,7 +169,7 @@ public class bqm implements IDataManager, brl {
 
    public void a(EntityHuman var1) {
       try {
-         fn var2 = new fn();
+         NBTTagCompound var2 = new NBTTagCompound();
          var1.e(var2);
          File var3 = new File(this.c, var1.aJ().toString() + ".dat.tmp");
          File var4 = new File(this.c, var1.aJ().toString() + ".dat");
@@ -185,8 +185,8 @@ public class bqm implements IDataManager, brl {
 
    }
 
-   public fn b(EntityHuman var1) {
-      fn var2 = null;
+   public NBTTagCompound b(EntityHuman var1) {
+      NBTTagCompound var2 = null;
 
       try {
          File var3 = new File(this.c, var1.aJ().toString() + ".dat");

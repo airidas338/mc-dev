@@ -27,7 +27,7 @@ public class EntityThrownExpBottle extends EntityProjectile {
       return -20.0F;
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(!this.o.D) {
          this.o.b(2002, new Location(this), 0);
          int var2 = 3 + this.o.s.nextInt(5) + this.o.s.nextInt(5);

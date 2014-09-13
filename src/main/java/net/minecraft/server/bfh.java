@@ -74,7 +74,7 @@ public class bfh {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
                IBlock var11 = var2.a(var10);
-               if(var11.c().r() != Material.a) {
+               if(var11.c().r() != Material.AIR) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new bfm(var12 << 4, var6);
@@ -935,14 +935,14 @@ public class bfh {
          for(int var6 = 0; var6 < 16; ++var6) {
             Location var7 = var1.a(var4, (var3 << 4) + var6, var5);
             boolean var8 = var6 == 0 || var6 == 15 || var4 == 0 || var4 == 15 || var5 == 0 || var5 == 15;
-            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).r() == Material.a) {
+            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).r() == Material.AIR) {
                ej[] var9 = ej.values();
                int var10 = var9.length;
 
                for(int var11 = 0; var11 < var10; ++var11) {
                   ej var12 = var9[var11];
                   Location var13 = var7.a(var12);
-                  if(this.i.p(var13).c().p() > 0) {
+                  if(this.i.getData(var13).c().p() > 0) {
                      this.i.x(var13);
                   }
                }

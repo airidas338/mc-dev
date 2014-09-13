@@ -84,7 +84,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       }
 
       if(this.a) {
-         if(this.o.p(new Location(this.c, this.d, this.e)).c() == this.f) {
+         if(this.o.getData(new Location(this.c, this.d, this.e)).c() == this.f) {
             ++this.i;
             if(this.i == 1200) {
                this.J();
@@ -105,7 +105,7 @@ public abstract class EntityProjectile extends Entity implements aho {
 
       ChunkCoordinates var1 = new ChunkCoordinates(this.s, this.t, this.u);
       ChunkCoordinates var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
-      bru var3 = this.o.a(var1, var2);
+      MovingObjectPosition var3 = this.o.a(var1, var2);
       var1 = new ChunkCoordinates(this.s, this.t, this.u);
       var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
       if(var3 != null) {
@@ -123,7 +123,7 @@ public abstract class EntityProjectile extends Entity implements aho {
             if(var10.ad() && (var10 != var8 || this.ap >= 5)) {
                float var11 = 0.3F;
                AxisAlignedBB var12 = var10.aQ().b((double)var11, (double)var11, (double)var11);
-               bru var13 = var12.a(var1, var2);
+               MovingObjectPosition var13 = var12.a(var1, var2);
                if(var13 != null) {
                   double var14 = var1.f(var13.c);
                   if(var14 < var6 || var6 == 0.0D) {
@@ -135,12 +135,12 @@ public abstract class EntityProjectile extends Entity implements aho {
          }
 
          if(var4 != null) {
-            var3 = new bru(var4);
+            var3 = new MovingObjectPosition(var4);
          }
       }
 
       if(var3 != null) {
-         if(var3.a == brv.b && this.o.p(var3.a()).c() == aty.aY) {
+         if(var3.a == brv.b && this.o.getData(var3.a()).c() == aty.aY) {
             this.aq();
          } else {
             this.a(var3);
@@ -193,9 +193,9 @@ public abstract class EntityProjectile extends Entity implements aho {
       return 0.03F;
    }
 
-   protected abstract void a(bru var1);
+   protected abstract void a(MovingObjectPosition var1);
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("xTile", (short)this.c);
       var1.a("yTile", (short)this.d);
       var1.a("zTile", (short)this.e);
@@ -210,7 +210,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       var1.a("ownerName", this.h == null?"":this.h);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.c = var1.e("xTile");
       this.d = var1.e("yTile");
       this.e = var1.e("zTile");

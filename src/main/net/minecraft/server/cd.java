@@ -74,7 +74,7 @@ public class cd extends CommandAbstract {
             var13 = var17;
          }
 
-         var5.a.a((id)(new jv(var4, var7, var9, var11, (float)var13, (float)var15)));
+         var5.a.a((Packet)(new jv(var4, var7, var9, var11, (float)var13, (float)var15)));
          a(var1, this, "commands.playsound.success", new Object[]{var4, var5.d_()});
       }
    }

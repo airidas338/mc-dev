@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import org.apache.commons.lang3.StringUtils;
 
-public abstract class aaw extends zb {
+public abstract class aaw extends PathfinderGoal {
 
    protected final EntityCreature e;
    protected boolean f;

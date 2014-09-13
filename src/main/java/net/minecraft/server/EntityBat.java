@@ -81,7 +81,7 @@ public class EntityBat extends EntityAmbient {
       Location var1 = new Location(this);
       Location var2 = var1.a();
       if(this.n()) {
-         if(!this.o.p(var2).c().t()) {
+         if(!this.o.getData(var2).c().t()) {
             this.a(false);
             this.o.a((EntityHuman)null, 1015, var1, 0);
          } else {
@@ -113,7 +113,7 @@ public class EntityBat extends EntityAmbient {
          float var10 = MathHelper.g(var9 - this.y);
          this.aY = 0.5F;
          this.y += var10;
-         if(this.V.nextInt(100) == 0 && this.o.p(var2).c().t()) {
+         if(this.V.nextInt(100) == 0 && this.o.getData(var2).c().t()) {
             this.a(true);
          }
       }
@@ -144,12 +144,12 @@ public class EntityBat extends EntityAmbient {
       }
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.ac.b(16, Byte.valueOf(var1.d("BatFlags")));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("BatFlags", this.ac.a(16));
    }

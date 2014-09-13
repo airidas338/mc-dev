@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public abstract class zn extends zb {
+public abstract class zn extends PathfinderGoal {
 
    private final EntityCreature c;
    private final double d;

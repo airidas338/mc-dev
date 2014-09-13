@@ -70,7 +70,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
       return "mob.ghast.death";
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.H;
    }
 
@@ -102,12 +102,12 @@ public class EntityGhast extends EntityFlying implements IMonster {
       return 1;
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("ExplosionPower", this.a);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("ExplosionPower", 99)) {
          this.a = var1.f("ExplosionPower");

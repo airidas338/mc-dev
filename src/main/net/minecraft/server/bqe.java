@@ -155,7 +155,7 @@ public class bqe extends bqc {
       this.h.put(var3, new bqd((byte)var1, var13, var14, var15));
    }
 
-   public id a(amj var1, World var2, EntityHuman var3) {
+   public Packet a(amj var1, World var2, EntityHuman var3) {
       bqf var4 = (bqf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }

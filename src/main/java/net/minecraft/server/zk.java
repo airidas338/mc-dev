@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zk extends zb {
+public class zk extends PathfinderGoal {
 
    World a;
    protected EntityCreature b;

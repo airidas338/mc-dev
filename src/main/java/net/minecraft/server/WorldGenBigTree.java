@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class WorldGenBigTree extends bhc {
+public class WorldGenBigTree extends WorldGenTreeAbstract {
 
    private Random k;
    private World l;
@@ -82,8 +82,8 @@ public class WorldGenBigTree extends bhc {
          for(int var6 = -var4; var6 <= var4; ++var6) {
             if(Math.pow((double)Math.abs(var5) + 0.5D, 2.0D) + Math.pow((double)Math.abs(var6) + 0.5D, 2.0D) <= (double)(var2 * var2)) {
                Location var7 = var1.a(var5, 0, var6);
-               Material var8 = this.l.p(var7).c().r();
-               if(var8 == Material.a || var8 == Material.j) {
+               Material var8 = this.l.getData(var7).c().r();
+               if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(this.l, var7, var3, 0);
                }
             }
@@ -210,7 +210,7 @@ public class WorldGenBigTree extends bhc {
       } else {
          for(int var8 = 0; var8 <= var4; ++var8) {
             Location var9 = var1.a((double)(0.5F + (float)var8 * var5), (double)(0.5F + (float)var8 * var6), (double)(0.5F + (float)var8 * var7));
-            if(!this.a(this.l.p(var9).c())) {
+            if(!this.a(this.l.getData(var9).c())) {
                return var8;
             }
          }
@@ -243,7 +243,7 @@ public class WorldGenBigTree extends bhc {
    }
 
    private boolean f() {
-      Block var1 = this.l.p(this.m.b()).c();
+      Block var1 = this.l.getData(this.m.b()).c();
       if(var1 != aty.d && var1 != aty.c && var1 != aty.ak) {
          return false;
       } else {

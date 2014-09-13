@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 
-public class akc extends alq {
+public class akc extends Item {
 
    public akc() {
-      this.a(akf.e);
+      this.a(CreativeModeTab.e);
       this.c(1);
       this.d(25);
    }
@@ -23,7 +23,7 @@ public class akc extends alq {
          }
       }
 
-      var3.b(ty.J[alq.b((alq)this)]);
+      var3.b(ty.J[Item.b((Item)this)]);
       return var1;
    }
 }

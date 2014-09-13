@@ -34,12 +34,12 @@ public class EntityPainting extends EntityHanging {
       this.a(var3);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("Motive", this.c.B);
       super.b(var1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       String var2 = var1.j("Motive");
       adn[] var3 = adn.values();
       int var4 = var3.length;

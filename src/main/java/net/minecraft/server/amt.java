@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 
-public class amt extends alq {
+public class amt extends Item {
 
    public amt() {
-      this.a(akf.i);
+      this.a(CreativeModeTab.i);
    }
 
    public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {

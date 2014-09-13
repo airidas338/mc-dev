@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class kz implements id {
+public class kz implements Packet {
 
    private int a;
    private int b;

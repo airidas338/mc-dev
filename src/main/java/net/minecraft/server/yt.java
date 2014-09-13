@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class yt extends zb {
+public class yt extends PathfinderGoal {
 
    private EntityAnimal d;
    World a;

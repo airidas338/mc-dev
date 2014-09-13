@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class bhg extends bhp {
+public class bhg extends WorldGenerator {
 
    private final Block a;
    private final int b;
@@ -19,7 +19,7 @@ public class bhg extends bhp {
          if(var3.o() > 3) {
             label47: {
                if(!var1.d(var3.b())) {
-                  Block var4 = var1.p(var3.b()).c();
+                  Block var4 = var1.getData(var3.b()).c();
                   if(var4 == aty.c || var4 == aty.d || var4 == aty.b) {
                      break label47;
                   }

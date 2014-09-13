@@ -7,7 +7,7 @@ class agv implements agw {
    public agx b;
 
 
-   public agv(alq var1, agx var2) {
+   public agv(Item var1, agx var2) {
       this.a = new amj(var1);
       this.b = var2;
    }

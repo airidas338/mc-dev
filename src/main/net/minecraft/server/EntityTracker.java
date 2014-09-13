@@ -185,7 +185,7 @@ public class EntityTracker {
 
    }
 
-   public void a(Entity var1, id var2) {
+   public void a(Entity var1, Packet var2) {
       qy var3 = (qy)this.d.a(var1.F());
       if(var3 != null) {
          var3.a(var2);
@@ -193,7 +193,7 @@ public class EntityTracker {
 
    }
 
-   public void b(Entity var1, id var2) {
+   public void b(Entity var1, Packet var2) {
       qy var3 = (qy)this.d.a(var1.F());
       if(var3 != null) {
          var3.b(var2);

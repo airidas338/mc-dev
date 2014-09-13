@@ -90,17 +90,17 @@ public class atk {
    }
 
    private atk b(Location var1) {
-      IBlock var3 = this.b.p(var1);
+      IBlock var3 = this.b.getData(var1);
       if(ati.d(var3)) {
          return new atk(this.a, this.b, var1, var3);
       } else {
          Location var2 = var1.a();
-         var3 = this.b.p(var2);
+         var3 = this.b.getData(var2);
          if(ati.d(var3)) {
             return new atk(this.a, this.b, var2, var3);
          } else {
             var2 = var1.b();
-            var3 = this.b.p(var2);
+            var3 = this.b.getData(var2);
             return ati.d(var3)?new atk(this.a, this.b, var2, var3):null;
          }
       }
@@ -322,7 +322,7 @@ public class atk {
 
       this.a(var11);
       this.e = this.e.a(this.d.l(), var11);
-      if(var2 || this.b.p(this.c) != this.e) {
+      if(var2 || this.b.getData(this.c) != this.e) {
          this.b.a(this.c, this.e, 3);
 
          for(int var12 = 0; var12 < this.g.size(); ++var12) {

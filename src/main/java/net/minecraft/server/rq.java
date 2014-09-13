@@ -54,7 +54,7 @@ public class rq implements nh, IUpdatePlayerListBox {
       try {
          c.info("Disconnecting " + this.d() + ": " + var1);
          ChatComponentText var2 = new ChatComponentText(var1);
-         this.a.a((id)(new ng(var2)));
+         this.a.a((Packet)(new ng(var2)));
          this.a.a((IChatBaseComponent)var2);
       } catch (Exception var3) {
          c.error("Error whilst disconnecting player", var3);
@@ -76,7 +76,7 @@ public class rq implements nh, IUpdatePlayerListBox {
             this.a.a(new nf(this.f.aI()), new rr(this), new GenericFutureListener[0]);
          }
 
-         this.a.a((id)(new nd(this.i)));
+         this.a.a((Packet)(new nd(this.i)));
          this.f.an().a(this.a, this.f.an().f(this.i));
       }
 
@@ -95,7 +95,7 @@ public class rq implements nh, IUpdatePlayerListBox {
       this.i = var1.a();
       if(this.f.ae() && !this.a.c()) {
          this.g = rt.b;
-         this.a.a((id)(new ne(this.j, this.f.P().getPublic(), this.e)));
+         this.a.a((Packet)(new ne(this.j, this.f.P().getPublic(), this.e)));
       } else {
          this.g = rt.d;
       }

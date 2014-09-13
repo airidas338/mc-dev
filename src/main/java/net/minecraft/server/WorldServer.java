@@ -35,7 +35,7 @@ public class WorldServer extends World implements vn {
    protected final abk d = new abk(this);
    private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((PredicateEntityUnderSun)null), new BlockActionDataList((PredicateEntityUnderSun)null)};
    private int T;
-   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.f), 0, 1, 3, 10), new StructurePieceTreaasure(alq.a(aty.r), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(alq.a(aty.s), 0, 1, 3, 10)});
+   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(aty.f), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(aty.r), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(aty.s), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
 
 
@@ -237,7 +237,7 @@ public class WorldServer extends World implements vn {
                var8 = this.m >> 2;
                var9 = this.a(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                if(this.C(var9)) {
-                  this.c(new ads(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
+                  this.c(new EntityLightning(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
                }
             }
 
@@ -256,7 +256,7 @@ public class WorldServer extends World implements vn {
                }
 
                if(this.S() && this.b(var10).e()) {
-                  this.p(var10).c().k(this, var10);
+                  this.getData(var10).c().k(this, var10);
                }
             }
 
@@ -311,12 +311,12 @@ public class WorldServer extends World implements vn {
    public void a(Location var1, Block var2, int var3, int var4) {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       byte var6 = 0;
-      if(this.e && var2.r() != Material.a) {
+      if(this.e && var2.r() != Material.AIR) {
          if(var2.M()) {
             var6 = 8;
             if(this.a(var5.a.a(-var6, -var6, -var6), var5.a.a(var6, var6, var6))) {
-               IBlock var7 = this.p(var5.a);
-               if(var7.c().r() != Material.a && var7.c() == var5.a()) {
+               IBlock var7 = this.getData(var5.a);
+               if(var7.c().r() != Material.AIR && var7.c() == var5.a()) {
                   var7.c().b((World)this, var5.a, var7, this.s);
                }
             }
@@ -328,7 +328,7 @@ public class WorldServer extends World implements vn {
       }
 
       if(this.a(var1.a(-var6, -var6, -var6), var1.a(var6, var6, var6))) {
-         if(var2.r() != Material.a) {
+         if(var2.r() != Material.AIR) {
             var5.a((long)var3 + this.x.f());
             var5.a(var4);
          }
@@ -344,7 +344,7 @@ public class WorldServer extends World implements vn {
    public void b(Location var1, Block var2, int var3, int var4) {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       var5.a(var4);
-      if(var2.r() != Material.a) {
+      if(var2.r() != Material.AIR) {
          var5.a((long)var3 + this.x.f());
       }
 
@@ -406,8 +406,8 @@ public class WorldServer extends World implements vn {
                var11.remove();
                byte var5 = 0;
                if(this.a(var4.a.a(-var5, -var5, -var5), var4.a.a(var5, var5, var5))) {
-                  IBlock var6 = this.p(var4.a);
-                  if(var6.c().r() != Material.a && Block.a(var6.c(), var4.a())) {
+                  IBlock var6 = this.getData(var4.a);
+                  if(var6.c().r() != Material.AIR && Block.a(var6.c(), var4.a())) {
                      try {
                         var6.c().b((World)this, var4.a, var6, this.s);
                      } catch (Throwable var10) {
@@ -714,7 +714,7 @@ public class WorldServer extends World implements vn {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((id)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
+            ((EntityPlayer)var13).a.a((Packet)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
          }
       }
 
@@ -756,7 +756,7 @@ public class WorldServer extends World implements vn {
    }
 
    private boolean a(aqk var1) {
-      IBlock var2 = this.p(var1.a());
+      IBlock var2 = this.getData(var1.a());
       return var2.c() == var1.d()?var2.c().a(this, var1.a(), var2, var1.b(), var1.c()):false;
    }
 
@@ -768,22 +768,22 @@ public class WorldServer extends World implements vn {
       boolean var1 = this.S();
       super.p();
       if(this.o != this.p) {
-         this.I.an().a((id)(new jo(7, this.p)), this.t.q());
+         this.I.an().a((Packet)(new jo(7, this.p)), this.t.q());
       }
 
       if(this.q != this.r) {
-         this.I.an().a((id)(new jo(8, this.r)), this.t.q());
+         this.I.an().a((Packet)(new jo(8, this.r)), this.t.q());
       }
 
       if(var1 != this.S()) {
          if(var1) {
-            this.I.an().a((id)(new jo(2, 0.0F)));
+            this.I.an().a((Packet)(new jo(2, 0.0F)));
          } else {
-            this.I.an().a((id)(new jo(1, 0.0F)));
+            this.I.an().a((Packet)(new jo(1, 0.0F)));
          }
 
-         this.I.an().a((id)(new jo(7, this.p)));
-         this.I.an().a((id)(new jo(8, this.r)));
+         this.I.an().a((Packet)(new jo(7, this.p)));
+         this.I.an().a((Packet)(new jo(8, this.r)));
       }
 
    }
@@ -820,7 +820,7 @@ public class WorldServer extends World implements vn {
          Location var22 = var21.c();
          double var23 = var22.c(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((id)var19);
+            var21.a.a((Packet)var19);
          }
       }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class big extends bhc {
+public class big extends WorldGenTreeAbstract {
 
    public big() {
       super(false);
@@ -28,7 +28,7 @@ public class big extends bhc {
             for(var11 = var3.n() - var18; var11 <= var3.n() + var18 && var8; ++var11) {
                for(var12 = var3.p() - var18; var12 <= var3.p() + var18 && var8; ++var12) {
                   if(var9 >= 0 && var9 < 256) {
-                     if(!this.a(var1.p(new Location(var11, var9, var12)).c())) {
+                     if(!this.a(var1.getData(new Location(var11, var9, var12)).c())) {
                         var8 = false;
                      }
                   } else {
@@ -41,7 +41,7 @@ public class big extends bhc {
          if(!var8) {
             return false;
          } else {
-            Block var17 = var1.p(var3.b()).c();
+            Block var17 = var1.getData(var3.b()).c();
             if((var17 == aty.c || var17 == aty.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var18 = 0;
@@ -54,7 +54,7 @@ public class big extends bhc {
                         int var15 = var14 - var3.p();
                         if(Math.abs(var13) != var18 || Math.abs(var15) != var18 || var18 <= 0) {
                            Location var16 = new Location(var12, var11, var14);
-                           if(!var1.p(var16).c().m()) {
+                           if(!var1.getData(var16).c().m()) {
                               this.a(var1, var16, aty.t, ayx.b.a());
                            }
                         }
@@ -69,8 +69,8 @@ public class big extends bhc {
                }
 
                for(var11 = 0; var11 < var4 - 1; ++var11) {
-                  Block var19 = var1.p(var3.b(var11)).c();
-                  if(var19.r() == Material.a || var19.r() == Material.j) {
+                  Block var19 = var1.getData(var3.b(var11)).c();
+                  if(var19.r() == Material.AIR || var19.r() == Material.LEAVES) {
                      this.a(var1, var3.b(var11), aty.r, ayx.b.a());
                   }
                }

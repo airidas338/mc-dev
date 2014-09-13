@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.security.PublicKey;
 
-public class ne implements id {
+public class ne implements Packet {
 
    private String a;
    private PublicKey b;
@@ -18,7 +18,7 @@ public class ne implements id {
 
    public void a(hd var1) {
       this.a = var1.c(20);
-      this.b = ug.a(var1.a());
+      this.b = MinecraftEncryption.a(var1.a());
       this.c = var1.a();
    }
 

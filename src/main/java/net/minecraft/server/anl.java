@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public class anl extends alq {
+public class anl extends Item {
 
    public anl() {
       this.a(true);
-      this.a(akf.f);
+      this.a(CreativeModeTab.f);
    }
 
    public String a(amj var1) {
@@ -24,7 +24,7 @@ public class anl extends alq {
       } else if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
-         IBlock var9 = var3.p(var4);
+         IBlock var9 = var3.getData(var4);
          if(var9.c() == aty.ac) {
             bcm var10 = var3.s(var4);
             if(var10 instanceof bdg) {
@@ -42,7 +42,7 @@ public class anl extends alq {
 
          var4 = var4.a(var5);
          double var13 = 0.0D;
-         if(var5 == ej.b && var9 instanceof avv) {
+         if(var5 == ej.b && var9 instanceof BlockFence) {
             var13 = 0.5D;
          }
 
@@ -65,7 +65,7 @@ public class anl extends alq {
       if(var2.D) {
          return var1;
       } else {
-         bru var4 = this.a(var2, var3, true);
+         MovingObjectPosition var4 = this.a(var2, var3, true);
          if(var4 == null) {
             return var1;
          } else {
@@ -79,7 +79,7 @@ public class anl extends alq {
                   return var1;
                }
 
-               if(var2.p(var5).c() instanceof axl) {
+               if(var2.getData(var5).c() instanceof axl) {
                   Entity var6 = a(var2, var1.i(), (double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D);
                   if(var6 != null) {
                      if(var6 instanceof EntityLiving && var1.s()) {
@@ -90,7 +90,7 @@ public class anl extends alq {
                         --var1.b;
                      }
 
-                     var3.b(ty.J[alq.b((alq)this)]);
+                     var3.b(ty.J[Item.b((Item)this)]);
                   }
                }
             }

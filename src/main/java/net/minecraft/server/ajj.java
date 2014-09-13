@@ -36,7 +36,7 @@ public class ajj extends ajk {
       }
 
       this.c = 0;
-      if(var1.b() == alq.a(aty.ai)) {
+      if(var1.b() == Item.a(aty.ai)) {
          this.b.b((tq)tl.h);
       }
 
@@ -44,7 +44,7 @@ public class ajj extends ajk {
          this.b.b((tq)tl.i);
       }
 
-      if(var1.b() == alq.a(aty.al)) {
+      if(var1.b() == Item.a(aty.al)) {
          this.b.b((tq)tl.j);
       }
 
@@ -68,11 +68,11 @@ public class ajj extends ajk {
          this.b.b((tq)tl.r);
       }
 
-      if(var1.b() == alq.a(aty.bC)) {
+      if(var1.b() == Item.a(aty.bC)) {
          this.b.b((tq)tl.E);
       }
 
-      if(var1.b() == alq.a(aty.X)) {
+      if(var1.b() == Item.a(aty.X)) {
          this.b.b((tq)tl.G);
       }
 

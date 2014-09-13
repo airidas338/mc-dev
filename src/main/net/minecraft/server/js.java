@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class js implements id {
+public class js implements Packet {
 
    private int[] a;
    private int[] b;

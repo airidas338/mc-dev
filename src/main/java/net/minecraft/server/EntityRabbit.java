@@ -177,13 +177,13 @@ public class EntityRabbit extends EntityAnimal {
       this.getAttributeInstance(GenericAttributes.d).a(0.30000001192092896D);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("RabbitType", this.cl());
       var1.a("MoreCarrotTicks", this.bs);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.r(var1.f("RabbitType"));
       this.bs = var1.f("MoreCarrotTicks");
@@ -246,8 +246,8 @@ public class EntityRabbit extends EntityAnimal {
 
    }
 
-   private boolean a(alq var1) {
-      return var1 == Items.bR || var1 == Items.bW || var1 == alq.a((Block)aty.N);
+   private boolean a(Item var1) {
+      return var1 == Items.bR || var1 == Items.bW || var1 == Item.a((Block)aty.N);
    }
 
    public EntityRabbit b(EntityAgeable var1) {
@@ -269,7 +269,7 @@ public class EntityRabbit extends EntityAnimal {
 
    public void r(int var1) {
       if(var1 == 99) {
-         this.i.a((zb)this.bk);
+         this.i.a((PathfinderGoal)this.bk);
          this.i.a(4, new acd(this));
          this.bg.a(1, new aal(this, false, new Class[0]));
          this.bg.a(2, new aaq(this, EntityHuman.class, true));

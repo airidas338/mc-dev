@@ -1,11 +1,11 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class ajw extends alq {
+public class ajw extends Item {
 
    public ajw() {
       this.h = 1;
-      this.a(akf.e);
+      this.a(CreativeModeTab.e);
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
@@ -24,7 +24,7 @@ public class ajw extends alq {
       float var20 = var14 * var16;
       double var21 = 5.0D;
       ChunkCoordinates var23 = var13.b((double)var18 * var21, (double)var17 * var21, (double)var20 * var21);
-      bru var24 = var2.a(var13, var23, true);
+      MovingObjectPosition var24 = var2.a(var13, var23, true);
       if(var24 == null) {
          return var1;
       } else {
@@ -49,7 +49,7 @@ public class ajw extends alq {
          } else {
             if(var24.a == brv.b) {
                Location var34 = var24.a();
-               if(var2.p(var34).c() == aty.aH) {
+               if(var2.getData(var34).c() == aty.aH) {
                   var34 = var34.b();
                }
 
@@ -67,7 +67,7 @@ public class ajw extends alq {
                   --var1.b;
                }
 
-               var3.b(ty.J[alq.b((alq)this)]);
+               var3.b(ty.J[Item.b((Item)this)]);
             }
 
             return var1;

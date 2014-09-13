@@ -79,7 +79,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       this.p = var1;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = var1.c("Items", 10);
       this.m = new amj[this.n_()];
@@ -88,7 +88,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       }
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          int var5 = var4.d("Slot") & 255;
          if(var5 >= 0 && var5 < this.m.length) {
             this.m[var5] = amj.a(var4);
@@ -97,20 +97,20 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       fv var2 = new fv();
 
       for(int var3 = 0; var3 < this.m.length; ++var3) {
          if(this.m[var3] != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var3);
             this.m[var3].b(var4);
-            var2.a((gd)var4);
+            var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (gd)var2);
+      var1.a("Items", (NBTBase)var2);
       if(this.k_()) {
          var1.a("CustomName", this.p);
       }
@@ -187,8 +187,8 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       if(this.b == null) {
          return false;
       } else {
-         Block var2 = this.b.p(var1).c();
-         return var2 instanceof auj && ((auj)var2).b == this.n();
+         Block var2 = this.b.getData(var1).c();
+         return var2 instanceof BlockChest && ((BlockChest)var2).b == this.n();
       }
    }
 
@@ -291,7 +291,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
    }
 
    public void c(EntityHuman var1) {
-      if(!var1.v() && this.w() instanceof auj) {
+      if(!var1.v() && this.w() instanceof BlockChest) {
          --this.l;
          this.b.c(this.c, this.w(), 1, this.l);
          this.b.c(this.c, this.w());
@@ -312,11 +312,11 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    public int n() {
       if(this.o == -1) {
-         if(this.b == null || !(this.w() instanceof auj)) {
+         if(this.b == null || !(this.w() instanceof BlockChest)) {
             return 0;
          }
 
-         this.o = ((auj)this.w()).b;
+         this.o = ((BlockChest)this.w()).b;
       }
 
       return this.o;

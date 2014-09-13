@@ -31,7 +31,7 @@ public class bdb extends bcm {
       this.f = var1.f("Data");
    }
 
-   public id x_() {
+   public Packet x_() {
       fn var1 = new fn();
       this.b(var1);
       var1.o("Item");

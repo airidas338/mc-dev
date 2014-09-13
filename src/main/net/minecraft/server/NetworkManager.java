@@ -33,7 +33,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	public static final AttributeKey c = AttributeKey.valueOf("protocol");
 	public static final up d = new gs();
 	public static final up e = new gt();
-	private final ie g;
+	private final EnumPacketDirection g;
 	private final Queue h = Queues.newConcurrentLinkedQueue();
 	private Channel i;
 	private SocketAddress j;
@@ -42,16 +42,30 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private boolean m;
 	private boolean n;
 
-	public NetworkManager(ie var1) {
+	public NetworkManager(EnumPacketDirection var1) {
 		this.g = var1;
 	}
 
 	public void channelActive(ChannelHandlerContext var1) throws Exception {
 		super.channelActive(var1);
-		System.out.println(var1.channel() + " " + var1.channel().isOpen());
 		this.i = var1.channel();
+		System.out.println("Channel recieved. " + i.remoteAddress());
 		this.j = this.i.remoteAddress();
-
+		new Thread() {
+			public void run() {
+				try {
+					while (true) {
+						System.out.println(i.isActive() + ", " + i.isOpen());
+						if (!i.isActive()) {
+							break;
+						}
+						Thread.sleep(10);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		};//.start();
 		try {
 			this.a(gy.a);
 		} catch (Throwable var3) {
@@ -63,28 +77,24 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	public void a(gy var1) {
 		this.i.attr(c).set(var1);
 		this.i.config().setAutoRead(true);
-		System.out.println(this.i.attr(c).get());
 		f.debug("Enabled auto read");
 	}
 
 	public void channelInactive(ChannelHandlerContext var1) {
-		this.a((IChatBaseComponent) (new hz("disconnect.endOfStream", new Object[0])));
+		this.a((IChatBaseComponent) (new ChatMessage("disconnect.endOfStream", new Object[0])));
 	}
 
 	public void exceptionCaught(ChannelHandlerContext var1, Throwable var2) {
 		f.debug("Disconnecting " + this.b(), var2);
-		this.a((IChatBaseComponent) (new hz("disconnect.genericReason", new Object[] { "Internal Exception: " + var2 })));
+		this.a((IChatBaseComponent) (new ChatMessage("disconnect.genericReason", new Object[] { "Internal Exception: " + var2 })));
 	}
 
-	protected void a(ChannelHandlerContext var1, id var2) {
+	protected void a(ChannelHandlerContext var1, Packet var2) throws IOException {
 		if (this.i.isOpen()) {
 			try {
 				var2.a(this.k);
 			} catch (pi var4) {
 				;
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 		}
 
@@ -96,7 +106,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 		this.k = var1;
 	}
 
-	public void a(id var1) {
+	public void a(Packet var1) {
 		if (this.i != null && this.i.isOpen()) {
 			this.m();
 			this.a(var1, (GenericFutureListener[]) null);
@@ -106,7 +116,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	}
 
-	public void a(id var1, GenericFutureListener var2, GenericFutureListener... var3) {
+	public void a(Packet var1, GenericFutureListener var2, GenericFutureListener... var3) {
 		if (this.i != null && this.i.isOpen()) {
 			this.m();
 			this.a(var1, (GenericFutureListener[]) ArrayUtils.add(var3, 0, var2));
@@ -116,7 +126,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	}
 
-	private void a(id var1, GenericFutureListener[] var2) {
+	private void a(Packet var1, GenericFutureListener[] var2) {
 		gy var3 = gy.a(var1);
 		gy var4 = (gy) this.i.attr(c).get();
 		if (var4 != var3) {
@@ -178,8 +188,8 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 
 	public void a(SecretKey var1) {
 		this.m = true;
-		this.i.pipeline().addBefore("splitter", "decrypt", new gn(ug.a(2, var1)));
-		this.i.pipeline().addBefore("prepender", "encrypt", new go(ug.a(1, var1)));
+		this.i.pipeline().addBefore("splitter", "decrypt", new PacketDecrypter(MinecraftEncryption.a(2, var1)));
+		this.i.pipeline().addBefore("prepender", "encrypt", new PacketEncrypter(MinecraftEncryption.a(1, var1)));
 	}
 
 	public boolean isConnected() {
@@ -243,8 +253,8 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	// $FF: synthetic method
-	protected void channelRead0(ChannelHandlerContext var1, Object var2) {
-		this.a(var1, (id) var2);
+	protected void channelRead0(ChannelHandlerContext var1, Object var2) throws IOException {
+		this.a(var1, (Packet) var2);
 	}
 
 	// $FF: synthetic method

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class nw implements id {
+public class nw implements Packet {
 
    private long a;
 

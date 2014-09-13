@@ -122,7 +122,7 @@ public class dg extends CommandAbstract {
          } else if(var2[0].equals("get")) {
             var4 = var3.h();
             var1.a(ag.e, MathHelper.c(var4 + 0.5D));
-            var1.a(new hz("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
+            var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
       }

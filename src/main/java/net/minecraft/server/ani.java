@@ -29,7 +29,7 @@ public class ani extends aju {
          return false;
       } else {
          Object var9 = this.b.a(var1);
-         IBlock var10 = var3.p(var4);
+         IBlock var10 = var3.getData(var4);
          if(var10.c() == this.b) {
             bex var11 = this.b.l();
             Comparable var12 = var10.b(var11);
@@ -50,7 +50,7 @@ public class ani extends aju {
    }
 
    private boolean a(amj var1, World var2, Location var3, Object var4) {
-      IBlock var5 = var2.p(var3);
+      IBlock var5 = var2.getData(var3);
       if(var5.c() == this.b) {
          Comparable var6 = var5.b(this.b.l());
          if(var6 == var4) {

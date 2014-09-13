@@ -19,13 +19,13 @@ abstract class bnn extends bms {
 
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       var1.a("HPos", this.h);
       var1.a("VCount", this.a);
       var1.a("Desert", this.b);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       this.h = var1.f("HPos");
       this.a = var1.f("VCount");
       this.b = var1.n("Desert");
@@ -130,11 +130,11 @@ abstract class bnn extends bms {
          }
 
          if(var1.c() == aty.ad) {
-            return aty.bO.P().a(bat.a, var1.b(bat.a));
+            return aty.bO.P().a(BlockStairs.a, var1.b(BlockStairs.a));
          }
 
          if(var1.c() == aty.aw) {
-            return aty.bO.P().a(bat.a, var1.b(bat.a));
+            return aty.bO.P().a(BlockStairs.a, var1.b(BlockStairs.a));
          }
 
          if(var1.c() == aty.n) {

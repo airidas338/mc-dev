@@ -8,7 +8,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    private int g = -1;
 
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = var1.c("Items", 10);
       this.a = new amj[this.n_()];
@@ -19,7 +19,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       this.g = var1.f("TransferCooldown");
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          byte var5 = var4.d("Slot");
          if(var5 >= 0 && var5 < this.a.length) {
             this.a[var5] = amj.a(var4);
@@ -28,20 +28,20 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       fv var2 = new fv();
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
          if(this.a[var3] != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var3);
             this.a[var3].b(var4);
-            var2.a((gd)var4);
+            var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (gd)var2);
+      var1.a("Items", (NBTBase)var2);
       var1.a("TransferCooldown", this.g);
       if(this.k_()) {
          var1.a("CustomName", this.f);
@@ -140,7 +140,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
 
    public boolean m() {
       if(this.b != null && !this.b.D) {
-         if(!this.n() && awx.f(this.u())) {
+         if(!this.n() && BlockHopper.f(this.u())) {
             boolean var1 = false;
             if(!this.p()) {
                var1 = this.r();
@@ -196,7 +196,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       if(var1 == null) {
          return false;
       } else {
-         ej var2 = awx.b(this.u()).d();
+         ej var2 = BlockHopper.b(this.u()).d();
          if(this.a(var1, var2)) {
             return false;
          } else {
@@ -401,7 +401,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    private vq G() {
-      ej var1 = awx.b(this.u());
+      ej var1 = BlockHopper.b(this.u());
       return b(this.z(), (double)(this.c.n() + var1.g()), (double)(this.c.o() + var1.h()), (double)(this.c.p() + var1.i()));
    }
 
@@ -424,9 +424,9 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       if(var12 instanceof vq) {
          var7 = (vq)var12;
          if(var7 instanceof bcr) {
-            Block var13 = var0.p(new Location(var8, var9, var10)).c();
-            if(var13 instanceof auj) {
-               var7 = ((auj)var13).d(var0, var11);
+            Block var13 = var0.getData(new Location(var8, var9, var10)).c();
+            if(var13 instanceof BlockChest) {
+               var7 = ((BlockChest)var13).d(var0, var11);
             }
          }
       }

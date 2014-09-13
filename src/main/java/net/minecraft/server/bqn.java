@@ -27,8 +27,8 @@ public class bqn implements Convertable {
          return null;
       } else {
          File var3 = new File(var2, "level.dat");
-         fn var4;
-         fn var5;
+         NBTTagCompound var4;
+         NBTTagCompound var5;
          if(var3.exists()) {
             try {
                var4 = fz.a((InputStream)(new FileInputStream(var3)));

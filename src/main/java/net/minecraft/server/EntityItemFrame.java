@@ -78,7 +78,7 @@ public class EntityItemFrame extends EntityHanging {
    private void b(amj var1) {
       if(var1 != null) {
          if(var1.b() == Items.bd) {
-            bqe var2 = ((amn)var1.b()).a(var1, this.o);
+            bqe var2 = ((ItemWorldMap)var1.b()).a(var1, this.o);
             var2.h.remove("frame-" + this.F());
          }
 
@@ -125,9 +125,9 @@ public class EntityItemFrame extends EntityHanging {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       if(this.o() != null) {
-         var1.a("Item", (gd)this.o().b(new fn()));
+         var1.a("Item", (NBTBase)this.o().b(new NBTTagCompound()));
          var1.a("ItemRotation", (byte)this.p());
          var1.a("ItemDropChance", this.c);
       }
@@ -135,8 +135,8 @@ public class EntityItemFrame extends EntityHanging {
       super.b(var1);
    }
 
-   public void a(fn var1) {
-      fn var2 = var1.m("Item");
+   public void a(NBTTagCompound var1) {
+      NBTTagCompound var2 = var1.m("Item");
       if(var2 != null && !var2.c_()) {
          this.a(amj.a(var2), false);
          this.a(var1.d("ItemRotation"), false);

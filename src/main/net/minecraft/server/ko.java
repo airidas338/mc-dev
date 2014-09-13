@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ko implements id {
+public class ko implements Packet {
 
    private String a;
    private String b;

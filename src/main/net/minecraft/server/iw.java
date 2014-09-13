@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class iw implements id {
+public class iw implements Packet {
 
    private Location a;
    private IBlock b;

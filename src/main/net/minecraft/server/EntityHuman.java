@@ -844,7 +844,7 @@ public abstract class EntityHuman extends EntityLiving {
                   }
 
                   if(var1 instanceof EntityPlayer && var1.G) {
-                     ((EntityPlayer)var1).a.a((id)(new kz(var1)));
+                     ((EntityPlayer)var1).a.a((Packet)(new kz(var1)));
                      var1.G = false;
                      var1.v = var8;
                      var1.w = var10;

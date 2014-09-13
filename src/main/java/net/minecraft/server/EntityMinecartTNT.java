@@ -118,7 +118,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return this.y() && (ati.d(var4) || ati.d(var2, var3.a()))?false:super.a(var1, var2, var3, var4, var5);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("TNTFuse", 99)) {
          this.a = var1.f("TNTFuse");
@@ -126,7 +126,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
 
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("TNTFuse", this.a);
    }

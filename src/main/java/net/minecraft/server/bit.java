@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bit extends bhp {
+public class bit extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
       for(int var4 = 0; var4 < 10; ++var4) {

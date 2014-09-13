@@ -714,7 +714,7 @@ public class WorldServer extends World implements vn {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((id)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
+            ((EntityPlayer)var13).a.a((Packet)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
          }
       }
 
@@ -768,22 +768,22 @@ public class WorldServer extends World implements vn {
       boolean var1 = this.S();
       super.p();
       if(this.o != this.p) {
-         this.I.an().a((id)(new jo(7, this.p)), this.t.q());
+         this.I.an().a((Packet)(new jo(7, this.p)), this.t.q());
       }
 
       if(this.q != this.r) {
-         this.I.an().a((id)(new jo(8, this.r)), this.t.q());
+         this.I.an().a((Packet)(new jo(8, this.r)), this.t.q());
       }
 
       if(var1 != this.S()) {
          if(var1) {
-            this.I.an().a((id)(new jo(2, 0.0F)));
+            this.I.an().a((Packet)(new jo(2, 0.0F)));
          } else {
-            this.I.an().a((id)(new jo(1, 0.0F)));
+            this.I.an().a((Packet)(new jo(1, 0.0F)));
          }
 
-         this.I.an().a((id)(new jo(7, this.p)));
-         this.I.an().a((id)(new jo(8, this.r)));
+         this.I.an().a((Packet)(new jo(7, this.p)));
+         this.I.an().a((Packet)(new jo(8, this.r)));
       }
 
    }
@@ -820,7 +820,7 @@ public class WorldServer extends World implements vn {
          Location var22 = var21.c();
          double var23 = var22.c(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((id)var19);
+            var21.a.a((Packet)var19);
          }
       }
 

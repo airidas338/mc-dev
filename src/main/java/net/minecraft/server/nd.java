@@ -2,7 +2,7 @@ package net.minecraft.server;
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
 
-public class nd implements id {
+public class nd implements Packet {
 
    private GameProfile a;
 

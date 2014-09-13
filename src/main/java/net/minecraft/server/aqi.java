@@ -108,13 +108,13 @@ public abstract class aqi {
 
    private Entity a(Entity var1, boolean var2) {
       if(this.i() != null) {
-         fn var3 = new fn();
+         NBTTagCompound var3 = new NBTTagCompound();
          var1.d(var3);
          Iterator var4 = aqj.b(this.i()).c().iterator();
 
          while(var4.hasNext()) {
             String var5 = (String)var4.next();
-            gd var6 = aqj.b(this.i()).a(var5);
+            NBTBase var6 = aqj.b(this.i()).a(var5);
             var3.a(var5, var6.b());
          }
 
@@ -123,18 +123,18 @@ public abstract class aqi {
             var1.o.d(var1);
          }
 
-         fn var12;
+         NBTTagCompound var12;
          for(Entity var11 = var1; var3.b("Riding", 10); var3 = var12) {
             var12 = var3.m("Riding");
             Entity var13 = EntityTypes.a(var12.j("id"), var1.o);
             if(var13 != null) {
-               fn var7 = new fn();
+               NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);
                Iterator var8 = var12.c().iterator();
 
                while(var8.hasNext()) {
                   String var9 = (String)var8.next();
-                  gd var10 = var12.a(var9);
+                  NBTBase var10 = var12.a(var9);
                   var7.a(var9, var10.b());
                }
 
@@ -172,7 +172,7 @@ public abstract class aqi {
       this.a(1);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.b = var1.j("EntityId");
       this.a = var1.e("Delay");
       this.c.clear();
@@ -211,7 +211,7 @@ public abstract class aqi {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("EntityId", this.f());
       var1.a("Delay", (short)this.a);
       var1.a("MinSpawnDelay", (short)this.g);
@@ -231,13 +231,13 @@ public abstract class aqi {
 
             while(var3.hasNext()) {
                aqj var4 = (aqj)var3.next();
-               var2.a((gd)var4.a());
+               var2.a((NBTBase)var4.a());
             }
          } else {
-            var2.a((gd)this.i().a());
+            var2.a((NBTBase)this.i().a());
          }
 
-         var1.a("SpawnPotentials", (gd)var2);
+         var1.a("SpawnPotentials", (NBTBase)var2);
       }
 
    }

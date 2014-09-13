@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class in implements id {
+public class in implements Packet {
 
    private int a;
    private int b;
@@ -17,7 +17,7 @@ public class in implements id {
       this.b = MathHelper.c(var1.s * 32.0D);
       this.c = MathHelper.c(var1.t * 32.0D);
       this.d = MathHelper.c(var1.u * 32.0D);
-      if(var1 instanceof ads) {
+      if(var1 instanceof EntityLightning) {
          this.e = 1;
       }
 

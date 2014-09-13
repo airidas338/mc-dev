@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mp implements id {
+public class mp implements Packet {
 
    private float a;
    private float b;

@@ -18,7 +18,7 @@ public class EntitySmallFireball extends EntityFireball {
       this.a(0.3125F, 0.3125F);
    }
 
-   protected void a(bru var1) {
+   protected void a(MovingObjectPosition var1) {
       if(!this.o.D) {
          boolean var2;
          if(var1.d != null) {

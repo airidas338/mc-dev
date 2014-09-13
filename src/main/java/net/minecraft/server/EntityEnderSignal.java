@@ -119,9 +119,9 @@ public class EntityEnderSignal extends Entity {
 
    }
 
-   public void b(fn var1) {}
+   public void b(NBTTagCompound var1) {}
 
-   public void a(fn var1) {}
+   public void a(NBTTagCompound var1) {}
 
    public float c(float var1) {
       return 1.0F;

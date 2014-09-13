@@ -6,15 +6,15 @@ public interface ac extends Comparable {
 
    String c();
 
-   String c(ae var1);
+   String c(ICommandSender var1);
 
    List b();
 
-   void a(ae var1, String[] var2) throws di, IOException;
+   void a(ICommandSender var1, String[] var2) throws di, IOException;
 
-   boolean a(ae var1);
+   boolean a(ICommandSender var1);
 
-   List a(ae var1, String[] var2, Location var3);
+   List a(ICommandSender var1, String[] var2, Location var3);
 
    boolean b(String[] var1, int var2);
 }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class kl implements id {
+public class kl implements Packet {
 
    private int a;
    private Location b;

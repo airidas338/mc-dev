@@ -11,11 +11,11 @@ public class dg extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.worldborder.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 1) {
          throw new dp("commands.worldborder.usage", new Object[0]);
       } else {
@@ -122,7 +122,7 @@ public class dg extends CommandAbstract {
          } else if(var2[0].equals("get")) {
             var4 = var3.h();
             var1.a(ag.e, MathHelper.c(var4 + 0.5D));
-            var1.a(new hz("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
+            var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
       }
@@ -132,7 +132,7 @@ public class dg extends CommandAbstract {
       return MinecraftServer.M().c[0].af();
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null));
    }
 }

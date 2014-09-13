@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import org.apache.commons.lang3.Validate;
 
-public class jv implements id {
+public class jv implements Packet {
 
    private String a;
    private int b;

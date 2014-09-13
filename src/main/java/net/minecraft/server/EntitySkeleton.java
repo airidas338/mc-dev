@@ -2,9 +2,9 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class EntitySkeleton extends EntityMonster implements afr {
+public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
-   private zz b = new zz(this, 1.0D, 20, 60, 15.0F);
+   private PathfinderGoalArrowAttack b = new PathfinderGoalArrowAttack(this, 1.0D, 20, 60, 15.0F);
    private zk c = new zk(this, EntityHuman.class, 1.2D, false);
 
 
@@ -126,7 +126,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
 
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.g;
    }
 
@@ -193,8 +193,8 @@ public class EntitySkeleton extends EntityMonster implements afr {
    }
 
    public void n() {
-      this.i.a((zb)this.c);
-      this.i.a((zb)this.b);
+      this.i.a((PathfinderGoal)this.c);
+      this.i.a((PathfinderGoal)this.b);
       amj var1 = this.bz();
       if(var1 != null && var1.b() == Items.f) {
          this.i.a(4, this.b);
@@ -240,7 +240,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("SkeletonType", 99)) {
          byte var2 = var1.d("SkeletonType");
@@ -250,7 +250,7 @@ public class EntitySkeleton extends EntityMonster implements afr {
       this.n();
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("SkeletonType", (byte)this.ck());
    }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 
-public class kx implements id {
+public class kx implements Packet {
 
    private int a;
    private List b;

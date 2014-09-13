@@ -78,13 +78,13 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
       this.m = var1;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       fv var2 = var1.c("Items", 10);
       this.h = new amj[this.n_()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         fn var4 = var2.b(var3);
+         NBTTagCompound var4 = var2.b(var3);
          byte var5 = var4.d("Slot");
          if(var5 >= 0 && var5 < this.h.length) {
             this.h[var5] = amj.a(var4);
@@ -101,7 +101,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("BurnTime", (short)this.i);
       var1.a("CookTime", (short)this.k);
@@ -110,14 +110,14 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
 
       for(int var3 = 0; var3 < this.h.length; ++var3) {
          if(this.h[var3] != null) {
-            fn var4 = new fn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var4.a("Slot", (byte)var3);
             this.h[var3].b(var4);
-            var2.a((gd)var4);
+            var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (gd)var2);
+      var1.a("Items", (NBTBase)var2);
       if(this.k_()) {
          var1.a("CustomName", this.m);
       }
@@ -152,7 +152,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
                   if(this.h[1] != null) {
                      --this.h[1].b;
                      if(this.h[1].b == 0) {
-                        alq var3 = this.h[1].b().q();
+                        Item var3 = this.h[1].b().q();
                         this.h[1] = var3 != null?new amj(var3):null;
                      }
                   }
@@ -174,7 +174,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
 
          if(var1 != this.m()) {
             var2 = true;
-            awj.a(this.m(), this.b, this.c);
+            BlockFurnace.a(this.m(), this.b, this.c);
          }
       }
 
@@ -206,7 +206,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == alq.a(aty.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
+         if(this.h[0].b() == Item.a(aty.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
             this.h[1] = new amj(Items.ax);
          }
 
@@ -222,14 +222,14 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
       if(var0 == null) {
          return 0;
       } else {
-         alq var1 = var0.b();
+         Item var1 = var0.b();
          if(var1 instanceof aju && Block.a(var1) != aty.a) {
             Block var2 = Block.a(var1);
             if(var2 == aty.bM) {
                return 150;
             }
 
-            if(var2.r() == Material.d) {
+            if(var2.r() == Material.WOOD) {
                return 300;
             }
 
@@ -238,7 +238,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == alq.a(aty.g)?100:(var1 == Items.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(aty.g)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 
@@ -268,7 +268,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
 
    public boolean b(int var1, amj var2, ej var3) {
       if(var3 == ej.a && var1 == 1) {
-         alq var4 = var2.b();
+         Item var4 = var2.b();
          if(var4 != Items.ax && var4 != Items.aw) {
             return false;
          }

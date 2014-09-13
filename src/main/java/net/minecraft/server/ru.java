@@ -14,10 +14,10 @@ public class ru implements nv {
    public void a(IChatBaseComponent var1) {}
 
    public void a(nx var1) {
-      this.b.a((id)(new no(this.a.aE())));
+      this.b.a((Packet)(new no(this.a.aE())));
    }
 
    public void a(nw var1) {
-      this.b.a((id)(new nn(var1.a())));
+      this.b.a((Packet)(new nn(var1.a())));
    }
 }

@@ -6,13 +6,13 @@ public class eg implements eo {
    public final amj a(dz var1, amj var2) {
       amj var3 = this.b(var1, var2);
       this.a(var1);
-      this.a(var1, ave.b(var1.f()));
+      this.a(var1, BlockDispenser.b(var1.f()));
       return var3;
    }
 
    protected amj b(dz var1, amj var2) {
-      ej var3 = ave.b(var1.f());
-      ex var4 = ave.a(var1);
+      ej var3 = BlockDispenser.b(var1.f());
+      ex var4 = BlockDispenser.a(var1);
       amj var5 = var2.a(1);
       a(var1.i(), var5, 6, var3, var4);
       return var2;

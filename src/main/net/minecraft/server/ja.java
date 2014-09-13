@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ja implements id {
+public class ja implements Packet {
 
    private aqm a;
    private jb[] b;

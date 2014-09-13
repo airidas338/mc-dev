@@ -7,8 +7,8 @@ public abstract class axm extends baa {
 
 
    public axm() {
-      super(Material.d);
-      this.a(akf.b);
+      super(Material.WOOD);
+      this.a(CreativeModeTab.b);
       this.c(2.0F);
       this.a(f);
    }
@@ -21,8 +21,8 @@ public abstract class axm extends baa {
 
          while(var6.hasNext()) {
             Location var7 = (Location)var6.next();
-            IBlock var8 = var1.p(var7);
-            if(var8.c().r() == Material.j && !((Boolean)var8.b(axg.b)).booleanValue()) {
+            IBlock var8 = var1.getData(var7);
+            if(var8.c().r() == Material.LEAVES && !((Boolean)var8.b(axg.b)).booleanValue()) {
                var1.a(var7, var8.a(axg.b, Boolean.valueOf(true)), 4);
             }
          }

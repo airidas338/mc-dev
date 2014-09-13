@@ -3,14 +3,14 @@ package net.minecraft.server;
 
 public abstract class bpu {
 
-   protected ard a;
+   protected IBlockAccess a;
    protected um b = new um();
    protected int c;
    protected int d;
    protected int e;
 
 
-   public void a(ard var1, Entity var2) {
+   public void a(IBlockAccess var1, Entity var2) {
       this.a = var1;
       this.b.c();
       this.c = MathHelper.d(var2.J + 1.0F);

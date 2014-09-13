@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class nx implements id {
+public class nx implements Packet {
 
    public void a(hd var1) {}
 

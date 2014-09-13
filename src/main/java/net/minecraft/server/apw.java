@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class apw extends apf {
 
    protected apw(int var1, RegistryMaterials var2, int var3) {
-      super(var1, var2, var3, apg.h);
+      super(var1, var2, var3, EnchantmentSlotType.DIGGER);
       this.c("untouching");
    }
 

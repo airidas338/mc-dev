@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-public class ajy extends alq {
+public class ajy extends Item {
 
    public ajy() {
-      this.a(akf.k);
+      this.a(CreativeModeTab.k);
    }
 
    public amj a(amj var1, World var2, EntityHuman var3) {
-      bru var4 = this.a(var2, var3, true);
+      MovingObjectPosition var4 = this.a(var2, var3, true);
       if(var4 == null) {
          return var1;
       } else {
@@ -21,9 +21,9 @@ public class ajy extends alq {
                return var1;
             }
 
-            if(var2.p(var5).c().r() == Material.h) {
+            if(var2.getData(var5).c().r() == Material.WATER) {
                --var1.b;
-               var3.b(ty.J[alq.b((alq)this)]);
+               var3.b(ty.J[Item.b((Item)this)]);
                if(var1.b <= 0) {
                   return new amj(Items.bz);
                }

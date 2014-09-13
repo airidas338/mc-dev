@@ -12,7 +12,7 @@ public class cg extends CommandAbstract {
 
    public void a(ae var1, String[] var2) throws di {
       MinecraftServer var3 = MinecraftServer.M();
-      var1.a(new hz("commands.save.start", new Object[0]));
+      var1.a(new ChatMessage("commands.save.start", new Object[0]));
       if(var3.an() != null) {
          var3.an().k();
       }
@@ -32,7 +32,7 @@ public class cg extends CommandAbstract {
          }
 
          if(var2.length > 0 && "flush".equals(var2[0])) {
-            var1.a(new hz("commands.save.flushStart", new Object[0]));
+            var1.a(new ChatMessage("commands.save.flushStart", new Object[0]));
 
             for(var4 = 0; var4 < var3.c.length; ++var4) {
                if(var3.c[var4] != null) {
@@ -44,7 +44,7 @@ public class cg extends CommandAbstract {
                }
             }
 
-            var1.a(new hz("commands.save.flushEnd", new Object[0]));
+            var1.a(new ChatMessage("commands.save.flushEnd", new Object[0]));
          }
       } catch (ExceptionWorldConflict var7) {
          a(var1, this, "commands.save.failed", new Object[]{var7.getMessage()});

@@ -11,11 +11,11 @@ public class cd extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.playsound.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       if(var2.length < 2) {
          throw new dp(this.c(var1), new Object[0]);
       } else {
@@ -74,12 +74,12 @@ public class cd extends CommandAbstract {
             var13 = var17;
          }
 
-         var5.a.a((id)(new jv(var4, var7, var9, var11, (float)var13, (float)var15)));
+         var5.a.a((Packet)(new jv(var4, var7, var9, var11, (float)var13, (float)var15)));
          a(var1, this, "commands.playsound.success", new Object[]{var4, var5.d_()});
       }
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       return var2.length == 2?a(var2, MinecraftServer.M().I()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
    }
 

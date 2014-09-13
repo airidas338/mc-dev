@@ -3,9 +3,9 @@ package net.minecraft.server;
 
 public abstract class blb extends bms {
 
-   protected static final IBlock a = aty.cI.a(azi.b);
-   protected static final IBlock b = aty.cI.a(azi.M);
-   protected static final IBlock c = aty.cI.a(azi.N);
+   protected static final IBlock a = aty.cI.a(BlockPrismarine.b);
+   protected static final IBlock b = aty.cI.a(BlockPrismarine.M);
+   protected static final IBlock c = aty.cI.a(BlockPrismarine.N);
    protected static final IBlock d = b;
    protected static final IBlock e = aty.cJ.P();
    protected static final IBlock f = aty.j.P();
@@ -64,9 +64,9 @@ public abstract class blb extends bms {
 
    }
 
-   protected void a(fn var1) {}
+   protected void a(NBTTagCompound var1) {}
 
-   protected void b(fn var1) {}
+   protected void b(NBTTagCompound var1) {}
 
    protected void a(World var1, bjb var2, int var3, int var4, boolean var5) {
       if(var5) {

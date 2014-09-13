@@ -29,7 +29,7 @@ public class bqe extends bqc {
       this.c = var8 * var6 + var6 / 2 - 64;
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       this.d = var1.d("dimension");
       this.b = var1.f("xCenter");
       this.c = var1.f("zCenter");
@@ -60,7 +60,7 @@ public class bqe extends bqc {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       var1.a("dimension", this.d);
       var1.a("xCenter", this.b);
       var1.a("zCenter", this.c);
@@ -103,7 +103,7 @@ public class bqe extends bqc {
          fv var8 = var2.o().c("Decorations", 10);
 
          for(int var10 = 0; var10 < var8.c(); ++var10) {
-            fn var5 = var8.b(var10);
+            NBTTagCompound var5 = var8.b(var10);
             if(!this.h.containsKey(var5.j("id"))) {
                this.a(var5.d("type"), var1.o, var5.j("id"), var5.i("x"), var5.i("z"), var5.i("rot"));
             }
@@ -155,7 +155,7 @@ public class bqe extends bqc {
       this.h.put(var3, new bqd((byte)var1, var13, var14, var15));
    }
 
-   public id a(amj var1, World var2, EntityHuman var3) {
+   public Packet a(amj var1, World var2, EntityHuman var3) {
       bqf var4 = (bqf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }

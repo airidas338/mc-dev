@@ -16,12 +16,12 @@ public class bng extends bnn {
       this.a = var3.nextBoolean();
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Terrace", this.a);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.a = var1.n("Terrace");
    }
@@ -69,7 +69,7 @@ public class bng extends bnn {
       this.a(var1, aty.f.P(), 3, 3, 0, var3);
       this.a(var1, aty.f.P(), 3, 2, 0, var3);
       this.a(var1, aty.f.P(), 3, 1, 0, var3);
-      if(this.a(var1, 2, 0, -1, var3).c().r() == Material.a && this.a(var1, 2, -1, -1, var3).c().r() != Material.a) {
+      if(this.a(var1, 2, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 2, -1, -1, var3).c().r() != Material.AIR) {
          this.a(var1, aty.aw.a(this.a(aty.aw, 3)), 2, 0, -1, var3);
       }
 
@@ -102,7 +102,7 @@ public class bng extends bnn {
          this.a(var1, aty.au.a(var4), 3, 4, 3, var3);
       }
 
-      this.a(var1, aty.aa.P().a(bbl.a, this.m), 2, 3, 1, var3);
+      this.a(var1, aty.aa.P().a(BlockTorch.a, this.m), 2, 3, 1, var3);
 
       for(var4 = 0; var4 < 5; ++var4) {
          for(int var5 = 0; var5 < 5; ++var5) {

@@ -114,7 +114,7 @@ public class EntityBoat extends Entity {
          double var5 = this.aQ().b + (this.aQ().e - this.aQ().b) * (double)(var4 + 0) / (double)var1 - 0.125D;
          double var7 = this.aQ().b + (this.aQ().e - this.aQ().b) * (double)(var4 + 1) / (double)var1 - 0.125D;
          AxisAlignedBB var9 = new AxisAlignedBB(this.aQ().a, var5, this.aQ().c, this.aQ().d, var7, this.aQ().f);
-         if(this.o.b(var9, Material.h)) {
+         if(this.o.b(var9, Material.WATER)) {
             var2 += 1.0D / (double)var1;
          }
       }
@@ -220,7 +220,7 @@ public class EntityBoat extends Entity {
             for(int var25 = 0; var25 < 2; ++var25) {
                int var12 = MathHelper.c(this.t) + var25;
                Location var27 = new Location(var23, var12, var10);
-               Block var14 = this.o.p(var27).c();
+               Block var14 = this.o.getData(var27).c();
                if(var14 == aty.aH) {
                   this.o.g(var27);
                   this.D = false;
@@ -243,7 +243,7 @@ public class EntityBoat extends Entity {
                this.J();
 
                for(var22 = 0; var22 < 3; ++var22) {
-                  this.a(alq.a(aty.f), 1, 0.0F);
+                  this.a(Item.a(aty.f), 1, 0.0F);
                }
 
                for(var22 = 0; var22 < 2; ++var22) {
@@ -302,9 +302,9 @@ public class EntityBoat extends Entity {
       }
    }
 
-   protected void b(fn var1) {}
+   protected void b(NBTTagCompound var1) {}
 
-   protected void a(fn var1) {}
+   protected void a(NBTTagCompound var1) {}
 
    public boolean e(EntityHuman var1) {
       if(this.l != null && this.l instanceof EntityHuman && this.l != var1) {
@@ -327,7 +327,7 @@ public class EntityBoat extends Entity {
 
                int var6;
                for(var6 = 0; var6 < 3; ++var6) {
-                  this.a(alq.a(aty.f), 1, 0.0F);
+                  this.a(Item.a(aty.f), 1, 0.0F);
                }
 
                for(var6 = 0; var6 < 2; ++var6) {
@@ -337,7 +337,7 @@ public class EntityBoat extends Entity {
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new Location(this)).b()).c().r() != Material.h && var1 < 0.0D) {
+      } else if(this.o.getData((new Location(this)).b()).c().r() != Material.WATER && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

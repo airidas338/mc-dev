@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Set;
 
-public class ii implements id {
+public class ii implements Packet {
 
    private double a;
    private double b;

@@ -5,12 +5,12 @@ public abstract class ath extends Block {
 
    protected ath(Material var1) {
       super(var1);
-      this.a(akf.d);
+      this.a(CreativeModeTab.d);
       this.a(true);
    }
 
-   public void a(ard var1, Location var2) {
-      this.d(var1.p(var2));
+   public void a(IBlockAccess var1, Location var2) {
+      this.d(var1.getData(var2));
    }
 
    protected void d(IBlock var1) {
@@ -40,7 +40,7 @@ public abstract class ath extends Block {
       return false;
    }
 
-   public boolean b(ard var1, Location var2) {
+   public boolean b(IBlockAccess var1, Location var2) {
       return true;
    }
 
@@ -57,7 +57,7 @@ public abstract class ath extends Block {
    }
 
    private boolean m(World var1, Location var2) {
-      return World.a((ard)var1, var2) || var1.p(var2).c() instanceof avv;
+      return World.a((IBlockAccess)var1, var2) || var1.getData(var2).c() instanceof BlockFence;
    }
 
    public void a(World var1, Location var2, IBlock var3, Random var4) {}
@@ -123,11 +123,11 @@ public abstract class ath extends Block {
       var1.c(var2.b(), (Block)this);
    }
 
-   public int a(ard var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return this.e(var3);
    }
 
-   public int b(ard var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
       return var4 == ej.b?this.e(var3):0;
    }
 

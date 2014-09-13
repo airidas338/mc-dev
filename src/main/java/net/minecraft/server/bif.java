@@ -2,7 +2,7 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Random;
 
-public class bif extends bhp {
+public class bif extends WorldGenerator {
 
    private final IBlock a;
    private final int b;
@@ -53,7 +53,7 @@ public class bif extends bhp {
                         double var44 = ((double)var43 + 0.5D - var23) / (var27 / 2.0D);
                         if(var38 * var38 + var41 * var41 + var44 * var44 < 1.0D) {
                            Location var46 = new Location(var37, var40, var43);
-                           if(this.c.apply(var1.p(var46))) {
+                           if(this.c.apply(var1.getData(var46))) {
                               var1.a(var46, this.a, 2);
                            }
                         }

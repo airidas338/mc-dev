@@ -187,7 +187,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       if(var1 == null) {
          return 0;
       } else {
-         alq var2 = var1.b();
+         Item var2 = var1.b();
          return var2 == Items.ck?1:(var2 == Items.cl?2:(var2 == Items.cm?3:0));
       }
    }
@@ -265,7 +265,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void cC() {
       if(!this.o.D && this.cu()) {
-         this.a(alq.a((Block)aty.ae), 1);
+         this.a(Item.a((Block)aty.ae), 1);
          this.o(false);
       }
    }
@@ -290,8 +290,8 @@ public class EntityHorse extends EntityAnimal implements vr {
             this.l.a(DamageSource.i, (float)var3);
          }
 
-         Block var4 = this.o.p(new Location(this.s, this.t - 0.2D - (double)this.A, this.u)).c();
-         if(var4.r() != Material.a && !this.R()) {
+         Block var4 = this.o.getData(new Location(this.s, this.t - 0.2D - (double)this.A, this.u)).c();
+         if(var4.r() != Material.AIR && !this.R()) {
             StepSound var5 = var4.H;
             this.o.a((Entity)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
@@ -385,7 +385,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return var1 == 3?"mob.horse.zombie.death":(var1 == 4?"mob.horse.skeleton.death":(var1 != 1 && var1 != 2?"mob.horse.death":"mob.horse.donkey.death"));
    }
 
-   protected alq A() {
+   protected Item A() {
       boolean var1 = this.V.nextInt(4) == 0;
       int var2 = this.cj();
       return var2 == 4?Items.aX:(var2 == 3?(var1?null:Items.bt):Items.aF);
@@ -424,7 +424,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    protected void a(Location var1, Block var2) {
       StepSound var3 = var2.H;
-      if(this.o.p(var1.a()).c() == aty.aH) {
+      if(this.o.getData(var1.a()).c() == aty.aH) {
          var3 = aty.aH.H;
       }
 
@@ -585,7 +585,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                return true;
             }
 
-            if(!var3 && this.cN() && !this.cu() && var2.b() == alq.a((Block)aty.ae)) {
+            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)aty.ae)) {
                this.o(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var3 = true;
@@ -679,7 +679,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             this.g(1.0F);
          }
 
-         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == aty.c) {
+         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == aty.c) {
             this.r(true);
          }
 
@@ -903,7 +903,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       }
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("EatingHaystack", this.cw());
       var1.a("ChestedHorse", this.cu());
@@ -920,27 +920,27 @@ public class EntityHorse extends EntityAnimal implements vr {
          for(int var3 = 2; var3 < this.bC.n_(); ++var3) {
             amj var4 = this.bC.a(var3);
             if(var4 != null) {
-               fn var5 = new fn();
+               NBTTagCompound var5 = new NBTTagCompound();
                var5.a("Slot", (byte)var3);
                var4.b(var5);
-               var2.a((gd)var5);
+               var2.a((NBTBase)var5);
             }
          }
 
-         var1.a("Items", (gd)var2);
+         var1.a("Items", (NBTBase)var2);
       }
 
       if(this.bC.a(1) != null) {
-         var1.a("ArmorItem", (gd)this.bC.a(1).b(new fn()));
+         var1.a("ArmorItem", (NBTBase)this.bC.a(1).b(new NBTTagCompound()));
       }
 
       if(this.bC.a(0) != null) {
-         var1.a("SaddleItem", (gd)this.bC.a(0).b(new fn()));
+         var1.a("SaddleItem", (NBTBase)this.bC.a(0).b(new NBTTagCompound()));
       }
 
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.r(var1.n("EatingHaystack"));
       this.n(var1.n("Bred"));
@@ -972,7 +972,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          this.cY();
 
          for(int var5 = 0; var5 < var4.c(); ++var5) {
-            fn var6 = var4.b(var5);
+            NBTTagCompound var6 = var4.b(var5);
             int var7 = var6.d("Slot") & 255;
             if(var7 >= 2 && var7 < this.bC.n_()) {
                this.bC.a(var7, amj.a(var6));
@@ -1156,7 +1156,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return (0.44999998807907104D + this.V.nextDouble() * 0.3D + this.V.nextDouble() * 0.3D + this.V.nextDouble() * 0.3D) * 0.25D;
    }
 
-   public static boolean a(alq var0) {
+   public static boolean a(Item var0) {
       return var0 == Items.ck || var0 == Items.cl || var0 == Items.cm;
    }
 
@@ -1176,7 +1176,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             return true;
          }
 
-         if(var2 != null && var2.b() == alq.a((Block)aty.ae) && !this.cu()) {
+         if(var2 != null && var2.b() == Item.a((Block)aty.ae) && !this.cu()) {
             this.o(true);
             this.cY();
             return true;

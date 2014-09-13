@@ -178,7 +178,7 @@ public class AxisAlignedBB {
       return new AxisAlignedBB(var7, var9, var11, var13, var15, var17);
    }
 
-   public bru a(ChunkCoordinates var1, ChunkCoordinates var2) {
+   public MovingObjectPosition a(ChunkCoordinates var1, ChunkCoordinates var2) {
       ChunkCoordinates var3 = var1.a(var2, this.a);
       ChunkCoordinates var4 = var1.a(var2, this.d);
       ChunkCoordinates var5 = var1.b(var2, this.b);
@@ -252,7 +252,7 @@ public class AxisAlignedBB {
             var10 = ej.d;
          }
 
-         return new bru(var9, var10);
+         return new MovingObjectPosition(var9, var10);
       }
    }
 

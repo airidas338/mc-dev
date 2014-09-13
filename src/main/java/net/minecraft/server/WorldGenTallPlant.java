@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class WorldGenTallPlant extends bhp {
+public class WorldGenTallPlant extends WorldGenerator {
 
    private avk a;
 

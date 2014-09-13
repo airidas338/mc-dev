@@ -79,9 +79,9 @@ public class EntityIronGolem extends EntityGolem {
          int var1 = MathHelper.c(this.s);
          int var2 = MathHelper.c(this.t - 0.20000000298023224D);
          int var3 = MathHelper.c(this.u);
-         IBlock var4 = this.o.p(new Location(var1, var2, var3));
+         IBlock var4 = this.o.getData(new Location(var1, var2, var3));
          Block var5 = var4.c();
-         if(var5.r() != Material.a) {
+         if(var5.r() != Material.AIR) {
             this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
          }
       }
@@ -92,12 +92,12 @@ public class EntityIronGolem extends EntityGolem {
       return this.cl() && EntityHuman.class.isAssignableFrom(var1)?false:super.a(var1);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("PlayerCreated", this.cl());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.l(var1.n("PlayerCreated"));
    }
@@ -141,7 +141,7 @@ public class EntityIronGolem extends EntityGolem {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(alq.a((Block)aty.O), 1, (float)EnumFlowerType.b.b());
+         this.a(Item.a((Block)aty.O), 1, (float)EnumFlowerType.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);

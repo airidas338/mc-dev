@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.common.collect.Multimap;
 
-public class anm extends alq {
+public class anm extends Item {
 
    private float a;
    private final ami b;
@@ -11,7 +11,7 @@ public class anm extends alq {
       this.b = var1;
       this.h = 1;
       this.d(var1.a());
-      this.a(akf.j);
+      this.a(CreativeModeTab.j);
       this.a = 4.0F + var1.c();
    }
 
@@ -24,7 +24,7 @@ public class anm extends alq {
          return 15.0F;
       } else {
          Material var3 = var2.r();
-         return var3 != Material.k && var3 != Material.l && var3 != Material.v && var3 != Material.j && var3 != Material.C?1.0F:1.5F;
+         return var3 != Material.PLANT && var3 != Material.REPLACAEBLE_PLAN && var3 != Material.CORAL && var3 != Material.LEAVES && var3 != Material.PUMPKIN?1.0F:1.5F;
       }
    }
 

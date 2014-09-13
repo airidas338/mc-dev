@@ -33,7 +33,7 @@ public class aai extends zf {
                amj var3 = var1.a(var2);
                amj var4 = null;
                if(var3 != null) {
-                  alq var5 = var3.b();
+                  Item var5 = var3.b();
                   int var6;
                   if((var5 == Items.P || var5 == Items.bS || var5 == Items.bR) && var3.b > 3) {
                      var6 = var3.b / 2;

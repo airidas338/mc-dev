@@ -44,9 +44,9 @@ class ack extends zn {
       if(this.f()) {
          World var1 = this.c.o;
          Location var2 = this.b.a();
-         IBlock var3 = var1.p(var2);
+         IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
-         if(this.e && var4 instanceof auh && ((Integer)var3.b(auh.a)).intValue() == 7) {
+         if(this.e && var4 instanceof BlockCarrots && ((Integer)var3.b(BlockCarrots.a)).intValue() == 7) {
             var1.a(var2, aty.a.P(), 2);
             var1.b(var2, true);
             this.c.cn();
@@ -59,12 +59,12 @@ class ack extends zn {
    }
 
    protected boolean a(World var1, Location var2) {
-      Block var3 = var1.p(var2).c();
+      Block var3 = var1.getData(var2).c();
       if(var3 == aty.ak) {
          var2 = var2.a();
-         IBlock var4 = var1.p(var2);
+         IBlock var4 = var1.getData(var2);
          var3 = var4.c();
-         if(var3 instanceof auh && ((Integer)var4.b(auh.a)).intValue() == 7 && this.d && !this.e) {
+         if(var3 instanceof BlockCarrots && ((Integer)var4.b(BlockCarrots.a)).intValue() == 7 && this.d && !this.e) {
             this.e = true;
             return true;
          }

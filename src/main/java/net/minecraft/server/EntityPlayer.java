@@ -73,7 +73,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	}
 
-	public void a(fn var1) {
+	public void a(NBTTagCompound var1) {
 		super.a(var1);
 		if (var1.b("playerGameType", 99)) {
 			if (MinecraftServer.M().av()) {
@@ -85,7 +85,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	}
 
-	public void b(fn var1) {
+	public void b(NBTTagCompound var1) {
 		super.b(var1);
 		var1.a("playerGameType", this.c.b().a());
 	}
@@ -106,12 +106,12 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void g_() {
 		super.g_();
-		this.a.a((id) (new ke(this.br(), kg.a)));
+		this.a.a((Packet) (new ke(this.br(), kg.a)));
 	}
 
 	public void j() {
 		super.j();
-		this.a.a((id) (new ke(this.br(), kg.b)));
+		this.a.a((Packet) (new ke(this.br(), kg.b)));
 	}
 
 	public void s_() throws IOException {
@@ -138,7 +138,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 				var3.remove();
 			}
 
-			this.a.a((id) (new km(var2)));
+			this.a.a((Packet) (new km(var2)));
 		}
 
 		if (!this.f.isEmpty()) {
@@ -165,9 +165,9 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 			if (!var6.isEmpty()) {
 				if (var6.size() == 1) {
-					this.a.a((id) (new jq((bfh) var6.get(0), true, '\uffff')));
+					this.a.a((Packet) (new jq((bfh) var6.get(0), true, '\uffff')));
 				} else {
-					this.a.a((id) (new js(var6)));
+					this.a.a((Packet) (new js(var6)));
 				}
 
 				Iterator var12 = var9.iterator();
@@ -208,7 +208,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			for (int var1 = 0; var1 < this.bg.n_(); ++var1) {
 				amj var6 = this.bg.a(var1);
 				if (var6 != null && var6.b().f()) {
-					id var8 = ((ake) var6.b()).c(var6, this.o, this);
+					Packet var8 = ((ake) var6.b()).c(var6, this.o, this);
 					if (var8 != null) {
 						this.a.a(var8);
 					}
@@ -216,7 +216,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			}
 
 			if (this.bm() != this.bK || this.bL != this.bj.a() || this.bj.e() == 0.0F != this.bM) {
-				this.a.a((id) (new lc(this.bm(), this.bj.a(), this.bj.e())));
+				this.a.a((Packet) (new lc(this.bm(), this.bj.a(), this.bj.e())));
 				this.bK = this.bm();
 				this.bL = this.bj.a();
 				this.bM = this.bj.e() == 0.0F;
@@ -235,7 +235,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 			if (this.bA != this.bN) {
 				this.bN = this.bA;
-				this.a.a((id) (new lb(this.bB, this.bA, this.bz)));
+				this.a.a((Packet) (new lb(this.bB, this.bA, this.bz)));
 			}
 
 			if (this.W % 20 * 5 == 0 && !this.A().a(tl.L)) {
@@ -368,7 +368,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			this.b((tq) tl.D);
 			this.o.e((Entity) this);
 			this.i = true;
-			this.a.a((id) (new jo(4, 0.0F)));
+			this.a.a((Packet) (new jo(4, 0.0F)));
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((tq) tl.C);
@@ -396,7 +396,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	private void a(bcm var1) {
 		if (var1 != null) {
-			id var2 = var1.x_();
+			Packet var2 = var1.x_();
 			if (var2 != null) {
 				this.a.a(var2);
 			}
@@ -413,9 +413,9 @@ public class EntityPlayer extends EntityHuman implements ail {
 		ahf var2 = super.a(var1);
 		if (var2 == ahf.a) {
 			kl var3 = new kl(this, var1);
-			this.u().s().a((Entity) this, (id) var3);
+			this.u().s().a((Entity) this, (Packet) var3);
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
-			this.a.a((id) var3);
+			this.a.a((Packet) var3);
 		}
 
 		return var2;
@@ -437,7 +437,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		Entity var2 = this.m;
 		super.a(var1);
 		if (var1 != var2) {
-			this.a.a((id) (new ky(0, this, this.m)));
+			this.a.a((Packet) (new ky(0, this, this.m)));
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 		}
 
@@ -451,12 +451,12 @@ public class EntityPlayer extends EntityHuman implements ail {
 		int var5 = MathHelper.c(this.t - 0.20000000298023224D);
 		int var6 = MathHelper.c(this.u);
 		Location var7 = new Location(var4, var5, var6);
-		Block var8 = this.o.p(var7).c();
-		if (var8.r() == Material.a) {
-			Block var9 = this.o.p(var7.b()).c();
-			if (var9 instanceof avv || var9 instanceof bbx || var9 instanceof avw) {
+		Block var8 = this.o.getData(var7).c();
+		if (var8.r() == Material.AIR) {
+			Block var9 = this.o.getData(var7.b()).c();
+			if (var9 instanceof BlockFence || var9 instanceof BlockCobbleWall || var9 instanceof BlockFenceGate) {
 				var7 = var7.b();
-				var8 = this.o.p(var7).c();
+				var8 = this.o.getData(var7).c();
 			}
 		}
 
@@ -465,7 +465,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(bdj var1) {
 		var1.a((EntityHuman) this);
-		this.a.a((id) (new kc(var1.v())));
+		this.a.a((Packet) (new kc(var1.v())));
 	}
 
 	private void cr() {
@@ -474,7 +474,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(vv var1) {
 		this.cr();
-		this.a.a((id) (new je(this.bT, var1.k(), var1.e_())));
+		this.a.a((Packet) (new je(this.bT, var1.k(), var1.e_())));
 		this.bi = var1.a(this.bg, this);
 		this.bi.d = this.bT;
 		this.bi.a((ail) this);
@@ -488,18 +488,18 @@ public class EntityPlayer extends EntityHuman implements ail {
 		if (var1 instanceof vy) {
 			vy var2 = (vy) var1;
 			if (var2.q_() && !this.a(var2.i()) && !this.v()) {
-				this.a.a((id) (new iz(new hz("container.isLocked", new Object[] { var1.e_() }), (byte) 2)));
-				this.a.a((id) (new jv("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
+				this.a.a((Packet) (new iz(new ChatMessage("container.isLocked", new Object[] { var1.e_() }), (byte) 2)));
+				this.a.a((Packet) (new jv("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
 				return;
 			}
 		}
 
 		this.cr();
 		if (var1 instanceof vv) {
-			this.a.a((id) (new je(this.bT, ((vv) var1).k(), var1.e_(), var1.n_())));
+			this.a.a((Packet) (new je(this.bT, ((vv) var1).k(), var1.e_(), var1.n_())));
 			this.bi = ((vv) var1).a(this.bg, this);
 		} else {
-			this.a.a((id) (new je(this.bT, "minecraft:container", var1.e_(), var1.n_())));
+			this.a.a((Packet) (new je(this.bT, "minecraft:container", var1.e_(), var1.n_())));
 			this.bi = new aim(this.bg, var1, this);
 		}
 
@@ -514,13 +514,13 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bi.a((ail) this);
 		aje var2 = ((ajf) this.bi).e();
 		IChatBaseComponent var3 = var1.e_();
-		this.a.a((id) (new je(this.bT, "minecraft:villager", var3, var2.n_())));
+		this.a.a((Packet) (new je(this.bT, "minecraft:villager", var3, var2.n_())));
 		aqd var4 = var1.b_(this);
 		if (var4 != null) {
 			hd var5 = new hd(Unpooled.buffer());
 			var5.writeInt(this.bT);
 			var4.a(var5);
-			this.a.a((id) (new ji("MC|TrList", var5)));
+			this.a.a((Packet) (new ji("MC|TrList", var5)));
 		}
 
 	}
@@ -531,16 +531,16 @@ public class EntityPlayer extends EntityHuman implements ail {
 		}
 
 		this.cr();
-		this.a.a((id) (new je(this.bT, "EntityHorse", var2.e_(), var2.n_(), var1.F())));
+		this.a.a((Packet) (new je(this.bT, "EntityHorse", var2.e_(), var2.n_(), var1.F())));
 		this.bi = new aiy(this.bg, var2, var1, this);
 		this.bi.d = this.bT;
 		this.bi.a((ail) this);
 	}
 
 	public void a(amj var1) {
-		alq var2 = var1.b();
+		Item var2 = var1.b();
 		if (var2 == Items.bN) {
-			this.a.a((id) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
+			this.a.a((Packet) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
 		}
 
 	}
@@ -548,7 +548,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public void a(aib var1, int var2, amj var3) {
 		if (!(var1.a(var2) instanceof ajj)) {
 			if (!this.g) {
-				this.a.a((id) (new jh(var1.d, var2, var3)));
+				this.a.a((Packet) (new jh(var1.d, var2, var3)));
 			}
 		}
 	}
@@ -558,29 +558,29 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(aib var1, List var2) {
-		this.a.a((id) (new jf(var1.d, var2)));
-		this.a.a((id) (new jh(-1, -1, this.bg.p())));
+		this.a.a((Packet) (new jf(var1.d, var2)));
+		this.a.a((Packet) (new jh(-1, -1, this.bg.p())));
 	}
 
 	public void a(aib var1, int var2, int var3) {
-		this.a.a((id) (new jg(var1.d, var2, var3)));
+		this.a.a((Packet) (new jg(var1.d, var2, var3)));
 	}
 
 	public void a(aib var1, vq var2) {
 		for (int var3 = 0; var3 < var2.g(); ++var3) {
-			this.a.a((id) (new jg(var1.d, var3, var2.a_(var3))));
+			this.a.a((Packet) (new jg(var1.d, var3, var2.a_(var3))));
 		}
 
 	}
 
 	public void n() {
-		this.a.a((id) (new jd(this.bi.d)));
+		this.a.a((Packet) (new jd(this.bi.d)));
 		this.p();
 	}
 
 	public void o() {
 		if (!this.g) {
-			this.a.a((id) (new jh(-1, -1, this.bg.p())));
+			this.a.a((Packet) (new jh(-1, -1, this.bg.p())));
 		}
 	}
 
@@ -655,11 +655,11 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void b(IChatBaseComponent var1) {
-		this.a.a((id) (new iz(var1)));
+		this.a.a((Packet) (new iz(var1)));
 	}
 
 	protected void s() {
-		this.a.a((id) (new jk(this, (byte) 9)));
+		this.a.a((Packet) (new jk(this, (byte) 9)));
 		super.s();
 	}
 
@@ -681,17 +681,17 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	protected void a(wq var1) {
 		super.a(var1);
-		this.a.a((id) (new lr(this.F(), var1)));
+		this.a.a((Packet) (new lr(this.F(), var1)));
 	}
 
 	protected void a(wq var1, boolean var2) {
 		super.a(var1, var2);
-		this.a.a((id) (new lr(this.F(), var1)));
+		this.a.a((Packet) (new lr(this.F(), var1)));
 	}
 
 	protected void b(wq var1) {
 		super.b(var1);
-		this.a.a((id) (new kn(this.F(), var1)));
+		this.a.a((Packet) (new kn(this.F(), var1)));
 	}
 
 	public void a(double var1, double var3, double var5) {
@@ -708,7 +708,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void t() {
 		if (this.a != null) {
-			this.a.a((id) (new kd(this.by)));
+			this.a.a((Packet) (new kd(this.by)));
 			this.B();
 		}
 	}
@@ -719,7 +719,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void a(EnumGamemode var1) throws IOException {
 		this.c.a(var1);
-		this.a.a((id) (new jo(3, (float) var1.a())));
+		this.a.a((Packet) (new jo(3, (float) var1.a())));
 		if (var1 == EnumGamemode.SPECTATOR) {
 			this.a((Entity) null);
 		} else {
@@ -735,7 +735,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(IChatBaseComponent var1) {
-		this.a.a((id) (new iz(var1)));
+		this.a.a((Packet) (new iz(var1)));
 	}
 
 	public boolean a(int var1, String var2) {
@@ -775,7 +775,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	}
 
 	public void a(String var1, String var2) {
-		this.a.a((id) (new ko(var1, var2)));
+		this.a.a((Packet) (new ko(var1, var2)));
 	}
 
 	public Location c() {
@@ -792,7 +792,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void d(Entity var1) {
 		if (var1 instanceof EntityHuman) {
-			this.a.a((id) (new km(new int[] { var1.F() })));
+			this.a.a((Packet) (new km(new int[] { var1.F() })));
 		} else {
 			this.bH.add(Integer.valueOf(var1.F()));
 		}
@@ -818,7 +818,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		Entity var2 = this.C();
 		this.bS = (Entity) (var1 == null ? this : var1);
 		if (var2 != this.bS) {
-			this.a.a((id) (new ku(this.bS)));
+			this.a.a((Packet) (new ku(this.bS)));
 			this.a(this.bS.s, this.bS.t, this.bS.u);
 		}
 

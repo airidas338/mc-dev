@@ -28,7 +28,7 @@ public class bfy implements bfq, brq {
    }
 
    public bfh a(World var1, int var2, int var3) throws IOException {
-      fn var4 = null;
+      NBTTagCompound var4 = null;
       aqm var5 = new aqm(var2, var3);
       Object var6 = this.d;
       synchronized(this.d) {
@@ -54,7 +54,7 @@ public class bfy implements bfq, brq {
       return this.a(var1, var2, var3, var4);
    }
 
-   protected bfh a(World var1, int var2, int var3, fn var4) {
+   protected bfh a(World var1, int var2, int var3, NBTTagCompound var4) {
       if(!var4.b("Level", 10)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
@@ -78,9 +78,9 @@ public class bfy implements bfq, brq {
       var1.I();
 
       try {
-         fn var3 = new fn();
-         fn var4 = new fn();
-         var3.a("Level", (gd)var4);
+         NBTTagCompound var3 = new NBTTagCompound();
+         NBTTagCompound var4 = new NBTTagCompound();
+         var3.a("Level", (NBTBase)var4);
          this.a(var2, var1, var4);
          this.a(var2.j(), var3);
       } catch (Exception var5) {
@@ -89,7 +89,7 @@ public class bfy implements bfq, brq {
 
    }
 
-   protected void a(aqm var1, fn var2) {
+   protected void a(aqm var1, NBTTagCompound var2) {
       Object var3 = this.d;
       synchronized(this.d) {
          if(this.c.contains(var1)) {
@@ -147,7 +147,7 @@ public class bfy implements bfq, brq {
 
    }
 
-   private void a(bfh var1, World var2, fn var3) {
+   private void a(bfh var1, World var2, NBTTagCompound var3) {
       var3.a("V", (byte)1);
       var3.a("xPos", var1.a);
       var3.a("zPos", var1.b);
@@ -162,11 +162,11 @@ public class bfy implements bfq, brq {
       bfm[] var7 = var4;
       int var8 = var4.length;
 
-      fn var11;
+      NBTTagCompound var11;
       for(int var9 = 0; var9 < var8; ++var9) {
          bfm var10 = var7[var9];
          if(var10 != null) {
-            var11 = new fn();
+            var11 = new NBTTagCompound();
             var11.a("Y", (byte)(var10.d() >> 4 & 255));
             byte[] var12 = new byte[var10.g().length];
             bff var13 = new bff();
@@ -202,11 +202,11 @@ public class bfy implements bfq, brq {
                var11.a("SkyLight", new byte[var10.h().a().length]);
             }
 
-            var5.a((gd)var11);
+            var5.a((NBTBase)var11);
          }
       }
 
-      var3.a("Sections", (gd)var5);
+      var3.a("Sections", (NBTBase)var5);
       var3.a("Biomes", var1.k());
       var1.g(false);
       fv var20 = new fv();
@@ -217,26 +217,26 @@ public class bfy implements bfq, brq {
 
          while(var22.hasNext()) {
             Entity var25 = (Entity)var22.next();
-            var11 = new fn();
+            var11 = new NBTTagCompound();
             if(var25.d(var11)) {
                var1.g(true);
-               var20.a((gd)var11);
+               var20.a((NBTBase)var11);
             }
          }
       }
 
-      var3.a("Entities", (gd)var20);
+      var3.a("Entities", (NBTBase)var20);
       fv var21 = new fv();
       var22 = var1.r().values().iterator();
 
       while(var22.hasNext()) {
          bcm var26 = (bcm)var22.next();
-         var11 = new fn();
+         var11 = new NBTTagCompound();
          var26.b(var11);
-         var21.a((gd)var11);
+         var21.a((NBTBase)var11);
       }
 
-      var3.a("TileEntities", (gd)var21);
+      var3.a("TileEntities", (NBTBase)var21);
       List var24 = var2.a(var1, false);
       if(var24 != null) {
          long var23 = var2.K();
@@ -245,7 +245,7 @@ public class bfy implements bfq, brq {
 
          while(var28.hasNext()) {
             NextTickListEntry var29 = (NextTickListEntry)var28.next();
-            fn var31 = new fn();
+            NBTTagCompound var31 = new NBTTagCompound();
             RegistryMaterials var30 = (RegistryMaterials)Block.c.c(var29.a());
             var31.a("i", var30 == null?"":var30.toString());
             var31.a("x", var29.a.n());
@@ -253,15 +253,15 @@ public class bfy implements bfq, brq {
             var31.a("z", var29.a.p());
             var31.a("t", (int)(var29.b - var23));
             var31.a("p", var29.c);
-            var27.a((gd)var31);
+            var27.a((NBTBase)var31);
          }
 
-         var3.a("TileTicks", (gd)var27);
+         var3.a("TileTicks", (NBTBase)var27);
       }
 
    }
 
-   private bfh a(World var1, fn var2) {
+   private bfh a(World var1, NBTTagCompound var2) {
       int var3 = var2.f("xPos");
       int var4 = var2.f("zPos");
       bfh var5 = new bfh(var1, var3, var4);
@@ -275,7 +275,7 @@ public class bfy implements bfq, brq {
       boolean var9 = !var1.t.o();
 
       for(int var10 = 0; var10 < var6.c(); ++var10) {
-         fn var11 = var6.b(var10);
+         NBTTagCompound var11 = var6.b(var10);
          byte var12 = var11.d("Y");
          bfm var13 = new bfm(var12 << 4, var9);
          byte[] var14 = var11.k("Blocks");
@@ -309,14 +309,14 @@ public class bfy implements bfq, brq {
       fv var24 = var2.c("Entities", 10);
       if(var24 != null) {
          for(int var23 = 0; var23 < var24.c(); ++var23) {
-            fn var25 = var24.b(var23);
+            NBTTagCompound var25 = var24.b(var23);
             Entity var30 = EntityTypes.a(var25, var1);
             var5.g(true);
             if(var30 != null) {
                var5.a(var30);
                Entity var35 = var30;
 
-               for(fn var33 = var25; var33.b("Riding", 10); var33 = var33.m("Riding")) {
+               for(NBTTagCompound var33 = var25; var33.b("Riding", 10); var33 = var33.m("Riding")) {
                   Entity var36 = EntityTypes.a(var33.m("Riding"), var1);
                   if(var36 != null) {
                      var5.a(var36);
@@ -332,7 +332,7 @@ public class bfy implements bfq, brq {
       fv var27 = var2.c("TileEntities", 10);
       if(var27 != null) {
          for(int var26 = 0; var26 < var27.c(); ++var26) {
-            fn var28 = var27.b(var26);
+            NBTTagCompound var28 = var27.b(var26);
             bcm var32 = bcm.c(var28);
             if(var32 != null) {
                var5.a(var32);
@@ -344,7 +344,7 @@ public class bfy implements bfq, brq {
          fv var31 = var2.c("TileTicks", 10);
          if(var31 != null) {
             for(int var29 = 0; var29 < var31.c(); ++var29) {
-               fn var34 = var31.b(var29);
+               NBTTagCompound var34 = var31.b(var29);
                Block var37;
                if(var34.b("i", 8)) {
                   var37 = Block.b(var34.j("i"));

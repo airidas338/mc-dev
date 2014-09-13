@@ -16,19 +16,19 @@ public abstract class bms {
       this.n = var1;
    }
 
-   public fn b() {
-      fn var1 = new fn();
+   public NBTTagCompound b() {
+      NBTTagCompound var1 = new NBTTagCompound();
       var1.a("id", bmq.a(this));
-      var1.a("BB", (gd)this.l.g());
+      var1.a("BB", (NBTBase)this.l.g());
       var1.a("O", this.m == null?-1:this.m.b());
       var1.a("GD", this.n);
       this.a(var1);
       return var1;
    }
 
-   protected abstract void a(fn var1);
+   protected abstract void a(NBTTagCompound var1);
 
-   public void a(World var1, fn var2) {
+   public void a(World var1, NBTTagCompound var2) {
       if(var2.c("BB")) {
          this.l = new bjb(var2.l("BB"));
       }
@@ -39,7 +39,7 @@ public abstract class bms {
       this.b(var2);
    }
 
-   protected abstract void b(fn var1);
+   protected abstract void b(NBTTagCompound var1);
 
    public void a(bms var1, List var2, Random var3) {}
 
@@ -84,11 +84,11 @@ public abstract class bms {
       int var10;
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var5; var10 <= var8; ++var10) {
-            if(var1.p(new Location(var9, var4, var10)).c().r().d()) {
+            if(var1.getData(new Location(var9, var4, var10)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new Location(var9, var7, var10)).c().r().d()) {
+            if(var1.getData(new Location(var9, var7, var10)).c().r().d()) {
                return true;
             }
          }
@@ -96,11 +96,11 @@ public abstract class bms {
 
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.p(new Location(var9, var10, var5)).c().r().d()) {
+            if(var1.getData(new Location(var9, var10, var5)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new Location(var9, var10, var8)).c().r().d()) {
+            if(var1.getData(new Location(var9, var10, var8)).c().r().d()) {
                return true;
             }
          }
@@ -108,11 +108,11 @@ public abstract class bms {
 
       for(var9 = var5; var9 <= var8; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.p(new Location(var3, var10, var9)).c().r().d()) {
+            if(var1.getData(new Location(var3, var10, var9)).c().r().d()) {
                return true;
             }
 
-            if(var1.p(new Location(var6, var10, var9)).c().r().d()) {
+            if(var1.getData(new Location(var6, var10, var9)).c().r().d()) {
                return true;
             }
          }
@@ -170,7 +170,7 @@ public abstract class bms {
 
             return 1;
          }
-      } else if(var1 instanceof avf) {
+      } else if(var1 instanceof BlockDoor) {
          if(this.m == ej.d) {
             if(var2 == 0) {
                return 2;
@@ -409,7 +409,7 @@ public abstract class bms {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      return !var5.b((fd)(new Location(var6, var7, var8)))?aty.a.P():var1.p(new Location(var6, var7, var8));
+      return !var5.b((fd)(new Location(var6, var7, var8)))?aty.a.P():var1.getData(new Location(var6, var7, var8));
    }
 
    protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -427,7 +427,7 @@ public abstract class bms {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var11 || this.a(var1, var13, var12, var14, var2).c().r() != Material.a) {
+               if(!var11 || this.a(var1, var13, var12, var14, var2).c().r() != Material.AIR) {
                   if(var12 != var4 && var12 != var7 && var13 != var3 && var13 != var6 && var14 != var5 && var14 != var8) {
                      this.a(var1, var10, var13, var12, var14, var2);
                   } else {
@@ -444,7 +444,7 @@ public abstract class bms {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var9 || this.a(var1, var13, var12, var14, var2).c().r() != Material.a) {
+               if(!var9 || this.a(var1, var13, var12, var14, var2).c().r() != Material.AIR) {
                   var11.a(var10, var13, var12, var14, var12 == var4 || var12 == var7 || var13 == var3 || var13 == var6 || var14 == var5 || var14 == var8);
                   this.a(var1, var11.a(), var13, var12, var14, var2);
                }
@@ -458,7 +458,7 @@ public abstract class bms {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
-               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().r() != Material.a)) {
+               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().r() != Material.AIR)) {
                   if(var14 != var6 && var14 != var9 && var15 != var5 && var15 != var8 && var16 != var7 && var16 != var10) {
                      this.a(var1, var12, var15, var14, var16, var2);
                   } else {
@@ -493,7 +493,7 @@ public abstract class bms {
 
             for(int var20 = var5; var20 <= var8; ++var20) {
                float var21 = ((float)var20 - var15) / (var13 * 0.5F);
-               if(!var10 || this.a(var1, var18, var16, var20, var2).c().r() != Material.a) {
+               if(!var10 || this.a(var1, var18, var16, var20, var2).c().r() != Material.AIR) {
                   float var22 = var19 * var19 + var17 * var17 + var21 * var21;
                   if(var22 <= 1.05F) {
                      this.a(var1, var9, var18, var16, var20, var2);
@@ -521,7 +521,7 @@ public abstract class bms {
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
       if(var6.b((fd)(new Location(var7, var8, var9)))) {
-         while((var1.d(new Location(var7, var8, var9)) || var1.p(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
+         while((var1.d(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
             var1.a(new Location(var7, var8, var9), var2, 2);
             --var8;
          }
@@ -531,7 +531,7 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var9) && var1.p(var9).c() != aty.ae) {
+      if(var2.b((fd)var9) && var1.getData(var9).c() != aty.ae) {
          IBlock var10 = aty.ae.P();
          var1.a(var9, aty.ae.f(var1, var9, var10), 2);
          bcm var11 = var1.s(var9);
@@ -547,7 +547,7 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, int var7, List var8, int var9) {
       Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var10) && var1.p(var10).c() != aty.z) {
+      if(var2.b((fd)var10) && var1.getData(var10).c() != aty.z) {
          var1.a(var10, aty.z.a(this.a(aty.z, var7)), 2);
          bcm var11 = var1.s(var10);
          if(var11 instanceof bcx) {

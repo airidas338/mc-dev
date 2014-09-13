@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
-public abstract class World implements ard {
+public abstract class World implements IBlockAccess {
 
    protected boolean e;
    public final List f = Lists.newArrayList();
@@ -107,7 +107,7 @@ public abstract class World implements ard {
          ;
       }
 
-      return this.p(var2).c();
+      return this.getData(var2).c();
    }
 
    private boolean a(Location var1) {
@@ -115,7 +115,7 @@ public abstract class World implements ard {
    }
 
    public boolean d(Location var1) {
-      return this.p(var1).c().r() == Material.a;
+      return this.getData(var1).c().r() == Material.AIR;
    }
 
    public boolean e(Location var1) {
@@ -223,9 +223,9 @@ public abstract class World implements ard {
    }
 
    public boolean b(Location var1, boolean var2) {
-      IBlock var3 = this.p(var1);
+      IBlock var3 = this.getData(var1);
       Block var4 = var3.c();
-      if(var4.r() == Material.a) {
+      if(var4.r() == Material.AIR) {
          return false;
       } else {
          this.b(2001, var1, Block.f(var3));
@@ -321,7 +321,7 @@ public abstract class World implements ard {
 
    public void d(Location var1, Block var2) {
       if(!this.D) {
-         IBlock var3 = this.p(var1);
+         IBlock var3 = this.getData(var1);
 
          try {
             var3.c().a(this, var1, var3, var2);
@@ -352,7 +352,7 @@ public abstract class World implements ard {
             return false;
          } else {
             for(var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
-               Block var3 = this.p(var2).c();
+               Block var3 = this.getData(var2).c();
                if(var3.n() > 0 && !var3.r().d()) {
                   return false;
                }
@@ -381,7 +381,7 @@ public abstract class World implements ard {
 
    public int c(Location var1, boolean var2) {
       if(var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
-         if(var2 && this.p(var1).c().q()) {
+         if(var2 && this.getData(var1).c().q()) {
             int var8 = this.c(var1.a(), false);
             int var4 = this.c(var1.f(), false);
             int var5 = this.c(var1.e(), false);
@@ -483,7 +483,7 @@ public abstract class World implements ard {
       return this.t.p()[this.l(var1)];
    }
 
-   public IBlock p(Location var1) {
+   public IBlock getData(Location var1) {
       if(!this.a(var1)) {
          return aty.a.P();
       } else {
@@ -496,15 +496,15 @@ public abstract class World implements ard {
       return this.d < 4;
    }
 
-   public bru a(ChunkCoordinates var1, ChunkCoordinates var2) {
+   public MovingObjectPosition a(ChunkCoordinates var1, ChunkCoordinates var2) {
       return this.a(var1, var2, false, false, false);
    }
 
-   public bru a(ChunkCoordinates var1, ChunkCoordinates var2, boolean var3) {
+   public MovingObjectPosition a(ChunkCoordinates var1, ChunkCoordinates var2, boolean var3) {
       return this.a(var1, var2, var3, false, false);
    }
 
-   public bru a(ChunkCoordinates var1, ChunkCoordinates var2, boolean var3, boolean var4, boolean var5) {
+   public MovingObjectPosition a(ChunkCoordinates var1, ChunkCoordinates var2, boolean var3, boolean var4, boolean var5) {
       if(!Double.isNaN(var1.a) && !Double.isNaN(var1.b) && !Double.isNaN(var1.c)) {
          if(!Double.isNaN(var2.a) && !Double.isNaN(var2.b) && !Double.isNaN(var2.c)) {
             int var6 = MathHelper.c(var2.a);
@@ -515,16 +515,16 @@ public abstract class World implements ard {
             int var11 = MathHelper.c(var1.c);
             Location var12 = new Location(var9, var10, var11);
             new Location(var6, var7, var8);
-            IBlock var14 = this.p(var12);
+            IBlock var14 = this.getData(var12);
             Block var15 = var14.c();
             if((!var4 || var15.a(this, var12, var14) != null) && var15.a(var14, var3)) {
-               bru var16 = var15.a(this, var12, var1, var2);
+               MovingObjectPosition var16 = var15.a(this, var12, var1, var2);
                if(var16 != null) {
                   return var16;
                }
             }
 
-            bru var42 = null;
+            MovingObjectPosition var42 = null;
             int var41 = 200;
 
             while(var41-- >= 0) {
@@ -612,16 +612,16 @@ public abstract class World implements ard {
                var10 = MathHelper.c(var1.b) - (var37 == ej.b?1:0);
                var11 = MathHelper.c(var1.c) - (var37 == ej.d?1:0);
                var12 = new Location(var9, var10, var11);
-               IBlock var38 = this.p(var12);
+               IBlock var38 = this.getData(var12);
                Block var39 = var38.c();
                if(!var4 || var39.a(this, var12, var38) != null) {
                   if(var39.a(var38, var3)) {
-                     bru var40 = var39.a(this, var12, var1, var2);
+                     MovingObjectPosition var40 = var39.a(this, var12, var1, var2);
                      if(var40 != null) {
                         return var40;
                      }
                   } else {
-                     var42 = new bru(brv.a, var1, var37, var12);
+                     var42 = new MovingObjectPosition(brv.a, var1, var37, var12);
                   }
                }
             }
@@ -784,7 +784,7 @@ public abstract class World implements ard {
                   if(!this.af().a(var13) && var15) {
                      var16 = aty.b.P();
                   } else {
-                     var16 = this.p(var13);
+                     var16 = this.getData(var13);
                   }
 
                   var16.c().a(this, var13, var16, var2, var3, var1);
@@ -849,7 +849,7 @@ public abstract class World implements ard {
                   Location var13 = new Location(var9, var11, var10);
                   IBlock var12;
                   if(var9 >= -30000000 && var9 < 30000000 && var10 >= -30000000 && var10 < 30000000) {
-                     var12 = this.p(var13);
+                     var12 = this.getData(var13);
                   } else {
                      var12 = aty.h.P();
                   }
@@ -899,7 +899,7 @@ public abstract class World implements ard {
       for(var3 = new Location(var1.n(), var2.g() + 16, var1.p()); var3.o() >= 0; var3 = var4) {
          var4 = var3.b();
          Material var5 = var2.a(var4).r();
-         if(var5.c() && var5 != Material.j) {
+         if(var5.c() && var5 != Material.LEAVES) {
             break;
          }
       }
@@ -1191,8 +1191,8 @@ public abstract class World implements ard {
       for(int var8 = var2; var8 <= var3; ++var8) {
          for(int var9 = var4; var9 <= var5; ++var9) {
             for(int var10 = var6; var10 <= var7; ++var10) {
-               Block var11 = this.p(new Location(var8, var9, var10)).c();
-               if(var11.r() != Material.a) {
+               Block var11 = this.getData(new Location(var8, var9, var10)).c();
+               if(var11.r() != Material.AIR) {
                   return true;
                }
             }
@@ -1213,7 +1213,7 @@ public abstract class World implements ard {
       for(int var8 = var2; var8 <= var3; ++var8) {
          for(int var9 = var4; var9 <= var5; ++var9) {
             for(int var10 = var6; var10 <= var7; ++var10) {
-               Block var11 = this.p(new Location(var8, var9, var10)).c();
+               Block var11 = this.getData(new Location(var8, var9, var10)).c();
                if(var11.r().d()) {
                   return true;
                }
@@ -1235,7 +1235,7 @@ public abstract class World implements ard {
          for(int var8 = var2; var8 < var3; ++var8) {
             for(int var9 = var4; var9 < var5; ++var9) {
                for(int var10 = var6; var10 < var7; ++var10) {
-                  Block var11 = this.p(new Location(var8, var9, var10)).c();
+                  Block var11 = this.getData(new Location(var8, var9, var10)).c();
                   if(var11 == aty.ab || var11 == aty.k || var11 == aty.l) {
                      return true;
                   }
@@ -1264,7 +1264,7 @@ public abstract class World implements ard {
             for(int var13 = var6; var13 < var7; ++var13) {
                for(int var14 = var8; var14 < var9; ++var14) {
                   Location var15 = new Location(var12, var13, var14);
-                  IBlock var16 = this.p(var15);
+                  IBlock var16 = this.getData(var15);
                   Block var17 = var16.c();
                   if(var17.r() == var2) {
                      double var18 = (double)((float)(var13 + 1) - axl.b(((Integer)var16.b(axl.b)).intValue()));
@@ -1300,7 +1300,7 @@ public abstract class World implements ard {
       for(int var9 = var3; var9 < var4; ++var9) {
          for(int var10 = var5; var10 < var6; ++var10) {
             for(int var11 = var7; var11 < var8; ++var11) {
-               if(this.p(new Location(var9, var10, var11)).c().r() == var2) {
+               if(this.getData(new Location(var9, var10, var11)).c().r() == var2) {
                   return true;
                }
             }
@@ -1322,7 +1322,7 @@ public abstract class World implements ard {
          for(int var10 = var5; var10 < var6; ++var10) {
             for(int var11 = var7; var11 < var8; ++var11) {
                Location var12 = new Location(var9, var10, var11);
-               IBlock var13 = this.p(var12);
+               IBlock var13 = this.getData(var12);
                Block var14 = var13.c();
                if(var14.r() == var2) {
                   int var15 = ((Integer)var13.b(axl.b)).intValue();
@@ -1384,7 +1384,7 @@ public abstract class World implements ard {
 
    public boolean a(EntityHuman var1, Location var2, ej var3) {
       var2 = var2.a(var3);
-      if(this.p(var2).c() == aty.ab) {
+      if(this.getData(var2).c() == aty.ab) {
          this.a(var1, 1004, var2, 0);
          this.g(var2);
          return true;
@@ -1473,15 +1473,15 @@ public abstract class World implements ard {
    }
 
    public boolean u(Location var1) {
-      IBlock var2 = this.p(var1);
+      IBlock var2 = this.getData(var1);
       AxisAlignedBB var3 = var2.c().a(this, var1, var2);
       return var3 != null && var3.a() >= 1.0D;
    }
 
-   public static boolean a(ard var0, Location var1) {
-      IBlock var2 = var0.p(var1);
+   public static boolean a(IBlockAccess var0, Location var1) {
+      IBlock var2 = var0.getData(var1);
       Block var3 = var2.c();
-      return var3.r().k() && var3.d()?true:(var3 instanceof bat?var2.b(bat.b) == bau.a:(var3 instanceof awq?var2.b(awq.a) == awr.a:(var3 instanceof awx?true:(var3 instanceof bao?((Integer)var2.b(bao.a)).intValue() == 7:false))));
+      return var3.r().k() && var3.d()?true:(var3 instanceof BlockStairs?var2.b(BlockStairs.b) == bau.a:(var3 instanceof awq?var2.b(awq.a) == awr.a:(var3 instanceof BlockHopper?true:(var3 instanceof BlockSnow?((Integer)var2.b(BlockSnow.a)).intValue() == 7:false))));
    }
 
    public boolean d(Location var1, boolean var2) {
@@ -1492,7 +1492,7 @@ public abstract class World implements ard {
          if(var3.f()) {
             return var2;
          } else {
-            Block var4 = this.p(var1).c();
+            Block var4 = this.getData(var1).c();
             return var4.r().k() && var4.d();
          }
       }
@@ -1640,7 +1640,7 @@ public abstract class World implements ard {
          Block var9 = var3.a(var8);
          var5 += var1;
          var6 += var2;
-         if(var9.r() == Material.a && this.k(var8) <= this.s.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
+         if(var9.r() == Material.AIR && this.k(var8) <= this.s.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
             EntityHuman var10 = this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, 8.0D);
             if(var10 != null && var10.e((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D) > 4.0D) {
                this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.s.nextFloat() * 0.2F);
@@ -1659,7 +1659,7 @@ public abstract class World implements ard {
 
    public void a(Block var1, Location var2, Random var3) {
       this.e = true;
-      var1.b(this, var2, this.p(var2), var3);
+      var1.b(this, var2, this.getData(var2), var3);
       this.e = false;
    }
 
@@ -1678,7 +1678,7 @@ public abstract class World implements ard {
          return false;
       } else {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
-            IBlock var5 = this.p(var1);
+            IBlock var5 = this.getData(var1);
             Block var6 = var5.c();
             if((var6 == aty.j || var6 == aty.i) && ((Integer)var5.b(axl.b)).intValue() == 0) {
                if(!var2) {
@@ -1697,7 +1697,7 @@ public abstract class World implements ard {
    }
 
    private boolean F(Location var1) {
-      return this.p(var1).c().r() == Material.h;
+      return this.getData(var1).c().r() == Material.WATER;
    }
 
    public boolean f(Location var1, boolean var2) {
@@ -1709,8 +1709,8 @@ public abstract class World implements ard {
          return true;
       } else {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
-            Block var5 = this.p(var1).c();
-            if(var5.r() == Material.a && aty.aH.c(this, var1)) {
+            Block var5 = this.getData(var1).c();
+            if(var5.r() == Material.AIR && aty.aH.c(this, var1)) {
                return true;
             }
          }
@@ -1733,7 +1733,7 @@ public abstract class World implements ard {
       if(var2 == EnumSkyBlock.SKY && this.i(var1)) {
          return 15;
       } else {
-         Block var3 = this.p(var1).c();
+         Block var3 = this.getData(var1).c();
          int var4 = var2 == EnumSkyBlock.SKY?0:var3.p();
          int var5 = var3.n();
          if(var5 >= 15 && var3.p() > 0) {
@@ -1819,7 +1819,7 @@ public abstract class World implements ard {
                            int var25 = var12 + var23.h();
                            int var26 = var13 + var23.i();
                            Location var27 = new Location(var24, var25, var26);
-                           int var28 = Math.max(1, this.p(var27).c().n());
+                           int var28 = Math.max(1, this.getData(var27).c().n());
                            var16 = this.b(var1, var27);
                            if(var16 == var14 - var28 && var4 < this.H.length) {
                               this.H[var4++] = var24 - var7 + 32 | var25 - var8 + 32 << 6 | var26 - var9 + 32 << 12 | var14 - var28 << 18;
@@ -2029,14 +2029,14 @@ public abstract class World implements ard {
    }
 
    public boolean a(Block var1, Location var2, boolean var3, ej var4, Entity var5, amj var6) {
-      Block var7 = this.p(var2).c();
+      Block var7 = this.getData(var2).c();
       AxisAlignedBB var8 = var3?null:var1.a(this, var2, var1.P());
-      return var8 != null && !this.a(var8, var5)?false:(var7.r() == Material.q && var1 == aty.cf?true:var7.r().j() && var1.a(this, var2, var4, var6));
+      return var8 != null && !this.a(var8, var5)?false:(var7.r() == Material.ORIENTABLE && var1 == aty.cf?true:var7.r().j() && var1.a(this, var2, var4, var6));
    }
 
    public int a(Location var1, ej var2) {
-      IBlock var3 = this.p(var1);
-      return var3.c().b((ard)this, var1, var3, var2);
+      IBlock var3 = this.getData(var1);
+      return var3.c().b((IBlockAccess)this, var1, var3, var2);
    }
 
    public WorldType G() {
@@ -2079,9 +2079,9 @@ public abstract class World implements ard {
    }
 
    public int c(Location var1, ej var2) {
-      IBlock var3 = this.p(var1);
+      IBlock var3 = this.getData(var1);
       Block var4 = var3.c();
-      return var4.t()?this.y(var1):var4.a((ard)this, var1, var3, var2);
+      return var4.t()?this.y(var1):var4.a((IBlockAccess)this, var1, var3, var2);
    }
 
    public boolean z(Location var1) {
@@ -2210,7 +2210,7 @@ public abstract class World implements ard {
    }
 
    public void c(Location var1, Block var2, int var3, int var4) {
-      var2.a(this, var1, this.p(var1), var3, var4);
+      var2.a(this, var1, this.getData(var1), var3, var4);
    }
 
    public IDataManager O() {
@@ -2365,12 +2365,12 @@ public abstract class World implements ard {
          ej var4 = (ej)var3.next();
          Location var5 = var1.a(var4);
          if(this.e(var5)) {
-            IBlock var6 = this.p(var5);
+            IBlock var6 = this.getData(var5);
             if(aty.cj.e(var6.c())) {
                var6.c().a(this, var5, var6, var2);
             } else if(var6.c().t()) {
                var5 = var5.a(var4);
-               var6 = this.p(var5);
+               var6 = this.getData(var5);
                if(aty.cj.e(var6.c())) {
                   var6.c().a(this, var5, var6, var2);
                }

@@ -13,7 +13,7 @@ public class af {
       this.d = b;
    }
 
-   public void a(ae var1, ag var2, int var3) {
+   public void a(ICommandSender var1, ag var2, int var3) {
       String var4 = this.c[var2.a()];
       if(var4 != null) {
          String var5;
@@ -37,9 +37,9 @@ public class af {
       }
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       if(var1.b("CommandStats", 10)) {
-         fn var2 = var1.m("CommandStats");
+         NBTTagCompound var2 = var1.m("CommandStats");
          ag[] var3 = ag.values();
          int var4 = var3.length;
 
@@ -57,8 +57,8 @@ public class af {
       }
    }
 
-   public void b(fn var1) {
-      fn var2 = new fn();
+   public void b(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
       ag[] var3 = ag.values();
       int var4 = var3.length;
 
@@ -73,7 +73,7 @@ public class af {
       }
 
       if(!var2.c_()) {
-         var1.a("CommandStats", (gd)var2);
+         var1.a("CommandStats", (NBTBase)var2);
       }
 
    }

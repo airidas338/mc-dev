@@ -44,12 +44,12 @@ public class EntityGuardian extends EntityMonster {
       this.getAttributeInstance(GenericAttributes.a).a(30.0D);
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a(var1.n("Elder"));
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       var1.a("Elder", this.cl());
    }
@@ -173,7 +173,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    public float a(Location var1) {
-      return this.o.p(var1).c().r() == Material.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+      return this.o.getData(var1).c().r() == Material.WATER?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() throws IOException {
@@ -278,7 +278,7 @@ public class EntityGuardian extends EntityMonster {
             while(var7.hasNext()) {
                EntityPlayer var8 = (EntityPlayer)var7.next();
                if(!var8.a(var5) || var8.b(var5).c() < 2 || var8.b(var5).b() < 1200) {
-                  var8.a.a((id)(new jo(10, 0.0F)));
+                  var8.a.a((Packet)(new jo(10, 0.0F)));
                   var8.c(new wq(var5.H, 6000, 2));
                }
             }
@@ -310,7 +310,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    protected void bp() {
-      amj var1 = ((adp)WeightedRandom.a(this.V, ado.j())).a(this.V);
+      amj var1 = ((PossibleFishingResult)WeightedRandom.a(this.V, EntityFishingHook.j())).a(this.V);
       this.a(var1, 1.0F);
    }
 

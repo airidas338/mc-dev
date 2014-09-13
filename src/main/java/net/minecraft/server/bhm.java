@@ -1,11 +1,11 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bhm extends bhp {
+public class bhm extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
       Block var4;
-      while(((var4 = var1.p(var3).c()).r() == Material.a || var4.r() == Material.j) && var3.o() > 0) {
+      while(((var4 = var1.getData(var3).c()).r() == Material.AIR || var4.r() == Material.LEAVES) && var3.o() > 0) {
          var3 = var3.b();
       }
 

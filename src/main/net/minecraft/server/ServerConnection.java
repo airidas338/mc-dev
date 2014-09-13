@@ -65,7 +65,7 @@ public class ServerConnection {
 
 			while (var2.hasNext()) {
 				NetworkManager var3 = (NetworkManager) var2.next();
-				System.out.println("Recieved NetworkManager " + var3);
+				System.out.println("Recieved NetworkManager " + var3.isConnected() + " at " + System.currentTimeMillis());
 				if (!var3.h()) {
 					if (!var3.isConnected()) {
 						System.out.println("NetworkManager is not connected " + var3);
@@ -85,13 +85,12 @@ public class ServerConnection {
 
 							d.warn("Failed to handle packet for " + var3.b(), var8);
 							ChatComponentText var5 = new ChatComponentText("Internal server error");
-							var3.a(new jj(var5), new ri(this, var3, var5), new GenericFutureListener[0]);
+							var3.a(new PacketPlayOutKickDisconnect(var5), new ServerConnectionFuture(this, var3, var5), new GenericFutureListener[0]);
 							var3.k();
 						}
 					}
 				}
 			}
-
 		}
 	}
 

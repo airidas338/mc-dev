@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-class aet extends zb {
+class aet extends PathfinderGoal {
 
    private EntityEnderman a;
 
@@ -11,7 +11,7 @@ class aet extends zb {
    }
 
    public boolean a() {
-      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() == Material.a?false:this.a.bb().nextInt(2000) == 0);
+      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() == Material.AIR?false:this.a.bb().nextInt(2000) == 0);
    }
 
    public void e() {
@@ -21,8 +21,8 @@ class aet extends zb {
       int var4 = MathHelper.c(this.a.t + var1.nextDouble() * 2.0D);
       int var5 = MathHelper.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
       Location var6 = new Location(var3, var4, var5);
-      Block var7 = var2.p(var6).c();
-      Block var8 = var2.p(var6.b()).c();
+      Block var7 = var2.getData(var6).c();
+      Block var8 = var2.getData(var6.b()).c();
       if(this.a(var2, var6, this.a.ck().c(), var7, var8)) {
          var2.a(var6, this.a.ck(), 3);
          this.a.a(aty.a.P());
@@ -31,6 +31,6 @@ class aet extends zb {
    }
 
    private boolean a(World var1, Location var2, Block var3, Block var4, Block var5) {
-      return !var3.c(var1, var2)?false:(var4.r() != Material.a?false:(var5.r() == Material.a?false:var5.d()));
+      return !var3.c(var1, var2)?false:(var4.r() != Material.AIR?false:(var5.r() == Material.AIR?false:var5.d()));
    }
 }

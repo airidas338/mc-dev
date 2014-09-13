@@ -43,7 +43,7 @@ public class abb extends aaz {
    }
 
    protected boolean a(ChunkCoordinates var1, ChunkCoordinates var2, int var3, int var4, int var5) {
-      bru var6 = this.c.a(var1, new ChunkCoordinates(var2.a, var2.b + (double)this.b.K * 0.5D, var2.c), false, true, false);
+      MovingObjectPosition var6 = this.c.a(var1, new ChunkCoordinates(var2.a, var2.b + (double)this.b.K * 0.5D, var2.c), false, true, false);
       return var6 == null || var6.a == brv.a;
    }
 }

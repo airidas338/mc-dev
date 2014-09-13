@@ -3,7 +3,7 @@ import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class le implements id {
+public class le implements Packet {
 
    private String a = "";
    private String b = "";

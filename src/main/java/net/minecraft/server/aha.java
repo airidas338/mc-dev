@@ -11,8 +11,8 @@ public class aha {
    private float g = 0.1F;
 
 
-   public void a(fn var1) {
-      fn var2 = new fn();
+   public void a(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
       var2.a("invulnerable", this.a);
       var2.a("flying", this.b);
       var2.a("mayfly", this.c);
@@ -20,12 +20,12 @@ public class aha {
       var2.a("mayBuild", this.e);
       var2.a("flySpeed", this.f);
       var2.a("walkSpeed", this.g);
-      var1.a("abilities", (gd)var2);
+      var1.a("abilities", (NBTBase)var2);
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       if(var1.b("abilities", 10)) {
-         fn var2 = var1.m("abilities");
+         NBTTagCompound var2 = var1.m("abilities");
          this.a = var2.n("invulnerable");
          this.b = var2.n("flying");
          this.c = var2.n("mayfly");

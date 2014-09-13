@@ -15,12 +15,12 @@ public class bka extends bkb {
       this.l = var3;
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.b = var1.n("Mob");
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("Mob", this.b);
    }

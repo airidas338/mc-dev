@@ -54,20 +54,20 @@ class aoe implements aoo {
             }
          }
 
-         fn var10 = var2.a("BlockEntityTag", true);
+         NBTTagCompound var10 = var2.a("BlockEntityTag", true);
          var6 = null;
          fv var11;
          if(var10.b("Patterns", 9)) {
             var11 = var10.c("Patterns", 10);
          } else {
             var11 = new fv();
-            var10.a("Patterns", (gd)var11);
+            var10.a("Patterns", (NBTBase)var11);
          }
 
-         fn var7 = new fn();
+         NBTTagCompound var7 = new NBTTagCompound();
          var7.a("Pattern", var8.b());
          var7.a("Color", var9);
-         var11.a((gd)var7);
+         var11.a((NBTBase)var7);
       }
 
       return var2;

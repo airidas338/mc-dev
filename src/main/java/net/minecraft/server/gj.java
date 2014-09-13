@@ -12,7 +12,7 @@ class gj extends gh {
       this.a = var1;
    }
 
-   public gd a() {
+   public NBTBase a() {
       fv var1 = new fv();
       Iterator var2 = this.b.iterator();
 

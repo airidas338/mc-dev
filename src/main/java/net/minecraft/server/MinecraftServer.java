@@ -42,7 +42,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class MinecraftServer implements ae, Runnable, vn, wd {
+public abstract class MinecraftServer implements ICommandSender, Runnable, vn, wd {
 
 	private static final Logger j = LogManager.getLogger();
 	public static final File a = new File("usercache.json");
@@ -491,7 +491,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 				this.b.a(var4.P().k());
 				if (this.y % 20 == 0) {
 					this.b.a("timeSync");
-					this.v.a((id) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.t.q());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.t.q());
 					this.b.b();
 				}
 
@@ -717,7 +717,7 @@ public abstract class MinecraftServer implements ae, Runnable, vn, wd {
 		return var1;
 	}
 
-	public List a(ae var1, String var2, Location var3) {
+	public List a(ICommandSender var1, String var2, Location var3) {
 		ArrayList var4 = Lists.newArrayList();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);

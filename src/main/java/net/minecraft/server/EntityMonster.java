@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public abstract class EntityMonster extends EntityCreature implements IMonster {
 
-	protected final zb a = new yp(this, new afn(this), 4.0F, 1.0D, 2.0D);
+	protected final PathfinderGoal a = new yp(this, new afn(this), 4.0F, 1.0D, 2.0D);
 
 	public EntityMonster(World var1) {
 		super(var1);

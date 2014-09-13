@@ -5,7 +5,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public class zm extends zb {
+public class zm extends PathfinderGoal {
 
    private EntityCreature a;
    private double b;

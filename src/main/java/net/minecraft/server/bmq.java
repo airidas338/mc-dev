@@ -31,7 +31,7 @@ public class bmq {
       return (String)e.get(var0.getClass());
    }
 
-   public static bmv a(fn var0, World var1) {
+   public static bmv a(NBTTagCompound var0, World var1) {
       bmv var2 = null;
 
       try {
@@ -53,7 +53,7 @@ public class bmq {
       return var2;
    }
 
-   public static bms b(fn var0, World var1) {
+   public static bms b(NBTTagCompound var0, World var1) {
       bms var2 = null;
 
       try {

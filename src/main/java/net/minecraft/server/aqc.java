@@ -10,7 +10,7 @@ public class aqc {
    private boolean f;
 
 
-   public aqc(fn var1) {
+   public aqc(NBTTagCompound var1) {
       this.a(var1);
    }
 
@@ -31,7 +31,7 @@ public class aqc {
       this(var1, (amj)null, var2);
    }
 
-   public aqc(amj var1, alq var2) {
+   public aqc(amj var1, Item var2) {
       this(var1, new amj(var2));
    }
 
@@ -75,10 +75,10 @@ public class aqc {
       return this.f;
    }
 
-   public void a(fn var1) {
-      fn var2 = var1.m("buy");
+   public void a(NBTTagCompound var1) {
+      NBTTagCompound var2 = var1.m("buy");
       this.a = amj.a(var2);
-      fn var3 = var1.m("sell");
+      NBTTagCompound var3 = var1.m("sell");
       this.c = amj.a(var3);
       if(var1.b("buyB", 10)) {
          this.b = amj.a(var1.m("buyB"));
@@ -102,12 +102,12 @@ public class aqc {
 
    }
 
-   public fn k() {
-      fn var1 = new fn();
-      var1.a("buy", (gd)this.a.b(new fn()));
-      var1.a("sell", (gd)this.c.b(new fn()));
+   public NBTTagCompound k() {
+      NBTTagCompound var1 = new NBTTagCompound();
+      var1.a("buy", (NBTBase)this.a.b(new NBTTagCompound()));
+      var1.a("sell", (NBTBase)this.c.b(new NBTTagCompound()));
       if(this.b != null) {
-         var1.a("buyB", (gd)this.b.b(new fn()));
+         var1.a("buyB", (NBTBase)this.b.b(new NBTTagCompound()));
       }
 
       var1.a("uses", this.d);

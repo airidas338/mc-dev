@@ -29,7 +29,7 @@ public class wi extends DamageSource {
       amj var2 = this.q instanceof EntityLiving?((EntityLiving)this.q).bz():null;
       String var3 = "death.attack." + this.p;
       String var4 = var3 + ".item";
-      return var2 != null && var2.s() && fi.c(var4)?new hz(var4, new Object[]{var1.e_(), this.q.e_(), var2.C()}):new hz(var3, new Object[]{var1.e_(), this.q.e_()});
+      return var2 != null && var2.s() && fi.c(var4)?new ChatMessage(var4, new Object[]{var1.e_(), this.q.e_(), var2.C()}):new ChatMessage(var3, new Object[]{var1.e_(), this.q.e_()});
    }
 
    public boolean r() {

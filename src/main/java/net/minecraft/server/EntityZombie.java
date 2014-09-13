@@ -74,7 +74,7 @@ public class EntityZombie extends EntityMonster {
          if(var1) {
             this.i.a(1, this.bl);
          } else {
-            this.i.a((zb)this.bl);
+            this.i.a((PathfinderGoal)this.bl);
          }
       }
 
@@ -162,7 +162,7 @@ public class EntityZombie extends EntityMonster {
                int var9 = var4 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var10 = var5 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var11 = var6 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
-               if(World.a((ard)this.o, new Location(var9, var10 - 1, var11)) && this.o.l(new Location(var9, var10, var11)) < 10) {
+               if(World.a((IBlockAccess)this.o, new Location(var9, var10 - 1, var11)) && this.o.l(new Location(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
                   if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a(var7.aQ(), (Entity)var7) && this.o.a((Entity)var7, var7.aQ()).isEmpty() && !this.o.d(var7.aQ())) {
                      this.o.d((Entity)var7);
@@ -222,7 +222,7 @@ public class EntityZombie extends EntityMonster {
       this.a("mob.zombie.step", 0.15F, 1.0F);
    }
 
-   protected alq A() {
+   protected Item A() {
       return Items.bt;
    }
 
@@ -257,7 +257,7 @@ public class EntityZombie extends EntityMonster {
 
    }
 
-   public void b(fn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.i_()) {
          var1.a("IsBaby", true);
@@ -271,7 +271,7 @@ public class EntityZombie extends EntityMonster {
       var1.a("CanBreakDoors", this.cl());
    }
 
-   public void a(fn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.n("IsBaby")) {
          this.l(true);
@@ -443,7 +443,7 @@ public class EntityZombie extends EntityMonster {
          for(int var3 = (int)this.s - 4; var3 < (int)this.s + 4 && var2 < 14; ++var3) {
             for(int var4 = (int)this.t - 4; var4 < (int)this.t + 4 && var2 < 14; ++var4) {
                for(int var5 = (int)this.u - 4; var5 < (int)this.u + 4 && var2 < 14; ++var5) {
-                  Block var6 = this.o.p(new Location(var3, var4, var5)).c();
+                  Block var6 = this.o.getData(new Location(var3, var4, var5)).c();
                   if(var6 == aty.bi || var6 == aty.C) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;

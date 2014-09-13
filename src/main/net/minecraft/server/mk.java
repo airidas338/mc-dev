@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mk implements id {
+public class mk implements Packet {
 
    private boolean a;
    private boolean b;

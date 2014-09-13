@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ml implements id {
+public class ml implements Packet {
 
    private Location a;
    private ej b;

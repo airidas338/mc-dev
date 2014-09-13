@@ -23,7 +23,7 @@ public class bqi extends bqm {
       }
    }
 
-   public void a(WorldData var1, fn var2) {
+   public void a(WorldData var1, NBTTagCompound var2) {
       var1.e(19133);
       super.a(var1, var2);
    }

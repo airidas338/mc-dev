@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zg extends zb {
+public class zg extends PathfinderGoal {
 
    EntityInsentient a;
    EntityLiving b;

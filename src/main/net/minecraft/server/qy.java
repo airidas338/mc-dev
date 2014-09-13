@@ -73,7 +73,7 @@ public class qy {
 
       if(this.w != this.a.m || this.a.m != null && this.m % 60 == 0) {
          this.w = this.a.m;
-         this.a((id)(new ky(0, this.a, this.a.m)));
+         this.a((Packet)(new ky(0, this.a, this.a.m)));
       }
 
       if(this.a instanceof EntityItemFrame && this.m % 10 == 0) {
@@ -87,7 +87,7 @@ public class qy {
                EntityHuman var6 = (EntityHuman)var5.next();
                EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
-               id var8 = Items.bd.c(var3, this.a.o, var7);
+               Packet var8 = Items.bd.c(var3, this.a.o, var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -139,12 +139,12 @@ public class qy {
                   this.j = this.a.v;
                   this.k = this.a.w;
                   this.l = this.a.x;
-                  this.a((id)(new kz(this.a.F(), this.j, this.k, this.l)));
+                  this.a((Packet)(new kz(this.a.F(), this.j, this.k, this.l)));
                }
             }
 
             if(var10 != null) {
-               this.a((id)var10);
+               this.a((Packet)var10);
             }
 
             this.b();
@@ -165,7 +165,7 @@ public class qy {
             var24 = MathHelper.d(this.a.z * 256.0F / 360.0F);
             boolean var26 = Math.abs(var23 - this.g) >= 4 || Math.abs(var24 - this.h) >= 4;
             if(var26) {
-               this.a((id)(new kb(this.a.F(), (byte)var23, (byte)var24, this.a.C)));
+               this.a((Packet)(new kb(this.a.F(), (byte)var23, (byte)var24, this.a.C)));
                this.g = var23;
                this.h = var24;
             }
@@ -179,7 +179,7 @@ public class qy {
 
          var23 = MathHelper.d(this.a.aD() * 256.0F / 360.0F);
          if(Math.abs(var23 - this.i) >= 4) {
-            this.a((id)(new kq(this.a, (byte)var23)));
+            this.a((Packet)(new kq(this.a, (byte)var23)));
             this.i = var23;
          }
 
@@ -188,7 +188,7 @@ public class qy {
 
       ++this.m;
       if(this.a.G) {
-         this.b((id)(new kz(this.a)));
+         this.b((Packet)(new kz(this.a)));
          this.a.G = false;
       }
 
@@ -197,14 +197,14 @@ public class qy {
    private void b() {
       DataWatcher var1 = this.a.H();
       if(var1.a()) {
-         this.b((id)(new kx(this.a.F(), var1, false)));
+         this.b((Packet)(new kx(this.a.F(), var1, false)));
       }
 
       if(this.a instanceof EntityLiving) {
          yf var2 = (yf)((EntityLiving)this.a).getAttributeMap();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
-            this.b((id)(new lp(this.a.F(), var3)));
+            this.b((Packet)(new lp(this.a.F(), var3)));
          }
 
          var3.clear();
@@ -212,7 +212,7 @@ public class qy {
 
    }
 
-   public void a(id var1) {
+   public void a(Packet var1) {
       Iterator var2 = this.o.iterator();
 
       while(var2.hasNext()) {
@@ -222,7 +222,7 @@ public class qy {
 
    }
 
-   public void b(id var1) {
+   public void b(Packet var1) {
       this.a(var1);
       if(this.a instanceof EntityPlayer) {
          ((EntityPlayer)this.a).a.a(var1);
@@ -253,22 +253,22 @@ public class qy {
          if(this.c(var1)) {
             if(!this.o.contains(var1) && (this.e(var1) || this.a.n)) {
                this.o.add(var1);
-               id var2 = this.c();
+               Packet var2 = this.c();
                var1.a.a(var2);
                if(!this.a.H().d()) {
-                  var1.a.a((id)(new kx(this.a.F(), this.a.H(), true)));
+                  var1.a.a((Packet)(new kx(this.a.F(), this.a.H(), true)));
                }
 
                fn var3 = this.a.aU();
                if(var3 != null) {
-                  var1.a.a((id)(new jl(this.a.F(), var3)));
+                  var1.a.a((Packet)(new jl(this.a.F(), var3)));
                }
 
                if(this.a instanceof EntityLiving) {
                   yf var4 = (yf)((EntityLiving)this.a).getAttributeMap();
                   Collection var5 = var4.c();
                   if(!var5.isEmpty()) {
-                     var1.a.a((id)(new lp(this.a.F(), var5)));
+                     var1.a.a((Packet)(new lp(this.a.F(), var5)));
                   }
                }
 
@@ -276,22 +276,22 @@ public class qy {
                this.k = this.a.w;
                this.l = this.a.x;
                if(this.u && !(var2 instanceof io)) {
-                  var1.a.a((id)(new kz(this.a.F(), this.a.v, this.a.w, this.a.x)));
+                  var1.a.a((Packet)(new kz(this.a.F(), this.a.v, this.a.w, this.a.x)));
                }
 
                if(this.a.m != null) {
-                  var1.a.a((id)(new ky(0, this.a, this.a.m)));
+                  var1.a.a((Packet)(new ky(0, this.a, this.a.m)));
                }
 
                if(this.a instanceof EntityInsentient && ((EntityInsentient)this.a).cc() != null) {
-                  var1.a.a((id)(new ky(1, this.a, ((EntityInsentient)this.a).cc())));
+                  var1.a.a((Packet)(new ky(1, this.a, ((EntityInsentient)this.a).cc())));
                }
 
                if(this.a instanceof EntityLiving) {
                   for(int var7 = 0; var7 < 5; ++var7) {
                      amj var8 = ((EntityLiving)this.a).p(var7);
                      if(var8 != null) {
-                        var1.a.a((id)(new la(this.a.F(), var7, var8)));
+                        var1.a.a((Packet)(new la(this.a.F(), var7, var8)));
                      }
                   }
                }
@@ -299,7 +299,7 @@ public class qy {
                if(this.a instanceof EntityHuman) {
                   EntityHuman var10 = (EntityHuman)this.a;
                   if(var10.bI()) {
-                     var1.a.a((id)(new kl(var10, new Location(this.a))));
+                     var1.a.a((Packet)(new kl(var10, new Location(this.a))));
                   }
                }
 
@@ -309,7 +309,7 @@ public class qy {
 
                   while(var11.hasNext()) {
                      wq var6 = (wq)var11.next();
-                     var1.a.a((id)(new lr(this.a.F(), var6)));
+                     var1.a.a((Packet)(new lr(this.a.F(), var6)));
                   }
                }
             }
@@ -338,7 +338,7 @@ public class qy {
 
    }
 
-   private id c() {
+   private Packet c() {
       if(this.a.I) {
          p.warn("Fetching addPacket for removed entity");
       }

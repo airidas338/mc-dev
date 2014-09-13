@@ -12,11 +12,11 @@ public class bq extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.gamerule.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       aqq var3 = this.d();
       String var4 = var2.length > 0?var2[0]:"";
       String var5 = var2.length > 1?a(var2, 1):"";
@@ -52,13 +52,13 @@ public class bq extends CommandAbstract {
 
          while(var3.hasNext()) {
             EntityPlayer var4 = (EntityPlayer)var3.next();
-            var4.a.a((id)(new jk(var4, (byte)var2)));
+            var4.a.a((Packet)(new jk(var4, (byte)var2)));
          }
       }
 
    }
 
-   public List a(ae var1, String[] var2, Location var3) {
+   public List a(ICommandSender var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, this.d().b());
       } else {

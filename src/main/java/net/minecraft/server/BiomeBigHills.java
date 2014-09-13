@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class BiomeBigHills extends BiomeBase {
 
-   private bhp aD;
+   private WorldGenerator aD;
    private bio aE;
    private int aF;
    private int aG;
@@ -13,7 +13,7 @@ public class BiomeBigHills extends BiomeBase {
 
    protected BiomeBigHills(int var1, boolean var2) {
       super(var1);
-      this.aD = new bif(aty.be.P().a(axs.a, axu.a), 9);
+      this.aD = new bif(aty.be.P().a(BlockMonsterEggs.a, axu.a), 9);
       this.aE = new bio(false);
       this.aF = 0;
       this.aG = 1;
@@ -26,8 +26,8 @@ public class BiomeBigHills extends BiomeBase {
 
    }
 
-   public bhc a(Random var1) {
-      return (bhc)(var1.nextInt(3) > 0?this.aE:super.a(var1));
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)(var1.nextInt(3) > 0?this.aE:super.a(var1));
    }
 
    public void a(World var1, Random var2, Location var3) {
@@ -42,7 +42,7 @@ public class BiomeBigHills extends BiomeBase {
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
          Location var9 = var3.a(var6, var7, var8);
-         if(var1.p(var9).c() == aty.b) {
+         if(var1.getData(var9).c() == aty.b) {
             var1.a(var9, aty.bP.P(), 2);
          }
       }

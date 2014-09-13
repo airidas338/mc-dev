@@ -158,7 +158,7 @@ public class amn extends ake {
       }
    }
 
-   public id c(amj var1, World var2, EntityHuman var3) {
+   public Packet c(amj var1, World var2, EntityHuman var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 

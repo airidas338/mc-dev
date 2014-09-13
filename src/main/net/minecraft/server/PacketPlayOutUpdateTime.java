@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class PacketPlayOutUpdateTime implements id {
+public class PacketPlayOutUpdateTime implements Packet {
 
    private long a;
    private long b;

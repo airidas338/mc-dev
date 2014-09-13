@@ -24,12 +24,12 @@ public class BiomeJungle extends BiomeBase {
       this.au.add(new BiomeMeta(EntityChicken.class, 10, 4, 4));
    }
 
-   public bhc a(Random var1) {
-      return (bhc)(var1.nextInt(10) == 0?this.aB:(var1.nextInt(2) == 0?new bhr(ayx.d.a(), ayx.a.a()):(!this.aD && var1.nextInt(3) == 0?new bia(false, 10, 20, ayx.d.a(), ayx.d.a()):new WorldGenTrees(false, 4 + var1.nextInt(7), ayx.d.a(), ayx.d.a(), true))));
+   public WorldGenTreeAbstract a(Random var1) {
+      return (WorldGenTreeAbstract)(var1.nextInt(10) == 0?this.aB:(var1.nextInt(2) == 0?new bhr(ayx.d.a(), ayx.a.a()):(!this.aD && var1.nextInt(3) == 0?new bia(false, 10, 20, ayx.d.a(), ayx.d.a()):new WorldGenTrees(false, 4 + var1.nextInt(7), ayx.d.a(), ayx.d.a(), true))));
    }
 
-   public bhp b(Random var1) {
-      return var1.nextInt(4) == 0?new biq(bbi.c):new biq(bbi.b);
+   public WorldGenerator b(Random var1) {
+      return var1.nextInt(4) == 0?new WorldGenGrass(EnumFoliage.c):new WorldGenGrass(EnumFoliage.b);
    }
 
    public void a(World var1, Random var2, Location var3) {

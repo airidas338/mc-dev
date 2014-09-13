@@ -53,7 +53,7 @@ public class bci extends bcm {
       this.g = true;
    }
 
-   public id x_() {
+   public Packet x_() {
       fn var1 = new fn();
       this.b(var1);
       return new iu(this.c, 6, var1);

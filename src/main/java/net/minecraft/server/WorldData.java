@@ -14,7 +14,7 @@ public class WorldData {
    private long i;
    private long j;
    private long k;
-   private fn l;
+   private NBTTagCompound l;
    private int m;
    private String n;
    private int o;
@@ -57,7 +57,7 @@ public class WorldData {
       this.K = new aqq();
    }
 
-   public WorldData(fn var1) {
+   public WorldData(NBTTagCompound var1) {
       this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
@@ -263,19 +263,19 @@ public class WorldData {
       this.I = var1.I;
    }
 
-   public fn a() {
-      fn var1 = new fn();
+   public NBTTagCompound a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       this.a(var1, this.l);
       return var1;
    }
 
-   public fn a(fn var1) {
-      fn var2 = new fn();
+   public NBTTagCompound a(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
       this.a(var2, var1);
       return var2;
    }
 
-   private void a(fn var1, fn var2) {
+   private void a(NBTTagCompound var1, NBTTagCompound var2) {
       var1.a("RandomSeed", this.b);
       var1.a("generatorName", this.c.a());
       var1.a("generatorVersion", this.c.d());
@@ -313,9 +313,9 @@ public class WorldData {
       }
 
       var1.a("DifficultyLocked", this.A);
-      var1.a("GameRules", (gd)this.K.a());
+      var1.a("GameRules", (NBTBase)this.K.a());
       if(var2 != null) {
-         var1.a("Player", (gd)var2);
+         var1.a("Player", (NBTBase)var2);
       }
 
    }
@@ -344,7 +344,7 @@ public class WorldData {
       return this.i;
    }
 
-   public fn i() {
+   public NBTTagCompound i() {
       return this.l;
    }
 

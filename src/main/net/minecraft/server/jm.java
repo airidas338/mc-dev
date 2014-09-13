@@ -3,7 +3,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public class jm implements id {
+public class jm implements Packet {
 
    private double a;
    private double b;

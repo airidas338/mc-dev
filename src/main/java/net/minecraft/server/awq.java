@@ -22,11 +22,11 @@ public abstract class awq extends Block {
       return false;
    }
 
-   public void a(ard var1, Location var2) {
+   public void a(IBlockAccess var1, Location var2) {
       if(this.j()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       } else {
-         IBlock var3 = var1.p(var2);
+         IBlock var3 = var1.getData(var2);
          if(var3.c() == this) {
             if(var3.b(a) == awr.a) {
                this.a(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);

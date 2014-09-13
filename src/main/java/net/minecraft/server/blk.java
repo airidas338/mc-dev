@@ -16,7 +16,7 @@ public class blk extends bln {
       super(var1, var2, 64, var3, 21, 15, 21);
    }
 
-   protected void a(fn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
       var1.a("hasPlacedChest0", this.e[0]);
       var1.a("hasPlacedChest1", this.e[1]);
@@ -24,7 +24,7 @@ public class blk extends bln {
       var1.a("hasPlacedChest3", this.e[3]);
    }
 
-   protected void b(fn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
       this.e[0] = var1.n("hasPlacedChest0");
       this.e[1] = var1.n("hasPlacedChest1");

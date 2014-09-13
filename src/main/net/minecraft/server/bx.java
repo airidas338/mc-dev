@@ -29,8 +29,8 @@ public class bx extends CommandAbstract {
             throw new dm("commands.message.sameTarget", new Object[0]);
          } else {
             IChatBaseComponent var4 = b(var1, var2, 1, !(var1 instanceof EntityHuman));
-            hz var5 = new hz("commands.message.display.incoming", new Object[]{var1.e_(), var4.f()});
-            hz var6 = new hz("commands.message.display.outgoing", new Object[]{var3.e_(), var4.f()});
+            ChatMessage var5 = new ChatMessage("commands.message.display.incoming", new Object[]{var1.e_(), var4.f()});
+            ChatMessage var6 = new ChatMessage("commands.message.display.outgoing", new Object[]{var3.e_(), var4.f()});
             var5.b().a(EnumChatFormat.h).b(Boolean.valueOf(true));
             var6.b().a(EnumChatFormat.h).b(Boolean.valueOf(true));
             var3.a((IChatBaseComponent)var5);

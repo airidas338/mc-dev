@@ -7,18 +7,18 @@ public abstract class bcf extends awq {
 
 
    public bcf() {
-      super(Material.d);
+      super(Material.WOOD);
       IBlock var1 = this.L.b();
       if(!this.j()) {
          var1 = var1.a(a, awr.b);
       }
 
       this.j(var1.a(b, ayx.a));
-      this.a(akf.b);
+      this.a(CreativeModeTab.b);
    }
 
-   public alq a(IBlock var1, Random var2, int var3) {
-      return alq.a((Block)aty.bM);
+   public Item a(IBlock var1, Random var2, int var3) {
+      return Item.a((Block)aty.bM);
    }
 
    public String b(int var1) {

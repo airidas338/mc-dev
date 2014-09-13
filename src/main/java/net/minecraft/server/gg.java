@@ -10,14 +10,14 @@ public class gg {
    private static final Pattern b = Pattern.compile("\\[[-+\\d|,\\s]+\\]");
 
 
-   public static fn a(String var0) throws gf {
+   public static NBTTagCompound a(String var0) throws gf {
       var0 = var0.trim();
       if(!var0.startsWith("{")) {
          throw new gf("Invalid tag encountered, expected \'{\' as first char.");
       } else if(b(var0) != 1) {
          throw new gf("Encountered multiple top tags, only one expected");
       } else {
-         return (fn)a("tag", var0).a();
+         return (NBTTagCompound)a("tag", var0).a();
       }
    }
 

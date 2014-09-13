@@ -7,8 +7,8 @@ public class avt extends Block {
 
 
    public avt() {
-      super(Material.p);
-      this.a(akf.b);
+      super(Material.SAND);
+      this.a(CreativeModeTab.b);
    }
 
    public avt(Material var1) {
@@ -35,7 +35,7 @@ public class avt extends Block {
          byte var3 = 32;
          if(!M && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
             if(!var1.D) {
-               EntityFallingBlock var5 = new EntityFallingBlock(var1, (double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, var1.p(var2));
+               EntityFallingBlock var5 = new EntityFallingBlock(var1, (double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, var1.getData(var2));
                this.a(var5);
                var1.d((Entity)var5);
             }
@@ -62,9 +62,9 @@ public class avt extends Block {
    }
 
    public static boolean d(World var0, Location var1) {
-      Block var2 = var0.p(var1).c();
+      Block var2 = var0.getData(var1).c();
       Material var3 = var2.J;
-      return var2 == aty.ab || var3 == Material.a || var3 == Material.h || var3 == Material.i;
+      return var2 == aty.ab || var3 == Material.AIR || var3 == Material.WATER || var3 == Material.LAVA;
    }
 
    public void a_(World var1, Location var2) {}

@@ -89,7 +89,7 @@ public class EntityBlaze extends EntityMonster {
 
    public void e(float var1, float var2) {}
 
-   protected alq A() {
+   protected Item A() {
       return Items.bv;
    }
 

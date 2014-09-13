@@ -10,11 +10,11 @@ public class dc extends CommandAbstract {
       return 2;
    }
 
-   public String c(ae var1) {
+   public String c(ICommandSender var1) {
       return "commands.downfall.usage";
    }
 
-   public void a(ae var1, String[] var2) throws di {
+   public void a(ICommandSender var1, String[] var2) throws di {
       this.d();
       a(var1, this, "commands.downfall.success", new Object[0]);
    }
