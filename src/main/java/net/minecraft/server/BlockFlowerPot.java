@@ -31,8 +31,8 @@ public class BlockFlowerPot extends atg {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
-      amj var9 = var4.bg.h();
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      ItemStack var9 = var4.bg.h();
       if(var9 != null && var9.b() instanceof aju) {
          bdb var10 = this.d(var1, var2);
          if(var10 == null) {
@@ -48,7 +48,7 @@ public class BlockFlowerPot extends atg {
                var10.o_();
                var1.h(var2);
                if(!var4.by.d && --var9.b <= 0) {
-                  var4.bg.a(var4.bg.c, (amj)null);
+                  var4.bg.a(var4.bg.c, (ItemStack)null);
                }
 
                return true;
@@ -83,7 +83,7 @@ public class BlockFlowerPot extends atg {
    public void b(World var1, Location var2, IBlock var3) {
       bdb var4 = this.d(var1, var2);
       if(var4 != null && var4.b() != null) {
-         a(var1, var2, new amj(var4.b(), 1, var4.c()));
+         a(var1, var2, new ItemStack(var4.b(), 1, var4.c()));
       }
 
       super.b(var1, var2, var3);
@@ -105,11 +105,11 @@ public class BlockFlowerPot extends atg {
    }
 
    private bdb d(World var1, Location var2) {
-      bcm var3 = var1.s(var2);
+      TileEntity var3 = var1.s(var2);
       return var3 instanceof bdb?(bdb)var3:null;
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       Object var3 = null;
       int var4 = 0;
       switch(var2) {
@@ -174,7 +174,7 @@ public class BlockFlowerPot extends atg {
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
       awf var4 = awf.a;
-      bcm var5 = var2.s(var3);
+      TileEntity var5 = var2.s(var3);
       if(var5 instanceof bdb) {
          bdb var6 = (bdb)var5;
          Item var7 = var6.b();

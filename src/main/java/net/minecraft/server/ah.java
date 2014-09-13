@@ -234,7 +234,7 @@ public class ah {
       int var12 = a(var0, "dz", 0);
       int var13 = a(var0, "r", -1);
       Predicate var14 = Predicates.and(var2);
-      Predicate var15 = Predicates.and(xe.a, var14);
+      Predicate var15 = Predicates.and(EntitySelectors.a, var14);
       if(var5 != null) {
          int var16 = var4.j.size();
          int var17 = var4.f.size();

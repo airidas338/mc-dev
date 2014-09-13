@@ -1,26 +1,26 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class bci extends bcm {
+public class bci extends TileEntity {
 
    private int a;
-   private fv f;
+   private NBTTagList f;
    private boolean g;
    private List h;
    private List i;
    private String j;
 
 
-   public void a(amj var1) {
+   public void a(ItemStack var1) {
       this.f = null;
       if(var1.n() && var1.o().b("BlockEntityTag", 10)) {
-         NBTTagCompound var2 = var1.o().m("BlockEntityTag");
+         NBTTagCompound var2 = var1.o().getCompound("BlockEntityTag");
          if(var2.c("Patterns")) {
-            this.f = (fv)var2.c("Patterns", 10).b();
+            this.f = (NBTTagList)var2.getList("Patterns", 10).b();
          }
 
          if(var2.b("Base", 99)) {
-            this.a = var2.f("Base");
+            this.a = var2.getInt("Base");
          } else {
             this.a = var1.i() & 15;
          }
@@ -36,17 +36,17 @@ public class bci extends bcm {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Base", this.a);
+      var1.setInt("Base", this.a);
       if(this.f != null) {
-         var1.a("Patterns", (NBTBase)this.f);
+         var1.set("Patterns", (NBTBase)this.f);
       }
 
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.f("Base");
-      this.f = var1.c("Patterns", 10);
+      this.a = var1.getInt("Base");
+      this.f = var1.getList("Patterns", 10);
       this.h = null;
       this.i = null;
       this.j = null;
@@ -63,20 +63,20 @@ public class bci extends bcm {
       return this.a;
    }
 
-   public static int b(amj var0) {
+   public static int b(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      return var1 != null && var1.c("Base")?var1.f("Base"):var0.i();
+      return var1 != null && var1.c("Base")?var1.getInt("Base"):var0.i();
    }
 
-   public static int c(amj var0) {
+   public static int c(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      return var1 != null && var1.c("Patterns")?var1.c("Patterns", 10).c():0;
+      return var1 != null && var1.c("Patterns")?var1.getList("Patterns", 10).c():0;
    }
 
-   public static void e(amj var0) {
+   public static void e(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
       if(var1 != null && var1.b("Patterns", 9)) {
-         fv var2 = var1.c("Patterns", 10);
+         NBTTagList var2 = var1.getList("Patterns", 10);
          if(var2.c() > 0) {
             var2.a(var2.c() - 1);
             if(var2.c_()) {

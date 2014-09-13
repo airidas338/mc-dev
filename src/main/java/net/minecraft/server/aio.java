@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class aio extends aib {
 
    public ain a = new ain(this, 3, 3);
-   public vq f = new aji();
+   public IInventory f = new aji();
    private World g;
    private Location h;
 
@@ -31,10 +31,10 @@ public class aio extends aib {
          this.a(new ajk(var1, var4, 8 + var4 * 18, 142));
       }
 
-      this.a((vq)this.a);
+      this.a((IInventory)this.a);
    }
 
-   public void a(vq var1) {
+   public void a(IInventory var1) {
       this.f.a(0, aop.a().a(this.a, this.g));
    }
 
@@ -42,7 +42,7 @@ public class aio extends aib {
       super.b(var1);
       if(!this.g.D) {
          for(int var2 = 0; var2 < 9; ++var2) {
-            amj var3 = this.a.b(var2);
+            ItemStack var3 = this.a.b(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -55,11 +55,11 @@ public class aio extends aib {
       return this.g.getData(this.h).c() != Blocks.ai?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 0) {
             if(!this.a(var5, 10, 46, true)) {
@@ -80,7 +80,7 @@ public class aio extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
@@ -95,7 +95,7 @@ public class aio extends aib {
       return var3;
    }
 
-   public boolean a(amj var1, ajk var2) {
+   public boolean a(ItemStack var1, ajk var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 }

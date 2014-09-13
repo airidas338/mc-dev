@@ -8,8 +8,8 @@ public class ItemArmorStand extends Item {
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 == ej.a) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 == EnumFacing.DOWN) {
          return false;
       } else {
          boolean var9 = var3.getData(var4).c().f(var3, var4);
@@ -35,13 +35,13 @@ public class ItemArmorStand extends Item {
                      var3.g(var11);
                      EntityArmorStand var20 = new EntityArmorStand(var3, var13 + 0.5D, var15, var17 + 0.5D);
                      float var21 = (float)MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
-                     var20.b(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
+                     var20.setPositionRotation(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
                      this.a(var20, var3.s);
                      NBTTagCompound var22 = var1.o();
                      if(var22 != null && var22.b("EntityTag", 10)) {
                         NBTTagCompound var23 = new NBTTagCompound();
                         var20.d(var23);
-                        var23.a(var22.m("EntityTag"));
+                        var23.a(var22.getCompound("EntityTag"));
                         var20.f(var23);
                      }
 

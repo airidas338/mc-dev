@@ -4,36 +4,36 @@ package net.minecraft.server;
 class bbw {
 
    // $FF: synthetic field
-   static final int[] a = new int[ej.values().length];
+   static final int[] a = new int[EnumFacing.values().length];
 
 
    static {
       try {
-         a[ej.b.ordinal()] = 1;
+         a[EnumFacing.UP.ordinal()] = 1;
       } catch (NoSuchFieldError var5) {
          ;
       }
 
       try {
-         a[ej.c.ordinal()] = 2;
+         a[EnumFacing.NORTH.ordinal()] = 2;
       } catch (NoSuchFieldError var4) {
          ;
       }
 
       try {
-         a[ej.d.ordinal()] = 3;
+         a[EnumFacing.SOUTH.ordinal()] = 3;
       } catch (NoSuchFieldError var3) {
          ;
       }
 
       try {
-         a[ej.f.ordinal()] = 4;
+         a[EnumFacing.EAST.ordinal()] = 4;
       } catch (NoSuchFieldError var2) {
          ;
       }
 
       try {
-         a[ej.e.ordinal()] = 5;
+         a[EnumFacing.WEST.ordinal()] = 5;
       } catch (NoSuchFieldError var1) {
          ;
       }

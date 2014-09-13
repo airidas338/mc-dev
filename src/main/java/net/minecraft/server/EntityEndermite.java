@@ -12,13 +12,13 @@ public class EntityEndermite extends EntityMonster {
       super(var1);
       this.b_ = 3;
       this.a(0.4F, 0.3F);
-      this.i.a(1, new yy(this));
-      this.i.a(2, new zk(this, EntityHuman.class, 1.0D, false));
-      this.i.a(3, new zy(this, 1.0D));
-      this.i.a(7, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(8, new zx(this));
-      this.bg.a(1, new aal(this, true, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this, EntityHuman.class, 1.0D, false));
+      this.goalSelector.a(3, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
    }
 
    public float aR() {
@@ -58,14 +58,14 @@ public class EntityEndermite extends EntityMonster {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.b = var1.f("Lifetime");
+      this.b = var1.getInt("Lifetime");
       this.c = var1.n("PlayerSpawned");
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Lifetime", this.b);
-      var1.a("PlayerSpawned", this.c);
+      var1.setInt("Lifetime", this.b);
+      var1.setBoolean("PlayerSpawned", this.c);
    }
 
    public void s_() throws IOException {

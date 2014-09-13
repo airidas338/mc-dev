@@ -3,7 +3,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class NBTTagLong extends ge {
+public class NBTTagLong extends NBTNumber {
 
    private long b;
 

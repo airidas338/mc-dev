@@ -11,7 +11,7 @@ public class blz extends bmk {
 
    public blz() {}
 
-   public blz(int var1, Random var2, bjb var3, ej var4) {
+   public blz(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.d = this.a(var2);
@@ -21,7 +21,7 @@ public class blz extends bmk {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Tall", this.b);
+      var1.setBoolean("Tall", this.b);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -29,7 +29,7 @@ public class blz extends bmk {
       this.b = var1.n("Tall");
    }
 
-   public static blz a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static blz a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -4, -1, 0, 14, 11, 15, var5);
       if(!a(var7) || bms.a(var0, var7) != null) {
          var7 = bjb.a(var2, var3, var4, -4, -1, 0, 14, 6, 15, var5);
@@ -130,7 +130,7 @@ public class blz extends bmk {
 
          this.a(var1, var3, var2, 3, 3, 5, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
          if(this.b) {
-            this.a(var1, Blocks.a.P(), 12, 9, 1, var3);
+            this.a(var1, Blocks.AIR.P(), 12, 9, 1, var3);
             this.a(var1, var3, var2, 12, 8, 1, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
          }
 

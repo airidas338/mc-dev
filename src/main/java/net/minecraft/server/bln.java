@@ -29,17 +29,17 @@ abstract class bln extends bms {
    }
 
    protected void a(NBTTagCompound var1) {
-      var1.a("Width", this.a);
-      var1.a("Height", this.b);
-      var1.a("Depth", this.c);
-      var1.a("HPos", this.d);
+      var1.setInt("Width", this.a);
+      var1.setInt("Height", this.b);
+      var1.setInt("Depth", this.c);
+      var1.setInt("HPos", this.d);
    }
 
    protected void b(NBTTagCompound var1) {
-      this.a = var1.f("Width");
-      this.b = var1.f("Height");
-      this.c = var1.f("Depth");
-      this.d = var1.f("HPos");
+      this.a = var1.getInt("Width");
+      this.b = var1.getInt("Height");
+      this.c = var1.getInt("Depth");
+      this.d = var1.getInt("HPos");
    }
 
    protected boolean a(World var1, bjb var2, int var3) {

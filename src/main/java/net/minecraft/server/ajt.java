@@ -6,10 +6,10 @@ public class ajt extends Item {
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var3.D) {
          return true;
-      } else if(var5 != ej.b) {
+      } else if(var5 != EnumFacing.UP) {
          return false;
       } else {
          IBlock var9 = var3.getData(var4);
@@ -20,7 +20,7 @@ public class ajt extends Item {
          }
 
          int var12 = MathHelper.c((double)(var2.y * 4.0F / 360.0F) + 0.5D) & 3;
-         ej var13 = ej.b(var12);
+         EnumFacing var13 = EnumFacing.b(var12);
          Location var14 = var4.a(var13);
          boolean var15 = var10.f(var3, var14);
          boolean var16 = var3.d(var4) || var11;

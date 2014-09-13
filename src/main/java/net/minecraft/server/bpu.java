@@ -4,7 +4,7 @@ package net.minecraft.server;
 public abstract class bpu {
 
    protected IBlockAccess a;
-   protected um b = new um();
+   protected IntHashMap b = new IntHashMap();
    protected int c;
    protected int d;
    protected int e;

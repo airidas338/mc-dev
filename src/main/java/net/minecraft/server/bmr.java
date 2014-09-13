@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bmr extends bqc {
+public class bmr extends PersistentBase {
 
    private NBTTagCompound b = new NBTTagCompound();
 
@@ -10,15 +10,15 @@ public class bmr extends bqc {
    }
 
    public void a(NBTTagCompound var1) {
-      this.b = var1.m("Features");
+      this.b = var1.getCompound("Features");
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("Features", (NBTBase)this.b);
+      var1.set("Features", (NBTBase)this.b);
    }
 
    public void a(NBTTagCompound var1, int var2, int var3) {
-      this.b.a(b(var2, var3), (NBTBase)var1);
+      this.b.set(b(var2, var3), (NBTBase)var1);
    }
 
    public static String b(int var0, int var1) {

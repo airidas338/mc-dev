@@ -12,7 +12,7 @@ public class akx extends aju {
       return var1;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       return super.a() + "." + akv.b(var1.i()).d();
    }
 }

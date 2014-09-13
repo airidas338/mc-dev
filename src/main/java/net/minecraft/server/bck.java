@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class bck extends bdf implements IUpdatePlayerListBox, vq {
+public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
 
-   public static final wp[][] a = new wp[][]{{wp.c, wp.e}, {wp.m, wp.j}, {wp.g}, {wp.l}};
+   public static final MobEffectList[][] a = new MobEffectList[][]{{MobEffectList.c, MobEffectList.e}, {MobEffectList.m, MobEffectList.j}, {MobEffectList.g}, {MobEffectList.l}};
    private final List f = Lists.newArrayList();
    private boolean i;
    private int j = -1;
    private int k;
    private int l;
-   private amj m;
+   private ItemStack m;
    private String n;
 
 
@@ -41,13 +41,13 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
          int var5 = this.c.o();
          int var6 = this.c.p();
          AxisAlignedBB var7 = (new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1))).b(var1, var1, var1).a(0.0D, (double)this.b.U(), 0.0D);
-         List var8 = this.b.a(EntityHuman.class, var7);
+         List var8 = this.b.getEntities(EntityHuman.class, var7);
          Iterator var9 = var8.iterator();
 
          EntityHuman var10;
          while(var9.hasNext()) {
             var10 = (EntityHuman)var9.next();
-            var10.c(new wq(this.k, 180, var3, true, true));
+            var10.c(new MobEffect(this.k, 180, var3, true, true));
          }
 
          if(this.j >= 4 && this.k != this.l && this.l > 0) {
@@ -55,7 +55,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
             while(var9.hasNext()) {
                var10 = (EntityHuman)var9.next();
-               var10.c(new wq(this.l, 180, 0, true, true));
+               var10.c(new MobEffect(this.l, 180, 0, true, true));
             }
          }
       }
@@ -140,7 +140,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       }
 
       if(!this.b.D && this.j == 4 && var1 < this.j) {
-         Iterator var15 = this.b.a(EntityHuman.class, (new AxisAlignedBB((double)var2, (double)var3, (double)var4, (double)var2, (double)(var3 - 4), (double)var4)).b(10.0D, 5.0D, 10.0D)).iterator();
+         Iterator var15 = this.b.getEntities(EntityHuman.class, (new AxisAlignedBB((double)var2, (double)var3, (double)var4, (double)var2, (double)(var3 - 4), (double)var4)).b(10.0D, 5.0D, 10.0D)).iterator();
 
          while(var15.hasNext()) {
             EntityHuman var13 = (EntityHuman)var15.next();
@@ -158,44 +158,44 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.k = var1.f("Primary");
-      this.l = var1.f("Secondary");
-      this.j = var1.f("Levels");
+      this.k = var1.getInt("Primary");
+      this.l = var1.getInt("Secondary");
+      this.j = var1.getInt("Levels");
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Primary", this.k);
-      var1.a("Secondary", this.l);
-      var1.a("Levels", this.j);
+      var1.setInt("Primary", this.k);
+      var1.setInt("Secondary", this.l);
+      var1.setInt("Levels", this.j);
    }
 
    public int n_() {
       return 1;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return var1 == 0?this.m:null;
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(var1 == 0 && this.m != null) {
          if(var2 >= this.m.b) {
-            amj var3 = this.m;
+            ItemStack var3 = this.m;
             this.m = null;
             return var3;
          } else {
             this.m.b -= var2;
-            return new amj(this.m.b(), var2, this.m.i());
+            return new ItemStack(this.m.b(), var2, this.m.i());
          }
       } else {
          return null;
       }
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(var1 == 0 && this.m != null) {
-         amj var2 = this.m;
+         ItemStack var2 = this.m;
          this.m = null;
          return var2;
       } else {
@@ -203,7 +203,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
       }
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 == 0) {
          this.m = var2;
       }
@@ -234,7 +234,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, vq {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return var2.b() == Items.bO || var2.b() == Items.i || var2.b() == Items.k || var2.b() == Items.j;
    }
 

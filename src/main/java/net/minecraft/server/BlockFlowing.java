@@ -30,9 +30,9 @@ public class BlockFlowing extends axl {
          int var8 = -100;
          this.a = 0;
 
-         ej var10;
+         EnumFacing var10;
          for(Iterator var9 = en.a.iterator(); var9.hasNext(); var8 = this.a(var1, var2.a(var10), var8)) {
-            var10 = (ej)var9.next();
+            var10 = (EnumFacing)var9.next();
          }
 
          int var14 = var8 + var6;
@@ -106,7 +106,7 @@ public class BlockFlowing extends axl {
          Iterator var11 = var17.iterator();
 
          while(var11.hasNext()) {
-            ej var12 = (ej)var11.next();
+            EnumFacing var12 = (EnumFacing)var11.next();
             this.a(var1, var2.a(var12), var1.getData(var2.a(var12)), var15);
          }
       }
@@ -115,7 +115,7 @@ public class BlockFlowing extends axl {
 
    private void a(World var1, Location var2, IBlock var3, int var4) {
       if(this.h(var1, var2, var3)) {
-         if(var3.c() != Blocks.a) {
+         if(var3.c() != Blocks.AIR) {
             if(this.J == Material.LAVA) {
                this.d(var1, var2);
             } else {
@@ -128,12 +128,12 @@ public class BlockFlowing extends axl {
 
    }
 
-   private int a(World var1, Location var2, int var3, ej var4) {
+   private int a(World var1, Location var2, int var3, EnumFacing var4) {
       int var5 = 1000;
       Iterator var6 = en.a.iterator();
 
       while(var6.hasNext()) {
-         ej var7 = (ej)var6.next();
+         EnumFacing var7 = (EnumFacing)var6.next();
          if(var7 != var4) {
             Location var8 = var2.a(var7);
             IBlock var9 = var1.getData(var8);
@@ -157,11 +157,11 @@ public class BlockFlowing extends axl {
 
    private Set e(World var1, Location var2) {
       int var3 = 1000;
-      EnumSet var4 = EnumSet.noneOf(ej.class);
+      EnumSet var4 = EnumSet.noneOf(EnumFacing.class);
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
-         ej var6 = (ej)var5.next();
+         EnumFacing var6 = (EnumFacing)var5.next();
          Location var7 = var2.a(var6);
          IBlock var8 = var1.getData(var7);
          if(!this.g(var1, var7, var8) && (var8.c().r() != this.J || ((Integer)var8.b(b)).intValue() > 0)) {

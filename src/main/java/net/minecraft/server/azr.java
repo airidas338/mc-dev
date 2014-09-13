@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum azr implements va {
+public enum azr implements IName {
 
    a("DEFAULT", 0, 0, "red_sandstone", "default"),
    b("CHISELED", 1, 1, "chiseled_red_sandstone", "chiseled"),
@@ -35,7 +35,7 @@ public enum azr implements va {
       return d[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

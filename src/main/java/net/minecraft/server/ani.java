@@ -18,11 +18,11 @@ public class ani extends aju {
       return var1;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       return this.b.b(var1.i());
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.b == 0) {
          return false;
       } else if(!var2.a(var4.a(var5), var5, var1)) {
@@ -34,7 +34,7 @@ public class ani extends aju {
             bex var11 = this.b.l();
             Comparable var12 = var10.b(var11);
             awr var13 = (awr)var10.b(BlockStepAbstract.a);
-            if((var5 == ej.b && var13 == awr.b || var5 == ej.a && var13 == awr.a) && var12 == var9) {
+            if((var5 == EnumFacing.UP && var13 == awr.b || var5 == EnumFacing.DOWN && var13 == awr.a) && var12 == var9) {
                IBlock var14 = this.c.P().a(var11, var12);
                if(var3.b(this.c.a(var3, var4, var14)) && var3.a(var4, var14, 3)) {
                   var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
@@ -49,7 +49,7 @@ public class ani extends aju {
       }
    }
 
-   private boolean a(amj var1, World var2, Location var3, Object var4) {
+   private boolean a(ItemStack var1, World var2, Location var3, Object var4) {
       IBlock var5 = var2.getData(var3);
       if(var5.c() == this.b) {
          Comparable var6 = var5.b(this.b.l());

@@ -74,40 +74,40 @@ class axj {
          ;
       }
 
-      a = new int[ej.values().length];
+      a = new int[EnumFacing.values().length];
 
       try {
-         a[ej.a.ordinal()] = 1;
+         a[EnumFacing.DOWN.ordinal()] = 1;
       } catch (NoSuchFieldError var6) {
          ;
       }
 
       try {
-         a[ej.b.ordinal()] = 2;
+         a[EnumFacing.UP.ordinal()] = 2;
       } catch (NoSuchFieldError var5) {
          ;
       }
 
       try {
-         a[ej.c.ordinal()] = 3;
+         a[EnumFacing.NORTH.ordinal()] = 3;
       } catch (NoSuchFieldError var4) {
          ;
       }
 
       try {
-         a[ej.d.ordinal()] = 4;
+         a[EnumFacing.SOUTH.ordinal()] = 4;
       } catch (NoSuchFieldError var3) {
          ;
       }
 
       try {
-         a[ej.e.ordinal()] = 5;
+         a[EnumFacing.WEST.ordinal()] = 5;
       } catch (NoSuchFieldError var2) {
          ;
       }
 
       try {
-         a[ej.f.ordinal()] = 6;
+         a[EnumFacing.EAST.ordinal()] = 6;
       } catch (NoSuchFieldError var1) {
          ;
       }

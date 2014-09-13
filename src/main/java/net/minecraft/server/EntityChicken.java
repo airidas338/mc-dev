@@ -17,14 +17,14 @@ public class EntityChicken extends EntityAnimal {
       super(var1);
       this.a(0.4F, 0.7F);
       this.bq = this.V.nextInt(6000) + 6000;
-      this.i.a(0, new yy(this));
-      this.i.a(1, new zu(this, 1.4D));
-      this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.0D, Items.N, false));
-      this.i.a(4, new za(this, 1.1D));
-      this.i.a(5, new zy(this, 1.0D));
-      this.i.a(6, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(7, new zx(this));
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new zu(this, 1.4D));
+      this.goalSelector.a(2, new yt(this, 1.0D));
+      this.goalSelector.a(3, new aag(this, 1.0D, Items.N, false));
+      this.goalSelector.a(4, new za(this, 1.1D));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(7, new PathfinderGoalRandomLookaround(this));
    }
 
    public float aR() {
@@ -102,7 +102,7 @@ public class EntityChicken extends EntityAnimal {
       return new EntityChicken(this.o);
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 != null && var1.b() == Items.N;
    }
 
@@ -110,7 +110,7 @@ public class EntityChicken extends EntityAnimal {
       super.a(var1);
       this.br = var1.n("IsChickenJockey");
       if(var1.c("EggLayTime")) {
-         this.bq = var1.f("EggLayTime");
+         this.bq = var1.getInt("EggLayTime");
       }
 
    }
@@ -121,8 +121,8 @@ public class EntityChicken extends EntityAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("IsChickenJockey", this.br);
-      var1.a("EggLayTime", this.bq);
+      var1.setBoolean("IsChickenJockey", this.br);
+      var1.setInt("EggLayTime", this.bq);
    }
 
    protected boolean C() {

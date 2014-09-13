@@ -70,51 +70,51 @@ public class WorldData {
       this.I = 5;
       this.J = 15;
       this.K = new aqq();
-      this.b = var1.g("RandomSeed");
+      this.b = var1.getLong("RandomSeed");
       if(var1.b("generatorName", 8)) {
-         String var2 = var1.j("generatorName");
+         String var2 = var1.getString("generatorName");
          this.c = WorldType.a(var2);
          if(this.c == null) {
             this.c = WorldType.NORMAL;
          } else if(this.c.f()) {
             int var3 = 0;
             if(var1.b("generatorVersion", 99)) {
-               var3 = var1.f("generatorVersion");
+               var3 = var1.getInt("generatorVersion");
             }
 
             this.c = this.c.a(var3);
          }
 
          if(var1.b("generatorOptions", 8)) {
-            this.d = var1.j("generatorOptions");
+            this.d = var1.getString("generatorOptions");
          }
       }
 
-      this.u = EnumGamemode.a(var1.f("GameType"));
+      this.u = EnumGamemode.a(var1.getInt("GameType"));
       if(var1.b("MapFeatures", 99)) {
          this.v = var1.n("MapFeatures");
       } else {
          this.v = true;
       }
 
-      this.e = var1.f("SpawnX");
-      this.f = var1.f("SpawnY");
-      this.g = var1.f("SpawnZ");
-      this.h = var1.g("Time");
+      this.e = var1.getInt("SpawnX");
+      this.f = var1.getInt("SpawnY");
+      this.g = var1.getInt("SpawnZ");
+      this.h = var1.getLong("Time");
       if(var1.b("DayTime", 99)) {
-         this.i = var1.g("DayTime");
+         this.i = var1.getLong("DayTime");
       } else {
          this.i = this.h;
       }
 
-      this.j = var1.g("LastPlayed");
-      this.k = var1.g("SizeOnDisk");
-      this.n = var1.j("LevelName");
-      this.o = var1.f("version");
-      this.p = var1.f("clearWeatherTime");
-      this.r = var1.f("rainTime");
+      this.j = var1.getLong("LastPlayed");
+      this.k = var1.getLong("SizeOnDisk");
+      this.n = var1.getString("LevelName");
+      this.o = var1.getInt("version");
+      this.p = var1.getInt("clearWeatherTime");
+      this.r = var1.getInt("rainTime");
       this.q = var1.n("raining");
-      this.t = var1.f("thunderTime");
+      this.t = var1.getInt("thunderTime");
       this.s = var1.n("thundering");
       this.w = var1.n("hardcore");
       if(var1.b("initialized", 99)) {
@@ -130,16 +130,16 @@ public class WorldData {
       }
 
       if(var1.b("Player", 10)) {
-         this.l = var1.m("Player");
-         this.m = this.l.f("Dimension");
+         this.l = var1.getCompound("Player");
+         this.m = this.l.getInt("Dimension");
       }
 
       if(var1.b("GameRules", 10)) {
-         this.K.a(var1.m("GameRules"));
+         this.K.a(var1.getCompound("GameRules"));
       }
 
       if(var1.b("Difficulty", 99)) {
-         this.z = EnumDifficulty.a(var1.d("Difficulty"));
+         this.z = EnumDifficulty.a(var1.getByte("Difficulty"));
       }
 
       if(var1.b("DifficultyLocked", 1)) {
@@ -147,39 +147,39 @@ public class WorldData {
       }
 
       if(var1.b("BorderCenterX", 99)) {
-         this.B = var1.i("BorderCenterX");
+         this.B = var1.getDouble("BorderCenterX");
       }
 
       if(var1.b("BorderCenterZ", 99)) {
-         this.C = var1.i("BorderCenterZ");
+         this.C = var1.getDouble("BorderCenterZ");
       }
 
       if(var1.b("BorderSize", 99)) {
-         this.D = var1.i("BorderSize");
+         this.D = var1.getDouble("BorderSize");
       }
 
       if(var1.b("BorderSizeLerpTime", 99)) {
-         this.E = var1.g("BorderSizeLerpTime");
+         this.E = var1.getLong("BorderSizeLerpTime");
       }
 
       if(var1.b("BorderSizeLerpTarget", 99)) {
-         this.F = var1.i("BorderSizeLerpTarget");
+         this.F = var1.getDouble("BorderSizeLerpTarget");
       }
 
       if(var1.b("BorderSafeZone", 99)) {
-         this.G = var1.i("BorderSafeZone");
+         this.G = var1.getDouble("BorderSafeZone");
       }
 
       if(var1.b("BorderDamagePerBlock", 99)) {
-         this.H = var1.i("BorderDamagePerBlock");
+         this.H = var1.getDouble("BorderDamagePerBlock");
       }
 
       if(var1.b("BorderWarningBlocks", 99)) {
-         this.I = var1.f("BorderWarningBlocks");
+         this.I = var1.getInt("BorderWarningBlocks");
       }
 
       if(var1.b("BorderWarningTime", 99)) {
-         this.J = var1.f("BorderWarningTime");
+         this.J = var1.getInt("BorderWarningTime");
       }
 
    }
@@ -276,46 +276,46 @@ public class WorldData {
    }
 
    private void a(NBTTagCompound var1, NBTTagCompound var2) {
-      var1.a("RandomSeed", this.b);
-      var1.a("generatorName", this.c.a());
-      var1.a("generatorVersion", this.c.d());
-      var1.a("generatorOptions", this.d);
-      var1.a("GameType", this.u.a());
-      var1.a("MapFeatures", this.v);
-      var1.a("SpawnX", this.e);
-      var1.a("SpawnY", this.f);
-      var1.a("SpawnZ", this.g);
-      var1.a("Time", this.h);
-      var1.a("DayTime", this.i);
-      var1.a("SizeOnDisk", this.k);
-      var1.a("LastPlayed", MinecraftServer.ax());
-      var1.a("LevelName", this.n);
-      var1.a("version", this.o);
-      var1.a("clearWeatherTime", this.p);
-      var1.a("rainTime", this.r);
-      var1.a("raining", this.q);
-      var1.a("thunderTime", this.t);
-      var1.a("thundering", this.s);
-      var1.a("hardcore", this.w);
-      var1.a("allowCommands", this.x);
-      var1.a("initialized", this.y);
-      var1.a("BorderCenterX", this.B);
-      var1.a("BorderCenterZ", this.C);
-      var1.a("BorderSize", this.D);
-      var1.a("BorderSizeLerpTime", this.E);
-      var1.a("BorderSafeZone", this.G);
-      var1.a("BorderDamagePerBlock", this.H);
-      var1.a("BorderSizeLerpTarget", this.F);
-      var1.a("BorderWarningBlocks", (double)this.I);
-      var1.a("BorderWarningTime", (double)this.J);
+      var1.setLong("RandomSeed", this.b);
+      var1.setString("generatorName", this.c.a());
+      var1.setInt("generatorVersion", this.c.d());
+      var1.setString("generatorOptions", this.d);
+      var1.setInt("GameType", this.u.a());
+      var1.setBoolean("MapFeatures", this.v);
+      var1.setInt("SpawnX", this.e);
+      var1.setInt("SpawnY", this.f);
+      var1.setInt("SpawnZ", this.g);
+      var1.setLong("Time", this.h);
+      var1.setLong("DayTime", this.i);
+      var1.setLong("SizeOnDisk", this.k);
+      var1.setLong("LastPlayed", MinecraftServer.ax());
+      var1.setString("LevelName", this.n);
+      var1.setInt("version", this.o);
+      var1.setInt("clearWeatherTime", this.p);
+      var1.setInt("rainTime", this.r);
+      var1.setBoolean("raining", this.q);
+      var1.setInt("thunderTime", this.t);
+      var1.setBoolean("thundering", this.s);
+      var1.setBoolean("hardcore", this.w);
+      var1.setBoolean("allowCommands", this.x);
+      var1.setBoolean("initialized", this.y);
+      var1.setDouble("BorderCenterX", this.B);
+      var1.setDouble("BorderCenterZ", this.C);
+      var1.setDouble("BorderSize", this.D);
+      var1.setLong("BorderSizeLerpTime", this.E);
+      var1.setDouble("BorderSafeZone", this.G);
+      var1.setDouble("BorderDamagePerBlock", this.H);
+      var1.setDouble("BorderSizeLerpTarget", this.F);
+      var1.setDouble("BorderWarningBlocks", (double)this.I);
+      var1.setDouble("BorderWarningTime", (double)this.J);
       if(this.z != null) {
-         var1.a("Difficulty", (byte)this.z.a());
+         var1.setByte("Difficulty", (byte)this.z.a());
       }
 
-      var1.a("DifficultyLocked", this.A);
-      var1.a("GameRules", (NBTBase)this.K.a());
+      var1.setBoolean("DifficultyLocked", this.A);
+      var1.set("GameRules", (NBTBase)this.K.a());
       if(var2 != null) {
-         var1.a("Player", (NBTBase)var2);
+         var1.set("Player", (NBTBase)var2);
       }
 
    }
@@ -340,7 +340,7 @@ public class WorldData {
       return this.h;
    }
 
-   public long g() {
+   public long getDayTime() {
       return this.i;
    }
 
@@ -378,7 +378,7 @@ public class WorldData {
       this.o = var1;
    }
 
-   public int A() {
+   public int getThunderDuration() {
       return this.p;
    }
 

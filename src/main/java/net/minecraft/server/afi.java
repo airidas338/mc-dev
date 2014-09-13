@@ -14,7 +14,7 @@ class afi extends PathfinderGoal {
 
    public boolean a() {
       EntityLiving var1 = this.a.u();
-      return var1 != null && var1.ai();
+      return var1 != null && var1.isAlive();
    }
 
    public boolean b() {
@@ -23,7 +23,7 @@ class afi extends PathfinderGoal {
 
    public void c() {
       this.b = -10;
-      this.a.s().n();
+      this.a.getNavigation().n();
       this.a.p().a(this.a.u(), 90.0F, 90.0F);
       this.a.ai = true;
    }
@@ -36,7 +36,7 @@ class afi extends PathfinderGoal {
 
    public void e() {
       EntityLiving var1 = this.a.u();
-      this.a.s().n();
+      this.a.getNavigation().n();
       this.a.p().a(var1, 90.0F, 90.0F);
       if(!this.a.t(var1)) {
          this.a.d((EntityLiving)null);

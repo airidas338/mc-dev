@@ -30,7 +30,7 @@ public class BlockPressurePlateBinary extends ath {
          var4 = var1.b((Entity)null, var3);
          break;
       case 2:
-         var4 = var1.a(EntityLiving.class, var3);
+         var4 = var1.getEntities(EntityLiving.class, var3);
          break;
       default:
          return 0;

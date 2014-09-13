@@ -12,12 +12,12 @@ public class akw extends Item {
       this.a(CreativeModeTab.l);
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       int var2 = var1.i();
       return super.a() + "." + akv.a(var2).d();
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
@@ -34,11 +34,11 @@ public class akw extends Item {
             IBlock var10 = var3.getData(var4);
             Block var11 = var10.c();
             if(var11 == Blocks.r && var10.b(BlockWood.a) == ayx.d) {
-               if(var5 == ej.a) {
+               if(var5 == EnumFacing.DOWN) {
                   return false;
                }
 
-               if(var5 == ej.b) {
+               if(var5 == EnumFacing.UP) {
                   return false;
                }
 
@@ -59,7 +59,7 @@ public class akw extends Item {
       }
    }
 
-   public static boolean a(amj var0, World var1, Location var2) {
+   public static boolean a(ItemStack var0, World var1, Location var2) {
       IBlock var3 = var1.getData(var2);
       if(var3.c() instanceof atz) {
          atz var4 = (atz)var3.c();
@@ -79,7 +79,7 @@ public class akw extends Item {
       return false;
    }
 
-   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityHuman var2, EntityLiving var3) {
       if(var3 instanceof EntitySheep) {
          EntitySheep var4 = (EntitySheep)var3;
          akv var5 = akv.a(var1.i());

@@ -10,7 +10,7 @@ public class BlockLadder extends Block {
 
    protected BlockLadder() {
       super(Material.ORIENTABLE);
-      this.j(this.L.b().a(a, ej.c));
+      this.j(this.L.b().a(a, EnumFacing.NORTH));
       this.a(CreativeModeTab.c);
    }
 
@@ -23,7 +23,7 @@ public class BlockLadder extends Block {
       IBlock var3 = var1.getData(var2);
       if(var3.c() == this) {
          float var4 = 0.125F;
-         switch(axf.a[((ej)var3.b(a)).ordinal()]) {
+         switch(axf.a[((EnumFacing)var3.b(a)).ordinal()]) {
          case 1:
             this.a(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
             break;
@@ -53,19 +53,19 @@ public class BlockLadder extends Block {
       return var1.getData(var2.e()).c().t()?true:(var1.getData(var2.f()).c().t()?true:(var1.getData(var2.c()).c().t()?true:var1.getData(var2.d()).c().t()));
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var3.k().c() && this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {
          Iterator var9 = en.a.iterator();
 
-         ej var10;
+         EnumFacing var10;
          do {
             if(!var9.hasNext()) {
                return this.P();
             }
 
-            var10 = (ej)var9.next();
+            var10 = (EnumFacing)var9.next();
          } while(!this.b(var1, var2, var10));
 
          return this.P().a(a, var10);
@@ -73,7 +73,7 @@ public class BlockLadder extends Block {
    }
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
-      ej var5 = (ej)var3.b(a);
+      EnumFacing var5 = (EnumFacing)var3.b(a);
       if(!this.b(var1, var2, var5)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -82,21 +82,21 @@ public class BlockLadder extends Block {
       super.a(var1, var2, var3, var4);
    }
 
-   protected boolean b(World var1, Location var2, ej var3) {
+   protected boolean b(World var1, Location var2, EnumFacing var3) {
       return var1.getData(var2.a(var3.d())).c().t();
    }
 
    public IBlock a(int var1) {
-      ej var2 = ej.a(var1);
+      EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
-         var2 = ej.c;
+         var2 = EnumFacing.NORTH;
       }
 
       return this.P().a(a, var2);
    }
 
    public int c(IBlock var1) {
-      return ((ej)var1.b(a)).a();
+      return ((EnumFacing)var1.b(a)).a();
    }
 
    protected bed e() {

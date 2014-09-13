@@ -89,7 +89,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          this.o.a(ew.b, this.s + (double)var1, this.t + 2.0D + (double)var2, this.u + (double)var3, 0.0D, 0.0D, 0.0D, new int[0]);
       } else {
          this.n();
-         var1 = 0.2F / (MathHelper.a(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
+         var1 = 0.2F / (MathHelper.sqrt(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
          var1 *= (float)Math.pow(2.0D, this.w);
          if(this.bv) {
             this.bt += var1 * 0.5F;
@@ -155,7 +155,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
                this.cd();
             }
 
-            var4 /= (double)MathHelper.a(var28 * var28 + var6 * var6);
+            var4 /= (double)MathHelper.sqrt(var28 * var28 + var6 * var6);
             var35 = 0.6F;
             var4 = MathHelper.a(var4, (double)(-var35), (double)var35);
             this.w += var4 * 0.10000000149011612D;
@@ -170,16 +170,16 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
                var13 = -50.0D;
             }
 
-            ChunkCoordinates var15 = (new ChunkCoordinates(this.a - this.s, this.b - this.t, this.c - this.u)).a();
+            Vec3D var15 = (new Vec3D(this.a - this.s, this.b - this.t, this.c - this.u)).a();
             var16 = (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F));
-            ChunkCoordinates var18 = (new ChunkCoordinates((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), this.w, var16)).a();
+            Vec3D var18 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), this.w, var16)).a();
             float var19 = ((float)var18.b(var15) + 0.5F) / 1.5F;
             if(var19 < 0.0F) {
                var19 = 0.0F;
             }
 
             this.aZ *= 0.8F;
-            float var20 = MathHelper.a(this.v * this.v + this.x * this.x) * 1.0F + 1.0F;
+            float var20 = MathHelper.sqrt(this.v * this.v + this.x * this.x) * 1.0F + 1.0F;
             double var21 = Math.sqrt(this.v * this.v + this.x * this.x) * 1.0D + 1.0D;
             if(var21 > 40.0D) {
                var21 = 40.0D;
@@ -196,7 +196,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
                this.d(this.v, this.w, this.x);
             }
 
-            ChunkCoordinates var25 = (new ChunkCoordinates(this.v, this.w, this.x)).a();
+            Vec3D var25 = (new Vec3D(this.v, this.w, this.x)).a();
             float var26 = ((float)var25.b(var18) + 1.0F) / 2.0F;
             var26 = 0.8F + 0.15F * var26;
             this.v *= (double)var26;
@@ -222,11 +222,11 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          float var30 = MathHelper.sin(var5);
          float var7 = MathHelper.cos(var5);
          this.bm.s_();
-         this.bm.b(this.s + (double)(var30 * 0.5F), this.t, this.u - (double)(var7 * 0.5F), 0.0F, 0.0F);
+         this.bm.setPositionRotation(this.s + (double)(var30 * 0.5F), this.t, this.u - (double)(var7 * 0.5F), 0.0F, 0.0F);
          this.bq.s_();
-         this.bq.b(this.s + (double)(var7 * 4.5F), this.t + 2.0D, this.u + (double)(var30 * 4.5F), 0.0F, 0.0F);
+         this.bq.setPositionRotation(this.s + (double)(var7 * 4.5F), this.t + 2.0D, this.u + (double)(var30 * 4.5F), 0.0F, 0.0F);
          this.br.s_();
-         this.br.b(this.s - (double)(var7 * 4.5F), this.t + 2.0D, this.u - (double)(var30 * 4.5F), 0.0F, 0.0F);
+         this.br.setPositionRotation(this.s - (double)(var7 * 4.5F), this.t + 2.0D, this.u - (double)(var30 * 4.5F), 0.0F, 0.0F);
          if(!this.o.D && this.as == 0) {
             this.a(this.o.b((Entity)this, this.bq.aQ().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
             this.a(this.o.b((Entity)this, this.br.aQ().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
@@ -238,7 +238,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          var35 = MathHelper.sin(this.y * 3.1415927F / 180.0F - this.aZ * 0.01F);
          float var34 = MathHelper.cos(this.y * 3.1415927F / 180.0F - this.aZ * 0.01F);
          this.bl.s_();
-         this.bl.b(this.s + (double)(var35 * 5.5F * var3), this.t + (var9[1] - var31[1]) * 1.0D + (double)(var29 * 5.5F), this.u - (double)(var34 * 5.5F * var3), 0.0F, 0.0F);
+         this.bl.setPositionRotation(this.s + (double)(var35 * 5.5F * var3), this.t + (var9[1] - var31[1]) * 1.0D + (double)(var29 * 5.5F), this.u - (double)(var34 * 5.5F * var3), 0.0F, 0.0F);
 
          for(int var32 = 0; var32 < 3; ++var32) {
             EntityComplexPart var33 = null;
@@ -261,7 +261,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
             float var38 = 1.5F;
             float var41 = (float)(var32 + 1) * 2.0F;
             var33.s_();
-            var33.b(this.s - (double)((var30 * var38 + var40 * var41) * var3), this.t + (var37[1] - var31[1]) * 1.0D - (double)((var41 + var38) * var29) + 1.5D, this.u + (double)((var7 * var38 + var39 * var41) * var3), 0.0F, 0.0F);
+            var33.setPositionRotation(this.s - (double)((var30 * var38 + var40 * var41) * var3), this.t + (var37[1] - var31[1]) * 1.0D - (double)((var41 + var38) * var29) + 1.5D, this.u + (double)((var7 * var38 + var39 * var41) * var3), 0.0F, 0.0F);
          }
 
          if(!this.o.D) {
@@ -286,7 +286,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
 
       if(this.V.nextInt(10) == 0) {
          float var1 = 32.0F;
-         List var2 = this.o.a(EntityEnderCrystal.class, this.aQ().b((double)var1, (double)var1, (double)var1));
+         List var2 = this.o.getEntities(EntityEnderCrystal.class, this.aQ().b((double)var1, (double)var1, (double)var1));
          EntityEnderCrystal var3 = null;
          double var4 = Double.MAX_VALUE;
          Iterator var6 = var2.iterator();
@@ -384,7 +384,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
             for(int var12 = var4; var12 <= var7; ++var12) {
                Block var13 = this.o.getData(new Location(var10, var11, var12)).c();
                if(var13.r() != Material.AIR) {
-                  if(var13 != Blocks.cv && var13 != Blocks.Z && var13 != Blocks.bH && var13 != Blocks.h && var13 != Blocks.bX && this.o.Q().b("mobGriefing")) {
+                  if(var13 != Blocks.cv && var13 != Blocks.Z && var13 != Blocks.WHITESTONE && var13 != Blocks.h && var13 != Blocks.bX && this.o.Q().b("mobGriefing")) {
                      var9 = this.o.g(new Location(var10, var11, var12)) || var9;
                   } else {
                      var8 = true;
@@ -499,7 +499,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
                         this.o.a(var12, Blocks.h.P());
                      }
                   } else if(var7 > 0) {
-                     this.o.a(var12, Blocks.a.P());
+                     this.o.a(var12, Blocks.AIR.P());
                   } else if(var10 > 6.25D) {
                      this.o.a(var12, Blocks.h.P());
                   } else {
@@ -514,10 +514,10 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
       this.o.a(var1.a(), Blocks.h.P());
       Location var13 = var1.b(2);
       this.o.a(var13, Blocks.h.P());
-      this.o.a(var13.e(), Blocks.aa.P().a(BlockTorch.a, ej.f));
-      this.o.a(var13.f(), Blocks.aa.P().a(BlockTorch.a, ej.e));
-      this.o.a(var13.c(), Blocks.aa.P().a(BlockTorch.a, ej.d));
-      this.o.a(var13.d(), Blocks.aa.P().a(BlockTorch.a, ej.c));
+      this.o.a(var13.e(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.EAST));
+      this.o.a(var13.f(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.WEST));
+      this.o.a(var13.c(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.SOUTH));
+      this.o.a(var13.d(), Blocks.aa.P().a(BlockTorch.a, EnumFacing.NORTH));
       this.o.a(var1.b(3), Blocks.h.P());
       this.o.a(var1.b(4), Blocks.bI.P());
    }

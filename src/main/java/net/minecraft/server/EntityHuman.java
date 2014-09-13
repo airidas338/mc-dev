@@ -39,7 +39,7 @@ public abstract class EntityHuman extends EntityLiving {
    public int bA;
    public float bB;
    private int f;
-   private amj g;
+   private ItemStack g;
    private int h;
    protected float bC = 0.1F;
    protected float bD = 0.02F;
@@ -56,7 +56,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.bh = new ajb(this.bg, !var1.D, this);
       this.bi = this.bh;
       Location var3 = var1.M();
-      this.b((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
+      this.setPositionRotation((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
       this.aT = 180.0F;
       this.X = 20;
    }
@@ -107,7 +107,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       if(this.g != null) {
-         amj var1 = this.bg.h();
+         ItemStack var1 = this.bg.h();
          if(var1 == this.g) {
             if(this.h <= 25 && this.h % 4 == 0) {
                this.b(var1, 5);
@@ -196,7 +196,7 @@ public abstract class EntityHuman extends EntityLiving {
       if(!this.o.D) {
          this.bj.a(this);
          this.b(ty.g);
-         if(this.ai()) {
+         if(this.isAlive()) {
             this.b(ty.h);
          }
       }
@@ -230,18 +230,18 @@ public abstract class EntityHuman extends EntityLiving {
       this.o.a(this, var1, var2, var3);
    }
 
-   protected void b(amj var1, int var2) {
+   protected void b(ItemStack var1, int var2) {
       if(var1.m() == ano.c) {
          this.a("random.drink", 0.5F, this.o.s.nextFloat() * 0.1F + 0.9F);
       }
 
       if(var1.m() == ano.b) {
          for(int var3 = 0; var3 < var2; ++var3) {
-            ChunkCoordinates var4 = new ChunkCoordinates(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
+            Vec3D var4 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
             var4 = var4.a(-this.z * 3.1415927F / 180.0F);
             var4 = var4.b(-this.y * 3.1415927F / 180.0F);
             double var5 = (double)(-this.V.nextFloat()) * 0.6D - 0.3D;
-            ChunkCoordinates var7 = new ChunkCoordinates(((double)this.V.nextFloat() - 0.5D) * 0.3D, var5, 0.6D);
+            Vec3D var7 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.3D, var5, 0.6D);
             var7 = var7.a(-this.z * 3.1415927F / 180.0F);
             var7 = var7.b(-this.y * 3.1415927F / 180.0F);
             var7 = var7.b(this.s, this.t + (double)this.aR(), this.u);
@@ -261,7 +261,7 @@ public abstract class EntityHuman extends EntityLiving {
       if(this.g != null) {
          this.b(this.g, 16);
          int var1 = this.g.b;
-         amj var2 = this.g.b(this.o, this);
+         ItemStack var2 = this.g.b(this.o, this);
          if(var2 != this.g || var2 != null && var2.b != var1) {
             this.bg.a[this.bg.c] = var2;
             if(var2.b == 0) {
@@ -340,7 +340,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       this.j((float)var1.getValue());
-      float var2 = MathHelper.a(this.v * this.v + this.x * this.x);
+      float var2 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       float var3 = (float)(Math.atan(-this.w * 0.20000000298023224D) * 15.0D);
       if(var2 > 0.1F) {
          var2 = 0.1F;
@@ -399,7 +399,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
       if(this.d_().equals("Notch")) {
-         this.a(new amj(Items.e, 1), true, false);
+         this.a(new ItemStack(Items.e, 1), true, false);
       }
 
       if(!this.o.Q().b("keepInventory")) {
@@ -476,11 +476,11 @@ public abstract class EntityHuman extends EntityLiving {
       return this.a(this.bg.a(this.bg.c, var1 && this.bg.h() != null?this.bg.h().b:1), false, true);
    }
 
-   public EntityItem a(amj var1, boolean var2) {
+   public EntityItem a(ItemStack var1, boolean var2) {
       return this.a(var1, false, false);
    }
 
-   public EntityItem a(amj var1, boolean var2, boolean var3) {
+   public EntityItem a(ItemStack var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return null;
       } else if(var1.b == 0) {
@@ -530,19 +530,19 @@ public abstract class EntityHuman extends EntityLiving {
       float var2 = this.bg.a(var1);
       if(var2 > 1.0F) {
          int var3 = EnchantmentManager.c(this);
-         amj var4 = this.bg.h();
+         ItemStack var4 = this.bg.h();
          if(var3 > 0 && var4 != null) {
             var2 += (float)(var3 * var3 + 1);
          }
       }
 
-      if(this.a(wp.e)) {
-         var2 *= 1.0F + (float)(this.b(wp.e).c() + 1) * 0.2F;
+      if(this.a(MobEffectList.e)) {
+         var2 *= 1.0F + (float)(this.b(MobEffectList.e).getAmplifier() + 1) * 0.2F;
       }
 
-      if(this.a(wp.f)) {
+      if(this.a(MobEffectList.f)) {
          float var5 = 1.0F;
-         switch(this.b(wp.f).c()) {
+         switch(this.b(MobEffectList.f).getAmplifier()) {
          case 0:
             var5 = 0.3F;
             break;
@@ -578,34 +578,34 @@ public abstract class EntityHuman extends EntityLiving {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       this.ao = a(this.bF);
-      fv var2 = var1.c("Inventory", 10);
+      NBTTagList var2 = var1.getList("Inventory", 10);
       this.bg.b(var2);
-      this.bg.c = var1.f("SelectedItemSlot");
+      this.bg.c = var1.getInt("SelectedItemSlot");
       this.bu = var1.n("Sleeping");
-      this.b = var1.e("SleepTimer");
-      this.bB = var1.h("XpP");
-      this.bz = var1.f("XpLevel");
-      this.bA = var1.f("XpTotal");
-      this.f = var1.f("XpSeed");
+      this.b = var1.getShort("SleepTimer");
+      this.bB = var1.getFloat("XpP");
+      this.bz = var1.getInt("XpLevel");
+      this.bA = var1.getInt("XpTotal");
+      this.f = var1.getInt("XpSeed");
       if(this.f == 0) {
          this.f = this.V.nextInt();
       }
 
-      this.r(var1.f("Score"));
+      this.r(var1.getInt("Score"));
       if(this.bu) {
          this.bv = new Location(this);
          this.a(true, true, false);
       }
 
       if(var1.b("SpawnX", 99) && var1.b("SpawnY", 99) && var1.b("SpawnZ", 99)) {
-         this.c = new Location(var1.f("SpawnX"), var1.f("SpawnY"), var1.f("SpawnZ"));
+         this.c = new Location(var1.getInt("SpawnX"), var1.getInt("SpawnY"), var1.getInt("SpawnZ"));
          this.d = var1.n("SpawnForced");
       }
 
       this.bj.a(var1);
       this.by.b(var1);
       if(var1.b("EnderItems", 9)) {
-         fv var3 = var1.c("EnderItems", 10);
+         NBTTagList var3 = var1.getList("EnderItems", 10);
          this.a.a(var3);
       }
 
@@ -613,28 +613,28 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Inventory", (NBTBase)this.bg.a(new fv()));
-      var1.a("SelectedItemSlot", this.bg.c);
-      var1.a("Sleeping", this.bu);
-      var1.a("SleepTimer", (short)this.b);
-      var1.a("XpP", this.bB);
-      var1.a("XpLevel", this.bz);
-      var1.a("XpTotal", this.bA);
-      var1.a("XpSeed", this.f);
-      var1.a("Score", this.bW());
+      var1.set("Inventory", (NBTBase)this.bg.a(new NBTTagList()));
+      var1.setInt("SelectedItemSlot", this.bg.c);
+      var1.setBoolean("Sleeping", this.bu);
+      var1.setShort("SleepTimer", (short)this.b);
+      var1.setFloat("XpP", this.bB);
+      var1.setInt("XpLevel", this.bz);
+      var1.setInt("XpTotal", this.bA);
+      var1.setInt("XpSeed", this.f);
+      var1.setInt("Score", this.bW());
       if(this.c != null) {
-         var1.a("SpawnX", this.c.n());
-         var1.a("SpawnY", this.c.o());
-         var1.a("SpawnZ", this.c.p());
-         var1.a("SpawnForced", this.d);
+         var1.setInt("SpawnX", this.c.n());
+         var1.setInt("SpawnY", this.c.o());
+         var1.setInt("SpawnZ", this.c.p());
+         var1.setBoolean("SpawnForced", this.d);
       }
 
       this.bj.b(var1);
       this.by.a(var1);
-      var1.a("EnderItems", (NBTBase)this.a.h());
-      amj var2 = this.bg.h();
+      var1.set("EnderItems", (NBTBase)this.a.h());
+      ItemStack var2 = this.bg.h();
       if(var2 != null && var2.b() != null) {
-         var1.a("SelectedItem", (NBTBase)var2.b(new NBTTagCompound()));
+         var1.set("SelectedItem", (NBTBase)var2.b(new NBTTagCompound()));
       }
 
    }
@@ -697,11 +697,11 @@ public abstract class EntityHuman extends EntityLiving {
 
    public float bX() {
       int var1 = 0;
-      amj[] var2 = this.bg.b;
+      ItemStack[] var2 = this.bg.b;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         amj var5 = var2[var4];
+         ItemStack var5 = var2[var4];
          if(var5 != null) {
             ++var1;
          }
@@ -740,24 +740,24 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(aqb var1) throws IOException {}
 
-   public void a(vq var1) {}
+   public void a(IInventory var1) {}
 
-   public void a(EntityHorse var1, vq var2) {}
+   public void a(EntityHorse var1, IInventory var2) {}
 
    public void a(vv var1) {}
 
-   public void a(amj var1) {}
+   public void a(ItemStack var1) {}
 
    public boolean u(Entity var1) throws IOException {
       if(this.v()) {
-         if(var1 instanceof vq) {
-            this.a((vq)var1);
+         if(var1 instanceof IInventory) {
+            this.a((IInventory)var1);
          }
 
          return false;
       } else {
-         amj var2 = this.bY();
-         amj var3 = var2 != null?var2.k():null;
+         ItemStack var2 = this.bY();
+         ItemStack var3 = var2 != null?var2.k():null;
          if(!var1.e(this)) {
             if(var2 != null && var1 instanceof EntityLiving) {
                if(this.by.d) {
@@ -788,12 +788,12 @@ public abstract class EntityHuman extends EntityLiving {
       }
    }
 
-   public amj bY() {
+   public ItemStack bY() {
       return this.bg.h();
    }
 
    public void bZ() {
-      this.bg.a(this.bg.c, (amj)null);
+      this.bg.a(this.bg.c, (ItemStack)null);
    }
 
    public double am() {
@@ -818,7 +818,7 @@ public abstract class EntityHuman extends EntityLiving {
             }
 
             if(var2 > 0.0F || var4 > 0.0F) {
-               boolean var5 = this.O > 0.0F && !this.C && !this.j_() && !this.V() && !this.a(wp.q) && this.m == null && var1 instanceof EntityLiving;
+               boolean var5 = this.O > 0.0F && !this.C && !this.j_() && !this.V() && !this.a(MobEffectList.q) && this.m == null && var1 instanceof EntityLiving;
                if(var5 && var2 > 0.0F) {
                   var2 *= 1.5F;
                }
@@ -869,7 +869,7 @@ public abstract class EntityHuman extends EntityLiving {
                   }
 
                   EnchantmentManager.b(this, var1);
-                  amj var15 = this.bY();
+                  ItemStack var15 = this.bY();
                   Object var16 = var1;
                   if(var1 instanceof EntityComplexPart) {
                      IComplexPart var17 = ((EntityComplexPart)var1).a;
@@ -925,7 +925,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public ahf a(Location var1) {
       if(!this.o.D) {
-         if(this.bI() || !this.ai()) {
+         if(this.bI() || !this.isAlive()) {
             return ahf.e;
          }
 
@@ -943,7 +943,7 @@ public abstract class EntityHuman extends EntityLiving {
 
          double var2 = 8.0D;
          double var4 = 5.0D;
-         List var6 = this.o.a(EntityMonster.class, new AxisAlignedBB((double)var1.n() - var2, (double)var1.o() - var4, (double)var1.p() - var2, (double)var1.n() + var2, (double)var1.o() + var4, (double)var1.p() + var2));
+         List var6 = this.o.getEntities(EntityMonster.class, new AxisAlignedBB((double)var1.n() - var2, (double)var1.o() - var4, (double)var1.p() - var2, (double)var1.n() + var2, (double)var1.o() + var4, (double)var1.p() + var2));
          if(!var6.isEmpty()) {
             return ahf.f;
          }
@@ -955,7 +955,7 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.a(0.2F, 0.2F);
       if(this.o.e(var1)) {
-         ej var7 = (ej)this.o.getData(var1).b(avb.N);
+         EnumFacing var7 = (EnumFacing)this.o.getData(var1).b(avb.N);
          float var3 = 0.5F;
          float var8 = 0.5F;
          switch(ahe.a[var7.ordinal()]) {
@@ -989,7 +989,7 @@ public abstract class EntityHuman extends EntityLiving {
       return ahf.a;
    }
 
-   private void a(ej var1) {
+   private void a(EnumFacing var1) {
       this.bw = 0.0F;
       this.bx = 0.0F;
       switch(ahe.a[var1.ordinal()]) {
@@ -1127,13 +1127,13 @@ public abstract class EntityHuman extends EntityLiving {
       if(this.m == null) {
          int var7;
          if(this.a(Material.WATER)) {
-            var7 = Math.round(MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(ty.p, var7);
                this.a(0.015F * (float)var7 * 0.01F);
             }
          } else if(this.V()) {
-            var7 = Math.round(MathHelper.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(ty.l, var7);
                this.a(0.015F * (float)var7 * 0.01F);
@@ -1143,7 +1143,7 @@ public abstract class EntityHuman extends EntityLiving {
                this.a(ty.n, (int)Math.round(var3 * 100.0D));
             }
          } else if(this.C) {
-            var7 = Math.round(MathHelper.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(ty.i, var7);
                if(this.ax()) {
@@ -1158,7 +1158,7 @@ public abstract class EntityHuman extends EntityLiving {
                }
             }
          } else {
-            var7 = Math.round(MathHelper.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 25) {
                this.a(ty.o, var7);
             }
@@ -1169,7 +1169,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    private void l(double var1, double var3, double var5) {
       if(this.m != null) {
-         int var7 = Math.round(MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
+         int var7 = Math.round(MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
          if(var7 > 0) {
             if(this.m instanceof EntityMinecartAbstract) {
                this.a(ty.q, var7);
@@ -1230,7 +1230,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    }
 
-   public amj q(int var1) {
+   public ItemStack q(int var1) {
       return this.bg.e(var1);
    }
 
@@ -1306,7 +1306,7 @@ public abstract class EntityHuman extends EntityLiving {
       return this.bm() > 0.0F && this.bm() < this.bt();
    }
 
-   public void a(amj var1, int var2) {
+   public void a(ItemStack var1, int var2) {
       if(var1 != this.g) {
          this.g = var1;
          this.h = var2;
@@ -1321,7 +1321,7 @@ public abstract class EntityHuman extends EntityLiving {
       return this.by.e;
    }
 
-   public boolean a(Location var1, ej var2, amj var3) {
+   public boolean a(Location var1, EnumFacing var2, ItemStack var3) {
       if(this.by.e) {
          return true;
       } else if(var3 == null) {
@@ -1384,21 +1384,21 @@ public abstract class EntityHuman extends EntityLiving {
       return this.a;
    }
 
-   public amj p(int var1) {
+   public ItemStack p(int var1) {
       return var1 == 0?this.bg.h():this.bg.b[var1 - 1];
    }
 
-   public amj bz() {
+   public ItemStack bz() {
       return this.bg.h();
    }
 
-   public void c(int var1, amj var2) {
+   public void c(int var1, ItemStack var2) {
       this.bg.b[var1] = var2;
    }
 
    public abstract boolean v();
 
-   public amj[] at() {
+   public ItemStack[] at() {
       return this.bg.b;
    }
 
@@ -1464,7 +1464,7 @@ public abstract class EntityHuman extends EntityLiving {
       if(var1.a()) {
          return true;
       } else {
-         amj var2 = this.bY();
+         ItemStack var2 = this.bY();
          return var2 != null && var2.s()?var2.q().equals(var1.b()):false;
       }
    }
@@ -1473,7 +1473,7 @@ public abstract class EntityHuman extends EntityLiving {
       return MinecraftServer.M().c[0].Q().b("sendCommandFeedback");
    }
 
-   public boolean d(int var1, amj var2) {
+   public boolean d(int var1, ItemStack var2) {
       if(var1 >= 0 && var1 < this.bg.a.length) {
          this.bg.a(var1, var2);
          return true;

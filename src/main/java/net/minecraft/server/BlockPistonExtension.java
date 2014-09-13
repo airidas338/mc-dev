@@ -11,14 +11,14 @@ public class BlockPistonExtension extends Block {
 
    public BlockPistonExtension() {
       super(Material.PISTON);
-      this.j(this.L.b().a(a, ej.c).a(b, bdu.a).a(M, Boolean.valueOf(false)));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, bdu.a).a(M, Boolean.valueOf(false)));
       this.a(i);
       this.c(0.5F);
    }
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       if(var4.by.d) {
-         ej var5 = (ej)var3.b(a);
+         EnumFacing var5 = (EnumFacing)var3.b(a);
          if(var5 != null) {
             Location var6 = var2.a(var5.d());
             Block var7 = var1.getData(var6).c();
@@ -33,7 +33,7 @@ public class BlockPistonExtension extends Block {
 
    public void b(World var1, Location var2, IBlock var3) {
       super.b(var1, var2, var3);
-      ej var4 = ((ej)var3.b(a)).d();
+      EnumFacing var4 = ((EnumFacing)var3.b(a)).d();
       var2 = var2.a(var4);
       IBlock var5 = var1.getData(var2);
       if((var5.c() == Blocks.J || var5.c() == Blocks.F) && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
@@ -55,7 +55,7 @@ public class BlockPistonExtension extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, ej var3) {
+   public boolean a(World var1, Location var2, EnumFacing var3) {
       return false;
    }
 
@@ -77,7 +77,7 @@ public class BlockPistonExtension extends Block {
       float var4 = 0.625F;
       float var5 = 0.25F;
       float var6 = 0.75F;
-      switch(bdt.a[((ej)var1.b(a)).ordinal()]) {
+      switch(bdt.a[((EnumFacing)var1.b(a)).ordinal()]) {
       case 1:
          this.a(0.375F, 0.25F, 0.375F, 0.625F, 1.0F, 0.625F);
          break;
@@ -105,7 +105,7 @@ public class BlockPistonExtension extends Block {
 
    public void d(IBlock var1) {
       float var2 = 0.25F;
-      ej var3 = (ej)var1.b(a);
+      EnumFacing var3 = (EnumFacing)var1.b(a);
       if(var3 != null) {
          switch(bdt.a[var3.ordinal()]) {
          case 1:
@@ -131,7 +131,7 @@ public class BlockPistonExtension extends Block {
    }
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
-      ej var5 = (ej)var3.b(a);
+      EnumFacing var5 = (EnumFacing)var3.b(a);
       Location var6 = var2.a(var5.d());
       IBlock var7 = var1.getData(var6);
       if(var7.c() != Blocks.J && var7.c() != Blocks.F) {
@@ -142,9 +142,9 @@ public class BlockPistonExtension extends Block {
 
    }
 
-   public static ej b(int var0) {
+   public static EnumFacing b(int var0) {
       int var1 = var0 & 7;
-      return var1 > 5?null:ej.a(var1);
+      return var1 > 5?null:EnumFacing.a(var1);
    }
 
    public IBlock a(int var1) {
@@ -153,7 +153,7 @@ public class BlockPistonExtension extends Block {
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(a)).a();
+      int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(var1.b(b) == bdu.b) {
          var3 |= 8;
       }

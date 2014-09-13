@@ -3,41 +3,41 @@ package net.minecraft.server;
 public class bft {
 
    public static bfu a(NBTTagCompound var0) {
-      int var1 = var0.f("xPos");
-      int var2 = var0.f("zPos");
+      int var1 = var0.getInt("xPos");
+      int var2 = var0.getInt("zPos");
       bfu var3 = new bfu(var1, var2);
-      var3.g = var0.k("Blocks");
-      var3.f = new bfn(var0.k("Data"), 7);
-      var3.e = new bfn(var0.k("SkyLight"), 7);
-      var3.d = new bfn(var0.k("BlockLight"), 7);
-      var3.c = var0.k("HeightMap");
+      var3.g = var0.getByteArray("Blocks");
+      var3.f = new bfn(var0.getByteArray("Data"), 7);
+      var3.e = new bfn(var0.getByteArray("SkyLight"), 7);
+      var3.d = new bfn(var0.getByteArray("BlockLight"), 7);
+      var3.c = var0.getByteArray("HeightMap");
       var3.b = var0.n("TerrainPopulated");
-      var3.h = var0.c("Entities", 10);
-      var3.i = var0.c("TileEntities", 10);
-      var3.j = var0.c("TileTicks", 10);
+      var3.h = var0.getList("Entities", 10);
+      var3.i = var0.getList("TileEntities", 10);
+      var3.j = var0.getList("TileTicks", 10);
 
       try {
-         var3.a = var0.g("LastUpdate");
+         var3.a = var0.getLong("LastUpdate");
       } catch (ClassCastException var5) {
-         var3.a = (long)var0.f("LastUpdate");
+         var3.a = (long)var0.getInt("LastUpdate");
       }
 
       return var3;
    }
 
    public static void a(bfu var0, NBTTagCompound var1, WorldChunkManager var2) {
-      var1.a("xPos", var0.k);
-      var1.a("zPos", var0.l);
-      var1.a("LastUpdate", var0.a);
+      var1.setInt("xPos", var0.k);
+      var1.setInt("zPos", var0.l);
+      var1.setLong("LastUpdate", var0.a);
       int[] var3 = new int[var0.c.length];
 
       for(int var4 = 0; var4 < var0.c.length; ++var4) {
          var3[var4] = var0.c[var4];
       }
 
-      var1.a("HeightMap", var3);
-      var1.a("TerrainPopulated", var0.b);
-      fv var16 = new fv();
+      var1.setIntArray("HeightMap", var3);
+      var1.setBoolean("TerrainPopulated", var0.b);
+      NBTTagList var16 = new NBTTagList();
 
       int var7;
       for(int var5 = 0; var5 < 8; ++var5) {
@@ -87,16 +87,16 @@ public class bft {
             }
 
             NBTTagCompound var24 = new NBTTagCompound();
-            var24.a("Y", (byte)(var5 & 255));
-            var24.a("Blocks", var19);
-            var24.a("Data", var20.a());
-            var24.a("SkyLight", var21.a());
-            var24.a("BlockLight", var23.a());
+            var24.setByte("Y", (byte)(var5 & 255));
+            var24.setByteArray("Blocks", var19);
+            var24.setByteArray("Data", var20.a());
+            var24.setByteArray("SkyLight", var21.a());
+            var24.setByteArray("BlockLight", var23.a());
             var16.a((NBTBase)var24);
          }
       }
 
-      var1.a("Sections", (NBTBase)var16);
+      var1.set("Sections", (NBTBase)var16);
       byte[] var17 = new byte[256];
 
       for(int var18 = 0; var18 < 16; ++var18) {
@@ -105,11 +105,11 @@ public class bft {
          }
       }
 
-      var1.a("Biomes", var17);
-      var1.a("Entities", (NBTBase)var0.h);
-      var1.a("TileEntities", (NBTBase)var0.i);
+      var1.setByteArray("Biomes", var17);
+      var1.set("Entities", (NBTBase)var0.h);
+      var1.set("TileEntities", (NBTBase)var0.i);
       if(var0.j != null) {
-         var1.a("TileTicks", (NBTBase)var0.j);
+         var1.set("TileTicks", (NBTBase)var0.j);
       }
 
    }

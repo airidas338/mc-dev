@@ -12,7 +12,7 @@ public class aah extends PathfinderGoal {
    }
 
    public boolean a() {
-      if(!this.a.ai()) {
+      if(!this.a.isAlive()) {
          return false;
       } else if(this.a.V()) {
          return false;
@@ -27,7 +27,7 @@ public class aah extends PathfinderGoal {
    }
 
    public void c() {
-      this.a.s().n();
+      this.a.getNavigation().n();
    }
 
    public void d() {

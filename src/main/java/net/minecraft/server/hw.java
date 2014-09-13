@@ -30,7 +30,7 @@ final class hw extends ChatModifier {
       return null;
    }
 
-   public hr i() {
+   public ChatHoverable i() {
       return null;
    }
 
@@ -66,7 +66,7 @@ final class hw extends ChatModifier {
       throw new UnsupportedOperationException();
    }
 
-   public ChatModifier a(hr var1) {
+   public ChatModifier a(ChatHoverable var1) {
       throw new UnsupportedOperationException();
    }
 

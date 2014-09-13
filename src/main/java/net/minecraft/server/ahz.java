@@ -14,7 +14,7 @@ public class ahz {
       this.b = Math.min(this.b + (float)var1 * var2 * 2.0F, (float)this.a);
    }
 
-   public void a(all var1, amj var2) {
+   public void a(all var1, ItemStack var2) {
       this.a(var1.h(var2), var1.i(var2));
    }
 
@@ -54,19 +54,19 @@ public class ahz {
 
    public void a(NBTTagCompound var1) {
       if(var1.b("foodLevel", 99)) {
-         this.a = var1.f("foodLevel");
-         this.d = var1.f("foodTickTimer");
-         this.b = var1.h("foodSaturationLevel");
-         this.c = var1.h("foodExhaustionLevel");
+         this.a = var1.getInt("foodLevel");
+         this.d = var1.getInt("foodTickTimer");
+         this.b = var1.getFloat("foodSaturationLevel");
+         this.c = var1.getFloat("foodExhaustionLevel");
       }
 
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("foodLevel", this.a);
-      var1.a("foodTickTimer", this.d);
-      var1.a("foodSaturationLevel", this.b);
-      var1.a("foodExhaustionLevel", this.c);
+      var1.setInt("foodLevel", this.a);
+      var1.setInt("foodTickTimer", this.d);
+      var1.setFloat("foodSaturationLevel", this.b);
+      var1.setFloat("foodExhaustionLevel", this.c);
    }
 
    public int a() {

@@ -27,7 +27,7 @@ public class yx extends PathfinderGoal {
       } else if(!this.f.i(new Location(this.a.s, this.a.aQ().b, this.a.u))) {
          return false;
       } else {
-         ChunkCoordinates var1 = this.f();
+         Vec3D var1 = this.f();
          if(var1 == null) {
             return false;
          } else {
@@ -40,21 +40,21 @@ public class yx extends PathfinderGoal {
    }
 
    public boolean b() {
-      return !this.a.s().m();
+      return !this.a.getNavigation().m();
    }
 
    public void c() {
-      this.a.s().a(this.b, this.c, this.d, this.e);
+      this.a.getNavigation().a(this.b, this.c, this.d, this.e);
    }
 
-   private ChunkCoordinates f() {
+   private Vec3D f() {
       Random var1 = this.a.bb();
       Location var2 = new Location(this.a.s, this.a.aQ().b, this.a.u);
 
       for(int var3 = 0; var3 < 10; ++var3) {
          Location var4 = var2.a(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
          if(!this.f.i(var4) && this.a.a(var4) < 0.0F) {
-            return new ChunkCoordinates((double)var4.n(), (double)var4.o(), (double)var4.p());
+            return new Vec3D((double)var4.n(), (double)var4.o(), (double)var4.p());
          }
       }
 

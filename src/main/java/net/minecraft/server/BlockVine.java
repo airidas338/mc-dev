@@ -10,10 +10,10 @@ public class BlockVine extends Block {
    public static final bet N = bet.a("south");
    public static final bet O = bet.a("west");
    public static final bet[] P = new bet[]{a, b, N, O, M};
-   public static final int Q = b(ej.d);
-   public static final int R = b(ej.c);
-   public static final int S = b(ej.f);
-   public static final int T = b(ej.e);
+   public static final int Q = b(EnumFacing.SOUTH);
+   public static final int R = b(EnumFacing.NORTH);
+   public static final int S = b(EnumFacing.EAST);
+   public static final int T = b(EnumFacing.WEST);
 
 
    public BlockVine() {
@@ -108,7 +108,7 @@ public class BlockVine extends Block {
       return null;
    }
 
-   public boolean a(World var1, Location var2, ej var3) {
+   public boolean a(World var1, Location var2, EnumFacing var3) {
       switch(bbw.a[var3.ordinal()]) {
       case 1:
          return this.c(var1.getData(var2.a()).c());
@@ -131,7 +131,7 @@ public class BlockVine extends Block {
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
-         ej var6 = (ej)var5.next();
+         EnumFacing var6 = (EnumFacing)var5.next();
          bet var7 = a(var6);
          if(((Boolean)var3.b(var7)).booleanValue() && !this.c(var1.getData(var2.a(var6)).c())) {
             IBlock var8 = var1.getData(var2.a());
@@ -182,15 +182,15 @@ public class BlockVine extends Block {
                }
             }
 
-            ej var17 = ej.a(var4);
-            ej var21;
-            if(var17 == ej.b && var2.o() < 255 && var1.d(var2.a())) {
+            EnumFacing var17 = EnumFacing.a(var4);
+            EnumFacing var21;
+            if(var17 == EnumFacing.UP && var2.o() < 255 && var1.d(var2.a())) {
                if(!var7) {
                   IBlock var22 = var3;
                   Iterator var20 = en.a.iterator();
 
                   while(var20.hasNext()) {
-                     var21 = (ej)var20.next();
+                     var21 = (EnumFacing)var20.next();
                      if(var4.nextBoolean() || !this.c(var1.getData(var2.a(var21).a()).c())) {
                         var22 = var22.a(a(var21), Boolean.valueOf(false));
                      }
@@ -209,7 +209,7 @@ public class BlockVine extends Block {
                      Block var19 = var1.getData(var18).c();
                      if(var19.J == Material.AIR) {
                         var21 = var17.e();
-                        ej var25 = var17.f();
+                        EnumFacing var25 = var17.f();
                         boolean var24 = ((Boolean)var3.b(a(var21))).booleanValue();
                         boolean var27 = ((Boolean)var3.b(a(var25))).booleanValue();
                         Location var26 = var18.a(var21);
@@ -237,13 +237,13 @@ public class BlockVine extends Block {
                      Block var11 = var23.c();
                      IBlock var12;
                      Iterator var13;
-                     ej var14;
+                     EnumFacing var14;
                      if(var11.J == Material.AIR) {
                         var12 = var3;
                         var13 = en.a.iterator();
 
                         while(var13.hasNext()) {
-                           var14 = (ej)var13.next();
+                           var14 = (EnumFacing)var13.next();
                            if(var4.nextBoolean()) {
                               var12 = var12.a(a(var14), Boolean.valueOf(false));
                            }
@@ -257,7 +257,7 @@ public class BlockVine extends Block {
                         var13 = en.a.iterator();
 
                         while(var13.hasNext()) {
-                           var14 = (ej)var13.next();
+                           var14 = (EnumFacing)var13.next();
                            bet var15 = a(var14);
                            if(var4.nextBoolean() || !((Boolean)var3.b(var15)).booleanValue()) {
                               var12 = var12.a(var15, Boolean.valueOf(false));
@@ -276,11 +276,11 @@ public class BlockVine extends Block {
       }
    }
 
-   private static int b(ej var0) {
+   private static int b(EnumFacing var0) {
       return 1 << var0.b();
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlock var9 = this.P().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
       return var3.k().c()?var9.a(a(var3.d()), Boolean.valueOf(true)):var9;
    }
@@ -293,10 +293,10 @@ public class BlockVine extends Block {
       return 0;
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new amj(Blocks.bn, 1, 0));
+         a(var1, var3, new ItemStack(Blocks.bn, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }
@@ -332,7 +332,7 @@ public class BlockVine extends Block {
       return new bed(this, new bex[]{a, b, M, N, O});
    }
 
-   public static bet a(ej var0) {
+   public static bet a(EnumFacing var0) {
       switch(bbw.a[var0.ordinal()]) {
       case 1:
          return a;

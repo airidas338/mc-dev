@@ -10,7 +10,7 @@ public class EntityArmorStand extends EntityLiving {
    private static final fa d = new fa(-15.0F, 0.0F, 10.0F);
    private static final fa e = new fa(-1.0F, 0.0F, -1.0F);
    private static final fa f = new fa(1.0F, 0.0F, 1.0F);
-   private final amj[] g;
+   private final ItemStack[] g;
    private boolean h;
    private long i;
    private int bg;
@@ -24,7 +24,7 @@ public class EntityArmorStand extends EntityLiving {
 
    public EntityArmorStand(World var1) {
       super(var1);
-      this.g = new amj[5];
+      this.g = new ItemStack[5];
       this.bh = a;
       this.bi = b;
       this.bj = c;
@@ -56,23 +56,23 @@ public class EntityArmorStand extends EntityLiving {
       this.ac.a(16, f);
    }
 
-   public amj bz() {
+   public ItemStack bz() {
       return this.g[0];
    }
 
-   public amj p(int var1) {
+   public ItemStack p(int var1) {
       return this.g[var1];
    }
 
-   public void c(int var1, amj var2) {
+   public void c(int var1, ItemStack var2) {
       this.g[var1] = var2;
    }
 
-   public amj[] at() {
+   public ItemStack[] at() {
       return this.g;
    }
 
-   public boolean d(int var1, amj var2) {
+   public boolean d(int var1, ItemStack var2) {
       int var3;
       if(var1 == 99) {
          var3 = 0;
@@ -93,7 +93,7 @@ public class EntityArmorStand extends EntityLiving {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          NBTTagCompound var4 = new NBTTagCompound();
@@ -104,78 +104,78 @@ public class EntityArmorStand extends EntityLiving {
          var2.a((NBTBase)var4);
       }
 
-      var1.a("Equipment", (NBTBase)var2);
+      var1.set("Equipment", (NBTBase)var2);
       if(this.aM() && (this.aL() == null || this.aL().length() == 0)) {
-         var1.a("CustomNameVisible", this.aM());
+         var1.setBoolean("CustomNameVisible", this.aM());
       }
 
-      var1.a("Invisible", this.ay());
-      var1.a("Small", this.n());
-      var1.a("ShowArms", this.q());
-      var1.a("DisabledSlots", this.bg);
-      var1.a("NoGravity", this.p());
-      var1.a("NoBasePlate", this.r());
-      var1.a("Pose", (NBTBase)this.y());
+      var1.setBoolean("Invisible", this.ay());
+      var1.setBoolean("Small", this.n());
+      var1.setBoolean("ShowArms", this.q());
+      var1.setInt("DisabledSlots", this.bg);
+      var1.setBoolean("NoGravity", this.p());
+      var1.setBoolean("NoBasePlate", this.r());
+      var1.set("Pose", (NBTBase)this.y());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("Equipment", 9)) {
-         fv var2 = var1.c("Equipment", 10);
+         NBTTagList var2 = var1.getList("Equipment", 10);
 
          for(int var3 = 0; var3 < this.g.length; ++var3) {
-            this.g[var3] = amj.a(var2.b(var3));
+            this.g[var3] = ItemStack.a(var2.b(var3));
          }
       }
 
       this.e(var1.n("Invisible"));
       this.a(var1.n("Small"));
       this.k(var1.n("ShowArms"));
-      this.bg = var1.f("DisabledSlots");
+      this.bg = var1.getInt("DisabledSlots");
       this.j(var1.n("NoGravity"));
       this.l(var1.n("NoBasePlate"));
       this.T = this.p();
-      NBTTagCompound var4 = var1.m("Pose");
+      NBTTagCompound var4 = var1.getCompound("Pose");
       this.h(var4);
    }
 
    private void h(NBTTagCompound var1) {
-      fv var2 = var1.c("Head", 5);
+      NBTTagList var2 = var1.getList("Head", 5);
       if(var2.c() > 0) {
          this.a(new fa(var2));
       } else {
          this.a(a);
       }
 
-      fv var3 = var1.c("Body", 5);
+      NBTTagList var3 = var1.getList("Body", 5);
       if(var3.c() > 0) {
          this.b(new fa(var3));
       } else {
          this.b(b);
       }
 
-      fv var4 = var1.c("LeftArm", 5);
+      NBTTagList var4 = var1.getList("LeftArm", 5);
       if(var4.c() > 0) {
          this.c(new fa(var4));
       } else {
          this.c(c);
       }
 
-      fv var5 = var1.c("RightArm", 5);
+      NBTTagList var5 = var1.getList("RightArm", 5);
       if(var5.c() > 0) {
          this.d(new fa(var5));
       } else {
          this.d(d);
       }
 
-      fv var6 = var1.c("LeftLeg", 5);
+      NBTTagList var6 = var1.getList("LeftLeg", 5);
       if(var6.c() > 0) {
          this.e(new fa(var6));
       } else {
          this.e(e);
       }
 
-      fv var7 = var1.c("RightLeg", 5);
+      NBTTagList var7 = var1.getList("RightLeg", 5);
       if(var7.c() > 0) {
          this.f(new fa(var7));
       } else {
@@ -187,27 +187,27 @@ public class EntityArmorStand extends EntityLiving {
    private NBTTagCompound y() {
       NBTTagCompound var1 = new NBTTagCompound();
       if(!a.equals(this.bh)) {
-         var1.a("Head", (NBTBase)this.bh.a());
+         var1.set("Head", (NBTBase)this.bh.a());
       }
 
       if(!b.equals(this.bi)) {
-         var1.a("Body", (NBTBase)this.bi.a());
+         var1.set("Body", (NBTBase)this.bi.a());
       }
 
       if(!c.equals(this.bj)) {
-         var1.a("LeftArm", (NBTBase)this.bj.a());
+         var1.set("LeftArm", (NBTBase)this.bj.a());
       }
 
       if(!d.equals(this.bk)) {
-         var1.a("RightArm", (NBTBase)this.bk.a());
+         var1.set("RightArm", (NBTBase)this.bk.a());
       }
 
       if(!e.equals(this.bl)) {
-         var1.a("LeftLeg", (NBTBase)this.bl.a());
+         var1.set("LeftLeg", (NBTBase)this.bl.a());
       }
 
       if(!f.equals(this.bm)) {
-         var1.a("RightLeg", (NBTBase)this.bm.a());
+         var1.set("RightLeg", (NBTBase)this.bm.a());
       }
 
       return var1;
@@ -232,10 +232,10 @@ public class EntityArmorStand extends EntityLiving {
 
    }
 
-   public boolean a(EntityHuman var1, ChunkCoordinates var2) {
+   public boolean a(EntityHuman var1, Vec3D var2) {
       if(!this.o.D && !var1.v()) {
          byte var3 = 0;
-         amj var4 = var1.bY();
+         ItemStack var4 = var1.bY();
          boolean var5 = var4 != null;
          if(var5 && var4.b() instanceof ItemArmor) {
             ItemArmor var6 = (ItemArmor)var4.b();
@@ -300,13 +300,13 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    private void a(EntityHuman var1, int var2) {
-      amj var3 = this.g[var2];
+      ItemStack var3 = this.g[var2];
       if(var3 == null || (this.bg & 1 << var2 + 8) == 0) {
          if(var3 != null || (this.bg & 1 << var2 + 16) == 0) {
             int var4 = var1.bg.c;
-            amj var5 = var1.bg.a(var4);
-            amj var6;
-            if(var1.by.d && (var3 == null || var3.b() == Item.a(Blocks.a)) && var5 != null) {
+            ItemStack var5 = var1.bg.a(var4);
+            ItemStack var6;
+            if(var1.by.d && (var3 == null || var3.b() == Item.a(Blocks.AIR)) && var5 != null) {
                var6 = var5.k();
                var6.b = 1;
                this.c(var2, var6);
@@ -402,7 +402,7 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    private void A() {
-      Block.a(this.o, new Location(this), new amj(Items.cj));
+      Block.a(this.o, new Location(this), new ItemStack(Items.cj));
       this.C();
    }
 

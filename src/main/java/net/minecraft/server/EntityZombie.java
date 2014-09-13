@@ -18,26 +18,26 @@ public class EntityZombie extends EntityMonster {
 
    public EntityZombie(World var1) {
       super(var1);
-      ((aay)this.s()).b(true);
-      this.i.a(0, new yy(this));
-      this.i.a(2, new zk(this, EntityHuman.class, 1.0D, false));
-      this.i.a(2, this.a);
-      this.i.a(5, new zo(this, 1.0D));
-      this.i.a(7, new zy(this, 1.0D));
-      this.i.a(8, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(8, new zx(this));
+      ((aay)this.getNavigation()).b(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this, EntityHuman.class, 1.0D, false));
+      this.goalSelector.a(2, this.a);
+      this.goalSelector.a(5, new PathfinderGoalMoveTowardsRestriction(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(8, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
       this.n();
       this.a(0.6F, 1.95F);
    }
 
    protected void n() {
-      this.i.a(4, new zk(this, EntityVillager.class, 1.0D, true));
-      this.i.a(4, new zk(this, EntityIronGolem.class, 1.0D, true));
-      this.i.a(6, new zm(this, 1.0D, false));
-      this.bg.a(1, new aal(this, true, new Class[]{EntityPigZombie.class}));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
-      this.bg.a(2, new aaq(this, EntityVillager.class, false));
-      this.bg.a(2, new aaq(this, EntityIronGolem.class, true));
+      this.goalSelector.a(4, new PathfinderGoalMeleeAttack(this, EntityVillager.class, 1.0D, true));
+      this.goalSelector.a(4, new PathfinderGoalMeleeAttack(this, EntityIronGolem.class, 1.0D, true));
+      this.goalSelector.a(6, new PathfinderGoalMoveThroughVillage(this, 1.0D, false));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
+      this.targetSelector.a(2, new aaq(this, EntityVillager.class, false));
+      this.targetSelector.a(2, new aaq(this, EntityIronGolem.class, true));
    }
 
    protected void aW() {
@@ -72,9 +72,9 @@ public class EntityZombie extends EntityMonster {
       if(this.bn != var1) {
          this.bn = var1;
          if(var1) {
-            this.i.a(1, this.bl);
+            this.goalSelector.a(1, this.bl);
          } else {
-            this.i.a((PathfinderGoal)this.bl);
+            this.goalSelector.a((PathfinderGoal)this.bl);
          }
       }
 
@@ -119,13 +119,13 @@ public class EntityZombie extends EntityMonster {
          Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
-            amj var4 = this.p(4);
+            ItemStack var4 = this.p(4);
             if(var4 != null) {
                if(var4.e()) {
                   var4.b(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
-                     this.c(4, (amj)null);
+                     this.c(4, (ItemStack)null);
                   }
                }
 
@@ -139,7 +139,7 @@ public class EntityZombie extends EntityMonster {
       }
 
       if(this.av() && this.u() != null && this.m instanceof EntityChicken) {
-         ((EntityInsentient)this.m).s().a(this.s().j(), 1.5D);
+         ((EntityInsentient)this.m).getNavigation().a(this.getNavigation().j(), 1.5D);
       }
 
       super.m();
@@ -249,9 +249,9 @@ public class EntityZombie extends EntityMonster {
       if(this.V.nextFloat() < (this.o.aa() == EnumDifficulty.HARD?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.c(0, new amj(Items.l));
+            this.c(0, new ItemStack(Items.l));
          } else {
-            this.c(0, new amj(Items.a));
+            this.c(0, new ItemStack(Items.a));
          }
       }
 
@@ -260,15 +260,15 @@ public class EntityZombie extends EntityMonster {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.i_()) {
-         var1.a("IsBaby", true);
+         var1.setBoolean("IsBaby", true);
       }
 
       if(this.cm()) {
-         var1.a("IsVillager", true);
+         var1.setBoolean("IsVillager", true);
       }
 
-      var1.a("ConversionTime", this.cn()?this.bm:-1);
-      var1.a("CanBreakDoors", this.cl());
+      var1.setInt("ConversionTime", this.cn()?this.bm:-1);
+      var1.setBoolean("CanBreakDoors", this.cl());
    }
 
    public void a(NBTTagCompound var1) {
@@ -281,8 +281,8 @@ public class EntityZombie extends EntityMonster {
          this.m(true);
       }
 
-      if(var1.b("ConversionTime", 99) && var1.f("ConversionTime") > -1) {
-         this.a(var1.f("ConversionTime"));
+      if(var1.b("ConversionTime", 99) && var1.getInt("ConversionTime") > -1) {
+         this.a(var1.getInt("ConversionTime"));
       }
 
       this.a(var1.n("CanBreakDoors"));
@@ -319,7 +319,7 @@ public class EntityZombie extends EntityMonster {
       return var1;
    }
 
-   protected boolean a(amj var1) {
+   protected boolean a(ItemStack var1) {
       return var1.b() == Items.aP && this.i_() && this.av()?false:super.a(var1);
    }
 
@@ -340,7 +340,7 @@ public class EntityZombie extends EntityMonster {
          if(var4.a) {
             this.l(true);
             if((double)this.o.s.nextFloat() < 0.05D) {
-               List var5 = this.o.a(EntityChicken.class, this.aQ().b(5.0D, 3.0D, 5.0D), xe.b);
+               List var5 = this.o.a(EntityChicken.class, this.aQ().b(5.0D, 3.0D, 5.0D), EntitySelectors.b);
                if(!var5.isEmpty()) {
                   EntityChicken var6 = (EntityChicken)var5.get(0);
                   var6.l(true);
@@ -348,7 +348,7 @@ public class EntityZombie extends EntityMonster {
                }
             } else if((double)this.o.s.nextFloat() < 0.05D) {
                EntityChicken var10 = new EntityChicken(this.o);
-               var10.b(this.s, this.t, this.u, this.y, 0.0F);
+               var10.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
                var10.a(var1, (xq)null);
                var10.l(true);
                this.o.d((Entity)var10);
@@ -363,7 +363,7 @@ public class EntityZombie extends EntityMonster {
       if(this.p(4) == null) {
          Calendar var8 = this.o.Y();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.c(4, new amj(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
+            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
             this.bh[4] = 0.0F;
          }
       }
@@ -384,14 +384,14 @@ public class EntityZombie extends EntityMonster {
    }
 
    public boolean a(EntityHuman var1) {
-      amj var2 = var1.bY();
-      if(var2 != null && var2.b() == Items.ao && var2.i() == 0 && this.cm() && this.a(wp.t)) {
+      ItemStack var2 = var1.bY();
+      if(var2 != null && var2.b() == Items.ao && var2.i() == 0 && this.cm() && this.a(MobEffectList.t)) {
          if(!var1.by.d) {
             --var2.b;
          }
 
          if(var2.b <= 0) {
-            var1.bg.a(var1.bg.c, (amj)null);
+            var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
          if(!this.o.D) {
@@ -407,8 +407,8 @@ public class EntityZombie extends EntityMonster {
    protected void a(int var1) {
       this.bm = var1;
       this.H().b(14, Byte.valueOf((byte)1));
-      this.m(wp.t.H);
-      this.c(new wq(wp.g.H, var1, Math.min(this.o.aa().a() - 1, 0)));
+      this.m(MobEffectList.t.H);
+      this.c(new MobEffect(MobEffectList.g.H, var1, Math.min(this.o.aa().a() - 1, 0)));
       this.o.a((Entity)this, (byte)16);
    }
 
@@ -431,7 +431,7 @@ public class EntityZombie extends EntityMonster {
 
       this.o.e((Entity)this);
       this.o.d((Entity)var1);
-      var1.c(new wq(wp.k.H, 200, 0));
+      var1.c(new MobEffect(MobEffectList.k.H, 200, 0));
       this.o.a((EntityHuman)null, 1017, new Location((int)this.s, (int)this.t, (int)this.u), 0);
    }
 
@@ -485,7 +485,7 @@ public class EntityZombie extends EntityMonster {
       super.a(var1);
       if(var1.getEntity() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(Items.bX, 1, 2), 0.0F);
+         this.a(new ItemStack(Items.bX, 1, 2), 0.0F);
       }
 
    }

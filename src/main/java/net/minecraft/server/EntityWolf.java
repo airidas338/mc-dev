@@ -15,22 +15,22 @@ public class EntityWolf extends EntityTameableAnimal {
    public EntityWolf(World var1) {
       super(var1);
       this.a(0.6F, 0.8F);
-      ((aay)this.s()).a(true);
-      this.i.a(1, new yy(this));
-      this.i.a(2, this.bk);
-      this.i.a(3, new zg(this, 0.4F));
-      this.i.a(4, new zk(this, 1.0D, true));
-      this.i.a(5, new yz(this, 1.0D, 10.0F, 2.0F));
-      this.i.a(6, new yt(this, 1.0D));
-      this.i.a(7, new zy(this, 1.0D));
-      this.i.a(8, new yr(this, 8.0F));
-      this.i.a(9, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(9, new zx(this));
-      this.bg.a(1, new aau(this));
-      this.bg.a(2, new aav(this));
-      this.bg.a(3, new aal(this, true, new Class[0]));
-      this.bg.a(4, new aat(this, EntityAnimal.class, false, new acv(this)));
-      this.bg.a(5, new aaq(this, EntitySkeleton.class, false));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, this.bk);
+      this.goalSelector.a(3, new zg(this, 0.4F));
+      this.goalSelector.a(4, new PathfinderGoalMeleeAttack(this, 1.0D, true));
+      this.goalSelector.a(5, new yz(this, 1.0D, 10.0F, 2.0F));
+      this.goalSelector.a(6, new yt(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(8, new yr(this, 8.0F));
+      this.goalSelector.a(9, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(9, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new aau(this));
+      this.targetSelector.a(2, new aav(this));
+      this.targetSelector.a(3, new PathfinderGoalHurtByTarget(this, true, new Class[0]));
+      this.targetSelector.a(4, new aat(this, EntityAnimal.class, false, new acv(this)));
+      this.targetSelector.a(5, new aaq(this, EntitySkeleton.class, false));
       this.m(false);
    }
 
@@ -74,15 +74,15 @@ public class EntityWolf extends EntityTameableAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Angry", this.ct());
-      var1.a("CollarColor", (byte)this.cu().b());
+      var1.setBoolean("Angry", this.ct());
+      var1.setByte("CollarColor", (byte)this.cu().b());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       this.o(var1.n("Angry"));
       if(var1.b("CollarColor", 99)) {
-         this.a(akv.a(var1.d("CollarColor")));
+         this.a(akv.a(var1.getByte("CollarColor")));
       }
 
    }
@@ -207,7 +207,7 @@ public class EntityWolf extends EntityTameableAnimal {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(this.cj()) {
          if(var2 != null) {
             if(var2.b() instanceof all) {
@@ -219,7 +219,7 @@ public class EntityWolf extends EntityTameableAnimal {
 
                   this.g((float)var3.h(var2));
                   if(var2.b <= 0) {
-                     var1.bg.a(var1.bg.c, (amj)null);
+                     var1.bg.a(var1.bg.c, (ItemStack)null);
                   }
 
                   return true;
@@ -229,7 +229,7 @@ public class EntityWolf extends EntityTameableAnimal {
                if(var4 != this.cu()) {
                   this.a(var4);
                   if(!var1.by.d && --var2.b <= 0) {
-                     var1.bg.a(var1.bg.c, (amj)null);
+                     var1.bg.a(var1.bg.c, (ItemStack)null);
                   }
 
                   return true;
@@ -249,7 +249,7 @@ public class EntityWolf extends EntityTameableAnimal {
          }
 
          if(var2.b <= 0) {
-            var1.bg.a(var1.bg.c, (amj)null);
+            var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
          if(!this.o.D) {
@@ -274,7 +274,7 @@ public class EntityWolf extends EntityTameableAnimal {
       return super.a(var1);
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 == null?false:(!(var1.b() instanceof all)?false:((all)var1.b()).g());
    }
 

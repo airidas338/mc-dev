@@ -21,21 +21,21 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.b() == null) {
-         var1.a("OwnerUUID", "");
+         var1.setString("OwnerUUID", "");
       } else {
-         var1.a("OwnerUUID", this.b());
+         var1.setString("OwnerUUID", this.b());
       }
 
-      var1.a("Sitting", this.cl());
+      var1.setBoolean("Sitting", this.cl());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       String var2 = "";
       if(var1.b("OwnerUUID", 8)) {
-         var2 = var1.j("OwnerUUID");
+         var2 = var1.getString("OwnerUUID");
       } else {
-         String var3 = var1.j("Owner");
+         String var3 = var1.getString("Owner");
          var2 = sf.a(var3);
       }
 

@@ -64,10 +64,10 @@ public class hx implements JsonDeserializer, JsonSerializer {
                var6 = var5.getAsJsonObject("hoverEvent");
                if(var6 != null) {
                   var7 = var6.getAsJsonPrimitive("action");
-                  hs var11 = var7 == null?null:hs.a(var7.getAsString());
+                  EnumHoverAction var11 = var7 == null?null:EnumHoverAction.a(var7.getAsString());
                   IChatBaseComponent var12 = (IChatBaseComponent)var3.deserialize(var6.get("value"), IChatBaseComponent.class);
                   if(var11 != null && var12 != null && var11.a()) {
-                     ChatModifier.a(var4, new hr(var11, var12));
+                     ChatModifier.a(var4, new ChatHoverable(var11, var12));
                   }
                }
             }

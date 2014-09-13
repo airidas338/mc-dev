@@ -3,7 +3,7 @@ public interface ik extends PacketListener {
 
 	void a(il var1);
 
-	void a(mx mx);
+	void a(PacketPlayInBlockPlace mx);
 
 	void a(im var1);
 
@@ -65,7 +65,7 @@ public interface ik extends PacketListener {
 
 	void a(jo var1);
 
-	void a(jp var1);
+	void a(PacketPlayOutKeepAlive var1);
 
 	void a(jq var1);
 

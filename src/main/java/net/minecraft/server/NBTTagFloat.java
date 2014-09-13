@@ -3,7 +3,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class NBTTagFloat extends ge {
+public class NBTTagFloat extends NBTNumber {
 
    private float b;
 

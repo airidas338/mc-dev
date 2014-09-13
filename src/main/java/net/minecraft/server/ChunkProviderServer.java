@@ -11,27 +11,27 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ChunkProviderServer implements bfe {
+public class ChunkProviderServer implements IChunkProvider {
 
    private static final Logger b = LogManager.getLogger();
    private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
-   private bfh d;
-   private bfe e;
-   private bfq f;
+   private Chunk d;
+   private IChunkProvider e;
+   private IChunkLoader f;
    public boolean a = true;
    private ur g = new ur();
    private List h = Lists.newArrayList();
    private WorldServer i;
 
 
-   public ChunkProviderServer(WorldServer var1, bfq var2, bfe var3) {
+   public ChunkProviderServer(WorldServer var1, IChunkLoader var2, IChunkProvider var3) {
       this.d = new bfg(var1, 0, 0);
       this.i = var1;
       this.f = var2;
       this.e = var3;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return this.g.b(aqm.a(var1, var2));
    }
 
@@ -54,16 +54,16 @@ public class ChunkProviderServer implements bfe {
       Iterator var1 = this.h.iterator();
 
       while(var1.hasNext()) {
-         bfh var2 = (bfh)var1.next();
+         Chunk var2 = (Chunk)var1.next();
          this.b(var2.a, var2.b);
       }
 
    }
 
-   public bfh c(int var1, int var2) {
+   public Chunk c(int var1, int var2) {
       long var3 = aqm.a(var1, var2);
       this.c.remove(Long.valueOf(var3));
-      bfh var5 = (bfh)this.g.a(var3);
+      Chunk var5 = (Chunk)this.g.a(var3);
       if(var5 == null) {
          var5 = this.e(var1, var2);
          if(var5 == null) {
@@ -71,7 +71,7 @@ public class ChunkProviderServer implements bfe {
                var5 = this.d;
             } else {
                try {
-                  var5 = this.e.d(var1, var2);
+                  var5 = this.e.getOrCreateChunk(var1, var2);
                } catch (Throwable var9) {
                   CrashReport var7 = CrashReport.a(var9, "Exception generating new chunk");
                   CrashReportSystemDetails var8 = var7.a("Chunk to be generated");
@@ -92,17 +92,17 @@ public class ChunkProviderServer implements bfe {
       return var5;
    }
 
-   public bfh d(int var1, int var2) {
-      bfh var3 = (bfh)this.g.a(aqm.a(var1, var2));
+   public Chunk getOrCreateChunk(int var1, int var2) {
+      Chunk var3 = (Chunk)this.g.a(aqm.a(var1, var2));
       return var3 == null?(!this.i.ad() && !this.a?this.d:this.c(var1, var2)):var3;
    }
 
-   private bfh e(int var1, int var2) {
+   private Chunk e(int var1, int var2) {
       if(this.f == null) {
          return null;
       } else {
          try {
-            bfh var3 = this.f.a(this.i, var1, var2);
+            Chunk var3 = this.f.a(this.i, var1, var2);
             if(var3 != null) {
                var3.b(this.i.K());
                if(this.e != null) {
@@ -118,7 +118,7 @@ public class ChunkProviderServer implements bfe {
       }
    }
 
-   private void a(bfh var1) {
+   private void a(Chunk var1) {
       if(this.f != null) {
          try {
             this.f.b(this.i, var1);
@@ -129,7 +129,7 @@ public class ChunkProviderServer implements bfe {
       }
    }
 
-   private void b(bfh var1) {
+   private void b(Chunk var1) {
       if(this.f != null) {
          try {
             var1.b(this.i.K());
@@ -143,8 +143,8 @@ public class ChunkProviderServer implements bfe {
       }
    }
 
-   public void a(bfe var1, int var2, int var3) {
-      bfh var4 = this.d(var2, var3);
+   public void a(IChunkProvider var1, int var2, int var3) {
+      Chunk var4 = this.getOrCreateChunk(var2, var3);
       if(!var4.t()) {
          var4.n();
          if(this.e != null) {
@@ -155,9 +155,9 @@ public class ChunkProviderServer implements bfe {
 
    }
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       if(this.e != null && this.e.a(var1, var2, var3, var4)) {
-         bfh var5 = this.d(var3, var4);
+         Chunk var5 = this.getOrCreateChunk(var3, var4);
          var5.e();
          return true;
       } else {
@@ -169,7 +169,7 @@ public class ChunkProviderServer implements bfe {
       int var3 = 0;
 
       for(int var4 = 0; var4 < this.h.size(); ++var4) {
-         bfh var5 = (bfh)this.h.get(var4);
+         Chunk var5 = (Chunk)this.h.get(var4);
          if(var1) {
             this.a(var5);
          }
@@ -199,7 +199,7 @@ public class ChunkProviderServer implements bfe {
          for(int var1 = 0; var1 < 100; ++var1) {
             if(!this.c.isEmpty()) {
                Long var2 = (Long)this.c.iterator().next();
-               bfh var3 = (bfh)this.g.a(var2.longValue());
+               Chunk var3 = (Chunk)this.g.a(var2.longValue());
                if(var3 != null) {
                   var3.d();
                   this.b(var3);
@@ -240,10 +240,10 @@ public class ChunkProviderServer implements bfe {
       return this.g.a();
    }
 
-   public void a(bfh var1, int var2, int var3) {}
+   public void a(Chunk var1, int var2, int var3) {}
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 
 }

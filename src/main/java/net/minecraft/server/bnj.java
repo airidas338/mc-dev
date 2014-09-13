@@ -11,20 +11,20 @@ public class bnj extends bnn {
 
    public bnj() {}
 
-   public bnj(bnk var1, int var2, Random var3, bjb var4, ej var5) {
+   public bnj(bnk var1, int var2, Random var3, bjb var4, EnumFacing var5) {
       super(var1, var2);
       this.m = var5;
       this.l = var4;
    }
 
-   public static bnj a(bnk var0, List var1, Random var2, int var3, int var4, int var5, ej var6, int var7) {
+   public static bnj a(bnk var0, List var1, Random var2, int var3, int var4, int var5, EnumFacing var6, int var7) {
       bjb var8 = bjb.a(var3, var4, var5, 0, 0, 0, 10, 6, 7, var6);
       return a(var8) && bms.a(var1, var8) == null?new bnj(var0, var7, var2, var8, var6):null;
    }
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Chest", this.b);
+      var1.setBoolean("Chest", this.b);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -42,11 +42,11 @@ public class bnj extends bnn {
          this.l.a(0, this.h - this.l.e + 6 - 1, 0);
       }
 
-      this.a(var1, var3, 0, 1, 0, 9, 4, 6, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 1, 0, 9, 4, 6, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 0, 0, 0, 9, 0, 6, Blocks.e.P(), Blocks.e.P(), false);
       this.a(var1, var3, 0, 4, 0, 9, 4, 6, Blocks.e.P(), Blocks.e.P(), false);
       this.a(var1, var3, 0, 5, 0, 9, 5, 6, Blocks.U.P(), Blocks.U.P(), false);
-      this.a(var1, var3, 1, 5, 1, 8, 5, 5, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 1, 5, 1, 8, 5, 5, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.f.P(), Blocks.f.P(), false);
       this.a(var1, var3, 0, 1, 0, 0, 4, 0, Blocks.r.P(), Blocks.r.P(), false);
       this.a(var1, var3, 3, 1, 0, 3, 4, 0, Blocks.r.P(), Blocks.r.P(), false);
@@ -63,7 +63,7 @@ public class bnj extends bnn {
       this.a(var1, Blocks.k.P(), 8, 1, 5, var3);
       this.a(var1, Blocks.bi.P(), 9, 2, 5, var3);
       this.a(var1, Blocks.bi.P(), 9, 2, 4, var3);
-      this.a(var1, var3, 7, 2, 4, 8, 2, 5, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 7, 2, 4, 8, 2, 5, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, Blocks.e.P(), 6, 1, 3, var3);
       this.a(var1, Blocks.al.P(), 6, 2, 3, var3);
       this.a(var1, Blocks.al.P(), 6, 3, 3, var3);

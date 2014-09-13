@@ -35,7 +35,7 @@ public class bi extends CommandAbstract {
          }
 
          int var5 = 1;
-         amj var13 = var3.bY();
+         ItemStack var13 = var3.bY();
          if(var13 == null) {
             throw new di("commands.enchant.noItem", new Object[0]);
          } else {
@@ -50,14 +50,14 @@ public class bi extends CommandAbstract {
                }
 
                if(var13.n()) {
-                  fv var8 = var13.p();
+                  NBTTagList var8 = var13.p();
                   if(var8 != null) {
                      for(int var9 = 0; var9 < var8.c(); ++var9) {
-                        short var10 = var8.b(var9).e("id");
+                        short var10 = var8.b(var9).getShort("id");
                         if(apf.c(var10) != null) {
                            apf var11 = apf.c(var10);
                            if(!var11.a(var7)) {
-                              throw new di("commands.enchant.cantCombine", new Object[]{var7.d(var5), var11.d(var8.b(var9).e("lvl"))});
+                              throw new di("commands.enchant.cantCombine", new Object[]{var7.d(var5), var11.d(var8.b(var9).getShort("lvl"))});
                            }
                         }
                      }

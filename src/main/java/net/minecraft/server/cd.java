@@ -23,7 +23,7 @@ public class cd extends CommandAbstract {
          int var32 = var3 + 1;
          String var4 = var2[var3];
          EntityPlayer var5 = a(var1, var2[var32++]);
-         ChunkCoordinates var6 = var1.d();
+         Vec3D var6 = var1.d();
          double var7 = var6.a;
          if(var2.length > var32) {
             var7 = b(var7, var2[var32++], true);

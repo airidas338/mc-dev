@@ -66,8 +66,8 @@ public class BlockSnow extends Block {
       }
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
-      a(var1, var3, new amj(Items.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
+      a(var1, var3, new ItemStack(Items.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
       var1.g(var3);
       var2.b(ty.H[Block.a((Block)this)]);
    }

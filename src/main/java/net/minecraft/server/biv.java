@@ -144,7 +144,7 @@ public class biv {
             }
          }
 
-         if(var6 == Blocks.a) {
+         if(var6 == Blocks.AIR) {
             var5 = 0;
          }
 

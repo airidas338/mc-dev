@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class bgr implements bfe {
+public class bgr implements IChunkProvider {
 
    private final World h;
    private final boolean i;
@@ -186,7 +186,7 @@ public class bgr implements bfe {
 
    }
 
-   public bfh d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       this.j.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       bgk var3 = new bgk();
       this.a(var1, var2, var3);
@@ -196,7 +196,7 @@ public class bgr implements bfe {
          this.B.a(this, this.h, var1, var2, var3);
       }
 
-      bfh var4 = new bfh(this.h, var3, var1, var2);
+      Chunk var4 = new Chunk(this.h, var3, var1, var2);
       BiomeBase[] var5 = this.h.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var6 = var4.k();
 
@@ -277,11 +277,11 @@ public class bgr implements bfe {
       return var1;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
-   public void a(bfe var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       avt.M = true;
       Location var4 = new Location(var2 * 16, 0, var3 * 16);
       aqm var5 = new aqm(var2, var3);
@@ -323,7 +323,7 @@ public class bgr implements bfe {
       avt.M = false;
    }
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -368,11 +368,11 @@ public class bgr implements bfe {
       return 0;
    }
 
-   public void a(bfh var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
       this.B.a(this, this.h, var2, var3, (bgk)null);
    }
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

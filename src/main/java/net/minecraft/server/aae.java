@@ -18,7 +18,7 @@ public class aae extends PathfinderGoal {
    }
 
    public void c() {
-      this.a.s().n();
+      this.a.getNavigation().n();
       this.b = this.a.u();
    }
 

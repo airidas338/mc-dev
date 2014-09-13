@@ -13,7 +13,7 @@ public class jq implements Packet {
 
    public jq() {}
 
-   public jq(bfh var1, boolean var2, int var3) {
+   public jq(Chunk var1, boolean var2, int var3) {
       this.a = var1.a;
       this.b = var1.b;
       this.d = var2;
@@ -49,7 +49,7 @@ public class jq implements Packet {
       return var3 + var4 + var5 + var6;
    }
 
-   public static jr a(bfh var0, boolean var1, boolean var2, int var3) {
+   public static jr a(Chunk var0, boolean var1, boolean var2, int var3) {
       bfm[] var4 = var0.h();
       jr var5 = new jr();
       ArrayList var6 = Lists.newArrayList();

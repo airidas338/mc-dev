@@ -8,7 +8,7 @@ public class ana extends Item {
       this.a(CreativeModeTab.e);
    }
 
-   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityHuman var2, EntityLiving var3) {
       if(var3 instanceof EntityPig) {
          EntityPig var4 = (EntityPig)var3;
          if(!var4.cj() && !var4.i_()) {
@@ -23,7 +23,7 @@ public class ana extends Item {
       }
    }
 
-   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       this.a(var1, (EntityHuman)null, var2);
       return true;
    }

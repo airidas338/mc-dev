@@ -23,7 +23,7 @@ public class zl extends PathfinderGoal {
          } else if(this.c != -1 && this.a.e((double)this.c, this.a.t, (double)this.d) < 4.0D) {
             return false;
          } else {
-            abi var2 = this.a.o.ae().a(var1, 14);
+            Village var2 = this.a.o.ae().a(var1, 14);
             if(var2 == null) {
                return false;
             } else {
@@ -37,7 +37,7 @@ public class zl extends PathfinderGoal {
    }
 
    public boolean b() {
-      return !this.a.s().m();
+      return !this.a.getNavigation().m();
    }
 
    public void c() {
@@ -47,12 +47,12 @@ public class zl extends PathfinderGoal {
       int var3 = var1.o();
       int var4 = var1.p();
       if(this.a.b(var1) > 256.0D) {
-         ChunkCoordinates var5 = abf.a(this.a, 14, 3, new ChunkCoordinates((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D));
+         Vec3D var5 = abf.a(this.a, 14, 3, new Vec3D((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D));
          if(var5 != null) {
-            this.a.s().a(var5.a, var5.b, var5.c, 1.0D);
+            this.a.getNavigation().a(var5.a, var5.b, var5.c, 1.0D);
          }
       } else {
-         this.a.s().a((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D, 1.0D);
+         this.a.getNavigation().a((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D, 1.0D);
       }
 
    }

@@ -28,9 +28,9 @@ public class WorldGenBonusChest extends WorldGenerator {
             Location var6 = var3.a(var2.nextInt(4) - var2.nextInt(4), var2.nextInt(3) - var2.nextInt(3), var2.nextInt(4) - var2.nextInt(4));
             if(var1.d(var6) && World.a((IBlockAccess)var1, var6.b())) {
                var1.a(var6, Blocks.ae.P(), 2);
-               bcm var7 = var1.s(var6);
+               TileEntity var7 = var1.s(var6);
                if(var7 instanceof bcr) {
-                  StructurePieceTreaasure.a(var2, this.a, (vq)((bcr)var7), this.b);
+                  StructurePieceTreaasure.a(var2, this.a, (IInventory)((bcr)var7), this.b);
                }
 
                Location var8 = var6.f();

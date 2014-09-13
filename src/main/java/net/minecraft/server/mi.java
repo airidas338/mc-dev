@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class mi extends mg {
+public class mi extends PacketPlayInFlying {
 
    public mi() {
       this.g = true;

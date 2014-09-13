@@ -9,7 +9,7 @@ public class aqj extends vk {
 
 
    public aqj(aqi var1, NBTTagCompound var2) {
-      this(var1, var2.m("Properties"), var2.j("Type"), var2.f("Weight"));
+      this(var1, var2.getCompound("Properties"), var2.getString("Type"), var2.getInt("Weight"));
    }
 
    public aqj(aqi var1, NBTTagCompound var2, String var3) {
@@ -21,7 +21,7 @@ public class aqj extends vk {
       this.b = var1;
       if(var3.equals("Minecart")) {
          if(var2 != null) {
-            var3 = EnumMinecartType.a(var2.f("Type")).b();
+            var3 = EnumMinecartType.a(var2.getInt("Type")).b();
          } else {
             var3 = "MinecartRideable";
          }
@@ -33,9 +33,9 @@ public class aqj extends vk {
 
    public NBTTagCompound a() {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.a("Properties", (NBTBase)this.c);
-      var1.a("Type", this.d);
-      var1.a("Weight", this.a);
+      var1.set("Properties", (NBTBase)this.c);
+      var1.setString("Type", this.d);
+      var1.setInt("Weight", this.a);
       return var1;
    }
 

@@ -22,7 +22,7 @@ public class bev extends bes {
 
       while(var4.hasNext()) {
          Enum var5 = (Enum)var4.next();
-         String var6 = ((va)var5).l();
+         String var6 = ((IName)var5).getName();
          if(this.b.containsKey(var6)) {
             throw new IllegalArgumentException("Multiple values have the same name \'" + var6 + "\'");
          }
@@ -37,7 +37,7 @@ public class bev extends bes {
    }
 
    public String a(Comparable var1) {
-      return ((va)var1).l();
+      return ((IName)var1).getName();
    }
 
    public static bev a(String var0, Class var1) {

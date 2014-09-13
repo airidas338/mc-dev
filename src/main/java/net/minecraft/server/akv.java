@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum akv implements va {
+public enum akv implements IName {
 
    a("WHITE", 0, 0, 15, "white", "white", MaterialMapColor.j, EnumChatFormat.p),
    b("ORANGE", 1, 1, 14, "orange", "orange", MaterialMapColor.q, EnumChatFormat.g),
@@ -75,7 +75,7 @@ public enum akv implements va {
       return this.v;
    }
 
-   public String l() {
+   public String getName() {
       return this.u;
    }
 

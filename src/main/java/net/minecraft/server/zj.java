@@ -8,7 +8,7 @@ public class zj extends PathfinderGoal {
    private EntityVillager c;
    private World d;
    private int e;
-   abi a;
+   Village a;
 
 
    public zj(EntityVillager var1) {
@@ -59,7 +59,7 @@ public class zj extends PathfinderGoal {
       --this.e;
       this.b.p().a(this.c, 10.0F, 30.0F);
       if(this.b.h(this.c) > 2.25D) {
-         this.b.s().a((Entity)this.c, 0.25D);
+         this.b.getNavigation().a((Entity)this.c, 0.25D);
       } else if(this.e == 0 && this.c.ck()) {
          this.g();
       }
@@ -86,7 +86,7 @@ public class zj extends PathfinderGoal {
       this.c.o(false);
       this.b.o(false);
       var1.b(-24000);
-      var1.b(this.b.s, this.b.t, this.b.u, 0.0F, 0.0F);
+      var1.setPositionRotation(this.b.s, this.b.t, this.b.u, 0.0F, 0.0F);
       this.d.d((Entity)var1);
       this.d.a((Entity)var1, (byte)12);
    }

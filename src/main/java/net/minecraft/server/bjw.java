@@ -9,7 +9,7 @@ public class bjw extends bkb {
 
    public bjw() {}
 
-   public bjw(int var1, Random var2, bjb var3, ej var4) {
+   public bjw(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -23,21 +23,21 @@ public class bjw extends bkb {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Chest", this.b);
+      var1.setBoolean("Chest", this.b);
    }
 
    public void a(bms var1, List var2, Random var3) {
       this.b((bkf)var1, var2, var3, 0, 1, true);
    }
 
-   public static bjw a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bjw a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -1, 0, 0, 5, 7, 5, var5);
       return a(var7) && bms.a(var0, var7) == null?new bjw(var6, var1, var7, var5):null;
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
       this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.bz.P(), Blocks.bz.P(), false);
       this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.bz.P(), Blocks.bz.P(), false);

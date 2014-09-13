@@ -7,13 +7,13 @@ public interface IDataManager {
 
    void c() throws ExceptionWorldConflict;
 
-   bfq a(bgd var1);
+   IChunkLoader a(WorldProvider var1);
 
    void a(WorldData var1, NBTTagCompound var2);
 
    void a(WorldData var1);
 
-   brl e();
+   IPlayerFileData e();
 
    void a();
 

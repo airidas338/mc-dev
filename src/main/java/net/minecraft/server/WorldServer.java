@@ -40,7 +40,7 @@ public class WorldServer extends World implements vn {
 
 
    public WorldServer(MinecraftServer var1, IDataManager var2, WorldData var3, int var4, MethodProfiler var5) {
-      super(var2, var3, bgd.a(var4), var5, false);
+      super(var2, var3, WorldProvider.a(var4), var5, false);
       this.I = var1;
       this.J = new EntityTracker(this);
       this.K = new PlayerChunkMap(this);
@@ -53,12 +53,12 @@ public class WorldServer extends World implements vn {
    }
 
    public World b() {
-      this.worldMaps = new brn(this.w);
-      String var1 = abl.a(this.t);
-      abl var2 = (abl)this.worldMaps.a(abl.class, var1);
+      this.worldMaps = new PersistentCollection(this.w);
+      String var1 = VillageSiege.a(this.t);
+      VillageSiege var2 = (VillageSiege)this.worldMaps.a(VillageSiege.class, var1);
       if(var2 == null) {
-         this.A = new abl(this);
-         this.worldMaps.a(var1, (bqc)this.A);
+         this.A = new VillageSiege(this);
+         this.worldMaps.a(var1, (PersistentBase)this.A);
       } else {
          this.A = var2;
          this.A.a((World)this);
@@ -68,7 +68,7 @@ public class WorldServer extends World implements vn {
       PersistentScoreboard var3 = (PersistentScoreboard)this.worldMaps.a(PersistentScoreboard.class, "scoreboard");
       if(var3 == null) {
          var3 = new PersistentScoreboard();
-         this.worldMaps.a("scoreboard", (bqc)var3);
+         this.worldMaps.a("scoreboard", (PersistentBase)var3);
       }
 
       var3.a(this.C);
@@ -96,7 +96,7 @@ public class WorldServer extends World implements vn {
       this.t.m().b();
       if(this.f()) {
          if(this.Q().b("doDaylightCycle")) {
-            long var1 = this.x.g() + 24000L;
+            long var1 = this.x.getDayTime() + 24000L;
             this.x.c(var1 - var1 % 24000L);
          }
 
@@ -117,7 +117,7 @@ public class WorldServer extends World implements vn {
 
       this.x.b(this.x.f() + 1L);
       if(this.Q().b("doDaylightCycle")) {
-         this.x.c(this.x.g() + 1L);
+         this.x.c(this.x.getDayTime() + 1L);
       }
 
       this.B.c("tickPending");
@@ -213,7 +213,7 @@ public class WorldServer extends World implements vn {
 
          while(var21.hasNext()) {
             aqm var22 = (aqm)var21.next();
-            this.a(var22.a, var22.b).b(false);
+            this.getChunkAt(var22.a, var22.b).b(false);
          }
 
       } else {
@@ -225,7 +225,7 @@ public class WorldServer extends World implements vn {
             int var5 = var4.a * 16;
             int var6 = var4.b * 16;
             this.B.a("getChunk");
-            bfh var7 = this.a(var4.a, var4.b);
+            Chunk var7 = this.getChunkAt(var4.a, var4.b);
             this.a(var5, var6, var7);
             this.B.c("tickChunk");
             var7.b(false);
@@ -429,7 +429,7 @@ public class WorldServer extends World implements vn {
       }
    }
 
-   public List a(bfh var1, boolean var2) {
+   public List a(Chunk var1, boolean var2) {
       aqm var3 = var1.j();
       int var4 = (var3.a << 4) - 2;
       int var5 = var4 + 16 + 2;
@@ -493,8 +493,8 @@ public class WorldServer extends World implements vn {
       return this.I.af();
    }
 
-   protected bfe k() {
-      bfq var1 = this.w.a(this.t);
+   protected IChunkProvider k() {
+      IChunkLoader var1 = this.w.a(this.t);
       this.b = new ChunkProviderServer(this, var1, this.t.c());
       return this.b;
    }
@@ -503,7 +503,7 @@ public class WorldServer extends World implements vn {
       ArrayList var7 = Lists.newArrayList();
 
       for(int var8 = 0; var8 < this.h.size(); ++var8) {
-         bcm var9 = (bcm)this.h.get(var8);
+         TileEntity var9 = (TileEntity)this.h.get(var8);
          Location var10 = var9.v();
          if(var10.n() >= var1 && var10.o() >= var2 && var10.p() >= var3 && var10.n() < var4 && var10.o() < var5 && var10.p() < var6) {
             var7.add(var9);
@@ -632,7 +632,7 @@ public class WorldServer extends World implements vn {
          Iterator var4 = var3.iterator();
 
          while(var4.hasNext()) {
-            bfh var5 = (bfh)var4.next();
+            Chunk var5 = (Chunk)var4.next();
             if(!this.K.a(var5.a, var5.b)) {
                this.b.b(var5.a, var5.b);
             }
@@ -714,7 +714,7 @@ public class WorldServer extends World implements vn {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((Packet)(new jm(var2, var4, var6, var8, var11.e(), (ChunkCoordinates)var11.b().get(var13))));
+            ((EntityPlayer)var13).a.a((Packet)(new jm(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
          }
       }
 

@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class aiy extends aib {
 
-	private vq a;
+	private IInventory a;
 	private EntityHorse f;
 
-	public aiy(vq var1, vq var2, EntityHorse var3, EntityHuman var4) {
+	public aiy(IInventory var1, IInventory var2, EntityHorse var3, EntityHuman var4) {
 		this.a = var2;
 		this.f = var3;
 		byte var5 = 3;
@@ -36,14 +36,14 @@ public class aiy extends aib {
 	}
 
 	public boolean a(EntityHuman var1) {
-		return this.a.a(var1) && this.f.ai() && this.f.g((Entity) var1) < 8.0F;
+		return this.a.a(var1) && this.f.isAlive() && this.f.g((Entity) var1) < 8.0F;
 	}
 
-	public amj b(EntityHuman var1, int var2) {
-		amj var3 = null;
+	public ItemStack b(EntityHuman var1, int var2) {
+		ItemStack var3 = null;
 		ajk var4 = (ajk) this.c.get(var2);
 		if (var4 != null && var4.e()) {
-			amj var5 = var4.d();
+			ItemStack var5 = var4.d();
 			var3 = var5.k();
 			if (var2 < this.a.n_()) {
 				if (!this.a(var5, this.a.n_(), this.c.size(), true)) {
@@ -62,7 +62,7 @@ public class aiy extends aib {
 			}
 
 			if (var5.b == 0) {
-				var4.d((amj) null);
+				var4.d((ItemStack) null);
 			} else {
 				var4.f();
 			}

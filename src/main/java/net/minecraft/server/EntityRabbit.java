@@ -23,17 +23,17 @@ public class EntityRabbit extends EntityAnimal {
       this.a(0.6F, 0.7F);
       this.g = new ach(this, this);
       this.f = new aci(this);
-      ((aay)this.s()).a(true);
+      ((aay)this.getNavigation()).save(true);
       this.h.a(2.5F);
-      this.i.a(1, new yy(this));
-      this.i.a(1, new acj(this, 1.33D));
-      this.i.a(2, new aag(this, 1.0D, Items.bR, false));
-      this.i.a(3, new yt(this, 0.8D));
-      this.i.a(5, new ack(this));
-      this.i.a(5, new zy(this, 0.6D));
-      this.i.a(11, new zh(this, EntityHuman.class, 10.0F));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(1, new acj(this, 1.33D));
+      this.goalSelector.a(2, new aag(this, 1.0D, Items.bR, false));
+      this.goalSelector.a(3, new yt(this, 0.8D));
+      this.goalSelector.a(5, new ack(this));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 0.6D));
+      this.goalSelector.a(11, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 10.0F));
       this.bk = new acf(this, new acc(this), 16.0F, 1.33D, 1.33D);
-      this.i.a(4, this.bk);
+      this.goalSelector.a(4, this.bk);
       this.b(0.0D);
    }
 
@@ -46,7 +46,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    public void b(double var1) {
-      this.s().a(var1);
+      this.getNavigation().a(var1);
       this.f.a(this.f.d(), this.f.e(), this.f.f(), var1);
    }
 
@@ -117,7 +117,7 @@ public class EntityRabbit extends EntityAnimal {
          if(!var4.c()) {
             if(this.f.a() && this.bq == 0) {
                bpv var2 = this.h.j();
-               ChunkCoordinates var3 = new ChunkCoordinates(this.f.d(), this.f.e(), this.f.f());
+               Vec3D var3 = new Vec3D(this.f.d(), this.f.e(), this.f.f());
                if(var2 != null && var2.e() < var2.d()) {
                   var3 = var2.a((Entity)this);
                }
@@ -179,14 +179,14 @@ public class EntityRabbit extends EntityAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("RabbitType", this.cl());
-      var1.a("MoreCarrotTicks", this.bs);
+      var1.setInt("RabbitType", this.cl());
+      var1.setInt("MoreCarrotTicks", this.bs);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.r(var1.f("RabbitType"));
-      this.bs = var1.f("MoreCarrotTicks");
+      this.r(var1.getInt("RabbitType"));
+      this.bs = var1.getInt("MoreCarrotTicks");
    }
 
    protected String ck() {
@@ -223,7 +223,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    protected void bp() {
-      this.a(new amj(Items.br, 1), 0.0F);
+      this.a(new ItemStack(Items.br, 1), 0.0F);
    }
 
    protected void b(boolean var1, int var2) {
@@ -259,7 +259,7 @@ public class EntityRabbit extends EntityAnimal {
       return var2;
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 != null && this.a(var1.b());
    }
 
@@ -269,11 +269,11 @@ public class EntityRabbit extends EntityAnimal {
 
    public void r(int var1) {
       if(var1 == 99) {
-         this.i.a((PathfinderGoal)this.bk);
-         this.i.a(4, new acd(this));
-         this.bg.a(1, new aal(this, false, new Class[0]));
-         this.bg.a(2, new aaq(this, EntityHuman.class, true));
-         this.bg.a(2, new aaq(this, EntityWolf.class, true));
+         this.goalSelector.a((PathfinderGoal)this.bk);
+         this.goalSelector.a(4, new acd(this));
+         this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+         this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
+         this.targetSelector.a(2, new aaq(this, EntityWolf.class, true));
          if(!this.k_()) {
             this.a(fi.a("entity.KillerBunny.name"));
          }

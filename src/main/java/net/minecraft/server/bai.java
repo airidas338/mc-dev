@@ -26,7 +26,7 @@ public class bai extends atg {
       return false;
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bdj();
    }
 
@@ -34,11 +34,11 @@ public class bai extends atg {
       return Items.ap;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
-         bcm var9 = var1.s(var2);
+         TileEntity var9 = var1.s(var2);
          return var9 instanceof bdj?((bdj)var9).b(var4):false;
       }
    }

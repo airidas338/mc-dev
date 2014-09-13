@@ -44,15 +44,15 @@ public class EntityHorse extends EntityAnimal implements vr {
       this.a(1.4F, 1.6F);
       this.ab = false;
       this.o(false);
-      ((aay)this.s()).a(true);
-      this.i.a(0, new yy(this));
-      this.i.a(1, new zu(this, 1.2D));
-      this.i.a(1, new aac(this, 1.2D));
-      this.i.a(2, new yt(this, 1.0D));
-      this.i.a(4, new za(this, 1.0D));
-      this.i.a(6, new zy(this, 0.7D));
-      this.i.a(7, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(8, new zx(this));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new zu(this, 1.2D));
+      this.goalSelector.a(1, new aac(this, 1.2D));
+      this.goalSelector.a(2, new yt(this, 1.0D));
+      this.goalSelector.a(4, new za(this, 1.0D));
+      this.goalSelector.a(6, new PathfinderGoalRandomStroll(this, 0.7D));
+      this.goalSelector.a(7, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
       this.cY();
    }
 
@@ -183,7 +183,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return this.ac.c(22);
    }
 
-   private int f(amj var1) {
+   private int f(ItemStack var1) {
       if(var1 == null) {
          return 0;
       } else {
@@ -208,7 +208,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return this.bD;
    }
 
-   public void e(amj var1) {
+   public void e(ItemStack var1) {
       this.ac.b(22, Integer.valueOf(this.f(var1)));
       this.da();
    }
@@ -313,7 +313,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          int var2 = Math.min(var1.n_(), this.bC.n_());
 
          for(int var3 = 0; var3 < var2; ++var3) {
-            amj var4 = var1.a(var3);
+            ItemStack var4 = var1.a(var3);
             if(var4 != null) {
                this.bC.a(var3, var4.k());
             }
@@ -485,7 +485,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.bJ) {
          return super.a(var1);
       } else if(!this.cm() && this.cP()) {
@@ -599,7 +599,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
             if(var3) {
                if(!var1.by.d && --var2.b == 0) {
-                  var1.bg.a(var1.bg.c, (amj)null);
+                  var1.bg.a(var1.bg.c, (ItemStack)null);
                }
 
                return true;
@@ -652,7 +652,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return this.cP() || this.cj() == 2;
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return false;
    }
 
@@ -822,7 +822,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    private void a(Entity var1, aic var2) {
       if(var2 != null && !this.o.D) {
          for(int var3 = 0; var3 < var2.n_(); ++var3) {
-            amj var4 = var2.a(var3);
+            ItemStack var4 = var2.a(var3);
             if(var4 != null) {
                this.a(var4, 0.0F);
             }
@@ -857,8 +857,8 @@ public class EntityHorse extends EntityAnimal implements vr {
 
          if(this.bp > 0.0F && !this.ct() && this.C) {
             this.w = this.cD() * (double)this.bp;
-            if(this.a(wp.j)) {
-               this.w += (double)((float)(this.b(wp.j).c() + 1) * 0.1F);
+            if(this.a(MobEffectList.j)) {
+               this.w += (double)((float)(this.b(MobEffectList.j).getAmplifier() + 1) * 0.1F);
             }
 
             this.m(true);
@@ -889,7 +889,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          this.ay = this.az;
          double var8 = this.s - this.p;
          double var5 = this.u - this.r;
-         float var7 = MathHelper.a(var8 * var8 + var5 * var5) * 4.0F;
+         float var7 = MathHelper.sqrt(var8 * var8 + var5 * var5) * 4.0F;
          if(var7 > 1.0F) {
             var7 = 1.0F;
          }
@@ -905,37 +905,37 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("EatingHaystack", this.cw());
-      var1.a("ChestedHorse", this.cu());
-      var1.a("HasReproduced", this.cz());
-      var1.a("Bred", this.cy());
-      var1.a("Type", this.cj());
-      var1.a("Variant", this.ck());
-      var1.a("Temper", this.cA());
-      var1.a("Tame", this.cm());
-      var1.a("OwnerUUID", this.cr());
+      var1.setBoolean("EatingHaystack", this.cw());
+      var1.setBoolean("ChestedHorse", this.cu());
+      var1.setBoolean("HasReproduced", this.cz());
+      var1.setBoolean("Bred", this.cy());
+      var1.setInt("Type", this.cj());
+      var1.setInt("Variant", this.ck());
+      var1.setInt("Temper", this.cA());
+      var1.setBoolean("Tame", this.cm());
+      var1.setString("OwnerUUID", this.cr());
       if(this.cu()) {
-         fv var2 = new fv();
+         NBTTagList var2 = new NBTTagList();
 
          for(int var3 = 2; var3 < this.bC.n_(); ++var3) {
-            amj var4 = this.bC.a(var3);
+            ItemStack var4 = this.bC.a(var3);
             if(var4 != null) {
                NBTTagCompound var5 = new NBTTagCompound();
-               var5.a("Slot", (byte)var3);
+               var5.setByte("Slot", (byte)var3);
                var4.b(var5);
                var2.a((NBTBase)var5);
             }
          }
 
-         var1.a("Items", (NBTBase)var2);
+         var1.set("Items", (NBTBase)var2);
       }
 
       if(this.bC.a(1) != null) {
-         var1.a("ArmorItem", (NBTBase)this.bC.a(1).b(new NBTTagCompound()));
+         var1.set("ArmorItem", (NBTBase)this.bC.a(1).b(new NBTTagCompound()));
       }
 
       if(this.bC.a(0) != null) {
-         var1.a("SaddleItem", (NBTBase)this.bC.a(0).b(new NBTTagCompound()));
+         var1.set("SaddleItem", (NBTBase)this.bC.a(0).b(new NBTTagCompound()));
       }
 
    }
@@ -946,15 +946,15 @@ public class EntityHorse extends EntityAnimal implements vr {
       this.n(var1.n("Bred"));
       this.o(var1.n("ChestedHorse"));
       this.p(var1.n("HasReproduced"));
-      this.r(var1.f("Type"));
-      this.s(var1.f("Variant"));
-      this.t(var1.f("Temper"));
+      this.r(var1.getInt("Type"));
+      this.s(var1.getInt("Variant"));
+      this.t(var1.getInt("Temper"));
       this.l(var1.n("Tame"));
       String var2 = "";
       if(var1.b("OwnerUUID", 8)) {
-         var2 = var1.j("OwnerUUID");
+         var2 = var1.getString("OwnerUUID");
       } else {
-         String var3 = var1.j("Owner");
+         String var3 = var1.getString("Owner");
          var2 = sf.a(var3);
       }
 
@@ -968,33 +968,33 @@ public class EntityHorse extends EntityAnimal implements vr {
       }
 
       if(this.cu()) {
-         fv var4 = var1.c("Items", 10);
+         NBTTagList var4 = var1.getList("Items", 10);
          this.cY();
 
          for(int var5 = 0; var5 < var4.c(); ++var5) {
             NBTTagCompound var6 = var4.b(var5);
-            int var7 = var6.d("Slot") & 255;
+            int var7 = var6.getByte("Slot") & 255;
             if(var7 >= 2 && var7 < this.bC.n_()) {
-               this.bC.a(var7, amj.a(var6));
+               this.bC.a(var7, ItemStack.a(var6));
             }
          }
       }
 
-      amj var9;
+      ItemStack var9;
       if(var1.b("ArmorItem", 10)) {
-         var9 = amj.a(var1.m("ArmorItem"));
+         var9 = ItemStack.a(var1.getCompound("ArmorItem"));
          if(var9 != null && a(var9.b())) {
             this.bC.a(1, var9);
          }
       }
 
       if(var1.b("SaddleItem", 10)) {
-         var9 = amj.a(var1.m("SaddleItem"));
+         var9 = ItemStack.a(var1.getCompound("SaddleItem"));
          if(var9 != null && var9.b() == Items.aA) {
             this.bC.a(0, var9);
          }
       } else if(var1.n("Saddle")) {
-         this.bC.a(0, new amj(Items.aA));
+         this.bC.a(0, new ItemStack(Items.aA));
       }
 
       this.cZ();
@@ -1168,7 +1168,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return this.K;
    }
 
-   public boolean d(int var1, amj var2) {
+   public boolean d(int var1, ItemStack var2) {
       if(var1 == 499 && this.cN()) {
          if(var2 == null && this.cu()) {
             this.o(false);

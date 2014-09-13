@@ -10,7 +10,7 @@ public class BlockTrapdoor extends Block {
 
    protected BlockTrapdoor(Material var1) {
       super(var1);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)).a(M, bbr.b));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)).a(M, bbr.b));
       float var2 = 0.5F;
       float var3 = 1.0F;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -47,7 +47,7 @@ public class BlockTrapdoor extends Block {
       if(var1.c() == this) {
          boolean var2 = var1.b(M) == bbr.a;
          Boolean var3 = (Boolean)var1.b(b);
-         ej var4 = (ej)var1.b(a);
+         EnumFacing var4 = (EnumFacing)var1.b(a);
          float var5 = 0.1875F;
          if(var2) {
             this.a(0.0F, 0.8125F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -56,19 +56,19 @@ public class BlockTrapdoor extends Block {
          }
 
          if(var3.booleanValue()) {
-            if(var4 == ej.c) {
+            if(var4 == EnumFacing.NORTH) {
                this.a(0.0F, 0.0F, 0.8125F, 1.0F, 1.0F, 1.0F);
             }
 
-            if(var4 == ej.d) {
+            if(var4 == EnumFacing.SOUTH) {
                this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1875F);
             }
 
-            if(var4 == ej.e) {
+            if(var4 == EnumFacing.WEST) {
                this.a(0.8125F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             }
 
-            if(var4 == ej.f) {
+            if(var4 == EnumFacing.EAST) {
                this.a(0.0F, 0.0F, 0.0F, 0.1875F, 1.0F, 1.0F);
             }
          }
@@ -76,7 +76,7 @@ public class BlockTrapdoor extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
@@ -89,7 +89,7 @@ public class BlockTrapdoor extends Block {
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(!var1.D) {
-         Location var5 = var2.a(((ej)var3.b(a)).d());
+         Location var5 = var2.a(((EnumFacing)var3.b(a)).d());
          if(!c(var1.getData(var5).c())) {
             var1.g(var2);
             this.b(var1, var2, var3, 0);
@@ -107,12 +107,12 @@ public class BlockTrapdoor extends Block {
       }
    }
 
-   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
       this.a(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlock var9 = this.P();
       if(var3.k().c()) {
          var9 = var9.a(a, var3).a(b, Boolean.valueOf(false));
@@ -122,25 +122,25 @@ public class BlockTrapdoor extends Block {
       return var9;
    }
 
-   public boolean a(World var1, Location var2, ej var3) {
+   public boolean a(World var1, Location var2, EnumFacing var3) {
       return !var3.k().b() && c(var1.getData(var2.a(var3.d())).c());
    }
 
-   protected static ej b(int var0) {
+   protected static EnumFacing b(int var0) {
       switch(var0 & 3) {
       case 0:
-         return ej.c;
+         return EnumFacing.NORTH;
       case 1:
-         return ej.d;
+         return EnumFacing.SOUTH;
       case 2:
-         return ej.e;
+         return EnumFacing.WEST;
       case 3:
       default:
-         return ej.f;
+         return EnumFacing.EAST;
       }
    }
 
-   protected static int a(ej var0) {
+   protected static int a(EnumFacing var0) {
       switch(bbq.a[var0.ordinal()]) {
       case 1:
          return 0;
@@ -164,7 +164,7 @@ public class BlockTrapdoor extends Block {
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | a((ej)var1.b(a));
+      int var3 = var2 | a((EnumFacing)var1.b(a));
       if(((Boolean)var1.b(b)).booleanValue()) {
          var3 |= 4;
       }

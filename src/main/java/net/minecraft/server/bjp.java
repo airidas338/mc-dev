@@ -6,7 +6,7 @@ public class bjp extends bkb {
 
    public bjp() {}
 
-   public bjp(int var1, Random var2, bjb var3, ej var4) {
+   public bjp(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -32,7 +32,7 @@ public class bjp extends bkb {
       this.c((bkf)var1, var2, var3, 3, 8, false);
    }
 
-   public static bjp a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bjp a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -8, -3, 0, 19, 10, 19, var5);
       return a(var7) && bms.a(var0, var7) == null?new bjp(var6, var1, var7, var5):null;
    }
@@ -40,8 +40,8 @@ public class bjp extends bkb {
    public boolean a(World var1, Random var2, bjb var3) {
       this.a(var1, var3, 7, 3, 0, 11, 4, 18, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 0, 3, 7, 18, 4, 11, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.a.P(), Blocks.a.P(), false);
-      this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.AIR.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 7, 5, 0, 7, 5, 7, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 7, 5, 11, 7, 5, 18, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 11, 5, 0, 11, 5, 7, Blocks.by.P(), Blocks.by.P(), false);

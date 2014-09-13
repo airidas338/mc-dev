@@ -43,7 +43,7 @@ public class cc extends CommandAbstract {
             throw new di("commands.particle.notFound", new Object[]{var2[0]});
          } else {
             String var30 = var2[0];
-            ChunkCoordinates var31 = var1.d();
+            Vec3D var31 = var1.d();
             double var32 = (double)((float)b(var31.a, var2[1], true));
             double var9 = (double)((float)b(var31.b, var2[2], true));
             double var11 = (double)((float)b(var31.c, var2[3], true));

@@ -15,7 +15,7 @@ public class EntityTracker {
    private static final Logger a = LogManager.getLogger();
    private final WorldServer b;
    private Set c = Sets.newHashSet();
-   private um d = new um();
+   private IntHashMap d = new IntHashMap();
    private int e;
 
 
@@ -211,7 +211,7 @@ public class EntityTracker {
 
    }
 
-   public void a(EntityPlayer var1, bfh var2) {
+   public void a(EntityPlayer var1, Chunk var2) {
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {

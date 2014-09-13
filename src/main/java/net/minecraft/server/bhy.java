@@ -71,7 +71,7 @@ public class bhy extends WorldGenerator {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.a(var3.a(var6, var8, var30), var8 >= 4?Blocks.a.P():this.a.P(), 2);
+                     var1.a(var3.a(var6, var8, var30), var8 >= 4?Blocks.AIR.P():this.a.P(), 2);
                   }
                }
             }

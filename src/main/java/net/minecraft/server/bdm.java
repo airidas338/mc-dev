@@ -5,7 +5,7 @@ import com.mojang.authlib.properties.Property;
 
 import java.util.UUID;
 
-public class bdm extends bcm {
+public class bdm extends TileEntity {
 
    private int a;
    private int f;
@@ -14,25 +14,25 @@ public class bdm extends bcm {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("SkullType", (byte)(this.a & 255));
-      var1.a("Rot", (byte)(this.f & 255));
+      var1.setByte("SkullType", (byte)(this.a & 255));
+      var1.setByte("Rot", (byte)(this.f & 255));
       if(this.g != null) {
          NBTTagCompound var2 = new NBTTagCompound();
          ga.a(var2, this.g);
-         var1.a("Owner", (NBTBase)var2);
+         var1.set("Owner", (NBTBase)var2);
       }
 
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.d("SkullType");
-      this.f = var1.d("Rot");
+      this.a = var1.getByte("SkullType");
+      this.f = var1.getByte("Rot");
       if(this.a == 3) {
          if(var1.b("Owner", 10)) {
-            this.g = ga.a(var1.m("Owner"));
+            this.g = ga.a(var1.getCompound("Owner"));
          } else if(var1.b("ExtraType", 8)) {
-            String var2 = var1.j("ExtraType");
+            String var2 = var1.getString("ExtraType");
             if(!vb.b(var2)) {
                this.g = new GameProfile((UUID)null, var2);
                this.e();

@@ -10,7 +10,7 @@ public class BlockTorch extends Block {
 
    protected BlockTorch() {
       super(Material.ORIENTABLE);
-      this.j(this.L.b().a(a, ej.b));
+      this.j(this.L.b().a(a, EnumFacing.UP));
       this.a(true);
       this.a(CreativeModeTab.c);
    }
@@ -39,37 +39,37 @@ public class BlockTorch extends Block {
    public boolean c(World var1, Location var2) {
       Iterator var3 = a.c().iterator();
 
-      ej var4;
+      EnumFacing var4;
       do {
          if(!var3.hasNext()) {
             return false;
          }
 
-         var4 = (ej)var3.next();
+         var4 = (EnumFacing)var3.next();
       } while(!this.b(var1, var2, var4));
 
       return true;
    }
 
-   private boolean b(World var1, Location var2, ej var3) {
+   private boolean b(World var1, Location var2, EnumFacing var3) {
       Location var4 = var2.a(var3.d());
       boolean var5 = var3.k().c();
-      return var5 && var1.d(var4, true) || var3.equals(ej.b) && this.d(var1, var4);
+      return var5 && var1.d(var4, true) || var3.equals(EnumFacing.UP) && this.d(var1, var4);
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {
          Iterator var9 = en.a.iterator();
 
-         ej var10;
+         EnumFacing var10;
          do {
             if(!var9.hasNext()) {
                return this.P();
             }
 
-            var10 = (ej)var9.next();
+            var10 = (EnumFacing)var9.next();
          } while(!var1.d(var2.a(var10.d()), true));
 
          return this.P().a(a, var10);
@@ -88,9 +88,9 @@ public class BlockTorch extends Block {
       if(!this.f(var1, var2, var3)) {
          return true;
       } else {
-         ej var4 = (ej)var3.b(a);
+         EnumFacing var4 = (EnumFacing)var3.b(a);
          el var5 = var4.k();
-         ej var6 = var4.d();
+         EnumFacing var6 = var4.d();
          boolean var7 = false;
          if(var5.c() && !var1.d(var2.a(var6), true)) {
             var7 = true;
@@ -109,7 +109,7 @@ public class BlockTorch extends Block {
    }
 
    protected boolean f(World var1, Location var2, IBlock var3) {
-      if(var3.c() == this && this.b(var1, var2, (ej)var3.b(a))) {
+      if(var3.c() == this && this.b(var1, var2, (EnumFacing)var3.b(a))) {
          return true;
       } else {
          if(var1.getData(var2).c() == this) {
@@ -121,16 +121,16 @@ public class BlockTorch extends Block {
       }
    }
 
-   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
-      ej var5 = (ej)var1.getData(var2).b(a);
+   public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
+      EnumFacing var5 = (EnumFacing)var1.getData(var2).b(a);
       float var6 = 0.15F;
-      if(var5 == ej.f) {
+      if(var5 == EnumFacing.EAST) {
          this.a(0.0F, 0.2F, 0.5F - var6, var6 * 2.0F, 0.8F, 0.5F + var6);
-      } else if(var5 == ej.e) {
+      } else if(var5 == EnumFacing.WEST) {
          this.a(1.0F - var6 * 2.0F, 0.2F, 0.5F - var6, 1.0F, 0.8F, 0.5F + var6);
-      } else if(var5 == ej.d) {
+      } else if(var5 == EnumFacing.SOUTH) {
          this.a(0.5F - var6, 0.2F, 0.0F, 0.5F + var6, 0.8F, var6 * 2.0F);
-      } else if(var5 == ej.c) {
+      } else if(var5 == EnumFacing.NORTH) {
          this.a(0.5F - var6, 0.2F, 1.0F - var6 * 2.0F, 0.5F + var6, 0.8F, 1.0F);
       } else {
          var6 = 0.1F;
@@ -144,20 +144,20 @@ public class BlockTorch extends Block {
       IBlock var2 = this.P();
       switch(var1) {
       case 1:
-         var2 = var2.a(a, ej.f);
+         var2 = var2.a(a, EnumFacing.EAST);
          break;
       case 2:
-         var2 = var2.a(a, ej.e);
+         var2 = var2.a(a, EnumFacing.WEST);
          break;
       case 3:
-         var2 = var2.a(a, ej.d);
+         var2 = var2.a(a, EnumFacing.SOUTH);
          break;
       case 4:
-         var2 = var2.a(a, ej.c);
+         var2 = var2.a(a, EnumFacing.NORTH);
          break;
       case 5:
       default:
-         var2 = var2.a(a, ej.b);
+         var2 = var2.a(a, EnumFacing.UP);
       }
 
       return var2;
@@ -166,7 +166,7 @@ public class BlockTorch extends Block {
    public int c(IBlock var1) {
       byte var2 = 0;
       int var3;
-      switch(bbn.a[((ej)var1.b(a)).ordinal()]) {
+      switch(bbn.a[((EnumFacing)var1.b(a)).ordinal()]) {
       case 1:
          var3 = var2 | 1;
          break;

@@ -8,11 +8,11 @@ public class aor implements aoo {
       ArrayList var3 = Lists.newArrayList();
 
       for(int var4 = 0; var4 < var1.n_(); ++var4) {
-         amj var5 = var1.a(var4);
+         ItemStack var5 = var1.a(var4);
          if(var5 != null) {
             var3.add(var5);
             if(var3.size() > 1) {
-               amj var6 = (amj)var3.get(0);
+               ItemStack var6 = (ItemStack)var3.get(0);
                if(var5.b() != var6.b() || var6.b != 1 || var5.b != 1 || !var6.b().m()) {
                   return false;
                }
@@ -23,16 +23,16 @@ public class aor implements aoo {
       return var3.size() == 2;
    }
 
-   public amj a(ain var1) {
+   public ItemStack a(ain var1) {
       ArrayList var2 = Lists.newArrayList();
 
-      amj var4;
+      ItemStack var4;
       for(int var3 = 0; var3 < var1.n_(); ++var3) {
          var4 = var1.a(var3);
          if(var4 != null) {
             var2.add(var4);
             if(var2.size() > 1) {
-               amj var5 = (amj)var2.get(0);
+               ItemStack var5 = (ItemStack)var2.get(0);
                if(var4.b() != var5.b() || var5.b != 1 || var4.b != 1 || !var5.b().m()) {
                   return null;
                }
@@ -41,8 +41,8 @@ public class aor implements aoo {
       }
 
       if(var2.size() == 2) {
-         amj var10 = (amj)var2.get(0);
-         var4 = (amj)var2.get(1);
+         ItemStack var10 = (ItemStack)var2.get(0);
+         var4 = (ItemStack)var2.get(1);
          if(var10.b() == var4.b() && var10.b == 1 && var4.b == 1 && var10.b().m()) {
             Item var11 = var10.b();
             int var6 = var11.l() - var10.h();
@@ -53,7 +53,7 @@ public class aor implements aoo {
                var9 = 0;
             }
 
-            return new amj(var10.b(), 1, var9);
+            return new ItemStack(var10.b(), 1, var9);
          }
       }
 
@@ -64,17 +64,17 @@ public class aor implements aoo {
       return 4;
    }
 
-   public amj b() {
+   public ItemStack b() {
       return null;
    }
 
-   public amj[] b(ain var1) {
-      amj[] var2 = new amj[var1.n_()];
+   public ItemStack[] b(ain var1) {
+      ItemStack[] var2 = new ItemStack[var1.n_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         amj var4 = var1.a(var3);
+         ItemStack var4 = var1.a(var3);
          if(var4 != null && var4.b().r()) {
-            var2[var3] = new amj(var4.b().q());
+            var2[var3] = new ItemStack(var4.b().q());
          }
       }
 

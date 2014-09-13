@@ -40,12 +40,12 @@ public class BlockMinecartDetector extends ati {
       }
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return ((Boolean)var3.b(M)).booleanValue()?15:0;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
-      return !((Boolean)var3.b(M)).booleanValue()?0:(var4 == ej.b?15:0);
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+      return !((Boolean)var3.b(M)).booleanValue()?0:(var4 == EnumFacing.UP?15:0);
    }
 
    private void e(World var1, Location var2, IBlock var3) {
@@ -97,9 +97,9 @@ public class BlockMinecartDetector extends ati {
             return ((EntityMinecartCommandBlock)var3.get(0)).j().j();
          }
 
-         List var4 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[]{xe.c});
+         List var4 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[]{EntitySelectors.c});
          if(!var4.isEmpty()) {
-            return aib.b((vq)var4.get(0));
+            return aib.b((IInventory)var4.get(0));
          }
       }
 
@@ -108,7 +108,7 @@ public class BlockMinecartDetector extends ati {
 
    protected List a(World var1, Location var2, Class var3, Predicate ... var4) {
       AxisAlignedBB var5 = this.a(var2);
-      return var4.length != 1?var1.a(var3, var5):var1.a(var3, var5, var4[0]);
+      return var4.length != 1?var1.getEntities(var3, var5):var1.a(var3, var5, var4[0]);
    }
 
    private AxisAlignedBB a(Location var1) {

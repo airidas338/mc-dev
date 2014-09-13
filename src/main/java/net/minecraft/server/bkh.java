@@ -26,7 +26,7 @@ public class bkh extends bmv {
       var2.setSeed(var9 ^ var11 ^ var1.J());
       int var13 = var3 * 16 + 8 - 29;
       int var14 = var4 * 16 + 8 - 29;
-      ej var15 = en.a.a(var2);
+      EnumFacing var15 = en.a.a(var2);
       this.a.add(new bkr(var2, var13, var14, var15));
       this.c();
       this.d = true;
@@ -52,28 +52,28 @@ public class bkh extends bmv {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {
          aqm var4 = (aqm)var3.next();
          NBTTagCompound var5 = new NBTTagCompound();
-         var5.a("X", var4.a);
-         var5.a("Z", var4.b);
+         var5.setInt("X", var4.a);
+         var5.setInt("Z", var4.b);
          var2.a((NBTBase)var5);
       }
 
-      var1.a("Processed", (NBTBase)var2);
+      var1.set("Processed", (NBTBase)var2);
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(var1.b("Processed", 9)) {
-         fv var2 = var1.c("Processed", 10);
+         NBTTagList var2 = var1.getList("Processed", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             NBTTagCompound var4 = var2.b(var3);
-            this.c.add(new aqm(var4.f("X"), var4.f("Z")));
+            this.c.add(new aqm(var4.getInt("X"), var4.getInt("Z")));
          }
       }
 

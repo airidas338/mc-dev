@@ -9,24 +9,24 @@ public class blw extends bmk {
 
    public blw() {}
 
-   public blw(int var1, Random var2, bjb var3, ej var4) {
+   public blw(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
-      this.a = var4 != ej.c && var4 != ej.d?var3.c():var3.e();
+      this.a = var4 != EnumFacing.NORTH && var4 != EnumFacing.SOUTH?var3.c():var3.e();
    }
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Steps", this.a);
+      var1.setInt("Steps", this.a);
    }
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.a = var1.f("Steps");
+      this.a = var1.getInt("Steps");
    }
 
-   public static bjb a(List var0, Random var1, int var2, int var3, int var4, ej var5) {
+   public static bjb a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5) {
       boolean var6 = true;
       bjb var7 = bjb.a(var2, var3, var4, -1, -1, 0, 5, 5, 4, var5);
       bms var8 = bms.a(var0, var7);
@@ -59,9 +59,9 @@ public class blw extends bmk {
 
             for(int var5 = 1; var5 <= 3; ++var5) {
                this.a(var1, Blocks.bf.P(), 0, var5, var4, var3);
-               this.a(var1, Blocks.a.P(), 1, var5, var4, var3);
-               this.a(var1, Blocks.a.P(), 2, var5, var4, var3);
-               this.a(var1, Blocks.a.P(), 3, var5, var4, var3);
+               this.a(var1, Blocks.AIR.P(), 1, var5, var4, var3);
+               this.a(var1, Blocks.AIR.P(), 2, var5, var4, var3);
+               this.a(var1, Blocks.AIR.P(), 3, var5, var4, var3);
                this.a(var1, Blocks.bf.P(), 4, var5, var4, var3);
             }
 

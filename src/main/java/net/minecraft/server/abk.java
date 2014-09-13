@@ -9,7 +9,7 @@ public class abk {
    private int c = -1;
    private int d;
    private int e;
-   private abi f;
+   private Village f;
    private int g;
    private int h;
    private int i;
@@ -85,7 +85,7 @@ public class abk {
                      Iterator var9 = this.a.ae().b().iterator();
 
                      while(var9.hasNext()) {
-                        abi var10 = (abi)var9.next();
+                        Village var10 = (Village)var9.next();
                         if(var10 != this.f && var10.a(new Location(this.g, this.h, this.i))) {
                            var6 = true;
                            break;
@@ -102,7 +102,7 @@ public class abk {
                      return false;
                   }
 
-                  ChunkCoordinates var11 = this.a(new Location(this.g, this.h, this.i));
+                  Vec3D var11 = this.a(new Location(this.g, this.h, this.i));
                   if(var11 != null) {
                      this.e = 0;
                      this.d = 20;
@@ -118,7 +118,7 @@ public class abk {
    }
 
    private boolean c() {
-      ChunkCoordinates var1 = this.a(new Location(this.g, this.h, this.i));
+      Vec3D var1 = this.a(new Location(this.g, this.h, this.i));
       if(var1 == null) {
          return false;
       } else {
@@ -132,7 +132,7 @@ public class abk {
             return false;
          }
 
-         var2.b(var1.a, var1.b, var1.c, this.a.s.nextFloat() * 360.0F, 0.0F);
+         var2.setPositionRotation(var1.a, var1.b, var1.c, this.a.s.nextFloat() * 360.0F, 0.0F);
          this.a.d((Entity)var2);
          Location var3 = this.f.a();
          var2.a(var3, this.f.b());
@@ -140,11 +140,11 @@ public class abk {
       }
    }
 
-   private ChunkCoordinates a(Location var1) {
+   private Vec3D a(Location var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
          Location var3 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
          if(this.f.a(var3) && SpawnerCreature.a(xo.a, this.a, var3)) {
-            return new ChunkCoordinates((double)var3.n(), (double)var3.o(), (double)var3.p());
+            return new Vec3D((double)var3.n(), (double)var3.o(), (double)var3.p());
          }
       }
 

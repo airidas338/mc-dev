@@ -7,7 +7,7 @@ public class amt extends Item {
       this.a(CreativeModeTab.i);
    }
 
-   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityHuman var2, EntityLiving var3) {
       if(!var1.s()) {
          return false;
       } else if(var3 instanceof EntityInsentient) {

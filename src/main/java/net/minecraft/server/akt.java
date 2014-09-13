@@ -10,8 +10,8 @@ public class akt extends Item {
       this.a(CreativeModeTab.d);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 != ej.b) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 != EnumFacing.UP) {
          return false;
       } else {
          IBlock var9 = var3.getData(var4);
@@ -25,14 +25,14 @@ public class akt extends Item {
          } else if(!this.a.c(var3, var4)) {
             return false;
          } else {
-            a(var3, var4, ej.a((double)var2.y), this.a);
+            a(var3, var4, EnumFacing.a((double)var2.y), this.a);
             --var1.b;
             return true;
          }
       }
    }
 
-   public static void a(World var0, Location var1, ej var2, Block var3) {
+   public static void a(World var0, Location var1, EnumFacing var2, Block var3) {
       Location var4 = var1.a(var2.e());
       Location var5 = var1.a(var2.f());
       int var6 = (var0.getData(var5).c().t()?1:0) + (var0.getData(var5.a()).c().t()?1:0);

@@ -21,7 +21,7 @@ public class aaf extends PathfinderGoal {
       } else if(!this.a.o.w()) {
          return false;
       } else {
-         List var1 = this.a.o.a(EntityIronGolem.class, this.a.aQ().b(6.0D, 2.0D, 6.0D));
+         List var1 = this.a.o.getEntities(EntityIronGolem.class, this.a.aQ().b(6.0D, 2.0D, 6.0D));
          if(var1.isEmpty()) {
             return false;
          } else {
@@ -47,24 +47,24 @@ public class aaf extends PathfinderGoal {
    public void c() {
       this.c = this.a.bb().nextInt(320);
       this.d = false;
-      this.b.s().n();
+      this.b.getNavigation().n();
    }
 
    public void d() {
       this.b = null;
-      this.a.s().n();
+      this.a.getNavigation().n();
    }
 
    public void e() {
       this.a.p().a(this.b, 30.0F, 30.0F);
       if(this.b.ck() == this.c) {
-         this.a.s().a((Entity)this.b, 0.5D);
+         this.a.getNavigation().a((Entity)this.b, 0.5D);
          this.d = true;
       }
 
       if(this.d && this.a.h(this.b) < 4.0D) {
          this.b.a(false);
-         this.a.s().n();
+         this.a.getNavigation().n();
       }
 
    }

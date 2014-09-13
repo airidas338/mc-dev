@@ -6,10 +6,10 @@ class bkq implements bks {
    private bkq() {}
 
    public boolean a(blf var1) {
-      return !var1.c[ej.e.a()] && !var1.c[ej.f.a()] && !var1.c[ej.c.a()] && !var1.c[ej.d.a()] && !var1.c[ej.b.a()];
+      return !var1.c[EnumFacing.WEST.a()] && !var1.c[EnumFacing.EAST.a()] && !var1.c[EnumFacing.NORTH.a()] && !var1.c[EnumFacing.SOUTH.a()] && !var1.c[EnumFacing.UP.a()];
    }
 
-   public blb a(ej var1, blf var2, Random var3) {
+   public blb a(EnumFacing var1, blf var2, Random var3) {
       var2.d = true;
       return new bld(var1, var2, var3);
    }

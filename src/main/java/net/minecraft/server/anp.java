@@ -6,7 +6,7 @@ public class anp extends ann {
       super(var1, false);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       MovingObjectPosition var4 = this.a(var2, var3, true);
       if(var4 == null) {
          return var1;

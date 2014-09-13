@@ -15,7 +15,7 @@ public abstract class yv extends PathfinderGoal {
    public yv(EntityInsentient var1) {
       this.b = Location.a;
       this.a = var1;
-      if(!(var1.s() instanceof aay)) {
+      if(!(var1.getNavigation() instanceof aay)) {
          throw new IllegalArgumentException("Unsupported mob type for DoorInteractGoal");
       }
    }
@@ -24,7 +24,7 @@ public abstract class yv extends PathfinderGoal {
       if(!this.a.D) {
          return false;
       } else {
-         aay var1 = (aay)this.a.s();
+         aay var1 = (aay)this.a.getNavigation();
          bpv var2 = var1.j();
          if(var2 != null && !var2.b() && var1.g()) {
             for(int var3 = 0; var3 < Math.min(var2.e() + 2, var2.d()); ++var3) {

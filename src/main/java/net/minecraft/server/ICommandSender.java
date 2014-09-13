@@ -13,7 +13,7 @@ public interface ICommandSender {
 
    Location c();
 
-   ChunkCoordinates d();
+   Vec3D d();
 
    World e();
 

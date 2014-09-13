@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum axo implements va {
+public enum axo implements IName {
 
    a("X", 0, "x"),
    b("Y", 1, "y"),
@@ -32,7 +32,7 @@ public enum axo implements va {
       }
    }
 
-   public String l() {
+   public String getName() {
       return this.e;
    }
 

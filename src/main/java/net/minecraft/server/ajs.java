@@ -10,8 +10,8 @@ public class ajs extends aju {
       this.d(0);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 == ej.a) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 == EnumFacing.DOWN) {
          return false;
       } else if(!var3.getData(var4).c().r().a()) {
          return false;
@@ -24,7 +24,7 @@ public class ajs extends aju {
          } else if(var3.D) {
             return true;
          } else {
-            if(var5 == ej.b) {
+            if(var5 == EnumFacing.UP) {
                int var9 = MathHelper.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
                var3.a(var4, Blocks.cK.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
@@ -32,7 +32,7 @@ public class ajs extends aju {
             }
 
             --var1.b;
-            bcm var10 = var3.s(var4);
+            TileEntity var10 = var3.s(var4);
             if(var10 instanceof bci) {
                ((bci)var10).a(var1);
             }
@@ -42,18 +42,18 @@ public class ajs extends aju {
       }
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       String var2 = "item.banner.";
       akv var3 = this.h(var1);
       var2 = var2 + var3.d() + ".name";
       return fi.a(var2);
    }
 
-   private akv h(amj var1) {
+   private akv h(ItemStack var1) {
       NBTTagCompound var2 = var1.a("BlockEntityTag", false);
       akv var3 = null;
       if(var2 != null && var2.c("Base")) {
-         var3 = akv.a(var2.f("Base"));
+         var3 = akv.a(var2.getInt("Base"));
       } else {
          var3 = akv.a(var1.i());
       }

@@ -4,7 +4,7 @@ public class ip implements Packet {
 
    private int a;
    private Location b;
-   private ej c;
+   private EnumFacing c;
    private String d;
 
 
@@ -21,7 +21,7 @@ public class ip implements Packet {
       this.a = var1.e();
       this.d = var1.c(adn.A);
       this.b = var1.c();
-      this.c = ej.b(var1.readUnsignedByte());
+      this.c = EnumFacing.b(var1.readUnsignedByte());
    }
 
    public void b(hd var1) {

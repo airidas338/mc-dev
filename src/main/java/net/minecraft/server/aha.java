@@ -13,26 +13,26 @@ public class aha {
 
    public void a(NBTTagCompound var1) {
       NBTTagCompound var2 = new NBTTagCompound();
-      var2.a("invulnerable", this.a);
-      var2.a("flying", this.b);
-      var2.a("mayfly", this.c);
-      var2.a("instabuild", this.d);
-      var2.a("mayBuild", this.e);
-      var2.a("flySpeed", this.f);
-      var2.a("walkSpeed", this.g);
-      var1.a("abilities", (NBTBase)var2);
+      var2.setBoolean("invulnerable", this.a);
+      var2.setBoolean("flying", this.b);
+      var2.setBoolean("mayfly", this.c);
+      var2.setBoolean("instabuild", this.d);
+      var2.setBoolean("mayBuild", this.e);
+      var2.setFloat("flySpeed", this.f);
+      var2.setFloat("walkSpeed", this.g);
+      var1.set("abilities", (NBTBase)var2);
    }
 
    public void b(NBTTagCompound var1) {
       if(var1.b("abilities", 10)) {
-         NBTTagCompound var2 = var1.m("abilities");
+         NBTTagCompound var2 = var1.getCompound("abilities");
          this.a = var2.n("invulnerable");
          this.b = var2.n("flying");
          this.c = var2.n("mayfly");
          this.d = var2.n("instabuild");
          if(var2.b("flySpeed", 99)) {
-            this.f = var2.h("flySpeed");
-            this.g = var2.h("walkSpeed");
+            this.f = var2.getFloat("flySpeed");
+            this.g = var2.getFloat("walkSpeed");
          }
 
          if(var2.b("mayBuild", 1)) {

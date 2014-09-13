@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class aoa implements aoo {
 
    public boolean a(ain var1, World var2) {
-      amj var3 = null;
+      ItemStack var3 = null;
       ArrayList var4 = Lists.newArrayList();
 
       for(int var5 = 0; var5 < var1.n_(); ++var5) {
-         amj var6 = var1.a(var5);
+         ItemStack var6 = var1.a(var5);
          if(var6 != null) {
             if(var6.b() instanceof ItemArmor) {
                ItemArmor var7 = (ItemArmor)var6.b();
@@ -31,8 +31,8 @@ public class aoa implements aoo {
       return var3 != null && !var4.isEmpty();
    }
 
-   public amj a(ain var1) {
-      amj var2 = null;
+   public ItemStack a(ain var1) {
+      ItemStack var2 = null;
       int[] var3 = new int[3];
       int var4 = 0;
       int var5 = 0;
@@ -44,7 +44,7 @@ public class aoa implements aoo {
       float var11;
       int var17;
       for(var7 = 0; var7 < var1.n_(); ++var7) {
-         amj var8 = var1.a(var7);
+         ItemStack var8 = var1.a(var7);
          if(var8 != null) {
             if(var8.b() instanceof ItemArmor) {
                var6 = (ItemArmor)var8.b();
@@ -105,17 +105,17 @@ public class aoa implements aoo {
       return 10;
    }
 
-   public amj b() {
+   public ItemStack b() {
       return null;
    }
 
-   public amj[] b(ain var1) {
-      amj[] var2 = new amj[var1.n_()];
+   public ItemStack[] b(ain var1) {
+      ItemStack[] var2 = new ItemStack[var1.n_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         amj var4 = var1.a(var3);
+         ItemStack var4 = var1.a(var3);
          if(var4 != null && var4.b().r()) {
-            var2[var3] = new amj(var4.b().q());
+            var2[var3] = new ItemStack(var4.b().q());
          }
       }
 

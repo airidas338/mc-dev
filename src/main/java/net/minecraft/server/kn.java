@@ -9,9 +9,9 @@ public class kn implements Packet {
 
    public kn() {}
 
-   public kn(int var1, wq var2) {
+   public kn(int var1, MobEffect var2) {
       this.a = var1;
-      this.b = var2.a();
+      this.b = var2.getEffectId();
    }
 
    public void a(hd var1) {

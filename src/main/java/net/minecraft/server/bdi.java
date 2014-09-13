@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bdi extends bcm {
+public class bdi extends TileEntity {
 
    public byte a;
    public boolean f;
@@ -8,12 +8,12 @@ public class bdi extends bcm {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("note", this.a);
+      var1.setByte("note", this.a);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.d("note");
+      this.a = var1.getByte("note");
       this.a = (byte)MathHelper.a(this.a, 0, 24);
    }
 

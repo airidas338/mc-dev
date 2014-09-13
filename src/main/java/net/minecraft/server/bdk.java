@@ -29,8 +29,8 @@ class bdk implements ICommandSender {
       return this.a.c;
    }
 
-   public ChunkCoordinates d() {
-      return new ChunkCoordinates((double)this.a.c.n() + 0.5D, (double)this.a.c.o() + 0.5D, (double)this.a.c.p() + 0.5D);
+   public Vec3D d() {
+      return new Vec3D((double)this.a.c.n() + 0.5D, (double)this.a.c.o() + 0.5D, (double)this.a.c.p() + 0.5D);
    }
 
    public World e() {

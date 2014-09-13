@@ -40,7 +40,7 @@ public class BlockCake extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.b(var1, var2, var3, var4);
       return true;
    }

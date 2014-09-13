@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum avh implements va {
+public enum avh implements IName {
 
    a("LEFT", 0),
    b("RIGHT", 1);
@@ -11,10 +11,10 @@ public enum avh implements va {
    private avh(String var1, int var2) {}
 
    public String toString() {
-      return this.l();
+      return this.getName();
    }
 
-   public String l() {
+   public String getName() {
       return this == a?"left":"right";
    }
 

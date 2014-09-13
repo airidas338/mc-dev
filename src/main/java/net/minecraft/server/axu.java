@@ -1,5 +1,5 @@
 package net.minecraft.server;
-public enum axu implements va {
+public enum axu implements IName {
 
 	a("STONE", 0, 0, "stone") {
 		@Override
@@ -70,7 +70,7 @@ public enum axu implements va {
 		return g[var0];
 	}
 
-	public String l() {
+	public String getName() {
 		return this.i;
 	}
 

@@ -15,7 +15,7 @@ public class bkr extends blb {
 
    public bkr() {}
 
-   public bkr(Random var1, int var2, int var3, ej var4) {
+   public bkr(Random var1, int var2, int var3, EnumFacing var4) {
       super(0);
       this.m = var4;
       switch(bkj.a[this.m.ordinal()]) {
@@ -118,11 +118,11 @@ public class bkr extends blb {
             for(int var15 = 0; var15 < 3; ++var15) {
                var6 = a(var3, var15, var4);
                if(var2[var6] != null) {
-                  ej[] var7 = ej.values();
+                  EnumFacing[] var7 = EnumFacing.values();
                   var8 = var7.length;
 
                   for(var9 = 0; var9 < var8; ++var9) {
-                     ej var10 = var7[var9];
+                     EnumFacing var10 = var7[var9];
                      var11 = var3 + var10.g();
                      var12 = var15 + var10.h();
                      var13 = var4 + var10.i();
@@ -143,24 +143,24 @@ public class bkr extends blb {
       }
 
       blf var16;
-      var2[h].a(ej.b, var16 = new blf(1003));
+      var2[h].a(EnumFacing.UP, var16 = new blf(1003));
       blf var17;
-      var2[i].a(ej.d, var17 = new blf(1001));
+      var2[i].a(EnumFacing.SOUTH, var17 = new blf(1001));
       blf var18;
-      var2[j].a(ej.d, var18 = new blf(1002));
+      var2[j].a(EnumFacing.SOUTH, var18 = new blf(1002));
       var16.d = true;
       var17.d = true;
       var18.d = true;
       this.o.e = true;
       this.p = var2[a(var1.nextInt(4), 0, 2)];
       this.p.d = true;
-      this.p.b[ej.f.a()].d = true;
-      this.p.b[ej.c.a()].d = true;
-      this.p.b[ej.f.a()].b[ej.c.a()].d = true;
-      this.p.b[ej.b.a()].d = true;
-      this.p.b[ej.f.a()].b[ej.b.a()].d = true;
-      this.p.b[ej.c.a()].b[ej.b.a()].d = true;
-      this.p.b[ej.f.a()].b[ej.c.a()].b[ej.b.a()].d = true;
+      this.p.b[EnumFacing.EAST.a()].d = true;
+      this.p.b[EnumFacing.NORTH.a()].d = true;
+      this.p.b[EnumFacing.EAST.a()].b[EnumFacing.NORTH.a()].d = true;
+      this.p.b[EnumFacing.UP.a()].d = true;
+      this.p.b[EnumFacing.EAST.a()].b[EnumFacing.UP.a()].d = true;
+      this.p.b[EnumFacing.NORTH.a()].b[EnumFacing.UP.a()].d = true;
+      this.p.b[EnumFacing.EAST.a()].b[EnumFacing.NORTH.a()].b[EnumFacing.UP.a()].d = true;
       ArrayList var20 = Lists.newArrayList();
       blf[] var19 = var2;
       var8 = var2.length;
@@ -187,7 +187,7 @@ public class bkr extends blb {
             ++var11;
             var12 = var1.nextInt(6);
             if(var23.c[var12]) {
-               var13 = ej.a(var12).d().a();
+               var13 = EnumFacing.a(var12).d().a();
                var23.c[var12] = false;
                var23.b[var12].c[var13] = false;
                if(var23.a(var21++) && var23.b[var12].a(var21++)) {

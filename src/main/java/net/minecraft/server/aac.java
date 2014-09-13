@@ -18,7 +18,7 @@ public class aac extends PathfinderGoal {
 
    public boolean a() {
       if(!this.a.cm() && this.a.l != null) {
-         ChunkCoordinates var1 = abf.a(this.a, 5, 4);
+         Vec3D var1 = abf.a(this.a, 5, 4);
          if(var1 == null) {
             return false;
          } else {
@@ -33,11 +33,11 @@ public class aac extends PathfinderGoal {
    }
 
    public void c() {
-      this.a.s().a(this.c, this.d, this.e, this.b);
+      this.a.getNavigation().a(this.c, this.d, this.e, this.b);
    }
 
    public boolean b() {
-      return !this.a.s().m() && this.a.l != null;
+      return !this.a.getNavigation().m() && this.a.l != null;
    }
 
    public void e() {

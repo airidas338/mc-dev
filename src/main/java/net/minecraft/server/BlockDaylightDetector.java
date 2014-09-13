@@ -22,7 +22,7 @@ public class BlockDaylightDetector extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return ((Integer)var3.b(a)).intValue();
    }
 
@@ -46,7 +46,7 @@ public class BlockDaylightDetector extends atg {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var4.cm()) {
          if(var1.D) {
             return true;
@@ -86,7 +86,7 @@ public class BlockDaylightDetector extends atg {
       return true;
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bcw();
    }
 

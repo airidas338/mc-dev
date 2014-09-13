@@ -51,11 +51,11 @@ public class ze extends zn {
          Block var4 = var3.c();
          if(this.f == 0 && var4 instanceof BlockCrops && ((Integer)var3.b(BlockCrops.a)).intValue() == 7) {
             var1.b(var2, true);
-         } else if(this.f == 1 && var4 == Blocks.a) {
+         } else if(this.f == 1 && var4 == Blocks.AIR) {
             wa var5 = this.c.co();
 
             for(int var6 = 0; var6 < var5.n_(); ++var6) {
-               amj var7 = var5.a(var6);
+               ItemStack var7 = var5.a(var6);
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.b() == Items.N) {
@@ -73,7 +73,7 @@ public class ze extends zn {
                if(var8) {
                   --var7.b;
                   if(var7.b <= 0) {
-                     var5.a(var6, (amj)null);
+                     var5.a(var6, (ItemStack)null);
                   }
                   break;
                }
@@ -97,7 +97,7 @@ public class ze extends zn {
             return true;
          }
 
-         if(var3 == Blocks.a && this.d && (this.f == 1 || this.f < 0)) {
+         if(var3 == Blocks.AIR && this.d && (this.f == 1 || this.f < 0)) {
             this.f = 1;
             return true;
          }

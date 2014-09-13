@@ -35,7 +35,7 @@ public class BlockPlant extends Block {
    protected void e(World var1, Location var2, IBlock var3) {
       if(!this.f(var1, var2, var3)) {
          this.b(var1, var2, var3, 0);
-         var1.a(var2, Blocks.a.P(), 3);
+         var1.a(var2, Blocks.AIR.P(), 3);
       }
 
    }

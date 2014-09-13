@@ -2,5 +2,5 @@ package net.minecraft.server;
 
 public interface avs {
 
-   bcm a(World var1, int var2);
+   TileEntity a(World var1, int var2);
 }

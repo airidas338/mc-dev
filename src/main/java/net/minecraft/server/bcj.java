@@ -33,18 +33,18 @@ public enum bcj {
    C("HALF_VERTICAL_MIRROR", 28, "half_vertical_right", "vhr", " ##", " ##", " ##"),
    D("HALF_HORIZONTAL_MIRROR", 29, "half_horizontal_bottom", "hhb", "   ", "###", "###"),
    E("BORDER", 30, "border", "bo", "###", "# #", "###"),
-   F("CURLY_BORDER", 31, "curly_border", "cbo", new amj(Blocks.bn)),
-   G("CREEPER", 32, "creeper", "cre", new amj(Items.bX, 1, 4)),
+   F("CURLY_BORDER", 31, "curly_border", "cbo", new ItemStack(Blocks.bn)),
+   G("CREEPER", 32, "creeper", "cre", new ItemStack(Items.bX, 1, 4)),
    H("GRADIENT", 33, "gradient", "gra", "# #", " # ", " # "),
    I("GRADIENT_UP", 34, "gradient_up", "gru", " # ", " # ", "# #"),
-   J("BRICKS", 35, "bricks", "bri", new amj(Blocks.V)),
-   K("SKULL", 36, "skull", "sku", new amj(Items.bX, 1, 1)),
-   L("FLOWER", 37, "flower", "flo", new amj(Blocks.O, 1, EnumFlowerType.j.b())),
-   M("MOJANG", 38, "mojang", "moj", new amj(Items.ao, 1, 1));
+   J("BRICKS", 35, "bricks", "bri", new ItemStack(Blocks.V)),
+   K("SKULL", 36, "skull", "sku", new ItemStack(Items.bX, 1, 1)),
+   L("FLOWER", 37, "flower", "flo", new ItemStack(Blocks.O, 1, EnumFlowerType.j.b())),
+   M("MOJANG", 38, "mojang", "moj", new ItemStack(Items.ao, 1, 1));
    private String N;
    private String O;
    private String[] P;
-   private amj Q;
+   private ItemStack Q;
    // $FF: synthetic field
    private static final bcj[] R = new bcj[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M};
 
@@ -55,7 +55,7 @@ public enum bcj {
       this.O = var4;
    }
 
-   private bcj(String var1, int var2, String var3, String var4, amj var5) {
+   private bcj(String var1, int var2, String var3, String var4, ItemStack var5) {
       this(var1, var2, var3, var4);
       this.Q = var5;
    }
@@ -83,7 +83,7 @@ public enum bcj {
       return this.Q != null;
    }
 
-   public amj f() {
+   public ItemStack f() {
       return this.Q;
    }
 

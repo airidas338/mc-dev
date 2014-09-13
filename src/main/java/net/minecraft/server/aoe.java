@@ -8,7 +8,7 @@ class aoe implements aoo {
       boolean var3 = false;
 
       for(int var4 = 0; var4 < var1.n_(); ++var4) {
-         amj var5 = var1.a(var4);
+         ItemStack var5 = var1.a(var4);
          if(var5 != null && var5.b() == Items.cE) {
             if(var3) {
                return false;
@@ -29,11 +29,11 @@ class aoe implements aoo {
       }
    }
 
-   public amj a(ain var1) {
-      amj var2 = null;
+   public ItemStack a(ain var1) {
+      ItemStack var2 = null;
 
       for(int var3 = 0; var3 < var1.n_(); ++var3) {
-         amj var4 = var1.a(var3);
+         ItemStack var4 = var1.a(var3);
          if(var4 != null && var4.b() == Items.cE) {
             var2 = var4.k();
             var2.b = 1;
@@ -45,7 +45,7 @@ class aoe implements aoo {
       if(var8 != null) {
          int var9 = 0;
 
-         amj var6;
+         ItemStack var6;
          for(int var5 = 0; var5 < var1.n_(); ++var5) {
             var6 = var1.a(var5);
             if(var6 != null && var6.b() == Items.aW) {
@@ -56,17 +56,17 @@ class aoe implements aoo {
 
          NBTTagCompound var10 = var2.a("BlockEntityTag", true);
          var6 = null;
-         fv var11;
+         NBTTagList var11;
          if(var10.b("Patterns", 9)) {
-            var11 = var10.c("Patterns", 10);
+            var11 = var10.getList("Patterns", 10);
          } else {
-            var11 = new fv();
-            var10.a("Patterns", (NBTBase)var11);
+            var11 = new NBTTagList();
+            var10.set("Patterns", (NBTBase)var11);
          }
 
          NBTTagCompound var7 = new NBTTagCompound();
-         var7.a("Pattern", var8.b());
-         var7.a("Color", var9);
+         var7.setString("Pattern", var8.b());
+         var7.setInt("Color", var9);
          var11.a((NBTBase)var7);
       }
 
@@ -77,17 +77,17 @@ class aoe implements aoo {
       return 10;
    }
 
-   public amj b() {
+   public ItemStack b() {
       return null;
    }
 
-   public amj[] b(ain var1) {
-      amj[] var2 = new amj[var1.n_()];
+   public ItemStack[] b(ain var1) {
+      ItemStack[] var2 = new ItemStack[var1.n_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         amj var4 = var1.a(var3);
+         ItemStack var4 = var1.a(var3);
          if(var4 != null && var4.b().r()) {
-            var2[var3] = new amj(var4.b().q());
+            var2[var3] = new ItemStack(var4.b().q());
          }
       }
 
@@ -108,7 +108,7 @@ class aoe implements aoo {
                boolean var13 = false;
 
                for(var9 = 0; var9 < var1.n_() && var6; ++var9) {
-                  amj var14 = var1.a(var9);
+                  ItemStack var14 = var1.a(var9);
                   if(var14 != null && var14.b() != Items.cE) {
                      if(var14.b() == Items.aW) {
                         if(var13) {
@@ -139,7 +139,7 @@ class aoe implements aoo {
                for(int var8 = 0; var8 < var1.n_() && var6; ++var8) {
                   var9 = var8 / 3;
                   int var10 = var8 % 3;
-                  amj var11 = var1.a(var8);
+                  ItemStack var11 = var1.a(var8);
                   if(var11 != null && var11.b() != Items.cE) {
                      if(var11.b() != Items.aW) {
                         var6 = false;

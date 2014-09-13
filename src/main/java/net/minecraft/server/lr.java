@@ -12,14 +12,14 @@ public class lr implements Packet {
 
    public lr() {}
 
-   public lr(int var1, wq var2) {
+   public lr(int var1, MobEffect var2) {
       this.a = var1;
-      this.b = (byte)(var2.a() & 255);
-      this.c = (byte)(var2.c() & 255);
-      if(var2.b() > 32767) {
+      this.b = (byte)(var2.getEffectId() & 255);
+      this.c = (byte)(var2.getAmplifier() & 255);
+      if(var2.getDuration() > 32767) {
          this.d = 32767;
       } else {
-         this.d = var2.b();
+         this.d = var2.getDuration();
       }
 
       this.e = (byte)(var2.f()?1:0);

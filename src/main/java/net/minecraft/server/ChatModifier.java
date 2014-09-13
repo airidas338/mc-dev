@@ -10,7 +10,7 @@ public class ChatModifier {
    private Boolean f;
    private Boolean g;
    private hm h;
-   private hr i;
+   private ChatHoverable i;
    private String j;
    private static final ChatModifier k = new hw();
 
@@ -47,7 +47,7 @@ public class ChatModifier {
       return this.h == null?this.o().h():this.h;
    }
 
-   public hr i() {
+   public ChatHoverable i() {
       return this.i == null?this.o().i():this.i;
    }
 
@@ -90,7 +90,7 @@ public class ChatModifier {
       return this;
    }
 
-   public ChatModifier a(hr var1) {
+   public ChatModifier a(ChatHoverable var1) {
       this.i = var1;
       return this;
    }
@@ -240,7 +240,7 @@ public class ChatModifier {
    }
 
    // $FF: synthetic method
-   static hr a(ChatModifier var0, hr var1) {
+   static ChatHoverable a(ChatModifier var0, ChatHoverable var1) {
       return var0.i = var1;
    }
 
@@ -285,7 +285,7 @@ public class ChatModifier {
    }
 
    // $FF: synthetic method
-   static hr j(ChatModifier var0) {
+   static ChatHoverable j(ChatModifier var0) {
       return var0.i;
    }
 

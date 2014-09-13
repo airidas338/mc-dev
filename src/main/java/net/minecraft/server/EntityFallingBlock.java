@@ -76,13 +76,13 @@ public class EntityFallingBlock extends Entity {
                this.w *= -0.5D;
                if(this.o.getData(var2).c() != Blocks.M) {
                   this.J();
-                  if(!this.e && this.o.a(var1, var2, true, ej.b, (Entity)null, (amj)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
+                  if(!this.e && this.o.a(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
                      if(var1 instanceof avt) {
                         ((avt)var1).a_(this.o, var2);
                      }
 
                      if(this.c != null && var1 instanceof avs) {
-                        bcm var3 = this.o.s(var2);
+                        TileEntity var3 = this.o.s(var2);
                         if(var3 != null) {
                            NBTTagCompound var4 = new NBTTagCompound();
                            var3.b(var4);
@@ -92,7 +92,7 @@ public class EntityFallingBlock extends Entity {
                               String var6 = (String)var5.next();
                               NBTBase var7 = this.c.a(var6);
                               if(!var6.equals("x") && !var6.equals("y") && !var6.equals("z")) {
-                                 var4.a(var6, var7.b());
+                                 var4.set(var6, var7.b());
                               }
                            }
 
@@ -101,12 +101,12 @@ public class EntityFallingBlock extends Entity {
                         }
                      }
                   } else if(this.b && !this.e && this.o.Q().b("doTileDrops")) {
-                     this.a(new amj(var1, 1, var1.a(this.d)), 0.0F);
+                     this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                   }
                }
             } else if(this.a > 100 && !this.o.D && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
                if(this.b && this.o.Q().b("doTileDrops")) {
-                  this.a(new amj(var1, 1, var1.a(this.d)), 0.0F);
+                  this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                }
 
                this.J();
@@ -146,37 +146,37 @@ public class EntityFallingBlock extends Entity {
    }
 
    protected void b(NBTTagCompound var1) {
-      Block var2 = this.d != null?this.d.c():Blocks.a;
+      Block var2 = this.d != null?this.d.c():Blocks.AIR;
       RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2);
-      var1.a("Block", var3 == null?"":var3.toString());
-      var1.a("Data", (byte)var2.c(this.d));
-      var1.a("Time", (byte)this.a);
-      var1.a("DropItem", this.b);
-      var1.a("HurtEntities", this.f);
-      var1.a("FallHurtAmount", this.h);
-      var1.a("FallHurtMax", this.g);
+      var1.setString("Block", var3 == null?"":var3.toString());
+      var1.setByte("Data", (byte)var2.c(this.d));
+      var1.setByte("Time", (byte)this.a);
+      var1.setBoolean("DropItem", this.b);
+      var1.setBoolean("HurtEntities", this.f);
+      var1.setFloat("FallHurtAmount", this.h);
+      var1.setInt("FallHurtMax", this.g);
       if(this.c != null) {
-         var1.a("TileEntityData", (NBTBase)this.c);
+         var1.set("TileEntityData", (NBTBase)this.c);
       }
 
    }
 
    protected void a(NBTTagCompound var1) {
-      int var2 = var1.d("Data") & 255;
+      int var2 = var1.getByte("Data") & 255;
       if(var1.b("Block", 8)) {
-         this.d = Block.b(var1.j("Block")).a(var2);
+         this.d = Block.b(var1.getString("Block")).a(var2);
       } else if(var1.b("TileID", 99)) {
-         this.d = Block.c(var1.f("TileID")).a(var2);
+         this.d = Block.c(var1.getInt("TileID")).a(var2);
       } else {
-         this.d = Block.c(var1.d("Tile") & 255).a(var2);
+         this.d = Block.c(var1.getByte("Tile") & 255).a(var2);
       }
 
-      this.a = var1.d("Time") & 255;
+      this.a = var1.getByte("Time") & 255;
       Block var3 = this.d.c();
       if(var1.b("HurtEntities", 99)) {
          this.f = var1.n("HurtEntities");
-         this.h = var1.h("FallHurtAmount");
-         this.g = var1.f("FallHurtMax");
+         this.h = var1.getFloat("FallHurtAmount");
+         this.g = var1.getInt("FallHurtMax");
       } else if(var3 == Blocks.cf) {
          this.f = true;
       }
@@ -186,7 +186,7 @@ public class EntityFallingBlock extends Entity {
       }
 
       if(var1.b("TileEntityData", 10)) {
-         this.c = var1.m("TileEntityData");
+         this.c = var1.getCompound("TileEntityData");
       }
 
       if(var3 == null || var3.r() == Material.AIR) {

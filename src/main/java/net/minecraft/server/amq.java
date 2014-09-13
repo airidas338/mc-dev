@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
 
-final class amq extends eg {
+final class amq extends DispenserBehaviorItem {
 
-   private final eg b = new eg();
+   private final DispenserBehaviorItem b = new DispenserBehaviorItem();
 
 
-   public amj b(dz var1, amj var2) {
-      ej var3 = BlockDispenser.b(var1.f());
+   public ItemStack b(ISourceBlock var1, ItemStack var2) {
+      EnumFacing var3 = BlockDispenser.b(var1.f());
       World var4 = var1.i();
-      double var5 = var1.a() + (double)var3.g() * 1.125D;
-      double var7 = Math.floor(var1.b()) + (double)var3.h();
-      double var9 = var1.c() + (double)var3.i() * 1.125D;
+      double var5 = var1.getX() + (double)var3.g() * 1.125D;
+      double var7 = Math.floor(var1.getY()) + (double)var3.h();
+      double var9 = var1.getZ() + (double)var3.i() * 1.125D;
       Location var11 = var1.d().a(var3);
       IBlock var12 = var4.getData(var11);
       atl var13 = var12.c() instanceof ati?(atl)var12.b(((ati)var12.c()).l()):atl.a;
@@ -29,7 +29,7 @@ final class amq extends eg {
 
          IBlock var16 = var4.getData(var11.b());
          atl var17 = var16.c() instanceof ati?(atl)var16.b(((ati)var16.c()).l()):atl.a;
-         if(var3 != ej.a && var17.c()) {
+         if(var3 != EnumFacing.DOWN && var17.c()) {
             var14 = -0.4D;
          } else {
             var14 = -0.9D;
@@ -46,7 +46,7 @@ final class amq extends eg {
       return var2;
    }
 
-   protected void a(dz var1) {
+   protected void a(ISourceBlock var1) {
       var1.i().b(1000, var1.d(), 0);
    }
 }

@@ -7,16 +7,16 @@ public class aiw extends ajk {
    private int b;
 
 
-   public aiw(EntityHuman var1, vq var2, int var3, int var4, int var5) {
+   public aiw(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       if(this.e()) {
          this.b += Math.min(var1, this.d().b);
       }
@@ -24,17 +24,17 @@ public class aiw extends ajk {
       return super.a(var1);
    }
 
-   public void a(EntityHuman var1, amj var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
       super.a(var1, var2);
    }
 
-   protected void a(amj var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       this.b += var2;
       this.c(var1);
    }
 
-   protected void c(amj var1) {
+   protected void c(ItemStack var1) {
       var1.a(this.a.o, this.a, this.b);
       if(!this.a.o.D) {
          int var2 = this.b;

@@ -16,7 +16,7 @@ public abstract class EntityCreature extends EntityInsentient {
       super(var1);
       this.a = Location.a;
       this.b = -1.0F;
-      this.c = new zo(this, 1.0D);
+      this.c = new PathfinderGoalMoveTowardsRestriction(this, 1.0D);
    }
 
    public float a(Location var1) {
@@ -75,9 +75,9 @@ public abstract class EntityCreature extends EntityInsentient {
          }
 
          if(!this.bk) {
-            this.i.a(2, this.c);
-            if(this.s() instanceof aay) {
-               ((aay)this.s()).a(false);
+            this.goalSelector.a(2, this.c);
+            if(this.getNavigation() instanceof aay) {
+               ((aay)this.getNavigation()).save(false);
             }
 
             this.bk = true;
@@ -85,7 +85,7 @@ public abstract class EntityCreature extends EntityInsentient {
 
          this.n(var2);
          if(var2 > 4.0F) {
-            this.s().a(var1, 1.0D);
+            this.getNavigation().a(var1, 1.0D);
          }
 
          if(var2 > 6.0F) {
@@ -102,9 +102,9 @@ public abstract class EntityCreature extends EntityInsentient {
          }
       } else if(!this.cb() && this.bk) {
          this.bk = false;
-         this.i.a(this.c);
-         if(this.s() instanceof aay) {
-            ((aay)this.s()).a(true);
+         this.goalSelector.a(this.c);
+         if(this.getNavigation() instanceof aay) {
+            ((aay)this.getNavigation()).save(true);
          }
 
          this.ch();

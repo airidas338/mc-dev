@@ -9,16 +9,16 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public int a_;
    protected int b_;
-   private ym a;
-   protected yn f;
-   protected yl g;
-   private yj b;
-   protected aaz h;
-   protected final zc i;
-   protected final zc bg;
+   private ControllerLook a;
+   protected ControllerMove f;
+   protected ControllerJump g;
+   private EntityAIBodyControl b;
+   protected Navigation h;
+   protected final PathfinderGoalSelector goalSelector;
+   protected final PathfinderGoalSelector targetSelector;
    private EntityLiving c;
-   private abd bi;
-   private amj[] bj = new amj[5];
+   private EntitySenses bi;
+   private ItemStack[] bj = new ItemStack[5];
    protected float[] bh = new float[5];
    private boolean bk;
    private boolean bl;
@@ -29,14 +29,14 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public EntityInsentient(World var1) {
       super(var1);
-      this.i = new zc(var1 != null && var1.B != null?var1.B:null);
-      this.bg = new zc(var1 != null && var1.B != null?var1.B:null);
-      this.a = new ym(this);
-      this.f = new yn(this);
-      this.g = new yl(this);
-      this.b = new yj(this);
+      this.goalSelector = new PathfinderGoalSelector(var1 != null && var1.B != null?var1.B:null);
+      this.targetSelector = new PathfinderGoalSelector(var1 != null && var1.B != null?var1.B:null);
+      this.a = new ControllerLook(this);
+      this.f = new ControllerMove(this);
+      this.g = new ControllerJump(this);
+      this.b = new EntityAIBodyControl(this);
       this.h = this.b(var1);
-      this.bi = new abd(this);
+      this.bi = new EntitySenses(this);
 
       for(int var2 = 0; var2 < this.bh.length; ++var2) {
          this.bh[var2] = 0.085F;
@@ -49,27 +49,27 @@ public abstract class EntityInsentient extends EntityLiving {
       this.getAttributeMap().load(GenericAttributes.b).a(16.0D);
    }
 
-   protected aaz b(World var1) {
+   protected Navigation b(World var1) {
       return new aay(this, var1);
    }
 
-   public ym p() {
+   public ControllerLook p() {
       return this.a;
    }
 
-   public yn q() {
+   public ControllerMove q() {
       return this.f;
    }
 
-   public yl r() {
+   public ControllerJump r() {
       return this.g;
    }
 
-   public aaz s() {
+   public Navigation getNavigation() {
       return this.h;
    }
 
-   public abd t() {
+   public EntitySenses t() {
       return this.bi;
    }
 
@@ -107,7 +107,7 @@ public abstract class EntityInsentient extends EntityLiving {
    public void K() throws IOException {
       super.K();
       this.o.B.a("mobBaseTick");
-      if(this.ai() && this.V.nextInt(1000) < this.a_++) {
+      if(this.isAlive() && this.V.nextInt(1000) < this.a_++) {
          this.a_ = -this.w();
          this.x();
       }
@@ -118,7 +118,7 @@ public abstract class EntityInsentient extends EntityLiving {
    protected int b(EntityHuman var1) {
       if(this.b_ > 0) {
          int var2 = this.b_;
-         amj[] var3 = this.at();
+         ItemStack[] var3 = this.at();
 
          for(int var4 = 0; var4 < var3.length; ++var4) {
             if(var3[var4] != null && this.bh[var4] <= 1.0F) {
@@ -185,9 +185,9 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("CanPickUpLoot", this.bX());
-      var1.a("PersistenceRequired", this.bl);
-      fv var2 = new fv();
+      var1.setBoolean("CanPickUpLoot", this.bX());
+      var1.setBoolean("PersistenceRequired", this.bl);
+      NBTTagList var2 = new NBTTagList();
 
       NBTTagCompound var4;
       for(int var3 = 0; var3 < this.bj.length; ++var3) {
@@ -199,32 +199,32 @@ public abstract class EntityInsentient extends EntityLiving {
          var2.a((NBTBase)var4);
       }
 
-      var1.a("Equipment", (NBTBase)var2);
-      fv var6 = new fv();
+      var1.set("Equipment", (NBTBase)var2);
+      NBTTagList var6 = new NBTTagList();
 
       for(int var7 = 0; var7 < this.bh.length; ++var7) {
          var6.a((NBTBase)(new NBTTagFloat(this.bh[var7])));
       }
 
-      var1.a("DropChances", (NBTBase)var6);
-      var1.a("Leashed", this.bm);
+      var1.set("DropChances", (NBTBase)var6);
+      var1.setBoolean("Leashed", this.bm);
       if(this.bn != null) {
          var4 = new NBTTagCompound();
          if(this.bn instanceof EntityLiving) {
-            var4.a("UUIDMost", this.bn.aJ().getMostSignificantBits());
-            var4.a("UUIDLeast", this.bn.aJ().getLeastSignificantBits());
+            var4.setLong("UUIDMost", this.bn.aJ().getMostSignificantBits());
+            var4.setLong("UUIDLeast", this.bn.aJ().getLeastSignificantBits());
          } else if(this.bn instanceof EntityHanging) {
             Location var5 = ((EntityHanging)this.bn).n();
-            var4.a("X", var5.n());
-            var4.a("Y", var5.o());
-            var4.a("Z", var5.p());
+            var4.setInt("X", var5.n());
+            var4.setInt("Y", var5.o());
+            var4.setInt("Z", var5.p());
          }
 
-         var1.a("Leash", (NBTBase)var4);
+         var1.set("Leash", (NBTBase)var4);
       }
 
       if(this.cd()) {
-         var1.a("NoAI", this.cd());
+         var1.setBoolean("NoAI", this.cd());
       }
 
    }
@@ -236,18 +236,18 @@ public abstract class EntityInsentient extends EntityLiving {
       }
 
       this.bl = var1.n("PersistenceRequired");
-      fv var2;
+      NBTTagList var2;
       int var3;
       if(var1.b("Equipment", 9)) {
-         var2 = var1.c("Equipment", 10);
+         var2 = var1.getList("Equipment", 10);
 
          for(var3 = 0; var3 < this.bj.length; ++var3) {
-            this.bj[var3] = amj.a(var2.b(var3));
+            this.bj[var3] = ItemStack.a(var2.b(var3));
          }
       }
 
       if(var1.b("DropChances", 9)) {
-         var2 = var1.c("DropChances", 5);
+         var2 = var1.getList("DropChances", 5);
 
          for(var3 = 0; var3 < var2.c(); ++var3) {
             this.bh[var3] = var2.e(var3);
@@ -256,7 +256,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
       this.bm = var1.n("Leashed");
       if(this.bm && var1.b("Leash", 10)) {
-         this.bo = var1.m("Leash");
+         this.bo = var1.getCompound("Leash");
       }
 
       this.k(var1.n("NoAI"));
@@ -275,7 +275,7 @@ public abstract class EntityInsentient extends EntityLiving {
       super.m();
       this.o.B.a("looting");
       if(!this.o.D && this.bX() && !this.aN && this.o.Q().b("mobGriefing")) {
-         List var1 = this.o.a(EntityItem.class, this.aQ().b(1.0D, 0.0D, 1.0D));
+         List var1 = this.o.getEntities(EntityItem.class, this.aQ().b(1.0D, 0.0D, 1.0D));
          Iterator var2 = var1.iterator();
 
          while(var2.hasNext()) {
@@ -290,11 +290,11 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    protected void a(EntityItem var1) {
-      amj var2 = var1.l();
+      ItemStack var2 = var1.l();
       int var3 = c(var2);
       if(var3 > -1) {
          boolean var4 = true;
-         amj var5 = this.p(var3);
+         ItemStack var5 = this.p(var3);
          if(var5 != null) {
             if(var3 == 0) {
                if(var2.b() instanceof anm && !(var5.b() instanceof anm)) {
@@ -349,7 +349,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    }
 
-   protected boolean a(amj var1) {
+   protected boolean a(ItemStack var1) {
       return true;
    }
 
@@ -390,10 +390,10 @@ public abstract class EntityInsentient extends EntityLiving {
       this.bi.a();
       this.o.B.b();
       this.o.B.a("targetSelector");
-      this.bg.a();
+      this.targetSelector.a();
       this.o.B.b();
       this.o.B.a("goalSelector");
-      this.i.a();
+      this.goalSelector.a();
       this.o.B.b();
       this.o.B.a("navigation");
       this.h.k();
@@ -429,7 +429,7 @@ public abstract class EntityInsentient extends EntityLiving {
          var6 = (var1.aQ().b + var1.aQ().e) / 2.0D - (this.t + (double)this.aR());
       }
 
-      double var14 = (double)MathHelper.a(var4 * var4 + var8 * var8);
+      double var14 = (double)MathHelper.sqrt(var4 * var4 + var8 * var8);
       float var12 = (float)(Math.atan2(var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F;
       float var13 = (float)(-(Math.atan2(var6, var14) * 180.0D / 3.1415927410125732D));
       this.z = this.b(this.z, var13, var3);
@@ -475,29 +475,29 @@ public abstract class EntityInsentient extends EntityLiving {
       }
    }
 
-   public amj bz() {
+   public ItemStack bz() {
       return this.bj[0];
    }
 
-   public amj p(int var1) {
+   public ItemStack p(int var1) {
       return this.bj[var1];
    }
 
-   public amj q(int var1) {
+   public ItemStack q(int var1) {
       return this.bj[var1 + 1];
    }
 
-   public void c(int var1, amj var2) {
+   public void c(int var1, ItemStack var2) {
       this.bj[var1] = var2;
    }
 
-   public amj[] at() {
+   public ItemStack[] at() {
       return this.bj;
    }
 
    protected void a(boolean var1, int var2) {
       for(int var3 = 0; var3 < this.at().length; ++var3) {
-         amj var4 = this.p(var3);
+         ItemStack var4 = this.p(var3);
          boolean var5 = this.bh[var3] > 1.0F;
          if(var4 != null && (var1 || var5) && this.V.nextFloat() - (float)var2 * 0.01F < this.bh[var3]) {
             if(!var5 && var4.e()) {
@@ -537,7 +537,7 @@ public abstract class EntityInsentient extends EntityLiving {
          }
 
          for(int var4 = 3; var4 >= 0; --var4) {
-            amj var5 = this.q(var4);
+            ItemStack var5 = this.q(var4);
             if(var4 < 3 && this.V.nextFloat() < var3) {
                break;
             }
@@ -545,7 +545,7 @@ public abstract class EntityInsentient extends EntityLiving {
             if(var5 == null) {
                Item var6 = a(var4 + 1, var2);
                if(var6 != null) {
-                  this.c(var4 + 1, new amj(var6));
+                  this.c(var4 + 1, new ItemStack(var6));
                }
             }
          }
@@ -553,7 +553,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    }
 
-   public static int c(amj var0) {
+   public static int c(ItemStack var0) {
       if(var0.b() != Item.a(Blocks.aU) && var0.b() != Items.bX) {
          if(var0.b() instanceof ItemArmor) {
             switch(((ItemArmor)var0.b()).b) {
@@ -636,7 +636,7 @@ public abstract class EntityInsentient extends EntityLiving {
       }
 
       for(int var3 = 0; var3 < 4; ++var3) {
-         amj var4 = this.q(var3);
+         ItemStack var4 = this.q(var3);
          if(var4 != null && this.V.nextFloat() < 0.5F * var2) {
             EnchantmentManager.a(this.V, var4, (int)(5.0F + var2 * (float)this.V.nextInt(18)));
          }
@@ -678,7 +678,7 @@ public abstract class EntityInsentient extends EntityLiving {
          this.a(true, !var1.by.d);
          return true;
       } else {
-         amj var2 = var1.bg.h();
+         ItemStack var2 = var1.bg.h();
          if(var2 != null && var2.b() == Items.cn && this.ca()) {
             if(!(this instanceof EntityTameableAnimal) || !((EntityTameableAnimal)this).cj()) {
                this.a(var1, true);
@@ -707,7 +707,7 @@ public abstract class EntityInsentient extends EntityLiving {
       }
 
       if(this.bm) {
-         if(!this.ai()) {
+         if(!this.isAlive()) {
             this.a(true, true);
          }
 
@@ -756,8 +756,8 @@ public abstract class EntityInsentient extends EntityLiving {
    private void n() {
       if(this.bm && this.bo != null) {
          if(this.bo.b("UUIDMost", 4) && this.bo.b("UUIDLeast", 4)) {
-            UUID var5 = new UUID(this.bo.g("UUIDMost"), this.bo.g("UUIDLeast"));
-            List var6 = this.o.a(EntityLiving.class, this.aQ().b(10.0D, 10.0D, 10.0D));
+            UUID var5 = new UUID(this.bo.getLong("UUIDMost"), this.bo.getLong("UUIDLeast"));
+            List var6 = this.o.getEntities(EntityLiving.class, this.aQ().b(10.0D, 10.0D, 10.0D));
             Iterator var3 = var6.iterator();
 
             while(var3.hasNext()) {
@@ -768,7 +768,7 @@ public abstract class EntityInsentient extends EntityLiving {
                }
             }
          } else if(this.bo.b("X", 99) && this.bo.b("Y", 99) && this.bo.b("Z", 99)) {
-            Location var1 = new Location(this.bo.f("X"), this.bo.f("Y"), this.bo.f("Z"));
+            Location var1 = new Location(this.bo.getInt("X"), this.bo.getInt("Y"), this.bo.getInt("Z"));
             EntityLeash var2 = EntityLeash.b(this.o, var1);
             if(var2 == null) {
                var2 = EntityLeash.a(this.o, var1);
@@ -783,7 +783,7 @@ public abstract class EntityInsentient extends EntityLiving {
       this.bo = null;
    }
 
-   public boolean d(int var1, amj var2) {
+   public boolean d(int var1, ItemStack var2) {
       int var3;
       if(var1 == 99) {
          var3 = 0;

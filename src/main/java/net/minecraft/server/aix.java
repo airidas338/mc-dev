@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class aix extends aib {
 
-   private final vq a;
+   private final IInventory a;
 
 
-   public aix(ahb var1, vq var2, EntityHuman var3) {
+   public aix(ahb var1, IInventory var2, EntityHuman var3) {
       this.a = var2;
       var2.b(var3);
       byte var4 = 51;
@@ -31,11 +31,11 @@ public class aix extends aib {
       return this.a.a(var1);
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 < this.a.n_()) {
             if(!this.a(var5, this.a.n_(), this.c.size(), true)) {
@@ -46,7 +46,7 @@ public class aix extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }

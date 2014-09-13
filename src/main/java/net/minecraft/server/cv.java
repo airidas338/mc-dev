@@ -21,7 +21,7 @@ public class cv extends CommandAbstract {
       } else {
          String var3 = var2[0];
          Location var4 = var1.c();
-         ChunkCoordinates var5 = var1.d();
+         Vec3D var5 = var1.d();
          double var6 = var5.a;
          double var8 = var5.b;
          double var10 = var5.c;
@@ -52,7 +52,7 @@ public class cv extends CommandAbstract {
                }
             }
 
-            var13.a("id", var3);
+            var13.setString("id", var3);
 
             Entity var21;
             try {
@@ -64,7 +64,7 @@ public class cv extends CommandAbstract {
             if(var21 == null) {
                throw new di("commands.summon.failed", new Object[0]);
             } else {
-               var21.b(var6, var8, var10, var21.y, var21.z);
+               var21.setPositionRotation(var6, var8, var10, var21.y, var21.z);
                if(!var14 && var21 instanceof EntityInsentient) {
                   ((EntityInsentient)var21).a(var12.E(new Location(var21)), (xq)null);
                }
@@ -72,10 +72,10 @@ public class cv extends CommandAbstract {
                var12.d(var21);
                Entity var16 = var21;
 
-               for(NBTTagCompound var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.m("Riding")) {
-                  Entity var18 = EntityTypes.a(var17.m("Riding"), var12);
+               for(NBTTagCompound var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.getCompound("Riding")) {
+                  Entity var18 = EntityTypes.a(var17.getCompound("Riding"), var12);
                   if(var18 != null) {
-                     var18.b(var6, var8, var10, var18.y, var18.z);
+                     var18.setPositionRotation(var6, var8, var10, var18.y, var18.z);
                      var12.d(var18);
                      var16.a(var18);
                   }

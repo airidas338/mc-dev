@@ -99,7 +99,7 @@ public class BlockSapling extends BlockPlant implements atz {
       case 6:
       }
 
-      IBlock var9 = Blocks.a.P();
+      IBlock var9 = Blocks.AIR.P();
       if(var8) {
          var1.a(var2.a(var6, 0, var7), var9, 4);
          var1.a(var2.a(var6 + 1, 0, var7), var9, 4);

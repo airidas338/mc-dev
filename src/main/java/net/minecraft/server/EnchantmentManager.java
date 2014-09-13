@@ -19,17 +19,17 @@ public class EnchantmentManager {
    private static final apj e = new apj((api)null);
 
 
-   public static int a(int var0, amj var1) {
+   public static int a(int var0, ItemStack var1) {
       if(var1 == null) {
          return 0;
       } else {
-         fv var2 = var1.p();
+         NBTTagList var2 = var1.p();
          if(var2 == null) {
             return 0;
          } else {
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               short var4 = var2.b(var3).e("id");
-               short var5 = var2.b(var3).e("lvl");
+               short var4 = var2.b(var3).getShort("id");
+               short var5 = var2.b(var3).getShort("lvl");
                if(var4 == var0) {
                   return var5;
                }
@@ -40,13 +40,13 @@ public class EnchantmentManager {
       }
    }
 
-   public static Map a(amj var0) {
+   public static Map a(ItemStack var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      fv var2 = var0.b() == Items.cd?Items.cd.h(var0):var0.p();
+      NBTTagList var2 = var0.b() == Items.cd?Items.cd.h(var0):var0.p();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.c(); ++var3) {
-            short var4 = var2.b(var3).e("id");
-            short var5 = var2.b(var3).e("lvl");
+            short var4 = var2.b(var3).getShort("id");
+            short var5 = var2.b(var3).getShort("lvl");
             var1.put(Integer.valueOf(var4), Integer.valueOf(var5));
          }
       }
@@ -54,8 +54,8 @@ public class EnchantmentManager {
       return var1;
    }
 
-   public static void a(Map var0, amj var1) {
-      fv var2 = new fv();
+   public static void a(Map var0, ItemStack var1) {
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = var0.keySet().iterator();
 
       while(var3.hasNext()) {
@@ -63,8 +63,8 @@ public class EnchantmentManager {
          apf var5 = apf.c(var4);
          if(var5 != null) {
             NBTTagCompound var6 = new NBTTagCompound();
-            var6.a("id", (short)var4);
-            var6.a("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
+            var6.setShort("id", (short)var4);
+            var6.setShort("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
             var2.a((NBTBase)var6);
             if(var1.b() == Items.cd) {
                Items.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
@@ -82,16 +82,16 @@ public class EnchantmentManager {
 
    }
 
-   public static int a(int var0, amj[] var1) {
+   public static int a(int var0, ItemStack[] var1) {
       if(var1 == null) {
          return 0;
       } else {
          int var2 = 0;
-         amj[] var3 = var1;
+         ItemStack[] var3 = var1;
          int var4 = var1.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            amj var6 = var3[var5];
+            ItemStack var6 = var3[var5];
             int var7 = a(var0, var6);
             if(var7 > var2) {
                var2 = var7;
@@ -102,13 +102,13 @@ public class EnchantmentManager {
       }
    }
 
-   private static void a(apl var0, amj var1) {
+   private static void a(apl var0, ItemStack var1) {
       if(var1 != null) {
-         fv var2 = var1.p();
+         NBTTagList var2 = var1.p();
          if(var2 != null) {
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               short var4 = var2.b(var3).e("id");
-               short var5 = var2.b(var3).e("lvl");
+               short var4 = var2.b(var3).getShort("id");
+               short var5 = var2.b(var3).getShort("lvl");
                if(apf.c(var4) != null) {
                   var0.a(apf.c(var4), var5);
                }
@@ -118,18 +118,18 @@ public class EnchantmentManager {
       }
    }
 
-   private static void a(apl var0, amj[] var1) {
-      amj[] var2 = var1;
+   private static void a(apl var0, ItemStack[] var1) {
+      ItemStack[] var2 = var1;
       int var3 = var1.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         amj var5 = var2[var4];
+         ItemStack var5 = var2[var4];
          a(var0, var5);
       }
 
    }
 
-   public static int a(amj[] var0, DamageSource var1) {
+   public static int a(ItemStack[] var0, DamageSource var1) {
       b.a = 0;
       b.b = var1;
       a((apl)b, var0);
@@ -140,7 +140,7 @@ public class EnchantmentManager {
       return (b.a + 1 >> 1) + a.nextInt((b.a >> 1) + 1);
    }
 
-   public static float a(amj var0, xs var1) {
+   public static float a(ItemStack var0, xs var1) {
       c.a = 0.0F;
       c.b = var1;
       a((apl)c, var0);
@@ -217,12 +217,12 @@ public class EnchantmentManager {
       return a(apf.i.B, var0.at()) > 0;
    }
 
-   public static amj a(apf var0, EntityLiving var1) {
-      amj[] var2 = var1.at();
+   public static ItemStack a(apf var0, EntityLiving var1) {
+      ItemStack[] var2 = var1.at();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         amj var5 = var2[var4];
+         ItemStack var5 = var2[var4];
          if(var5 != null && a(var0.B, var5) > 0) {
             return var5;
          }
@@ -231,7 +231,7 @@ public class EnchantmentManager {
       return null;
    }
 
-   public static int a(Random var0, int var1, int var2, amj var3) {
+   public static int a(Random var0, int var1, int var2, ItemStack var3) {
       Item var4 = var3.b();
       int var5 = var4.b();
       if(var5 <= 0) {
@@ -246,7 +246,7 @@ public class EnchantmentManager {
       }
    }
 
-   public static amj a(Random var0, amj var1, int var2) {
+   public static ItemStack a(Random var0, ItemStack var1, int var2) {
       List var3 = b(var0, var1, var2);
       boolean var4 = var1.b() == Items.aL;
       if(var4) {
@@ -269,7 +269,7 @@ public class EnchantmentManager {
       return var1;
    }
 
-   public static List b(Random var0, amj var1, int var2) {
+   public static List b(Random var0, ItemStack var1, int var2) {
       Item var3 = var1.b();
       int var4 = var3.b();
       if(var4 <= 0) {
@@ -329,7 +329,7 @@ public class EnchantmentManager {
       }
    }
 
-   public static Map b(int var0, amj var1) {
+   public static Map b(int var0, ItemStack var1) {
       Item var2 = var1.b();
       HashMap var3 = null;
       boolean var4 = var1.b() == Items.aL;

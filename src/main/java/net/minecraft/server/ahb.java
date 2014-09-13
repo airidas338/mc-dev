@@ -1,13 +1,13 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-public class ahb implements vq {
+public class ahb implements IInventory {
 
-   public amj[] a = new amj[36];
-   public amj[] b = new amj[4];
+   public ItemStack[] a = new ItemStack[36];
+   public ItemStack[] b = new ItemStack[4];
    public int c;
    public EntityHuman d;
-   private amj f;
+   private ItemStack f;
    public boolean e;
 
 
@@ -15,7 +15,7 @@ public class ahb implements vq {
       this.d = var1;
    }
 
-   public amj h() {
+   public ItemStack h() {
       return this.c < 9 && this.c >= 0?this.a[this.c]:null;
    }
 
@@ -33,9 +33,9 @@ public class ahb implements vq {
       return -1;
    }
 
-   private int d(amj var1) {
+   private int d(ItemStack var1) {
       for(int var2 = 0; var2 < this.a.length; ++var2) {
-         if(this.a[var2] != null && this.a[var2].b() == var1.b() && this.a[var2].d() && this.a[var2].b < this.a[var2].c() && this.a[var2].b < this.p_() && (!this.a[var2].f() || this.a[var2].i() == var1.i()) && amj.a(this.a[var2], var1)) {
+         if(this.a[var2] != null && this.a[var2].b() == var1.b() && this.a[var2].d() && this.a[var2].b < this.a[var2].c() && this.a[var2].b < this.p_() && (!this.a[var2].f() || this.a[var2].i() == var1.i()) && ItemStack.a(this.a[var2], var1)) {
             return var2;
          }
       }
@@ -57,7 +57,7 @@ public class ahb implements vq {
       int var5 = 0;
 
       int var6;
-      amj var7;
+      ItemStack var7;
       int var8;
       for(var6 = 0; var6 < this.a.length; ++var6) {
          var7 = this.a[var6];
@@ -125,7 +125,7 @@ public class ahb implements vq {
       return var5;
    }
 
-   private int e(amj var1) {
+   private int e(ItemStack var1) {
       Item var2 = var1.b();
       int var3 = var1.b;
       int var4 = this.d(var1);
@@ -137,7 +137,7 @@ public class ahb implements vq {
          return var3;
       } else {
          if(this.a[var4] == null) {
-            this.a[var4] = new amj(var2, 0, var1.i());
+            this.a[var4] = new ItemStack(var2, 0, var1.i());
             if(var1.n()) {
                this.a[var4].d((NBTTagCompound)var1.o().b());
             }
@@ -190,14 +190,14 @@ public class ahb implements vq {
       return var2 >= 0;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       if(var1 != null && var1.b != 0 && var1.b() != null) {
          try {
             int var2;
             if(var1.g()) {
                var2 = this.j();
                if(var2 >= 0) {
-                  this.a[var2] = amj.b(var1);
+                  this.a[var2] = ItemStack.b(var1);
                   this.a[var2].c = 5;
                   var1.b = 0;
                   return true;
@@ -233,15 +233,15 @@ public class ahb implements vq {
       }
    }
 
-   public amj a(int var1, int var2) {
-      amj[] var3 = this.a;
+   public ItemStack a(int var1, int var2) {
+      ItemStack[] var3 = this.a;
       if(var1 >= this.a.length) {
          var3 = this.b;
          var1 -= this.a.length;
       }
 
       if(var3[var1] != null) {
-         amj var4;
+         ItemStack var4;
          if(var3[var1].b <= var2) {
             var4 = var3[var1];
             var3[var1] = null;
@@ -259,15 +259,15 @@ public class ahb implements vq {
       }
    }
 
-   public amj b(int var1) {
-      amj[] var2 = this.a;
+   public ItemStack b(int var1) {
+      ItemStack[] var2 = this.a;
       if(var1 >= this.a.length) {
          var2 = this.b;
          var1 -= this.a.length;
       }
 
       if(var2[var1] != null) {
-         amj var3 = var2[var1];
+         ItemStack var3 = var2[var1];
          var2[var1] = null;
          return var3;
       } else {
@@ -275,8 +275,8 @@ public class ahb implements vq {
       }
    }
 
-   public void a(int var1, amj var2) {
-      amj[] var3 = this.a;
+   public void a(int var1, ItemStack var2) {
+      ItemStack[] var3 = this.a;
       if(var1 >= var3.length) {
          var1 -= var3.length;
          var3 = this.b;
@@ -294,13 +294,13 @@ public class ahb implements vq {
       return var2;
    }
 
-   public fv a(fv var1) {
+   public NBTTagList a(NBTTagList var1) {
       int var2;
       NBTTagCompound var3;
       for(var2 = 0; var2 < this.a.length; ++var2) {
          if(this.a[var2] != null) {
             var3 = new NBTTagCompound();
-            var3.a("Slot", (byte)var2);
+            var3.setByte("Slot", (byte)var2);
             this.a[var2].b(var3);
             var1.a((NBTBase)var3);
          }
@@ -309,7 +309,7 @@ public class ahb implements vq {
       for(var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null) {
             var3 = new NBTTagCompound();
-            var3.a("Slot", (byte)(var2 + 100));
+            var3.setByte("Slot", (byte)(var2 + 100));
             this.b[var2].b(var3);
             var1.a((NBTBase)var3);
          }
@@ -318,14 +318,14 @@ public class ahb implements vq {
       return var1;
    }
 
-   public void b(fv var1) {
-      this.a = new amj[36];
-      this.b = new amj[4];
+   public void b(NBTTagList var1) {
+      this.a = new ItemStack[36];
+      this.b = new ItemStack[4];
 
       for(int var2 = 0; var2 < var1.c(); ++var2) {
          NBTTagCompound var3 = var1.b(var2);
-         int var4 = var3.d("Slot") & 255;
-         amj var5 = amj.a(var3);
+         int var4 = var3.getByte("Slot") & 255;
+         ItemStack var5 = ItemStack.a(var3);
          if(var5 != null) {
             if(var4 >= 0 && var4 < this.a.length) {
                this.a[var4] = var5;
@@ -343,8 +343,8 @@ public class ahb implements vq {
       return this.a.length + 4;
    }
 
-   public amj a(int var1) {
-      amj[] var2 = this.a;
+   public ItemStack a(int var1) {
+      ItemStack[] var2 = this.a;
       if(var1 >= var2.length) {
          var1 -= var2.length;
          var2 = this.b;
@@ -373,12 +373,12 @@ public class ahb implements vq {
       if(var1.r().l()) {
          return true;
       } else {
-         amj var2 = this.a(this.c);
+         ItemStack var2 = this.a(this.c);
          return var2 != null?var2.b(var1):false;
       }
    }
 
-   public amj e(int var1) {
+   public ItemStack e(int var1) {
       return this.b[var1];
    }
 
@@ -434,11 +434,11 @@ public class ahb implements vq {
       this.e = true;
    }
 
-   public void b(amj var1) {
+   public void b(ItemStack var1) {
       this.f = var1;
    }
 
-   public amj p() {
+   public ItemStack p() {
       return this.f;
    }
 
@@ -446,7 +446,7 @@ public class ahb implements vq {
       return this.d.I?false:var1.h(this.d) <= 64.0D;
    }
 
-   public boolean c(amj var1) {
+   public boolean c(ItemStack var1) {
       int var2;
       for(var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null && this.b[var2].a(var1)) {
@@ -467,18 +467,18 @@ public class ahb implements vq {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 
    public void b(ahb var1) {
       int var2;
       for(var2 = 0; var2 < this.a.length; ++var2) {
-         this.a[var2] = amj.b(var1.a[var2]);
+         this.a[var2] = ItemStack.b(var1.a[var2]);
       }
 
       for(var2 = 0; var2 < this.b.length; ++var2) {
-         this.b[var2] = amj.b(var1.b[var2]);
+         this.b[var2] = ItemStack.b(var1.b[var2]);
       }
 
       this.c = var1.c;

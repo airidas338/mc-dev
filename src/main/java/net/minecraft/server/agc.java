@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class agc extends yn {
+class agc extends ControllerMove {
 
    private float g;
    private int h;

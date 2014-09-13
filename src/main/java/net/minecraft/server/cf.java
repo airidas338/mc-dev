@@ -58,7 +58,7 @@ public class cf extends CommandAbstract {
          try {
             var6 = f(var1, var2[var16]);
          } catch (dk var15) {
-            if(Block.b(var2[var16]) != Blocks.a) {
+            if(Block.b(var2[var16]) != Blocks.AIR) {
                throw var15;
             }
 
@@ -68,7 +68,7 @@ public class cf extends CommandAbstract {
          ++var16;
          int var7 = var2.length > var16?a(var2[var16++], 1, 64):1;
          int var8 = var2.length > var16?a(var2[var16++]):0;
-         amj var9 = new amj(var6, var7, var8);
+         ItemStack var9 = new ItemStack(var6, var7, var8);
          if(var2.length > var16) {
             String var10 = a(var1, var2, var16).c();
 
@@ -87,12 +87,12 @@ public class cf extends CommandAbstract {
             var1.a(ag.d, 0);
             Location var17 = a(var1, var2, 1, false);
             World var11 = var1.e();
-            bcm var12 = var11.s(var17);
-            if(var12 == null || !(var12 instanceof vq)) {
+            TileEntity var12 = var11.s(var17);
+            if(var12 == null || !(var12 instanceof IInventory)) {
                throw new di("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var17.n()), Integer.valueOf(var17.o()), Integer.valueOf(var17.p())});
             }
 
-            vq var13 = (vq)var12;
+            IInventory var13 = (IInventory)var12;
             if(var5 >= 0 && var5 < var13.n_()) {
                var13.a(var5, var9);
             }

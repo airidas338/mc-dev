@@ -49,11 +49,11 @@ public class BlockCauldron extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
-         amj var9 = var4.bg.h();
+         ItemStack var9 = var4.bg.h();
          if(var9 == null) {
             return true;
          } else {
@@ -62,7 +62,7 @@ public class BlockCauldron extends Block {
             if(var11 == Items.ax) {
                if(var10 < 3) {
                   if(!var4.by.d) {
-                     var4.bg.a(var4.bg.c, new amj(Items.aw));
+                     var4.bg.a(var4.bg.c, new ItemStack(Items.aw));
                   }
 
                   this.a(var1, var2, var3, 3);
@@ -70,11 +70,11 @@ public class BlockCauldron extends Block {
 
                return true;
             } else {
-               amj var13;
+               ItemStack var13;
                if(var11 == Items.bA) {
                   if(var10 > 0) {
                      if(!var4.by.d) {
-                        var13 = new amj(Items.bz, 1, 0);
+                        var13 = new ItemStack(Items.bz, 1, 0);
                         if(!var4.bg.a(var13)) {
                            var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
@@ -83,7 +83,7 @@ public class BlockCauldron extends Block {
 
                         --var9.b;
                         if(var9.b <= 0) {
-                           var4.bg.a(var4.bg.c, (amj)null);
+                           var4.bg.a(var4.bg.c, (ItemStack)null);
                         }
                      }
 

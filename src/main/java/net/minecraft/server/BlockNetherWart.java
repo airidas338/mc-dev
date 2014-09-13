@@ -43,7 +43,7 @@ public class BlockNetherWart extends BlockPlant {
          }
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            a(var1, var2, new amj(Items.by));
+            a(var1, var2, new ItemStack(Items.by));
          }
 
       }

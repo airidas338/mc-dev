@@ -130,7 +130,7 @@ public class bgj extends bgt {
                                     if(var48 - 1 < 10) {
                                        var5.a(var41, var48, var59, Blocks.k.P());
                                     } else {
-                                       var5.a(var41, var48, var59, Blocks.a.P());
+                                       var5.a(var41, var48, var59, Blocks.AIR.P());
                                        if(var47 && var5.a(var41, var48 - 1, var59).c() == Blocks.d) {
                                           var5.a(var41, var48 - 1, var59, this.c.b(new Location(var41 + var3 * 16, 0, var59 + var4 * 16)).ak);
                                        }

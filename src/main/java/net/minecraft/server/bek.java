@@ -37,7 +37,7 @@ public class bek {
       return this.d;
    }
 
-   private bem a(Location var1, ej var2, ej var3, LoadingCache var4) {
+   private bem a(Location var1, EnumFacing var2, EnumFacing var3, LoadingCache var4) {
       for(int var5 = 0; var5 < this.d; ++var5) {
          for(int var6 = 0; var6 < this.c; ++var6) {
             for(int var7 = 0; var7 < this.b; ++var7) {
@@ -58,16 +58,16 @@ public class bek {
 
       while(var5.hasNext()) {
          Location var6 = (Location)var5.next();
-         ej[] var7 = ej.values();
+         EnumFacing[] var7 = EnumFacing.values();
          int var8 = var7.length;
 
          for(int var9 = 0; var9 < var8; ++var9) {
-            ej var10 = var7[var9];
-            ej[] var11 = ej.values();
+            EnumFacing var10 = var7[var9];
+            EnumFacing[] var11 = EnumFacing.values();
             int var12 = var11.length;
 
             for(int var13 = 0; var13 < var12; ++var13) {
-               ej var14 = var11[var13];
+               EnumFacing var14 = var11[var13];
                if(var14 != var10 && var14 != var10.d()) {
                   bem var15 = this.a(var6, var10, var14, var3);
                   if(var15 != null) {
@@ -81,7 +81,7 @@ public class bek {
       return null;
    }
 
-   protected static Location a(Location var0, ej var1, ej var2, int var3, int var4, int var5) {
+   protected static Location a(Location var0, EnumFacing var1, EnumFacing var2, int var3, int var4, int var5) {
       if(var1 != var2 && var1 != var2.d()) {
          fd var6 = new fd(var1.g(), var1.h(), var1.i());
          fd var7 = new fd(var2.g(), var2.h(), var2.i());

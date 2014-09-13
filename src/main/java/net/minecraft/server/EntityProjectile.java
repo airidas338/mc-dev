@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 
-public abstract class EntityProjectile extends Entity implements aho {
+public abstract class EntityProjectile extends Entity implements IProjectile {
 
    private int c = -1;
    private int d = -1;
@@ -27,7 +27,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       super(var1);
       this.g = var2;
       this.a(0.25F, 0.25F);
-      this.b(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
+      this.setPositionRotation(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
       this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.t -= 0.10000000149011612D;
       this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
@@ -36,7 +36,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       this.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
       this.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
       this.w = (double)(-MathHelper.sin((this.z + this.l()) / 180.0F * 3.1415927F) * var3);
-      this.c(this.v, this.w, this.x, this.j(), 1.0F);
+      this.shoot(this.v, this.w, this.x, this.j(), 1.0F);
    }
 
    public EntityProjectile(World var1, double var2, double var4, double var6) {
@@ -54,8 +54,8 @@ public abstract class EntityProjectile extends Entity implements aho {
       return 0.0F;
    }
 
-   public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5);
+   public void shoot(double var1, double var3, double var5, float var7, float var8) {
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -68,7 +68,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = MathHelper.a(var1 * var1 + var5 * var5);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
       this.A = this.y = (float)(Math.atan2(var1, var5) * 180.0D / 3.1415927410125732D);
       this.B = this.z = (float)(Math.atan2(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.i = 0;
@@ -103,13 +103,13 @@ public abstract class EntityProjectile extends Entity implements aho {
          ++this.ap;
       }
 
-      ChunkCoordinates var1 = new ChunkCoordinates(this.s, this.t, this.u);
-      ChunkCoordinates var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+      Vec3D var1 = new Vec3D(this.s, this.t, this.u);
+      Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
       MovingObjectPosition var3 = this.o.a(var1, var2);
-      var1 = new ChunkCoordinates(this.s, this.t, this.u);
-      var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+      var1 = new Vec3D(this.s, this.t, this.u);
+      var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
       if(var3 != null) {
-         var2 = new ChunkCoordinates(var3.c.a, var3.c.b, var3.c.c);
+         var2 = new Vec3D(var3.c.a, var3.c.b, var3.c.c);
       }
 
       if(!this.o.D) {
@@ -150,7 +150,7 @@ public abstract class EntityProjectile extends Entity implements aho {
       this.s += this.v;
       this.t += this.w;
       this.u += this.x;
-      float var16 = MathHelper.a(this.v * this.v + this.x * this.x);
+      float var16 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
       for(this.z = (float)(Math.atan2(this.w, (double)var16) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
@@ -196,33 +196,33 @@ public abstract class EntityProjectile extends Entity implements aho {
    protected abstract void a(MovingObjectPosition var1);
 
    public void b(NBTTagCompound var1) {
-      var1.a("xTile", (short)this.c);
-      var1.a("yTile", (short)this.d);
-      var1.a("zTile", (short)this.e);
+      var1.setShort("xTile", (short)this.c);
+      var1.setShort("yTile", (short)this.d);
+      var1.setShort("zTile", (short)this.e);
       RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.f);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("shake", (byte)this.b);
-      var1.a("inGround", (byte)(this.a?1:0));
+      var1.setString("inTile", var2 == null?"":var2.toString());
+      var1.setByte("shake", (byte)this.b);
+      var1.setByte("inGround", (byte)(this.a?1:0));
       if((this.h == null || this.h.length() == 0) && this.g instanceof EntityHuman) {
          this.h = this.g.d_();
       }
 
-      var1.a("ownerName", this.h == null?"":this.h);
+      var1.setString("ownerName", this.h == null?"":this.h);
    }
 
    public void a(NBTTagCompound var1) {
-      this.c = var1.e("xTile");
-      this.d = var1.e("yTile");
-      this.e = var1.e("zTile");
+      this.c = var1.getShort("xTile");
+      this.d = var1.getShort("yTile");
+      this.e = var1.getShort("zTile");
       if(var1.b("inTile", 8)) {
-         this.f = Block.b(var1.j("inTile"));
+         this.f = Block.b(var1.getString("inTile"));
       } else {
-         this.f = Block.c(var1.d("inTile") & 255);
+         this.f = Block.c(var1.getByte("inTile") & 255);
       }
 
-      this.b = var1.d("shake") & 255;
-      this.a = var1.d("inGround") == 1;
-      this.h = var1.j("ownerName");
+      this.b = var1.getByte("shake") & 255;
+      this.a = var1.getByte("inGround") == 1;
+      this.h = var1.getString("ownerName");
       if(this.h != null && this.h.length() == 0) {
          this.h = null;
       }

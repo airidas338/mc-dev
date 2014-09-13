@@ -9,14 +9,14 @@ public class BlockRepeater extends ava {
 
    protected BlockRepeater(boolean var1) {
       super(var1);
-      this.j(this.L.b().a(N, ej.c).a(b, Integer.valueOf(1)).a(a, Boolean.valueOf(false)));
+      this.j(this.L.b().a(N, EnumFacing.NORTH).a(b, Integer.valueOf(1)).a(a, Boolean.valueOf(false)));
    }
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
       return var1.a(a, Boolean.valueOf(this.b(var2, var3, var1)));
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -32,14 +32,14 @@ public class BlockRepeater extends ava {
    protected IBlock e(IBlock var1) {
       Integer var2 = (Integer)var1.b(b);
       Boolean var3 = (Boolean)var1.b(a);
-      ej var4 = (ej)var1.b(N);
+      EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.bc.P().a(N, var4).a(b, var2).a(a, var3);
    }
 
    protected IBlock k(IBlock var1) {
       Integer var2 = (Integer)var1.b(b);
       Boolean var3 = (Boolean)var1.b(a);
-      ej var4 = (ej)var1.b(N);
+      EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.bb.P().a(N, var4).a(b, var2).a(a, var3);
    }
 
@@ -61,12 +61,12 @@ public class BlockRepeater extends ava {
    }
 
    public IBlock a(int var1) {
-      return this.P().a(N, ej.b(var1)).a(a, Boolean.valueOf(false)).a(b, Integer.valueOf(1 + (var1 >> 2)));
+      return this.P().a(N, EnumFacing.b(var1)).a(a, Boolean.valueOf(false)).a(b, Integer.valueOf(1 + (var1 >> 2)));
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(N)).b();
+      int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       var3 |= ((Integer)var1.b(b)).intValue() - 1 << 2;
       return var3;
    }

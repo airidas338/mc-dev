@@ -12,13 +12,13 @@ public class EntityBlaze extends EntityMonster {
       super(var1);
       this.ab = true;
       this.b_ = 10;
-      this.i.a(4, new aen(this));
-      this.i.a(5, new zo(this, 1.0D));
-      this.i.a(7, new zy(this, 1.0D));
-      this.i.a(8, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(8, new zx(this));
-      this.bg.a(1, new aal(this, true, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
+      this.goalSelector.a(4, new aen(this));
+      this.goalSelector.a(5, new PathfinderGoalMoveTowardsRestriction(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(8, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
    }
 
    protected void aW() {

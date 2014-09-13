@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ey implements ex {
+public class ey implements IPosition {
 
    protected final double a;
    protected final double b;
@@ -13,15 +13,15 @@ public class ey implements ex {
       this.c = var5;
    }
 
-   public double a() {
+   public double getX() {
       return this.a;
    }
 
-   public double b() {
+   public double getY() {
       return this.b;
    }
 
-   public double c() {
+   public double getZ() {
       return this.c;
    }
 }

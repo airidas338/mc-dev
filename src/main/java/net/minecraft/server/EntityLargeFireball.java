@@ -30,13 +30,13 @@ public class EntityLargeFireball extends EntityFireball {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("ExplosionPower", this.e);
+      var1.setInt("ExplosionPower", this.e);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("ExplosionPower", 99)) {
-         this.e = var1.f("ExplosionPower");
+         this.e = var1.getInt("ExplosionPower");
       }
 
    }

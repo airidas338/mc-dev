@@ -9,7 +9,7 @@ public class aaa extends PathfinderGoal {
 
    public aaa(EntityCreature var1) {
       this.a = var1;
-      if(!(var1.s() instanceof aay)) {
+      if(!(var1.getNavigation() instanceof aay)) {
          throw new IllegalArgumentException("Unsupported mob type for RestrictOpenDoorGoal");
       }
    }
@@ -19,7 +19,7 @@ public class aaa extends PathfinderGoal {
          return false;
       } else {
          Location var1 = new Location(this.a);
-         abi var2 = this.a.o.ae().a(var1, 16);
+         Village var2 = this.a.o.ae().a(var1, 16);
          if(var2 == null) {
             return false;
          } else {
@@ -34,13 +34,13 @@ public class aaa extends PathfinderGoal {
    }
 
    public void c() {
-      ((aay)this.a.s()).b(false);
-      ((aay)this.a.s()).c(false);
+      ((aay)this.a.getNavigation()).b(false);
+      ((aay)this.a.getNavigation()).c(false);
    }
 
    public void d() {
-      ((aay)this.a.s()).b(true);
-      ((aay)this.a.s()).c(true);
+      ((aay)this.a.getNavigation()).b(true);
+      ((aay)this.a.getNavigation()).c(true);
       this.b = null;
    }
 

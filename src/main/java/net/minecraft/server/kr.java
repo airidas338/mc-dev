@@ -15,7 +15,7 @@ public class kr implements Packet {
 
    public kr() {}
 
-   public kr(bfb var1, kt var2) {
+   public kr(WorldBorder var1, kt var2) {
       this.a = var2;
       this.c = var1.f();
       this.d = var1.g();

@@ -11,10 +11,10 @@ public class aln extends Item {
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 == ej.a) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 == EnumFacing.DOWN) {
          return false;
-      } else if(var5 == ej.b) {
+      } else if(var5 == EnumFacing.UP) {
          return false;
       } else {
          Location var9 = var4.a(var5);
@@ -35,7 +35,7 @@ public class aln extends Item {
       }
    }
 
-   private EntityHanging a(World var1, Location var2, ej var3) {
+   private EntityHanging a(World var1, Location var2, EnumFacing var3) {
       return (EntityHanging)(this.a == EntityPainting.class?new EntityPainting(var1, var2, var3):(this.a == EntityItemFrame.class?new EntityItemFrame(var1, var2, var3):null));
    }
 }

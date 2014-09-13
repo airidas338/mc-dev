@@ -29,7 +29,7 @@ public class EntityEgg extends EntityProjectile {
          for(int var3 = 0; var3 < var2; ++var3) {
             EntityChicken var4 = new EntityChicken(this.o);
             var4.b(-24000);
-            var4.b(this.s, this.t, this.u, this.y, 0.0F);
+            var4.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
             this.o.d((Entity)var4);
          }
       }

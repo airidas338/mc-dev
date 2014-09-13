@@ -14,7 +14,7 @@ public class yp extends PathfinderGoal {
    protected Entity c;
    private float f;
    private bpv g;
-   private aaz h;
+   private Navigation h;
    private Predicate i;
 
 
@@ -24,17 +24,17 @@ public class yp extends PathfinderGoal {
       this.f = var3;
       this.d = var4;
       this.e = var6;
-      this.h = var1.s();
+      this.h = var1.getNavigation();
       this.a(1);
    }
 
    public boolean a() {
-      List var1 = this.b.o.a((Entity)this.b, this.b.aQ().b((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{xe.d, this.a, this.i}));
+      List var1 = this.b.o.a((Entity)this.b, this.b.aQ().b((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{EntitySelectors.d, this.a, this.i}));
       if(var1.isEmpty()) {
          return false;
       } else {
          this.c = (Entity)var1.get(0);
-         ChunkCoordinates var2 = abf.b(this.b, 16, 7, new ChunkCoordinates(this.c.s, this.c.t, this.c.u));
+         Vec3D var2 = abf.b(this.b, 16, 7, new Vec3D(this.c.s, this.c.t, this.c.u));
          if(var2 == null) {
             return false;
          } else if(this.c.e(var2.a, var2.b, var2.c) < this.c.h(this.b)) {
@@ -60,9 +60,9 @@ public class yp extends PathfinderGoal {
 
    public void e() {
       if(this.b.h(this.c) < 49.0D) {
-         this.b.s().a(this.e);
+         this.b.getNavigation().a(this.e);
       } else {
-         this.b.s().a(this.d);
+         this.b.getNavigation().a(this.d);
       }
 
    }

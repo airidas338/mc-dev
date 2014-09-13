@@ -26,7 +26,7 @@ public class all extends Item {
       this(var1, 0.6F, var2);
    }
 
-   public amj b(amj var1, World var2, EntityHuman var3) {
+   public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
       --var1.b;
       var3.ck().a(this, var1);
       var2.a((Entity)var3, "random.burp", 0.5F, var2.s.nextFloat() * 0.1F + 0.9F);
@@ -35,22 +35,22 @@ public class all extends Item {
       return var1;
    }
 
-   protected void c(amj var1, World var2, EntityHuman var3) {
+   protected void c(ItemStack var1, World var2, EntityHuman var3) {
       if(!var2.D && this.l > 0 && var2.s.nextFloat() < this.o) {
-         var3.c(new wq(this.l, this.m * 20, this.n));
+         var3.c(new MobEffect(this.l, this.m * 20, this.n));
       }
 
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 32;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.b;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(var3.j(this.k)) {
          var3.a(var1, this.d(var1));
       }
@@ -58,11 +58,11 @@ public class all extends Item {
       return var1;
    }
 
-   public int h(amj var1) {
+   public int h(ItemStack var1) {
       return this.b;
    }
 
-   public float i(amj var1) {
+   public float i(ItemStack var1) {
       return this.c;
    }
 

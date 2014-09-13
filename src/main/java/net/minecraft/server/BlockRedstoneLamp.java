@@ -50,7 +50,7 @@ public class BlockRedstoneLamp extends Block {
       return Item.a(Blocks.bJ);
    }
 
-   protected amj i(IBlock var1) {
-      return new amj(Blocks.bJ);
+   protected ItemStack i(IBlock var1) {
+      return new ItemStack(Blocks.bJ);
    }
 }

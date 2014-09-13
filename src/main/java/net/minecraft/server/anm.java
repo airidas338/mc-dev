@@ -19,7 +19,7 @@ public class anm extends Item {
       return this.b.c();
    }
 
-   public float a(amj var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       if(var2 == Blocks.G) {
          return 15.0F;
       } else {
@@ -28,12 +28,12 @@ public class anm extends Item {
       }
    }
 
-   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       var1.a(1, var3);
       return true;
    }
 
-   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, Location var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(2, var5);
       }
@@ -41,15 +41,15 @@ public class anm extends Item {
       return true;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.d;
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 72000;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       var3.a(var1, this.d(var1));
       return var1;
    }
@@ -66,7 +66,7 @@ public class anm extends Item {
       return this.b.toString();
    }
 
-   public boolean a(amj var1, amj var2) {
+   public boolean a(ItemStack var1, ItemStack var2) {
       return this.b.f() == var2.b()?true:super.a(var1, var2);
    }
 

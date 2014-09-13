@@ -15,7 +15,7 @@ public class BlockTripwireHook extends Block {
 
    public BlockTripwireHook() {
       super(Material.ORIENTABLE);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)));
       this.a(CreativeModeTab.d);
       this.a(true);
    }
@@ -36,26 +36,26 @@ public class BlockTripwireHook extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, ej var3) {
+   public boolean a(World var1, Location var2, EnumFacing var3) {
       return var3.k().c() && var1.getData(var2.a(var3.d())).c().t();
    }
 
    public boolean c(World var1, Location var2) {
       Iterator var3 = en.a.iterator();
 
-      ej var4;
+      EnumFacing var4;
       do {
          if(!var3.hasNext()) {
             return false;
          }
 
-         var4 = (ej)var3.next();
+         var4 = (EnumFacing)var3.next();
       } while(!var1.getData(var2.a(var4)).c().t());
 
       return true;
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlock var9 = this.P().a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
       if(var3.k().c()) {
          var9 = var9.a(a, var3);
@@ -64,14 +64,14 @@ public class BlockTripwireHook extends Block {
       return var9;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
       this.a(var1, var2, var3, false, false, -1, (IBlock)null);
    }
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       if(var4 != this) {
          if(this.e(var1, var2, var3)) {
-            ej var5 = (ej)var3.b(a);
+            EnumFacing var5 = (EnumFacing)var3.b(a);
             if(!var1.getData(var2.a(var5.d())).c().t()) {
                this.b(var1, var2, var3, 0);
                var1.g(var2);
@@ -82,7 +82,7 @@ public class BlockTripwireHook extends Block {
    }
 
    public void a(World var1, Location var2, IBlock var3, boolean var4, boolean var5, int var6, IBlock var7) {
-      ej var8 = (ej)var3.b(a);
+      EnumFacing var8 = (EnumFacing)var3.b(a);
       boolean var9 = ((Boolean)var3.b(M)).booleanValue();
       boolean var10 = ((Boolean)var3.b(b)).booleanValue();
       boolean var11 = !World.a((IBlockAccess)var1, var2.b());
@@ -128,7 +128,7 @@ public class BlockTripwireHook extends Block {
       IBlock var22 = this.P().a(M, Boolean.valueOf(var12)).a(b, Boolean.valueOf(var13));
       if(var14 > 0) {
          var17 = var2.a(var8, var14);
-         ej var26 = var8.d();
+         EnumFacing var26 = var8.d();
          var1.a(var17, var22.a(a, var26), 3);
          this.b(var1, var17, var26);
          this.a(var1, var17, var12, var13, var9, var10);
@@ -146,7 +146,7 @@ public class BlockTripwireHook extends Block {
          for(int var23 = 1; var23 < var14; ++var23) {
             Location var24 = var2.a(var8, var23);
             IBlock var25 = var15[var23];
-            if(var25 != null && var1.getData(var24).c() != Blocks.a) {
+            if(var25 != null && var1.getData(var24).c() != Blocks.AIR) {
                var1.a(var24, var25.a(M, Boolean.valueOf(var12)), 3);
             }
          }
@@ -173,7 +173,7 @@ public class BlockTripwireHook extends Block {
 
    }
 
-   private void b(World var1, Location var2, ej var3) {
+   private void b(World var1, Location var2, EnumFacing var3) {
       var1.c(var2, (Block)this);
       var1.c(var2.a(var3.d()), (Block)this);
    }
@@ -190,7 +190,7 @@ public class BlockTripwireHook extends Block {
 
    public void a(IBlockAccess var1, Location var2) {
       float var3 = 0.1875F;
-      switch(bbu.a[((ej)var1.getData(var2).b(a)).ordinal()]) {
+      switch(bbu.a[((EnumFacing)var1.getData(var2).b(a)).ordinal()]) {
       case 1:
          this.a(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;
@@ -215,17 +215,17 @@ public class BlockTripwireHook extends Block {
 
       if(var5) {
          var1.c(var2, (Block)this);
-         var1.c(var2.a(((ej)var3.b(a)).d()), (Block)this);
+         var1.c(var2.a(((EnumFacing)var3.b(a)).d()), (Block)this);
       }
 
       super.b(var1, var2, var3);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(var3.b(a) == var4?15:0);
    }
 
@@ -234,12 +234,12 @@ public class BlockTripwireHook extends Block {
    }
 
    public IBlock a(int var1) {
-      return this.P().a(a, ej.b(var1 & 3)).a(b, Boolean.valueOf((var1 & 8) > 0)).a(M, Boolean.valueOf((var1 & 4) > 0));
+      return this.P().a(a, EnumFacing.b(var1 & 3)).a(b, Boolean.valueOf((var1 & 8) > 0)).a(M, Boolean.valueOf((var1 & 4) > 0));
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(a)).b();
+      int var3 = var2 | ((EnumFacing)var1.b(a)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {
          var3 |= 8;
       }

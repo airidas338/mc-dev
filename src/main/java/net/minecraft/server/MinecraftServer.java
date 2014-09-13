@@ -178,7 +178,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 				this.c[var10] = (WorldServer) (new SecondaryWorldServer(this, var7, var11, this.c[0], this.b)).b();
 			}
 
-			this.c[var10].a((ara) (new WorldManager(this, this.c[var10])));
+			this.c[var10].a((IWorldAccess) (new WorldManager(this, this.c[var10])));
 			if (!this.S()) {
 				this.c[var10].P().a(this.m());
 			}
@@ -1028,8 +1028,8 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 		return Location.a;
 	}
 
-	public ChunkCoordinates d() {
-		return new ChunkCoordinates(0.0D, 0.0D, 0.0D);
+	public Vec3D d() {
+		return new Vec3D(0.0D, 0.0D, 0.0D);
 	}
 
 	public World e() {

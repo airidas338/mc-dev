@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum aur implements va {
+public enum aur implements IName {
 
    a("COMPARE", 0, "compare"),
    b("SUBTRACT", 1, "subtract");
@@ -17,7 +17,7 @@ public enum aur implements va {
       return this.c;
    }
 
-   public String l() {
+   public String getName() {
       return this.c;
    }
 

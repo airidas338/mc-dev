@@ -14,7 +14,7 @@ class blf {
       this.a = var1;
    }
 
-   public void a(ej var1, blf var2) {
+   public void a(EnumFacing var1, blf var2) {
       this.b[var1.a()] = var2;
       var2.b[var1.d().a()] = this;
    }

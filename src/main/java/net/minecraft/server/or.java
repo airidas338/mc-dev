@@ -3,18 +3,18 @@ package net.minecraft.server;
 class or extends oc {
 
    // $FF: synthetic field
-   final amj b;
+   final ItemStack b;
    // $FF: synthetic field
-   final oq c;
+   final DispenserBehaviorPotion c;
 
 
-   or(oq var1, amj var2) {
+   or(DispenserBehaviorPotion var1, ItemStack var2) {
       this.c = var1;
       this.b = var2;
    }
 
-   protected aho a(World var1, ex var2) {
-      return new EntityPotion(var1, var2.a(), var2.b(), var2.c(), this.b.k());
+   protected IProjectile a(World var1, IPosition var2) {
+      return new EntityPotion(var1, var2.getX(), var2.getY(), var2.getZ(), this.b.k());
    }
 
    protected float a() {

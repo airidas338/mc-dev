@@ -106,7 +106,7 @@ public class BlockCrops extends BlockPlant implements atz {
 
             for(int var8 = 0; var8 < var7; ++var8) {
                if(var1.s.nextInt(15) <= var6) {
-                  a(var1, var2, new amj(this.j(), 1, 0));
+                  a(var1, var2, new ItemStack(this.j(), 1, 0));
                }
             }
          }

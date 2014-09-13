@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum awf implements va {
+public enum awf implements IName {
 
    a("EMPTY", 0, "empty"),
    b("POPPY", 1, "rose"),
@@ -37,7 +37,7 @@ public enum awf implements va {
       return this.w;
    }
 
-   public String l() {
+   public String getName() {
       return this.w;
    }
 

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bcx extends bdf implements vq {
+public class bcx extends bdf implements IInventory {
 
    private static final Random f = new Random();
-   private amj[] g = new amj[9];
+   private ItemStack[] g = new ItemStack[9];
    protected String a;
 
 
@@ -12,13 +12,13 @@ public class bcx extends bdf implements vq {
       return 9;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return this.g[var1];
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.g[var1] != null) {
-         amj var3;
+         ItemStack var3;
          if(this.g[var1].b <= var2) {
             var3 = this.g[var1];
             this.g[var1] = null;
@@ -38,9 +38,9 @@ public class bcx extends bdf implements vq {
       }
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(this.g[var1] != null) {
-         amj var2 = this.g[var1];
+         ItemStack var2 = this.g[var1];
          this.g[var1] = null;
          return var2;
       } else {
@@ -61,7 +61,7 @@ public class bcx extends bdf implements vq {
       return var1;
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       this.g[var1] = var2;
       if(var2 != null && var2.b > this.p_()) {
          var2.b = this.p_();
@@ -70,7 +70,7 @@ public class bcx extends bdf implements vq {
       this.o_();
    }
 
-   public int a(amj var1) {
+   public int a(ItemStack var1) {
       for(int var2 = 0; var2 < this.g.length; ++var2) {
          if(this.g[var2] == null || this.g[var2].b() == null) {
             this.a(var2, var1);
@@ -95,39 +95,39 @@ public class bcx extends bdf implements vq {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      fv var2 = var1.c("Items", 10);
-      this.g = new amj[this.n_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.g = new ItemStack[this.n_()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          NBTTagCompound var4 = var2.b(var3);
-         int var5 = var4.d("Slot") & 255;
+         int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.g.length) {
-            this.g[var5] = amj.a(var4);
+            this.g[var5] = ItemStack.a(var4);
          }
       }
 
       if(var1.b("CustomName", 8)) {
-         this.a = var1.j("CustomName");
+         this.a = var1.getString("CustomName");
       }
 
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          if(this.g[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
-            var4.a("Slot", (byte)var3);
+            var4.setByte("Slot", (byte)var3);
             this.g[var3].b(var4);
             var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (NBTBase)var2);
+      var1.set("Items", (NBTBase)var2);
       if(this.k_()) {
-         var1.a("CustomName", this.a);
+         var1.setString("CustomName", this.a);
       }
 
    }
@@ -144,7 +144,7 @@ public class bcx extends bdf implements vq {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

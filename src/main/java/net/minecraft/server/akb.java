@@ -11,8 +11,8 @@ public class akb extends Item {
       this.a(CreativeModeTab.f);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
-      boolean var4 = this.a == Blocks.a;
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
+      boolean var4 = this.a == Blocks.AIR;
       MovingObjectPosition var5 = this.a(var2, var3, var4);
       if(var5 == null) {
          return var1;
@@ -42,8 +42,8 @@ public class akb extends Item {
                   return this.a(var1, var3, Items.ay);
                }
             } else {
-               if(this.a == Blocks.a) {
-                  return new amj(Items.aw);
+               if(this.a == Blocks.AIR) {
+                  return new ItemStack(Items.aw);
                }
 
                Location var9 = var6.a(var5.b);
@@ -53,7 +53,7 @@ public class akb extends Item {
 
                if(this.a(var2, var9) && !var3.by.d) {
                   var3.b(ty.J[Item.b((Item)this)]);
-                  return new amj(Items.aw);
+                  return new ItemStack(Items.aw);
                }
             }
          }
@@ -62,14 +62,14 @@ public class akb extends Item {
       }
    }
 
-   private amj a(amj var1, EntityHuman var2, Item var3) {
+   private ItemStack a(ItemStack var1, EntityHuman var2, Item var3) {
       if(var2.by.d) {
          return var1;
       } else if(--var1.b <= 0) {
-         return new amj(var3);
+         return new ItemStack(var3);
       } else {
-         if(!var2.bg.a(new amj(var3))) {
-            var2.a(new amj(var3, 1, 0), false);
+         if(!var2.bg.a(new ItemStack(var3))) {
+            var2.a(new ItemStack(var3, 1, 0), false);
          }
 
          return var1;
@@ -77,7 +77,7 @@ public class akb extends Item {
    }
 
    public boolean a(World var1, Location var2) {
-      if(this.a == Blocks.a) {
+      if(this.a == Blocks.AIR) {
          return false;
       } else {
          Material var3 = var1.getData(var2).c().r();

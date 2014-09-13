@@ -7,15 +7,15 @@ public class EntityCow extends EntityAnimal {
    public EntityCow(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
-      ((aay)this.s()).a(true);
-      this.i.a(0, new yy(this));
-      this.i.a(1, new zu(this, 2.0D));
-      this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.25D, Items.O, false));
-      this.i.a(4, new za(this, 1.25D));
-      this.i.a(5, new zy(this, 1.0D));
-      this.i.a(6, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(7, new zx(this));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new zu(this, 2.0D));
+      this.goalSelector.a(2, new yt(this, 1.0D));
+      this.goalSelector.a(3, new aag(this, 1.25D, Items.O, false));
+      this.goalSelector.a(4, new za(this, 1.25D));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(7, new PathfinderGoalRandomLookaround(this));
    }
 
    protected void aW() {
@@ -69,12 +69,12 @@ public class EntityCow extends EntityAnimal {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.aw && !var1.by.d) {
          if(var2.b-- == 1) {
-            var1.bg.a(var1.bg.c, new amj(Items.aG));
-         } else if(!var1.bg.a(new amj(Items.aG))) {
-            var1.a(new amj(Items.aG, 1, 0), false);
+            var1.bg.a(var1.bg.c, new ItemStack(Items.aG));
+         } else if(!var1.bg.a(new ItemStack(Items.aG))) {
+            var1.a(new ItemStack(Items.aG, 1, 0), false);
          }
 
          return true;

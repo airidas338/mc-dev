@@ -4,7 +4,7 @@ public class abh {
 
    private final Location a;
    private final Location b;
-   private final ej c;
+   private final EnumFacing c;
    private int d;
    private boolean e;
    private int f;
@@ -14,11 +14,11 @@ public class abh {
       this(var1, a(var2, var3), var4);
    }
 
-   private static ej a(int var0, int var1) {
-      return var0 < 0?ej.e:(var0 > 0?ej.f:(var1 < 0?ej.c:ej.d));
+   private static EnumFacing a(int var0, int var1) {
+      return var0 < 0?EnumFacing.WEST:(var0 > 0?EnumFacing.EAST:(var1 < 0?EnumFacing.NORTH:EnumFacing.SOUTH));
    }
 
-   public abh(Location var1, ej var2, int var3) {
+   public abh(Location var1, EnumFacing var2, int var3) {
       this.a = var1;
       this.c = var2;
       this.b = var1.a(var2, 2);

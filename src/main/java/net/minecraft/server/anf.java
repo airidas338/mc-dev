@@ -7,8 +7,8 @@ public class anf extends Item {
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 == ej.a) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 == EnumFacing.DOWN) {
          return false;
       } else if(!var3.getData(var4).c().r().a()) {
          return false;
@@ -21,7 +21,7 @@ public class anf extends Item {
          } else if(var3.D) {
             return true;
          } else {
-            if(var5 == ej.b) {
+            if(var5 == EnumFacing.UP) {
                int var9 = MathHelper.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
                var3.a(var4, Blocks.an.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
@@ -29,7 +29,7 @@ public class anf extends Item {
             }
 
             --var1.b;
-            bcm var10 = var3.s(var4);
+            TileEntity var10 = var3.s(var4);
             if(var10 instanceof bdj && !aju.a(var3, var4, var1)) {
                var2.a((bdj)var10);
             }

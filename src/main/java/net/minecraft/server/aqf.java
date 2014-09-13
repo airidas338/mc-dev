@@ -23,22 +23,22 @@ public abstract class aqf implements ICommandSender {
    }
 
    public void a(NBTTagCompound var1) {
-      var1.a("Command", this.e);
-      var1.a("SuccessCount", this.b);
-      var1.a("CustomName", this.f);
-      var1.a("TrackOutput", this.c);
+      var1.setString("Command", this.e);
+      var1.setInt("SuccessCount", this.b);
+      var1.setString("CustomName", this.f);
+      var1.setBoolean("TrackOutput", this.c);
       if(this.d != null && this.c) {
-         var1.a("LastOutput", hp.a(this.d));
+         var1.setString("LastOutput", hp.a(this.d));
       }
 
       this.g.b(var1);
    }
 
    public void b(NBTTagCompound var1) {
-      this.e = var1.j("Command");
-      this.b = var1.f("SuccessCount");
+      this.e = var1.getString("Command");
+      this.b = var1.getInt("SuccessCount");
       if(var1.b("CustomName", 8)) {
-         this.f = var1.j("CustomName");
+         this.f = var1.getString("CustomName");
       }
 
       if(var1.b("TrackOutput", 1)) {
@@ -46,7 +46,7 @@ public abstract class aqf implements ICommandSender {
       }
 
       if(var1.b("LastOutput", 8) && this.c) {
-         this.d = hp.a(var1.j("LastOutput"));
+         this.d = hp.a(var1.getString("LastOutput"));
       }
 
       this.g.a(var1);

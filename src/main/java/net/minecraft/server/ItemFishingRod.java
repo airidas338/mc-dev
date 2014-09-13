@@ -9,7 +9,7 @@ public class ItemFishingRod extends Item {
       this.a(CreativeModeTab.i);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(var3.bE != null) {
          int var4 = var3.bE.l();
          var1.a(var4, (EntityLiving)var3);
@@ -27,7 +27,7 @@ public class ItemFishingRod extends Item {
       return var1;
    }
 
-   public boolean f_(amj var1) {
+   public boolean f_(ItemStack var1) {
       return super.f_(var1);
    }
 

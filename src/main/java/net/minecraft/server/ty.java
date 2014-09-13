@@ -72,7 +72,7 @@ public class ty {
       var1 = aok.a().b().values().iterator();
 
       while(var1.hasNext()) {
-         amj var5 = (amj)var1.next();
+         ItemStack var5 = (ItemStack)var1.next();
          var0.add(var5.b());
       }
 
@@ -84,7 +84,7 @@ public class ty {
             int var3 = Item.b(var6);
             String var4 = a(var6);
             if(var4 != null) {
-               I[var3] = (new to("stat.craftItem.", var4, new ChatMessage("stat.craftItem", new Object[]{(new amj(var6)).C()}), var6)).h();
+               I[var3] = (new to("stat.craftItem.", var4, new ChatMessage("stat.craftItem", new Object[]{(new ItemStack(var6)).C()}), var6)).h();
             }
          }
       }
@@ -102,7 +102,7 @@ public class ty {
             int var3 = Block.a(var1);
             String var4 = a(var2);
             if(var4 != null && var1.I()) {
-               H[var3] = (new to("stat.mineBlock.", var4, new ChatMessage("stat.mineBlock", new Object[]{(new amj(var1)).C()}), var2)).h();
+               H[var3] = (new to("stat.mineBlock.", var4, new ChatMessage("stat.mineBlock", new Object[]{(new ItemStack(var1)).C()}), var2)).h();
                e.add((to)H[var3]);
             }
          }
@@ -120,7 +120,7 @@ public class ty {
             int var2 = Item.b(var1);
             String var3 = a(var1);
             if(var3 != null) {
-               J[var2] = (new to("stat.useItem.", var3, new ChatMessage("stat.useItem", new Object[]{(new amj(var1)).C()}), var1)).h();
+               J[var2] = (new to("stat.useItem.", var3, new ChatMessage("stat.useItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
                if(!(var1 instanceof aju)) {
                   d.add((to)J[var2]);
                }
@@ -140,7 +140,7 @@ public class ty {
             int var2 = Item.b(var1);
             String var3 = a(var1);
             if(var3 != null && var1.m()) {
-               K[var2] = (new to("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new amj(var1)).C()}), var1)).h();
+               K[var2] = (new to("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
             }
          }
       }

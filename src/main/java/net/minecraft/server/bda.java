@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bda extends bcm implements IUpdatePlayerListBox {
+public class bda extends TileEntity implements IUpdatePlayerListBox {
 
    public float a;
    public float f;

@@ -26,7 +26,7 @@ public class Location extends fd {
       this(var1.s, var1.t, var1.u);
    }
 
-   public Location(ChunkCoordinates var1) {
+   public Location(Vec3D var1) {
       this(var1.a, var1.b, var1.c);
    }
 
@@ -55,7 +55,7 @@ public class Location extends fd {
    }
 
    public Location b(int var1) {
-      return this.a(ej.b, var1);
+      return this.a(EnumFacing.UP, var1);
    }
 
    public Location b() {
@@ -63,7 +63,7 @@ public class Location extends fd {
    }
 
    public Location c(int var1) {
-      return this.a(ej.a, var1);
+      return this.a(EnumFacing.DOWN, var1);
    }
 
    public Location c() {
@@ -71,7 +71,7 @@ public class Location extends fd {
    }
 
    public Location d(int var1) {
-      return this.a(ej.c, var1);
+      return this.a(EnumFacing.NORTH, var1);
    }
 
    public Location d() {
@@ -79,7 +79,7 @@ public class Location extends fd {
    }
 
    public Location e(int var1) {
-      return this.a(ej.d, var1);
+      return this.a(EnumFacing.SOUTH, var1);
    }
 
    public Location e() {
@@ -87,7 +87,7 @@ public class Location extends fd {
    }
 
    public Location f(int var1) {
-      return this.a(ej.e, var1);
+      return this.a(EnumFacing.WEST, var1);
    }
 
    public Location f() {
@@ -95,14 +95,14 @@ public class Location extends fd {
    }
 
    public Location g(int var1) {
-      return this.a(ej.f, var1);
+      return this.a(EnumFacing.EAST, var1);
    }
 
-   public Location a(ej var1) {
+   public Location a(EnumFacing var1) {
       return this.a(var1, 1);
    }
 
-   public Location a(ej var1, int var2) {
+   public Location a(EnumFacing var1, int var2) {
       return new Location(this.n() + var1.g() * var2, this.o() + var1.h() * var2, this.p() + var1.i() * var2);
    }
 

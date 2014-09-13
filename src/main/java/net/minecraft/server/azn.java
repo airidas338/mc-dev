@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum azn implements va {
+public enum azn implements IName {
 
    a("DEFAULT", 0, 0, "default", "default"),
    b("CHISELED", 1, 1, "chiseled", "chiseled"),
@@ -37,7 +37,7 @@ public enum azn implements va {
       return f[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.h;
    }
 

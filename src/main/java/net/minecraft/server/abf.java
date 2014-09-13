@@ -3,24 +3,24 @@ import java.util.Random;
 
 public class abf {
 
-   private static ChunkCoordinates a = new ChunkCoordinates(0.0D, 0.0D, 0.0D);
+   private static Vec3D a = new Vec3D(0.0D, 0.0D, 0.0D);
 
 
-   public static ChunkCoordinates a(EntityCreature var0, int var1, int var2) {
-      return c(var0, var1, var2, (ChunkCoordinates)null);
+   public static Vec3D a(EntityCreature var0, int var1, int var2) {
+      return c(var0, var1, var2, (Vec3D)null);
    }
 
-   public static ChunkCoordinates a(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
+   public static Vec3D a(EntityCreature var0, int var1, int var2, Vec3D var3) {
       a = var3.a(var0.s, var0.t, var0.u);
       return c(var0, var1, var2, a);
    }
 
-   public static ChunkCoordinates b(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
-      a = (new ChunkCoordinates(var0.s, var0.t, var0.u)).d(var3);
+   public static Vec3D b(EntityCreature var0, int var1, int var2, Vec3D var3) {
+      a = (new Vec3D(var0.s, var0.t, var0.u)).d(var3);
       return c(var0, var1, var2, a);
    }
 
-   private static ChunkCoordinates c(EntityCreature var0, int var1, int var2, ChunkCoordinates var3) {
+   private static Vec3D c(EntityCreature var0, int var1, int var2, Vec3D var3) {
       Random var4 = var0.bb();
       boolean var5 = false;
       int var6 = 0;
@@ -75,7 +75,7 @@ public class abf {
       }
 
       if(var5) {
-         return new ChunkCoordinates((double)var6, (double)var7, (double)var8);
+         return new Vec3D((double)var6, (double)var7, (double)var8);
       } else {
          return null;
       }

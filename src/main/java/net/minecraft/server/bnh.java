@@ -10,7 +10,7 @@ public class bnh extends bnn {
 
    public bnh() {}
 
-   public bnh(bnk var1, int var2, Random var3, bjb var4, ej var5) {
+   public bnh(bnk var1, int var2, Random var3, bjb var4, EnumFacing var5) {
       super(var1, var2);
       this.m = var5;
       this.l = var4;
@@ -20,17 +20,17 @@ public class bnh extends bnn {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("T", this.b);
-      var1.a("C", this.a);
+      var1.setInt("T", this.b);
+      var1.setBoolean("C", this.a);
    }
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.b = var1.f("T");
+      this.b = var1.getInt("T");
       this.a = var1.n("C");
    }
 
-   public static bnh a(bnk var0, List var1, Random var2, int var3, int var4, int var5, ej var6, int var7) {
+   public static bnh a(bnk var0, List var1, Random var2, int var3, int var4, int var5, EnumFacing var6, int var7) {
       bjb var8 = bjb.a(var3, var4, var5, 0, 0, 0, 4, 6, 5, var6);
       return a(var8) && bms.a(var1, var8) == null?new bnh(var0, var7, var2, var8, var6):null;
    }
@@ -45,7 +45,7 @@ public class bnh extends bnn {
          this.l.a(0, this.h - this.l.e + 6 - 1, 0);
       }
 
-      this.a(var1, var3, 1, 1, 1, 3, 5, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 1, 1, 1, 3, 5, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 0, 0, 0, 3, 0, 4, Blocks.e.P(), Blocks.e.P(), false);
       this.a(var1, var3, 1, 0, 1, 2, 0, 3, Blocks.d.P(), Blocks.d.P(), false);
       if(this.a) {
@@ -79,9 +79,9 @@ public class bnh extends bnn {
          this.a(var1, Blocks.aB.P(), this.b, 2, 3, var3);
       }
 
-      this.a(var1, Blocks.a.P(), 1, 1, 0, var3);
-      this.a(var1, Blocks.a.P(), 1, 2, 0, var3);
-      this.a(var1, var3, var2, 1, 1, 0, ej.b(this.a(Blocks.ao, 1)));
+      this.a(var1, Blocks.AIR.P(), 1, 1, 0, var3);
+      this.a(var1, Blocks.AIR.P(), 1, 2, 0, var3);
+      this.a(var1, var3, var2, 1, 1, 0, EnumFacing.b(this.a(Blocks.ao, 1)));
       if(this.a(var1, 1, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 1, -1, -1, var3).c().r() != Material.AIR) {
          this.a(var1, Blocks.aw.a(this.a(Blocks.aw, 3)), 1, 0, -1, var3);
       }

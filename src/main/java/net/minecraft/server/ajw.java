@@ -8,14 +8,14 @@ public class ajw extends Item {
       this.a(CreativeModeTab.e);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       float var4 = 1.0F;
       float var5 = var3.B + (var3.z - var3.B) * var4;
       float var6 = var3.A + (var3.y - var3.A) * var4;
       double var7 = var3.p + (var3.s - var3.p) * (double)var4;
       double var9 = var3.q + (var3.t - var3.q) * (double)var4 + (double)var3.aR();
       double var11 = var3.r + (var3.u - var3.r) * (double)var4;
-      ChunkCoordinates var13 = new ChunkCoordinates(var7, var9, var11);
+      Vec3D var13 = new Vec3D(var7, var9, var11);
       float var14 = MathHelper.cos(-var6 * 0.017453292F - 3.1415927F);
       float var15 = MathHelper.sin(-var6 * 0.017453292F - 3.1415927F);
       float var16 = -MathHelper.cos(-var5 * 0.017453292F);
@@ -23,12 +23,12 @@ public class ajw extends Item {
       float var18 = var15 * var16;
       float var20 = var14 * var16;
       double var21 = 5.0D;
-      ChunkCoordinates var23 = var13.b((double)var18 * var21, (double)var17 * var21, (double)var20 * var21);
+      Vec3D var23 = var13.b((double)var18 * var21, (double)var17 * var21, (double)var20 * var21);
       MovingObjectPosition var24 = var2.a(var13, var23, true);
       if(var24 == null) {
          return var1;
       } else {
-         ChunkCoordinates var25 = var3.d(var4);
+         Vec3D var25 = var3.d(var4);
          boolean var26 = false;
          float var27 = 1.0F;
          List var28 = var2.b((Entity)var3, var3.aQ().a(var25.a * var21, var25.b * var21, var25.c * var21).b((double)var27, (double)var27, (double)var27));

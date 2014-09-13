@@ -70,11 +70,11 @@ public class EntityTNTPrimed extends Entity {
    }
 
    protected void b(NBTTagCompound var1) {
-      var1.a("Fuse", (byte)this.a);
+      var1.setByte("Fuse", (byte)this.a);
    }
 
    protected void a(NBTTagCompound var1) {
-      this.a = var1.d("Fuse");
+      this.a = var1.getByte("Fuse");
    }
 
    public EntityLiving j() {

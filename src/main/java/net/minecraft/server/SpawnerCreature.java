@@ -104,7 +104,7 @@ public final class SpawnerCreature {
                                              return var36;
                                           }
 
-                                          var33.b((double)var31, (double)var24, (double)var32, var1.s.nextFloat() * 360.0F, 0.0F);
+                                          var33.setPositionRotation((double)var31, (double)var24, (double)var32, var1.s.nextFloat() * 360.0F, 0.0F);
                                           if(var33.bQ() && var33.bR()) {
                                              var28 = var33.a(var1.E(new Location(var33)), var28);
                                              if(var33.bR()) {
@@ -141,7 +141,7 @@ public final class SpawnerCreature {
    }
 
    protected static Location a(World var0, int var1, int var2) {
-      bfh var3 = var0.a(var1, var2);
+      Chunk var3 = var0.getChunkAt(var1, var2);
       int var4 = var1 * 16 + var0.s.nextInt(16);
       int var5 = var2 * 16 + var0.s.nextInt(16);
       int var6 = MathHelper.c(var3.f(new Location(var4, 0, var5)) + 1, 16);
@@ -195,7 +195,7 @@ public final class SpawnerCreature {
                         continue;
                      }
 
-                     var19.b((double)((float)var11 + 0.5F), (double)var18.o(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
+                     var19.setPositionRotation((double)((float)var11 + 0.5F), (double)var18.o(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
                      var0.d((Entity)var19);
                      var10 = var19.a(var0.E(new Location(var19)), var10);
                      var16 = true;

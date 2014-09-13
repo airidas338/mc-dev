@@ -35,7 +35,7 @@ public abstract class EntityWaterAnimal extends EntityInsentient implements wt {
    public void K() throws IOException {
       int var1 = this.aA();
       super.K();
-      if(this.ai() && !this.V()) {
+      if(this.isAlive() && !this.V()) {
          --var1;
          this.h(var1);
          if(this.aA() == -20) {

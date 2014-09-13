@@ -47,14 +47,14 @@ public class BlockSponge extends Block {
          vi var6 = (vi)var3.poll();
          var7 = (Location)var6.a();
          int var8 = ((Integer)var6.b()).intValue();
-         ej[] var9 = ej.values();
+         EnumFacing[] var9 = EnumFacing.values();
          int var10 = var9.length;
 
          for(int var11 = 0; var11 < var10; ++var11) {
-            ej var12 = var9[var11];
+            EnumFacing var12 = var9[var11];
             Location var13 = var7.a(var12);
             if(var1.getData(var13).c().r() == Material.WATER) {
-               var1.a(var13, Blocks.a.P(), 2);
+               var1.a(var13, Blocks.AIR.P(), 2);
                var4.add(var13);
                ++var5;
                if(var8 < 6) {
@@ -72,7 +72,7 @@ public class BlockSponge extends Block {
 
       while(var14.hasNext()) {
          var7 = (Location)var14.next();
-         var1.c(var7, Blocks.a);
+         var1.c(var7, Blocks.AIR);
       }
 
       return var5 > 0;

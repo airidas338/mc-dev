@@ -15,7 +15,7 @@ public class amy extends Item {
       b.put("records." + var1, this);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       IBlock var9 = var3.getData(var4);
       if(var9.c() == Blocks.aN && !((Boolean)var9.b(BlockJukebox.a)).booleanValue()) {
          if(var3.D) {
@@ -31,7 +31,7 @@ public class amy extends Item {
       }
    }
 
-   public amx g(amj var1) {
+   public amx g(ItemStack var1) {
       return amx.c;
    }
 

@@ -10,7 +10,7 @@ public class yy extends PathfinderGoal {
    public yy(EntityInsentient var1) {
       this.a = var1;
       this.a(4);
-      ((aay)var1.s()).d(true);
+      ((aay)var1.getNavigation()).d(true);
    }
 
    public boolean a() {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-enum avj implements va {
+enum avj implements IName {
 
    a("UPPER", 0),
    b("LOWER", 1);
@@ -11,10 +11,10 @@ enum avj implements va {
    private avj(String var1, int var2) {}
 
    public String toString() {
-      return this.l();
+      return this.getName();
    }
 
-   public String l() {
+   public String getName() {
       return this == a?"upper":"lower";
    }
 

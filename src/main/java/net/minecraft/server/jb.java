@@ -14,7 +14,7 @@ public class jb {
       this.c = var3;
    }
 
-   public jb(ja var1, short var2, bfh var3) {
+   public jb(ja var1, short var2, Chunk var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3.g(this.a());

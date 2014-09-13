@@ -4,15 +4,15 @@ import com.google.common.base.Predicate;
 
 public class xj implements Predicate {
 
-   private final amj a;
+   private final ItemStack a;
 
 
-   public xj(amj var1) {
+   public xj(ItemStack var1) {
       this.a = var1;
    }
 
    public boolean a(Entity var1) {
-      if(!var1.ai()) {
+      if(!var1.isAlive()) {
          return false;
       } else if(!(var1 instanceof EntityLiving)) {
          return false;

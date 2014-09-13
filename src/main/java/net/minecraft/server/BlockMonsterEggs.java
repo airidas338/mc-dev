@@ -22,27 +22,27 @@ public class BlockMonsterEggs extends Block {
       return var0 == Blocks.b.P().a(BlockStone.a, bbb.a) || var1 == Blocks.e || var1 == Blocks.bf;
    }
 
-   protected amj i(IBlock var1) {
+   protected ItemStack i(IBlock var1) {
       switch(axt.a[((axu)var1.b(a)).ordinal()]) {
       case 1:
-         return new amj(Blocks.e);
+         return new ItemStack(Blocks.e);
       case 2:
-         return new amj(Blocks.bf);
+         return new ItemStack(Blocks.bf);
       case 3:
-         return new amj(Blocks.bf, 1, bbd.b.a());
+         return new ItemStack(Blocks.bf, 1, bbd.b.a());
       case 4:
-         return new amj(Blocks.bf, 1, bbd.c.a());
+         return new ItemStack(Blocks.bf, 1, bbd.c.a());
       case 5:
-         return new amj(Blocks.bf, 1, bbd.d.a());
+         return new ItemStack(Blocks.bf, 1, bbd.d.a());
       default:
-         return new amj(Blocks.b);
+         return new ItemStack(Blocks.b);
       }
    }
 
    public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
       if(!var1.D && var1.Q().b("doTileDrops")) {
          EntitySilverfish var6 = new EntitySilverfish(var1);
-         var6.b((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
+         var6.setPositionRotation((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var6);
          var6.y();
       }

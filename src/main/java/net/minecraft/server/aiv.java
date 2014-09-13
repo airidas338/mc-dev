@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 public class aiv extends aib {
 
-   private final vq a;
+   private final IInventory a;
    private int f;
    private int g;
    private int h;
    private int i;
 
 
-   public aiv(ahb var1, vq var2) {
+   public aiv(ahb var1, IInventory var2) {
       this.a = var2;
       this.a(new ajk(var2, 0, 56, 17));
       this.a((ajk)(new aiu(var2, 1, 56, 53)));
@@ -65,11 +65,11 @@ public class aiv extends aib {
       return this.a.a(var1);
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 2) {
             if(!this.a(var5, 3, 39, true)) {
@@ -98,7 +98,7 @@ public class aiv extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }

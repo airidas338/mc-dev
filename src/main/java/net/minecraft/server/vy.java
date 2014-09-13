@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public interface vy extends vq, vv {
+public interface vy extends IInventory, vv {
 
    boolean q_();
 

@@ -4,10 +4,10 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public class bdv extends bcm implements IUpdatePlayerListBox {
+public class bdv extends TileEntity implements IUpdatePlayerListBox {
 
    private IBlock a;
-   private ej f;
+   private EnumFacing f;
    private boolean g;
    private boolean h;
    private float i;
@@ -17,7 +17,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
 
    public bdv() {}
 
-   public bdv(IBlock var1, ej var2, boolean var3, boolean var4) {
+   public bdv(IBlock var1, EnumFacing var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;
@@ -36,7 +36,7 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
       return this.g;
    }
 
-   public ej e() {
+   public EnumFacing e() {
       return this.f;
    }
 
@@ -125,18 +125,18 @@ public class bdv extends bcm implements IUpdatePlayerListBox {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = Block.c(var1.f("blockId")).a(var1.f("blockData"));
-      this.f = ej.a(var1.f("facing"));
-      this.j = this.i = var1.h("progress");
+      this.a = Block.c(var1.getInt("blockId")).a(var1.getInt("blockData"));
+      this.f = EnumFacing.a(var1.getInt("facing"));
+      this.j = this.i = var1.getFloat("progress");
       this.g = var1.n("extending");
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("blockId", Block.a(this.a.c()));
-      var1.a("blockData", this.a.c().c(this.a));
-      var1.a("facing", this.f.a());
-      var1.a("progress", this.j);
-      var1.a("extending", this.g);
+      var1.setInt("blockId", Block.a(this.a.c()));
+      var1.setInt("blockData", this.a.c().c(this.a));
+      var1.setInt("facing", this.f.a());
+      var1.setFloat("progress", this.j);
+      var1.setBoolean("extending", this.g);
    }
 }

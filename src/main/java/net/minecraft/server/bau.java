@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bau implements va {
+public enum bau implements IName {
 
    a("TOP", 0, "top"),
    b("BOTTOM", 1, "bottom");
@@ -17,7 +17,7 @@ public enum bau implements va {
       return this.c;
    }
 
-   public String l() {
+   public String getName() {
       return this.c;
    }
 

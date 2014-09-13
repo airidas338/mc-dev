@@ -157,7 +157,7 @@ public class AxisAlignedBB {
       return var1.d > this.a && var1.a < this.d?(var1.e > this.b && var1.b < this.e?var1.f > this.c && var1.c < this.f:false):false;
    }
 
-   public boolean a(ChunkCoordinates var1) {
+   public boolean a(Vec3D var1) {
       return var1.a > this.a && var1.a < this.d?(var1.b > this.b && var1.b < this.e?var1.c > this.c && var1.c < this.f:false):false;
    }
 
@@ -178,13 +178,13 @@ public class AxisAlignedBB {
       return new AxisAlignedBB(var7, var9, var11, var13, var15, var17);
    }
 
-   public MovingObjectPosition a(ChunkCoordinates var1, ChunkCoordinates var2) {
-      ChunkCoordinates var3 = var1.a(var2, this.a);
-      ChunkCoordinates var4 = var1.a(var2, this.d);
-      ChunkCoordinates var5 = var1.b(var2, this.b);
-      ChunkCoordinates var6 = var1.b(var2, this.e);
-      ChunkCoordinates var7 = var1.c(var2, this.c);
-      ChunkCoordinates var8 = var1.c(var2, this.f);
+   public MovingObjectPosition a(Vec3D var1, Vec3D var2) {
+      Vec3D var3 = var1.a(var2, this.a);
+      Vec3D var4 = var1.a(var2, this.d);
+      Vec3D var5 = var1.b(var2, this.b);
+      Vec3D var6 = var1.b(var2, this.e);
+      Vec3D var7 = var1.c(var2, this.c);
+      Vec3D var8 = var1.c(var2, this.f);
       if(!this.b(var3)) {
          var3 = null;
       }
@@ -209,7 +209,7 @@ public class AxisAlignedBB {
          var8 = null;
       }
 
-      ChunkCoordinates var9 = null;
+      Vec3D var9 = null;
       if(var3 != null) {
          var9 = var3;
       }
@@ -237,34 +237,34 @@ public class AxisAlignedBB {
       if(var9 == null) {
          return null;
       } else {
-         ej var10 = null;
+         EnumFacing var10 = null;
          if(var9 == var3) {
-            var10 = ej.e;
+            var10 = EnumFacing.WEST;
          } else if(var9 == var4) {
-            var10 = ej.f;
+            var10 = EnumFacing.EAST;
          } else if(var9 == var5) {
-            var10 = ej.a;
+            var10 = EnumFacing.DOWN;
          } else if(var9 == var6) {
-            var10 = ej.b;
+            var10 = EnumFacing.UP;
          } else if(var9 == var7) {
-            var10 = ej.c;
+            var10 = EnumFacing.NORTH;
          } else {
-            var10 = ej.d;
+            var10 = EnumFacing.SOUTH;
          }
 
          return new MovingObjectPosition(var9, var10);
       }
    }
 
-   private boolean b(ChunkCoordinates var1) {
+   private boolean b(Vec3D var1) {
       return var1 == null?false:var1.b >= this.b && var1.b <= this.e && var1.c >= this.c && var1.c <= this.f;
    }
 
-   private boolean c(ChunkCoordinates var1) {
+   private boolean c(Vec3D var1) {
       return var1 == null?false:var1.a >= this.a && var1.a <= this.d && var1.c >= this.c && var1.c <= this.f;
    }
 
-   private boolean d(ChunkCoordinates var1) {
+   private boolean d(Vec3D var1) {
       return var1 == null?false:var1.a >= this.a && var1.a <= this.d && var1.b >= this.b && var1.b <= this.e;
    }
 

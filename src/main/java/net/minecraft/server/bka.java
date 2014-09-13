@@ -9,7 +9,7 @@ public class bka extends bkb {
 
    public bka() {}
 
-   public bka(int var1, Random var2, bjb var3, ej var4) {
+   public bka(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -22,16 +22,16 @@ public class bka extends bkb {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Mob", this.b);
+      var1.setBoolean("Mob", this.b);
    }
 
-   public static bka a(List var0, Random var1, int var2, int var3, int var4, int var5, ej var6) {
+   public static bka a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumFacing var6) {
       bjb var7 = bjb.a(var2, var3, var4, -2, 0, 0, 7, 8, 9, var6);
       return a(var7) && bms.a(var0, var7) == null?new bka(var5, var1, var7, var6):null;
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
-      this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 1, 0, 0, 5, 1, 7, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 1, 2, 1, 5, 2, 7, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 1, 3, 2, 5, 3, 7, Blocks.by.P(), Blocks.by.P(), false);
@@ -54,7 +54,7 @@ public class bka extends bkb {
          if(var3.b((fd)var4)) {
             this.b = true;
             var1.a(var4, Blocks.ac.P(), 2);
-            bcm var5 = var1.s(var4);
+            TileEntity var5 = var1.s(var4);
             if(var5 instanceof bdg) {
                ((bdg)var5).b().a("Blaze");
             }

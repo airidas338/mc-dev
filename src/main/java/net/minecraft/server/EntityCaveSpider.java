@@ -24,7 +24,7 @@ public class EntityCaveSpider extends EntitySpider {
             }
 
             if(var2 > 0) {
-               ((EntityLiving)var1).c(new wq(wp.u.H, var2 * 20, 0));
+               ((EntityLiving)var1).c(new MobEffect(MobEffectList.u.H, var2 * 20, 0));
             }
          }
 

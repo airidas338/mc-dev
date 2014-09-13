@@ -47,7 +47,7 @@ class ack extends zn {
          IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(this.e && var4 instanceof BlockCarrots && ((Integer)var3.b(BlockCarrots.a)).intValue() == 7) {
-            var1.a(var2, Blocks.a.P(), 2);
+            var1.a(var2, Blocks.AIR.P(), 2);
             var1.b(var2, true);
             this.c.cn();
          }

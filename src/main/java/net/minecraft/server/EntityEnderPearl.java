@@ -25,7 +25,7 @@ public class EntityEnderPearl extends EntityProjectile {
                if(this.V.nextFloat() < 0.05F && this.o.Q().b("doMobSpawning")) {
                   EntityEndermite var4 = new EntityEndermite(this.o);
                   var4.a(true);
-                  var4.b(var2.s, var2.t, var2.u, var2.y, var2.z);
+                  var4.setPositionRotation(var2.s, var2.t, var2.u, var2.y, var2.z);
                   this.o.d((Entity)var4);
                }
 
@@ -46,7 +46,7 @@ public class EntityEnderPearl extends EntityProjectile {
 
    public void s_() throws IOException {
       EntityLiving var1 = this.n();
-      if(var1 != null && var1 instanceof EntityHuman && !var1.ai()) {
+      if(var1 != null && var1 instanceof EntityHuman && !var1.isAlive()) {
          this.J();
       } else {
          super.s_();

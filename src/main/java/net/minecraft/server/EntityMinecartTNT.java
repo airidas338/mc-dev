@@ -57,7 +57,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c()) {
-         this.a(new amj(Blocks.W, 1), 0.0F);
+         this.a(new ItemStack(Blocks.W, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
@@ -121,13 +121,13 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    protected void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("TNTFuse", 99)) {
-         this.a = var1.f("TNTFuse");
+         this.a = var1.getInt("TNTFuse");
       }
 
    }
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("TNTFuse", this.a);
+      var1.setInt("TNTFuse", this.a);
    }
 }

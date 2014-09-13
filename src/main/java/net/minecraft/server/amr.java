@@ -23,7 +23,7 @@ public class amr extends aju {
       return var1;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       return super.a() + "." + (String)this.c.apply(var1);
    }
 }

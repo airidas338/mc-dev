@@ -21,7 +21,7 @@ public class zu extends PathfinderGoal {
       if(this.b.bc() == null && !this.b.au()) {
          return false;
       } else {
-         ChunkCoordinates var1 = abf.a(this.b, 5, 4);
+         Vec3D var1 = abf.a(this.b, 5, 4);
          if(var1 == null) {
             return false;
          } else {
@@ -34,10 +34,10 @@ public class zu extends PathfinderGoal {
    }
 
    public void c() {
-      this.b.s().a(this.c, this.d, this.e, this.a);
+      this.b.getNavigation().a(this.c, this.d, this.e, this.a);
    }
 
    public boolean b() {
-      return !this.b.s().m();
+      return !this.b.getNavigation().m();
    }
 }

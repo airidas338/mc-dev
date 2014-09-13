@@ -21,16 +21,16 @@ public class aks extends Item {
       this.a(CreativeModeTab.i);
    }
 
-   public float a(amj var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       return this.c.contains(var2)?this.a:1.0F;
    }
 
-   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       var1.a(2, var3);
       return true;
    }
 
-   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, Location var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(1, var5);
       }
@@ -50,7 +50,7 @@ public class aks extends Item {
       return this.b.toString();
    }
 
-   public boolean a(amj var1, amj var2) {
+   public boolean a(ItemStack var1, ItemStack var2) {
       return this.b.f() == var2.b()?true:super.a(var1, var2);
    }
 

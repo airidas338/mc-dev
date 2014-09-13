@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class bgq implements bfe {
+public class bgq implements IChunkProvider {
 
    private World a;
    private Random b;
@@ -68,7 +68,7 @@ public class bgq implements bfe {
 
          for(int var9 = var8.d(); var9 < var8.d() + var8.b(); ++var9) {
             IBlock var10 = var8.c();
-            if(var10.c() != Blocks.a) {
+            if(var10.c() != Blocks.AIR) {
                var11 = false;
                this.c[var9] = var10;
             }
@@ -78,7 +78,7 @@ public class bgq implements bfe {
       this.f = var11?false:this.d.b().containsKey("decoration");
    }
 
-   public bfh d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       bgk var3 = new bgk();
 
       int var7;
@@ -100,7 +100,7 @@ public class bgq implements bfe {
          var9.a(this, this.a, var1, var2, var3);
       }
 
-      bfh var10 = new bfh(this.a, var3, var1, var2);
+      Chunk var10 = new Chunk(this.a, var3, var1, var2);
       BiomeBase[] var11 = this.a.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var12 = var10.k();
 
@@ -112,11 +112,11 @@ public class bgq implements bfe {
       return var10;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
-   public void a(bfe var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
       Location var6 = new Location(var4, 0, var5);
@@ -160,7 +160,7 @@ public class bgq implements bfe {
 
    }
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -206,7 +206,7 @@ public class bgq implements bfe {
       return 0;
    }
 
-   public void a(bfh var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
       Iterator var4 = this.e.iterator();
 
       while(var4.hasNext()) {
@@ -216,7 +216,7 @@ public class bgq implements bfe {
 
    }
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

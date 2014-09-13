@@ -57,19 +57,19 @@ public class Item {
       return this;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       return false;
    }
 
-   public float a(amj var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       return 1.0F;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       return var1;
    }
 
-   public amj b(amj var1, World var2, EntityHuman var3) {
+   public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
       return var1;
    }
 
@@ -103,11 +103,11 @@ public class Item {
       return this.c > 0 && !this.j;
    }
 
-   public boolean a(amj var1, EntityLiving var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       return false;
    }
 
-   public boolean a(amj var1, World var2, Block var3, Location var4, EntityLiving var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, Location var4, EntityLiving var5) {
       return false;
    }
 
@@ -115,7 +115,7 @@ public class Item {
       return false;
    }
 
-   public boolean a(amj var1, EntityHuman var2, EntityLiving var3) {
+   public boolean a(ItemStack var1, EntityHuman var2, EntityLiving var3) {
       return false;
    }
 
@@ -129,7 +129,7 @@ public class Item {
       return this;
    }
 
-   public String k(amj var1) {
+   public String k(ItemStack var1) {
       String var2 = this.e_(var1);
       return var2 == null?"":fi.a(var2);
    }
@@ -138,7 +138,7 @@ public class Item {
       return "item." + this.l;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       return "item." + this.l;
    }
 
@@ -159,46 +159,46 @@ public class Item {
       return this.d != null;
    }
 
-   public void a(amj var1, World var2, Entity var3, int var4, boolean var5) {}
+   public void a(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {}
 
-   public void d(amj var1, World var2, EntityHuman var3) {}
+   public void d(ItemStack var1, World var2, EntityHuman var3) {}
 
    public boolean f() {
       return false;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.a;
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 0;
    }
 
-   public void a(amj var1, World var2, EntityHuman var3, int var4) {}
+   public void a(ItemStack var1, World var2, EntityHuman var3, int var4) {}
 
    protected Item e(String var1) {
       this.k = var1;
       return this;
    }
 
-   public String j(amj var1) {
+   public String j(ItemStack var1) {
       return this.k;
    }
 
-   public boolean l(amj var1) {
+   public boolean l(ItemStack var1) {
       return this.j(var1) != null;
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       return ("" + fi.a(this.k(var1) + ".name")).trim();
    }
 
-   public amx g(amj var1) {
+   public amx g(ItemStack var1) {
       return var1.w()?amx.c:amx.a;
    }
 
-   public boolean f_(amj var1) {
+   public boolean f_(ItemStack var1) {
       return this.j() == 1 && this.m();
    }
 
@@ -208,7 +208,7 @@ public class Item {
       double var6 = var2.p + (var2.s - var2.p);
       double var8 = var2.q + (var2.t - var2.q) + (double)var2.aR();
       double var10 = var2.r + (var2.u - var2.r);
-      ChunkCoordinates var12 = new ChunkCoordinates(var6, var8, var10);
+      Vec3D var12 = new Vec3D(var6, var8, var10);
       float var13 = MathHelper.cos(-var5 * 0.017453292F - 3.1415927F);
       float var14 = MathHelper.sin(-var5 * 0.017453292F - 3.1415927F);
       float var15 = -MathHelper.cos(-var4 * 0.017453292F);
@@ -216,7 +216,7 @@ public class Item {
       float var17 = var14 * var15;
       float var19 = var13 * var15;
       double var20 = 5.0D;
-      ChunkCoordinates var22 = var12.b((double)var17 * var20, (double)var16 * var20, (double)var19 * var20);
+      Vec3D var22 = var12.b((double)var17 * var20, (double)var16 * var20, (double)var19 * var20);
       return var1.a(var12, var22, var3, !var3, false);
    }
 
@@ -233,7 +233,7 @@ public class Item {
       return false;
    }
 
-   public boolean a(amj var1, amj var2) {
+   public boolean a(ItemStack var1, ItemStack var2) {
       return false;
    }
 
@@ -345,7 +345,7 @@ public class Item {
       c(Blocks.bA);
       c(Blocks.bC);
       c(Blocks.bG);
-      c(Blocks.bH);
+      c(Blocks.WHITESTONE);
       c(Blocks.bI);
       c(Blocks.bJ);
       a((Block)Blocks.bM, (Item)(new ani(Blocks.bM, Blocks.bM, Blocks.bL)).b("woodSlab"));
@@ -425,7 +425,7 @@ public class Item {
       a(286, "golden_axe", (new ajr(ami.e)).c("hatchetGold"));
       a(287, "string", (new ajv(Blocks.bS)).c("string").a(CreativeModeTab.l));
       a(288, "feather", (new Item()).c("feather").a(CreativeModeTab.l));
-      a(289, "gunpowder", (new Item()).c("sulphur").e(ans.k).a(CreativeModeTab.l));
+      a(289, "gunpowder", (new Item()).c("sulphur").e(PotionBrewer.k).a(CreativeModeTab.l));
       a(290, "wooden_hoe", (new alo(ami.a)).c("hoeWood"));
       a(291, "stone_hoe", (new alo(ami.b)).c("hoeStone"));
       a(292, "iron_hoe", (new alo(ami.c)).c("hoeIron"));
@@ -458,17 +458,17 @@ public class Item {
       a(319, "porkchop", (new all(3, 0.3F, true)).c("porkchopRaw"));
       a(320, "cooked_porkchop", (new all(8, 0.8F, true)).c("porkchopCooked"));
       a(321, "painting", (new aln(EntityPainting.class)).c("painting"));
-      a(322, "golden_apple", (new alm(4, 1.2F, false)).h().a(wp.l.H, 5, 1, 1.0F).c("appleGold"));
+      a(322, "golden_apple", (new alm(4, 1.2F, false)).h().a(MobEffectList.l.H, 5, 1, 1.0F).c("appleGold"));
       a(323, "sign", (new anf()).c("sign"));
       a(324, "wooden_door", (new akt(Blocks.ao)).c("doorOak"));
-      Item var0 = (new akb(Blocks.a)).c("bucket").c(16);
+      Item var0 = (new akb(Blocks.AIR)).c("bucket").c(16);
       a(325, "bucket", var0);
       a(326, "water_bucket", (new akb(Blocks.i)).c("bucketWater").c(var0));
       a(327, "lava_bucket", (new akb(Blocks.k)).c("bucketLava").c(var0));
       a(328, "minecart", (new amp(EnumMinecartType.RIDEABLE)).c("minecart"));
       a(329, "saddle", (new ana()).c("saddle"));
       a(330, "iron_door", (new akt(Blocks.aA)).c("doorIron"));
-      a(331, "redstone", (new amz()).c("redstone").e(ans.i));
+      a(331, "redstone", (new amz()).c("redstone").e(PotionBrewer.i));
       a(332, "snowball", (new ank()).c("snowball"));
       a(333, "boat", (new ajw()).c("boat"));
       a(334, "leather", (new Item()).c("leather").a(CreativeModeTab.l));
@@ -485,12 +485,12 @@ public class Item {
       a(345, "compass", (new Item()).c("compass").a(CreativeModeTab.i));
       a(346, "fishing_rod", (new ItemFishingRod()).c("fishingRod"));
       a(347, "clock", (new Item()).c("clock").a(CreativeModeTab.i));
-      a(348, "glowstone_dust", (new Item()).c("yellowDust").e(ans.j).a(CreativeModeTab.l));
+      a(348, "glowstone_dust", (new Item()).c("yellowDust").e(PotionBrewer.j).a(CreativeModeTab.l));
       a(349, "fish", (new alh(false)).c("fish").a(true));
       a(350, "cooked_fish", (new alh(true)).c("fish").a(true));
       a(351, "dye", (new akw()).c("dyePowder"));
       a(352, "bone", (new Item()).c("bone").n().a(CreativeModeTab.f));
-      a(353, "sugar", (new Item()).c("sugar").e(ans.b).a(CreativeModeTab.l));
+      a(353, "sugar", (new Item()).c("sugar").e(PotionBrewer.b).a(CreativeModeTab.l));
       a(354, "cake", (new ajv(Blocks.ba)).c(1).c("cake").a(CreativeModeTab.h));
       a(355, "bed", (new ajt()).c(1).c("bed"));
       a(356, "repeater", (new ajv(Blocks.bb)).c("diode").a(CreativeModeTab.d));
@@ -502,24 +502,24 @@ public class Item {
       a(362, "melon_seeds", (new anc(Blocks.bm, Blocks.ak)).c("seeds_melon"));
       a(363, "beef", (new all(3, 0.3F, true)).c("beefRaw"));
       a(364, "cooked_beef", (new all(8, 0.8F, true)).c("beefCooked"));
-      a(365, "chicken", (new all(2, 0.3F, true)).a(wp.s.H, 30, 0, 0.3F).c("chickenRaw"));
+      a(365, "chicken", (new all(2, 0.3F, true)).a(MobEffectList.s.H, 30, 0, 0.3F).c("chickenRaw"));
       a(366, "cooked_chicken", (new all(6, 0.6F, true)).c("chickenCooked"));
-      a(367, "rotten_flesh", (new all(4, 0.1F, true)).a(wp.s.H, 30, 0, 0.8F).c("rottenFlesh"));
+      a(367, "rotten_flesh", (new all(4, 0.1F, true)).a(MobEffectList.s.H, 30, 0, 0.8F).c("rottenFlesh"));
       a(368, "ender_pearl", (new alc()).c("enderPearl"));
       a(369, "blaze_rod", (new Item()).c("blazeRod").a(CreativeModeTab.l).n());
-      a(370, "ghast_tear", (new Item()).c("ghastTear").e(ans.c).a(CreativeModeTab.k));
+      a(370, "ghast_tear", (new Item()).c("ghastTear").e(PotionBrewer.c).a(CreativeModeTab.k));
       a(371, "gold_nugget", (new Item()).c("goldNugget").a(CreativeModeTab.l));
       a(372, "nether_wart", (new anc(Blocks.bB, Blocks.aW)).c("netherStalkSeeds").e("+4"));
       a(373, "potion", (new ItemPotion()).c("potion"));
       a(374, "glass_bottle", (new ajy()).c("glassBottle"));
-      a(375, "spider_eye", (new all(2, 0.8F, false)).a(wp.u.H, 5, 0, 1.0F).c("spiderEye").e(ans.d));
-      a(376, "fermented_spider_eye", (new Item()).c("fermentedSpiderEye").e(ans.e).a(CreativeModeTab.k));
-      a(377, "blaze_powder", (new Item()).c("blazePowder").e(ans.g).a(CreativeModeTab.k));
-      a(378, "magma_cream", (new Item()).c("magmaCream").e(ans.h).a(CreativeModeTab.k));
+      a(375, "spider_eye", (new all(2, 0.8F, false)).a(MobEffectList.u.H, 5, 0, 1.0F).c("spiderEye").e(PotionBrewer.d));
+      a(376, "fermented_spider_eye", (new Item()).c("fermentedSpiderEye").e(PotionBrewer.e).a(CreativeModeTab.k));
+      a(377, "blaze_powder", (new Item()).c("blazePowder").e(PotionBrewer.g).a(CreativeModeTab.k));
+      a(378, "magma_cream", (new Item()).c("magmaCream").e(PotionBrewer.h).a(CreativeModeTab.k));
       a(379, "brewing_stand", (new ajv(Blocks.bD)).c("brewingStand").a(CreativeModeTab.k));
       a(380, "cauldron", (new ajv(Blocks.bE)).c("cauldron").a(CreativeModeTab.k));
       a(381, "ender_eye", (new alb()).c("eyeOfEnder"));
-      a(382, "speckled_melon", (new Item()).c("speckledMelon").e(ans.f).a(CreativeModeTab.k));
+      a(382, "speckled_melon", (new Item()).c("speckledMelon").e(PotionBrewer.f).a(CreativeModeTab.k));
       a(383, "spawn_egg", (new anl()).c("monsterPlacer"));
       a(384, "experience_bottle", (new ald()).c("expBottle"));
       a(385, "fire_charge", (new ale()).c("fireball"));
@@ -531,9 +531,9 @@ public class Item {
       a(391, "carrot", (new anb(3, 0.6F, Blocks.cb, Blocks.ak)).c("carrots"));
       a(392, "potato", (new anb(1, 0.3F, Blocks.cc, Blocks.ak)).c("potato"));
       a(393, "baked_potato", (new all(5, 0.6F, false)).c("potatoBaked"));
-      a(394, "poisonous_potato", (new all(2, 0.3F, false)).a(wp.u.H, 5, 0, 0.6F).c("potatoPoisonous"));
+      a(394, "poisonous_potato", (new all(2, 0.3F, false)).a(MobEffectList.u.H, 5, 0, 0.6F).c("potatoPoisonous"));
       a(395, "map", (new ItemMapEmpty()).c("emptyMap"));
-      a(396, "golden_carrot", (new all(6, 1.2F, false)).c("carrotGolden").e(ans.l).a(CreativeModeTab.k));
+      a(396, "golden_carrot", (new all(6, 1.2F, false)).c("carrotGolden").e(PotionBrewer.l).a(CreativeModeTab.k));
       a(397, "skull", (new anh()).c("skull"));
       a(398, "carrot_on_a_stick", (new akc()).c("carrotOnAStick"));
       a(399, "nether_star", (new ang()).c("netherStar").a(CreativeModeTab.l));
@@ -551,7 +551,7 @@ public class Item {
       a(411, "rabbit", (new all(3, 0.3F, true)).c("rabbitRaw"));
       a(412, "cooked_rabbit", (new all(5, 0.6F, true)).c("rabbitCooked"));
       a(413, "rabbit_stew", (new aka(10)).c("rabbitStew"));
-      a(414, "rabbit_foot", (new Item()).c("rabbitFoot").e(ans.n).a(CreativeModeTab.k));
+      a(414, "rabbit_foot", (new Item()).c("rabbitFoot").e(PotionBrewer.n).a(CreativeModeTab.k));
       a(415, "rabbit_hide", (new Item()).c("rabbitHide").a(CreativeModeTab.l));
       a(416, "armor_stand", (new ItemArmorStand()).c("armorStand").c(16));
       a(417, "iron_horse_armor", (new Item()).c("horsearmormetal").c(1).a(CreativeModeTab.f));

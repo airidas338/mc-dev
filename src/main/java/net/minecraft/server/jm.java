@@ -17,7 +17,7 @@ public class jm implements Packet {
 
    public jm() {}
 
-   public jm(double var1, double var3, double var5, float var7, List var8, ChunkCoordinates var9) {
+   public jm(double var1, double var3, double var5, float var7, List var8, Vec3D var9) {
       this.a = var1;
       this.b = var3;
       this.c = var5;

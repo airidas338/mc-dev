@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
-public class aji implements vq {
+public class aji implements IInventory {
 
-   private amj[] a = new amj[1];
+   private ItemStack[] a = new ItemStack[1];
 
 
    public int n_() {
       return 1;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return this.a[0];
    }
 
@@ -25,9 +25,9 @@ public class aji implements vq {
       return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[0] != null) {
-         amj var3 = this.a[0];
+         ItemStack var3 = this.a[0];
          this.a[0] = null;
          return var3;
       } else {
@@ -35,9 +35,9 @@ public class aji implements vq {
       }
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[0] != null) {
-         amj var2 = this.a[0];
+         ItemStack var2 = this.a[0];
          this.a[0] = null;
          return var2;
       } else {
@@ -45,7 +45,7 @@ public class aji implements vq {
       }
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[0] = var2;
    }
 
@@ -63,7 +63,7 @@ public class aji implements vq {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

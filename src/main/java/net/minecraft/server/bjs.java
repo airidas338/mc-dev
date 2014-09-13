@@ -6,7 +6,7 @@ public class bjs extends bkb {
 
    public bjs() {}
 
-   public bjs(int var1, Random var2, bjb var3, ej var4) {
+   public bjs(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -16,7 +16,7 @@ public class bjs extends bkb {
       this.a((bkf)var1, var2, var3, 1, 0, true);
    }
 
-   public static bjs a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bjs a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -1, -7, 0, 5, 14, 10, var5);
       return a(var7) && bms.a(var0, var7) == null?new bjs(var6, var1, var7, var5):null;
    }
@@ -29,7 +29,7 @@ public class bjs extends bkb {
          int var7 = Math.min(Math.max(var6 + 5, 14 - var5), 13);
          int var8 = var5;
          this.a(var1, var3, 0, 0, var5, 4, var6, var5, Blocks.by.P(), Blocks.by.P(), false);
-         this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.AIR.P(), Blocks.AIR.P(), false);
          if(var5 <= 6) {
             this.a(var1, Blocks.bA.a(var4), 1, var6 + 1, var5, var3);
             this.a(var1, Blocks.bA.a(var4), 2, var6 + 1, var5, var3);

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bge extends bgd {
+public class bge extends WorldProvider {
 
    public void b() {
       this.c = new asc(BiomeBase.x, 0.0F);
@@ -19,7 +19,7 @@ public class bge extends bgd {
 
    }
 
-   public bfe c() {
+   public IChunkProvider c() {
       return new bgr(this.b, this.b.P().s(), this.b.J());
    }
 
@@ -47,7 +47,7 @@ public class bge extends bgd {
       return "_nether";
    }
 
-   public bfb r() {
+   public WorldBorder r() {
       return new bgf(this);
    }
 }

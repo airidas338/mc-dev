@@ -24,7 +24,7 @@ public class yr extends PathfinderGoal {
    }
 
    public boolean b() {
-      return !this.b.ai()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
+      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
    }
 
    public void c() {
@@ -43,7 +43,7 @@ public class yr extends PathfinderGoal {
    }
 
    private boolean a(EntityHuman var1) {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       return var2 == null?false:(!this.a.cj() && var2.b() == Items.aX?true:this.a.d(var2));
    }
 }

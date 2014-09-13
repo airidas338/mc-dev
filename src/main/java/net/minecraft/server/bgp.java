@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public class bgp implements bfe {
+public class bgp implements IChunkProvider {
 
    private static final List a = Lists.newArrayList();
    private static final int b;
@@ -15,7 +15,7 @@ public class bgp implements bfe {
       this.c = var1;
    }
 
-   public bfh d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       bgk var3 = new bgk();
 
       int var7;
@@ -31,7 +31,7 @@ public class bgp implements bfe {
          }
       }
 
-      bfh var9 = new bfh(this.c, var3, var1, var2);
+      Chunk var9 = new Chunk(this.c, var3, var1, var2);
       var9.b();
       BiomeBase[] var10 = this.c.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var11 = var9.k();
@@ -60,13 +60,13 @@ public class bgp implements bfe {
       return var2;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
-   public void a(bfe var1, int var2, int var3) {}
+   public void a(IChunkProvider var1, int var2, int var3) {}
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -101,10 +101,10 @@ public class bgp implements bfe {
       return 0;
    }
 
-   public void a(bfh var1, int var2, int var3) {}
+   public void a(Chunk var1, int var2, int var3) {}
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 
    static {

@@ -22,10 +22,10 @@ public class bll extends bln {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("placedMainChest", this.e);
-      var1.a("placedHiddenChest", this.f);
-      var1.a("placedTrap1", this.g);
-      var1.a("placedTrap2", this.h);
+      var1.setBoolean("placedMainChest", this.e);
+      var1.setBoolean("placedHiddenChest", this.f);
+      var1.setBoolean("placedTrap1", this.g);
+      var1.setBoolean("placedTrap2", this.h);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -66,10 +66,10 @@ public class bll extends bln {
          this.a(var1, var3, 5, 2, 12, 6, 2, 12);
          this.a(var1, var3, 5, 5, 1, 6, 5, 1);
          this.a(var1, var3, 5, 5, 13, 6, 5, 13);
-         this.a(var1, Blocks.a.P(), 1, 5, 5, var3);
-         this.a(var1, Blocks.a.P(), 10, 5, 5, var3);
-         this.a(var1, Blocks.a.P(), 1, 5, 9, var3);
-         this.a(var1, Blocks.a.P(), 10, 5, 9, var3);
+         this.a(var1, Blocks.AIR.P(), 1, 5, 5, var3);
+         this.a(var1, Blocks.AIR.P(), 10, 5, 5, var3);
+         this.a(var1, Blocks.AIR.P(), 1, 5, 9, var3);
+         this.a(var1, Blocks.AIR.P(), 10, 5, 9, var3);
 
          int var8;
          for(var8 = 0; var8 <= 14; var8 += 14) {
@@ -142,8 +142,8 @@ public class bll extends bln {
          this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
          this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
          this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, ej.f.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 1, -3, 8, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, ej.e.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 4, -3, 8, var3);
+         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.EAST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 1, -3, 8, var3);
+         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.WEST.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 4, -3, 8, var3);
          this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 2, -3, 8, var3);
          this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 3, -3, 8, var3);
          this.a(var1, Blocks.af.P(), 5, -3, 7, var3);
@@ -156,12 +156,12 @@ public class bll extends bln {
          this.a(var1, Blocks.af.P(), 4, -3, 1, var3);
          this.a(var1, Blocks.Y.P(), 3, -3, 1, var3);
          if(!this.g) {
-            this.g = this.a(var1, var3, var2, 3, -2, 1, ej.c.a(), j, 2);
+            this.g = this.a(var1, var3, var2, 3, -2, 1, EnumFacing.NORTH.a(), j, 2);
          }
 
          this.a(var1, Blocks.bn.a(15), 3, -2, 2, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, ej.c.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 1, var3);
-         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, ej.d.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 5, var3);
+         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.NORTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 1, var3);
+         this.a(var1, Blocks.bR.a(this.a(Blocks.bR, EnumFacing.SOUTH.b())).a(BlockTripwireHook.M, Boolean.valueOf(true)), 7, -3, 5, var3);
          this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 2, var3);
          this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 3, var3);
          this.a(var1, Blocks.bS.P().a(BlockTripwire.M, Boolean.valueOf(true)), 7, -3, 4, var3);
@@ -171,7 +171,7 @@ public class bll extends bln {
          this.a(var1, Blocks.Y.P(), 9, -3, 4, var3);
          this.a(var1, Blocks.af.P(), 9, -2, 4, var3);
          if(!this.h) {
-            this.h = this.a(var1, var3, var2, 9, -2, 3, ej.e.a(), j, 2);
+            this.h = this.a(var1, var3, var2, 9, -2, 3, EnumFacing.WEST.a(), j, 2);
          }
 
          this.a(var1, Blocks.bn.a(15), 8, -1, 3, var3);
@@ -194,19 +194,19 @@ public class bll extends bln {
          this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 8, -2, 11, var3);
          this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 9, -2, 11, var3);
          this.a(var1, Blocks.bf.a(BlockSmoothBrick.O), 10, -2, 11, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(ej.a(this.a(Blocks.ay, ej.c.a())))), 8, -2, 12, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(ej.a(this.a(Blocks.ay, ej.c.a())))), 9, -2, 12, var3);
-         this.a(var1, Blocks.ay.a(BlockLever.a(ej.a(this.a(Blocks.ay, ej.c.a())))), 10, -2, 12, var3);
+         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 8, -2, 12, var3);
+         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 9, -2, 12, var3);
+         this.a(var1, Blocks.ay.a(BlockLever.a(EnumFacing.a(this.a(Blocks.ay, EnumFacing.NORTH.a())))), 10, -2, 12, var3);
          this.a(var1, var3, 8, -3, 8, 8, -3, 10, false, var2, k);
          this.a(var1, var3, 10, -3, 8, 10, -3, 10, false, var2, k);
          this.a(var1, Blocks.Y.P(), 10, -2, 9, var3);
          this.a(var1, Blocks.af.P(), 8, -2, 9, var3);
          this.a(var1, Blocks.af.P(), 8, -2, 10, var3);
          this.a(var1, Blocks.af.P(), 10, -1, 9, var3);
-         this.a(var1, Blocks.F.a(ej.b.a()), 9, -2, 8, var3);
-         this.a(var1, Blocks.F.a(this.a(Blocks.F, ej.e.a())), 10, -2, 8, var3);
-         this.a(var1, Blocks.F.a(this.a(Blocks.F, ej.e.a())), 10, -1, 8, var3);
-         this.a(var1, Blocks.bb.a(this.a(Blocks.bb, ej.c.b())), 10, -2, 10, var3);
+         this.a(var1, Blocks.F.a(EnumFacing.UP.a()), 9, -2, 8, var3);
+         this.a(var1, Blocks.F.a(this.a(Blocks.F, EnumFacing.WEST.a())), 10, -2, 8, var3);
+         this.a(var1, Blocks.F.a(this.a(Blocks.F, EnumFacing.WEST.a())), 10, -1, 8, var3);
+         this.a(var1, Blocks.bb.a(this.a(Blocks.bb, EnumFacing.NORTH.b())), 10, -2, 10, var3);
          if(!this.f) {
             this.f = this.a(var1, var3, var2, 9, -3, 10, StructurePieceTreaasure.a(i, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(5));
          }

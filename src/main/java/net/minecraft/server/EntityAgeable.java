@@ -19,7 +19,7 @@ public abstract class EntityAgeable extends EntityCreature {
    public abstract EntityAgeable a(EntityAgeable var1);
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.bJ) {
          if(!this.o.D) {
             Class var3 = EntityTypes.a(var2.i());
@@ -27,7 +27,7 @@ public abstract class EntityAgeable extends EntityCreature {
                EntityAgeable var4 = this.a(this);
                if(var4 != null) {
                   var4.b(-24000);
-                  var4.b(this.s, this.t, this.u, 0.0F, 0.0F);
+                  var4.setPositionRotation(this.s, this.t, this.u, 0.0F, 0.0F);
                   this.o.d((Entity)var4);
                   if(var2.s()) {
                      var4.a(var2.q());
@@ -36,7 +36,7 @@ public abstract class EntityAgeable extends EntityCreature {
                   if(!var1.by.d) {
                      --var2.b;
                      if(var2.b <= 0) {
-                        var1.bg.a(var1.bg.c, (amj)null);
+                        var1.bg.a(var1.bg.c, (ItemStack)null);
                      }
                   }
                }
@@ -96,14 +96,14 @@ public abstract class EntityAgeable extends EntityCreature {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Age", this.l());
-      var1.a("ForcedAge", this.b);
+      var1.setInt("Age", this.l());
+      var1.setInt("ForcedAge", this.b);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.b(var1.f("Age"));
-      this.b = var1.f("ForcedAge");
+      this.b(var1.getInt("Age"));
+      this.b = var1.getInt("ForcedAge");
    }
 
    public void m() throws IOException {

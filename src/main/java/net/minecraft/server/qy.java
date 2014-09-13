@@ -78,9 +78,9 @@ public class qy {
 
       if(this.a instanceof EntityItemFrame && this.m % 10 == 0) {
          EntityItemFrame var2 = (EntityItemFrame)this.a;
-         amj var3 = var2.o();
+         ItemStack var3 = var2.o();
          if(var3 != null && var3.b() instanceof ItemWorldMap) {
-            bqe var4 = Items.bd.a(var3, this.a.o);
+            WorldMap var4 = Items.bd.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
@@ -289,7 +289,7 @@ public class qy {
 
                if(this.a instanceof EntityLiving) {
                   for(int var7 = 0; var7 < 5; ++var7) {
-                     amj var8 = ((EntityLiving)this.a).p(var7);
+                     ItemStack var8 = ((EntityLiving)this.a).p(var7);
                      if(var8 != null) {
                         var1.a.a((Packet)(new la(this.a.F(), var7, var8)));
                      }
@@ -308,7 +308,7 @@ public class qy {
                   Iterator var11 = var9.bk().iterator();
 
                   while(var11.hasNext()) {
-                     wq var6 = (wq)var11.next();
+                     MobEffect var6 = (MobEffect)var11.next();
                      var1.a.a((Packet)(new lr(this.a.F(), var6)));
                   }
                }

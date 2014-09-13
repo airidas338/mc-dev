@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class ach extends yl {
+public class ach extends ControllerJump {
 
    private EntityRabbit c;
    private boolean d;

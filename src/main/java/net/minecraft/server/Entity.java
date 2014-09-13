@@ -511,12 +511,12 @@ public abstract class Entity implements ICommandSender {
 					var62.a(this.o, var26, this);
 				}
 
-				this.M = (float) ((double) this.M + (double) MathHelper.a(var61 * var61 + var66 * var66) * 0.6D);
-				this.N = (float) ((double) this.N + (double) MathHelper.a(var61 * var61 + var63 * var63 + var66 * var66) * 0.6D);
+				this.M = (float) ((double) this.M + (double) MathHelper.sqrt(var61 * var61 + var66 * var66) * 0.6D);
+				this.N = (float) ((double) this.N + (double) MathHelper.sqrt(var61 * var61 + var63 * var63 + var66 * var66) * 0.6D);
 				if (this.N > (float) this.h && var62.r() != Material.AIR) {
 					this.h = (int) this.N + 1;
 					if (this.V()) {
-						float var34 = MathHelper.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
+						float var34 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
 						if (var34 > 1.0F) {
 							var34 = 1.0F;
 						}
@@ -688,7 +688,7 @@ public abstract class Entity implements ICommandSender {
 	}
 
 	protected void X() {
-		float var1 = MathHelper.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.2F;
+		float var1 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.2F;
 		if (var1 > 1.0F) {
 			var1 = 1.0F;
 		}
@@ -810,10 +810,10 @@ public abstract class Entity implements ICommandSender {
 	}
 
 	public void a(Location var1, float var2, float var3) {
-		this.b((double) var1.n() + 0.5D, (double) var1.o(), (double) var1.p() + 0.5D, var2, var3);
+		this.setPositionRotation((double) var1.n() + 0.5D, (double) var1.o(), (double) var1.p() + 0.5D, var2, var3);
 	}
 
-	public void b(double var1, double var3, double var5, float var7, float var8) {
+	public void setPositionRotation(double var1, double var3, double var5, float var7, float var8) {
 		this.P = this.p = this.s = var1;
 		this.Q = this.q = this.t = var3;
 		this.R = this.r = this.u = var5;
@@ -848,7 +848,7 @@ public abstract class Entity implements ICommandSender {
 		double var7 = this.s - var1;
 		double var9 = this.t - var3;
 		double var11 = this.u - var5;
-		return (double) MathHelper.a(var7 * var7 + var9 * var9 + var11 * var11);
+		return (double) MathHelper.sqrt(var7 * var7 + var9 * var9 + var11 * var11);
 	}
 
 	public double h(Entity var1) {
@@ -868,7 +868,7 @@ public abstract class Entity implements ICommandSender {
 				double var4 = var1.u - this.u;
 				double var6 = MathHelper.a(var2, var4);
 				if (var6 >= 0.009999999776482582D) {
-					var6 = (double) MathHelper.a(var6);
+					var6 = (double) MathHelper.sqrt(var6);
 					var2 /= var6;
 					var4 /= var6;
 					double var8 = 1.0D / var6;
@@ -915,7 +915,7 @@ public abstract class Entity implements ICommandSender {
 		}
 	}
 
-	public ChunkCoordinates d(float var1) {
+	public Vec3D d(float var1) {
 		if (var1 == 1.0F) {
 			return this.f(this.z, this.y);
 		} else {
@@ -925,12 +925,12 @@ public abstract class Entity implements ICommandSender {
 		}
 	}
 
-	protected final ChunkCoordinates f(float var1, float var2) {
+	protected final Vec3D f(float var1, float var2) {
 		float var3 = MathHelper.cos(-var2 * 0.017453292F - 3.1415927F);
 		float var4 = MathHelper.sin(-var2 * 0.017453292F - 3.1415927F);
 		float var5 = -MathHelper.cos(-var1 * 0.017453292F);
 		float var6 = MathHelper.sin(-var1 * 0.017453292F);
-		return new ChunkCoordinates((double) (var4 * var5), (double) var6, (double) (var3 * var5));
+		return new Vec3D((double) (var4 * var5), (double) var6, (double) (var3 * var5));
 	}
 
 	public boolean ad() {
@@ -947,7 +947,7 @@ public abstract class Entity implements ICommandSender {
 	public boolean c(NBTTagCompound var1) {
 		String var2 = this.ag();
 		if (!this.I && var2 != null) {
-			var1.a("id", var2);
+			var1.setString("id", var2);
 			this.e(var1);
 			return true;
 		} else {
@@ -958,7 +958,7 @@ public abstract class Entity implements ICommandSender {
 	public boolean d(NBTTagCompound var1) {
 		String var2 = this.ag();
 		if (!this.I && var2 != null && this.l == null) {
-			var1.a("id", var2);
+			var1.setString("id", var2);
 			this.e(var1);
 			return true;
 		} else {
@@ -968,33 +968,33 @@ public abstract class Entity implements ICommandSender {
 
 	public void e(NBTTagCompound var1) {
 		try {
-			var1.a("Pos", (NBTBase) this.a(new double[] { this.s, this.t, this.u }));
-			var1.a("Motion", (NBTBase) this.a(new double[] { this.v, this.w, this.x }));
-			var1.a("Rotation", (NBTBase) this.a(new float[] { this.y, this.z }));
-			var1.a("FallDistance", this.O);
-			var1.a("Fire", (short) this.i);
-			var1.a("Air", (short) this.aA());
-			var1.a("OnGround", this.C);
-			var1.a("Dimension", this.am);
-			var1.a("Invulnerable", this.ar);
-			var1.a("PortalCooldown", this.aj);
-			var1.a("UUIDMost", this.aJ().getMostSignificantBits());
-			var1.a("UUIDLeast", this.aJ().getLeastSignificantBits());
+			var1.set("Pos", (NBTBase) this.a(new double[] { this.s, this.t, this.u }));
+			var1.set("Motion", (NBTBase) this.a(new double[] { this.v, this.w, this.x }));
+			var1.set("Rotation", (NBTBase) this.a(new float[] { this.y, this.z }));
+			var1.setFloat("FallDistance", this.O);
+			var1.setShort("Fire", (short) this.i);
+			var1.setShort("Air", (short) this.aA());
+			var1.setBoolean("OnGround", this.C);
+			var1.setInt("Dimension", this.am);
+			var1.setBoolean("Invulnerable", this.ar);
+			var1.setInt("PortalCooldown", this.aj);
+			var1.setLong("UUIDMost", this.aJ().getMostSignificantBits());
+			var1.setLong("UUIDLeast", this.aJ().getLeastSignificantBits());
 			if (this.aL() != null && this.aL().length() > 0) {
-				var1.a("CustomName", this.aL());
-				var1.a("CustomNameVisible", this.aM());
+				var1.setString("CustomName", this.aL());
+				var1.setBoolean("CustomNameVisible", this.aM());
 			}
 
 			this.as.b(var1);
 			if (this.R()) {
-				var1.a("Silent", this.R());
+				var1.setBoolean("Silent", this.R());
 			}
 
 			this.b(var1);
 			if (this.m != null) {
 				NBTTagCompound var2 = new NBTTagCompound();
 				if (this.m.c(var2)) {
-					var1.a("Riding", (NBTBase) var2);
+					var1.set("Riding", (NBTBase) var2);
 				}
 			}
 
@@ -1008,9 +1008,9 @@ public abstract class Entity implements ICommandSender {
 
 	public void f(NBTTagCompound var1) {
 		try {
-			fv var2 = var1.c("Pos", 6);
-			fv var6 = var1.c("Motion", 6);
-			fv var7 = var1.c("Rotation", 5);
+			NBTTagList var2 = var1.getList("Pos", 6);
+			NBTTagList var6 = var1.getList("Motion", 6);
+			NBTTagList var7 = var1.getList("Rotation", 5);
 			this.v = var6.d(0);
 			this.w = var6.d(1);
 			this.x = var6.d(2);
@@ -1031,23 +1031,23 @@ public abstract class Entity implements ICommandSender {
 			this.r = this.R = this.u = var2.d(2);
 			this.A = this.y = var7.e(0);
 			this.B = this.z = var7.e(1);
-			this.O = var1.h("FallDistance");
-			this.i = var1.e("Fire");
-			this.h(var1.e("Air"));
+			this.O = var1.getFloat("FallDistance");
+			this.i = var1.getShort("Fire");
+			this.h(var1.getShort("Air"));
 			this.C = var1.n("OnGround");
-			this.am = var1.f("Dimension");
+			this.am = var1.getInt("Dimension");
 			this.ar = var1.n("Invulnerable");
-			this.aj = var1.f("PortalCooldown");
+			this.aj = var1.getInt("PortalCooldown");
 			if (var1.b("UUIDMost", 4) && var1.b("UUIDLeast", 4)) {
-				this.ao = new UUID(var1.g("UUIDMost"), var1.g("UUIDLeast"));
+				this.ao = new UUID(var1.getLong("UUIDMost"), var1.getLong("UUIDLeast"));
 			} else if (var1.b("UUID", 8)) {
-				this.ao = UUID.fromString(var1.j("UUID"));
+				this.ao = UUID.fromString(var1.getString("UUID"));
 			}
 
 			this.b(this.s, this.t, this.u);
 			this.b(this.y, this.z);
-			if (var1.b("CustomName", 8) && var1.j("CustomName").length() > 0) {
-				this.a(var1.j("CustomName"));
+			if (var1.b("CustomName", 8) && var1.getString("CustomName").length() > 0) {
+				this.a(var1.getString("CustomName"));
 			}
 
 			this.g(var1.n("CustomNameVisible"));
@@ -1081,8 +1081,8 @@ public abstract class Entity implements ICommandSender {
 	public void ah() {
 	}
 
-	protected fv a(double... var1) {
-		fv var2 = new fv();
+	protected NBTTagList a(double... var1) {
+		NBTTagList var2 = new NBTTagList();
 		double[] var3 = var1;
 		int var4 = var1.length;
 
@@ -1094,8 +1094,8 @@ public abstract class Entity implements ICommandSender {
 		return var2;
 	}
 
-	protected fv a(float... var1) {
-		fv var2 = new fv();
+	protected NBTTagList a(float... var1) {
+		NBTTagList var2 = new NBTTagList();
 		float[] var3 = var1;
 		int var4 = var1.length;
 
@@ -1112,10 +1112,10 @@ public abstract class Entity implements ICommandSender {
 	}
 
 	public EntityItem a(Item var1, int var2, float var3) {
-		return this.a(new amj(var1, var2, 0), var3);
+		return this.a(new ItemStack(var1, var2, 0), var3);
 	}
 
-	public EntityItem a(amj var1, float var2) {
+	public EntityItem a(ItemStack var1, float var2) {
 		if (var1.b != 0 && var1.b() != null) {
 			EntityItem var3 = new EntityItem(this.o, this.s, this.t + (double) var2, this.u, var1);
 			var3.p();
@@ -1126,7 +1126,7 @@ public abstract class Entity implements ICommandSender {
 		}
 	}
 
-	public boolean ai() {
+	public boolean isAlive() {
 		return !this.I;
 	}
 
@@ -1227,7 +1227,7 @@ public abstract class Entity implements ICommandSender {
 		this.aq = 0.0D;
 		if (var1 == null) {
 			if (this.m != null) {
-				this.b(this.m.s, this.m.aQ().b + (double) this.m.K, this.m.u, this.y, this.z);
+				this.setPositionRotation(this.m.s, this.m.aQ().b + (double) this.m.K, this.m.u, this.y, this.z);
 				this.m.l = null;
 			}
 
@@ -1254,7 +1254,7 @@ public abstract class Entity implements ICommandSender {
 		return 0.1F;
 	}
 
-	public ChunkCoordinates ap() {
+	public Vec3D ap() {
 		return null;
 	}
 
@@ -1267,9 +1267,9 @@ public abstract class Entity implements ICommandSender {
 			if (!this.o.D && !this.ak) {
 				int var5;
 				if (MathHelper.e((float) var1) > MathHelper.e((float) var3)) {
-					var5 = var1 > 0.0D ? ej.e.b() : ej.f.b();
+					var5 = var1 > 0.0D ? EnumFacing.WEST.b() : EnumFacing.EAST.b();
 				} else {
-					var5 = var3 > 0.0D ? ej.c.b() : ej.d.b();
+					var5 = var3 > 0.0D ? EnumFacing.NORTH.b() : EnumFacing.SOUTH.b();
 				}
 
 				this.an = var5;
@@ -1283,11 +1283,11 @@ public abstract class Entity implements ICommandSender {
 		return 300;
 	}
 
-	public amj[] at() {
+	public ItemStack[] at() {
 		return null;
 	}
 
-	public void c(int var1, amj var2) {
+	public void c(int var1, ItemStack var2) {
 	}
 
 	public boolean au() {
@@ -1473,7 +1473,7 @@ public abstract class Entity implements ICommandSender {
 	}
 
 	public void m(Entity var1) {
-		this.b(var1.s, var1.t, var1.u, var1.y, var1.z);
+		this.setPositionRotation(var1.s, var1.t, var1.u, var1.y, var1.z);
 	}
 
 	public void n(Entity var1) {
@@ -1588,26 +1588,26 @@ public abstract class Entity implements ICommandSender {
 	}
 
 	public void a(double var1, double var3, double var5) {
-		this.b(var1, var3, var5, this.y, this.z);
+		this.setPositionRotation(var1, var3, var5, this.y, this.z);
 	}
 
 	public void i(int var1) {
 	}
 
-	public ej aO() {
-		return ej.b(MathHelper.c((double) (this.y * 4.0F / 360.0F) + 0.5D) & 3);
+	public EnumFacing aO() {
+		return EnumFacing.b(MathHelper.c((double) (this.y * 4.0F / 360.0F) + 0.5D) & 3);
 	}
 
-	protected hr aP() {
+	protected ChatHoverable aP() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		String var2 = EntityTypes.b(this);
-		var1.a("id", this.aJ().toString());
+		var1.setString("id", this.aJ().toString());
 		if (var2 != null) {
-			var1.a("type", var2);
+			var1.setString("type", var2);
 		}
 
-		var1.a("name", this.d_());
-		return new hr(hs.d, new ChatComponentText(var1.toString()));
+		var1.setString("name", this.d_());
+		return new ChatHoverable(EnumHoverAction.SHOW_ENTITY, new ChatComponentText(var1.toString()));
 	}
 
 	public boolean a(EntityPlayer var1) {
@@ -1634,7 +1634,7 @@ public abstract class Entity implements ICommandSender {
 		this.g = var1;
 	}
 
-	public boolean d(int var1, amj var2) {
+	public boolean d(int var1, ItemStack var2) {
 		return false;
 	}
 
@@ -1649,8 +1649,8 @@ public abstract class Entity implements ICommandSender {
 		return new Location(this.s, this.t + 0.5D, this.u);
 	}
 
-	public ChunkCoordinates d() {
-		return new ChunkCoordinates(this.s, this.t, this.u);
+	public Vec3D d() {
+		return new Vec3D(this.s, this.t, this.u);
 	}
 
 	public World e() {
@@ -1681,7 +1681,7 @@ public abstract class Entity implements ICommandSender {
 		return null;
 	}
 
-	public boolean a(EntityHuman var1, ChunkCoordinates var2) {
+	public boolean a(EntityHuman var1, Vec3D var2) {
 		return false;
 	}
 

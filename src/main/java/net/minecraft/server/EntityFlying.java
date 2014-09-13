@@ -47,7 +47,7 @@ public abstract class EntityFlying extends EntityInsentient {
       this.ay = this.az;
       double var8 = this.s - this.p;
       double var5 = this.u - this.r;
-      float var7 = MathHelper.a(var8 * var8 + var5 * var5) * 4.0F;
+      float var7 = MathHelper.sqrt(var8 * var8 + var5 * var5) * 4.0F;
       if(var7 > 1.0F) {
          var7 = 1.0F;
       }

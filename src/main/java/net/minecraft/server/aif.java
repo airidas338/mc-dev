@@ -10,14 +10,14 @@ class aif extends ajk {
    final aid c;
 
 
-   aif(aid var1, vq var2, int var3, int var4, int var5, World var6, Location var7) {
+   aif(aid var1, IInventory var2, int var3, int var4, int var5, World var6, Location var7) {
       super(var2, var3, var4, var5);
       this.c = var1;
       this.a = var6;
       this.b = var7;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
@@ -25,22 +25,22 @@ class aif extends ajk {
       return (var1.by.d || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
    }
 
-   public void a(EntityHuman var1, amj var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       if(!var1.by.d) {
          var1.a(-this.c.a);
       }
 
-      aid.a(this.c).a(0, (amj)null);
+      aid.a(this.c).a(0, (ItemStack)null);
       if(aid.b(this.c) > 0) {
-         amj var3 = aid.a(this.c).a(1);
+         ItemStack var3 = aid.a(this.c).a(1);
          if(var3 != null && var3.b > aid.b(this.c)) {
             var3.b -= aid.b(this.c);
             aid.a(this.c).a(1, var3);
          } else {
-            aid.a(this.c).a(1, (amj)null);
+            aid.a(this.c).a(1, (ItemStack)null);
          }
       } else {
-         aid.a(this.c).a(1, (amj)null);
+         aid.a(this.c).a(1, (ItemStack)null);
       }
 
       this.c.a = 0;

@@ -42,7 +42,7 @@ public class aao extends PathfinderGoal {
       EntityLiving var1 = this.b.u();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else {
          ScoreboardTeamBase var2 = this.b.bN();

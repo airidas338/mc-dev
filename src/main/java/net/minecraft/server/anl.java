@@ -8,7 +8,7 @@ public class anl extends Item {
       this.a(CreativeModeTab.f);
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       String var2 = ("" + fi.a(this.a() + ".name")).trim();
       String var3 = EntityTypes.b(var1.i());
       if(var3 != null) {
@@ -18,7 +18,7 @@ public class anl extends Item {
       return var2;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var3.D) {
          return true;
       } else if(!var2.a(var4.a(var5), var5, var1)) {
@@ -26,7 +26,7 @@ public class anl extends Item {
       } else {
          IBlock var9 = var3.getData(var4);
          if(var9.c() == Blocks.ac) {
-            bcm var10 = var3.s(var4);
+            TileEntity var10 = var3.s(var4);
             if(var10 instanceof bdg) {
                aqi var11 = ((bdg)var10).b();
                var11.a(EntityTypes.b(var1.i()));
@@ -42,7 +42,7 @@ public class anl extends Item {
 
          var4 = var4.a(var5);
          double var13 = 0.0D;
-         if(var5 == ej.b && var9 instanceof BlockFence) {
+         if(var5 == EnumFacing.UP && var9 instanceof BlockFence) {
             var13 = 0.5D;
          }
 
@@ -61,7 +61,7 @@ public class anl extends Item {
       }
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(var2.D) {
          return var1;
       } else {
@@ -110,7 +110,7 @@ public class anl extends Item {
             var8 = EntityTypes.a(var1, var0);
             if(var8 instanceof EntityLiving) {
                EntityInsentient var10 = (EntityInsentient)var8;
-               var8.b(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
+               var8.setPositionRotation(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
                var10.aI = var10.y;
                var10.aG = var10.y;
                var10.a(var0.E(new Location(var10)), (xq)null);

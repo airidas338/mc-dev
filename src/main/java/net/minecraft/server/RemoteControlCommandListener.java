@@ -39,8 +39,8 @@ public class RemoteControlCommandListener implements ICommandSender {
       return new Location(0, 0, 0);
    }
 
-   public ChunkCoordinates d() {
-      return new ChunkCoordinates(0.0D, 0.0D, 0.0D);
+   public Vec3D d() {
+      return new Vec3D(0.0D, 0.0D, 0.0D);
    }
 
    public World e() {

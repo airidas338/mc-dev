@@ -13,6 +13,6 @@ class aie extends wa {
 
    public void o_() {
       super.o_();
-      this.a.a((vq)this);
+      this.a.a((IInventory)this);
    }
 }

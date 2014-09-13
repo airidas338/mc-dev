@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class ain implements vq {
+public class ain implements IInventory {
 
-   private final amj[] a;
+   private final ItemStack[] a;
    private final int b;
    private final int c;
    private final aib d;
@@ -10,7 +10,7 @@ public class ain implements vq {
 
    public ain(aib var1, int var2, int var3) {
       int var4 = var2 * var3;
-      this.a = new amj[var4];
+      this.a = new ItemStack[var4];
       this.d = var1;
       this.b = var2;
       this.c = var3;
@@ -20,11 +20,11 @@ public class ain implements vq {
       return this.a.length;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= this.n_()?null:this.a[var1];
    }
 
-   public amj c(int var1, int var2) {
+   public ItemStack c(int var1, int var2) {
       return var1 >= 0 && var1 < this.b && var2 >= 0 && var2 <= this.c?this.a(var1 + var2 * this.b):null;
    }
 
@@ -40,9 +40,9 @@ public class ain implements vq {
       return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[var1] != null) {
-         amj var2 = this.a[var1];
+         ItemStack var2 = this.a[var1];
          this.a[var1] = null;
          return var2;
       } else {
@@ -50,13 +50,13 @@ public class ain implements vq {
       }
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
-         amj var3;
+         ItemStack var3;
          if(this.a[var1].b <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
-            this.d.a((vq)this);
+            this.d.a((IInventory)this);
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
@@ -64,7 +64,7 @@ public class ain implements vq {
                this.a[var1] = null;
             }
 
-            this.d.a((vq)this);
+            this.d.a((IInventory)this);
             return var3;
          }
       } else {
@@ -72,9 +72,9 @@ public class ain implements vq {
       }
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      this.d.a((vq)this);
+      this.d.a((IInventory)this);
    }
 
    public int p_() {
@@ -91,7 +91,7 @@ public class ain implements vq {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

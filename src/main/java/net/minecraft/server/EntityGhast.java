@@ -13,10 +13,10 @@ public class EntityGhast extends EntityFlying implements IMonster {
       this.ab = true;
       this.b_ = 5;
       this.f = new afc(this);
-      this.i.a(5, new afe(this));
-      this.i.a(7, new afb(this));
-      this.i.a(7, new afd(this));
-      this.bg.a(1, new aao(this));
+      this.goalSelector.a(5, new afe(this));
+      this.goalSelector.a(7, new afb(this));
+      this.goalSelector.a(7, new afd(this));
+      this.targetSelector.a(1, new aao(this));
    }
 
    public void a(boolean var1) {
@@ -104,13 +104,13 @@ public class EntityGhast extends EntityFlying implements IMonster {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("ExplosionPower", this.a);
+      var1.setInt("ExplosionPower", this.a);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("ExplosionPower", 99)) {
-         this.a = var1.f("ExplosionPower");
+         this.a = var1.getInt("ExplosionPower");
       }
 
    }

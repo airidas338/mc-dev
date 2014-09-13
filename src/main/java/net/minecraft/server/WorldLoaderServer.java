@@ -125,16 +125,16 @@ public class WorldLoaderServer extends bqn {
                   if(var12 == null) {
                      b.warn("Failed to fetch input stream");
                   } else {
-                     NBTTagCompound var13 = fz.a(var12);
+                     NBTTagCompound var13 = NBTCompressedStreamTools.a(var12);
                      var12.close();
-                     NBTTagCompound var14 = var13.m("Level");
+                     NBTTagCompound var14 = var13.getCompound("Level");
                      bfu var15 = bft.a(var14);
                      NBTTagCompound var16 = new NBTTagCompound();
                      NBTTagCompound var17 = new NBTTagCompound();
-                     var16.a("Level", (NBTBase)var17);
+                     var16.set("Level", (NBTBase)var17);
                      bft.a(var15, var17, var3);
                      DataOutputStream var18 = var9.b(var10, var11);
-                     fz.a(var16, (DataOutput)var18);
+                     NBTCompressedStreamTools.a(var16, (DataOutput)var18);
                      var18.close();
                   }
                }

@@ -46,13 +46,13 @@ public class BlockReed extends Block {
       } else {
          Iterator var4 = en.a.iterator();
 
-         ej var5;
+         EnumFacing var5;
          do {
             if(!var4.hasNext()) {
                return false;
             }
 
-            var5 = (ej)var4.next();
+            var5 = (EnumFacing)var4.next();
          } while(var1.getData(var2.a(var5).b()).c().r() != Material.WATER);
 
          return true;

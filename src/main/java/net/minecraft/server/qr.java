@@ -37,7 +37,7 @@ class qr {
 
    public void b(EntityPlayer var1) {
       if(this.b.contains(var1)) {
-         bfh var2 = PlayerChunkMap.a(this.a).a(this.c.a, this.c.b);
+         Chunk var2 = PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b);
          if(var2.i()) {
             var1.a.a((Packet)(new jq(var2, true, 0)));
          }
@@ -60,10 +60,10 @@ class qr {
    }
 
    public void a() {
-      this.a(PlayerChunkMap.a(this.a).a(this.c.a, this.c.b));
+      this.a(PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b));
    }
 
-   private void a(bfh var1) {
+   private void a(Chunk var1) {
       var1.c(var1.w() + PlayerChunkMap.a(this.a).K() - this.g);
       this.g = PlayerChunkMap.a(this.a).K();
    }
@@ -117,7 +117,7 @@ class qr {
             if(this.e == 64) {
                var1 = this.c.a * 16;
                var2 = this.c.b * 16;
-               this.a((Packet)(new jq(PlayerChunkMap.a(this.a).a(this.c.a, this.c.b), false, this.f)));
+               this.a((Packet)(new jq(PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b), false, this.f)));
 
                for(var3 = 0; var3 < 16; ++var3) {
                   if((this.f & 1 << var3) != 0) {
@@ -125,12 +125,12 @@ class qr {
                      List var5 = PlayerChunkMap.a(this.a).a(var1, var7, var2, var1 + 16, var7 + 16, var2 + 16);
 
                      for(int var6 = 0; var6 < var5.size(); ++var6) {
-                        this.a((bcm)var5.get(var6));
+                        this.a((TileEntity)var5.get(var6));
                      }
                   }
                }
             } else {
-               this.a((Packet)(new ja(this.e, this.d, PlayerChunkMap.a(this.a).a(this.c.a, this.c.b))));
+               this.a((Packet)(new ja(this.e, this.d, PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b))));
 
                for(var1 = 0; var1 < this.e; ++var1) {
                   var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;
@@ -149,7 +149,7 @@ class qr {
       }
    }
 
-   private void a(bcm var1) {
+   private void a(TileEntity var1) {
       if(var1 != null) {
          Packet var2 = var1.x_();
          if(var2 != null) {

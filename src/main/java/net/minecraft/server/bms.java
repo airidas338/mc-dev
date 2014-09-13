@@ -6,7 +6,7 @@ import java.util.Random;
 public abstract class bms {
 
    protected bjb l;
-   protected ej m;
+   protected EnumFacing m;
    protected int n;
 
 
@@ -18,10 +18,10 @@ public abstract class bms {
 
    public NBTTagCompound b() {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.a("id", bmq.a(this));
-      var1.a("BB", (NBTBase)this.l.g());
-      var1.a("O", this.m == null?-1:this.m.b());
-      var1.a("GD", this.n);
+      var1.setString("id", bmq.a(this));
+      var1.set("BB", (NBTBase)this.l.g());
+      var1.setInt("O", this.m == null?-1:this.m.b());
+      var1.setInt("GD", this.n);
       this.a(var1);
       return var1;
    }
@@ -30,12 +30,12 @@ public abstract class bms {
 
    public void a(World var1, NBTTagCompound var2) {
       if(var2.c("BB")) {
-         this.l = new bjb(var2.l("BB"));
+         this.l = new bjb(var2.getIntArray("BB"));
       }
 
-      int var3 = var2.f("O");
-      this.m = var3 == -1?null:ej.b(var3);
-      this.n = var2.f("GD");
+      int var3 = var2.getInt("O");
+      this.m = var3 == -1?null:EnumFacing.b(var3);
+      this.n = var2.getInt("GD");
       this.b(var2);
    }
 
@@ -163,7 +163,7 @@ public abstract class bms {
 
    protected int a(Block var1, int var2) {
       if(var1 == Blocks.av) {
-         if(this.m == ej.e || this.m == ej.f) {
+         if(this.m == EnumFacing.WEST || this.m == EnumFacing.EAST) {
             if(var2 == 1) {
                return 0;
             }
@@ -171,7 +171,7 @@ public abstract class bms {
             return 1;
          }
       } else if(var1 instanceof BlockDoor) {
-         if(this.m == ej.d) {
+         if(this.m == EnumFacing.SOUTH) {
             if(var2 == 0) {
                return 2;
             }
@@ -180,59 +180,59 @@ public abstract class bms {
                return 0;
             }
          } else {
-            if(this.m == ej.e) {
+            if(this.m == EnumFacing.WEST) {
                return var2 + 1 & 3;
             }
 
-            if(this.m == ej.f) {
+            if(this.m == EnumFacing.EAST) {
                return var2 + 3 & 3;
             }
          }
       } else if(var1 != Blocks.aw && var1 != Blocks.ad && var1 != Blocks.bA && var1 != Blocks.bv && var1 != Blocks.bO) {
          if(var1 == Blocks.au) {
-            if(this.m == ej.d) {
-               if(var2 == ej.c.a()) {
-                  return ej.d.a();
+            if(this.m == EnumFacing.SOUTH) {
+               if(var2 == EnumFacing.NORTH.a()) {
+                  return EnumFacing.SOUTH.a();
                }
 
-               if(var2 == ej.d.a()) {
-                  return ej.c.a();
+               if(var2 == EnumFacing.SOUTH.a()) {
+                  return EnumFacing.NORTH.a();
                }
-            } else if(this.m == ej.e) {
-               if(var2 == ej.c.a()) {
-                  return ej.e.a();
-               }
-
-               if(var2 == ej.d.a()) {
-                  return ej.f.a();
+            } else if(this.m == EnumFacing.WEST) {
+               if(var2 == EnumFacing.NORTH.a()) {
+                  return EnumFacing.WEST.a();
                }
 
-               if(var2 == ej.e.a()) {
-                  return ej.c.a();
+               if(var2 == EnumFacing.SOUTH.a()) {
+                  return EnumFacing.EAST.a();
                }
 
-               if(var2 == ej.f.a()) {
-                  return ej.d.a();
-               }
-            } else if(this.m == ej.f) {
-               if(var2 == ej.c.a()) {
-                  return ej.f.a();
+               if(var2 == EnumFacing.WEST.a()) {
+                  return EnumFacing.NORTH.a();
                }
 
-               if(var2 == ej.d.a()) {
-                  return ej.e.a();
+               if(var2 == EnumFacing.EAST.a()) {
+                  return EnumFacing.SOUTH.a();
+               }
+            } else if(this.m == EnumFacing.EAST) {
+               if(var2 == EnumFacing.NORTH.a()) {
+                  return EnumFacing.EAST.a();
                }
 
-               if(var2 == ej.e.a()) {
-                  return ej.c.a();
+               if(var2 == EnumFacing.SOUTH.a()) {
+                  return EnumFacing.WEST.a();
                }
 
-               if(var2 == ej.f.a()) {
-                  return ej.d.a();
+               if(var2 == EnumFacing.WEST.a()) {
+                  return EnumFacing.NORTH.a();
+               }
+
+               if(var2 == EnumFacing.EAST.a()) {
+                  return EnumFacing.SOUTH.a();
                }
             }
          } else if(var1 == Blocks.aG) {
-            if(this.m == ej.d) {
+            if(this.m == EnumFacing.SOUTH) {
                if(var2 == 3) {
                   return 4;
                }
@@ -240,7 +240,7 @@ public abstract class bms {
                if(var2 == 4) {
                   return 3;
                }
-            } else if(this.m == ej.e) {
+            } else if(this.m == EnumFacing.WEST) {
                if(var2 == 3) {
                   return 1;
                }
@@ -256,7 +256,7 @@ public abstract class bms {
                if(var2 == 1) {
                   return 4;
                }
-            } else if(this.m == ej.f) {
+            } else if(this.m == EnumFacing.EAST) {
                if(var2 == 3) {
                   return 2;
                }
@@ -275,85 +275,85 @@ public abstract class bms {
             }
          } else if(var1 != Blocks.bR && !(var1 instanceof avb)) {
             if(var1 == Blocks.J || var1 == Blocks.F || var1 == Blocks.ay || var1 == Blocks.z) {
-               if(this.m == ej.d) {
-                  if(var2 == ej.c.a() || var2 == ej.d.a()) {
-                     return ej.a(var2).d().a();
+               if(this.m == EnumFacing.SOUTH) {
+                  if(var2 == EnumFacing.NORTH.a() || var2 == EnumFacing.SOUTH.a()) {
+                     return EnumFacing.a(var2).d().a();
                   }
-               } else if(this.m == ej.e) {
-                  if(var2 == ej.c.a()) {
-                     return ej.e.a();
-                  }
-
-                  if(var2 == ej.d.a()) {
-                     return ej.f.a();
+               } else if(this.m == EnumFacing.WEST) {
+                  if(var2 == EnumFacing.NORTH.a()) {
+                     return EnumFacing.WEST.a();
                   }
 
-                  if(var2 == ej.e.a()) {
-                     return ej.c.a();
+                  if(var2 == EnumFacing.SOUTH.a()) {
+                     return EnumFacing.EAST.a();
                   }
 
-                  if(var2 == ej.f.a()) {
-                     return ej.d.a();
-                  }
-               } else if(this.m == ej.f) {
-                  if(var2 == ej.c.a()) {
-                     return ej.f.a();
+                  if(var2 == EnumFacing.WEST.a()) {
+                     return EnumFacing.NORTH.a();
                   }
 
-                  if(var2 == ej.d.a()) {
-                     return ej.e.a();
+                  if(var2 == EnumFacing.EAST.a()) {
+                     return EnumFacing.SOUTH.a();
+                  }
+               } else if(this.m == EnumFacing.EAST) {
+                  if(var2 == EnumFacing.NORTH.a()) {
+                     return EnumFacing.EAST.a();
                   }
 
-                  if(var2 == ej.e.a()) {
-                     return ej.c.a();
+                  if(var2 == EnumFacing.SOUTH.a()) {
+                     return EnumFacing.WEST.a();
                   }
 
-                  if(var2 == ej.f.a()) {
-                     return ej.d.a();
+                  if(var2 == EnumFacing.WEST.a()) {
+                     return EnumFacing.NORTH.a();
+                  }
+
+                  if(var2 == EnumFacing.EAST.a()) {
+                     return EnumFacing.SOUTH.a();
                   }
                }
             }
          } else {
-            ej var3 = ej.b(var2);
-            if(this.m == ej.d) {
-               if(var3 == ej.d || var3 == ej.c) {
+            EnumFacing var3 = EnumFacing.b(var2);
+            if(this.m == EnumFacing.SOUTH) {
+               if(var3 == EnumFacing.SOUTH || var3 == EnumFacing.NORTH) {
                   return var3.d().b();
                }
-            } else if(this.m == ej.e) {
-               if(var3 == ej.c) {
-                  return ej.e.b();
+            } else if(this.m == EnumFacing.WEST) {
+               if(var3 == EnumFacing.NORTH) {
+                  return EnumFacing.WEST.b();
                }
 
-               if(var3 == ej.d) {
-                  return ej.f.b();
+               if(var3 == EnumFacing.SOUTH) {
+                  return EnumFacing.EAST.b();
                }
 
-               if(var3 == ej.e) {
-                  return ej.c.b();
+               if(var3 == EnumFacing.WEST) {
+                  return EnumFacing.NORTH.b();
                }
 
-               if(var3 == ej.f) {
-                  return ej.d.b();
+               if(var3 == EnumFacing.EAST) {
+                  return EnumFacing.SOUTH.b();
                }
-            } else if(this.m == ej.f) {
-               if(var3 == ej.c) {
-                  return ej.f.b();
-               }
-
-               if(var3 == ej.d) {
-                  return ej.e.b();
+            } else if(this.m == EnumFacing.EAST) {
+               if(var3 == EnumFacing.NORTH) {
+                  return EnumFacing.EAST.b();
                }
 
-               if(var3 == ej.e) {
-                  return ej.c.b();
+               if(var3 == EnumFacing.SOUTH) {
+                  return EnumFacing.WEST.b();
                }
 
-               if(var3 == ej.f) {
-                  return ej.d.b();
+               if(var3 == EnumFacing.WEST) {
+                  return EnumFacing.NORTH.b();
+               }
+
+               if(var3 == EnumFacing.EAST) {
+                  return EnumFacing.SOUTH.b();
                }
             }
          }
-      } else if(this.m == ej.d) {
+      } else if(this.m == EnumFacing.SOUTH) {
          if(var2 == 2) {
             return 3;
          }
@@ -361,7 +361,7 @@ public abstract class bms {
          if(var2 == 3) {
             return 2;
          }
-      } else if(this.m == ej.e) {
+      } else if(this.m == EnumFacing.WEST) {
          if(var2 == 0) {
             return 2;
          }
@@ -377,7 +377,7 @@ public abstract class bms {
          if(var2 == 3) {
             return 1;
          }
-      } else if(this.m == ej.f) {
+      } else if(this.m == EnumFacing.EAST) {
          if(var2 == 0) {
             return 2;
          }
@@ -409,14 +409,14 @@ public abstract class bms {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      return !var5.b((fd)(new Location(var6, var7, var8)))?Blocks.a.P():var1.getData(new Location(var6, var7, var8));
+      return !var5.b((fd)(new Location(var6, var7, var8)))?Blocks.AIR.P():var1.getData(new Location(var6, var7, var8));
    }
 
    protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       for(int var9 = var4; var9 <= var7; ++var9) {
          for(int var10 = var3; var10 <= var6; ++var10) {
             for(int var11 = var5; var11 <= var8; ++var11) {
-               this.a(var1, Blocks.a.P(), var10, var9, var11, var2);
+               this.a(var1, Blocks.AIR.P(), var10, var9, var11, var2);
             }
          }
       }
@@ -509,7 +509,7 @@ public abstract class bms {
       Location var6 = new Location(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((fd)var6)) {
          while(!var1.d(var6) && var6.o() < 255) {
-            var1.a(var6, Blocks.a.P(), 2);
+            var1.a(var6, Blocks.AIR.P(), 2);
             var6 = var6.a();
          }
 
@@ -534,9 +534,9 @@ public abstract class bms {
       if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.ae) {
          IBlock var10 = Blocks.ae.P();
          var1.a(var9, Blocks.ae.f(var1, var9, var10), 2);
-         bcm var11 = var1.s(var9);
+         TileEntity var11 = var1.s(var9);
          if(var11 instanceof bcr) {
-            StructurePieceTreaasure.a(var3, var7, (vq)((bcr)var11), var8);
+            StructurePieceTreaasure.a(var3, var7, (IInventory)((bcr)var11), var8);
          }
 
          return true;
@@ -549,7 +549,7 @@ public abstract class bms {
       Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.z) {
          var1.a(var10, Blocks.z.a(this.a(Blocks.z, var7)), 2);
-         bcm var11 = var1.s(var10);
+         TileEntity var11 = var1.s(var10);
          if(var11 instanceof bcx) {
             StructurePieceTreaasure.a(var3, var8, (bcx)var11, var9);
          }
@@ -560,7 +560,7 @@ public abstract class bms {
       }
    }
 
-   protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, ej var7) {
+   protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, EnumFacing var7) {
       Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var8)) {
          akt.a(var1, var8, var7.f(), Blocks.ao);

@@ -20,14 +20,14 @@ abstract class bnn extends bms {
    }
 
    protected void a(NBTTagCompound var1) {
-      var1.a("HPos", this.h);
-      var1.a("VCount", this.a);
-      var1.a("Desert", this.b);
+      var1.setInt("HPos", this.h);
+      var1.setInt("VCount", this.a);
+      var1.setBoolean("Desert", this.b);
    }
 
    protected void b(NBTTagCompound var1) {
-      this.h = var1.f("HPos");
-      this.a = var1.f("VCount");
+      this.h = var1.getInt("HPos");
+      this.a = var1.getInt("VCount");
       this.b = var1.n("Desert");
    }
 
@@ -35,13 +35,13 @@ abstract class bnn extends bms {
       if(this.m != null) {
          switch(bmz.a[this.m.ordinal()]) {
          case 1:
-            return bmy.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, ej.e, this.d());
+            return bmy.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumFacing.WEST, this.d());
          case 2:
-            return bmy.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, ej.e, this.d());
+            return bmy.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumFacing.WEST, this.d());
          case 3:
-            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, ej.c, this.d());
+            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumFacing.NORTH, this.d());
          case 4:
-            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, ej.c, this.d());
+            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumFacing.NORTH, this.d());
          }
       }
 
@@ -52,13 +52,13 @@ abstract class bnn extends bms {
       if(this.m != null) {
          switch(bmz.a[this.m.ordinal()]) {
          case 1:
-            return bmy.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, ej.f, this.d());
+            return bmy.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumFacing.EAST, this.d());
          case 2:
-            return bmy.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, ej.f, this.d());
+            return bmy.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumFacing.EAST, this.d());
          case 3:
-            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, ej.d, this.d());
+            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumFacing.SOUTH, this.d());
          case 4:
-            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, ej.d, this.d());
+            return bmy.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumFacing.SOUTH, this.d());
          }
       }
 
@@ -102,7 +102,7 @@ abstract class bnn extends bms {
 
             ++this.a;
             EntityVillager var11 = new EntityVillager(var1);
-            var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
+            var11.setPositionRotation((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
             var11.a(var1.E(new Location(var11)), (xq)null);
             var11.r(this.c(var7, var11.cj()));
             var1.d((Entity)var11);

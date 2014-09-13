@@ -48,11 +48,11 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    public void c(World var1, Location var2, IBlock var3) {
       if(this.M) {
-         ej[] var4 = ej.values();
+         EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
-            ej var7 = var4[var6];
+            EnumFacing var7 = var4[var6];
             var1.c(var2.a(var7), (Block)this);
          }
       }
@@ -61,23 +61,23 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    public void b(World var1, Location var2, IBlock var3) {
       if(this.M) {
-         ej[] var4 = ej.values();
+         EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
-            ej var7 = var4[var6];
+            EnumFacing var7 = var4[var6];
             var1.c(var2.a(var7), (Block)this);
          }
       }
 
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return this.M && var3.b(a) != var4?15:0;
    }
 
    private boolean g(World var1, Location var2, IBlock var3) {
-      ej var4 = ((ej)var3.b(a)).d();
+      EnumFacing var4 = ((EnumFacing)var3.b(a)).d();
       return var1.b(var2.a(var4), var4);
    }
 
@@ -122,8 +122,8 @@ public class BlockRedstoneTorch extends BlockTorch {
       }
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
-      return var4 == ej.a?this.a(var1, var2, var3, var4):0;
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+      return var4 == EnumFacing.DOWN?this.a(var1, var2, var3, var4):0;
    }
 
    public Item a(IBlock var1, Random var2, int var3) {

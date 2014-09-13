@@ -8,21 +8,21 @@ public class blc extends blb {
 
    public blc() {}
 
-   public blc(ej var1, blf var2, Random var3) {
+   public blc(EnumFacing var1, blf var2, Random var3) {
       super(1, var1, var2, 1, 1, 1);
       this.o = var3.nextInt(3);
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
       if(this.k.a / 25 > 0) {
-         this.a(var1, var3, 0, 0, this.k.c[ej.a.a()]);
+         this.a(var1, var3, 0, 0, this.k.c[EnumFacing.DOWN.a()]);
       }
 
-      if(this.k.b[ej.b.a()] == null) {
+      if(this.k.b[EnumFacing.UP.a()] == null) {
          this.a(var1, var3, 1, 4, 1, 6, 4, 6, a);
       }
 
-      boolean var4 = this.o != 0 && var2.nextBoolean() && !this.k.c[ej.a.a()] && !this.k.c[ej.b.a()] && this.k.c() > 1;
+      boolean var4 = this.o != 0 && var2.nextBoolean() && !this.k.c[EnumFacing.DOWN.a()] && !this.k.c[EnumFacing.UP.a()] && this.k.c() > 1;
       if(this.o == 0) {
          this.a(var1, var3, 0, 1, 0, 2, 1, 2, b, b, false);
          this.a(var1, var3, 0, 3, 0, 2, 3, 2, b, b, false);
@@ -44,7 +44,7 @@ public class blc extends blb {
          this.a(var1, var3, 7, 2, 5, 7, 2, 7, a, a, false);
          this.a(var1, var3, 5, 2, 7, 6, 2, 7, a, a, false);
          this.a(var1, e, 6, 2, 6, var3);
-         if(this.k.c[ej.d.a()]) {
+         if(this.k.c[EnumFacing.SOUTH.a()]) {
             this.a(var1, var3, 3, 3, 0, 4, 3, 0, b, b, false);
          } else {
             this.a(var1, var3, 3, 3, 0, 4, 3, 1, b, b, false);
@@ -52,7 +52,7 @@ public class blc extends blb {
             this.a(var1, var3, 3, 1, 0, 4, 1, 1, b, b, false);
          }
 
-         if(this.k.c[ej.c.a()]) {
+         if(this.k.c[EnumFacing.NORTH.a()]) {
             this.a(var1, var3, 3, 3, 7, 4, 3, 7, b, b, false);
          } else {
             this.a(var1, var3, 3, 3, 6, 4, 3, 7, b, b, false);
@@ -60,7 +60,7 @@ public class blc extends blb {
             this.a(var1, var3, 3, 1, 6, 4, 1, 7, b, b, false);
          }
 
-         if(this.k.c[ej.e.a()]) {
+         if(this.k.c[EnumFacing.WEST.a()]) {
             this.a(var1, var3, 0, 3, 3, 0, 3, 4, b, b, false);
          } else {
             this.a(var1, var3, 0, 3, 3, 1, 3, 4, b, b, false);
@@ -68,7 +68,7 @@ public class blc extends blb {
             this.a(var1, var3, 0, 1, 3, 1, 1, 4, b, b, false);
          }
 
-         if(this.k.c[ej.f.a()]) {
+         if(this.k.c[EnumFacing.EAST.a()]) {
             this.a(var1, var3, 7, 3, 3, 7, 3, 4, b, b, false);
          } else {
             this.a(var1, var3, 6, 3, 3, 7, 3, 4, b, b, false);
@@ -100,25 +100,25 @@ public class blc extends blb {
          this.a(var1, a, 7, 2, 6, var3);
          this.a(var1, a, 6, 2, 0, var3);
          this.a(var1, a, 7, 2, 1, var3);
-         if(!this.k.c[ej.d.a()]) {
+         if(!this.k.c[EnumFacing.SOUTH.a()]) {
             this.a(var1, var3, 1, 3, 0, 6, 3, 0, b, b, false);
             this.a(var1, var3, 1, 2, 0, 6, 2, 0, a, a, false);
             this.a(var1, var3, 1, 1, 0, 6, 1, 0, b, b, false);
          }
 
-         if(!this.k.c[ej.c.a()]) {
+         if(!this.k.c[EnumFacing.NORTH.a()]) {
             this.a(var1, var3, 1, 3, 7, 6, 3, 7, b, b, false);
             this.a(var1, var3, 1, 2, 7, 6, 2, 7, a, a, false);
             this.a(var1, var3, 1, 1, 7, 6, 1, 7, b, b, false);
          }
 
-         if(!this.k.c[ej.e.a()]) {
+         if(!this.k.c[EnumFacing.WEST.a()]) {
             this.a(var1, var3, 0, 3, 1, 0, 3, 6, b, b, false);
             this.a(var1, var3, 0, 2, 1, 0, 2, 6, a, a, false);
             this.a(var1, var3, 0, 1, 1, 0, 1, 6, b, b, false);
          }
 
-         if(!this.k.c[ej.f.a()]) {
+         if(!this.k.c[EnumFacing.EAST.a()]) {
             this.a(var1, var3, 7, 3, 1, 7, 3, 6, b, b, false);
             this.a(var1, var3, 7, 2, 1, 7, 2, 6, a, a, false);
             this.a(var1, var3, 7, 1, 1, 7, 1, 6, b, b, false);
@@ -140,19 +140,19 @@ public class blc extends blb {
          this.a(var1, var3, 7, 1, 3, 7, 2, 4, c, c, false);
          this.a(var1, var3, 3, 1, 0, 4, 2, 0, c, c, false);
          this.a(var1, var3, 3, 1, 7, 4, 2, 7, c, c, false);
-         if(this.k.c[ej.d.a()]) {
+         if(this.k.c[EnumFacing.SOUTH.a()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, f, f, false);
          }
 
-         if(this.k.c[ej.c.a()]) {
+         if(this.k.c[EnumFacing.NORTH.a()]) {
             this.a(var1, var3, 3, 1, 7, 4, 2, 7, f, f, false);
          }
 
-         if(this.k.c[ej.e.a()]) {
+         if(this.k.c[EnumFacing.WEST.a()]) {
             this.a(var1, var3, 0, 1, 3, 0, 2, 4, f, f, false);
          }
 
-         if(this.k.c[ej.f.a()]) {
+         if(this.k.c[EnumFacing.EAST.a()]) {
             this.a(var1, var3, 7, 1, 3, 7, 2, 4, f, f, false);
          }
       }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum avg implements va {
+public enum avg implements IName {
 
    a("UPPER", 0),
    b("LOWER", 1);
@@ -11,10 +11,10 @@ public enum avg implements va {
    private avg(String var1, int var2) {}
 
    public String toString() {
-      return this.l();
+      return this.getName();
    }
 
-   public String l() {
+   public String getName() {
       return this == a?"upper":"lower";
    }
 

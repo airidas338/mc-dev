@@ -31,7 +31,7 @@ public class atb extends atg {
       return false;
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bci();
    }
 
@@ -40,9 +40,9 @@ public class atb extends atg {
    }
 
    public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
-      bcm var6 = var1.s(var2);
+      TileEntity var6 = var1.s(var2);
       if(var6 instanceof bci) {
-         amj var7 = new amj(Items.cE, 1, ((bci)var6).b());
+         ItemStack var7 = new ItemStack(Items.cE, 1, ((bci)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();
          var6.b(var8);
          var8.o("x");
@@ -57,9 +57,9 @@ public class atb extends atg {
 
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(var5 instanceof bci) {
-         amj var6 = new amj(Items.cE, 1, ((bci)var5).b());
+         ItemStack var6 = new ItemStack(Items.cE, 1, ((bci)var5).b());
          NBTTagCompound var7 = new NBTTagCompound();
          var5.b(var7);
          var7.o("x");
@@ -69,7 +69,7 @@ public class atb extends atg {
          var6.a("BlockEntityTag", (NBTBase)var7);
          a(var1, var3, var6);
       } else {
-         super.a(var1, var2, var3, var4, (bcm)null);
+         super.a(var1, var2, var3, var4, (TileEntity)null);
       }
 
    }

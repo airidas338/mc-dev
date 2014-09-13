@@ -123,12 +123,12 @@ public abstract class ath extends Block {
       var1.c(var2.b(), (Block)this);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return this.e(var3);
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
-      return var4 == ej.b?this.e(var3):0;
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+      return var4 == EnumFacing.UP?this.e(var3):0;
    }
 
    public boolean g() {

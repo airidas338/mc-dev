@@ -16,7 +16,7 @@ public class aob {
 
          for(int var4 = 0; var4 < this.b.length - 1; ++var4) {
             Item var5 = this.b[var4 + 1][var2];
-            var1.a(new amj(var5), new Object[]{this.a[var4], Character.valueOf('X'), var3});
+            var1.a(new ItemStack(var5), new Object[]{this.a[var4], Character.valueOf('X'), var3});
          }
       }
 

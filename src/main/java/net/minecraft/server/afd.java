@@ -35,7 +35,7 @@ class afd extends PathfinderGoal {
 
          if(this.a == 20) {
             double var5 = 4.0D;
-            ChunkCoordinates var7 = this.b.d(1.0F);
+            Vec3D var7 = this.b.d(1.0F);
             double var8 = var1.s - (this.b.s + var7.a * var5);
             double var10 = var1.aQ().b + (double)(var1.K / 2.0F) - (0.5D + this.b.t + (double)(this.b.K / 2.0F));
             double var12 = var1.u - (this.b.u + var7.c * var5);

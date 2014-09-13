@@ -3,11 +3,11 @@ package net.minecraft.server;
 public class BlockBannerWall extends atb {
 
    public BlockBannerWall() {
-      this.j(this.L.b().a(a, ej.c));
+      this.j(this.L.b().a(a, EnumFacing.NORTH));
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      ej var3 = (ej)var1.getData(var2).b(a);
+      EnumFacing var3 = (EnumFacing)var1.getData(var2).b(a);
       float var4 = 0.0F;
       float var5 = 0.78125F;
       float var6 = 0.0F;
@@ -32,7 +32,7 @@ public class BlockBannerWall extends atb {
    }
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
-      ej var5 = (ej)var3.b(a);
+      EnumFacing var5 = (EnumFacing)var3.b(a);
       if(!var1.getData(var2.a(var5.d())).c().r().a()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -42,16 +42,16 @@ public class BlockBannerWall extends atb {
    }
 
    public IBlock a(int var1) {
-      ej var2 = ej.a(var1);
+      EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
-         var2 = ej.c;
+         var2 = EnumFacing.NORTH;
       }
 
       return this.P().a(a, var2);
    }
 
    public int c(IBlock var1) {
-      return ((ej)var1.b(a)).a();
+      return ((EnumFacing)var1.b(a)).a();
    }
 
    protected bed e() {

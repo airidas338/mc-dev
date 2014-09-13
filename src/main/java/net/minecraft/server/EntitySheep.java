@@ -20,18 +20,18 @@ public class EntitySheep extends EntityAnimal {
    public EntitySheep(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
-      ((aay)this.s()).a(true);
-      this.i.a(0, new yy(this));
-      this.i.a(1, new zu(this, 1.25D));
-      this.i.a(2, new yt(this, 1.0D));
-      this.i.a(3, new aag(this, 1.1D, Items.O, false));
-      this.i.a(4, new za(this, 1.1D));
-      this.i.a(5, this.bo);
-      this.i.a(6, new zy(this, 1.0D));
-      this.i.a(7, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(8, new zx(this));
-      this.bk.a(0, new amj(Items.aW, 1, 0));
-      this.bk.a(1, new amj(Items.aW, 1, 0));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new zu(this, 1.25D));
+      this.goalSelector.a(2, new yt(this, 1.0D));
+      this.goalSelector.a(3, new aag(this, 1.1D, Items.O, false));
+      this.goalSelector.a(4, new za(this, 1.1D));
+      this.goalSelector.a(5, this.bo);
+      this.goalSelector.a(6, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
+      this.bk.a(0, new ItemStack(Items.aW, 1, 0));
+      this.bk.a(1, new ItemStack(Items.aW, 1, 0));
    }
 
    protected void E() {
@@ -60,7 +60,7 @@ public class EntitySheep extends EntityAnimal {
 
    protected void b(boolean var1, int var2) {
       if(!this.ck()) {
-         this.a(new amj(Item.a(Blocks.L), 1, this.cj().a()), 0.0F);
+         this.a(new ItemStack(Item.a(Blocks.L), 1, this.cj().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
@@ -80,14 +80,14 @@ public class EntitySheep extends EntityAnimal {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.be && !this.ck() && !this.i_()) {
          if(!this.o.D) {
             this.l(true);
             int var3 = 1 + this.V.nextInt(3);
 
             for(int var4 = 0; var4 < var3; ++var4) {
-               EntityItem var5 = this.a(new amj(Item.a(Blocks.L), 1, this.cj().a()), 1.0F);
+               EntityItem var5 = this.a(new ItemStack(Item.a(Blocks.L), 1, this.cj().a()), 1.0F);
                var5.w += (double)(this.V.nextFloat() * 0.05F);
                var5.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var5.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
@@ -103,14 +103,14 @@ public class EntitySheep extends EntityAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Sheared", this.ck());
-      var1.a("Color", (byte)this.cj().a());
+      var1.setBoolean("Sheared", this.ck());
+      var1.setByte("Color", (byte)this.cj().a());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       this.l(var1.n("Sheared"));
-      this.b(akv.b(var1.d("Color")));
+      this.b(akv.b(var1.getByte("Color")));
    }
 
    protected String z() {
@@ -183,7 +183,7 @@ public class EntitySheep extends EntityAnimal {
       int var4 = ((EntitySheep)var2).cj().b();
       this.bk.a(0).b(var3);
       this.bk.a(1).b(var4);
-      amj var5 = aop.a().a(this.bk, ((EntitySheep)var1).o);
+      ItemStack var5 = aop.a().a(this.bk, ((EntitySheep)var1).o);
       int var6;
       if(var5 != null && var5.b() == Items.aW) {
          var6 = var5.i();

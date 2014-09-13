@@ -7,10 +7,10 @@ class rk implements GenericFutureListener {
    // $FF: synthetic field
    final ChatComponentText a;
    // $FF: synthetic field
-   final rj b;
+   final PlayerConnection b;
 
 
-   rk(rj var1, ChatComponentText var2) {
+   rk(PlayerConnection var1, ChatComponentText var2) {
       this.b = var1;
       this.a = var2;
    }

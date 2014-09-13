@@ -13,16 +13,16 @@ public class EntityCreeper extends EntityMonster {
 
    public EntityCreeper(World var1) {
       super(var1);
-      this.i.a(1, new yy(this));
-      this.i.a(2, new aae(this));
-      this.i.a(2, this.a);
-      this.i.a(3, new yp(this, new aeq(this), 6.0F, 1.0D, 1.2D));
-      this.i.a(4, new zk(this, 1.0D, false));
-      this.i.a(5, new zy(this, 0.8D));
-      this.i.a(6, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(6, new zx(this));
-      this.bg.a(1, new aaq(this, EntityHuman.class, true));
-      this.bg.a(2, new aal(this, false, new Class[0]));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, new aae(this));
+      this.goalSelector.a(2, this.a);
+      this.goalSelector.a(3, new yp(this, new aeq(this), 6.0F, 1.0D, 1.2D));
+      this.goalSelector.a(4, new PathfinderGoalMeleeAttack(this, 1.0D, false));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 0.8D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(6, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new aaq(this, EntityHuman.class, true));
+      this.targetSelector.a(2, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
    }
 
    protected void aW() {
@@ -53,23 +53,23 @@ public class EntityCreeper extends EntityMonster {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.ac.a(17) == 1) {
-         var1.a("powered", true);
+         var1.setBoolean("powered", true);
       }
 
-      var1.a("Fuse", (short)this.bk);
-      var1.a("ExplosionRadius", (byte)this.bl);
-      var1.a("ignited", this.cl());
+      var1.setShort("Fuse", (short)this.bk);
+      var1.setByte("ExplosionRadius", (byte)this.bl);
+      var1.setBoolean("ignited", this.cl());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       this.ac.b(17, Byte.valueOf((byte)(var1.n("powered")?1:0)));
       if(var1.b("Fuse", 99)) {
-         this.bk = var1.e("Fuse");
+         this.bk = var1.getShort("Fuse");
       }
 
       if(var1.b("ExplosionRadius", 99)) {
-         this.bl = var1.d("ExplosionRadius");
+         this.bl = var1.getByte("ExplosionRadius");
       }
 
       if(var1.n("ignited")) {
@@ -79,7 +79,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    public void s_() throws IOException {
-      if(this.ai()) {
+      if(this.isAlive()) {
          this.b = this.c;
          if(this.cl()) {
             this.a(1);
@@ -121,7 +121,7 @@ public class EntityCreeper extends EntityMonster {
          this.a(Item.b(var4), 1);
       } else if(var1.getEntity() instanceof EntityCreeper && var1.getEntity() != this && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(Items.bX, 1, 4), 0.0F);
+         this.a(new ItemStack(Items.bX, 1, 4), 0.0F);
       }
 
    }
@@ -152,7 +152,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    protected boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.bv();

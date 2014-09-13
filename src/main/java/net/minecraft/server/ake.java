@@ -6,7 +6,7 @@ public class ake extends Item {
       return true;
    }
 
-   public Packet c(amj var1, World var2, EntityHuman var3) {
+   public Packet c(ItemStack var1, World var2, EntityHuman var3) {
       return null;
    }
 }

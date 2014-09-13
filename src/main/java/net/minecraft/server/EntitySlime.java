@@ -13,12 +13,12 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    public EntitySlime(World var1) {
       super(var1);
       this.f = new agc(this);
-      this.i.a(1, new aga(this));
-      this.i.a(2, new afz(this));
-      this.i.a(3, new agd(this));
-      this.i.a(5, new agb(this));
-      this.bg.a(1, new aao(this));
-      this.bg.a(3, new aam(this, EntityIronGolem.class));
+      this.goalSelector.a(1, new aga(this));
+      this.goalSelector.a(2, new afz(this));
+      this.goalSelector.a(3, new agd(this));
+      this.goalSelector.a(5, new agb(this));
+      this.targetSelector.a(1, new aao(this));
+      this.targetSelector.a(3, new aam(this, EntityIronGolem.class));
    }
 
    protected void h() {
@@ -42,13 +42,13 @@ public class EntitySlime extends EntityInsentient implements IMonster {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Size", this.ck() - 1);
-      var1.a("wasOnGround", this.bi);
+      var1.setInt("Size", this.ck() - 1);
+      var1.setBoolean("wasOnGround", this.bi);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      int var2 = var1.f("Size");
+      int var2 = var1.getInt("Size");
       if(var2 < 0) {
          var2 = 0;
       }
@@ -145,7 +145,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
             }
 
             var6.a(var1 / 2);
-            var6.b(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.V.nextFloat() * 360.0F, 0.0F);
+            var6.setPositionRotation(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.V.nextFloat() * 360.0F, 0.0F);
             this.o.d((Entity)var6);
          }
       }
@@ -202,7 +202,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    }
 
    public boolean bQ() {
-      bfh var1 = this.o.f(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+      Chunk var1 = this.o.f(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
       if(this.o.P().u() == WorldType.FLAT && this.V.nextInt(4) != 1) {
          return false;
       } else {

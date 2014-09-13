@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 
-public class zi extends zh {
+public class zi extends PathfinderGoalLookAtPlayer {
 
    private final EntityVillager e;
 

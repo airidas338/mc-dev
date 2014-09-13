@@ -7,12 +7,12 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
    public EntitySnowman(World var1) {
       super(var1);
       this.a(0.7F, 1.9F);
-      ((aay)this.s()).a(true);
-      this.i.a(1, new PathfinderGoalArrowAttack(this, 1.25D, 20, 10.0F));
-      this.i.a(2, new zy(this, 1.0D));
-      this.i.a(3, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(4, new zx(this));
-      this.bg.a(1, new aaq(this, EntityInsentient.class, 10, true, false, IMonster.d));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(1, new PathfinderGoalArrowAttack(this, 1.25D, 20, 10.0F));
+      this.goalSelector.a(2, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(3, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(4, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new aaq(this, EntityInsentient.class, 10, true, false, IMonster.d));
    }
 
    protected void aW() {
@@ -66,8 +66,8 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
       double var6 = var1.s - this.s;
       double var8 = var4 - var3.t;
       double var10 = var1.u - this.u;
-      float var12 = MathHelper.a(var6 * var6 + var10 * var10) * 0.2F;
-      var3.c(var6, var8 + (double)var12, var10, 1.6F, 12.0F);
+      float var12 = MathHelper.sqrt(var6 * var6 + var10 * var10) * 0.2F;
+      var3.shoot(var6, var8 + (double)var12, var10, 1.6F, 12.0F);
       this.a("random.bow", 1.0F, 1.0F / (this.bb().nextFloat() * 0.4F + 0.8F));
       this.o.d((Entity)var3);
    }

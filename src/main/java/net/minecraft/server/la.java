@@ -6,12 +6,12 @@ public class la implements Packet {
 
    private int a;
    private int b;
-   private amj c;
+   private ItemStack c;
 
 
    public la() {}
 
-   public la(int var1, int var2, amj var3) {
+   public la(int var1, int var2, ItemStack var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3 == null?null:var3.k();

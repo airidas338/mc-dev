@@ -10,12 +10,12 @@ public class EntitySilverfish extends EntityMonster {
    public EntitySilverfish(World var1) {
       super(var1);
       this.a(0.4F, 0.3F);
-      this.i.a(1, new yy(this));
-      this.i.a(3, this.b = new afv(this));
-      this.i.a(4, new zk(this, EntityHuman.class, 1.0D, false));
-      this.i.a(5, new afu(this));
-      this.bg.a(1, new aal(this, true, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(3, this.b = new afv(this));
+      this.goalSelector.a(4, new PathfinderGoalMeleeAttack(this, EntityHuman.class, 1.0D, false));
+      this.goalSelector.a(5, new afu(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
    }
 
    public float aR() {

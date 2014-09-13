@@ -11,14 +11,14 @@ public class EntityMushroomCow extends EntityCow {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.z && this.l() >= 0) {
          if(var2.b == 1) {
-            var1.bg.a(var1.bg.c, new amj(Items.A));
+            var1.bg.a(var1.bg.c, new ItemStack(Items.A));
             return true;
          }
 
-         if(var1.bg.a(new amj(Items.A)) && !var1.by.d) {
+         if(var1.bg.a(new ItemStack(Items.A)) && !var1.by.d) {
             var1.bg.a(var1.bg.c, 1);
             return true;
          }
@@ -29,7 +29,7 @@ public class EntityMushroomCow extends EntityCow {
          this.o.a(ew.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.D) {
             EntityCow var3 = new EntityCow(this.o);
-            var3.b(this.s, this.t, this.u, this.y, this.z);
+            var3.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
             var3.h(this.bm());
             var3.aG = this.aG;
             if(this.k_()) {
@@ -39,7 +39,7 @@ public class EntityMushroomCow extends EntityCow {
             this.o.d((Entity)var3);
 
             for(int var4 = 0; var4 < 5; ++var4) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new amj(Blocks.Q))));
+               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.Q))));
             }
 
             var2.a(1, (EntityLiving)var1);

@@ -6,7 +6,7 @@ public class bei {
    private final World a;
    private final Location b;
    private IBlock c;
-   private bcm d;
+   private TileEntity d;
    private boolean e;
 
 
@@ -23,7 +23,7 @@ public class bei {
       return this.c;
    }
 
-   public bcm b() {
+   public TileEntity b() {
       if(this.d == null && !this.e) {
          this.d = this.a.s(this.b);
          this.e = true;

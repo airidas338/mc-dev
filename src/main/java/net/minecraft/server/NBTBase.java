@@ -37,7 +37,7 @@ public abstract class NBTBase {
       case 8:
          return new NBTTagString();
       case 9:
-         return new fv();
+         return new NBTTagList();
       case 10:
          return new NBTTagCompound();
       case 11:

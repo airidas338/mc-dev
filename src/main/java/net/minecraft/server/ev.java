@@ -4,7 +4,7 @@ import com.google.common.collect.HashBiMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ev extends fb implements eq {
+public class ev extends RegistrySimple implements eq {
 
    protected final er a = new er();
    protected final Map b;

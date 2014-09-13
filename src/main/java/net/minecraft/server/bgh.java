@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bgh extends bgd {
+public class bgh extends WorldProvider {
 
    public void b() {
       this.c = new asc(BiomeBase.y, 0.0F);
@@ -8,7 +8,7 @@ public class bgh extends bgd {
       this.e = true;
    }
 
-   public bfe c() {
+   public IChunkProvider c() {
       return new bgw(this.b, this.b.J());
    }
 

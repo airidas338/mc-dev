@@ -53,7 +53,7 @@ public class tq {
    public IChatBaseComponent e() {
       IChatBaseComponent var1 = this.a.f();
       var1.b().a(EnumChatFormat.h);
-      var1.b().a(new hr(hs.b, new ChatComponentText(this.e)));
+      var1.b().a(new ChatHoverable(EnumHoverAction.SHOW_ACHIEVEMENT, new ChatComponentText(this.e)));
       return var1;
    }
 

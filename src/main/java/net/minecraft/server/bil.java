@@ -42,7 +42,7 @@ public class bil extends WorldGenTreeAbstract {
             Block var20 = var1.getData(var3.b()).c();
             if((var20 == Blocks.c || var20 == Blocks.d) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
-               ej var21 = en.a.a(var2);
+               EnumFacing var21 = en.a.a(var2);
                var8 = var4 - var2.nextInt(4) - 1;
                var9 = 3 - var2.nextInt(3);
                int var10 = var3.n();
@@ -91,7 +91,7 @@ public class bil extends WorldGenTreeAbstract {
                this.b(var1, var22.d(2));
                var10 = var3.n();
                var11 = var3.p();
-               ej var24 = en.a.a(var2);
+               EnumFacing var24 = en.a.a(var2);
                if(var24 != var21) {
                   var14 = var8 - var2.nextInt(2) - 1;
                   var23 = 1 + var2.nextInt(3);

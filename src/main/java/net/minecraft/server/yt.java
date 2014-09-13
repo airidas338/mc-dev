@@ -30,7 +30,7 @@ public class yt extends PathfinderGoal {
    }
 
    public boolean b() {
-      return this.e.ai() && this.e.cp() && this.b < 60;
+      return this.e.isAlive() && this.e.cp() && this.b < 60;
    }
 
    public void d() {
@@ -40,7 +40,7 @@ public class yt extends PathfinderGoal {
 
    public void e() {
       this.d.p().a(this.e, 10.0F, (float)this.d.bP());
-      this.d.s().a((Entity)this.e, this.c);
+      this.d.getNavigation().a((Entity)this.e, this.c);
       ++this.b;
       if(this.b >= 60 && this.d.h(this.e) < 9.0D) {
          this.g();
@@ -50,7 +50,7 @@ public class yt extends PathfinderGoal {
 
    private EntityAnimal f() {
       float var1 = 8.0F;
-      List var2 = this.a.a(this.d.getClass(), this.d.aQ().b((double)var1, (double)var1, (double)var1));
+      List var2 = this.a.getEntities(this.d.getClass(), this.d.aQ().b((double)var1, (double)var1, (double)var1));
       double var3 = Double.MAX_VALUE;
       EntityAnimal var5 = null;
       Iterator var6 = var2.iterator();
@@ -86,7 +86,7 @@ public class yt extends PathfinderGoal {
          this.d.cq();
          this.e.cq();
          var1.b(-24000);
-         var1.b(this.d.s, this.d.t, this.d.u, 0.0F, 0.0F);
+         var1.setPositionRotation(this.d.s, this.d.t, this.d.u, 0.0F, 0.0F);
          this.a.d((Entity)var1);
          Random var3 = this.d.bb();
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum avd implements va {
+public enum avd implements IName {
 
    a("DIRT", 0, 0, "dirt", "default"),
    b("COARSE_DIRT", 1, 1, "coarse_dirt", "coarse"),
@@ -43,7 +43,7 @@ public enum avd implements va {
       return d[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

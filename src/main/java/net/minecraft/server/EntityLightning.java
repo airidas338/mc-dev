@@ -11,7 +11,7 @@ public class EntityLightning extends EntityWeather {
 
    public EntityLightning(World var1, double var2, double var4, double var6) {
       super(var1);
-      this.b(var2, var4, var6, 0.0F, 0.0F);
+      this.setPositionRotation(var2, var4, var6, 0.0F, 0.0F);
       this.b = 2;
       this.a = this.V.nextLong();
       this.c = this.V.nextInt(3) + 1;

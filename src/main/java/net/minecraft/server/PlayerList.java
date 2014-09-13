@@ -37,7 +37,7 @@ public abstract class PlayerList {
 	private final sp m;
 	private final sx n;
 	private final Map o;
-	private brl p;
+	private IPlayerFileData p;
 	private boolean q;
 	protected int g;
 	private int r;
@@ -76,7 +76,7 @@ public abstract class PlayerList {
 		WorldData var10 = var9.P();
 		Location var11 = var9.M();
 		this.a(var2, (EntityPlayer) null, var9);
-		rj var12 = new rj(this.j, var1, var2);
+		PlayerConnection var12 = new PlayerConnection(this.j, var1, var2);
 		var12.a((Packet) (new jw(var2.F(), var2.c.b(), var10.t(), var9.t.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
 		var12.a((Packet) (new ji("MC|Brand", (new hd(Unpooled.buffer())).a(this.c().getServerModName()))));
 		var12.a((Packet) (new ix(var10.y(), var10.z())));
@@ -106,13 +106,13 @@ public abstract class PlayerList {
 		Iterator var14 = var2.bk().iterator();
 
 		while (var14.hasNext()) {
-			wq var15 = (wq) var14.next();
+			MobEffect var15 = (MobEffect) var14.next();
 			var12.a((Packet) (new lr(var2.F(), var15)));
 		}
 
 		var2.f_();
 		if (var7 != null && var7.b("Riding", 10)) {
-			Entity var16 = EntityTypes.a(var7.m("Riding"), (World) var9);
+			Entity var16 = EntityTypes.a(var7.getCompound("Riding"), (World) var9);
 			if (var16 != null) {
 				var16.n = true;
 				var9.d(var16);
@@ -151,7 +151,7 @@ public abstract class PlayerList {
 
 	public void a(WorldServer[] var1) {
 		this.p = var1[0].O().e();
-		var1[0].af().a((bez) (new so(this)));
+		var1[0].af().a((WorldBorderListener) (new so(this)));
 	}
 
 	public void a(EntityPlayer var1, WorldServer var2) {
@@ -176,15 +176,15 @@ public abstract class PlayerList {
 			var3 = var2;
 			h.debug("loading single player");
 		} else {
-			var3 = this.p.b(var1);
+			var3 = this.p.load(var1);
 		}
 
 		return var3;
 	}
 
 	protected void b(EntityPlayer var1) {
-		this.p.a(var1);
-		tp var2 = (tp) this.o.get(var1.aJ());
+		this.p.save(var1);
+		ServerStatisticsManager var2 = (ServerStatisticsManager) this.o.get(var1.aJ());
 		if (var2 != null) {
 			var2.b();
 		}
@@ -275,10 +275,10 @@ public abstract class PlayerList {
 		if (this.j.W()) {
 			var7 = new qk(this.j.a(0));
 		} else {
-			var7 = new qx(this.j.a(0));
+			var7 = new PlayerInteractManager(this.j.a(0));
 		}
 
-		return new EntityPlayer(this.j, this.j.a(0), var1, (qx) var7);
+		return new EntityPlayer(this.j, this.j.a(0), var1, (PlayerInteractManager) var7);
 	}
 
 	public EntityPlayer a(EntityPlayer var1, int var2, boolean var3) {
@@ -294,10 +294,10 @@ public abstract class PlayerList {
 		if (this.j.W()) {
 			var6 = new qk(this.j.a(var1.am));
 		} else {
-			var6 = new qx(this.j.a(var1.am));
+			var6 = new PlayerInteractManager(this.j.a(var1.am));
 		}
 
-		EntityPlayer var7 = new EntityPlayer(this.j, this.j.a(var1.am), var1.cc(), (qx) var6);
+		EntityPlayer var7 = new EntityPlayer(this.j, this.j.a(var1.am), var1.cc(), (PlayerInteractManager) var6);
 		var7.a = var1.a;
 		var7.a((EntityHuman) var1, var3);
 		var7.d(var1.F());
@@ -308,7 +308,7 @@ public abstract class PlayerList {
 		if (var4 != null) {
 			var9 = EntityHuman.a(this.j.a(var1.am), var4, var5);
 			if (var9 != null) {
-				var7.b((double) ((float) var9.n() + 0.5F), (double) ((float) var9.o() + 0.1F), (double) ((float) var9.p() + 0.5F), 0.0F, 0.0F);
+				var7.setPositionRotation((double) ((float) var9.n() + 0.5F), (double) ((float) var9.o() + 0.1F), (double) ((float) var9.p() + 0.5F), 0.0F, 0.0F);
 				var7.a(var4, var5);
 			} else {
 				var7.a.a((Packet) (new jo(0, 0.0F)));
@@ -353,7 +353,7 @@ public abstract class PlayerList {
 		Iterator var6 = var1.bk().iterator();
 
 		while (var6.hasNext()) {
-			wq var7 = (wq) var6.next();
+			MobEffect var7 = (MobEffect) var6.next();
 			var1.a.a((Packet) (new lr(var1.F(), var7)));
 		}
 
@@ -368,15 +368,15 @@ public abstract class PlayerList {
 		if (var1.am == -1) {
 			var5 = MathHelper.a(var5 / var9, var4.af().b() + 16.0D, var4.af().d() - 16.0D);
 			var7 = MathHelper.a(var7 / var9, var4.af().c() + 16.0D, var4.af().e() - 16.0D);
-			var1.b(var5, var1.t, var7, var1.y, var1.z);
-			if (var1.ai()) {
+			var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		} else if (var1.am == 0) {
 			var5 = MathHelper.a(var5 * var9, var4.af().b() + 16.0D, var4.af().d() - 16.0D);
 			var7 = MathHelper.a(var7 * var9, var4.af().c() + 16.0D, var4.af().e() - 16.0D);
-			var1.b(var5, var1.t, var7, var1.y, var1.z);
-			if (var1.ai()) {
+			var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		} else {
@@ -390,8 +390,8 @@ public abstract class PlayerList {
 			var5 = (double) var12.n();
 			var1.t = (double) var12.o();
 			var7 = (double) var12.p();
-			var1.b(var5, var1.t, var7, 90.0F, 0.0F);
-			if (var1.ai()) {
+			var1.setPositionRotation(var5, var1.t, var7, 90.0F, 0.0F);
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		}
@@ -401,8 +401,8 @@ public abstract class PlayerList {
 			var3.B.a("placing");
 			var5 = (double) MathHelper.a((int) var5, -29999872, 29999872);
 			var7 = (double) MathHelper.a((int) var7, -29999872, 29999872);
-			if (var1.ai()) {
-				var1.b(var5, var1.t, var7, var1.y, var1.z);
+			if (var1.isAlive()) {
+				var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
 				var4.u().a(var1, var11);
 				var4.d(var1);
 				var4.a(var1, false);
@@ -598,7 +598,7 @@ public abstract class PlayerList {
 	}
 
 	public void b(EntityPlayer var1, WorldServer var2) {
-		bfb var3 = this.j.c[0].af();
+		WorldBorder var3 = this.j.c[0].af();
 		var1.a.a((Packet) (new kr(var3, kt.d)));
 		var1.a.a((Packet) (new PacketPlayOutUpdateTime(var2.K(), var2.L(), var2.Q().b("doDaylightCycle"))));
 		if (var2.S()) {
@@ -624,7 +624,7 @@ public abstract class PlayerList {
 	}
 
 	public String[] r() {
-		return this.j.c[0].O().e().f();
+		return this.j.c[0].O().e().getSeenPlayers();
 	}
 
 	public boolean s() {
@@ -688,9 +688,9 @@ public abstract class PlayerList {
 		this.a(var1, true);
 	}
 
-	public tp a(EntityHuman var1) {
+	public ServerStatisticsManager a(EntityHuman var1) {
 		UUID var2 = var1.aJ();
-		tp var3 = var2 == null ? null : (tp) this.o.get(var2);
+		ServerStatisticsManager var3 = var2 == null ? null : (ServerStatisticsManager) this.o.get(var2);
 		if (var3 == null) {
 			File var4 = new File(this.j.a(0).O().b(), "stats");
 			File var5 = new File(var4, var2.toString() + ".json");
@@ -701,7 +701,7 @@ public abstract class PlayerList {
 				}
 			}
 
-			var3 = new tp(this.j, var5);
+			var3 = new ServerStatisticsManager(this.j, var5);
 			var3.a();
 			this.o.put(var2, var3);
 		}

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bbg implements va {
+public enum bbg implements IName {
 
    a("STONE", 0, 0, "stone"),
    b("SAND", 1, 1, "sandstone", "sand"),
@@ -44,7 +44,7 @@ public enum bbg implements va {
       return i[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.k;
    }
 

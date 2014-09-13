@@ -20,14 +20,14 @@ public class ItemPotion extends Item {
       this.a(CreativeModeTab.k);
    }
 
-   public List h(amj var1) {
+   public List h(ItemStack var1) {
       if(var1.n() && var1.o().b("CustomPotionEffects", 9)) {
          ArrayList var7 = Lists.newArrayList();
-         fv var3 = var1.o().c("CustomPotionEffects", 10);
+         NBTTagList var3 = var1.o().getList("CustomPotionEffects", 10);
 
          for(int var4 = 0; var4 < var3.c(); ++var4) {
             NBTTagCompound var5 = var3.b(var4);
-            wq var6 = wq.b(var5);
+            MobEffect var6 = MobEffect.b(var5);
             if(var6 != null) {
                var7.add(var6);
             }
@@ -37,7 +37,7 @@ public class ItemPotion extends Item {
       } else {
          List var2 = (List)this.a.get(Integer.valueOf(var1.i()));
          if(var2 == null) {
-            var2 = ans.b(var1.i(), false);
+            var2 = PotionBrewer.getEffects(var1.i(), false);
             this.a.put(Integer.valueOf(var1.i()), var2);
          }
 
@@ -48,14 +48,14 @@ public class ItemPotion extends Item {
    public List e(int var1) {
       List var2 = (List)this.a.get(Integer.valueOf(var1));
       if(var2 == null) {
-         var2 = ans.b(var1, false);
+         var2 = PotionBrewer.getEffects(var1, false);
          this.a.put(Integer.valueOf(var1), var2);
       }
 
       return var2;
    }
 
-   public amj b(amj var1, World var2, EntityHuman var3) {
+   public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
       if(!var3.by.d) {
          --var1.b;
       }
@@ -66,8 +66,8 @@ public class ItemPotion extends Item {
             Iterator var5 = var4.iterator();
 
             while(var5.hasNext()) {
-               wq var6 = (wq)var5.next();
-               var3.c(new wq(var6));
+               MobEffect var6 = (MobEffect)var5.next();
+               var3.c(new MobEffect(var6));
             }
          }
       }
@@ -75,24 +75,24 @@ public class ItemPotion extends Item {
       var3.b(ty.J[Item.b((Item)this)]);
       if(!var3.by.d) {
          if(var1.b <= 0) {
-            return new amj(Items.bA);
+            return new ItemStack(Items.bA);
          }
 
-         var3.bg.a(new amj(Items.bA));
+         var3.bg.a(new ItemStack(Items.bA));
       }
 
       return var1;
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 32;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.c;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(f(var1.i())) {
          if(!var3.by.d) {
             --var1.b;
@@ -115,7 +115,7 @@ public class ItemPotion extends Item {
       return (var0 & 16384) != 0;
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       if(var1.i() == 0) {
          return fi.a("item.emptyPotion.name").trim();
       } else {
@@ -127,11 +127,11 @@ public class ItemPotion extends Item {
          List var3 = Items.bz.h(var1);
          String var4;
          if(var3 != null && !var3.isEmpty()) {
-            var4 = ((wq)var3.get(0)).g();
+            var4 = ((MobEffect)var3.get(0)).g();
             var4 = var4 + ".postfix";
             return var2 + fi.a(var4).trim();
          } else {
-            var4 = ans.c(var1.i());
+            var4 = PotionBrewer.c(var1.i());
             return fi.a(var4).trim() + " " + super.a(var1);
          }
       }

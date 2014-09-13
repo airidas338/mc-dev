@@ -7,7 +7,7 @@ public class bgk {
 
 
    public bgk() {
-      this.b = Blocks.a.P();
+      this.b = Blocks.AIR.P();
    }
 
    public IBlock a(int var1, int var2, int var3) {

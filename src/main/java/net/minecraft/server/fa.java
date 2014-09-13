@@ -13,14 +13,14 @@ public class fa {
       this.c = var3;
    }
 
-   public fa(fv var1) {
+   public fa(NBTTagList var1) {
       this.a = var1.e(0);
       this.b = var1.e(1);
       this.c = var1.e(2);
    }
 
-   public fv a() {
-      fv var1 = new fv();
+   public NBTTagList a() {
+      NBTTagList var1 = new NBTTagList();
       var1.a((NBTBase)(new NBTTagFloat(this.a)));
       var1.a((NBTBase)(new NBTTagFloat(this.b)));
       var1.a((NBTBase)(new NBTTagFloat(this.c)));

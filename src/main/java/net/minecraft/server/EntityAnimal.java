@@ -55,12 +55,12 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("InLove", this.bk);
+      var1.setInt("InLove", this.bk);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.bk = var1.f("InLove");
+      this.bk = var1.getInt("InLove");
    }
 
    public boolean bQ() {
@@ -83,12 +83,12 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
       return 1 + this.o.s.nextInt(3);
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 == null?false:var1.b() == Items.O;
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null) {
          if(this.d(var2) && this.l() == 0 && this.bk <= 0) {
             this.a(var1, var2);
@@ -106,11 +106,11 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
       return super.a(var1);
    }
 
-   protected void a(EntityHuman var1, amj var2) {
+   protected void a(EntityHuman var1, ItemStack var2) {
       if(!var1.by.d) {
          --var2.b;
          if(var2.b <= 0) {
-            var1.bg.a(var1.bg.c, (amj)null);
+            var1.bg.a(var1.bg.c, (ItemStack)null);
          }
       }
 

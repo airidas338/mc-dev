@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-enum azu implements va {
+enum azu implements IName {
 
    a("UP", 0, "up"),
    b("SIDE", 1, "side"),
@@ -15,10 +15,10 @@ enum azu implements va {
    }
 
    public String toString() {
-      return this.l();
+      return this.getName();
    }
 
-   public String l() {
+   public String getName() {
       return this.d;
    }
 

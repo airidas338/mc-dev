@@ -47,7 +47,7 @@ public class cm extends CommandAbstract {
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
                   var6.b(var3, true);
-                  if(var4 == Blocks.a) {
+                  if(var4 == Blocks.AIR) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
@@ -56,13 +56,13 @@ public class cm extends CommandAbstract {
                }
             }
 
-            bcm var13 = var6.s(var3);
+            TileEntity var13 = var6.s(var3);
             if(var13 != null) {
-               if(var13 instanceof vq) {
-                  ((vq)var13).l();
+               if(var13 instanceof IInventory) {
+                  ((IInventory)var13).l();
                }
 
-               var6.a(var3, Blocks.a.P(), var4 == Blocks.a?2:4);
+               var6.a(var3, Blocks.AIR.P(), var4 == Blocks.AIR?2:4);
             }
 
             IBlock var10 = var4.a(var5);
@@ -70,11 +70,11 @@ public class cm extends CommandAbstract {
                throw new di("commands.setblock.noChange", new Object[0]);
             } else {
                if(var8) {
-                  bcm var11 = var6.s(var3);
+                  TileEntity var11 = var6.s(var3);
                   if(var11 != null) {
-                     var7.a("x", var3.n());
-                     var7.a("y", var3.o());
-                     var7.a("z", var3.p());
+                     var7.setInt("x", var3.n());
+                     var7.setInt("y", var3.o());
+                     var7.setInt("z", var3.p());
                      var11.a(var7);
                   }
                }

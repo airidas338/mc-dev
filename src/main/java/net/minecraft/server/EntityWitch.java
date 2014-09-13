@@ -15,14 +15,14 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
    public EntityWitch(World var1) {
       super(var1);
       this.a(0.6F, 1.95F);
-      this.i.a(1, new yy(this));
-      this.i.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 60, 10.0F));
-      this.i.a(2, new zy(this, 1.0D));
-      this.i.a(2, this.a);
-      this.i.a(3, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(3, new zx(this));
-      this.bg.a(1, new aal(this, false, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 60, 10.0F));
+      this.goalSelector.a(2, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(2, this.a);
+      this.goalSelector.a(3, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(3, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
    }
 
    protected void h() {
@@ -61,16 +61,16 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
          if(this.n()) {
             if(this.bl-- <= 0) {
                this.a(false);
-               amj var1 = this.bz();
-               this.c(0, (amj)null);
+               ItemStack var1 = this.bz();
+               this.c(0, (ItemStack)null);
                if(var1 != null && var1.b() == Items.bz) {
                   List var2 = Items.bz.h(var1);
                   if(var2 != null) {
                      Iterator var3 = var2.iterator();
 
                      while(var3.hasNext()) {
-                        wq var4 = (wq)var3.next();
-                        this.c(new wq(var4));
+                        MobEffect var4 = (MobEffect)var3.next();
+                        this.c(new MobEffect(var4));
                      }
                   }
                }
@@ -79,20 +79,20 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
             }
          } else {
             short var5 = -1;
-            if(this.V.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(wp.o)) {
+            if(this.V.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(MobEffectList.o)) {
                var5 = 8237;
-            } else if(this.V.nextFloat() < 0.15F && this.au() && !this.a(wp.n)) {
+            } else if(this.V.nextFloat() < 0.15F && this.au() && !this.a(MobEffectList.n)) {
                var5 = 16307;
             } else if(this.V.nextFloat() < 0.05F && this.bm() < this.bt()) {
                var5 = 16341;
-            } else if(this.V.nextFloat() < 0.25F && this.u() != null && !this.a(wp.c) && this.u().h(this) > 121.0D) {
+            } else if(this.V.nextFloat() < 0.25F && this.u() != null && !this.a(MobEffectList.c) && this.u().h(this) > 121.0D) {
                var5 = 16274;
-            } else if(this.V.nextFloat() < 0.25F && this.u() != null && !this.a(wp.c) && this.u().h(this) > 121.0D) {
+            } else if(this.V.nextFloat() < 0.25F && this.u() != null && !this.a(MobEffectList.c) && this.u().h(this) > 121.0D) {
                var5 = 16274;
             }
 
             if(var5 > -1) {
-               this.c(0, new amj(Items.bz, 1, var5));
+               this.c(0, new ItemStack(Items.bz, 1, var5));
                this.bl = this.bz().l();
                this.a(true);
                AttributeInstance var6 = this.getAttributeInstance(GenericAttributes.d);
@@ -147,16 +147,16 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
          double var6 = var1.s + var1.v - this.s;
          double var8 = var4 - this.t;
          double var10 = var1.u + var1.x - this.u;
-         float var12 = MathHelper.a(var6 * var6 + var10 * var10);
-         if(var12 >= 8.0F && !var1.a(wp.d)) {
+         float var12 = MathHelper.sqrt(var6 * var6 + var10 * var10);
+         if(var12 >= 8.0F && !var1.a(MobEffectList.d)) {
             var3.a(32698);
-         } else if(var1.bm() >= 8.0F && !var1.a(wp.u)) {
+         } else if(var1.bm() >= 8.0F && !var1.a(MobEffectList.u)) {
             var3.a(32660);
-         } else if(var12 <= 3.0F && !var1.a(wp.t) && this.V.nextFloat() < 0.25F) {
+         } else if(var12 <= 3.0F && !var1.a(MobEffectList.t) && this.V.nextFloat() < 0.25F) {
             var3.a(32696);
          }
 
-         var3.c(var6, var8 + (double)(var12 * 0.2F), var10, 0.75F, 8.0F);
+         var3.shoot(var6, var8 + (double)(var12 * 0.2F), var10, 0.75F, 8.0F);
          this.o.d((Entity)var3);
       }
    }

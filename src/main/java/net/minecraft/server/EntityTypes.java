@@ -63,13 +63,13 @@ public class EntityTypes {
 
    public static Entity a(NBTTagCompound var0, World var1) {
       Entity var2 = null;
-      if("Minecart".equals(var0.j("id"))) {
-         var0.a("id", EnumMinecartType.a(var0.f("Type")).b());
+      if("Minecart".equals(var0.getString("id"))) {
+         var0.setString("id", EnumMinecartType.a(var0.getInt("Type")).b());
          var0.o("Type");
       }
 
       try {
-         Class var3 = (Class)c.get(var0.j("id"));
+         Class var3 = (Class)c.get(var0.getString("id"));
          if(var3 != null) {
             var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
@@ -80,7 +80,7 @@ public class EntityTypes {
       if(var2 != null) {
          var2.f(var0);
       } else {
-         b.warn("Skipping Entity with id " + var0.j("id"));
+         b.warn("Skipping Entity with id " + var0.getString("id"));
       }
 
       return var2;

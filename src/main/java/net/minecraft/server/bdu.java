@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bdu implements va {
+public enum bdu implements IName {
 
    a("DEFAULT", 0, "normal"),
    b("STICKY", 1, "sticky");
@@ -17,7 +17,7 @@ public enum bdu implements va {
       return this.c;
    }
 
-   public String l() {
+   public String getName() {
       return this.c;
    }
 

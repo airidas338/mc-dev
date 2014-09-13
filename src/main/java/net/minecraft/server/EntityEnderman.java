@@ -17,16 +17,16 @@ public class EntityEnderman extends EntityMonster {
       super(var1);
       this.a(0.6F, 2.9F);
       this.S = 1.0F;
-      this.i.a(0, new yy(this));
-      this.i.a(2, new zk(this, 1.0D, false));
-      this.i.a(7, new zy(this, 1.0D));
-      this.i.a(8, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(8, new zx(this));
-      this.i.a(10, new aet(this));
-      this.i.a(11, new aev(this));
-      this.bg.a(1, new aal(this, false, new Class[0]));
-      this.bg.a(2, new aeu(this));
-      this.bg.a(3, new aaq(this, EntityEndermite.class, 10, true, false, new aes(this)));
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this, 1.0D, false));
+      this.goalSelector.a(7, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(8, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
+      this.goalSelector.a(10, new aet(this));
+      this.goalSelector.a(11, new aev(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+      this.targetSelector.a(2, new aeu(this));
+      this.targetSelector.a(3, new aaq(this, EntityEndermite.class, 10, true, false, new aes(this)));
    }
 
    protected void aW() {
@@ -47,29 +47,29 @@ public class EntityEnderman extends EntityMonster {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       IBlock var2 = this.ck();
-      var1.a("carried", (short)Block.a(var2.c()));
-      var1.a("carriedData", (short)var2.c().c(var2));
+      var1.setShort("carried", (short)Block.a(var2.c()));
+      var1.setShort("carriedData", (short)var2.c().c(var2));
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
       IBlock var2;
       if(var1.b("carried", 8)) {
-         var2 = Block.b(var1.j("carried")).a(var1.e("carriedData") & '\uffff');
+         var2 = Block.b(var1.getString("carried")).a(var1.getShort("carriedData") & '\uffff');
       } else {
-         var2 = Block.c(var1.e("carried")).a(var1.e("carriedData") & '\uffff');
+         var2 = Block.c(var1.getShort("carried")).a(var1.getShort("carriedData") & '\uffff');
       }
 
       this.a(var2);
    }
 
    private boolean c(EntityHuman var1) {
-      amj var2 = var1.bg.b[3];
+      ItemStack var2 = var1.bg.b[3];
       if(var2 != null && var2.b() == Item.a(Blocks.aU)) {
          return false;
       } else {
-         ChunkCoordinates var3 = var1.d(1.0F).a();
-         ChunkCoordinates var4 = new ChunkCoordinates(this.s - var1.s, this.aQ().b + (double)(this.K / 2.0F) - (var1.t + (double)var1.aR()), this.u - var1.u);
+         Vec3D var3 = var1.d(1.0F).a();
+         Vec3D var4 = new Vec3D(this.s - var1.s, this.aQ().b + (double)(this.K / 2.0F) - (var1.t + (double)var1.aR()), this.u - var1.u);
          double var5 = var4.b();
          var4 = var4.a();
          double var7 = var3.b(var4);
@@ -122,7 +122,7 @@ public class EntityEnderman extends EntityMonster {
    }
 
    protected boolean b(Entity var1) {
-      ChunkCoordinates var2 = new ChunkCoordinates(this.s - var1.s, this.aQ().b + (double)(this.K / 2.0F) - var1.t + (double)var1.aR(), this.u - var1.u);
+      Vec3D var2 = new Vec3D(this.s - var1.s, this.aQ().b + (double)(this.K / 2.0F) - var1.t + (double)var1.aR(), this.u - var1.u);
       var2 = var2.a();
       double var3 = 16.0D;
       double var5 = this.s + (this.V.nextDouble() - 0.5D) * 8.0D - var2.a * var3;

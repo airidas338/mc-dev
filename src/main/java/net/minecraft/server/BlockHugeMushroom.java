@@ -21,7 +21,7 @@ public class BlockHugeMushroom extends Block {
       return Item.a(this.b);
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P();
    }
 

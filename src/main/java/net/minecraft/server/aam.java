@@ -44,7 +44,7 @@ public class aam extends PathfinderGoal {
       EntityLiving var1 = this.b.u();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else {
          double var2 = this.f();

@@ -1,24 +1,24 @@
 package net.minecraft.server;
 
-public enum axk implements va {
+public enum axk implements IName {
 
-   a("DOWN_X", 0, 0, "down_x", ej.a),
-   b("EAST", 1, 1, "east", ej.f),
-   c("WEST", 2, 2, "west", ej.e),
-   d("SOUTH", 3, 3, "south", ej.d),
-   e("NORTH", 4, 4, "north", ej.c),
-   f("UP_Z", 5, 5, "up_z", ej.b),
-   g("UP_X", 6, 6, "up_x", ej.b),
-   h("DOWN_Z", 7, 7, "down_z", ej.a);
+   a("DOWN_X", 0, 0, "down_x", EnumFacing.DOWN),
+   b("EAST", 1, 1, "east", EnumFacing.EAST),
+   c("WEST", 2, 2, "west", EnumFacing.WEST),
+   d("SOUTH", 3, 3, "south", EnumFacing.SOUTH),
+   e("NORTH", 4, 4, "north", EnumFacing.NORTH),
+   f("UP_Z", 5, 5, "up_z", EnumFacing.UP),
+   g("UP_X", 6, 6, "up_x", EnumFacing.UP),
+   h("DOWN_Z", 7, 7, "down_z", EnumFacing.DOWN);
    private static final axk[] i = new axk[values().length];
    private final int j;
    private final String k;
-   private final ej l;
+   private final EnumFacing l;
    // $FF: synthetic field
    private static final axk[] m = new axk[]{a, b, c, d, e, f, g, h};
 
 
-   private axk(String var1, int var2, int var3, String var4, ej var5) {
+   private axk(String var1, int var2, int var3, String var4, EnumFacing var5) {
       this.j = var3;
       this.k = var4;
       this.l = var5;
@@ -28,7 +28,7 @@ public enum axk implements va {
       return this.j;
    }
 
-   public ej c() {
+   public EnumFacing c() {
       return this.l;
    }
 
@@ -44,7 +44,7 @@ public enum axk implements va {
       return i[var0];
    }
 
-   public static axk a(ej var0, ej var1) {
+   public static axk a(EnumFacing var0, EnumFacing var1) {
       switch(axj.a[var0.ordinal()]) {
       case 1:
          switch(axj.c[var1.k().ordinal()]) {
@@ -77,7 +77,7 @@ public enum axk implements va {
       }
    }
 
-   public String l() {
+   public String getName() {
       return this.k;
    }
 

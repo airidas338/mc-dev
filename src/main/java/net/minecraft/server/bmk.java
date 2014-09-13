@@ -17,18 +17,18 @@ abstract class bmk extends bms {
    }
 
    protected void a(NBTTagCompound var1) {
-      var1.a("EntryDoor", this.d.name());
+      var1.setString("EntryDoor", this.d.name());
    }
 
    protected void b(NBTTagCompound var1) {
-      this.d = bml.valueOf(var1.j("EntryDoor"));
+      this.d = bml.valueOf(var1.getString("EntryDoor"));
    }
 
    protected void a(World var1, Random var2, bjb var3, bml var4, int var5, int var6, int var7) {
       switch(blu.a[var4.ordinal()]) {
       case 1:
       default:
-         this.a(var1, var3, var5, var6, var7, var5 + 3 - 1, var6 + 3 - 1, var7, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, var5, var6, var7, var5 + 3 - 1, var6 + 3 - 1, var7, Blocks.AIR.P(), Blocks.AIR.P(), false);
          break;
       case 2:
          this.a(var1, Blocks.bf.P(), var5, var6, var7, var3);
@@ -42,8 +42,8 @@ abstract class bmk extends bms {
          this.a(var1, Blocks.ao.a(8), var5 + 1, var6 + 1, var7, var3);
          break;
       case 3:
-         this.a(var1, Blocks.a.P(), var5 + 1, var6, var7, var3);
-         this.a(var1, Blocks.a.P(), var5 + 1, var6 + 1, var7, var3);
+         this.a(var1, Blocks.AIR.P(), var5 + 1, var6, var7, var3);
+         this.a(var1, Blocks.AIR.P(), var5 + 1, var6 + 1, var7, var3);
          this.a(var1, Blocks.bi.P(), var5, var6, var7, var3);
          this.a(var1, Blocks.bi.P(), var5, var6 + 1, var7, var3);
          this.a(var1, Blocks.bi.P(), var5, var6 + 2, var7, var3);
@@ -105,13 +105,13 @@ abstract class bmk extends bms {
       if(this.m != null) {
          switch(blu.b[this.m.ordinal()]) {
          case 1:
-            return blr.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, ej.e, this.d());
+            return blr.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumFacing.WEST, this.d());
          case 2:
-            return blr.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, ej.e, this.d());
+            return blr.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumFacing.WEST, this.d());
          case 3:
-            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, ej.c, this.d());
+            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumFacing.NORTH, this.d());
          case 4:
-            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, ej.c, this.d());
+            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumFacing.NORTH, this.d());
          }
       }
 
@@ -122,13 +122,13 @@ abstract class bmk extends bms {
       if(this.m != null) {
          switch(blu.b[this.m.ordinal()]) {
          case 1:
-            return blr.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, ej.f, this.d());
+            return blr.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumFacing.EAST, this.d());
          case 2:
-            return blr.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, ej.f, this.d());
+            return blr.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumFacing.EAST, this.d());
          case 3:
-            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, ej.d, this.d());
+            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumFacing.SOUTH, this.d());
          case 4:
-            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, ej.d, this.d());
+            return blr.a(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumFacing.SOUTH, this.d());
          }
       }
 

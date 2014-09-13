@@ -23,7 +23,7 @@ public class BlockTripwire extends Block {
    }
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
-      return var1.a(O, Boolean.valueOf(c(var2, var3, var1, ej.c))).a(P, Boolean.valueOf(c(var2, var3, var1, ej.f))).a(Q, Boolean.valueOf(c(var2, var3, var1, ej.d))).a(R, Boolean.valueOf(c(var2, var3, var1, ej.e)));
+      return var1.a(O, Boolean.valueOf(c(var2, var3, var1, EnumFacing.NORTH))).a(P, Boolean.valueOf(c(var2, var3, var1, EnumFacing.EAST))).a(Q, Boolean.valueOf(c(var2, var3, var1, EnumFacing.SOUTH))).a(R, Boolean.valueOf(c(var2, var3, var1, EnumFacing.WEST)));
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
@@ -86,12 +86,12 @@ public class BlockTripwire extends Block {
    }
 
    private void e(World var1, Location var2, IBlock var3) {
-      ej[] var4 = new ej[]{ej.d, ej.e};
+      EnumFacing[] var4 = new EnumFacing[]{EnumFacing.SOUTH, EnumFacing.WEST};
       int var5 = var4.length;
       int var6 = 0;
 
       while(var6 < var5) {
-         ej var7 = var4[var6];
+         EnumFacing var7 = var4[var6];
          int var8 = 1;
 
          while(true) {
@@ -162,12 +162,12 @@ public class BlockTripwire extends Block {
 
    }
 
-   public static boolean c(IBlockAccess var0, Location var1, IBlock var2, ej var3) {
+   public static boolean c(IBlockAccess var0, Location var1, IBlock var2, EnumFacing var3) {
       Location var4 = var1.a(var3);
       IBlock var5 = var0.getData(var4);
       Block var6 = var5.c();
       if(var6 == Blocks.bR) {
-         ej var9 = var3.d();
+         EnumFacing var9 = var3.d();
          return var5.b(BlockTripwireHook.a) == var9;
       } else if(var6 == Blocks.bS) {
          boolean var7 = ((Boolean)var2.b(b)).booleanValue();

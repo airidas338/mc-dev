@@ -41,7 +41,7 @@ public class BlockDragonEgg extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.e(var1, var2);
       return true;
    }

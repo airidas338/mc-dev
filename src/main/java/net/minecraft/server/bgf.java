@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-class bgf extends bfb {
+class bgf extends WorldBorder {
 
    // $FF: synthetic field
    final bge a;

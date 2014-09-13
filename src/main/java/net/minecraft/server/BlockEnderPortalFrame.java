@@ -12,7 +12,7 @@ public class BlockEnderPortalFrame extends Block {
 
    public BlockEnderPortalFrame() {
       super(Material.STONE);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)));
    }
 
    public boolean c() {
@@ -38,7 +38,7 @@ public class BlockEnderPortalFrame extends Block {
       return null;
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d()).a(b, Boolean.valueOf(false));
    }
 
@@ -51,12 +51,12 @@ public class BlockEnderPortalFrame extends Block {
    }
 
    public IBlock a(int var1) {
-      return this.P().a(b, Boolean.valueOf((var1 & 4) != 0)).a(a, ej.b(var1 & 3));
+      return this.P().a(b, Boolean.valueOf((var1 & 4) != 0)).a(a, EnumFacing.b(var1 & 3));
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(a)).b();
+      int var3 = var2 | ((EnumFacing)var1.b(a)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {
          var3 |= 4;
       }

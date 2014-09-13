@@ -76,7 +76,7 @@ public abstract class aqi {
                   return;
                }
 
-               int var5 = this.a().a(var14.getClass(), (new AxisAlignedBB((double)var1.n(), (double)var1.o(), (double)var1.p(), (double)(var1.n() + 1), (double)(var1.o() + 1), (double)(var1.p() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
+               int var5 = this.a().getEntities(var14.getClass(), (new AxisAlignedBB((double)var1.n(), (double)var1.o(), (double)var1.p(), (double)(var1.n() + 1), (double)(var1.o() + 1), (double)(var1.p() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
                if(var5 >= this.k) {
                   this.h();
                   return;
@@ -86,7 +86,7 @@ public abstract class aqi {
                double var8 = (double)(var1.o() + this.a().s.nextInt(3) - 1);
                double var10 = (double)var1.p() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
                EntityInsentient var12 = var14 instanceof EntityInsentient?(EntityInsentient)var14:null;
-               var14.b(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
+               var14.setPositionRotation(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.bQ() && var12.bR()) {
                   this.a(var14, true);
                   this.a().b(2004, var1, 0);
@@ -115,7 +115,7 @@ public abstract class aqi {
          while(var4.hasNext()) {
             String var5 = (String)var4.next();
             NBTBase var6 = aqj.b(this.i()).a(var5);
-            var3.a(var5, var6.b());
+            var3.set(var5, var6.b());
          }
 
          var1.f(var3);
@@ -125,8 +125,8 @@ public abstract class aqi {
 
          NBTTagCompound var12;
          for(Entity var11 = var1; var3.b("Riding", 10); var3 = var12) {
-            var12 = var3.m("Riding");
-            Entity var13 = EntityTypes.a(var12.j("id"), var1.o);
+            var12 = var3.getCompound("Riding");
+            Entity var13 = EntityTypes.a(var12.getString("id"), var1.o);
             if(var13 != null) {
                NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);
@@ -135,11 +135,11 @@ public abstract class aqi {
                while(var8.hasNext()) {
                   String var9 = (String)var8.next();
                   NBTBase var10 = var12.a(var9);
-                  var7.a(var9, var10.b());
+                  var7.set(var9, var10.b());
                }
 
                var13.f(var7);
-               var13.b(var11.s, var11.t, var11.u, var11.y, var11.z);
+               var13.setPositionRotation(var11.s, var11.t, var11.u, var11.y, var11.z);
                if(var1.o != null && var2) {
                   var1.o.d(var13);
                }
@@ -173,11 +173,11 @@ public abstract class aqi {
    }
 
    public void a(NBTTagCompound var1) {
-      this.b = var1.j("EntityId");
-      this.a = var1.e("Delay");
+      this.b = var1.getString("EntityId");
+      this.a = var1.getShort("Delay");
       this.c.clear();
       if(var1.b("SpawnPotentials", 9)) {
-         fv var2 = var1.c("SpawnPotentials", 10);
+         NBTTagList var2 = var1.getList("SpawnPotentials", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             this.c.add(new aqj(this, var2.b(var3)));
@@ -185,24 +185,24 @@ public abstract class aqi {
       }
 
       if(var1.b("SpawnData", 10)) {
-         this.a(new aqj(this, var1.m("SpawnData"), this.b));
+         this.a(new aqj(this, var1.getCompound("SpawnData"), this.b));
       } else {
          this.a((aqj)null);
       }
 
       if(var1.b("MinSpawnDelay", 99)) {
-         this.g = var1.e("MinSpawnDelay");
-         this.h = var1.e("MaxSpawnDelay");
-         this.i = var1.e("SpawnCount");
+         this.g = var1.getShort("MinSpawnDelay");
+         this.h = var1.getShort("MaxSpawnDelay");
+         this.i = var1.getShort("SpawnCount");
       }
 
       if(var1.b("MaxNearbyEntities", 99)) {
-         this.k = var1.e("MaxNearbyEntities");
-         this.l = var1.e("RequiredPlayerRange");
+         this.k = var1.getShort("MaxNearbyEntities");
+         this.l = var1.getShort("RequiredPlayerRange");
       }
 
       if(var1.b("SpawnRange", 99)) {
-         this.m = var1.e("SpawnRange");
+         this.m = var1.getShort("SpawnRange");
       }
 
       if(this.a() != null) {
@@ -212,20 +212,20 @@ public abstract class aqi {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("EntityId", this.f());
-      var1.a("Delay", (short)this.a);
-      var1.a("MinSpawnDelay", (short)this.g);
-      var1.a("MaxSpawnDelay", (short)this.h);
-      var1.a("SpawnCount", (short)this.i);
-      var1.a("MaxNearbyEntities", (short)this.k);
-      var1.a("RequiredPlayerRange", (short)this.l);
-      var1.a("SpawnRange", (short)this.m);
+      var1.setString("EntityId", this.f());
+      var1.setShort("Delay", (short)this.a);
+      var1.setShort("MinSpawnDelay", (short)this.g);
+      var1.setShort("MaxSpawnDelay", (short)this.h);
+      var1.setShort("SpawnCount", (short)this.i);
+      var1.setShort("MaxNearbyEntities", (short)this.k);
+      var1.setShort("RequiredPlayerRange", (short)this.l);
+      var1.setShort("SpawnRange", (short)this.m);
       if(this.i() != null) {
-         var1.a("SpawnData", aqj.b(this.i()).b());
+         var1.set("SpawnData", aqj.b(this.i()).b());
       }
 
       if(this.i() != null || this.c.size() > 0) {
-         fv var2 = new fv();
+         NBTTagList var2 = new NBTTagList();
          if(this.c.size() > 0) {
             Iterator var3 = this.c.iterator();
 
@@ -237,7 +237,7 @@ public abstract class aqi {
             var2.a((NBTBase)this.i().a());
          }
 
-         var1.a("SpawnPotentials", (NBTBase)var2);
+         var1.set("SpawnPotentials", (NBTBase)var2);
       }
 
    }

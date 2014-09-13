@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum axa implements va {
+public enum axa implements IName {
 
    a("NORTH_WEST", 0, 1, "north_west"),
    b("NORTH", 1, 2, "north"),
@@ -44,7 +44,7 @@ public enum axa implements va {
       return var1 == null?n[0]:var1;
    }
 
-   public String l() {
+   public String getName() {
       return this.p;
    }
 

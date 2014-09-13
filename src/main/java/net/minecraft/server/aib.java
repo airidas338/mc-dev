@@ -47,9 +47,9 @@ public abstract class aib {
 
    public void b() {
       for(int var1 = 0; var1 < this.c.size(); ++var1) {
-         amj var2 = ((ajk)this.c.get(var1)).d();
-         amj var3 = (amj)this.b.get(var1);
-         if(!amj.b(var3, var2)) {
+         ItemStack var2 = ((ajk)this.c.get(var1)).d();
+         ItemStack var3 = (ItemStack)this.b.get(var1);
+         if(!ItemStack.b(var3, var2)) {
             var3 = var2 == null?null:var2.k();
             this.b.set(var1, var3);
 
@@ -65,7 +65,7 @@ public abstract class aib {
       return false;
    }
 
-   public ajk a(vq var1, int var2) {
+   public ajk a(IInventory var1, int var2) {
       for(int var3 = 0; var3 < this.c.size(); ++var3) {
          ajk var4 = (ajk)this.c.get(var3);
          if(var4.a(var1, var2)) {
@@ -80,16 +80,16 @@ public abstract class aib {
       return (ajk)this.c.get(var1);
    }
 
-   public amj b(EntityHuman var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ajk var3 = (ajk)this.c.get(var2);
       return var3 != null?var3.d():null;
    }
 
-   public amj a(int var1, int var2, int var3, EntityHuman var4) {
-      amj var5 = null;
+   public ItemStack a(int var1, int var2, int var3, EntityHuman var4) {
+      ItemStack var5 = null;
       ahb var6 = var4.bg;
       int var9;
-      amj var17;
+      ItemStack var17;
       if(var3 == 5) {
          int var7 = this.g;
          this.g = c(var2);
@@ -119,7 +119,7 @@ public abstract class aib {
                while(var10.hasNext()) {
                   ajk var11 = (ajk)var10.next();
                   if(var11 != null && a(var11, var6.p(), true) && var11.a(var6.p()) && var6.p().b >= this.h.size() && this.b(var11)) {
-                     amj var12 = var17.k();
+                     ItemStack var12 = var17.k();
                      int var13 = var11.e()?var11.d().b:0;
                      a(this.h, this.f, var12, var13);
                      if(var12.b > var12.c()) {
@@ -152,19 +152,19 @@ public abstract class aib {
       } else {
          ajk var16;
          int var22;
-         amj var24;
+         ItemStack var24;
          if((var3 == 0 || var3 == 1) && (var2 == 0 || var2 == 1)) {
             if(var1 == -999) {
                if(var6.p() != null) {
                   if(var2 == 0) {
                      var4.a(var6.p(), true);
-                     var6.b((amj)null);
+                     var6.b((ItemStack)null);
                   }
 
                   if(var2 == 1) {
                      var4.a(var6.p().a(1), true);
                      if(var6.p().b == 0) {
-                        var6.b((amj)null);
+                        var6.b((ItemStack)null);
                      }
                   }
                }
@@ -192,7 +192,7 @@ public abstract class aib {
                var16 = (ajk)this.c.get(var1);
                if(var16 != null) {
                   var17 = var16.d();
-                  amj var20 = var6.p();
+                  ItemStack var20 = var6.p();
                   if(var17 != null) {
                      var5 = var17.k();
                   }
@@ -209,7 +209,7 @@ public abstract class aib {
                         }
 
                         if(var20.b == 0) {
-                           var6.b((amj)null);
+                           var6.b((ItemStack)null);
                         }
                      }
                   } else if(var16.a(var4)) {
@@ -218,12 +218,12 @@ public abstract class aib {
                         var24 = var16.a(var22);
                         var6.b(var24);
                         if(var17.b == 0) {
-                           var16.d((amj)null);
+                           var16.d((ItemStack)null);
                         }
 
                         var16.a(var4, var6.p());
                      } else if(var16.a(var20)) {
-                        if(var17.b() == var20.b() && var17.i() == var20.i() && amj.a(var17, var20)) {
+                        if(var17.b() == var20.b() && var17.i() == var20.i() && ItemStack.a(var17, var20)) {
                            var22 = var2 == 0?var20.b:1;
                            if(var22 > var16.b(var20) - var17.b) {
                               var22 = var16.b(var20) - var17.b;
@@ -235,7 +235,7 @@ public abstract class aib {
 
                            var20.a(var22);
                            if(var20.b == 0) {
-                              var6.b((amj)null);
+                              var6.b((ItemStack)null);
                            }
 
                            var17.b += var22;
@@ -243,13 +243,13 @@ public abstract class aib {
                            var16.d(var20);
                            var6.b(var17);
                         }
-                     } else if(var17.b() == var20.b() && var20.c() > 1 && (!var17.f() || var17.i() == var20.i()) && amj.a(var17, var20)) {
+                     } else if(var17.b() == var20.b() && var20.c() > 1 && (!var17.f() || var17.i() == var20.i()) && ItemStack.a(var17, var20)) {
                         var22 = var17.b;
                         if(var22 > 0 && var22 + var20.b <= var20.c()) {
                            var20.b += var22;
                            var17 = var16.a(var22);
                            if(var17.b == 0) {
-                              var16.d((amj)null);
+                              var16.d((ItemStack)null);
                            }
 
                            var16.a(var4, var6.p());
@@ -278,7 +278,7 @@ public abstract class aib {
                      if(var22 > -1) {
                         var6.a(var17);
                         var16.a(var24.b);
-                        var16.d((amj)null);
+                        var16.d((ItemStack)null);
                         var16.a(var4, var24);
                      }
                   } else {
@@ -287,7 +287,7 @@ public abstract class aib {
                      var16.a(var4, var24);
                   }
                } else if(!var16.e() && var17 != null && var16.a(var17)) {
-                  var6.a(var2, (amj)null);
+                  var6.a(var2, (ItemStack)null);
                   var16.d(var17);
                }
             }
@@ -317,10 +317,10 @@ public abstract class aib {
                      ajk var25 = (ajk)this.c.get(var23);
                      if(var25.e() && a(var25, var17, true) && var25.a(var4) && this.a(var17, var25) && (var21 != 0 || var25.d().b != var25.d().c())) {
                         int var14 = Math.min(var17.c() - var17.b, var25.d().b);
-                        amj var15 = var25.a(var14);
+                        ItemStack var15 = var25.a(var14);
                         var17.b += var14;
                         if(var15.b <= 0) {
-                           var25.d((amj)null);
+                           var25.d((ItemStack)null);
                         }
 
                         var25.a(var4, var15);
@@ -336,7 +336,7 @@ public abstract class aib {
       return var5;
    }
 
-   public boolean a(amj var1, ajk var2) {
+   public boolean a(ItemStack var1, ajk var2) {
       return true;
    }
 
@@ -348,16 +348,16 @@ public abstract class aib {
       ahb var2 = var1.bg;
       if(var2.p() != null) {
          var1.a(var2.p(), false);
-         var2.b((amj)null);
+         var2.b((ItemStack)null);
       }
 
    }
 
-   public void a(vq var1) {
+   public void a(IInventory var1) {
       this.b();
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       this.a(var1).d(var2);
    }
 
@@ -376,7 +376,7 @@ public abstract class aib {
 
    public abstract boolean a(EntityHuman var1);
 
-   protected boolean a(amj var1, int var2, int var3, boolean var4) {
+   protected boolean a(ItemStack var1, int var2, int var3, boolean var4) {
       boolean var5 = false;
       int var6 = var2;
       if(var4) {
@@ -384,12 +384,12 @@ public abstract class aib {
       }
 
       ajk var7;
-      amj var8;
+      ItemStack var8;
       if(var1.d()) {
          while(var1.b > 0 && (!var4 && var6 < var3 || var4 && var6 >= var2)) {
             var7 = (ajk)this.c.get(var6);
             var8 = var7.d();
-            if(var8 != null && var8.b() == var1.b() && (!var1.f() || var1.i() == var8.i()) && amj.a(var1, var8)) {
+            if(var8 != null && var8.b() == var1.b() && (!var1.f() || var1.i() == var8.i()) && ItemStack.a(var1, var8)) {
                int var9 = var8.b + var1.b;
                if(var9 <= var1.c()) {
                   var1.b = 0;
@@ -458,9 +458,9 @@ public abstract class aib {
       this.h.clear();
    }
 
-   public static boolean a(ajk var0, amj var1, boolean var2) {
+   public static boolean a(ajk var0, ItemStack var1, boolean var2) {
       boolean var3 = var0 == null || !var0.e();
-      if(var0 != null && var0.e() && var1 != null && var1.a(var0.d()) && amj.a(var0.d(), var1)) {
+      if(var0 != null && var0.e() && var1 != null && var1.a(var0.d()) && ItemStack.a(var0.d(), var1)) {
          int var10002 = var2?0:var1.b;
          var3 |= var0.d().b + var10002 <= var1.c();
       }
@@ -468,7 +468,7 @@ public abstract class aib {
       return var3;
    }
 
-   public static void a(Set var0, int var1, amj var2, int var3) {
+   public static void a(Set var0, int var1, ItemStack var2, int var3) {
       switch(var1) {
       case 0:
          var2.b = MathHelper.d((float)var2.b / (float)var0.size());
@@ -487,11 +487,11 @@ public abstract class aib {
       return true;
    }
 
-   public static int a(bcm var0) {
-      return var0 instanceof vq?b((vq)var0):0;
+   public static int a(TileEntity var0) {
+      return var0 instanceof IInventory?b((IInventory)var0):0;
    }
 
-   public static int b(vq var0) {
+   public static int b(IInventory var0) {
       if(var0 == null) {
          return 0;
       } else {
@@ -499,7 +499,7 @@ public abstract class aib {
          float var2 = 0.0F;
 
          for(int var3 = 0; var3 < var0.n_(); ++var3) {
-            amj var4 = var0.a(var3);
+            ItemStack var4 = var0.a(var3);
             if(var4 != null) {
                var2 += (float)var4.b / (float)Math.min(var0.p_(), var4.c());
                ++var1;

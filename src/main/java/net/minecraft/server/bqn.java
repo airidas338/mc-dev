@@ -31,8 +31,8 @@ public class bqn implements Convertable {
          NBTTagCompound var5;
          if(var3.exists()) {
             try {
-               var4 = fz.a((InputStream)(new FileInputStream(var3)));
-               var5 = var4.m("Data");
+               var4 = NBTCompressedStreamTools.a((InputStream)(new FileInputStream(var3)));
+               var5 = var4.getCompound("Data");
                return new WorldData(var5);
             } catch (Exception var7) {
                b.error("Exception reading " + var3, var7);
@@ -42,8 +42,8 @@ public class bqn implements Convertable {
          var3 = new File(var2, "level.dat_old");
          if(var3.exists()) {
             try {
-               var4 = fz.a((InputStream)(new FileInputStream(var3)));
-               var5 = var4.m("Data");
+               var4 = NBTCompressedStreamTools.a((InputStream)(new FileInputStream(var3)));
+               var5 = var4.getCompound("Data");
                return new WorldData(var5);
             } catch (Exception var6) {
                b.error("Exception reading " + var3, var6);
@@ -100,7 +100,7 @@ public class bqn implements Convertable {
    }
 
    public IDataManager a(String var1, boolean var2) {
-      return new bqm(this.a, var1, var2);
+      return new WorldNBTStorage(this.a, var1, var2);
    }
 
    public boolean b(String var1) {

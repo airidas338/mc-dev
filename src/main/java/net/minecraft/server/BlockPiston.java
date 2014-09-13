@@ -10,7 +10,7 @@ public class BlockPiston extends Block {
 
    public BlockPiston(boolean var1) {
       super(Material.PISTON);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)));
       this.M = var1;
       this.a(i);
       this.c(0.5F);
@@ -21,7 +21,7 @@ public class BlockPiston extends Block {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2, var3.a(a, a(var1, var2, var4)), 2);
       if(!var1.D) {
          this.e(var1, var2, var3);
@@ -43,12 +43,12 @@ public class BlockPiston extends Block {
 
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, a(var1, var2, var8)).a(b, Boolean.valueOf(false));
    }
 
    private void e(World var1, Location var2, IBlock var3) {
-      ej var4 = (ej)var3.b(a);
+      EnumFacing var4 = (EnumFacing)var3.b(a);
       boolean var5 = this.b(var1, var2, var4);
       if(var5 && !((Boolean)var3.b(b)).booleanValue()) {
          if((new bdy(var1, var2, var4, true)).a()) {
@@ -61,28 +61,28 @@ public class BlockPiston extends Block {
 
    }
 
-   private boolean b(World var1, Location var2, ej var3) {
-      ej[] var4 = ej.values();
+   private boolean b(World var1, Location var2, EnumFacing var3) {
+      EnumFacing[] var4 = EnumFacing.values();
       int var5 = var4.length;
 
       int var6;
       for(var6 = 0; var6 < var5; ++var6) {
-         ej var7 = var4[var6];
+         EnumFacing var7 = var4[var6];
          if(var7 != var3 && var1.b(var2.a(var7), var7)) {
             return true;
          }
       }
 
-      if(var1.b(var2, ej.c)) {
+      if(var1.b(var2, EnumFacing.NORTH)) {
          return true;
       } else {
          Location var9 = var2.a();
-         ej[] var10 = ej.values();
+         EnumFacing[] var10 = EnumFacing.values();
          var6 = var10.length;
 
          for(int var11 = 0; var11 < var6; ++var11) {
-            ej var8 = var10[var11];
-            if(var8 != ej.a && var1.b(var9.a(var8), var8)) {
+            EnumFacing var8 = var10[var11];
+            if(var8 != EnumFacing.DOWN && var1.b(var9.a(var8), var8)) {
                return true;
             }
          }
@@ -92,7 +92,7 @@ public class BlockPiston extends Block {
    }
 
    public boolean a(World var1, Location var2, IBlock var3, int var4, int var5) {
-      ej var6 = (ej)var3.b(a);
+      EnumFacing var6 = (EnumFacing)var3.b(a);
       if(!var1.D) {
          boolean var7 = this.b(var1, var2, var6);
          if(var7 && var4 == 1) {
@@ -113,7 +113,7 @@ public class BlockPiston extends Block {
          var1.a(var2, var3.a(b, Boolean.valueOf(true)), 2);
          var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.out", 0.5F, var1.s.nextFloat() * 0.25F + 0.6F);
       } else if(var4 == 1) {
-         bcm var13 = var1.s(var2.a(var6));
+         TileEntity var13 = var1.s(var2.a(var6));
          if(var13 instanceof bdv) {
             ((bdv)var13).h();
          }
@@ -125,7 +125,7 @@ public class BlockPiston extends Block {
             Block var9 = var1.getData(var8).c();
             boolean var10 = false;
             if(var9 == Blocks.M) {
-               bcm var11 = var1.s(var8);
+               TileEntity var11 = var1.s(var8);
                if(var11 instanceof bdv) {
                   bdv var12 = (bdv)var11;
                   if(var12.e() == var6 && var12.d()) {
@@ -152,7 +152,7 @@ public class BlockPiston extends Block {
       IBlock var3 = var1.getData(var2);
       if(var3.c() == this && ((Boolean)var3.b(b)).booleanValue()) {
          float var4 = 0.25F;
-         ej var5 = (ej)var3.b(a);
+         EnumFacing var5 = (EnumFacing)var3.b(a);
          if(var5 != null) {
             switch(bdr.a[var5.ordinal()]) {
             case 1:
@@ -198,33 +198,33 @@ public class BlockPiston extends Block {
       return false;
    }
 
-   public static ej b(int var0) {
+   public static EnumFacing b(int var0) {
       int var1 = var0 & 7;
-      return var1 > 5?null:ej.a(var1);
+      return var1 > 5?null:EnumFacing.a(var1);
    }
 
-   public static ej a(World var0, Location var1, EntityLiving var2) {
+   public static EnumFacing a(World var0, Location var1, EntityLiving var2) {
       if(MathHelper.e((float)var2.s - (float)var1.n()) < 2.0F && MathHelper.e((float)var2.u - (float)var1.p()) < 2.0F) {
          double var3 = var2.t + (double)var2.aR();
          if(var3 - (double)var1.o() > 2.0D) {
-            return ej.b;
+            return EnumFacing.UP;
          }
 
          if((double)var1.o() - var3 > 0.0D) {
-            return ej.a;
+            return EnumFacing.DOWN;
          }
       }
 
       return var2.aO().d();
    }
 
-   public static boolean a(Block var0, World var1, Location var2, ej var3, boolean var4) {
+   public static boolean a(Block var0, World var1, Location var2, EnumFacing var3, boolean var4) {
       if(var0 == Blocks.Z) {
          return false;
       } else if(!var1.af().a(var2)) {
          return false;
-      } else if(var2.o() >= 0 && (var3 != ej.a || var2.o() != 0)) {
-         if(var2.o() <= var1.U() - 1 && (var3 != ej.b || var2.o() != var1.U() - 1)) {
+      } else if(var2.o() >= 0 && (var3 != EnumFacing.DOWN || var2.o() != 0)) {
+         if(var2.o() <= var1.U() - 1 && (var3 != EnumFacing.UP || var2.o() != var1.U() - 1)) {
             if(var0 != Blocks.J && var0 != Blocks.F) {
                if(var0.g(var1, var2) == -1.0F) {
                   return false;
@@ -254,7 +254,7 @@ public class BlockPiston extends Block {
       }
    }
 
-   private boolean a(World var1, Location var2, ej var3, boolean var4) {
+   private boolean a(World var1, Location var2, EnumFacing var3, boolean var4) {
       if(!var4) {
          var1.g(var2.a(var3));
       }
@@ -267,7 +267,7 @@ public class BlockPiston extends Block {
       } else {
          int var8 = var6.size() + var7.size();
          Block[] var9 = new Block[var8];
-         ej var10 = var4?var3:var3.d();
+         EnumFacing var10 = var4?var3:var3.d();
 
          int var11;
          Location var12;
@@ -327,7 +327,7 @@ public class BlockPiston extends Block {
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(a)).a();
+      int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {
          var3 |= 8;
       }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Iterator;
 
-public class WorldManager implements ara {
+public class WorldManager implements IWorldAccess {
 
    private MinecraftServer a;
    private WorldServer b;

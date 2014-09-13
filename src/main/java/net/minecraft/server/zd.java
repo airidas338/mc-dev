@@ -6,10 +6,10 @@ class zd {
    public PathfinderGoal a;
    public int b;
    // $FF: synthetic field
-   final zc c;
+   final PathfinderGoalSelector c;
 
 
-   public zd(zc var1, int var2, PathfinderGoal var3) {
+   public zd(PathfinderGoalSelector var1, int var2, PathfinderGoal var3) {
       this.c = var1;
       this.b = var2;
       this.a = var3;

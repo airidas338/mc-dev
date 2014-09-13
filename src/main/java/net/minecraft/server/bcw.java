@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bcw extends bcm implements IUpdatePlayerListBox {
+public class bcw extends TileEntity implements IUpdatePlayerListBox {
 
    public void c() {
       if(this.b != null && !this.b.D && this.b.K() % 20L == 0L) {

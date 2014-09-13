@@ -2,9 +2,9 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class bcr extends bdf implements IUpdatePlayerListBox, vq {
+public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
 
-   private amj[] m = new amj[27];
+   private ItemStack[] m = new ItemStack[27];
    public boolean a;
    public bcr f;
    public bcr g;
@@ -22,13 +22,13 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       return 27;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return this.m[var1];
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.m[var1] != null) {
-         amj var3;
+         ItemStack var3;
          if(this.m[var1].b <= var2) {
             var3 = this.m[var1];
             this.m[var1] = null;
@@ -48,9 +48,9 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       }
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(this.m[var1] != null) {
-         amj var2 = this.m[var1];
+         ItemStack var2 = this.m[var1];
          this.m[var1] = null;
          return var2;
       } else {
@@ -58,7 +58,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       }
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       this.m[var1] = var2;
       if(var2 != null && var2.b > this.p_()) {
          var2.b = this.p_();
@@ -81,17 +81,17 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      fv var2 = var1.c("Items", 10);
-      this.m = new amj[this.n_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.m = new ItemStack[this.n_()];
       if(var1.b("CustomName", 8)) {
-         this.p = var1.j("CustomName");
+         this.p = var1.getString("CustomName");
       }
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          NBTTagCompound var4 = var2.b(var3);
-         int var5 = var4.d("Slot") & 255;
+         int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.m.length) {
-            this.m[var5] = amj.a(var4);
+            this.m[var5] = ItemStack.a(var4);
          }
       }
 
@@ -99,20 +99,20 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.m.length; ++var3) {
          if(this.m[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
-            var4.a("Slot", (byte)var3);
+            var4.setByte("Slot", (byte)var3);
             this.m[var3].b(var4);
             var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (NBTBase)var2);
+      var1.set("Items", (NBTBase)var2);
       if(this.k_()) {
-         var1.a("CustomName", this.p);
+         var1.setString("CustomName", this.p);
       }
 
    }
@@ -130,7 +130,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       this.a = false;
    }
 
-   private void a(bcr var1, ej var2) {
+   private void a(bcr var1, EnumFacing var2) {
       if(var1.x()) {
          this.a = false;
       } else if(this.a) {
@@ -162,17 +162,17 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
    public void m() {
       if(!this.a) {
          this.a = true;
-         this.h = this.a(ej.e);
-         this.g = this.a(ej.f);
-         this.f = this.a(ej.c);
-         this.i = this.a(ej.d);
+         this.h = this.a(EnumFacing.WEST);
+         this.g = this.a(EnumFacing.EAST);
+         this.f = this.a(EnumFacing.NORTH);
+         this.i = this.a(EnumFacing.SOUTH);
       }
    }
 
-   protected bcr a(ej var1) {
+   protected bcr a(EnumFacing var1) {
       Location var2 = this.c.a(var1);
       if(this.b(var2)) {
-         bcm var3 = this.b.s(var2);
+         TileEntity var3 = this.b.s(var2);
          if(var3 instanceof bcr) {
             bcr var4 = (bcr)var3;
             var4.a(this, var1.d());
@@ -202,14 +202,14 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
       if(!this.b.D && this.l != 0 && (this.n + var1 + var2 + var3) % 200 == 0) {
          this.l = 0;
          var4 = 5.0F;
-         List var5 = this.b.a(EntityHuman.class, new AxisAlignedBB((double)((float)var1 - var4), (double)((float)var2 - var4), (double)((float)var3 - var4), (double)((float)(var1 + 1) + var4), (double)((float)(var2 + 1) + var4), (double)((float)(var3 + 1) + var4)));
+         List var5 = this.b.getEntities(EntityHuman.class, new AxisAlignedBB((double)((float)var1 - var4), (double)((float)var2 - var4), (double)((float)var3 - var4), (double)((float)(var1 + 1) + var4), (double)((float)(var2 + 1) + var4), (double)((float)(var3 + 1) + var4)));
          Iterator var6 = var5.iterator();
 
          while(var6.hasNext()) {
             EntityHuman var7 = (EntityHuman)var6.next();
             if(var7.bi instanceof aim) {
-               vq var8 = ((aim)var7.bi).e();
-               if(var8 == this || var8 instanceof vp && ((vp)var8).a((vq)this)) {
+               IInventory var8 = ((aim)var7.bi).e();
+               if(var8 == this || var8 instanceof vp && ((vp)var8).a((IInventory)this)) {
                   ++this.l;
                }
             }
@@ -300,7 +300,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, vq {
 
    }
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

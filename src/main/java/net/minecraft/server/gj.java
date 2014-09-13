@@ -13,7 +13,7 @@ class gj extends gh {
    }
 
    public NBTBase a() {
-      fv var1 = new fv();
+      NBTTagList var1 = new NBTTagList();
       Iterator var2 = this.b.iterator();
 
       while(var2.hasNext()) {

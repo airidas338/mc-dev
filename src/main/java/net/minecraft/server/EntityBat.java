@@ -146,12 +146,12 @@ public class EntityBat extends EntityAmbient {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.ac.b(16, Byte.valueOf(var1.d("BatFlags")));
+      this.ac.b(16, Byte.valueOf(var1.getByte("BatFlags")));
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("BatFlags", this.ac.a(16));
+      var1.setByte("BatFlags", this.ac.a(16));
    }
 
    public boolean bQ() {

@@ -15,7 +15,7 @@ public class BlockSkull extends atg {
 
    protected BlockSkull() {
       super(Material.ORIENTABLE);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)));
       this.a(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
    }
 
@@ -28,7 +28,7 @@ public class BlockSkull extends atg {
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      switch(bal.a[((ej)var1.getData(var2).b(a)).ordinal()]) {
+      switch(bal.a[((EnumFacing)var1.getData(var2).b(a)).ordinal()]) {
       case 1:
       default:
          this.a(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -53,16 +53,16 @@ public class BlockSkull extends atg {
       return super.a(var1, var2, var3);
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO()).a(b, Boolean.valueOf(false));
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bdm();
    }
 
    public int j(World var1, Location var2) {
-      bcm var3 = var1.s(var2);
+      TileEntity var3 = var1.s(var2);
       return var3 instanceof bdm?((bdm)var3).c():super.j(var1, var2);
    }
 
@@ -80,15 +80,15 @@ public class BlockSkull extends atg {
    public void b(World var1, Location var2, IBlock var3) {
       if(!var1.D) {
          if(!((Boolean)var3.b(b)).booleanValue()) {
-            bcm var4 = var1.s(var2);
+            TileEntity var4 = var1.s(var2);
             if(var4 instanceof bdm) {
                bdm var5 = (bdm)var4;
-               amj var6 = new amj(Items.bX, 1, this.j(var1, var2));
+               ItemStack var6 = new ItemStack(Items.bX, 1, this.j(var1, var2));
                if(var5.c() == 3 && var5.b() != null) {
                   var6.d(new NBTTagCompound());
                   NBTTagCompound var7 = new NBTTagCompound();
                   ga.a(var7, var5.b());
-                  var6.o().a("SkullOwner", (NBTBase)var7);
+                  var6.o().set("SkullOwner", (NBTBase)var7);
                }
 
                a(var1, var2, var6);
@@ -103,7 +103,7 @@ public class BlockSkull extends atg {
       return Items.bX;
    }
 
-   public boolean b(World var1, Location var2, amj var3) {
+   public boolean b(World var1, Location var2, ItemStack var3) {
       return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.D?this.j().a(var1, var2) != null:false;
    }
 
@@ -121,17 +121,17 @@ public class BlockSkull extends atg {
             for(var6 = 0; var6 < var4.c(); ++var6) {
                for(int var12 = 0; var12 < var4.b(); ++var12) {
                   bei var8 = var5.a(var6, var12, 0);
-                  var1.a(var8.d(), Blocks.a.P(), 2);
+                  var1.a(var8.d(), Blocks.AIR.P(), 2);
                }
             }
 
             Location var13 = var5.a(1, 0, 0).d();
             EntityWither var14 = new EntityWither(var1);
             Location var15 = var5.a(1, 2, 0).d();
-            var14.b((double)var15.n() + 0.5D, (double)var15.o() + 0.55D, (double)var15.p() + 0.5D, var5.b().k() == el.a?0.0F:90.0F, 0.0F);
+            var14.setPositionRotation((double)var15.n() + 0.5D, (double)var15.o() + 0.55D, (double)var15.p() + 0.5D, var5.b().k() == el.a?0.0F:90.0F, 0.0F);
             var14.aG = var5.b().k() == el.a?0.0F:90.0F;
             var14.n();
-            Iterator var9 = var1.a(EntityHuman.class, var14.aQ().b(50.0D, 50.0D, 50.0D)).iterator();
+            Iterator var9 = var1.getEntities(EntityHuman.class, var14.aQ().b(50.0D, 50.0D, 50.0D)).iterator();
 
             while(var9.hasNext()) {
                EntityHuman var10 = (EntityHuman)var9.next();
@@ -148,7 +148,7 @@ public class BlockSkull extends atg {
             for(var16 = 0; var16 < var4.c(); ++var16) {
                for(int var17 = 0; var17 < var4.b(); ++var17) {
                   bei var11 = var5.a(var16, var17, 0);
-                  var1.b(var11.d(), Blocks.a);
+                  var1.b(var11.d(), Blocks.AIR);
                }
             }
 
@@ -157,12 +157,12 @@ public class BlockSkull extends atg {
    }
 
    public IBlock a(int var1) {
-      return this.P().a(a, ej.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
+      return this.P().a(a, EnumFacing.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(a)).a();
+      int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {
          var3 |= 8;
       }
@@ -176,7 +176,7 @@ public class BlockSkull extends atg {
 
    protected bek j() {
       if(this.N == null) {
-         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('~', bei.a(beq.a(Blocks.a))).b();
+         this.N = ben.a().a(new String[]{"   ", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.N;
@@ -184,7 +184,7 @@ public class BlockSkull extends atg {
 
    protected bek l() {
       if(this.O == null) {
-         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('^', M).a('~', bei.a(beq.a(Blocks.a))).b();
+         this.O = ben.a().a(new String[]{"^^^", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.aW))).a('^', M).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.O;

@@ -27,12 +27,12 @@ public class zq extends PathfinderGoal {
    }
 
    public boolean b() {
-      return !this.c.ai()?false:(this.b.h(this.c) > 225.0D?false:!this.b.s().m() || this.a());
+      return !this.c.isAlive()?false:(this.b.h(this.c) > 225.0D?false:!this.b.getNavigation().m() || this.a());
    }
 
    public void d() {
       this.c = null;
-      this.b.s().n();
+      this.b.getNavigation().n();
    }
 
    public void e() {
@@ -46,7 +46,7 @@ public class zq extends PathfinderGoal {
          var5 = 0.6D;
       }
 
-      this.b.s().a((Entity)this.c, var5);
+      this.b.getNavigation().a((Entity)this.c, var5);
       this.d = Math.max(this.d - 1, 0);
       if(var3 <= var1) {
          if(this.d <= 0) {

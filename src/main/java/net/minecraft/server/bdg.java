@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bdg extends bcm implements IUpdatePlayerListBox {
+public class bdg extends TileEntity implements IUpdatePlayerListBox {
 
    private final aqi a = new bdh(this);
 

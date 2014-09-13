@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class aig extends aib {
 
-   private vq a;
+   private IInventory a;
    private final aih f;
 
 
-   public aig(vq var1, vq var2) {
+   public aig(IInventory var1, IInventory var2) {
       this.a = var2;
       this.a((ajk)(this.f = new aih(this, var2, 0, 136, 110)));
       byte var3 = 36;
@@ -30,7 +30,7 @@ public class aig extends aib {
       var1.a(this, this.a);
    }
 
-   public vq e() {
+   public IInventory e() {
       return this.a;
    }
 
@@ -38,11 +38,11 @@ public class aig extends aib {
       return this.a.a(var1);
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 0) {
             if(!this.a(var5, 1, 37, true)) {
@@ -67,7 +67,7 @@ public class aig extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }

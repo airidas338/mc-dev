@@ -25,7 +25,7 @@ class aev extends PathfinderGoal {
       Block var8 = var7.c();
       if(EntityEnderman.co().contains(var8)) {
          this.a.a(var7);
-         var2.a(var6, Blocks.a.P());
+         var2.a(var6, Blocks.AIR.P());
       }
 
    }

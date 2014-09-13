@@ -12,7 +12,7 @@ public class BlockRedstoneComparator extends ava implements avs {
 
    public BlockRedstoneComparator(boolean var1) {
       super(var1);
-      this.j(this.L.b().a(N, ej.c).a(a, Boolean.valueOf(false)).a(b, aur.a));
+      this.j(this.L.b().a(N, EnumFacing.NORTH).a(a, Boolean.valueOf(false)).a(b, aur.a));
       this.A = true;
    }
 
@@ -27,14 +27,14 @@ public class BlockRedstoneComparator extends ava implements avs {
    protected IBlock e(IBlock var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
-      ej var4 = (ej)var1.b(N);
+      EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.ck.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
    protected IBlock k(IBlock var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
-      ej var4 = (ej)var1.b(N);
+      EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.cj.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
@@ -43,7 +43,7 @@ public class BlockRedstoneComparator extends ava implements avs {
    }
 
    protected int a(IBlockAccess var1, Location var2, IBlock var3) {
-      bcm var4 = var1.s(var2);
+      TileEntity var4 = var1.s(var2);
       return var4 instanceof bcv?((bcv)var4).b():0;
    }
 
@@ -65,7 +65,7 @@ public class BlockRedstoneComparator extends ava implements avs {
 
    protected int f(World var1, Location var2, IBlock var3) {
       int var4 = super.f(var1, var2, var3);
-      ej var5 = (ej)var3.b(N);
+      EnumFacing var5 = (EnumFacing)var3.b(N);
       Location var6 = var2.a(var5);
       Block var7 = var1.getData(var6).c();
       if(var7.N()) {
@@ -86,12 +86,12 @@ public class BlockRedstoneComparator extends ava implements avs {
       return var4;
    }
 
-   private EntityItemFrame a(World var1, ej var2, Location var3) {
+   private EntityItemFrame a(World var1, EnumFacing var2, Location var3) {
       List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
       return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -106,7 +106,7 @@ public class BlockRedstoneComparator extends ava implements avs {
    protected void g(World var1, Location var2, IBlock var3) {
       if(!var1.a(var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
-         bcm var5 = var1.s(var2);
+         TileEntity var5 = var1.s(var2);
          int var6 = var5 instanceof bcv?((bcv)var5).b():0;
          if(var4 != var6 || this.l(var3) != this.e(var1, var2, var3)) {
             if(this.i(var1, var2, var3)) {
@@ -121,7 +121,7 @@ public class BlockRedstoneComparator extends ava implements avs {
 
    private void k(World var1, Location var2, IBlock var3) {
       int var4 = this.j(var1, var2, var3);
-      bcm var5 = var1.s(var2);
+      TileEntity var5 = var1.s(var2);
       int var6 = 0;
       if(var5 instanceof bcv) {
          bcv var7 = (bcv)var5;
@@ -164,21 +164,21 @@ public class BlockRedstoneComparator extends ava implements avs {
 
    public boolean a(World var1, Location var2, IBlock var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
-      bcm var6 = var1.s(var2);
+      TileEntity var6 = var1.s(var2);
       return var6 == null?false:var6.c(var4, var5);
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bcv();
    }
 
    public IBlock a(int var1) {
-      return this.P().a(N, ej.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0?aur.b:aur.a);
+      return this.P().a(N, EnumFacing.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0?aur.b:aur.a);
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(N)).b();
+      int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       if(((Boolean)var1.b(a)).booleanValue()) {
          var3 |= 8;
       }
@@ -194,7 +194,7 @@ public class BlockRedstoneComparator extends ava implements avs {
       return new bed(this, new bex[]{N, b, a});
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d()).a(a, Boolean.valueOf(false)).a(b, aur.a);
    }
 

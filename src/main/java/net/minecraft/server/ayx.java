@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum ayx implements va {
+public enum ayx implements IName {
 
    a("OAK", 0, 0, "oak"),
    b("SPRUCE", 1, 1, "spruce"),
@@ -42,7 +42,7 @@ public enum ayx implements va {
       return g[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.i;
    }
 

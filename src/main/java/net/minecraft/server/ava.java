@@ -45,11 +45,11 @@ public abstract class ava extends avb {
       return this.M;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return this.a(var1, var2, var3, var4);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return !this.l(var3)?0:(var3.b(N) == var4?this.a(var1, var2, var3):0);
    }
 
@@ -59,11 +59,11 @@ public abstract class ava extends avb {
       } else {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
-         ej[] var5 = ej.values();
+         EnumFacing[] var5 = EnumFacing.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            ej var8 = var5[var7];
+            EnumFacing var8 = var5[var7];
             var1.c(var2.a(var8), (Block)this);
          }
 
@@ -96,7 +96,7 @@ public abstract class ava extends avb {
    }
 
    protected int f(World var1, Location var2, IBlock var3) {
-      ej var4 = (ej)var3.b(N);
+      EnumFacing var4 = (EnumFacing)var3.b(N);
       Location var5 = var2.a(var4);
       int var6 = var1.c(var5, var4);
       if(var6 >= 15) {
@@ -108,13 +108,13 @@ public abstract class ava extends avb {
    }
 
    protected int c(IBlockAccess var1, Location var2, IBlock var3) {
-      ej var4 = (ej)var3.b(N);
-      ej var5 = var4.e();
-      ej var6 = var4.f();
+      EnumFacing var4 = (EnumFacing)var3.b(N);
+      EnumFacing var5 = var4.e();
+      EnumFacing var6 = var4.f();
       return Math.max(this.c(var1, var2.a(var5), var5), this.c(var1, var2.a(var6), var6));
    }
 
-   protected int c(IBlockAccess var1, Location var2, ej var3) {
+   protected int c(IBlockAccess var1, Location var2, EnumFacing var3) {
       IBlock var4 = var1.getData(var2);
       Block var5 = var4.c();
       return this.c(var5)?(var5 == Blocks.af?((Integer)var4.b(BlockRedstoneWire.O)).intValue():var1.a(var2, var3)):0;
@@ -124,11 +124,11 @@ public abstract class ava extends avb {
       return true;
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
       if(this.e(var1, var2, var3)) {
          var1.a(var2, (Block)this, 1);
       }
@@ -140,7 +140,7 @@ public abstract class ava extends avb {
    }
 
    protected void h(World var1, Location var2, IBlock var3) {
-      ej var4 = (ej)var3.b(N);
+      EnumFacing var4 = (EnumFacing)var3.b(N);
       Location var5 = var2.a(var4.d());
       var1.d(var5, this);
       var1.a(var5, (Block)this, var4);
@@ -148,11 +148,11 @@ public abstract class ava extends avb {
 
    public void d(World var1, Location var2, IBlock var3) {
       if(this.M) {
-         ej[] var4 = ej.values();
+         EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
-            ej var7 = var4[var6];
+            EnumFacing var7 = var4[var6];
             var1.c(var2.a(var7), (Block)this);
          }
       }
@@ -181,7 +181,7 @@ public abstract class ava extends avb {
    }
 
    public boolean i(World var1, Location var2, IBlock var3) {
-      ej var4 = ((ej)var3.b(N)).d();
+      EnumFacing var4 = ((EnumFacing)var3.b(N)).d();
       Location var5 = var2.a(var4);
       return d(var1.getData(var5).c())?var1.getData(var5).b(N) != var4:false;
    }

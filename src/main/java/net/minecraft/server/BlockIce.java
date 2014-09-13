@@ -10,11 +10,11 @@ public class BlockIce extends awt {
       this.a(CreativeModeTab.b);
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       var2.b(ty.H[Block.a((Block)this)]);
       var2.a(0.025F);
       if(this.G() && EnchantmentManager.e(var2)) {
-         amj var8 = this.i(var4);
+         ItemStack var8 = this.i(var4);
          if(var8 != null) {
             a(var1, var3, var8);
          }

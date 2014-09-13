@@ -24,7 +24,7 @@ public class aag extends PathfinderGoal {
       this.k = var4;
       this.l = var5;
       this.a(3);
-      if(!(var1.s() instanceof aay)) {
+      if(!(var1.getNavigation() instanceof aay)) {
          throw new IllegalArgumentException("Unsupported mob type for TemptGoal");
       }
    }
@@ -38,7 +38,7 @@ public class aag extends PathfinderGoal {
          if(this.h == null) {
             return false;
          } else {
-            amj var1 = this.h.bY();
+            ItemStack var1 = this.h.bY();
             return var1 == null?false:var1.b() == this.k;
          }
       }
@@ -72,24 +72,24 @@ public class aag extends PathfinderGoal {
       this.d = this.h.t;
       this.e = this.h.u;
       this.j = true;
-      this.m = ((aay)this.a.s()).e();
-      ((aay)this.a.s()).a(false);
+      this.m = ((aay)this.a.getNavigation()).e();
+      ((aay)this.a.getNavigation()).save(false);
    }
 
    public void d() {
       this.h = null;
-      this.a.s().n();
+      this.a.getNavigation().n();
       this.i = 100;
       this.j = false;
-      ((aay)this.a.s()).a(this.m);
+      ((aay)this.a.getNavigation()).save(this.m);
    }
 
    public void e() {
       this.a.p().a(this.h, 30.0F, (float)this.a.bP());
       if(this.a.h(this.h) < 6.25D) {
-         this.a.s().n();
+         this.a.getNavigation().n();
       } else {
-         this.a.s().a((Entity)this.h, this.b);
+         this.a.getNavigation().a((Entity)this.h, this.b);
       }
 
    }

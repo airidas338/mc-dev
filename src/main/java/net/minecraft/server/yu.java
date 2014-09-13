@@ -28,7 +28,7 @@ public class yu extends PathfinderGoal {
    }
 
    public boolean a() {
-      return this.a.ai() && this.a.l != null && this.a.l instanceof EntityHuman && (this.d || this.a.bV());
+      return this.a.isAlive() && this.a.l != null && this.a.l instanceof EntityHuman && (this.d || this.a.bV());
    }
 
    public void e() {
@@ -113,11 +113,11 @@ public class yu extends PathfinderGoal {
       }
 
       if(!var1.by.d && this.c >= this.b * 0.5F && this.a.bb().nextFloat() < 0.006F && !this.d) {
-         amj var24 = var1.bz();
+         ItemStack var24 = var1.bz();
          if(var24 != null && var24.b() == Items.bY) {
             var24.a(1, (EntityLiving)var1);
             if(var24.b == 0) {
-               amj var25 = new amj(Items.aR);
+               ItemStack var25 = new ItemStack(Items.aR);
                var25.d(var24.o());
                var1.bg.a[var1.bg.c] = var25;
             }

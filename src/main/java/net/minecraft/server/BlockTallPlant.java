@@ -51,11 +51,11 @@ public class BlockTallPlant extends BlockPlant implements atz {
          Object var7 = var4?this:var1.getData(var5).c();
          Object var8 = var4?var1.getData(var6).c():this;
          if(var7 == this) {
-            var1.a(var5, Blocks.a.P(), 3);
+            var1.a(var5, Blocks.AIR.P(), 3);
          }
 
          if(var8 == this) {
-            var1.a(var6, Blocks.a.P(), 3);
+            var1.a(var6, Blocks.AIR.P(), 3);
             if(!var4) {
                this.b(var1, var6, var3, 0);
             }
@@ -91,11 +91,11 @@ public class BlockTallPlant extends BlockPlant implements atz {
       var1.a(var2.a(), this.P().a(b, avj.a), var4);
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2.a(), this.P().a(b, avj.a), 2);
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(var1.D || var2.bY() == null || var2.bY().b() != Items.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
          super.a(var1, var2, var3, var4, var5);
       }
@@ -124,7 +124,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
             }
          }
       } else if(var4.by.d && var1.getData(var2.a()).c() == this) {
-         var1.a(var2.a(), Blocks.a.P(), 2);
+         var1.a(var2.a(), Blocks.AIR.P(), 2);
       }
 
       super.a(var1, var2, var3, var4);
@@ -137,7 +137,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       } else {
          var4.b(ty.H[Block.a((Block)this)]);
          int var6 = (var5 == avk.c?EnumFoliage.b:EnumFoliage.c).a();
-         a(var1, var2, new amj(Blocks.H, 2, var6));
+         a(var1, var2, new ItemStack(Blocks.H, 2, var6));
          return true;
       }
    }
@@ -156,7 +156,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
    }
 
    public void b(World var1, Random var2, Location var3, IBlock var4) {
-      a(var1, var3, new amj(this, 1, this.e(var1, var3).a()));
+      a(var1, var3, new ItemStack(this, 1, this.e(var1, var3).a()));
    }
 
    public IBlock a(int var1) {

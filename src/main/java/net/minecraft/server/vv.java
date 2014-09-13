@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public interface vv extends vz {
+public interface vv extends ICustomName {
 
    aib a(ahb var1, EntityHuman var2);
 

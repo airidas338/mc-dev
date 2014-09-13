@@ -81,7 +81,7 @@ public class ct extends CommandAbstract {
             World var7 = var1.e();
             af var8;
             Location var9;
-            bcm var10;
+            TileEntity var10;
             if(var3) {
                var9 = a(var1, var2, 1, false);
                var10 = var7.s(var9);

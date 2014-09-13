@@ -5,9 +5,9 @@ import java.util.List;
 
 public class EntityFishingHook extends Entity {
 
-   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new amj(Items.T), 10)).a(0.9F), new PossibleFishingResult(new amj(Items.aF), 10), new PossibleFishingResult(new amj(Items.aX), 10), new PossibleFishingResult(new amj(Items.bz), 10), new PossibleFishingResult(new amj(Items.F), 5), (new PossibleFishingResult(new amj(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new amj(Items.z), 10), new PossibleFishingResult(new amj(Items.y), 5), new PossibleFishingResult(new amj(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new amj(Blocks.bR), 10), new PossibleFishingResult(new amj(Items.bt), 10)});
-   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new amj(Blocks.bx), 1), new PossibleFishingResult(new amj(Items.co), 1), new PossibleFishingResult(new amj(Items.aA), 1), (new PossibleFishingResult(new amj(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new amj(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new amj(Items.aL), 1)).a()});
-   private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new amj(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new amj(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new amj(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new amj(Items.aU, 1, ali.d.a()), 13)});
+   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.bz), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.bR), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
+   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.bx), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
+   private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.d.a()), 13)});
    private int g = -1;
    private int h = -1;
    private int i = -1;
@@ -46,7 +46,7 @@ public class EntityFishingHook extends Entity {
       this.b = var2;
       this.b.bE = this;
       this.a(0.25F, 0.25F);
-      this.b(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
+      this.setPositionRotation(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
       this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.t -= 0.10000000149011612D;
       this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
@@ -61,7 +61,7 @@ public class EntityFishingHook extends Entity {
    protected void h() {}
 
    public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5);
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -74,7 +74,7 @@ public class EntityFishingHook extends Entity {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = MathHelper.a(var1 * var1 + var5 * var5);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
       this.A = this.y = (float)(Math.atan2(var1, var5) * 180.0D / 3.1415927410125732D);
       this.B = this.z = (float)(Math.atan2(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.ar = 0;
@@ -94,8 +94,8 @@ public class EntityFishingHook extends Entity {
          this.b(this.y, this.z);
       } else {
          if(!this.o.D) {
-            amj var1 = this.b.bY();
-            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != Items.aR || this.h(this.b) > 1024.0D) {
+            ItemStack var1 = this.b.bY();
+            if(this.b.I || !this.b.isAlive() || var1 == null || var1.b() != Items.aR || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bE = null;
                return;
@@ -138,13 +138,13 @@ public class EntityFishingHook extends Entity {
             ++this.as;
          }
 
-         ChunkCoordinates var27 = new ChunkCoordinates(this.s, this.t, this.u);
-         ChunkCoordinates var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+         Vec3D var27 = new Vec3D(this.s, this.t, this.u);
+         Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          MovingObjectPosition var3 = this.o.a(var27, var2);
-         var27 = new ChunkCoordinates(this.s, this.t, this.u);
-         var2 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+         var27 = new Vec3D(this.s, this.t, this.u);
+         var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var3 != null) {
-            var2 = new ChunkCoordinates(var3.c.a, var3.c.b, var3.c.c);
+            var2 = new Vec3D(var3.c.a, var3.c.b, var3.c.c);
          }
 
          Entity var4 = null;
@@ -184,7 +184,7 @@ public class EntityFishingHook extends Entity {
 
          if(!this.aq) {
             this.d(this.v, this.w, this.x);
-            float var31 = MathHelper.a(this.v * this.v + this.x * this.x);
+            float var31 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
             this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
             for(this.z = (float)(Math.atan2(this.w, (double)var31) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
@@ -326,27 +326,27 @@ public class EntityFishingHook extends Entity {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("xTile", (short)this.g);
-      var1.a("yTile", (short)this.h);
-      var1.a("zTile", (short)this.i);
+      var1.setShort("xTile", (short)this.g);
+      var1.setShort("yTile", (short)this.h);
+      var1.setShort("zTile", (short)this.i);
       RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.ap);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("shake", (byte)this.a);
-      var1.a("inGround", (byte)(this.aq?1:0));
+      var1.setString("inTile", var2 == null?"":var2.toString());
+      var1.setByte("shake", (byte)this.a);
+      var1.setByte("inGround", (byte)(this.aq?1:0));
    }
 
    public void a(NBTTagCompound var1) {
-      this.g = var1.e("xTile");
-      this.h = var1.e("yTile");
-      this.i = var1.e("zTile");
+      this.g = var1.getShort("xTile");
+      this.h = var1.getShort("yTile");
+      this.i = var1.getShort("zTile");
       if(var1.b("inTile", 8)) {
-         this.ap = Block.b(var1.j("inTile"));
+         this.ap = Block.b(var1.getString("inTile"));
       } else {
-         this.ap = Block.c(var1.d("inTile") & 255);
+         this.ap = Block.c(var1.getByte("inTile") & 255);
       }
 
-      this.a = var1.d("shake") & 255;
-      this.aq = var1.d("inGround") == 1;
+      this.a = var1.getByte("shake") & 255;
+      this.aq = var1.getByte("inGround") == 1;
    }
 
    public int l() {
@@ -358,10 +358,10 @@ public class EntityFishingHook extends Entity {
             double var2 = this.b.s - this.s;
             double var4 = this.b.t - this.t;
             double var6 = this.b.u - this.u;
-            double var8 = (double)MathHelper.a(var2 * var2 + var4 * var4 + var6 * var6);
+            double var8 = (double)MathHelper.sqrt(var2 * var2 + var4 * var4 + var6 * var6);
             double var10 = 0.1D;
             this.c.v += var2 * var10;
-            this.c.w += var4 * var10 + (double)MathHelper.a(var8) * 0.08D;
+            this.c.w += var4 * var10 + (double)MathHelper.sqrt(var8) * 0.08D;
             this.c.x += var6 * var10;
             var1 = 3;
          } else if(this.at > 0) {
@@ -369,10 +369,10 @@ public class EntityFishingHook extends Entity {
             double var3 = this.b.s - this.s;
             double var5 = this.b.t - this.t;
             double var7 = this.b.u - this.u;
-            double var9 = (double)MathHelper.a(var3 * var3 + var5 * var5 + var7 * var7);
+            double var9 = (double)MathHelper.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
             double var11 = 0.1D;
             var13.v = var3 * var11;
-            var13.w = var5 * var11 + (double)MathHelper.a(var9) * 0.08D;
+            var13.w = var5 * var11 + (double)MathHelper.sqrt(var9) * 0.08D;
             var13.x = var7 * var11;
             this.o.d((Entity)var13);
             this.b.o.d((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
@@ -389,7 +389,7 @@ public class EntityFishingHook extends Entity {
       }
    }
 
-   private amj m() {
+   private ItemStack m() {
       float var1 = this.o.s.nextFloat();
       int var2 = EnchantmentManager.g(this.b);
       int var3 = EnchantmentManager.h(this.b);

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class aiq extends aib {
 
-   public vq a = new air(this, "Enchant", true, 2);
+   public IInventory a = new air(this, "Enchant", true, 2);
    private World i;
    private Location j;
    private Random k = new Random();
@@ -60,9 +60,9 @@ public class aiq extends aib {
 
    }
 
-   public void a(vq var1) {
+   public void a(IInventory var1) {
       if(var1 == this.a) {
-         amj var2 = var1.a(0);
+         ItemStack var2 = var1.a(0);
          int var3;
          if(var2 != null && var2.v()) {
             if(!this.i.D) {
@@ -134,8 +134,8 @@ public class aiq extends aib {
    }
 
    public boolean a(EntityHuman var1, int var2) {
-      amj var3 = this.a.a(0);
-      amj var4 = this.a.a(1);
+      ItemStack var3 = this.a.a(0);
+      ItemStack var4 = this.a.a(1);
       int var5 = var2 + 1;
       if((var4 == null || var4.b < var5) && !var1.by.d) {
          return false;
@@ -161,7 +161,7 @@ public class aiq extends aib {
                if(!var1.by.d) {
                   var4.b -= var5;
                   if(var4.b <= 0) {
-                     this.a.a(1, (amj)null);
+                     this.a.a(1, (ItemStack)null);
                   }
                }
 
@@ -177,7 +177,7 @@ public class aiq extends aib {
       }
    }
 
-   private List a(amj var1, int var2, int var3) {
+   private List a(ItemStack var1, int var2, int var3) {
       this.k.setSeed((long)(this.f + var2));
       List var4 = EnchantmentManager.b(this.k, var1, var3);
       if(var1.b() == Items.aL && var4 != null && var4.size() > 1) {
@@ -191,7 +191,7 @@ public class aiq extends aib {
       super.b(var1);
       if(!this.i.D) {
          for(int var2 = 0; var2 < this.a.n_(); ++var2) {
-            amj var3 = this.a.b(var2);
+            ItemStack var3 = this.a.b(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -204,11 +204,11 @@ public class aiq extends aib {
       return this.i.getData(this.j).c() != Blocks.bC?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 0) {
             if(!this.a(var5, 2, 38, true)) {
@@ -231,13 +231,13 @@ public class aiq extends aib {
                ((ajk)this.c.get(0)).d(var5.k());
                var5.b = 0;
             } else if(var5.b >= 1) {
-               ((ajk)this.c.get(0)).d(new amj(var5.b(), 1, var5.i()));
+               ((ajk)this.c.get(0)).d(new ItemStack(var5.b(), 1, var5.i()));
                --var5.b;
             }
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }

@@ -15,7 +15,7 @@ class aen extends PathfinderGoal {
 
    public boolean a() {
       EntityLiving var1 = this.a.u();
-      return var1 != null && var1.ai();
+      return var1 != null && var1.isAlive();
    }
 
    public void c() {
@@ -55,7 +55,7 @@ class aen extends PathfinderGoal {
             }
 
             if(this.b > 1) {
-               float var10 = MathHelper.c(MathHelper.a(var2)) * 0.5F;
+               float var10 = MathHelper.c(MathHelper.sqrt(var2)) * 0.5F;
                this.a.o.a((EntityHuman)null, 1009, new Location((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
 
                for(int var11 = 0; var11 < 1; ++var11) {
@@ -68,7 +68,7 @@ class aen extends PathfinderGoal {
 
          this.a.p().a(var1, 10.0F, 10.0F);
       } else {
-         this.a.s().n();
+         this.a.getNavigation().n();
          this.a.q().a(var1.s, var1.t, var1.u, 1.0D);
       }
 

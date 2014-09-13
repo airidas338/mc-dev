@@ -49,8 +49,8 @@ class bl implements ICommandSender {
       return this.c;
    }
 
-   public ChunkCoordinates d() {
-      return new ChunkCoordinates(this.d, this.e, this.f);
+   public Vec3D d() {
+      return new Vec3D(this.d, this.e, this.f);
    }
 
    public World e() {

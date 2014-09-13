@@ -13,26 +13,26 @@ public class bjg extends bms {
    public bjg() {}
 
    protected void a(NBTTagCompound var1) {
-      var1.a("hr", this.a);
-      var1.a("sc", this.b);
-      var1.a("hps", this.c);
-      var1.a("Num", this.d);
+      var1.setBoolean("hr", this.a);
+      var1.setBoolean("sc", this.b);
+      var1.setBoolean("hps", this.c);
+      var1.setInt("Num", this.d);
    }
 
    protected void b(NBTTagCompound var1) {
       this.a = var1.n("hr");
       this.b = var1.n("sc");
       this.c = var1.n("hps");
-      this.d = var1.f("Num");
+      this.d = var1.getInt("Num");
    }
 
-   public bjg(int var1, Random var2, bjb var3, ej var4) {
+   public bjg(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
       this.a = var2.nextInt(3) == 0;
       this.b = !this.a && var2.nextInt(23) == 0;
-      if(this.m != ej.c && this.m != ej.d) {
+      if(this.m != EnumFacing.NORTH && this.m != EnumFacing.SOUTH) {
          this.d = var3.c() / 5;
       } else {
          this.d = var3.e() / 5;
@@ -40,7 +40,7 @@ public class bjg extends bms {
 
    }
 
-   public static bjb a(List var0, Random var1, int var2, int var3, int var4, ej var5) {
+   public static bjb a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5) {
       bjb var6 = new bjb(var2, var3, var4, var2, var3 + 2, var4);
 
       int var7;
@@ -81,36 +81,36 @@ public class bjg extends bms {
             if(var5 <= 1) {
                bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, this.m, var4);
             } else if(var5 == 2) {
-               bje.a(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, ej.e, var4);
+               bje.a(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumFacing.WEST, var4);
             } else {
-               bje.a(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, ej.f, var4);
+               bje.a(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumFacing.EAST, var4);
             }
             break;
          case 2:
             if(var5 <= 1) {
                bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, this.m, var4);
             } else if(var5 == 2) {
-               bje.a(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, ej.e, var4);
+               bje.a(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumFacing.WEST, var4);
             } else {
-               bje.a(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, ej.f, var4);
+               bje.a(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumFacing.EAST, var4);
             }
             break;
          case 3:
             if(var5 <= 1) {
                bje.a(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, this.m, var4);
             } else if(var5 == 2) {
-               bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, ej.c, var4);
+               bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumFacing.NORTH, var4);
             } else {
-               bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, ej.d, var4);
+               bje.a(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumFacing.SOUTH, var4);
             }
             break;
          case 4:
             if(var5 <= 1) {
                bje.a(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, this.m, var4);
             } else if(var5 == 2) {
-               bje.a(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, ej.c, var4);
+               bje.a(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumFacing.NORTH, var4);
             } else {
-               bje.a(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, ej.d, var4);
+               bje.a(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumFacing.SOUTH, var4);
             }
          }
       }
@@ -118,22 +118,22 @@ public class bjg extends bms {
       if(var4 < 8) {
          int var6;
          int var7;
-         if(this.m != ej.c && this.m != ej.d) {
+         if(this.m != EnumFacing.NORTH && this.m != EnumFacing.SOUTH) {
             for(var6 = this.l.a + 3; var6 + 3 <= this.l.d; var6 += 5) {
                var7 = var3.nextInt(5);
                if(var7 == 0) {
-                  bje.a(var1, var2, var3, var6, this.l.b, this.l.c - 1, ej.c, var4 + 1);
+                  bje.a(var1, var2, var3, var6, this.l.b, this.l.c - 1, EnumFacing.NORTH, var4 + 1);
                } else if(var7 == 1) {
-                  bje.a(var1, var2, var3, var6, this.l.b, this.l.f + 1, ej.d, var4 + 1);
+                  bje.a(var1, var2, var3, var6, this.l.b, this.l.f + 1, EnumFacing.SOUTH, var4 + 1);
                }
             }
          } else {
             for(var6 = this.l.c + 3; var6 + 3 <= this.l.f; var6 += 5) {
                var7 = var3.nextInt(5);
                if(var7 == 0) {
-                  bje.a(var1, var2, var3, this.l.a - 1, this.l.b, var6, ej.e, var4 + 1);
+                  bje.a(var1, var2, var3, this.l.a - 1, this.l.b, var6, EnumFacing.WEST, var4 + 1);
                } else if(var7 == 1) {
-                  bje.a(var1, var2, var3, this.l.d + 1, this.l.b, var6, ej.f, var4 + 1);
+                  bje.a(var1, var2, var3, this.l.d + 1, this.l.b, var6, EnumFacing.EAST, var4 + 1);
                }
             }
          }
@@ -147,7 +147,7 @@ public class bjg extends bms {
          int var10 = var3.nextBoolean()?1:0;
          var1.a(var9, Blocks.av.a(this.a(Blocks.av, var10)), 2);
          EntityMinecartChest var11 = new EntityMinecartChest(var1, (double)((float)var9.n() + 0.5F), (double)((float)var9.o() + 0.5F), (double)((float)var9.p() + 0.5F));
-         StructurePieceTreaasure.a(var3, var7, (vq)var11, var8);
+         StructurePieceTreaasure.a(var3, var7, (IInventory)var11, var8);
          var1.d((Entity)var11);
          return true;
       } else {
@@ -164,23 +164,23 @@ public class bjg extends bms {
          boolean var6 = false;
          boolean var7 = true;
          int var8 = this.d * 5 - 1;
-         this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.a.P(), Blocks.a.P(), false);
-         this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.AIR.P(), Blocks.AIR.P(), false);
+         this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.AIR.P(), Blocks.AIR.P(), false);
          if(this.b) {
-            this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.G.P(), Blocks.a.P(), false);
+            this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.G.P(), Blocks.AIR.P(), false);
          }
 
          int var9;
          int var10;
          for(var9 = 0; var9 < this.d; ++var9) {
             var10 = 2 + var9 * 5;
-            this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.aO.P(), Blocks.a.P(), false);
-            this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.aO.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.aO.P(), Blocks.AIR.P(), false);
+            this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.aO.P(), Blocks.AIR.P(), false);
             if(var2.nextInt(4) == 0) {
-               this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.f.P(), Blocks.a.P(), false);
-               this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.f.P(), Blocks.a.P(), false);
+               this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.f.P(), Blocks.AIR.P(), false);
+               this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.f.P(), Blocks.AIR.P(), false);
             } else {
-               this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.f.P(), Blocks.a.P(), false);
+               this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.f.P(), Blocks.AIR.P(), false);
             }
 
             this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, Blocks.G.P());
@@ -191,8 +191,8 @@ public class bjg extends bms {
             this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.G.P());
             this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.G.P());
             this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.G.P());
-            this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.aa.a(ej.b.a()));
-            this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.aa.a(ej.b.a()));
+            this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.aa.a(EnumFacing.UP.a()));
+            this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.aa.a(EnumFacing.UP.a()));
             if(var2.nextInt(100) == 0) {
                this.a(var1, var3, var2, 2, 0, var10 - 1, StructurePieceTreaasure.a(bje.b(), new StructurePieceTreaasure[]{Items.cd.b(var2)}), 3 + var2.nextInt(4));
             }
@@ -210,7 +210,7 @@ public class bjg extends bms {
                if(var3.b((fd)var14)) {
                   this.c = true;
                   var1.a(var14, Blocks.ac.P(), 2);
-                  bcm var15 = var1.s(var14);
+                  TileEntity var15 = var1.s(var14);
                   if(var15 instanceof bdg) {
                      ((bdg)var15).b().a("CaveSpider");
                   }

@@ -22,21 +22,21 @@ public class bfm {
 
    public IBlock a(int var1, int var2, int var3) {
       IBlock var4 = (IBlock)Block.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
-      return var4 != null?var4:Blocks.a.P();
+      return var4 != null?var4:Blocks.AIR.P();
    }
 
    public void a(int var1, int var2, int var3, IBlock var4) {
       IBlock var5 = this.a(var1, var2, var3);
       Block var6 = var5.c();
       Block var7 = var4.c();
-      if(var6 != Blocks.a) {
+      if(var6 != Blocks.AIR) {
          --this.b;
          if(var6.w()) {
             --this.c;
          }
       }
 
-      if(var7 != Blocks.a) {
+      if(var7 != Blocks.AIR) {
          ++this.b;
          if(var7.w()) {
             ++this.c;
@@ -91,7 +91,7 @@ public class bfm {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
                Block var4 = this.b(var1, var2, var3);
-               if(var4 != Blocks.a) {
+               if(var4 != Blocks.AIR) {
                   ++this.b;
                   if(var4.w()) {
                      ++this.c;

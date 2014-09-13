@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class aci extends yn {
+class aci extends ControllerMove {
 
    private EntityRabbit g;
 

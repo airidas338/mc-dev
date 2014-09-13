@@ -4,15 +4,15 @@ import java.util.concurrent.Callable;
 class bcn implements Callable {
 
    // $FF: synthetic field
-   final bcm a;
+   final TileEntity a;
 
 
-   bcn(bcm var1) {
+   bcn(TileEntity var1) {
       this.a = var1;
    }
 
    public String a() {
-      return (String)bcm.F().get(this.a.getClass()) + " // " + this.a.getClass().getCanonicalName();
+      return (String)TileEntity.F().get(this.a.getClass()) + " // " + this.a.getClass().getCanonicalName();
    }
 
    // $FF: synthetic method

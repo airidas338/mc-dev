@@ -47,9 +47,9 @@ public abstract class axl extends Block {
       return var2 && ((Integer)var1.b(b)).intValue() == 0;
    }
 
-   public boolean b(IBlockAccess var1, Location var2, ej var3) {
+   public boolean b(IBlockAccess var1, Location var2, EnumFacing var3) {
       Material var4 = var1.getData(var2).c().r();
-      return var4 == this.J?false:(var3 == ej.b?true:(var4 == Material.ICE?false:super.b(var1, var2, var3)));
+      return var4 == this.J?false:(var3 == EnumFacing.UP?true:(var4 == Material.ICE?false:super.b(var1, var2, var3)));
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
@@ -68,15 +68,15 @@ public abstract class axl extends Block {
       return 0;
    }
 
-   protected ChunkCoordinates h(IBlockAccess var1, Location var2) {
-      ChunkCoordinates var3 = new ChunkCoordinates(0.0D, 0.0D, 0.0D);
+   protected Vec3D h(IBlockAccess var1, Location var2) {
+      Vec3D var3 = new Vec3D(0.0D, 0.0D, 0.0D);
       int var4 = this.f(var1, var2);
       Iterator var5 = en.a.iterator();
 
-      ej var6;
+      EnumFacing var6;
       Location var7;
       while(var5.hasNext()) {
-         var6 = (ej)var5.next();
+         var6 = (EnumFacing)var5.next();
          var7 = var2.a(var6);
          int var8 = this.f(var1, var7);
          int var9;
@@ -98,7 +98,7 @@ public abstract class axl extends Block {
          var5 = en.a.iterator();
 
          while(var5.hasNext()) {
-            var6 = (ej)var5.next();
+            var6 = (EnumFacing)var5.next();
             var7 = var2.a(var6);
             if(this.b(var1, var7, var6) || this.b(var1, var7.a(), var6)) {
                var3 = var3.a().b(0.0D, -6.0D, 0.0D);
@@ -110,7 +110,7 @@ public abstract class axl extends Block {
       return var3.a();
    }
 
-   public ChunkCoordinates a(World var1, Location var2, Entity var3, ChunkCoordinates var4) {
+   public Vec3D a(World var1, Location var2, Entity var3, Vec3D var4) {
       return var4.e(this.h(var1, var2));
    }
 
@@ -129,12 +129,12 @@ public abstract class axl extends Block {
    public boolean e(World var1, Location var2, IBlock var3) {
       if(this.J == Material.LAVA) {
          boolean var4 = false;
-         ej[] var5 = ej.values();
+         EnumFacing[] var5 = EnumFacing.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            ej var8 = var5[var7];
-            if(var8 != ej.a && var1.getData(var2.a(var8)).c().r() == Material.WATER) {
+            EnumFacing var8 = var5[var7];
+            if(var8 != EnumFacing.DOWN && var1.getData(var2.a(var8)).c().r() == Material.WATER) {
                var4 = true;
                break;
             }

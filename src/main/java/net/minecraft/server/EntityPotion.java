@@ -4,7 +4,7 @@ import java.util.List;
 
 public class EntityPotion extends EntityProjectile {
 
-   private amj c;
+   private ItemStack c;
 
 
    public EntityPotion(World var1) {
@@ -12,15 +12,15 @@ public class EntityPotion extends EntityProjectile {
    }
 
    public EntityPotion(World var1, EntityLiving var2, int var3) {
-      this(var1, var2, new amj(Items.bz, 1, var3));
+      this(var1, var2, new ItemStack(Items.bz, 1, var3));
    }
 
-   public EntityPotion(World var1, EntityLiving var2, amj var3) {
+   public EntityPotion(World var1, EntityLiving var2, ItemStack var3) {
       super(var1, var2);
       this.c = var3;
    }
 
-   public EntityPotion(World var1, double var2, double var4, double var6, amj var8) {
+   public EntityPotion(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1, var2, var4, var6);
       this.c = var8;
    }
@@ -39,7 +39,7 @@ public class EntityPotion extends EntityProjectile {
 
    public void a(int var1) {
       if(this.c == null) {
-         this.c = new amj(Items.bz, 1, 0);
+         this.c = new ItemStack(Items.bz, 1, 0);
       }
 
       this.c.b(var1);
@@ -47,7 +47,7 @@ public class EntityPotion extends EntityProjectile {
 
    public int o() {
       if(this.c == null) {
-         this.c = new amj(Items.bz, 1, 0);
+         this.c = new ItemStack(Items.bz, 1, 0);
       }
 
       return this.c.i();
@@ -58,7 +58,7 @@ public class EntityPotion extends EntityProjectile {
          List var2 = Items.bz.h(this.c);
          if(var2 != null && !var2.isEmpty()) {
             AxisAlignedBB var3 = this.aQ().b(4.0D, 2.0D, 4.0D);
-            List var4 = this.o.a(EntityLiving.class, var3);
+            List var4 = this.o.getEntities(EntityLiving.class, var3);
             if(!var4.isEmpty()) {
                Iterator var5 = var4.iterator();
 
@@ -74,14 +74,14 @@ public class EntityPotion extends EntityProjectile {
                      Iterator var11 = var2.iterator();
 
                      while(var11.hasNext()) {
-                        wq var12 = (wq)var11.next();
-                        int var13 = var12.a();
-                        if(wp.a[var13].b()) {
-                           wp.a[var13].a(this, this.n(), var6, var12.c(), var9);
+                        MobEffect var12 = (MobEffect)var11.next();
+                        int var13 = var12.getEffectId();
+                        if(MobEffectList.a[var13].b()) {
+                           MobEffectList.a[var13].a(this, this.n(), var6, var12.getAmplifier(), var9);
                         } else {
-                           int var14 = (int)(var9 * (double)var12.b() + 0.5D);
+                           int var14 = (int)(var9 * (double)var12.getDuration() + 0.5D);
                            if(var14 > 20) {
-                              var6.c(new wq(var13, var14, var12.c()));
+                              var6.c(new MobEffect(var13, var14, var12.getAmplifier()));
                            }
                         }
                      }
@@ -99,9 +99,9 @@ public class EntityPotion extends EntityProjectile {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("Potion", 10)) {
-         this.c = amj.a(var1.m("Potion"));
+         this.c = ItemStack.a(var1.getCompound("Potion"));
       } else {
-         this.a(var1.f("potionValue"));
+         this.a(var1.getInt("potionValue"));
       }
 
       if(this.c == null) {
@@ -113,7 +113,7 @@ public class EntityPotion extends EntityProjectile {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.c != null) {
-         var1.a("Potion", (NBTBase)this.c.b(new NBTTagCompound()));
+         var1.set("Potion", (NBTBase)this.c.b(new NBTTagCompound()));
       }
 
    }

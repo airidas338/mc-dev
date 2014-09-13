@@ -5,7 +5,7 @@ public class jx implements Packet {
 
    private int a;
    private byte b;
-   private bqd[] c;
+   private WorldMapDecoration[] c;
    private int d;
    private int e;
    private int f;
@@ -18,7 +18,7 @@ public class jx implements Packet {
    public jx(int var1, byte var2, Collection var3, byte[] var4, int var5, int var6, int var7, int var8) {
       this.a = var1;
       this.b = var2;
-      this.c = (bqd[])var3.toArray(new bqd[var3.size()]);
+      this.c = (WorldMapDecoration[])var3.toArray(new WorldMapDecoration[var3.size()]);
       this.d = var5;
       this.e = var6;
       this.f = var7;
@@ -36,11 +36,11 @@ public class jx implements Packet {
    public void a(hd var1) {
       this.a = var1.e();
       this.b = var1.readByte();
-      this.c = new bqd[var1.e()];
+      this.c = new WorldMapDecoration[var1.e()];
 
       for(int var2 = 0; var2 < this.c.length; ++var2) {
          short var3 = (short)var1.readByte();
-         this.c[var2] = new bqd((byte)(var3 >> 4 & 15), var1.readByte(), var1.readByte(), (byte)(var3 & 15));
+         this.c[var2] = new WorldMapDecoration((byte)(var3 >> 4 & 15), var1.readByte(), var1.readByte(), (byte)(var3 & 15));
       }
 
       this.f = var1.readUnsignedByte();
@@ -57,14 +57,14 @@ public class jx implements Packet {
       var1.b(this.a);
       var1.writeByte(this.b);
       var1.b(this.c.length);
-      bqd[] var2 = this.c;
+      WorldMapDecoration[] var2 = this.c;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         bqd var5 = var2[var4];
-         var1.writeByte((var5.a() & 15) << 4 | var5.d() & 15);
-         var1.writeByte(var5.b());
-         var1.writeByte(var5.c());
+         WorldMapDecoration var5 = var2[var4];
+         var1.writeByte((var5.getType() & 15) << 4 | var5.getRotation() & 15);
+         var1.writeByte(var5.getLocX());
+         var1.writeByte(var5.getLocY());
       }
 
       var1.writeByte(this.f);

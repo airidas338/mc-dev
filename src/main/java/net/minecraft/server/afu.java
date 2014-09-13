@@ -1,10 +1,10 @@
 package net.minecraft.server;
 import java.util.Random;
 
-class afu extends zy {
+class afu extends PathfinderGoalRandomStroll {
 
    private final EntitySilverfish a;
-   private ej b;
+   private EnumFacing b;
    private boolean c;
 
 
@@ -17,12 +17,12 @@ class afu extends zy {
    public boolean a() {
       if(this.a.u() != null) {
          return false;
-      } else if(!this.a.s().m()) {
+      } else if(!this.a.getNavigation().m()) {
          return false;
       } else {
          Random var1 = this.a.bb();
          if(var1.nextInt(10) == 0) {
-            this.b = ej.a(var1);
+            this.b = EnumFacing.a(var1);
             Location var2 = (new Location(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
             IBlock var3 = this.a.o.getData(var2);
             if(BlockMonsterEggs.d(var3)) {

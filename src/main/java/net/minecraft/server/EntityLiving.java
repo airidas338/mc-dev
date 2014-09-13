@@ -17,7 +17,7 @@ public abstract class EntityLiving extends Entity {
    private AttributeMapBase c;
    private final wg f = new wg(this);
    private final Map g = Maps.newHashMap();
-   private final amj[] h = new amj[5];
+   private final ItemStack[] h = new ItemStack[5];
    public boolean ap;
    public int aq;
    public int ar;
@@ -133,7 +133,7 @@ public abstract class EntityLiving extends Entity {
       super.K();
       this.o.B.a("livingEntityBaseTick");
       boolean var1 = this instanceof EntityHuman;
-      if(this.ai()) {
+      if(this.isAlive()) {
          if(this.aj()) {
             this.a(DamageSource.e, 1.0F);
          } else if(var1 && !this.o.af().a(this.aQ())) {
@@ -149,8 +149,8 @@ public abstract class EntityLiving extends Entity {
       }
 
       boolean var7 = var1 && ((EntityHuman)this).by.a;
-      if(this.ai() && this.a(Material.WATER)) {
-         if(!this.aX() && !this.k(wp.o.H) && !var7) {
+      if(this.isAlive() && this.a(Material.WATER)) {
+         if(!this.aX() && !this.k(MobEffectList.o.H) && !var7) {
             this.h(this.j(this.aA()));
             if(this.aA() == -20) {
                this.h(0);
@@ -173,7 +173,7 @@ public abstract class EntityLiving extends Entity {
          this.h(300);
       }
 
-      if(this.ai() && this.U()) {
+      if(this.isAlive() && this.U()) {
          this.N();
       }
 
@@ -196,12 +196,12 @@ public abstract class EntityLiving extends Entity {
          this.aL = null;
       }
 
-      if(this.bi != null && !this.bi.ai()) {
+      if(this.bi != null && !this.bi.isAlive()) {
          this.bi = null;
       }
 
       if(this.bg != null) {
-         if(!this.bg.ai()) {
+         if(!this.bg.isAlive()) {
             this.b((EntityLiving)null);
          } else if(this.W - this.bh > 100) {
             this.b((EntityLiving)null);
@@ -304,17 +304,17 @@ public abstract class EntityLiving extends Entity {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("HealF", this.bm());
-      var1.a("Health", (short)((int)Math.ceil((double)this.bm())));
-      var1.a("HurtTime", (short)this.as);
-      var1.a("HurtByTimestamp", this.bh);
-      var1.a("DeathTime", (short)this.av);
-      var1.a("AbsorptionAmount", this.bM());
-      amj[] var2 = this.at();
+      var1.setFloat("HealF", this.bm());
+      var1.setShort("Health", (short)((int)Math.ceil((double)this.bm())));
+      var1.setShort("HurtTime", (short)this.as);
+      var1.setInt("HurtByTimestamp", this.bh);
+      var1.setShort("DeathTime", (short)this.av);
+      var1.setFloat("AbsorptionAmount", this.bM());
+      ItemStack[] var2 = this.at();
       int var3 = var2.length;
 
       int var4;
-      amj var5;
+      ItemStack var5;
       for(var4 = 0; var4 < var3; ++var4) {
          var5 = var2[var4];
          if(var5 != null) {
@@ -322,7 +322,7 @@ public abstract class EntityLiving extends Entity {
          }
       }
 
-      var1.a("Attributes", (NBTBase)GenericAttributes.a(this.getAttributeMap()));
+      var1.set("Attributes", (NBTBase)GenericAttributes.a(this.getAttributeMap()));
       var2 = this.at();
       var3 = var2.length;
 
@@ -334,39 +334,39 @@ public abstract class EntityLiving extends Entity {
       }
 
       if(!this.g.isEmpty()) {
-         fv var6 = new fv();
+         NBTTagList var6 = new NBTTagList();
          Iterator var7 = this.g.values().iterator();
 
          while(var7.hasNext()) {
-            wq var8 = (wq)var7.next();
+            MobEffect var8 = (MobEffect)var7.next();
             var6.a((NBTBase)var8.a(new NBTTagCompound()));
          }
 
-         var1.a("ActiveEffects", (NBTBase)var6);
+         var1.set("ActiveEffects", (NBTBase)var6);
       }
 
    }
 
    public void a(NBTTagCompound var1) {
-      this.l(var1.h("AbsorptionAmount"));
+      this.l(var1.getFloat("AbsorptionAmount"));
       if(var1.b("Attributes", 9) && this.o != null && !this.o.D) {
-         GenericAttributes.a(this.getAttributeMap(), var1.c("Attributes", 10));
+         GenericAttributes.a(this.getAttributeMap(), var1.getList("Attributes", 10));
       }
 
       if(var1.b("ActiveEffects", 9)) {
-         fv var2 = var1.c("ActiveEffects", 10);
+         NBTTagList var2 = var1.getList("ActiveEffects", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             NBTTagCompound var4 = var2.b(var3);
-            wq var5 = wq.b(var4);
+            MobEffect var5 = MobEffect.b(var4);
             if(var5 != null) {
-               this.g.put(Integer.valueOf(var5.a()), var5);
+               this.g.put(Integer.valueOf(var5.getEffectId()), var5);
             }
          }
       }
 
       if(var1.b("HealF", 99)) {
-         this.h(var1.h("HealF"));
+         this.h(var1.getFloat("HealF"));
       } else {
          NBTBase var6 = var1.a("Health");
          if(var6 == null) {
@@ -378,9 +378,9 @@ public abstract class EntityLiving extends Entity {
          }
       }
 
-      this.as = var1.e("HurtTime");
-      this.av = var1.e("DeathTime");
-      this.bh = var1.f("HurtByTimestamp");
+      this.as = var1.getShort("HurtTime");
+      this.av = var1.getShort("DeathTime");
+      this.bh = var1.getInt("HurtByTimestamp");
    }
 
    protected void bh() {
@@ -388,13 +388,13 @@ public abstract class EntityLiving extends Entity {
 
       while(var1.hasNext()) {
          Integer var2 = (Integer)var1.next();
-         wq var3 = (wq)this.g.get(var2);
+         MobEffect var3 = (MobEffect)this.g.get(var2);
          if(!var3.a(this)) {
             if(!this.o.D) {
                var1.remove();
                this.b(var3);
             }
-         } else if(var3.b() % 600 == 0) {
+         } else if(var3.getDuration() % 600 == 0) {
             this.a(var3, false);
          }
       }
@@ -436,10 +436,10 @@ public abstract class EntityLiving extends Entity {
          this.bi();
          this.e(false);
       } else {
-         int var1 = ans.a(this.g.values());
-         this.ac.b(8, Byte.valueOf((byte)(ans.b(this.g.values())?1:0)));
+         int var1 = PotionBrewer.a(this.g.values());
+         this.ac.b(8, Byte.valueOf((byte)(PotionBrewer.b(this.g.values())?1:0)));
          this.ac.b(7, Integer.valueOf(var1));
-         this.e(this.k(wp.p.H));
+         this.e(this.k(MobEffectList.p.H));
       }
 
    }
@@ -454,7 +454,7 @@ public abstract class EntityLiving extends Entity {
 
       while(var1.hasNext()) {
          Integer var2 = (Integer)var1.next();
-         wq var3 = (wq)this.g.get(var2);
+         MobEffect var3 = (MobEffect)this.g.get(var2);
          if(!this.o.D) {
             var1.remove();
             this.b(var3);
@@ -471,31 +471,31 @@ public abstract class EntityLiving extends Entity {
       return this.g.containsKey(Integer.valueOf(var1));
    }
 
-   public boolean a(wp var1) {
+   public boolean a(MobEffectList var1) {
       return this.g.containsKey(Integer.valueOf(var1.H));
    }
 
-   public wq b(wp var1) {
-      return (wq)this.g.get(Integer.valueOf(var1.H));
+   public MobEffect b(MobEffectList var1) {
+      return (MobEffect)this.g.get(Integer.valueOf(var1.H));
    }
 
-   public void c(wq var1) {
+   public void c(MobEffect var1) {
       if(this.d(var1)) {
-         if(this.g.containsKey(Integer.valueOf(var1.a()))) {
-            ((wq)this.g.get(Integer.valueOf(var1.a()))).a(var1);
-            this.a((wq)this.g.get(Integer.valueOf(var1.a())), true);
+         if(this.g.containsKey(Integer.valueOf(var1.getEffectId()))) {
+            ((MobEffect)this.g.get(Integer.valueOf(var1.getEffectId()))).a(var1);
+            this.a((MobEffect)this.g.get(Integer.valueOf(var1.getEffectId())), true);
          } else {
-            this.g.put(Integer.valueOf(var1.a()), var1);
+            this.g.put(Integer.valueOf(var1.getEffectId()), var1);
             this.a(var1);
          }
 
       }
    }
 
-   public boolean d(wq var1) {
+   public boolean d(MobEffect var1) {
       if(this.by() == xs.b) {
-         int var2 = var1.a();
-         if(var2 == wp.l.H || var2 == wp.u.H) {
+         int var2 = var1.getEffectId();
+         if(var2 == MobEffectList.l.H || var2 == MobEffectList.u.H) {
             return false;
          }
       }
@@ -508,34 +508,34 @@ public abstract class EntityLiving extends Entity {
    }
 
    public void m(int var1) {
-      wq var2 = (wq)this.g.remove(Integer.valueOf(var1));
+      MobEffect var2 = (MobEffect)this.g.remove(Integer.valueOf(var1));
       if(var2 != null) {
          this.b(var2);
       }
 
    }
 
-   protected void a(wq var1) {
+   protected void a(MobEffect var1) {
       this.i = true;
       if(!this.o.D) {
-         wp.a[var1.a()].b(this, this.getAttributeMap(), var1.c());
+         MobEffectList.a[var1.getEffectId()].b(this, this.getAttributeMap(), var1.getAmplifier());
       }
 
    }
 
-   protected void a(wq var1, boolean var2) {
+   protected void a(MobEffect var1, boolean var2) {
       this.i = true;
       if(var2 && !this.o.D) {
-         wp.a[var1.a()].a(this, this.getAttributeMap(), var1.c());
-         wp.a[var1.a()].b(this, this.getAttributeMap(), var1.c());
+         MobEffectList.a[var1.getEffectId()].a(this, this.getAttributeMap(), var1.getAmplifier());
+         MobEffectList.a[var1.getEffectId()].b(this, this.getAttributeMap(), var1.getAmplifier());
       }
 
    }
 
-   protected void b(wq var1) {
+   protected void b(MobEffect var1) {
       this.i = true;
       if(!this.o.D) {
-         wp.a[var1.a()].a(this, this.getAttributeMap(), var1.c());
+         MobEffectList.a[var1.getEffectId()].a(this, this.getAttributeMap(), var1.getAmplifier());
       }
 
    }
@@ -565,7 +565,7 @@ public abstract class EntityLiving extends Entity {
          this.aO = 0;
          if(this.bm() <= 0.0F) {
             return false;
-         } else if(var1.o() && this.a(wp.n)) {
+         } else if(var1.o() && this.a(MobEffectList.n)) {
             return false;
          } else {
             if((var1 == DamageSource.n || var1 == DamageSource.o) && this.p(4) != null) {
@@ -650,15 +650,15 @@ public abstract class EntityLiving extends Entity {
       }
    }
 
-   public void b(amj var1) {
+   public void b(ItemStack var1) {
       this.a("random.break", 0.8F, 0.8F + this.o.s.nextFloat() * 0.4F);
 
       for(int var2 = 0; var2 < 5; ++var2) {
-         ChunkCoordinates var3 = new ChunkCoordinates(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
+         Vec3D var3 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
          var3 = var3.a(-this.z * 3.1415927F / 180.0F);
          var3 = var3.b(-this.y * 3.1415927F / 180.0F);
          double var4 = (double)(-this.V.nextFloat()) * 0.6D - 0.3D;
-         ChunkCoordinates var6 = new ChunkCoordinates(((double)this.V.nextFloat() - 0.5D) * 0.3D, var4, 0.6D);
+         Vec3D var6 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.3D, var4, 0.6D);
          var6 = var6.a(-this.z * 3.1415927F / 180.0F);
          var6 = var6.b(-this.y * 3.1415927F / 180.0F);
          var6 = var6.b(this.s, this.t + (double)this.aR(), this.u);
@@ -703,7 +703,7 @@ public abstract class EntityLiving extends Entity {
    public void a(Entity var1, float var2, double var3, double var5) {
       if(this.V.nextDouble() >= this.getAttributeInstance(GenericAttributes.c).getValue()) {
          this.ai = true;
-         float var7 = MathHelper.a(var3 * var3 + var5 * var5);
+         float var7 = MathHelper.sqrt(var3 * var3 + var5 * var5);
          float var8 = 0.4F;
          this.v /= 2.0D;
          this.w /= 2.0D;
@@ -738,14 +738,14 @@ public abstract class EntityLiving extends Entity {
       return (var4 == Blocks.au || var4 == Blocks.bn) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
 
-   public boolean ai() {
+   public boolean isAlive() {
       return !this.I && this.bm() > 0.0F;
    }
 
    public void e(float var1, float var2) {
       super.e(var1, var2);
-      wq var3 = this.b(wp.j);
-      float var4 = var3 != null?(float)(var3.c() + 1):0.0F;
+      MobEffect var3 = this.b(MobEffectList.j);
+      float var4 = var3 != null?(float)(var3.getAmplifier() + 1):0.0F;
       int var5 = MathHelper.f((var1 - 3.0F - var4) * var2);
       if(var5 > 0) {
          this.a(this.n(var5), 1.0F, 1.0F);
@@ -768,11 +768,11 @@ public abstract class EntityLiving extends Entity {
 
    public int bq() {
       int var1 = 0;
-      amj[] var2 = this.at();
+      ItemStack[] var2 = this.at();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         amj var5 = var2[var4];
+         ItemStack var5 = var2[var4];
          if(var5 != null && var5.b() instanceof ItemArmor) {
             int var6 = ((ItemArmor)var5.b()).c;
             var1 += var6;
@@ -802,8 +802,8 @@ public abstract class EntityLiving extends Entity {
          int var3;
          int var4;
          float var5;
-         if(this.a(wp.m) && var1 != DamageSource.j) {
-            var3 = (this.b(wp.m).c() + 1) * 5;
+         if(this.a(MobEffectList.m) && var1 != DamageSource.j) {
+            var3 = (this.b(MobEffectList.m).getAmplifier() + 1) * 5;
             var4 = 25 - var3;
             var5 = var2 * (float)var4;
             var2 = var5 / 25.0F;
@@ -865,7 +865,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    private int n() {
-      return this.a(wp.e)?6 - (1 + this.b(wp.e).c()) * 1:(this.a(wp.f)?6 + (1 + this.b(wp.f).c()) * 2:6);
+      return this.a(MobEffectList.e)?6 - (1 + this.b(MobEffectList.e).getAmplifier()) * 1:(this.a(MobEffectList.f)?6 + (1 + this.b(MobEffectList.f).getAmplifier()) * 2:6);
    }
 
    public void bv() {
@@ -914,11 +914,11 @@ public abstract class EntityLiving extends Entity {
       return xs.a;
    }
 
-   public abstract amj bz();
+   public abstract ItemStack bz();
 
-   public abstract amj p(int var1);
+   public abstract ItemStack p(int var1);
 
-   public abstract void c(int var1, amj var2);
+   public abstract void c(int var1, ItemStack var2);
 
    public void d(boolean var1) {
       super.d(var1);
@@ -933,7 +933,7 @@ public abstract class EntityLiving extends Entity {
 
    }
 
-   public abstract amj[] at();
+   public abstract ItemStack[] at();
 
    protected float bA() {
       return 1.0F;
@@ -984,8 +984,8 @@ public abstract class EntityLiving extends Entity {
 
    protected void bE() {
       this.w = (double)this.bD();
-      if(this.a(wp.j)) {
-         this.w += (double)((float)(this.b(wp.j).c() + 1) * 0.1F);
+      if(this.a(MobEffectList.j)) {
+         this.w += (double)((float)(this.b(MobEffectList.j).getAmplifier() + 1) * 0.1F);
       }
 
       if(this.ax()) {
@@ -1107,7 +1107,7 @@ public abstract class EntityLiving extends Entity {
       this.ay = this.az;
       var8 = this.s - this.p;
       double var10 = this.u - this.r;
-      var9 = MathHelper.a(var8 * var8 + var10 * var10) * 4.0F;
+      var9 = MathHelper.sqrt(var8 * var8 + var10 * var10) * 4.0F;
       if(var9 > 1.0F) {
          var9 = 1.0F;
       }
@@ -1149,9 +1149,9 @@ public abstract class EntityLiving extends Entity {
          }
 
          for(int var2 = 0; var2 < 5; ++var2) {
-            amj var3 = this.h[var2];
-            amj var4 = this.p(var2);
-            if(!amj.b(var4, var3)) {
+            ItemStack var3 = this.h[var2];
+            ItemStack var4 = this.p(var2);
+            if(!ItemStack.b(var4, var3)) {
                ((WorldServer)this.o).s().a((Entity)this, (Packet)(new la(this.F(), var2, var4)));
                if(var3 != null) {
                   this.c.a(var3.B());
@@ -1399,14 +1399,14 @@ public abstract class EntityLiving extends Entity {
    }
 
    public boolean t(Entity var1) {
-      return this.o.a(new ChunkCoordinates(this.s, this.t + (double)this.aR(), this.u), new ChunkCoordinates(var1.s, var1.t + (double)var1.aR(), var1.u)) == null;
+      return this.o.a(new Vec3D(this.s, this.t + (double)this.aR(), this.u), new Vec3D(var1.s, var1.t + (double)var1.aR(), var1.u)) == null;
    }
 
-   public ChunkCoordinates ap() {
+   public Vec3D ap() {
       return this.d(1.0F);
    }
 
-   public ChunkCoordinates d(float var1) {
+   public Vec3D d(float var1) {
       if(var1 == 1.0F) {
          return this.f(this.z, this.aI);
       } else {

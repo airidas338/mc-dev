@@ -26,7 +26,7 @@ public class aad extends PathfinderGoal {
    }
 
    public void c() {
-      this.a.s().n();
+      this.a.getNavigation().n();
       this.a.n(true);
    }
 

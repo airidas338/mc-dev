@@ -18,7 +18,7 @@ class bmf extends bmu {
             this.a = Blocks.bf.P();
          }
       } else {
-         this.a = Blocks.a.P();
+         this.a = Blocks.AIR.P();
       }
 
    }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum EnumFoliage implements va {
+public enum EnumFoliage implements IName {
 
    a("DEAD_BUSH", 0, 0, "dead_bush"),
    b("GRASS", 1, 1, "tall_grass"),
@@ -33,7 +33,7 @@ public enum EnumFoliage implements va {
       return d[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

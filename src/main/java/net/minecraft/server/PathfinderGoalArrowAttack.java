@@ -47,7 +47,7 @@ public class PathfinderGoalArrowAttack extends PathfinderGoal {
    }
 
    public boolean b() {
-      return this.a() || !this.a.s().m();
+      return this.a() || !this.a.getNavigation().m();
    }
 
    public void d() {
@@ -66,9 +66,9 @@ public class PathfinderGoalArrowAttack extends PathfinderGoal {
       }
 
       if(var1 <= (double)this.j && this.f >= 20) {
-         this.a.s().n();
+         this.a.getNavigation().n();
       } else {
-         this.a.s().a((Entity)this.c, this.e);
+         this.a.getNavigation().a((Entity)this.c, this.e);
       }
 
       this.a.p().a(this.c, 30.0F, 30.0F);
@@ -78,12 +78,12 @@ public class PathfinderGoalArrowAttack extends PathfinderGoal {
             return;
          }
 
-         var4 = MathHelper.a(var1) / this.i;
+         var4 = MathHelper.sqrt(var1) / this.i;
          float var5 = MathHelper.a(var4, 0.1F, 1.0F);
          this.b.a(this.c, var5);
          this.d = MathHelper.d(var4 * (float)(this.h - this.g) + (float)this.g);
       } else if(this.d < 0) {
-         var4 = MathHelper.a(var1) / this.i;
+         var4 = MathHelper.sqrt(var1) / this.i;
          this.d = MathHelper.d(var4 * (float)(this.h - this.g) + (float)this.g);
       }
 

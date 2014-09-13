@@ -25,7 +25,7 @@ public class EntitySquid extends EntityWaterAnimal {
       this.a(0.95F, 0.95F);
       this.V.setSeed((long)(1 + this.F()));
       this.bo = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
-      this.i.a(0, new acp(this));
+      this.goalSelector.a(0, new acp(this));
    }
 
    protected void aW() {
@@ -65,7 +65,7 @@ public class EntitySquid extends EntityWaterAnimal {
       int var3 = this.V.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new amj(Items.aW, 1, akv.p.b()), 0.0F);
+         this.a(new ItemStack(Items.aW, 1, akv.p.b()), 0.0F);
       }
 
    }
@@ -117,7 +117,7 @@ public class EntitySquid extends EntityWaterAnimal {
             this.x = (double)(this.bs * this.bn);
          }
 
-         var1 = MathHelper.a(this.v * this.v + this.x * this.x);
+         var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
          this.aG += (-((float)Math.atan2(this.v, this.x)) * 180.0F / 3.1415927F - this.aG) * 0.1F;
          this.y = this.aG;
          this.c = (float)((double)this.c + 3.141592653589793D * (double)this.bp * 1.5D);

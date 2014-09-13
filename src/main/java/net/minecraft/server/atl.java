@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum atl implements va {
+public enum atl implements IName {
 
    a("NORTH_SOUTH", 0, 0, "north_south"),
    b("EAST_WEST", 1, 1, "east_west"),
@@ -44,7 +44,7 @@ public enum atl implements va {
       return k[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.m;
    }
 

@@ -16,8 +16,8 @@ public class GenericAttributes {
    public static final IAttribute e = new yg((IAttribute)null, "generic.attackDamage", 2.0D, 0.0D, Double.MAX_VALUE);
 
 
-   public static fv a(AttributeMapBase var0) {
-      fv var1 = new fv();
+   public static NBTTagList a(AttributeMapBase var0) {
+      NBTTagList var1 = new NBTTagList();
       Iterator var2 = var0.a().iterator();
 
       while(var2.hasNext()) {
@@ -31,11 +31,11 @@ public class GenericAttributes {
    private static NBTTagCompound a(AttributeInstance var0) {
       NBTTagCompound var1 = new NBTTagCompound();
       IAttribute var2 = var0.a();
-      var1.a("Name", var2.a());
-      var1.a("Base", var0.b());
+      var1.setString("Name", var2.a());
+      var1.setDouble("Base", var0.b());
       Collection var3 = var0.c();
       if(var3 != null && !var3.isEmpty()) {
-         fv var4 = new fv();
+         NBTTagList var4 = new NBTTagList();
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
@@ -45,7 +45,7 @@ public class GenericAttributes {
             }
          }
 
-         var1.a("Modifiers", (NBTBase)var4);
+         var1.set("Modifiers", (NBTBase)var4);
       }
 
       return var1;
@@ -53,31 +53,31 @@ public class GenericAttributes {
 
    private static NBTTagCompound a(ya var0) {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.a("Name", var0.b());
-      var1.a("Amount", var0.d());
-      var1.a("Operation", var0.c());
-      var1.a("UUIDMost", var0.a().getMostSignificantBits());
-      var1.a("UUIDLeast", var0.a().getLeastSignificantBits());
+      var1.setString("Name", var0.b());
+      var1.setDouble("Amount", var0.d());
+      var1.setInt("Operation", var0.c());
+      var1.setLong("UUIDMost", var0.a().getMostSignificantBits());
+      var1.setLong("UUIDLeast", var0.a().getLeastSignificantBits());
       return var1;
    }
 
-   public static void a(AttributeMapBase var0, fv var1) {
+   public static void a(AttributeMapBase var0, NBTTagList var1) {
       for(int var2 = 0; var2 < var1.c(); ++var2) {
          NBTTagCompound var3 = var1.b(var2);
-         AttributeInstance var4 = var0.a(var3.j("Name"));
+         AttributeInstance var4 = var0.a(var3.getString("Name"));
          if(var4 != null) {
             a(var4, var3);
          } else {
-            f.warn("Ignoring unknown attribute \'" + var3.j("Name") + "\'");
+            f.warn("Ignoring unknown attribute \'" + var3.getString("Name") + "\'");
          }
       }
 
    }
 
    private static void a(AttributeInstance var0, NBTTagCompound var1) {
-      var0.a(var1.i("Base"));
+      var0.a(var1.getDouble("Base"));
       if(var1.b("Modifiers", 9)) {
-         fv var2 = var1.c("Modifiers", 10);
+         NBTTagList var2 = var1.getList("Modifiers", 10);
 
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             ya var4 = a(var2.b(var3));
@@ -95,10 +95,10 @@ public class GenericAttributes {
    }
 
    public static ya a(NBTTagCompound var0) {
-      UUID var1 = new UUID(var0.g("UUIDMost"), var0.g("UUIDLeast"));
+      UUID var1 = new UUID(var0.getLong("UUIDMost"), var0.getLong("UUIDLeast"));
 
       try {
-         return new ya(var1, var0.j("Name"), var0.i("Amount"), var0.f("Operation"));
+         return new ya(var1, var0.getString("Name"), var0.getDouble("Amount"), var0.getInt("Operation"));
       } catch (Exception var3) {
          f.warn("Unable to create attribute: " + var3.getMessage());
          return null;

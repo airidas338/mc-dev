@@ -8,7 +8,7 @@ public class ja implements Packet {
 
    public ja() {}
 
-   public ja(int var1, short[] var2, bfh var3) {
+   public ja(int var1, short[] var2, Chunk var3) {
       this.a = new aqm(var3.a, var3.b);
       this.b = new jb[var1];
 

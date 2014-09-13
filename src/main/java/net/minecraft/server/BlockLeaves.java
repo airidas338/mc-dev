@@ -146,7 +146,7 @@ public abstract class BlockLeaves extends bbo {
 
          if(var1.s.nextInt(var6) == 0) {
             Item var7 = this.a(var3, var1.s, var5);
-            a(var1, var2, new amj(var7, 1, this.a(var3)));
+            a(var1, var2, new ItemStack(var7, 1, this.a(var3)));
          }
 
          var6 = 200;

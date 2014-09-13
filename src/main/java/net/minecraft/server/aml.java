@@ -8,7 +8,7 @@ public class aml extends Item {
       this.a(CreativeModeTab.i);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       Block var9 = var3.getData(var4).c();
       if(var9 instanceof BlockFence) {
          if(var3.D) {
@@ -29,7 +29,7 @@ public class aml extends Item {
       int var7 = var2.n();
       int var8 = var2.o();
       int var9 = var2.p();
-      List var10 = var1.a(EntityInsentient.class, new AxisAlignedBB((double)var7 - var5, (double)var8 - var5, (double)var9 - var5, (double)var7 + var5, (double)var8 + var5, (double)var9 + var5));
+      List var10 = var1.getEntities(EntityInsentient.class, new AxisAlignedBB((double)var7 - var5, (double)var8 - var5, (double)var9 - var5, (double)var7 + var5, (double)var8 + var5, (double)var9 + var5));
       Iterator var11 = var10.iterator();
 
       while(var11.hasNext()) {

@@ -21,10 +21,10 @@ public class BlockDeadBush extends BlockPlant {
       return null;
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
-         a(var1, var3, new amj(Blocks.I, 1, 0));
+         a(var1, var3, new ItemStack(Blocks.I, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }

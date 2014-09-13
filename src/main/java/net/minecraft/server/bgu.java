@@ -124,7 +124,7 @@ public class bgu extends bgt {
                            if(var49 > -0.7D && var58 * var58 + var49 * var49 + var46 * var46 < 1.0D) {
                               IBlock var51 = var5.a(var42, var48, var57);
                               if(var51.c() == Blocks.aV || var51.c() == Blocks.d || var51.c() == Blocks.c) {
-                                 var5.a(var42, var48, var57, Blocks.a.P());
+                                 var5.a(var42, var48, var57, Blocks.AIR.P());
                               }
                            }
                         }

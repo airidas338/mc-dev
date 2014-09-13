@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class bdf extends bcm implements vv, vy {
+public abstract class bdf extends TileEntity implements vv, vy {
 
    private vx a;
 

@@ -9,7 +9,7 @@ public class alk extends Item {
       this.a(CreativeModeTab.i);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       var4 = var4.a(var5);
       if(!var2.a(var4, var5, var1)) {
          return false;

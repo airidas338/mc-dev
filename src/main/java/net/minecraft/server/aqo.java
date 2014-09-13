@@ -87,7 +87,7 @@ public class aqo {
       int var32 = MathHelper.c(this.g - (double)var30 - 1.0D);
       int var9 = MathHelper.c(this.g + (double)var30 + 1.0D);
       List var33 = this.d.b(this.h, new AxisAlignedBB((double)var4, (double)var31, (double)var32, (double)var5, (double)var7, (double)var9));
-      ChunkCoordinates var11 = new ChunkCoordinates(this.e, this.f, this.g);
+      Vec3D var11 = new Vec3D(this.e, this.f, this.g);
 
       for(int var34 = 0; var34 < var33.size(); ++var34) {
          Entity var13 = (Entity)var33.get(var34);
@@ -97,7 +97,7 @@ public class aqo {
                double var16 = var13.s - this.e;
                double var18 = var13.t + (double)var13.aR() - this.f;
                double var20 = var13.u - this.g;
-               double var36 = (double)MathHelper.a(var16 * var16 + var18 * var18 + var20 * var20);
+               double var36 = (double)MathHelper.sqrt(var16 * var16 + var18 * var18 + var20 * var20);
                if(var36 != 0.0D) {
                   var16 /= var36;
                   var18 /= var36;
@@ -110,7 +110,7 @@ public class aqo {
                   var13.w += var18 * var28;
                   var13.x += var20 * var28;
                   if(var13 instanceof EntityHuman) {
-                     this.k.put((EntityHuman)var13, new ChunkCoordinates(var16 * var26, var18 * var26, var20 * var26));
+                     this.k.put((EntityHuman)var13, new Vec3D(var16 * var26, var18 * var26, var20 * var26));
                   }
                }
             }
@@ -142,7 +142,7 @@ public class aqo {
                double var11 = var5 - this.e;
                double var13 = var7 - this.f;
                double var15 = var9 - this.g;
-               double var17 = (double)MathHelper.a(var11 * var11 + var13 * var13 + var15 * var15);
+               double var17 = (double)MathHelper.sqrt(var11 * var11 + var13 * var13 + var15 * var15);
                var11 /= var17;
                var13 /= var17;
                var15 /= var17;
@@ -160,7 +160,7 @@ public class aqo {
                   var4.a(this.d, var3, this.d.getData(var3), 1.0F / this.i, 0);
                }
 
-               this.d.a(var3, Blocks.a.P(), 3);
+               this.d.a(var3, Blocks.AIR.P(), 3);
                var4.a(this.d, var3, this);
             }
          }

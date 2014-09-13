@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class afq extends aal {
+class afq extends PathfinderGoalHurtByTarget {
 
    public afq(EntityPigZombie var1) {
       super(var1, true, new Class[0]);

@@ -3,7 +3,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Maps;
 import java.util.Map;
 
-public enum el implements Predicate, va {
+public enum el implements Predicate, IName {
 
    a("X", 0, "x", en.a),
    b("Y", 1, "y", en.b),
@@ -36,7 +36,7 @@ public enum el implements Predicate, va {
       return this.e;
    }
 
-   public boolean a(ej var1) {
+   public boolean a(EnumFacing var1) {
       return var1 != null && var1.k() == this;
    }
 
@@ -44,13 +44,13 @@ public enum el implements Predicate, va {
       return this.f;
    }
 
-   public String l() {
+   public String getName() {
       return this.e;
    }
 
    // $FF: synthetic method
    public boolean apply(Object var1) {
-      return this.a((ej)var1);
+      return this.a((EnumFacing)var1);
    }
 
    static {

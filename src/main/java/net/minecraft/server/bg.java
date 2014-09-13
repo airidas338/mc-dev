@@ -32,7 +32,7 @@ public class bg extends CommandAbstract {
             try {
                var4 = a(var2[1], 1);
             } catch (dk var11) {
-               wp var6 = wp.b(var2[1]);
+               MobEffectList var6 = MobEffectList.b(var2[1]);
                if(var6 == null) {
                   throw var11;
                }
@@ -43,8 +43,8 @@ public class bg extends CommandAbstract {
             int var5 = 600;
             int var12 = 30;
             int var7 = 0;
-            if(var4 >= 0 && var4 < wp.a.length && wp.a[var4] != null) {
-               wp var8 = wp.a[var4];
+            if(var4 >= 0 && var4 < MobEffectList.a.length && MobEffectList.a[var4] != null) {
+               MobEffectList var8 = MobEffectList.a[var4];
                if(var2.length >= 3) {
                   var12 = a(var2[2], 0, 1000000);
                   if(var8.b()) {
@@ -66,7 +66,7 @@ public class bg extends CommandAbstract {
                }
 
                if(var12 > 0) {
-                  wq var10 = new wq(var4, var5, var7, false, var9);
+                  MobEffect var10 = new MobEffect(var4, var5, var7, false, var9);
                   var3.c(var10);
                   a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var10.g(), new Object[0]), Integer.valueOf(var4), Integer.valueOf(var7), var3.d_(), Integer.valueOf(var12)});
                } else if(var3.k(var4)) {
@@ -83,7 +83,7 @@ public class bg extends CommandAbstract {
    }
 
    public List a(ICommandSender var1, String[] var2, Location var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, wp.c()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffectList.c()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
    protected String[] d() {

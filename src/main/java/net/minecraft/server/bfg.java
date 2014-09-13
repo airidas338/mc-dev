@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
 
-public class bfg extends bfh {
+public class bfg extends Chunk {
 
    public bfg(World var1, int var2, int var3) {
       super(var1, var2, var3);
@@ -21,7 +21,7 @@ public class bfg extends bfh {
    public void b() {}
 
    public Block a(Location var1) {
-      return Blocks.a;
+      return Blocks.AIR;
    }
 
    public int b(Location var1) {
@@ -52,13 +52,13 @@ public class bfg extends bfh {
       return false;
    }
 
-   public bcm a(Location var1, bfl var2) {
+   public TileEntity a(Location var1, bfl var2) {
       return null;
    }
 
-   public void a(bcm var1) {}
+   public void a(TileEntity var1) {}
 
-   public void a(Location var1, bcm var2) {}
+   public void a(Location var1, TileEntity var2) {}
 
    public void e(Location var1) {}
 

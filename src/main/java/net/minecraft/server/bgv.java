@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class bgv implements bfe {
+public class bgv implements IChunkProvider {
 
    private Random h;
    private bnv i;
@@ -145,7 +145,7 @@ public class bgv implements bfe {
 
    }
 
-   public bfh d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       this.h.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       bgk var3 = new bgk();
       this.a(var1, var2, var3);
@@ -179,7 +179,7 @@ public class bgv implements bfe {
          this.A.a(this, this.m, var1, var2, var3);
       }
 
-      bfh var4 = new bfh(this.m, var3, var1, var2);
+      Chunk var4 = new Chunk(this.m, var3, var1, var2);
       byte[] var5 = var4.k();
 
       for(int var6 = 0; var6 < var5.length; ++var6) {
@@ -287,11 +287,11 @@ public class bgv implements bfe {
 
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
-   public void a(bfe var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       avt.M = true;
       int var4 = var2 * 16;
       int var5 = var3 * 16;
@@ -372,7 +372,7 @@ public class bgv implements bfe {
       avt.M = false;
    }
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       boolean var5 = false;
       if(this.r.y && this.n && var2.w() < 3600L) {
          var5 |= this.A.a(this.m, this.h, new aqm(var3, var4));
@@ -422,7 +422,7 @@ public class bgv implements bfe {
       return 0;
    }
 
-   public void a(bfh var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
       if(this.r.w && this.n) {
          this.x.a(this, this.m, var2, var3, (bgk)null);
       }
@@ -445,7 +445,7 @@ public class bgv implements bfe {
 
    }
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

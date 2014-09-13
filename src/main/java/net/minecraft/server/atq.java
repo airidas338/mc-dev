@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum atq implements va {
+public enum atq implements IName {
 
    a("HEAD", 0, "head"),
    b("FOOT", 1, "foot");
@@ -17,7 +17,7 @@ public enum atq implements va {
       return this.c;
    }
 
-   public String l() {
+   public String getName() {
       return this.c;
    }
 

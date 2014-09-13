@@ -161,7 +161,7 @@ public abstract class bmm extends bgt {
          this.d = (bmr)var1.a(bmr.class, this.a());
          if(this.d == null) {
             this.d = new bmr(this.a());
-            var1.a(this.a(), (bqc)this.d);
+            var1.a(this.a(), (PersistentBase)this.d);
          } else {
             NBTTagCompound var2 = this.d.a();
             Iterator var3 = var2.c().iterator();
@@ -172,8 +172,8 @@ public abstract class bmm extends bgt {
                if(var5.getTypeId() == 10) {
                   NBTTagCompound var6 = (NBTTagCompound)var5;
                   if(var6.c("ChunkX") && var6.c("ChunkZ")) {
-                     int var7 = var6.f("ChunkX");
-                     int var8 = var6.f("ChunkZ");
+                     int var7 = var6.getInt("ChunkX");
+                     int var8 = var6.getInt("ChunkZ");
                      bmv var9 = bmq.a(var6, var1);
                      if(var9 != null) {
                         this.e.put(Long.valueOf(aqm.a(var7, var8)), var9);

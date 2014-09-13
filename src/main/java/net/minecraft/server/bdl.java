@@ -32,8 +32,8 @@ class bdl implements ICommandSender {
       return this.b.c;
    }
 
-   public ChunkCoordinates d() {
-      return new ChunkCoordinates((double)this.b.c.n() + 0.5D, (double)this.b.c.o() + 0.5D, (double)this.b.c.p() + 0.5D);
+   public Vec3D d() {
+      return new Vec3D((double)this.b.c.n() + 0.5D, (double)this.b.c.o() + 0.5D, (double)this.b.c.p() + 0.5D);
    }
 
    public World e() {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class bgw implements bfe {
+public class bgw implements IChunkProvider {
 
    private Random h;
    private bnv i;
@@ -65,7 +65,7 @@ public class bgw implements bfe {
                      for(int var47 = 0; var47 < 8; ++var47) {
                         IBlock var48 = null;
                         if(var43 > 0.0D) {
-                           var48 = Blocks.bH.P();
+                           var48 = Blocks.WHITESTONE.P();
                         }
 
                         int var49 = var40 + var8 * 8;
@@ -95,8 +95,8 @@ public class bgw implements bfe {
          for(int var3 = 0; var3 < 16; ++var3) {
             byte var4 = 1;
             int var5 = -1;
-            IBlock var6 = Blocks.bH.P();
-            IBlock var7 = Blocks.bH.P();
+            IBlock var6 = Blocks.WHITESTONE.P();
+            IBlock var7 = Blocks.WHITESTONE.P();
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlock var9 = var1.a(var2, var8, var3);
@@ -105,8 +105,8 @@ public class bgw implements bfe {
                } else if(var9.c() == Blocks.b) {
                   if(var5 == -1) {
                      if(var4 <= 0) {
-                        var6 = Blocks.a.P();
-                        var7 = Blocks.bH.P();
+                        var6 = Blocks.AIR.P();
+                        var7 = Blocks.WHITESTONE.P();
                      }
 
                      var5 = var4;
@@ -126,13 +126,13 @@ public class bgw implements bfe {
 
    }
 
-   public bfh d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       this.h.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       bgk var3 = new bgk();
       this.n = this.l.v().b(this.n, var1 * 16, var2 * 16, 16, 16);
       this.a(var1, var2, var3);
       this.a(var3);
-      bfh var4 = new bfh(this.l, var3, var1, var2);
+      Chunk var4 = new Chunk(this.l, var3, var1, var2);
       byte[] var5 = var4.k();
 
       for(int var6 = 0; var6 < var5.length; ++var6) {
@@ -209,18 +209,18 @@ public class bgw implements bfe {
       return var1;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
-   public void a(bfe var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       avt.M = true;
       Location var4 = new Location(var2 * 16, 0, var3 * 16);
       this.l.b(var4.a(16, 0, 16)).a(this.l, this.l.s, var4);
       avt.M = false;
    }
 
-   public boolean a(bfe var1, bfh var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -254,9 +254,9 @@ public class bgw implements bfe {
       return 0;
    }
 
-   public void a(bfh var1, int var2, int var3) {}
+   public void a(Chunk var1, int var2, int var3) {}
 
-   public bfh a(Location var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public Chunk a(Location var1) {
+      return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

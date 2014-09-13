@@ -29,7 +29,7 @@ public class yw extends PathfinderGoal {
    public void c() {
       this.a = 40;
       this.d.a((Entity)this.c, (byte)10);
-      this.c.s().n();
+      this.c.getNavigation().n();
    }
 
    public void d() {

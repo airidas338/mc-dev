@@ -37,8 +37,8 @@ public class bql extends WorldData {
       return this.b.f();
    }
 
-   public long g() {
-      return this.b.g();
+   public long getDayTime() {
+      return this.b.getDayTime();
    }
 
    public NBTTagCompound i() {

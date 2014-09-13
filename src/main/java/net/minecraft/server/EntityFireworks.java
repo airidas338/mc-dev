@@ -17,7 +17,7 @@ public class EntityFireworks extends Entity {
       this.ac.a(8, 5);
    }
 
-   public EntityFireworks(World var1, double var2, double var4, double var6, amj var8) {
+   public EntityFireworks(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1);
       this.a = 0;
       this.a(0.25F, 0.25F);
@@ -26,9 +26,9 @@ public class EntityFireworks extends Entity {
       if(var8 != null && var8.n()) {
          this.ac.b(8, var8);
          NBTTagCompound var10 = var8.o();
-         NBTTagCompound var11 = var10.m("Fireworks");
+         NBTTagCompound var11 = var10.getCompound("Fireworks");
          if(var11 != null) {
-            var9 += var11.d("Flight");
+            var9 += var11.getByte("Flight");
          }
       }
 
@@ -47,7 +47,7 @@ public class EntityFireworks extends Entity {
       this.x *= 1.15D;
       this.w += 0.04D;
       this.d(this.v, this.w, this.x);
-      float var1 = MathHelper.a(this.v * this.v + this.x * this.x);
+      float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
       for(this.z = (float)(Math.atan2(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
@@ -85,23 +85,23 @@ public class EntityFireworks extends Entity {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("Life", this.a);
-      var1.a("LifeTime", this.b);
-      amj var2 = this.ac.f(8);
+      var1.setInt("Life", this.a);
+      var1.setInt("LifeTime", this.b);
+      ItemStack var2 = this.ac.f(8);
       if(var2 != null) {
          NBTTagCompound var3 = new NBTTagCompound();
          var2.b(var3);
-         var1.a("FireworksItem", (NBTBase)var3);
+         var1.set("FireworksItem", (NBTBase)var3);
       }
 
    }
 
    public void a(NBTTagCompound var1) {
-      this.a = var1.f("Life");
-      this.b = var1.f("LifeTime");
-      NBTTagCompound var2 = var1.m("FireworksItem");
+      this.a = var1.getInt("Life");
+      this.b = var1.getInt("LifeTime");
+      NBTTagCompound var2 = var1.getCompound("FireworksItem");
       if(var2 != null) {
-         amj var3 = amj.a(var2);
+         ItemStack var3 = ItemStack.a(var2);
          if(var3 != null) {
             this.ac.b(8, var3);
          }

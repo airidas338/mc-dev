@@ -7,17 +7,17 @@ public class ajj extends ajk {
    private int c;
 
 
-   public ajj(EntityHuman var1, ain var2, vq var3, int var4, int var5, int var6) {
+   public ajj(EntityHuman var1, ain var2, IInventory var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.a = var2;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       if(this.e()) {
          this.c += Math.min(var1, this.d().b);
       }
@@ -25,12 +25,12 @@ public class ajj extends ajk {
       return super.a(var1);
    }
 
-   protected void a(amj var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       this.c += var2;
       this.c(var1);
    }
 
-   protected void c(amj var1) {
+   protected void c(ItemStack var1) {
       if(this.c > 0) {
          var1.a(this.b.o, this.b, this.c);
       }
@@ -82,13 +82,13 @@ public class ajj extends ajk {
 
    }
 
-   public void a(EntityHuman var1, amj var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      amj[] var3 = aop.a().b(this.a, var1.o);
+      ItemStack[] var3 = aop.a().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
-         amj var5 = this.a.a(var4);
-         amj var6 = var3[var4];
+         ItemStack var5 = this.a.a(var4);
+         ItemStack var6 = var3[var4];
          if(var5 != null) {
             this.a.a(var4, 1);
          }

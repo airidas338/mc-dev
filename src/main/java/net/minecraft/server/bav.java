@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bav implements va {
+public enum bav implements IName {
 
    a("STRAIGHT", 0, "straight"),
    b("INNER_LEFT", 1, "inner_left"),
@@ -20,7 +20,7 @@ public enum bav implements va {
       return this.f;
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

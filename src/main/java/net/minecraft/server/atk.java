@@ -126,7 +126,7 @@ public class atk {
       Iterator var2 = en.a.iterator();
 
       while(var2.hasNext()) {
-         ej var3 = (ej)var2.next();
+         EnumFacing var3 = (EnumFacing)var2.next();
          if(this.a(this.c.a(var3))) {
             ++var1;
          }

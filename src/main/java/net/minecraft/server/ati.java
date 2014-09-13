@@ -29,7 +29,7 @@ public abstract class ati extends Block {
       return false;
    }
 
-   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
       this.a(var1, var2);
       return super.a(var1, var2, var3, var4);
    }

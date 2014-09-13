@@ -15,11 +15,11 @@ public class aju extends Item {
       return this;
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       IBlock var9 = var3.getData(var4);
       Block var10 = var9.c();
       if(var10 == Blocks.aH && ((Integer)var9.b(BlockSnow.a)).intValue() < 1) {
-         var5 = ej.b;
+         var5 = EnumFacing.UP;
       } else if(!var10.f(var3, var4)) {
          var4 = var4.a(var5);
       }
@@ -50,18 +50,18 @@ public class aju extends Item {
       }
    }
 
-   public static boolean a(World var0, Location var1, amj var2) {
+   public static boolean a(World var0, Location var1, ItemStack var2) {
       if(var2.n() && var2.o().b("BlockEntityTag", 10)) {
-         bcm var3 = var0.s(var1);
+         TileEntity var3 = var0.s(var1);
          if(var3 != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             NBTTagCompound var5 = (NBTTagCompound)var4.b();
             var3.b(var4);
             NBTTagCompound var6 = (NBTTagCompound)var2.o().a("BlockEntityTag");
             var4.a(var6);
-            var4.a("x", var1.n());
-            var4.a("y", var1.o());
-            var4.a("z", var1.p());
+            var4.setInt("x", var1.n());
+            var4.setInt("y", var1.o());
+            var4.setInt("z", var1.p());
             if(!var4.equals(var5)) {
                var3.a(var4);
                var3.o_();
@@ -73,7 +73,7 @@ public class aju extends Item {
       return false;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       return this.a.a();
    }
 

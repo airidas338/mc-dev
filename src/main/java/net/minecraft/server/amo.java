@@ -7,7 +7,7 @@ public class amo extends Item {
       this.a(CreativeModeTab.f);
    }
 
-   public amj b(amj var1, World var2, EntityHuman var3) {
+   public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
       if(!var3.by.d) {
          --var1.b;
       }
@@ -17,18 +17,18 @@ public class amo extends Item {
       }
 
       var3.b(ty.J[Item.b((Item)this)]);
-      return var1.b <= 0?new amj(Items.aw):var1;
+      return var1.b <= 0?new ItemStack(Items.aw):var1;
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 32;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.c;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       var3.a(var1, this.d(var1));
       return var1;
    }

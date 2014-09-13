@@ -6,7 +6,7 @@ public class bke extends bkb {
 
    public bke() {}
 
-   public bke(int var1, Random var2, bjb var3, ej var4) {
+   public bke(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -16,14 +16,14 @@ public class bke extends bkb {
       this.c((bkf)var1, var2, var3, 6, 2, false);
    }
 
-   public static bke a(List var0, Random var1, int var2, int var3, int var4, int var5, ej var6) {
+   public static bke a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumFacing var6) {
       bjb var7 = bjb.a(var2, var3, var4, -2, 0, 0, 7, 11, 7, var6);
       return a(var7) && bms.a(var0, var7) == null?new bke(var5, var1, var7, var6):null;
    }
 
    public boolean a(World var1, Random var2, bjb var3) {
       this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 0, 2, 0, 1, 8, 0, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 5, 2, 0, 6, 8, 0, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 0, 2, 1, 0, 8, 6, Blocks.by.P(), Blocks.by.P(), false);
@@ -38,7 +38,7 @@ public class bke extends bkb {
       this.a(var1, var3, 2, 2, 5, 2, 5, 5, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 1, 2, 5, 1, 6, 5, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 1, 7, 1, 5, 7, 4, Blocks.by.P(), Blocks.by.P(), false);
-      this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 2, 6, 0, 4, 8, 0, Blocks.by.P(), Blocks.by.P(), false);
       this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.bz.P(), Blocks.bz.P(), false);
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class afk extends yn {
+class afk extends ControllerMove {
 
    private EntityGuardian g;
 
@@ -12,12 +12,12 @@ class afk extends yn {
    }
 
    public void c() {
-      if(this.f && !this.g.s().m()) {
+      if(this.f && !this.g.getNavigation().m()) {
          double var1 = this.b - this.g.s;
          double var3 = this.c - this.g.t;
          double var5 = this.d - this.g.u;
          double var7 = var1 * var1 + var3 * var3 + var5 * var5;
-         var7 = (double)MathHelper.a(var7);
+         var7 = (double)MathHelper.sqrt(var7);
          var3 /= var7;
          float var9 = (float)(Math.atan2(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
          this.g.y = this.a(this.g.y, var9, 30.0F);
@@ -32,7 +32,7 @@ class afk extends yn {
          var11 = Math.sin((double)(this.g.W + this.g.F()) * 0.75D) * 0.05D;
          this.g.w += var11 * (var15 + var13) * 0.25D;
          this.g.w += (double)this.g.bH() * var3 * 0.1D;
-         ym var17 = this.g.p();
+         ControllerLook var17 = this.g.p();
          double var18 = this.g.s + var1 / var7 * 2.0D;
          double var20 = (double)this.g.aR() + this.g.t + var3 / var7 * 1.0D;
          double var22 = this.g.u + var5 / var7 * 2.0D;

@@ -7,7 +7,7 @@ public class alb extends Item {
       this.a(CreativeModeTab.f);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       IBlock var9 = var3.getData(var4);
       if(var2.a(var4.a(var5), var5, var1) && var9.c() == Blocks.bG && !((Boolean)var9.b(BlockEnderPortalFrame.b)).booleanValue()) {
          if(var3.D) {
@@ -27,12 +27,12 @@ public class alb extends Item {
                var3.a(ew.l, var11, var13, var15, var17, var19, var21, new int[0]);
             }
 
-            ej var24 = (ej)var9.b(BlockEnderPortalFrame.a);
+            EnumFacing var24 = (EnumFacing)var9.b(BlockEnderPortalFrame.a);
             int var23 = 0;
             int var12 = 0;
             boolean var25 = false;
             boolean var14 = true;
-            ej var26 = var24.e();
+            EnumFacing var26 = var24.e();
 
             for(int var16 = -2; var16 <= 2; ++var16) {
                Location var29 = var4.a(var26, var16);
@@ -98,7 +98,7 @@ public class alb extends Item {
       }
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       MovingObjectPosition var4 = this.a(var2, var3, false);
       if(var4 != null && var4.a == brv.b && var2.getData(var4.a()).c() == Blocks.bG) {
          return var1;

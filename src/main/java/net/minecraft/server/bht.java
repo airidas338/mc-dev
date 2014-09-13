@@ -15,11 +15,11 @@ public class bht extends WorldGenerator {
             Location var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
             if(var1.getData(var5).c().r() == Material.AIR) {
                int var6 = 0;
-               ej[] var7 = ej.values();
+               EnumFacing[] var7 = EnumFacing.values();
                int var8 = var7.length;
 
                for(int var9 = 0; var9 < var8; ++var9) {
-                  ej var10 = var7[var9];
+                  EnumFacing var10 = var7[var9];
                   if(var1.getData(var5.a(var10)).c() == Blocks.aX) {
                      ++var6;
                   }

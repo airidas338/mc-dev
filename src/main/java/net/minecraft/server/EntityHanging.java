@@ -8,7 +8,7 @@ public abstract class EntityHanging extends Entity {
 
    private int c;
    protected Location a;
-   public ej b;
+   public EnumFacing b;
 
 
    public EntityHanging(World var1) {
@@ -23,7 +23,7 @@ public abstract class EntityHanging extends Entity {
 
    protected void h() {}
 
-   protected void a(ej var1) {
+   protected void a(EnumFacing var1) {
       Validate.notNull(var1);
       Validate.isTrue(var1.k().c());
       this.b = var1;
@@ -42,7 +42,7 @@ public abstract class EntityHanging extends Entity {
          var1 -= (double)this.b.g() * 0.46875D;
          var5 -= (double)this.b.i() * 0.46875D;
          var3 += var11;
-         ej var13 = this.b.f();
+         EnumFacing var13 = this.b.f();
          var1 += var9 * (double)var13.g();
          var5 += var9 * (double)var13.i();
          this.s = var1;
@@ -89,7 +89,7 @@ public abstract class EntityHanging extends Entity {
          int var1 = Math.max(1, this.l() / 16);
          int var2 = Math.max(1, this.m() / 16);
          Location var3 = this.a.a(this.b.d());
-         ej var4 = this.b.f();
+         EnumFacing var4 = this.b.f();
 
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
@@ -125,7 +125,7 @@ public abstract class EntityHanging extends Entity {
       return var1 instanceof EntityHuman?this.a(DamageSource.a((EntityHuman)var1), 0.0F):false;
    }
 
-   public ej aO() {
+   public EnumFacing aO() {
       return this.b;
    }
 
@@ -160,22 +160,22 @@ public abstract class EntityHanging extends Entity {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("Facing", (byte)this.b.b());
-      var1.a("TileX", this.n().n());
-      var1.a("TileY", this.n().o());
-      var1.a("TileZ", this.n().p());
+      var1.setByte("Facing", (byte)this.b.b());
+      var1.setInt("TileX", this.n().n());
+      var1.setInt("TileY", this.n().o());
+      var1.setInt("TileZ", this.n().p());
    }
 
    public void a(NBTTagCompound var1) {
-      this.a = new Location(var1.f("TileX"), var1.f("TileY"), var1.f("TileZ"));
-      ej var2;
+      this.a = new Location(var1.getInt("TileX"), var1.getInt("TileY"), var1.getInt("TileZ"));
+      EnumFacing var2;
       if(var1.b("Direction", 99)) {
-         var2 = ej.b(var1.d("Direction"));
+         var2 = EnumFacing.b(var1.getByte("Direction"));
          this.a = this.a.a(var2);
       } else if(var1.b("Facing", 99)) {
-         var2 = ej.b(var1.d("Facing"));
+         var2 = EnumFacing.b(var1.getByte("Facing"));
       } else {
-         var2 = ej.b(var1.d("Dir"));
+         var2 = EnumFacing.b(var1.getByte("Dir"));
       }
 
       this.a(var2);

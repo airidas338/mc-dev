@@ -20,7 +20,7 @@ public class za extends PathfinderGoal {
       if(this.a.l() >= 0) {
          return false;
       } else {
-         List var1 = this.a.o.a(this.a.getClass(), this.a.aQ().b(8.0D, 4.0D, 8.0D));
+         List var1 = this.a.o.getEntities(this.a.getClass(), this.a.aQ().b(8.0D, 4.0D, 8.0D));
          EntityAnimal var2 = null;
          double var3 = Double.MAX_VALUE;
          Iterator var5 = var1.iterator();
@@ -50,7 +50,7 @@ public class za extends PathfinderGoal {
    public boolean b() {
       if(this.a.l() >= 0) {
          return false;
-      } else if(!this.b.ai()) {
+      } else if(!this.b.isAlive()) {
          return false;
       } else {
          double var1 = this.a.h(this.b);
@@ -69,7 +69,7 @@ public class za extends PathfinderGoal {
    public void e() {
       if(--this.d <= 0) {
          this.d = 10;
-         this.a.s().a((Entity)this.b, this.c);
+         this.a.getNavigation().a((Entity)this.b, this.c);
       }
    }
 }

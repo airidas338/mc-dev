@@ -32,7 +32,7 @@ public abstract class ayl extends BlockStepAbstract {
       return M;
    }
 
-   public Object a(amj var1) {
+   public Object a(ItemStack var1) {
       return aym.a(var1.i() & 7);
    }
 

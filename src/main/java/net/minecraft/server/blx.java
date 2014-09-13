@@ -12,7 +12,7 @@ public class blx extends bmk {
 
    public blx() {}
 
-   public blx(int var1, Random var2, bjb var3, ej var4) {
+   public blx(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.d = this.a(var2);
@@ -25,10 +25,10 @@ public class blx extends bmk {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("leftLow", this.a);
-      var1.a("leftHigh", this.b);
-      var1.a("rightLow", this.c);
-      var1.a("rightHigh", this.e);
+      var1.setBoolean("leftLow", this.a);
+      var1.setBoolean("leftHigh", this.b);
+      var1.setBoolean("rightLow", this.c);
+      var1.setBoolean("rightHigh", this.e);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -42,7 +42,7 @@ public class blx extends bmk {
    public void a(bms var1, List var2, Random var3) {
       int var4 = 3;
       int var5 = 5;
-      if(this.m == ej.e || this.m == ej.c) {
+      if(this.m == EnumFacing.WEST || this.m == EnumFacing.NORTH) {
          var4 = 8 - var4;
          var5 = 8 - var5;
       }
@@ -66,7 +66,7 @@ public class blx extends bmk {
 
    }
 
-   public static blx a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static blx a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -4, -3, 0, 10, 9, 11, var5);
       return a(var7) && bms.a(var0, var7) == null?new blx(var6, var1, var7, var5):null;
    }
@@ -78,22 +78,22 @@ public class blx extends bmk {
          this.a(var1, var3, 0, 0, 0, 9, 8, 10, true, var2, blr.c());
          this.a(var1, var2, var3, this.d, 4, 3, 0);
          if(this.a) {
-            this.a(var1, var3, 0, 3, 1, 0, 5, 3, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 0, 3, 1, 0, 5, 3, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          if(this.c) {
-            this.a(var1, var3, 9, 3, 1, 9, 5, 3, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 9, 3, 1, 9, 5, 3, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          if(this.b) {
-            this.a(var1, var3, 0, 5, 7, 0, 7, 9, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 0, 5, 7, 0, 7, 9, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          if(this.e) {
-            this.a(var1, var3, 9, 5, 7, 9, 7, 9, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 9, 5, 7, 9, 7, 9, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
-         this.a(var1, var3, 5, 1, 10, 7, 3, 10, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, 5, 1, 10, 7, 3, 10, Blocks.AIR.P(), Blocks.AIR.P(), false);
          this.a(var1, var3, 1, 2, 1, 8, 2, 6, false, var2, blr.c());
          this.a(var1, var3, 4, 1, 5, 4, 4, 9, false, var2, blr.c());
          this.a(var1, var3, 8, 1, 5, 8, 4, 9, false, var2, blr.c());

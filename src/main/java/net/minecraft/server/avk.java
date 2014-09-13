@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum avk implements va {
+public enum avk implements IName {
 
    a("SUNFLOWER", 0, 0, "sunflower"),
    b("SYRINGA", 1, 1, "syringa"),
@@ -42,7 +42,7 @@ public enum avk implements va {
       return g[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.i;
    }
 

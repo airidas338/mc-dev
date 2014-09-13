@@ -13,7 +13,7 @@ public class BlockChest extends atg {
 
    protected BlockChest(int var1) {
       super(Material.WOOD);
-      this.j(this.L.b().a(a, ej.c));
+      this.j(this.L.b().a(a, EnumFacing.NORTH));
       this.b = var1;
       this.a(CreativeModeTab.c);
       this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
@@ -51,7 +51,7 @@ public class BlockChest extends atg {
       Iterator var4 = en.a.iterator();
 
       while(var4.hasNext()) {
-         ej var5 = (ej)var4.next();
+         EnumFacing var5 = (EnumFacing)var4.next();
          Location var6 = var2.a(var5);
          IBlock var7 = var1.getData(var6);
          if(var7.c() == this) {
@@ -61,12 +61,12 @@ public class BlockChest extends atg {
 
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO());
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
-      ej var6 = ej.b(MathHelper.c((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+      EnumFacing var6 = EnumFacing.b(MathHelper.c((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
       var3 = var3.a(a, var6);
       Location var7 = var2.c();
       Location var8 = var2.d();
@@ -97,7 +97,7 @@ public class BlockChest extends atg {
       }
 
       if(var5.s()) {
-         bcm var15 = var1.s(var2);
+         TileEntity var15 = var1.s(var2);
          if(var15 instanceof bcr) {
             ((bcr)var15).a(var5.q());
          }
@@ -113,7 +113,7 @@ public class BlockChest extends atg {
          IBlock var5 = var1.getData(var2.d());
          IBlock var6 = var1.getData(var2.e());
          IBlock var7 = var1.getData(var2.f());
-         ej var8 = (ej)var3.b(a);
+         EnumFacing var8 = (EnumFacing)var3.b(a);
          Block var9 = var4.c();
          Block var10 = var5.c();
          Block var11 = var6.c();
@@ -125,52 +125,52 @@ public class BlockChest extends atg {
                Location var22 = var11 == this?var2.e():var2.f();
                IBlock var25 = var1.getData(var22.c());
                IBlock var24 = var1.getData(var22.d());
-               var8 = ej.d;
-               ej var26;
+               var8 = EnumFacing.SOUTH;
+               EnumFacing var26;
                if(var11 == this) {
-                  var26 = (ej)var6.b(a);
+                  var26 = (EnumFacing)var6.b(a);
                } else {
-                  var26 = (ej)var7.b(a);
+                  var26 = (EnumFacing)var7.b(a);
                }
 
-               if(var26 == ej.c) {
-                  var8 = ej.c;
+               if(var26 == EnumFacing.NORTH) {
+                  var8 = EnumFacing.NORTH;
                }
 
                Block var19 = var25.c();
                Block var20 = var24.c();
                if((var21 || var19.m()) && !var23 && !var20.m()) {
-                  var8 = ej.d;
+                  var8 = EnumFacing.SOUTH;
                }
 
                if((var23 || var20.m()) && !var21 && !var19.m()) {
-                  var8 = ej.c;
+                  var8 = EnumFacing.NORTH;
                }
             }
          } else {
             Location var13 = var9 == this?var2.c():var2.d();
             IBlock var14 = var1.getData(var13.e());
             IBlock var15 = var1.getData(var13.f());
-            var8 = ej.f;
-            ej var16;
+            var8 = EnumFacing.EAST;
+            EnumFacing var16;
             if(var9 == this) {
-               var16 = (ej)var4.b(a);
+               var16 = (EnumFacing)var4.b(a);
             } else {
-               var16 = (ej)var5.b(a);
+               var16 = (EnumFacing)var5.b(a);
             }
 
-            if(var16 == ej.e) {
-               var8 = ej.e;
+            if(var16 == EnumFacing.WEST) {
+               var8 = EnumFacing.WEST;
             }
 
             Block var17 = var14.c();
             Block var18 = var15.c();
             if((var11.m() || var17.m()) && !var12.m() && !var18.m()) {
-               var8 = ej.f;
+               var8 = EnumFacing.EAST;
             }
 
             if((var12.m() || var18.m()) && !var11.m() && !var17.m()) {
-               var8 = ej.e;
+               var8 = EnumFacing.WEST;
             }
          }
 
@@ -181,11 +181,11 @@ public class BlockChest extends atg {
    }
 
    public IBlock f(World var1, Location var2, IBlock var3) {
-      ej var4 = null;
+      EnumFacing var4 = null;
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
-         ej var6 = (ej)var5.next();
+         EnumFacing var6 = (EnumFacing)var5.next();
          IBlock var7 = var1.getData(var2.a(var6));
          if(var7.c() == this) {
             return var3;
@@ -204,7 +204,7 @@ public class BlockChest extends atg {
       if(var4 != null) {
          return var3.a(a, var4.d());
       } else {
-         ej var8 = (ej)var3.b(a);
+         EnumFacing var8 = (EnumFacing)var3.b(a);
          if(var1.getData(var2.a(var8)).c().m()) {
             var8 = var8.d();
          }
@@ -268,13 +268,13 @@ public class BlockChest extends atg {
       } else {
          Iterator var3 = en.a.iterator();
 
-         ej var4;
+         EnumFacing var4;
          do {
             if(!var3.hasNext()) {
                return false;
             }
 
-            var4 = (ej)var3.next();
+            var4 = (EnumFacing)var3.next();
          } while(var1.getData(var2.a(var4)).c() != this);
 
          return true;
@@ -283,7 +283,7 @@ public class BlockChest extends atg {
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       super.a(var1, var2, var3, var4);
-      bcm var5 = var1.s(var2);
+      TileEntity var5 = var1.s(var2);
       if(var5 instanceof bcr) {
          var5.E();
       }
@@ -291,22 +291,22 @@ public class BlockChest extends atg {
    }
 
    public void b(World var1, Location var2, IBlock var3) {
-      bcm var4 = var1.s(var2);
-      if(var4 instanceof vq) {
-         vs.a(var1, var2, (vq)var4);
+      TileEntity var4 = var1.s(var2);
+      if(var4 instanceof IInventory) {
+         vs.a(var1, var2, (IInventory)var4);
          var1.e(var2, this);
       }
 
       super.b(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
          vy var9 = this.d(var1, var2);
          if(var9 != null) {
-            var4.a((vq)var9);
+            var4.a((IInventory)var9);
          }
 
          return true;
@@ -314,7 +314,7 @@ public class BlockChest extends atg {
    }
 
    public vy d(World var1, Location var2) {
-      bcm var3 = var1.s(var2);
+      TileEntity var3 = var1.s(var2);
       if(!(var3 instanceof bcr)) {
          return null;
       } else {
@@ -325,7 +325,7 @@ public class BlockChest extends atg {
             Iterator var5 = en.a.iterator();
 
             while(var5.hasNext()) {
-               ej var6 = (ej)var5.next();
+               EnumFacing var6 = (EnumFacing)var5.next();
                Location var7 = var2.a(var6);
                Block var8 = var1.getData(var7).c();
                if(var8 == this) {
@@ -333,9 +333,9 @@ public class BlockChest extends atg {
                      return null;
                   }
 
-                  bcm var9 = var1.s(var7);
+                  TileEntity var9 = var1.s(var7);
                   if(var9 instanceof bcr) {
-                     if(var6 != ej.e && var6 != ej.c) {
+                     if(var6 != EnumFacing.WEST && var6 != EnumFacing.NORTH) {
                         var4 = new vp("container.chestDouble", (vy)var4, (bcr)var9);
                      } else {
                         var4 = new vp("container.chestDouble", (bcr)var9, (vy)var4);
@@ -349,7 +349,7 @@ public class BlockChest extends atg {
       }
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bcr();
    }
 
@@ -357,12 +357,12 @@ public class BlockChest extends atg {
       return this.b == 1;
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       if(!this.g()) {
          return 0;
       } else {
          int var5 = 0;
-         bcm var6 = var1.s(var2);
+         TileEntity var6 = var1.s(var2);
          if(var6 instanceof bcr) {
             var5 = ((bcr)var6).l;
          }
@@ -371,8 +371,8 @@ public class BlockChest extends atg {
       }
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
-      return var4 == ej.b?this.a(var1, var2, var3, var4):0;
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+      return var4 == EnumFacing.UP?this.a(var1, var2, var3, var4):0;
    }
 
    private boolean m(World var1, Location var2) {
@@ -384,7 +384,7 @@ public class BlockChest extends atg {
    }
 
    private boolean o(World var1, Location var2) {
-      Iterator var3 = var1.a(EntityOcelot.class, new AxisAlignedBB((double)var2.n(), (double)(var2.o() + 1), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 2), (double)(var2.p() + 1))).iterator();
+      Iterator var3 = var1.getEntities(EntityOcelot.class, new AxisAlignedBB((double)var2.n(), (double)(var2.o() + 1), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 2), (double)(var2.p() + 1))).iterator();
 
       EntityOcelot var5;
       do {
@@ -404,20 +404,20 @@ public class BlockChest extends atg {
    }
 
    public int l(World var1, Location var2) {
-      return aib.b((vq)this.d(var1, var2));
+      return aib.b((IInventory)this.d(var1, var2));
    }
 
    public IBlock a(int var1) {
-      ej var2 = ej.a(var1);
+      EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
-         var2 = ej.c;
+         var2 = EnumFacing.NORTH;
       }
 
       return this.P().a(a, var2);
    }
 
    public int c(IBlock var1) {
-      return ((ej)var1.b(a)).a();
+      return ((EnumFacing)var1.b(a)).a();
    }
 
    protected bed e() {

@@ -4,8 +4,8 @@ public class ayz {
 
    private final World a;
    private final el b;
-   private final ej c;
-   private final ej d;
+   private final EnumFacing c;
+   private final EnumFacing d;
    private int e = 0;
    private Location f;
    private int g;
@@ -16,11 +16,11 @@ public class ayz {
       this.a = var1;
       this.b = var3;
       if(var3 == el.a) {
-         this.d = ej.f;
-         this.c = ej.e;
+         this.d = EnumFacing.EAST;
+         this.c = EnumFacing.WEST;
       } else {
-         this.d = ej.c;
-         this.c = ej.d;
+         this.d = EnumFacing.NORTH;
+         this.c = EnumFacing.SOUTH;
       }
 
       for(Location var4 = var2; var2.o() > var4.o() - 21 && var2.o() > 0 && this.a(var1.getData(var2.b()).c()); var2 = var2.b()) {
@@ -43,7 +43,7 @@ public class ayz {
 
    }
 
-   protected int a(Location var1, ej var2) {
+   protected int a(Location var1, EnumFacing var2) {
       int var3;
       for(var3 = 0; var3 < 22; ++var3) {
          Location var4 = var1.a(var2, var3);

@@ -48,7 +48,7 @@ public class zr extends zn {
          IBlock var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(var4 == Blocks.ae) {
-            bcm var5 = var1.s(var2);
+            TileEntity var5 = var1.s(var2);
             if(var5 instanceof bcr && ((bcr)var5).l < 1) {
                return true;
             }

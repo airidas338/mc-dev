@@ -7,7 +7,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    private int bl;
    private boolean bm;
    private boolean bn;
-   abi bk;
+   Village bk;
    private EntityHuman bo;
    private aqd bp;
    private int bq;
@@ -20,7 +20,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    private boolean bx;
    private boolean by;
    private wa bz;
-   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.O, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.P, new agx(-4, -2))}, {new agr(Item.a(Blocks.aU), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.a(Blocks.bk), new agx(7, 12)), new agv(Items.e, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.F, new agx(15, 20)), new agr(Items.h, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.a(Blocks.L), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new amj(Item.a(Blocks.L), 1, 0), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 1), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 2), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 3), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 4), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 5), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 6), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 7), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 8), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 9), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 10), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 11), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 12), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 13), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 14), new agx(1, 2)), new agv(new amj(Item.a(Blocks.L), 1, 15), new agx(1, 2))}}, {{new agr(Items.F, new agx(15, 20)), new agv(Items.g, new agx(-12, -8))}, {new agv(Items.f, new agx(2, 3)), new agu(Item.a(Blocks.n), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.a(Blocks.X), new agx(3, 4))}, {new agr(Items.bN, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.a(Blocks.w), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.k, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new amj(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.a(Blocks.aX), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.h, new agx(16, 24)), new agv(Items.Y, new agx(4, 6))}, {new agr(Items.j, new agx(7, 9)), new agv(Items.Z, new agx(10, 14))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.ad, new agx(16, 19))}, {new agv(Items.X, new agx(5, 7)), new agv(Items.W, new agx(9, 11)), new agv(Items.U, new agx(5, 7)), new agv(Items.V, new agx(11, 15))}}, {{new agr(Items.h, new agx(16, 24)), new agv(Items.c, new agx(6, 8))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.l, new agx(9, 10))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.u, new agx(12, 15)), new agt(Items.x, new agx(9, 12))}}, {{new agr(Items.h, new agx(16, 24)), new agt(Items.a, new agx(5, 7))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.b, new agx(9, 11))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.w, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.h, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.S, new agx(2, 4))}, {new agt(Items.R, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
+   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.O, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.P, new agx(-4, -2))}, {new agr(Item.a(Blocks.aU), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.a(Blocks.bk), new agx(7, 12)), new agv(Items.e, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.F, new agx(15, 20)), new agr(Items.h, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.a(Blocks.L), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new ItemStack(Item.a(Blocks.L), 1, 0), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 1), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 2), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 3), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 4), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 5), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 6), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 7), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 8), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 9), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 10), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 11), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 12), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 13), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 14), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.L), 1, 15), new agx(1, 2))}}, {{new agr(Items.F, new agx(15, 20)), new agv(Items.g, new agx(-12, -8))}, {new agv(Items.f, new agx(2, 3)), new agu(Item.a(Blocks.n), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.a(Blocks.X), new agx(3, 4))}, {new agr(Items.bN, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.a(Blocks.w), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.k, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new ItemStack(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.a(Blocks.aX), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.h, new agx(16, 24)), new agv(Items.Y, new agx(4, 6))}, {new agr(Items.j, new agx(7, 9)), new agv(Items.Z, new agx(10, 14))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.ad, new agx(16, 19))}, {new agv(Items.X, new agx(5, 7)), new agv(Items.W, new agx(9, 11)), new agv(Items.U, new agx(5, 7)), new agv(Items.V, new agx(11, 15))}}, {{new agr(Items.h, new agx(16, 24)), new agv(Items.c, new agx(6, 8))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.l, new agx(9, 10))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.u, new agx(12, 15)), new agt(Items.x, new agx(9, 12))}}, {{new agr(Items.h, new agx(16, 24)), new agt(Items.a, new agx(5, 7))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.b, new agx(9, 11))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.w, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.h, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.S, new agx(2, 4))}, {new agt(Items.R, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
 
 
    public EntityVillager(World var1) {
@@ -32,22 +32,22 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       this.bz = new wa("Items", false, 8);
       this.r(var2);
       this.a(0.6F, 1.8F);
-      ((aay)this.s()).b(true);
-      ((aay)this.s()).a(true);
-      this.i.a(0, new yy(this));
-      this.i.a(1, new yp(this, new agq(this), 8.0F, 0.6D, 0.6D));
-      this.i.a(1, new aah(this));
-      this.i.a(1, new zi(this));
-      this.i.a(2, new zl(this));
-      this.i.a(3, new aaa(this));
-      this.i.a(4, new zt(this, true));
-      this.i.a(5, new zo(this, 0.6D));
-      this.i.a(6, new zj(this));
-      this.i.a(7, new aaf(this));
-      this.i.a(9, new zf(this, EntityHuman.class, 3.0F, 1.0F));
-      this.i.a(9, new aai(this));
-      this.i.a(9, new zy(this, 0.6D));
-      this.i.a(10, new zh(this, EntityInsentient.class, 8.0F));
+      ((aay)this.getNavigation()).b(true);
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new yp(this, new agq(this), 8.0F, 0.6D, 0.6D));
+      this.goalSelector.a(1, new aah(this));
+      this.goalSelector.a(1, new zi(this));
+      this.goalSelector.a(2, new zl(this));
+      this.goalSelector.a(3, new aaa(this));
+      this.goalSelector.a(4, new zt(this, true));
+      this.goalSelector.a(5, new PathfinderGoalMoveTowardsRestriction(this, 0.6D));
+      this.goalSelector.a(6, new zj(this));
+      this.goalSelector.a(7, new aaf(this));
+      this.goalSelector.a(9, new zf(this, EntityHuman.class, 3.0F, 1.0F));
+      this.goalSelector.a(9, new aai(this));
+      this.goalSelector.a(9, new PathfinderGoalRandomStroll(this, 0.6D));
+      this.goalSelector.a(10, new PathfinderGoalLookAtPlayer(this, EntityInsentient.class, 8.0F));
       this.j(true);
    }
 
@@ -55,9 +55,9 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       if(!this.by) {
          this.by = true;
          if(this.i_()) {
-            this.i.a(8, new zv(this, 0.32D));
+            this.goalSelector.a(8, new zv(this, 0.32D));
          } else if(this.cj() == 0) {
-            this.i.a(6, new ze(this, 0.6D));
+            this.goalSelector.a(6, new ze(this, 0.6D));
          }
 
       }
@@ -65,7 +65,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    protected void n() {
       if(this.cj() == 0) {
-         this.i.a(8, new ze(this, 0.6D));
+         this.goalSelector.a(8, new ze(this, 0.6D));
       }
 
       super.n();
@@ -115,7 +115,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
                }
             }
 
-            this.c(new wq(wp.l.H, 200, 0));
+            this.c(new MobEffect(MobEffectList.l.H, 200, 0));
          }
       }
 
@@ -123,9 +123,9 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    }
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       boolean var3 = var2 != null && var2.b() == Items.bJ;
-      if(!var3 && this.ai() && !this.cm() && !this.i_()) {
+      if(!var3 && this.isAlive() && !this.cm() && !this.i_()) {
          if(!this.o.D && (this.bp == null || this.bp.size() > 0)) {
             this.a_(var1);
             var1.a((aqb)this);
@@ -145,43 +145,43 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Profession", this.cj());
-      var1.a("Riches", this.bt);
-      var1.a("Career", this.bv);
-      var1.a("CareerLevel", this.bw);
-      var1.a("Willing", this.bs);
+      var1.setInt("Profession", this.cj());
+      var1.setInt("Riches", this.bt);
+      var1.setInt("Career", this.bv);
+      var1.setInt("CareerLevel", this.bw);
+      var1.setBoolean("Willing", this.bs);
       if(this.bp != null) {
-         var1.a("Offers", (NBTBase)this.bp.a());
+         var1.set("Offers", (NBTBase)this.bp.a());
       }
 
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
-         amj var4 = this.bz.a(var3);
+         ItemStack var4 = this.bz.a(var3);
          if(var4 != null) {
             var2.a((NBTBase)var4.b(new NBTTagCompound()));
          }
       }
 
-      var1.a("Inventory", (NBTBase)var2);
+      var1.set("Inventory", (NBTBase)var2);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.r(var1.f("Profession"));
-      this.bt = var1.f("Riches");
-      this.bv = var1.f("Career");
-      this.bw = var1.f("CareerLevel");
+      this.r(var1.getInt("Profession"));
+      this.bt = var1.getInt("Riches");
+      this.bv = var1.getInt("Career");
+      this.bw = var1.getInt("CareerLevel");
       this.bs = var1.n("Willing");
       if(var1.b("Offers", 10)) {
-         NBTTagCompound var2 = var1.m("Offers");
+         NBTTagCompound var2 = var1.getCompound("Offers");
          this.bp = new aqd(var2);
       }
 
-      fv var5 = var1.c("Inventory", 10);
+      NBTTagList var5 = var1.getList("Inventory", 10);
 
       for(int var3 = 0; var3 < var5.c(); ++var3) {
-         amj var4 = amj.a(var5.b(var3));
+         ItemStack var4 = ItemStack.a(var5.b(var3));
          if(var4 != null) {
             this.bz.a(var4);
          }
@@ -242,7 +242,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
             }
 
             this.bk.a(var1.d_(), var2);
-            if(this.ai()) {
+            if(this.isAlive()) {
                this.o.a((Entity)this, (byte)13);
             }
          }
@@ -287,7 +287,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          boolean var2 = false;
 
          for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
-            amj var4 = this.bz.a(var3);
+            ItemStack var4 = this.bz.a(var3);
             if(var4 != null) {
                if(var4.b() == Items.P && var4.b >= 3) {
                   var2 = true;
@@ -341,7 +341,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    }
 
-   public void a_(amj var1) {
+   public void a_(ItemStack var1) {
       if(!this.o.D && this.a_ > -this.w() + 20) {
          this.a_ = -this.w();
          if(var1 != null) {
@@ -479,7 +479,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    public void a(EntityLightning var1) {
       if(!this.o.D) {
          EntityWitch var2 = new EntityWitch(this.o);
-         var2.b(this.s, this.t, this.u, this.y, this.z);
+         var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
          var2.a(this.o.E(new Location(var2)), (xq)null);
          this.o.d((Entity)var2);
          this.J();
@@ -491,10 +491,10 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    }
 
    protected void a(EntityItem var1) {
-      amj var2 = var1.l();
+      ItemStack var2 = var1.l();
       Item var3 = var2.b();
       if(this.a(var3)) {
-         amj var4 = this.bz.a(var2);
+         ItemStack var4 = this.bz.a(var2);
          if(var4 == null) {
             var1.J();
          } else {
@@ -525,7 +525,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       boolean var2 = this.cj() == 0;
 
       for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
-         amj var4 = this.bz.a(var3);
+         ItemStack var4 = this.bz.a(var3);
          if(var4 != null) {
             if(var4.b() == Items.P && var4.b >= 3 * var1 || var4.b() == Items.bS && var4.b >= 12 * var1 || var4.b() == Items.bR && var4.b >= 12 * var1) {
                return true;
@@ -542,7 +542,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    public boolean cs() {
       for(int var1 = 0; var1 < this.bz.n_(); ++var1) {
-         amj var2 = this.bz.a(var1);
+         ItemStack var2 = this.bz.a(var1);
          if(var2 != null && (var2.b() == Items.N || var2.b() == Items.bS || var2.b() == Items.bR)) {
             return true;
          }
@@ -551,7 +551,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       return false;
    }
 
-   public boolean d(int var1, amj var2) {
+   public boolean d(int var1, ItemStack var2) {
       if(super.d(var1, var2)) {
          return true;
       } else {

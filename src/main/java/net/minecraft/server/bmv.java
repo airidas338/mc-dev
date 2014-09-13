@@ -51,11 +51,11 @@ public abstract class bmv {
 
    public NBTTagCompound a(int var1, int var2) {
       NBTTagCompound var3 = new NBTTagCompound();
-      var3.a("id", bmq.a(this));
-      var3.a("ChunkX", var1);
-      var3.a("ChunkZ", var2);
-      var3.a("BB", (NBTBase)this.b.g());
-      fv var4 = new fv();
+      var3.setString("id", bmq.a(this));
+      var3.setInt("ChunkX", var1);
+      var3.setInt("ChunkZ", var2);
+      var3.set("BB", (NBTBase)this.b.g());
+      NBTTagList var4 = new NBTTagList();
       Iterator var5 = this.a.iterator();
 
       while(var5.hasNext()) {
@@ -63,7 +63,7 @@ public abstract class bmv {
          var4.a((NBTBase)var6.b());
       }
 
-      var3.a("Children", (NBTBase)var4);
+      var3.set("Children", (NBTBase)var4);
       this.a(var3);
       return var3;
    }
@@ -71,13 +71,13 @@ public abstract class bmv {
    public void a(NBTTagCompound var1) {}
 
    public void a(World var1, NBTTagCompound var2) {
-      this.c = var2.f("ChunkX");
-      this.d = var2.f("ChunkZ");
+      this.c = var2.getInt("ChunkX");
+      this.d = var2.getInt("ChunkZ");
       if(var2.c("BB")) {
-         this.b = new bjb(var2.l("BB"));
+         this.b = new bjb(var2.getIntArray("BB"));
       }
 
-      fv var3 = var2.c("Children", 10);
+      NBTTagList var3 = var2.getList("Children", 10);
 
       for(int var4 = 0; var4 < var3.c(); ++var4) {
          this.a.add(bmq.b(var3.b(var4), var1));

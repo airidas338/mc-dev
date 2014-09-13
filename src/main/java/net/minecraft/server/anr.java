@@ -12,19 +12,19 @@ public class anr extends Item {
       } else if(!var0.b("title", 8)) {
          return false;
       } else {
-         String var1 = var0.j("title");
+         String var1 = var0.getString("title");
          return var1 != null && var1.length() <= 32?var0.b("author", 8):false;
       }
    }
 
-   public static int h(amj var0) {
-      return var0.o().f("generation");
+   public static int h(ItemStack var0) {
+      return var0.o().getInt("generation");
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       if(var1.n()) {
          NBTTagCompound var2 = var1.o();
-         String var3 = var2.j("title");
+         String var3 = var2.getString("title");
          if(!vb.b(var3)) {
             return var3;
          }
@@ -33,7 +33,7 @@ public class anr extends Item {
       return super.a(var1);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(!var2.D) {
          this.a(var1, var3);
       }
@@ -43,13 +43,13 @@ public class anr extends Item {
       return var1;
    }
 
-   private void a(amj var1, EntityHuman var2) {
+   private void a(ItemStack var1, EntityHuman var2) {
       if(var1 != null && var1.o() != null) {
          NBTTagCompound var3 = var1.o();
          if(!var3.n("resolved")) {
-            var3.a("resolved", true);
+            var3.setBoolean("resolved", true);
             if(b(var3)) {
-               fv var4 = var3.c("pages", 8);
+               NBTTagList var4 = var3.getList("pages", 8);
 
                for(int var5 = 0; var5 < var4.c(); ++var5) {
                   String var6 = var4.f(var5);
@@ -65,9 +65,9 @@ public class anr extends Item {
                   var4.a(var5, new NBTTagString(hp.a((IChatBaseComponent)var7)));
                }
 
-               var3.a("pages", (NBTBase)var4);
+               var3.set("pages", (NBTBase)var4);
                if(var2 instanceof EntityPlayer && var2.bY() == var1) {
-                  ajk var10 = var2.bi.a((vq)var2.bg, var2.bg.c);
+                  ajk var10 = var2.bi.a((IInventory)var2.bg, var2.bg.c);
                   ((EntityPlayer)var2).a.a((Packet)(new jh(0, var10.e, var1)));
                }
 

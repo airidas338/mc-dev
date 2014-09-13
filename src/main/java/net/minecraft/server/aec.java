@@ -20,8 +20,8 @@ class aec extends aqf {
       return new Location(this.a.s, this.a.t + 0.5D, this.a.u);
    }
 
-   public ChunkCoordinates d() {
-      return new ChunkCoordinates(this.a.s, this.a.t, this.a.u);
+   public Vec3D d() {
+      return new Vec3D(this.a.s, this.a.t, this.a.u);
    }
 
    public World e() {

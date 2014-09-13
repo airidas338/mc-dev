@@ -11,7 +11,7 @@ public class ajr extends aks {
       super(3.0F, var1, c);
    }
 
-   public float a(amj var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       return var2.r() != Material.WOOD && var2.r() != Material.PLANT && var2.r() != Material.REPLACAEBLE_PLAN?super.a(var1, var2):this.a;
    }
 

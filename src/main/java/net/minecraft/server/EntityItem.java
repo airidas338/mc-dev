@@ -28,7 +28,7 @@ public class EntityItem extends Entity {
       this.x = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D));
    }
 
-   public EntityItem(World var1, double var2, double var4, double var6, amj var8) {
+   public EntityItem(World var1, double var2, double var4, double var6, ItemStack var8) {
       this(var1, var2, var4, var6);
       this.a(var8);
    }
@@ -42,7 +42,7 @@ public class EntityItem extends Entity {
       this.e = 5;
       this.a = (float)(Math.random() * 3.141592653589793D * 2.0D);
       this.a(0.25F, 0.25F);
-      this.a(new amj(Blocks.a, 0));
+      this.a(new ItemStack(Blocks.AIR, 0));
    }
 
    protected void h() {
@@ -103,7 +103,7 @@ public class EntityItem extends Entity {
    }
 
    private void w() {
-      Iterator var1 = this.o.a(EntityItem.class, this.aQ().b(0.5D, 0.0D, 0.5D)).iterator();
+      Iterator var1 = this.o.getEntities(EntityItem.class, this.aQ().b(0.5D, 0.0D, 0.5D)).iterator();
 
       while(var1.hasNext()) {
          EntityItem var2 = (EntityItem)var1.next();
@@ -115,9 +115,9 @@ public class EntityItem extends Entity {
    private boolean a(EntityItem var1) {
       if(var1 == this) {
          return false;
-      } else if(var1.ai() && this.ai()) {
-         amj var2 = this.l();
-         amj var3 = var1.l();
+      } else if(var1.isAlive() && this.isAlive()) {
+         ItemStack var2 = this.l();
+         ItemStack var3 = var1.l();
          if(this.d != 32767 && var1.d != 32767) {
             if(this.c != -32768 && var1.c != -32768) {
                if(var3.b() != var2.b()) {
@@ -192,40 +192,40 @@ public class EntityItem extends Entity {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("Health", (short)((byte)this.e));
-      var1.a("Age", (short)this.c);
-      var1.a("PickupDelay", (short)this.d);
+      var1.setShort("Health", (short)((byte)this.e));
+      var1.setShort("Age", (short)this.c);
+      var1.setShort("PickupDelay", (short)this.d);
       if(this.n() != null) {
-         var1.a("Thrower", this.f);
+         var1.setString("Thrower", this.f);
       }
 
       if(this.m() != null) {
-         var1.a("Owner", this.g);
+         var1.setString("Owner", this.g);
       }
 
       if(this.l() != null) {
-         var1.a("Item", (NBTBase)this.l().b(new NBTTagCompound()));
+         var1.set("Item", (NBTBase)this.l().b(new NBTTagCompound()));
       }
 
    }
 
    public void a(NBTTagCompound var1) {
-      this.e = var1.e("Health") & 255;
-      this.c = var1.e("Age");
+      this.e = var1.getShort("Health") & 255;
+      this.c = var1.getShort("Age");
       if(var1.c("PickupDelay")) {
-         this.d = var1.e("PickupDelay");
+         this.d = var1.getShort("PickupDelay");
       }
 
       if(var1.c("Owner")) {
-         this.g = var1.j("Owner");
+         this.g = var1.getString("Owner");
       }
 
       if(var1.c("Thrower")) {
-         this.f = var1.j("Thrower");
+         this.f = var1.getString("Thrower");
       }
 
-      NBTTagCompound var2 = var1.m("Item");
-      this.a(amj.a(var2));
+      NBTTagCompound var2 = var1.getCompound("Item");
+      this.a(ItemStack.a(var2));
       if(this.l() == null) {
          this.J();
       }
@@ -234,7 +234,7 @@ public class EntityItem extends Entity {
 
    public void d(EntityHuman var1) {
       if(!this.o.D) {
-         amj var2 = this.l();
+         ItemStack var2 = this.l();
          int var3 = var2.b;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.d_())) && var1.bg.a(var2)) {
             if(var2.b() == Item.a(Blocks.r)) {
@@ -293,20 +293,20 @@ public class EntityItem extends Entity {
 
    }
 
-   public amj l() {
-      amj var1 = this.H().f(10);
+   public ItemStack l() {
+      ItemStack var1 = this.H().f(10);
       if(var1 == null) {
          if(this.o != null) {
             b.error("Item entity " + this.F() + " has no item?!");
          }
 
-         return new amj(Blocks.b);
+         return new ItemStack(Blocks.b);
       } else {
          return var1;
       }
    }
 
-   public void a(amj var1) {
+   public void a(ItemStack var1) {
       this.H().b(10, var1);
       this.H().i(10);
    }

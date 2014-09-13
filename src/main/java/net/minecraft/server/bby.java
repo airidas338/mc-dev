@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bby implements va {
+public enum bby implements IName {
 
    a("NORMAL", 0, 0, "cobblestone", "normal"),
    b("MOSSY", 1, 1, "mossy_cobblestone", "mossy");
@@ -34,7 +34,7 @@ public enum bby implements va {
       return c[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.e;
    }
 

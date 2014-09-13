@@ -9,7 +9,7 @@ class bkp implements bks {
       return true;
    }
 
-   public blb a(ej var1, blf var2, Random var3) {
+   public blb a(EnumFacing var1, blf var2, Random var3) {
       var2.d = true;
       return new blc(var1, var2, var3);
    }

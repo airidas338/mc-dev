@@ -42,7 +42,7 @@ public class wg {
       this.a.add(var4);
       this.c = this.b.W;
       this.g = true;
-      if(var4.f() && !this.f && this.b.ai()) {
+      if(var4.f() && !this.f && this.b.isAlive()) {
          this.f = true;
          this.d = this.b.W;
          this.e = this.d;
@@ -65,14 +65,14 @@ public class wg {
             if(var1.a() != DamageSource.i && var1.a() != DamageSource.j) {
                if(var6 != null && (var4 == null || !var6.equals(var4))) {
                   Entity var9 = var1.a().getEntity();
-                  amj var8 = var9 instanceof EntityLiving?((EntityLiving)var9).bz():null;
+                  ItemStack var8 = var9 instanceof EntityLiving?((EntityLiving)var9).bz():null;
                   if(var8 != null && var8.s()) {
                      var3 = new ChatMessage("death.fell.assist.item", new Object[]{this.b.e_(), var6, var8.C()});
                   } else {
                      var3 = new ChatMessage("death.fell.assist", new Object[]{this.b.e_(), var6});
                   }
                } else if(var4 != null) {
-                  amj var7 = var5 instanceof EntityLiving?((EntityLiving)var5).bz():null;
+                  ItemStack var7 = var5 instanceof EntityLiving?((EntityLiving)var5).bz():null;
                   if(var7 != null && var7.s()) {
                      var3 = new ChatMessage("death.fell.finish.item", new Object[]{this.b.e_(), var4, var7.C()});
                   } else {
@@ -166,7 +166,7 @@ public class wg {
 
    public void g() {
       int var1 = this.f?300:100;
-      if(this.g && (!this.b.ai() || this.b.W - this.c > var1)) {
+      if(this.g && (!this.b.isAlive() || this.b.W - this.c > var1)) {
          boolean var2 = this.f;
          this.g = false;
          this.f = false;

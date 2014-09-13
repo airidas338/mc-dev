@@ -6,10 +6,10 @@ class bfk implements Callable {
    // $FF: synthetic field
    final Location a;
    // $FF: synthetic field
-   final bfh b;
+   final Chunk b;
 
 
-   bfk(bfh var1, Location var2) {
+   bfk(Chunk var1, Location var2) {
       this.b = var1;
       this.a = var2;
    }

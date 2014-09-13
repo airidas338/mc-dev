@@ -14,7 +14,7 @@ final class atn implements Runnable {
    }
 
    public void run() {
-      bfh var1 = this.a.f(this.b);
+      Chunk var1 = this.a.f(this.b);
 
       for(int var2 = this.b.o() - 1; var2 >= 0; --var2) {
          Location var3 = new Location(this.b.n(), var2, this.b.p());

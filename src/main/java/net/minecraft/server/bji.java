@@ -32,7 +32,7 @@ public class bji extends bms {
             break;
          }
 
-         var7 = bje.a(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.c - 1, ej.c, var4);
+         var7 = bje.a(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.c - 1, EnumFacing.NORTH, var4);
          if(var7 != null) {
             var8 = var7.c();
             this.a.add(new bjb(var8.a, var8.b, this.l.c, var8.d, var8.e, this.l.c + 1));
@@ -45,7 +45,7 @@ public class bji extends bms {
             break;
          }
 
-         var7 = bje.a(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.f + 1, ej.d, var4);
+         var7 = bje.a(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.f + 1, EnumFacing.SOUTH, var4);
          if(var7 != null) {
             var8 = var7.c();
             this.a.add(new bjb(var8.a, var8.b, this.l.f - 1, var8.d, var8.e, this.l.f));
@@ -58,7 +58,7 @@ public class bji extends bms {
             break;
          }
 
-         var7 = bje.a(var1, var2, var3, this.l.a - 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, ej.e, var4);
+         var7 = bje.a(var1, var2, var3, this.l.a - 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumFacing.WEST, var4);
          if(var7 != null) {
             var8 = var7.c();
             this.a.add(new bjb(this.l.a, var8.b, var8.c, this.l.a + 1, var8.e, var8.f));
@@ -71,7 +71,7 @@ public class bji extends bms {
             break;
          }
 
-         var7 = bje.a(var1, var2, var3, this.l.d + 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, ej.f, var4);
+         var7 = bje.a(var1, var2, var3, this.l.d + 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumFacing.EAST, var4);
          if(var7 != null) {
             var8 = var7.c();
             this.a.add(new bjb(this.l.d - 1, var8.b, var8.c, this.l.d, var8.e, var8.f));
@@ -84,22 +84,22 @@ public class bji extends bms {
       if(this.a(var1, var3)) {
          return false;
       } else {
-         this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.d.P(), Blocks.a.P(), true);
-         this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.d.P(), Blocks.AIR.P(), true);
+         this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, Blocks.AIR.P(), Blocks.AIR.P(), false);
          Iterator var4 = this.a.iterator();
 
          while(var4.hasNext()) {
             bjb var5 = (bjb)var4.next();
-            this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
-         this.a(var1, var3, this.l.a, this.l.b + 4, this.l.c, this.l.d, this.l.e, this.l.f, Blocks.a.P(), false);
+         this.a(var1, var3, this.l.a, this.l.b + 4, this.l.c, this.l.d, this.l.e, this.l.f, Blocks.AIR.P(), false);
          return true;
       }
    }
 
    protected void a(NBTTagCompound var1) {
-      fv var2 = new fv();
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = this.a.iterator();
 
       while(var3.hasNext()) {
@@ -107,11 +107,11 @@ public class bji extends bms {
          var2.a((NBTBase)var4.g());
       }
 
-      var1.a("Entrances", (NBTBase)var2);
+      var1.set("Entrances", (NBTBase)var2);
    }
 
    protected void b(NBTTagCompound var1) {
-      fv var2 = var1.c("Entrances", 11);
+      NBTTagList var2 = var1.getList("Entrances", 11);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          this.a.add(new bjb(var2.c(var3)));

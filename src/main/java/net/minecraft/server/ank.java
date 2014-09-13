@@ -8,7 +8,7 @@ public class ank extends Item {
       this.a(CreativeModeTab.f);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(!var3.by.d) {
          --var1.b;
       }

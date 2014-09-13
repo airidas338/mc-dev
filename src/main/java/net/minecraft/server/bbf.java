@@ -32,7 +32,7 @@ public abstract class bbf extends BlockStepAbstract {
       return M;
    }
 
-   public Object a(amj var1) {
+   public Object a(ItemStack var1) {
       return bbg.a(var1.i() & 7);
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class agf extends zk {
+class agf extends PathfinderGoalMeleeAttack {
 
    public agf(EntitySpider var1, Class var2) {
       super(var1, var2, 1.0D, true);

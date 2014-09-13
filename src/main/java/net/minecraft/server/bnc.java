@@ -10,7 +10,7 @@ public class bnc extends bnn {
 
    public bnc() {}
 
-   public bnc(bnk var1, int var2, Random var3, bjb var4, ej var5) {
+   public bnc(bnk var1, int var2, Random var3, bjb var4, EnumFacing var5) {
       super(var1, var2);
       this.m = var5;
       this.l = var4;
@@ -20,14 +20,14 @@ public class bnc extends bnn {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("CA", Block.c.b(this.a));
-      var1.a("CB", Block.c.b(this.b));
+      var1.setInt("CA", Block.c.b(this.a));
+      var1.setInt("CB", Block.c.b(this.b));
    }
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.a = Block.c(var1.f("CA"));
-      this.b = Block.c(var1.f("CB"));
+      this.a = Block.c(var1.getInt("CA"));
+      this.b = Block.c(var1.getInt("CB"));
    }
 
    private Block a(Random var1) {
@@ -41,7 +41,7 @@ public class bnc extends bnn {
       }
    }
 
-   public static bnc a(bnk var0, List var1, Random var2, int var3, int var4, int var5, ej var6, int var7) {
+   public static bnc a(bnk var0, List var1, Random var2, int var3, int var4, int var5, EnumFacing var6, int var7) {
       bjb var8 = bjb.a(var3, var4, var5, 0, 0, 0, 7, 4, 9, var6);
       return a(var8) && bms.a(var1, var8) == null?new bnc(var0, var7, var2, var8, var6):null;
    }
@@ -56,7 +56,7 @@ public class bnc extends bnn {
          this.l.a(0, this.h - this.l.e + 4 - 1, 0);
       }
 
-      this.a(var1, var3, 0, 1, 0, 6, 4, 8, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 1, 0, 6, 4, 8, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 1, 0, 1, 2, 0, 7, Blocks.ak.P(), Blocks.ak.P(), false);
       this.a(var1, var3, 4, 0, 1, 5, 0, 7, Blocks.ak.P(), Blocks.ak.P(), false);
       this.a(var1, var3, 0, 0, 0, 0, 0, 8, Blocks.r.P(), Blocks.r.P(), false);

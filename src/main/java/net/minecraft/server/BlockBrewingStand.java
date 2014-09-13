@@ -21,7 +21,7 @@ public class BlockBrewingStand extends atg {
       return 3;
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bcq();
    }
 
@@ -40,22 +40,22 @@ public class BlockBrewingStand extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
-         bcm var9 = var1.s(var2);
+         TileEntity var9 = var1.s(var2);
          if(var9 instanceof bcq) {
-            var4.a((vq)((bcq)var9));
+            var4.a((IInventory)((bcq)var9));
          }
 
          return true;
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
       if(var5.s()) {
-         bcm var6 = var1.s(var2);
+         TileEntity var6 = var1.s(var2);
          if(var6 instanceof bcq) {
             ((bcq)var6).a(var5.q());
          }
@@ -64,7 +64,7 @@ public class BlockBrewingStand extends atg {
    }
 
    public void b(World var1, Location var2, IBlock var3) {
-      bcm var4 = var1.s(var2);
+      TileEntity var4 = var1.s(var2);
       if(var4 instanceof bcq) {
          vs.a(var1, var2, (bcq)var4);
       }

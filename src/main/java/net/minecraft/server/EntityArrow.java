@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 
-public class EntityArrow extends Entity implements aho {
+public class EntityArrow extends Entity implements IProjectile {
 
    private int d = -1;
    private int e = -1;
@@ -44,15 +44,15 @@ public class EntityArrow extends Entity implements aho {
       double var6 = var3.s - var2.s;
       double var8 = var3.aQ().b + (double)(var3.K / 3.0F) - this.t;
       double var10 = var3.u - var2.u;
-      double var12 = (double)MathHelper.a(var6 * var6 + var10 * var10);
+      double var12 = (double)MathHelper.sqrt(var6 * var6 + var10 * var10);
       if(var12 >= 1.0E-7D) {
          float var14 = (float)(Math.atan2(var10, var6) * 180.0D / 3.1415927410125732D) - 90.0F;
          float var15 = (float)(-(Math.atan2(var8, var12) * 180.0D / 3.1415927410125732D));
          double var16 = var6 / var12;
          double var18 = var10 / var12;
-         this.b(var2.s + var16, this.t, var2.u + var18, var14, var15);
+         this.setPositionRotation(var2.s + var16, this.t, var2.u + var18, var14, var15);
          float var20 = (float)(var12 * 0.20000000298023224D);
-         this.c(var6, var8 + (double)var20, var10, var4, var5);
+         this.shoot(var6, var8 + (double)var20, var10, var4, var5);
       }
    }
 
@@ -65,7 +65,7 @@ public class EntityArrow extends Entity implements aho {
       }
 
       this.a(0.5F, 0.5F);
-      this.b(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
+      this.setPositionRotation(var2.s, var2.t + (double)var2.aR(), var2.u, var2.y, var2.z);
       this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.t -= 0.10000000149011612D;
       this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
@@ -73,15 +73,15 @@ public class EntityArrow extends Entity implements aho {
       this.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F));
       this.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F));
       this.w = (double)(-MathHelper.sin(this.z / 180.0F * 3.1415927F));
-      this.c(this.v, this.w, this.x, var3 * 1.5F, 1.0F);
+      this.shoot(this.v, this.w, this.x, var3 * 1.5F, 1.0F);
    }
 
    protected void h() {
       this.ac.a(16, Byte.valueOf((byte)0));
    }
 
-   public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = MathHelper.a(var1 * var1 + var3 * var3 + var5 * var5);
+   public void shoot(double var1, double var3, double var5, float var7, float var8) {
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -94,7 +94,7 @@ public class EntityArrow extends Entity implements aho {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = MathHelper.a(var1 * var1 + var5 * var5);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
       this.A = this.y = (float)(Math.atan2(var1, var5) * 180.0D / 3.1415927410125732D);
       this.B = this.z = (float)(Math.atan2(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.ap = 0;
@@ -103,7 +103,7 @@ public class EntityArrow extends Entity implements aho {
    public void s_() throws IOException {
       super.s_();
       if(this.B == 0.0F && this.A == 0.0F) {
-         float var1 = MathHelper.a(this.v * this.v + this.x * this.x);
+         float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
          this.A = this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
          this.B = this.z = (float)(Math.atan2(this.w, (double)var1) * 180.0D / 3.1415927410125732D);
       }
@@ -114,7 +114,7 @@ public class EntityArrow extends Entity implements aho {
       if(var3.r() != Material.AIR) {
          var3.a((IBlockAccess)this.o, var18);
          AxisAlignedBB var4 = var3.a(this.o, var18, var2);
-         if(var4 != null && var4.a(new ChunkCoordinates(this.s, this.t, this.u))) {
+         if(var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
             this.i = true;
          }
       }
@@ -141,13 +141,13 @@ public class EntityArrow extends Entity implements aho {
          }
       } else {
          ++this.aq;
-         ChunkCoordinates var19 = new ChunkCoordinates(this.s, this.t, this.u);
-         ChunkCoordinates var5 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+         Vec3D var19 = new Vec3D(this.s, this.t, this.u);
+         Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          MovingObjectPosition var6 = this.o.a(var19, var5, false, true, false);
-         var19 = new ChunkCoordinates(this.s, this.t, this.u);
-         var5 = new ChunkCoordinates(this.s + this.v, this.t + this.w, this.u + this.x);
+         var19 = new Vec3D(this.s, this.t, this.u);
+         var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var6 != null) {
-            var5 = new ChunkCoordinates(var6.c.a, var6.c.b, var6.c.c);
+            var5 = new Vec3D(var6.c.a, var6.c.b, var6.c.c);
          }
 
          Entity var7 = null;
@@ -188,7 +188,7 @@ public class EntityArrow extends Entity implements aho {
          float var27;
          if(var6 != null) {
             if(var6.d != null) {
-               var24 = MathHelper.a(this.v * this.v + this.w * this.w + this.x * this.x);
+               var24 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
                int var22 = MathHelper.f((double)var24 * this.ar);
                if(this.l()) {
                   var22 += this.V.nextInt(var22 / 2 + 2);
@@ -213,7 +213,7 @@ public class EntityArrow extends Entity implements aho {
                      }
 
                      if(this.as > 0) {
-                        var27 = MathHelper.a(this.v * this.v + this.x * this.x);
+                        var27 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
                         if(var27 > 0.0F) {
                            var6.d.g(this.v * (double)this.as * 0.6000000238418579D / (double)var27, 0.1D, this.x * (double)this.as * 0.6000000238418579D / (double)var27);
                         }
@@ -252,7 +252,7 @@ public class EntityArrow extends Entity implements aho {
                this.v = (double)((float)(var6.c.a - this.s));
                this.w = (double)((float)(var6.c.b - this.t));
                this.x = (double)((float)(var6.c.c - this.u));
-               var25 = MathHelper.a(this.v * this.v + this.w * this.w + this.x * this.x);
+               var25 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
                this.s -= this.v / (double)var25 * 0.05000000074505806D;
                this.t -= this.w / (double)var25 * 0.05000000074505806D;
                this.u -= this.x / (double)var25 * 0.05000000074505806D;
@@ -275,7 +275,7 @@ public class EntityArrow extends Entity implements aho {
          this.s += this.v;
          this.t += this.w;
          this.u += this.x;
-         var24 = MathHelper.a(this.v * this.v + this.x * this.x);
+         var24 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
          this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
          for(this.z = (float)(Math.atan2(this.w, (double)var24) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
@@ -321,39 +321,39 @@ public class EntityArrow extends Entity implements aho {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("xTile", (short)this.d);
-      var1.a("yTile", (short)this.e);
-      var1.a("zTile", (short)this.f);
-      var1.a("life", (short)this.ap);
+      var1.setShort("xTile", (short)this.d);
+      var1.setShort("yTile", (short)this.e);
+      var1.setShort("zTile", (short)this.f);
+      var1.setShort("life", (short)this.ap);
       RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.g);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("inData", (byte)this.h);
-      var1.a("shake", (byte)this.b);
-      var1.a("inGround", (byte)(this.i?1:0));
-      var1.a("pickup", (byte)this.a);
-      var1.a("damage", this.ar);
+      var1.setString("inTile", var2 == null?"":var2.toString());
+      var1.setByte("inData", (byte)this.h);
+      var1.setByte("shake", (byte)this.b);
+      var1.setByte("inGround", (byte)(this.i?1:0));
+      var1.setByte("pickup", (byte)this.a);
+      var1.setDouble("damage", this.ar);
    }
 
    public void a(NBTTagCompound var1) {
-      this.d = var1.e("xTile");
-      this.e = var1.e("yTile");
-      this.f = var1.e("zTile");
-      this.ap = var1.e("life");
+      this.d = var1.getShort("xTile");
+      this.e = var1.getShort("yTile");
+      this.f = var1.getShort("zTile");
+      this.ap = var1.getShort("life");
       if(var1.b("inTile", 8)) {
-         this.g = Block.b(var1.j("inTile"));
+         this.g = Block.b(var1.getString("inTile"));
       } else {
-         this.g = Block.c(var1.d("inTile") & 255);
+         this.g = Block.c(var1.getByte("inTile") & 255);
       }
 
-      this.h = var1.d("inData") & 255;
-      this.b = var1.d("shake") & 255;
-      this.i = var1.d("inGround") == 1;
+      this.h = var1.getByte("inData") & 255;
+      this.b = var1.getByte("shake") & 255;
+      this.i = var1.getByte("inGround") == 1;
       if(var1.b("damage", 99)) {
-         this.ar = var1.i("damage");
+         this.ar = var1.getDouble("damage");
       }
 
       if(var1.b("pickup", 99)) {
-         this.a = var1.d("pickup");
+         this.a = var1.getByte("pickup");
       } else if(var1.b("player", 99)) {
          this.a = var1.n("player")?1:0;
       }
@@ -363,7 +363,7 @@ public class EntityArrow extends Entity implements aho {
    public void d(EntityHuman var1) {
       if(!this.o.D && this.i && this.b <= 0) {
          boolean var2 = this.a == 1 || this.a == 2 && var1.by.d;
-         if(this.a == 1 && !var1.bg.a(new amj(Items.g, 1))) {
+         if(this.a == 1 && !var1.bg.a(new ItemStack(Items.g, 1))) {
             var2 = false;
          }
 

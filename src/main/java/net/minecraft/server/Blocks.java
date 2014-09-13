@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class Blocks {
 
-   public static final Block a;
+   public static final Block AIR;
    public static final Block b;
    public static final BlockGrass c;
    public static final Block d;
@@ -139,7 +139,7 @@ public class Blocks {
    public static final BlockCauldron bE;
    public static final Block bF;
    public static final Block bG;
-   public static final Block bH;
+   public static final Block WHITESTONE;
    public static final Block bI;
    public static final Block bJ;
    public static final Block bK;
@@ -210,7 +210,7 @@ public class Blocks {
       if(!DispenserRegistry.a()) {
          throw new RuntimeException("Accessed Blocks before Bootstrap!");
       } else {
-         a = a("air");
+         AIR = a("air");
          b = a("stone");
          c = (BlockGrass)a("grass");
          d = a("dirt");
@@ -347,7 +347,7 @@ public class Blocks {
          bE = (BlockCauldron)a("cauldron");
          bF = a("end_portal");
          bG = a("end_portal_frame");
-         bH = a("end_stone");
+         WHITESTONE = a("end_stone");
          bI = a("dragon_egg");
          bJ = a("redstone_lamp");
          bK = a("lit_redstone_lamp");

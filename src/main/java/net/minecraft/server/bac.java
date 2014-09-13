@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bac implements va {
+public enum bac implements IName {
 
    a("SAND", 0, 0, "sand", "default", MaterialMapColor.d),
    b("RED_SAND", 1, 1, "red_sand", "red", MaterialMapColor.l);
@@ -40,7 +40,7 @@ public enum bac implements va {
       return c[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.e;
    }
 

@@ -38,12 +38,12 @@ public class PortalTravelAgent {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.a(new Location(var11, var12, var13), var14?Blocks.Z.P():Blocks.a.P());
+                  this.a.a(new Location(var11, var12, var13), var14?Blocks.Z.P():Blocks.AIR.P());
                }
             }
          }
 
-         var1.b((double)var3, (double)var4, (double)var5, var1.y, 0.0F);
+         var1.setPositionRotation((double)var3, (double)var4, (double)var5, var1.y, 0.0F);
          var1.v = var1.w = var1.x = 0.0D;
       }
    }
@@ -95,26 +95,26 @@ public class PortalTravelAgent {
          double var35 = (double)((Location)var9).n() + 0.5D;
          double var36 = (double)((Location)var9).o() + 0.5D;
          double var37 = (double)((Location)var9).p() + 0.5D;
-         ej var18 = null;
+         EnumFacing var18 = null;
          if(this.a.getData(((Location)var9).e()).c() == Blocks.aY) {
-            var18 = ej.c;
+            var18 = EnumFacing.NORTH;
          }
 
          if(this.a.getData(((Location)var9).f()).c() == Blocks.aY) {
-            var18 = ej.d;
+            var18 = EnumFacing.SOUTH;
          }
 
          if(this.a.getData(((Location)var9).c()).c() == Blocks.aY) {
-            var18 = ej.f;
+            var18 = EnumFacing.EAST;
          }
 
          if(this.a.getData(((Location)var9).d()).c() == Blocks.aY) {
-            var18 = ej.e;
+            var18 = EnumFacing.WEST;
          }
 
-         ej var19 = ej.b(var1.aG());
+         EnumFacing var19 = EnumFacing.b(var1.aG());
          if(var18 != null) {
-            ej var20 = var18.f();
+            EnumFacing var20 = var18.f();
             Location var21 = ((Location)var9).a(var18);
             boolean var22 = this.a(var21);
             boolean var23 = this.a(var21.a(var20));
@@ -169,7 +169,7 @@ public class PortalTravelAgent {
             var1.v = var1.w = var1.x = 0.0D;
          }
 
-         var1.b(var35, var36, var37, var1.y, var1.z);
+         var1.setPositionRotation(var35, var36, var37, var1.y, var1.z);
          return true;
       } else {
          return false;
@@ -322,7 +322,7 @@ public class PortalTravelAgent {
                   var23 = var15 + var21;
                   var24 = var16 + (var20 - 1) * var18 - var19 * var30;
                   boolean var34 = var21 < 0;
-                  this.a.a(new Location(var22, var23, var24), var34?Blocks.Z.P():Blocks.a.P());
+                  this.a.a(new Location(var22, var23, var24), var34?Blocks.Z.P():Blocks.AIR.P());
                }
             }
          }

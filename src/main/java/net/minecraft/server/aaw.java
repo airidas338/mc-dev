@@ -25,7 +25,7 @@ public abstract class aaw extends PathfinderGoal {
       EntityLiving var1 = this.e.u();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else {
          ScoreboardTeamBase var2 = this.e.bN();
@@ -71,7 +71,7 @@ public abstract class aaw extends PathfinderGoal {
          return false;
       } else if(var1 == var0) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else if(!var0.a(var1.getClass())) {
          return false;
@@ -124,7 +124,7 @@ public abstract class aaw extends PathfinderGoal {
 
    private boolean a(EntityLiving var1) {
       this.c = 10 + this.e.bb().nextInt(5);
-      bpv var2 = this.e.s().a((Entity)var1);
+      bpv var2 = this.e.getNavigation().a((Entity)var1);
       if(var2 == null) {
          return false;
       } else {

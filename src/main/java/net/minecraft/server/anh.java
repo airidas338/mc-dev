@@ -13,8 +13,8 @@ public class anh extends Item {
       this.a(true);
    }
 
-   public boolean a(amj var1, EntityHuman var2, World var3, Location var4, ej var5, float var6, float var7, float var8) {
-      if(var5 == ej.a) {
+   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var5 == EnumFacing.DOWN) {
          return false;
       } else {
          IBlock var9 = var3.getData(var4);
@@ -36,11 +36,11 @@ public class anh extends Item {
             if(!var3.D) {
                var3.a(var4, Blocks.ce.P().a(BlockSkull.a, var5), 3);
                int var12 = 0;
-               if(var5 == ej.b) {
+               if(var5 == EnumFacing.UP) {
                   var12 = MathHelper.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
-               bcm var13 = var3.s(var4);
+               TileEntity var13 = var3.s(var4);
                if(var13 instanceof bdm) {
                   bdm var14 = (bdm)var13;
                   if(var1.i() == 3) {
@@ -48,9 +48,9 @@ public class anh extends Item {
                      if(var1.n()) {
                         NBTTagCompound var16 = var1.o();
                         if(var16.b("SkullOwner", 10)) {
-                           var15 = ga.a(var16.m("SkullOwner"));
-                        } else if(var16.b("SkullOwner", 8) && var16.j("SkullOwner").length() > 0) {
-                           var15 = new GameProfile((UUID)null, var16.j("SkullOwner"));
+                           var15 = ga.a(var16.getCompound("SkullOwner"));
+                        } else if(var16.b("SkullOwner", 8) && var16.getString("SkullOwner").length() > 0) {
+                           var15 = new GameProfile((UUID)null, var16.getString("SkullOwner"));
                         }
                      }
 
@@ -75,7 +75,7 @@ public class anh extends Item {
       return var1;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       int var2 = var1.i();
       if(var2 < 0 || var2 >= a.length) {
          var2 = 0;
@@ -84,16 +84,16 @@ public class anh extends Item {
       return super.a() + "." + a[var2];
    }
 
-   public String a(amj var1) {
+   public String a(ItemStack var1) {
       if(var1.i() == 3 && var1.n()) {
          if(var1.o().b("SkullOwner", 8)) {
-            return fi.a("item.skull.player.name", new Object[]{var1.o().j("SkullOwner")});
+            return fi.a("item.skull.player.name", new Object[]{var1.o().getString("SkullOwner")});
          }
 
          if(var1.o().b("SkullOwner", 10)) {
-            NBTTagCompound var2 = var1.o().m("SkullOwner");
+            NBTTagCompound var2 = var1.o().getCompound("SkullOwner");
             if(var2.b("Name", 8)) {
-               return fi.a("item.skull.player.name", new Object[]{var2.j("Name")});
+               return fi.a("item.skull.player.name", new Object[]{var2.getString("Name")});
             }
          }
       }
@@ -103,10 +103,10 @@ public class anh extends Item {
 
    public boolean a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("SkullOwner", 8) && var1.j("SkullOwner").length() > 0) {
-         GameProfile var2 = new GameProfile((UUID)null, var1.j("SkullOwner"));
+      if(var1.b("SkullOwner", 8) && var1.getString("SkullOwner").length() > 0) {
+         GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = bdm.b(var2);
-         var1.a("SkullOwner", (NBTBase)ga.a(new NBTTagCompound(), var2));
+         var1.set("SkullOwner", (NBTBase)ga.a(new NBTTagCompound(), var2));
          return true;
       } else {
          return false;

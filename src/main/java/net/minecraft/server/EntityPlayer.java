@@ -20,21 +20,21 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	private static final Logger bF = LogManager.getLogger();
 	private String bG = "en_US";
-	public rj a;
+	public PlayerConnection a;
 	public final MinecraftServer b;
-	public final qx c;
+	public final PlayerInteractManager c;
 	public double d;
 	public double e;
 	public final List f = Lists.newLinkedList();
 	private final List bH = Lists.newLinkedList();
-	private final tp bI;
+	private final ServerStatisticsManager bI;
 	private float bJ = Float.MIN_VALUE;
 	private float bK = -1.0E8F;
 	private int bL = -99999999;
 	private boolean bM = true;
 	private int bN = -99999999;
 	private int bO = 60;
-	private ahg bP;
+	private EnumChatVisibility bP;
 	private boolean bQ = true;
 	private long bR = System.currentTimeMillis();
 	private Entity bS = null;
@@ -43,7 +43,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 	public int h;
 	public boolean i;
 
-	public EntityPlayer(MinecraftServer var1, WorldServer var2, GameProfile var3, qx var4) {
+	public EntityPlayer(MinecraftServer var1, WorldServer var2, GameProfile var3, PlayerInteractManager var4) {
 		super(var2, var3);
 		var4.b = this;
 		this.c = var4;
@@ -79,7 +79,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			if (MinecraftServer.M().av()) {
 				this.c.a(MinecraftServer.M().m());
 			} else {
-				this.c.a(EnumGamemode.a(var1.f("playerGameType")));
+				this.c.a(EnumGamemode.a(var1.getInt("playerGameType")));
 			}
 		}
 
@@ -87,7 +87,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	public void b(NBTTagCompound var1) {
 		super.b(var1);
-		var1.a("playerGameType", this.c.b().a());
+		var1.setInt("playerGameType", this.c.b().a());
 	}
 
 	public void a(int var1) {
@@ -146,12 +146,12 @@ public class EntityPlayer extends EntityHuman implements ail {
 			Iterator var8 = this.f.iterator();
 			ArrayList var9 = Lists.newArrayList();
 
-			bfh var5;
+			Chunk var5;
 			while (var8.hasNext() && var6.size() < 10) {
 				aqm var10 = (aqm) var8.next();
 				if (var10 != null) {
 					if (this.o.e(new Location(var10.a << 4, 0, var10.b << 4))) {
-						var5 = this.o.a(var10.a, var10.b);
+						var5 = this.o.getChunkAt(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
 							var9.addAll(((WorldServer) this.o).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
@@ -165,7 +165,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 			if (!var6.isEmpty()) {
 				if (var6.size() == 1) {
-					this.a.a((Packet) (new jq((bfh) var6.get(0), true, '\uffff')));
+					this.a.a((Packet) (new jq((Chunk) var6.get(0), true, '\uffff')));
 				} else {
 					this.a.a((Packet) (new js(var6)));
 				}
@@ -173,14 +173,14 @@ public class EntityPlayer extends EntityHuman implements ail {
 				Iterator var12 = var9.iterator();
 
 				while (var12.hasNext()) {
-					bcm var11 = (bcm) var12.next();
+					TileEntity var11 = (TileEntity) var12.next();
 					this.a(var11);
 				}
 
 				var12 = var6.iterator();
 
 				while (var12.hasNext()) {
-					var5 = (bfh) var12.next();
+					var5 = (Chunk) var12.next();
 					this.u().s().a(this, var5);
 				}
 			}
@@ -188,7 +188,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 		Entity var7 = this.C();
 		if (var7 != this) {
-			if (!var7.ai()) {
+			if (!var7.isAlive()) {
 				this.e(this);
 			} else {
 				this.a(var7.s, var7.t, var7.u, var7.y, var7.z);
@@ -206,7 +206,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			super.s_();
 
 			for (int var1 = 0; var1 < this.bg.n_(); ++var1) {
-				amj var6 = this.bg.a(var1);
+				ItemStack var6 = this.bg.a(var1);
 				if (var6 != null && var6.b().f()) {
 					Packet var8 = ((ake) var6.b()).c(var6, this.o, this);
 					if (var8 != null) {
@@ -394,7 +394,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		return var1.v() ? this.C() == this : (this.v() ? false : super.a(var1));
 	}
 
-	private void a(bcm var1) {
+	private void a(TileEntity var1) {
 		if (var1 != null) {
 			Packet var2 = var1.x_();
 			if (var2 != null) {
@@ -480,7 +480,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bi.a((ail) this);
 	}
 
-	public void a(vq var1) {
+	public void a(IInventory var1) {
 		if (this.bi != this.bh) {
 			this.n();
 		}
@@ -525,7 +525,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	}
 
-	public void a(EntityHorse var1, vq var2) {
+	public void a(EntityHorse var1, IInventory var2) {
 		if (this.bi != this.bh) {
 			this.n();
 		}
@@ -537,7 +537,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bi.a((ail) this);
 	}
 
-	public void a(amj var1) {
+	public void a(ItemStack var1) {
 		Item var2 = var1.b();
 		if (var2 == Items.bN) {
 			this.a.a((Packet) (new ji("MC|BOpen", new hd(Unpooled.buffer()))));
@@ -545,7 +545,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
 	}
 
-	public void a(aib var1, int var2, amj var3) {
+	public void a(aib var1, int var2, ItemStack var3) {
 		if (!(var1.a(var2) instanceof ajj)) {
 			if (!this.g) {
 				this.a.a((Packet) (new jh(var1.d, var2, var3)));
@@ -566,7 +566,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.a.a((Packet) (new jg(var1.d, var2, var3)));
 	}
 
-	public void a(aib var1, vq var2) {
+	public void a(aib var1, IInventory var2) {
 		for (int var3 = 0; var3 < var2.g(); ++var3) {
 			this.a.a((Packet) (new jg(var1.d, var3, var2.a_(var3))));
 		}
@@ -663,7 +663,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		super.s();
 	}
 
-	public void a(amj var1, int var2) {
+	public void a(ItemStack var1, int var2) {
 		super.a(var1, var2);
 		if (var1 != null && var1.b() != null && var1.b().e(var1) == ano.b) {
 			this.u().s().b(this, new ir(this, 3));
@@ -679,17 +679,17 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bH.addAll(((EntityPlayer) var1).bH);
 	}
 
-	protected void a(wq var1) {
+	protected void a(MobEffect var1) {
 		super.a(var1);
 		this.a.a((Packet) (new lr(this.F(), var1)));
 	}
 
-	protected void a(wq var1, boolean var2) {
+	protected void a(MobEffect var1, boolean var2) {
 		super.a(var1, var2);
 		this.a.a((Packet) (new lr(this.F(), var1)));
 	}
 
-	protected void b(wq var1) {
+	protected void b(MobEffect var1) {
 		super.b(var1);
 		this.a.a((Packet) (new kn(this.F(), var1)));
 	}
@@ -763,14 +763,14 @@ public class EntityPlayer extends EntityHuman implements ail {
 		return var1;
 	}
 
-	public void a(lx var1) {
+	public void a(PacketPlayInSettings var1) {
 		this.bG = var1.a();
 		this.bP = var1.c();
 		this.bQ = var1.d();
 		this.H().b(10, Byte.valueOf((byte) var1.e()));
 	}
 
-	public ahg y() {
+	public EnumChatVisibility y() {
 		return this.bP;
 	}
 
@@ -786,7 +786,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 		this.bR = MinecraftServer.ax();
 	}
 
-	public tp A() {
+	public ServerStatisticsManager A() {
 		return this.bI;
 	}
 

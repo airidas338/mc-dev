@@ -18,10 +18,10 @@ public class blk extends bln {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("hasPlacedChest0", this.e[0]);
-      var1.a("hasPlacedChest1", this.e[1]);
-      var1.a("hasPlacedChest2", this.e[2]);
-      var1.a("hasPlacedChest3", this.e[3]);
+      var1.setBoolean("hasPlacedChest0", this.e[0]);
+      var1.setBoolean("hasPlacedChest1", this.e[1]);
+      var1.setBoolean("hasPlacedChest2", this.e[2]);
+      var1.setBoolean("hasPlacedChest3", this.e[3]);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -38,7 +38,7 @@ public class blk extends bln {
       int var4;
       for(var4 = 1; var4 <= 9; ++var4) {
          this.a(var1, var3, var4, var4, var4, this.a - 1 - var4, var4, this.c - 1 - var4, Blocks.A.P(), Blocks.A.P(), false);
-         this.a(var1, var3, var4 + 1, var4, var4 + 1, this.a - 2 - var4, var4, this.c - 2 - var4, Blocks.a.P(), Blocks.a.P(), false);
+         this.a(var1, var3, var4 + 1, var4, var4 + 1, this.a - 2 - var4, var4, this.c - 2 - var4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       }
 
       int var5;
@@ -55,20 +55,20 @@ public class blk extends bln {
       int var7 = this.a(Blocks.bO, 1);
       int var8 = ~akv.b.b() & 15;
       int var9 = ~akv.l.b() & 15;
-      this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.A.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.A.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 1, 10, 1, 3, 10, 3, Blocks.A.P(), Blocks.A.P(), false);
       this.a(var1, Blocks.bO.a(var4), 2, 10, 0, var3);
       this.a(var1, Blocks.bO.a(var5), 2, 10, 4, var3);
       this.a(var1, Blocks.bO.a(var14), 0, 10, 2, var3);
       this.a(var1, Blocks.bO.a(var7), 4, 10, 2, var3);
-      this.a(var1, var3, this.a - 5, 0, 0, this.a - 1, 9, 4, Blocks.A.P(), Blocks.a.P(), false);
+      this.a(var1, var3, this.a - 5, 0, 0, this.a - 1, 9, 4, Blocks.A.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, this.a - 4, 10, 1, this.a - 2, 10, 3, Blocks.A.P(), Blocks.A.P(), false);
       this.a(var1, Blocks.bO.a(var4), this.a - 3, 10, 0, var3);
       this.a(var1, Blocks.bO.a(var5), this.a - 3, 10, 4, var3);
       this.a(var1, Blocks.bO.a(var14), this.a - 5, 10, 2, var3);
       this.a(var1, Blocks.bO.a(var7), this.a - 1, 10, 2, var3);
-      this.a(var1, var3, 8, 0, 0, 12, 4, 4, Blocks.A.P(), Blocks.a.P(), false);
-      this.a(var1, var3, 9, 1, 0, 11, 3, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 8, 0, 0, 12, 4, 4, Blocks.A.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, 9, 1, 0, 11, 3, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, Blocks.A.a(bae.c.a()), 9, 1, 1, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 9, 2, 1, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 9, 3, 1, var3);
@@ -76,12 +76,12 @@ public class blk extends bln {
       this.a(var1, Blocks.A.a(bae.c.a()), 11, 3, 1, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 11, 2, 1, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 11, 1, 1, var3);
-      this.a(var1, var3, 4, 1, 1, 8, 3, 3, Blocks.A.P(), Blocks.a.P(), false);
-      this.a(var1, var3, 4, 1, 2, 8, 2, 2, Blocks.a.P(), Blocks.a.P(), false);
-      this.a(var1, var3, 12, 1, 1, 16, 3, 3, Blocks.A.P(), Blocks.a.P(), false);
-      this.a(var1, var3, 12, 1, 2, 16, 2, 2, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 4, 1, 1, 8, 3, 3, Blocks.A.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, 4, 1, 2, 8, 2, 2, Blocks.AIR.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, 12, 1, 1, 16, 3, 3, Blocks.A.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, 12, 1, 2, 16, 2, 2, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 5, 4, 5, this.a - 6, 4, this.c - 6, Blocks.A.P(), Blocks.A.P(), false);
-      this.a(var1, var3, 9, 4, 9, 11, 4, 11, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 9, 4, 9, 11, 4, 11, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 8, 1, 8, 8, 3, 8, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
       this.a(var1, var3, 12, 1, 8, 12, 3, 8, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
       this.a(var1, var3, 8, 1, 12, 8, 3, 12, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
@@ -92,14 +92,14 @@ public class blk extends bln {
       this.a(var1, var3, this.a - 7, 7, 9, this.a - 7, 7, 11, Blocks.A.P(), Blocks.A.P(), false);
       this.a(var1, var3, 5, 5, 9, 5, 7, 11, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
       this.a(var1, var3, this.a - 6, 5, 9, this.a - 6, 7, 11, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
-      this.a(var1, Blocks.a.P(), 5, 5, 10, var3);
-      this.a(var1, Blocks.a.P(), 5, 6, 10, var3);
-      this.a(var1, Blocks.a.P(), 6, 6, 10, var3);
-      this.a(var1, Blocks.a.P(), this.a - 6, 5, 10, var3);
-      this.a(var1, Blocks.a.P(), this.a - 6, 6, 10, var3);
-      this.a(var1, Blocks.a.P(), this.a - 7, 6, 10, var3);
-      this.a(var1, var3, 2, 4, 4, 2, 6, 4, Blocks.a.P(), Blocks.a.P(), false);
-      this.a(var1, var3, this.a - 3, 4, 4, this.a - 3, 6, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, Blocks.AIR.P(), 5, 5, 10, var3);
+      this.a(var1, Blocks.AIR.P(), 5, 6, 10, var3);
+      this.a(var1, Blocks.AIR.P(), 6, 6, 10, var3);
+      this.a(var1, Blocks.AIR.P(), this.a - 6, 5, 10, var3);
+      this.a(var1, Blocks.AIR.P(), this.a - 6, 6, 10, var3);
+      this.a(var1, Blocks.AIR.P(), this.a - 7, 6, 10, var3);
+      this.a(var1, var3, 2, 4, 4, 2, 6, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, this.a - 3, 4, 4, this.a - 3, 6, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, Blocks.bO.a(var4), 2, 4, 5, var3);
       this.a(var1, Blocks.bO.a(var4), 2, 3, 4, var3);
       this.a(var1, Blocks.bO.a(var4), this.a - 3, 4, 5, var3);
@@ -114,8 +114,8 @@ public class blk extends bln {
       this.a(var1, Blocks.bO.a(var14), this.a - 3, 1, 2, var3);
       this.a(var1, var3, 4, 3, 5, 4, 3, 18, Blocks.A.P(), Blocks.A.P(), false);
       this.a(var1, var3, this.a - 5, 3, 5, this.a - 5, 3, 17, Blocks.A.P(), Blocks.A.P(), false);
-      this.a(var1, var3, 3, 1, 5, 4, 2, 16, Blocks.a.P(), Blocks.a.P(), false);
-      this.a(var1, var3, this.a - 6, 1, 5, this.a - 5, 2, 16, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 3, 1, 5, 4, 2, 16, Blocks.AIR.P(), Blocks.AIR.P(), false);
+      this.a(var1, var3, this.a - 6, 1, 5, this.a - 5, 2, 16, Blocks.AIR.P(), Blocks.AIR.P(), false);
 
       int var10;
       for(var10 = 5; var10 <= 17; var10 += 2) {
@@ -188,8 +188,8 @@ public class blk extends bln {
       }
 
       this.a(var1, var3, 8, 4, 0, 12, 6, 0, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
-      this.a(var1, Blocks.a.P(), 8, 6, 0, var3);
-      this.a(var1, Blocks.a.P(), 12, 6, 0, var3);
+      this.a(var1, Blocks.AIR.P(), 8, 6, 0, var3);
+      this.a(var1, Blocks.AIR.P(), 12, 6, 0, var3);
       this.a(var1, Blocks.cu.a(var8), 9, 5, 0, var3);
       this.a(var1, Blocks.A.a(bae.b.a()), 10, 5, 0, var3);
       this.a(var1, Blocks.cu.a(var8), 11, 5, 0, var3);
@@ -197,29 +197,29 @@ public class blk extends bln {
       this.a(var1, var3, 8, -10, 8, 12, -10, 12, Blocks.A.a(bae.b.a()), Blocks.A.a(bae.b.a()), false);
       this.a(var1, var3, 8, -9, 8, 12, -9, 12, Blocks.A.a(bae.c.a()), Blocks.A.a(bae.c.a()), false);
       this.a(var1, var3, 8, -8, 8, 12, -1, 12, Blocks.A.P(), Blocks.A.P(), false);
-      this.a(var1, var3, 9, -11, 9, 11, -1, 11, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 9, -11, 9, 11, -1, 11, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, Blocks.az.P(), 10, -11, 10, var3);
-      this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.W.P(), Blocks.a.P(), false);
-      this.a(var1, Blocks.a.P(), 8, -11, 10, var3);
-      this.a(var1, Blocks.a.P(), 8, -10, 10, var3);
+      this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.W.P(), Blocks.AIR.P(), false);
+      this.a(var1, Blocks.AIR.P(), 8, -11, 10, var3);
+      this.a(var1, Blocks.AIR.P(), 8, -10, 10, var3);
       this.a(var1, Blocks.A.a(bae.b.a()), 7, -10, 10, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 7, -11, 10, var3);
-      this.a(var1, Blocks.a.P(), 12, -11, 10, var3);
-      this.a(var1, Blocks.a.P(), 12, -10, 10, var3);
+      this.a(var1, Blocks.AIR.P(), 12, -11, 10, var3);
+      this.a(var1, Blocks.AIR.P(), 12, -10, 10, var3);
       this.a(var1, Blocks.A.a(bae.b.a()), 13, -10, 10, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 13, -11, 10, var3);
-      this.a(var1, Blocks.a.P(), 10, -11, 8, var3);
-      this.a(var1, Blocks.a.P(), 10, -10, 8, var3);
+      this.a(var1, Blocks.AIR.P(), 10, -11, 8, var3);
+      this.a(var1, Blocks.AIR.P(), 10, -10, 8, var3);
       this.a(var1, Blocks.A.a(bae.b.a()), 10, -10, 7, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 10, -11, 7, var3);
-      this.a(var1, Blocks.a.P(), 10, -11, 12, var3);
-      this.a(var1, Blocks.a.P(), 10, -10, 12, var3);
+      this.a(var1, Blocks.AIR.P(), 10, -11, 12, var3);
+      this.a(var1, Blocks.AIR.P(), 10, -10, 12, var3);
       this.a(var1, Blocks.A.a(bae.b.a()), 10, -10, 13, var3);
       this.a(var1, Blocks.A.a(bae.c.a()), 10, -11, 13, var3);
       Iterator var15 = en.a.iterator();
 
       while(var15.hasNext()) {
-         ej var11 = (ej)var15.next();
+         EnumFacing var11 = (EnumFacing)var15.next();
          if(!this.e[var11.b()]) {
             int var12 = var11.g() * 2;
             int var13 = var11.i() * 2;

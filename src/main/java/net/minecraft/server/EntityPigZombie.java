@@ -25,8 +25,8 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    protected void n() {
-      this.bg.a(1, new afq(this));
-      this.bg.a(2, new afp(this));
+      this.targetSelector.a(1, new afq(this));
+      this.targetSelector.a(2, new afp(this));
    }
 
    protected void aW() {
@@ -76,19 +76,19 @@ public class EntityPigZombie extends EntityZombie {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Anger", (short)this.bl);
+      var1.setShort("Anger", (short)this.bl);
       if(this.bn != null) {
-         var1.a("HurtBy", this.bn.toString());
+         var1.setString("HurtBy", this.bn.toString());
       } else {
-         var1.a("HurtBy", "");
+         var1.setString("HurtBy", "");
       }
 
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.bl = var1.e("Anger");
-      String var2 = var1.j("HurtBy");
+      this.bl = var1.getShort("Anger");
+      String var2 = var1.getString("HurtBy");
       if(var2.length() > 0) {
          this.bn = UUID.fromString(var2);
          EntityHuman var3 = this.o.b(this.bn);
@@ -164,7 +164,7 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    protected void a(vu var1) {
-      this.c(0, new amj(Items.B));
+      this.c(0, new ItemStack(Items.B));
    }
 
    public xq a(vu var1, xq var2) {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum aym implements va {
+public enum aym implements IName {
 
    a("RED_SANDSTONE", 0, 0, "red_sandstone");
    private static final aym[] b = new aym[values().length];
@@ -31,7 +31,7 @@ public enum aym implements va {
       return b[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.d;
    }
 

@@ -25,7 +25,7 @@ public class ay extends CommandAbstract {
          if(!var4.e(var3)) {
             throw new di("commands.blockdata.outOfWorld", new Object[0]);
          } else {
-            bcm var5 = var4.s(var3);
+            TileEntity var5 = var4.s(var3);
             if(var5 == null) {
                throw new di("commands.blockdata.notValid", new Object[0]);
             } else {
@@ -41,9 +41,9 @@ public class ay extends CommandAbstract {
                }
 
                var6.a(var8);
-               var6.a("x", var3.n());
-               var6.a("y", var3.o());
-               var6.a("z", var3.p());
+               var6.setInt("x", var3.n());
+               var6.setInt("y", var3.o());
+               var6.setInt("z", var3.p());
                if(var6.equals(var7)) {
                   throw new di("commands.blockdata.failed", new Object[]{var6.toString()});
                } else {

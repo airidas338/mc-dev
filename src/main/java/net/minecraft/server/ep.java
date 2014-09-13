@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-final class ep implements eo {
+final class ep implements IDispenseBehavior {
 
-   public amj a(dz var1, amj var2) {
+   public ItemStack a(ISourceBlock var1, ItemStack var2) {
       return var2;
    }
 }

@@ -3,7 +3,7 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import java.util.Collection;
 
-public enum EnumFlowerType implements va {
+public enum EnumFlowerType implements IName {
 
    a("DANDELION", 0, awc.a, 0, "dandelion"),
    b("POPPY", 1, awc.b, 0, "poppy"),
@@ -56,7 +56,7 @@ public enum EnumFlowerType implements va {
       return this.n;
    }
 
-   public String l() {
+   public String getName() {
       return this.n;
    }
 

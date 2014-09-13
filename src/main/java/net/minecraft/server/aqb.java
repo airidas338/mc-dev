@@ -10,7 +10,7 @@ public interface aqb {
 
    void a(aqc var1);
 
-   void a_(amj var1);
+   void a_(ItemStack var1);
 
    IChatBaseComponent e_();
 }

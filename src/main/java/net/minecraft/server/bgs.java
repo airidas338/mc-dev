@@ -125,7 +125,7 @@ public class bgs extends bgt {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var31;
                               if(var50 > -0.7D && var60 * var60 + var50 * var50 + var46 * var46 < 1.0D) {
                                  IBlock var52 = var5.a(var42, var49, var59);
-                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.a.P());
+                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.AIR.P());
                                  if(var52.c() == Blocks.c || var52.c() == Blocks.bw) {
                                     var48 = true;
                                  }
@@ -134,7 +134,7 @@ public class bgs extends bgt {
                                     if(var49 - 1 < 10) {
                                        var5.a(var42, var49, var59, Blocks.l.P());
                                     } else {
-                                       var5.a(var42, var49, var59, Blocks.a.P());
+                                       var5.a(var42, var49, var59, Blocks.AIR.P());
                                        if(var53.c() == Blocks.m) {
                                           var5.a(var42, var49 + 1, var59, var53.b(BlockSand.a) == bac.b?Blocks.cM.P():Blocks.A.P());
                                        }

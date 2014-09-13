@@ -46,10 +46,10 @@ public class bc extends CommandAbstract {
                         Location var16 = var15.a((fd)var11);
                         boolean var17 = false;
                         IBlock var18 = var9.getData(var15);
-                        if(!var10 || var18.c() != Blocks.a) {
+                        if(!var10 || var18.c() != Blocks.AIR) {
                            if(var18 == var9.getData(var16)) {
-                              bcm var19 = var9.s(var15);
-                              bcm var20 = var9.s(var16);
+                              TileEntity var19 = var9.s(var15);
+                              TileEntity var20 = var9.s(var16);
                               if(var19 != null && var20 != null) {
                                  NBTTagCompound var21 = new NBTTagCompound();
                                  var19.b(var21);

@@ -9,7 +9,7 @@ public class bmb extends bmk {
 
    public bmb() {}
 
-   public bmb(int var1, Random var2, bjb var3, ej var4) {
+   public bmb(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
@@ -17,7 +17,7 @@ public class bmb extends bmk {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Mob", this.a);
+      var1.setBoolean("Mob", this.a);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -32,7 +32,7 @@ public class bmb extends bmk {
 
    }
 
-   public static bmb a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bmb a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -4, -1, 0, 11, 8, 16, var5);
       return a(var7) && bms.a(var0, var7) == null?new bmb(var6, var1, var7, var5):null;
    }
@@ -74,27 +74,27 @@ public class bmb extends bmk {
          this.a(var1, Blocks.bv.a(var5), var6, 3, 6, var3);
       }
 
-      var6 = ej.c.b();
-      int var7 = ej.d.b();
-      int var8 = ej.f.b();
-      int var9 = ej.e.b();
+      var6 = EnumFacing.NORTH.b();
+      int var7 = EnumFacing.SOUTH.b();
+      int var8 = EnumFacing.EAST.b();
+      int var9 = EnumFacing.WEST.b();
       if(this.m != null) {
          switch(blu.b[this.m.ordinal()]) {
          case 2:
-            var6 = ej.d.b();
-            var7 = ej.c.b();
+            var6 = EnumFacing.SOUTH.b();
+            var7 = EnumFacing.NORTH.b();
             break;
          case 3:
-            var6 = ej.e.b();
-            var7 = ej.f.b();
-            var8 = ej.d.b();
-            var9 = ej.c.b();
+            var6 = EnumFacing.WEST.b();
+            var7 = EnumFacing.EAST.b();
+            var8 = EnumFacing.SOUTH.b();
+            var9 = EnumFacing.NORTH.b();
             break;
          case 4:
-            var6 = ej.f.b();
-            var7 = ej.e.b();
-            var8 = ej.d.b();
-            var9 = ej.c.b();
+            var6 = EnumFacing.EAST.b();
+            var7 = EnumFacing.WEST.b();
+            var8 = EnumFacing.SOUTH.b();
+            var9 = EnumFacing.NORTH.b();
          }
       }
 
@@ -116,7 +116,7 @@ public class bmb extends bmk {
          if(var3.b((fd)var10)) {
             this.a = true;
             var1.a(var10, Blocks.ac.P(), 2);
-            bcm var11 = var1.s(var10);
+            TileEntity var11 = var1.s(var10);
             if(var11 instanceof bdg) {
                ((bdg)var11).b().a("Silverfish");
             }

@@ -31,7 +31,7 @@ public class vp implements vy {
       return this.b.n_() + this.c.n_();
    }
 
-   public boolean a(vq var1) {
+   public boolean a(IInventory var1) {
       return this.b == var1 || this.c == var1;
    }
 
@@ -47,19 +47,19 @@ public class vp implements vy {
       return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= this.b.n_()?this.c.a(var1 - this.b.n_()):this.b.a(var1);
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       return var1 >= this.b.n_()?this.c.a(var1 - this.b.n_(), var2):this.b.a(var1, var2);
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       return var1 >= this.b.n_()?this.c.b(var1 - this.b.n_()):this.b.b(var1);
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 >= this.b.n_()) {
          this.c.a(var1 - this.b.n_(), var2);
       } else {
@@ -91,7 +91,7 @@ public class vp implements vy {
       this.c.c(var1);
    }
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

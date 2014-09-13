@@ -8,10 +8,10 @@ class acs implements Predicate {
    // $FF: synthetic field
    final EntityCreature b;
    // $FF: synthetic field
-   final acr c;
+   final PathfinderGoalNearestAttackableTarget c;
 
 
-   acs(acr var1, Predicate var2, EntityCreature var3) {
+   acs(PathfinderGoalNearestAttackableTarget var1, Predicate var2, EntityCreature var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;
@@ -24,7 +24,7 @@ class acs implements Predicate {
          return false;
       } else {
          if(var1 instanceof EntityHuman) {
-            double var2 = acr.a(this.c);
+            double var2 = PathfinderGoalNearestAttackableTarget.a(this.c);
             if(var1.aw()) {
                var2 *= 0.800000011920929D;
             }
@@ -43,7 +43,7 @@ class acs implements Predicate {
             }
          }
 
-         return acr.a(this.c, var1, false);
+         return PathfinderGoalNearestAttackableTarget.a(this.c, var1, false);
       }
    }
 

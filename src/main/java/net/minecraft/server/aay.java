@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Iterator;
 
-public class aay extends aaz {
+public class aay extends Navigation {
 
    protected bpy a;
    private boolean f;
@@ -21,8 +21,8 @@ public class aay extends aaz {
       return this.b.C || this.h() && this.o() || this.b.av() && this.b instanceof EntityZombie && this.b.m instanceof EntityChicken;
    }
 
-   protected ChunkCoordinates c() {
-      return new ChunkCoordinates(this.b.s, (double)this.p(), this.b.u);
+   protected Vec3D c() {
+      return new Vec3D(this.b.s, (double)this.p(), this.b.u);
    }
 
    private int p() {
@@ -65,7 +65,7 @@ public class aay extends aaz {
 
    }
 
-   protected boolean a(ChunkCoordinates var1, ChunkCoordinates var2, int var3, int var4, int var5) {
+   protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
       int var6 = MathHelper.c(var1.a);
       int var7 = MathHelper.c(var1.c);
       double var8 = var2.a - var1.a;
@@ -126,7 +126,7 @@ public class aay extends aaz {
       }
    }
 
-   private boolean a(int var1, int var2, int var3, int var4, int var5, int var6, ChunkCoordinates var7, double var8, double var10) {
+   private boolean a(int var1, int var2, int var3, int var4, int var5, int var6, Vec3D var7, double var8, double var10) {
       int var12 = var1 - var4 / 2;
       int var13 = var3 - var6 / 2;
       if(!this.b(var12, var2, var13, var4, var5, var6, var7, var8, var10)) {
@@ -158,7 +158,7 @@ public class aay extends aaz {
       }
    }
 
-   private boolean b(int var1, int var2, int var3, int var4, int var5, int var6, ChunkCoordinates var7, double var8, double var10) {
+   private boolean b(int var1, int var2, int var3, int var4, int var5, int var6, Vec3D var7, double var8, double var10) {
       Iterator var12 = Location.a(new Location(var1, var2, var3), new Location(var1 + var4 - 1, var2 + var5 - 1, var3 + var6 - 1)).iterator();
 
       while(var12.hasNext()) {
@@ -176,7 +176,7 @@ public class aay extends aaz {
       return true;
    }
 
-   public void a(boolean var1) {
+   public void save(boolean var1) {
       this.a.c(var1);
    }
 

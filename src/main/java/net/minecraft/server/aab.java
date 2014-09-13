@@ -15,10 +15,10 @@ public class aab extends PathfinderGoal {
    }
 
    public void c() {
-      ((aay)this.a.s()).e(true);
+      ((aay)this.a.getNavigation()).e(true);
    }
 
    public void d() {
-      ((aay)this.a.s()).e(false);
+      ((aay)this.a.getNavigation()).e(false);
    }
 }

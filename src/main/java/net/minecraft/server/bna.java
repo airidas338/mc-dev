@@ -6,13 +6,13 @@ public class bna extends bnn {
 
    public bna() {}
 
-   public bna(bnk var1, int var2, Random var3, bjb var4, ej var5) {
+   public bna(bnk var1, int var2, Random var3, bjb var4, EnumFacing var5) {
       super(var1, var2);
       this.m = var5;
       this.l = var4;
    }
 
-   public static bna a(bnk var0, List var1, Random var2, int var3, int var4, int var5, ej var6, int var7) {
+   public static bna a(bnk var0, List var1, Random var2, int var3, int var4, int var5, EnumFacing var6, int var7) {
       bjb var8 = bjb.a(var3, var4, var5, 0, 0, 0, 9, 9, 6, var6);
       return a(var8) && bms.a(var1, var8) == null?new bna(var0, var7, var2, var8, var6):null;
    }
@@ -27,7 +27,7 @@ public class bna extends bnn {
          this.l.a(0, this.h - this.l.e + 9 - 1, 0);
       }
 
-      this.a(var1, var3, 1, 1, 1, 7, 5, 4, Blocks.a.P(), Blocks.a.P(), false);
+      this.a(var1, var3, 1, 1, 1, 7, 5, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
       this.a(var1, var3, 0, 0, 0, 8, 0, 5, Blocks.e.P(), Blocks.e.P(), false);
       this.a(var1, var3, 0, 5, 0, 8, 5, 5, Blocks.e.P(), Blocks.e.P(), false);
       this.a(var1, var3, 0, 6, 1, 8, 6, 4, Blocks.e.P(), Blocks.e.P(), false);
@@ -89,9 +89,9 @@ public class bna extends bnn {
       this.a(var1, Blocks.aO.P(), 4, 1, 3, var3);
       this.a(var1, Blocks.aB.P(), 4, 2, 3, var3);
       this.a(var1, Blocks.ai.P(), 7, 1, 1, var3);
-      this.a(var1, Blocks.a.P(), 1, 1, 0, var3);
-      this.a(var1, Blocks.a.P(), 1, 2, 0, var3);
-      this.a(var1, var3, var2, 1, 1, 0, ej.b(this.a(Blocks.ao, 1)));
+      this.a(var1, Blocks.AIR.P(), 1, 1, 0, var3);
+      this.a(var1, Blocks.AIR.P(), 1, 2, 0, var3);
+      this.a(var1, var3, var2, 1, 1, 0, EnumFacing.b(this.a(Blocks.ao, 1)));
       if(this.a(var1, 1, 0, -1, var3).c().r() == Material.AIR && this.a(var1, 1, -1, -1, var3).c().r() != Material.AIR) {
          this.a(var1, Blocks.aw.a(this.a(Blocks.aw, 3)), 1, 0, -1, var3);
       }

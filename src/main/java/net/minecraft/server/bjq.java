@@ -9,26 +9,26 @@ public class bjq extends bkb {
 
    public bjq() {}
 
-   public bjq(int var1, Random var2, bjb var3, ej var4) {
+   public bjq(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.l = var3;
       this.b = var2.nextInt();
    }
 
-   public static bjq a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bjq a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -1, -3, 0, 5, 10, 8, var5);
       return a(var7) && bms.a(var0, var7) == null?new bjq(var6, var1, var7, var5):null;
    }
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.b = var1.f("Seed");
+      this.b = var1.getInt("Seed");
    }
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Seed", this.b);
+      var1.setInt("Seed", this.b);
    }
 
    public boolean a(World var1, Random var2, bjb var3) {

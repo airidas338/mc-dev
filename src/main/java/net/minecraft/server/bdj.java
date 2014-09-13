@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.gson.JsonParseException;
 
-public class bdj extends bcm {
+public class bdj extends TileEntity {
 
    public final IChatBaseComponent[] a = new IChatBaseComponent[]{new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText("")};
    public int f = -1;
@@ -15,7 +15,7 @@ public class bdj extends bcm {
 
       for(int var2 = 0; var2 < 4; ++var2) {
          String var3 = hp.a(this.a[var2]);
-         var1.a("Text" + (var2 + 1), var3);
+         var1.setString("Text" + (var2 + 1), var3);
       }
 
       this.i.b(var1);
@@ -27,7 +27,7 @@ public class bdj extends bcm {
       bdk var2 = new bdk(this);
 
       for(int var3 = 0; var3 < 4; ++var3) {
-         String var4 = var1.j("Text" + (var3 + 1));
+         String var4 = var1.getString("Text" + (var3 + 1));
 
          try {
             IChatBaseComponent var5 = hp.a(var4);

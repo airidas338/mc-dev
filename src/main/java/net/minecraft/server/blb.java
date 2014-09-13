@@ -28,13 +28,13 @@ public abstract class blb extends bms {
       super(var1);
    }
 
-   public blb(ej var1, bjb var2) {
+   public blb(EnumFacing var1, bjb var2) {
       super(1);
       this.m = var1;
       this.l = var2;
    }
 
-   protected blb(int var1, ej var2, blf var3, int var4, int var5, int var6) {
+   protected blb(int var1, EnumFacing var2, blf var3, int var4, int var5, int var6) {
       super(var1);
       this.m = var2;
       this.k = var3;
@@ -42,7 +42,7 @@ public abstract class blb extends bms {
       int var8 = var7 % 5;
       int var9 = var7 / 5 % 5;
       int var10 = var7 / 25;
-      if(var2 != ej.c && var2 != ej.d) {
+      if(var2 != EnumFacing.NORTH && var2 != EnumFacing.SOUTH) {
          this.l = new bjb(0, 0, 0, var6 * 8 - 1, var5 * 4 - 1, var4 * 8 - 1);
       } else {
          this.l = new bjb(0, 0, 0, var4 * 8 - 1, var5 * 4 - 1, var6 * 8 - 1);
@@ -113,7 +113,7 @@ public abstract class blb extends bms {
          EntityGuardian var9 = new EntityGuardian(var1);
          var9.a(true);
          var9.g(var9.bt());
-         var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
+         var9.setPositionRotation((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
          var9.a(var1.E(new Location(var9)), (xq)null);
          var1.d((Entity)var9);
          return true;

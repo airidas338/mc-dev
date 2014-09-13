@@ -5,5 +5,5 @@ interface bks {
 
    boolean a(blf var1);
 
-   blb a(ej var1, blf var2, Random var3);
+   blb a(EnumFacing var1, blf var2, Random var3);
 }

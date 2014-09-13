@@ -146,8 +146,8 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
                         for(var10 = 0; var10 < 4; ++var10) {
                            if(var2.nextInt(4 - var9) == 0) {
                               var11 = var2.nextInt(3);
-                              ej var22 = ej.b(var10).d();
-                              this.a(var1, var3.a(var22.g(), var4 - 5 + var9, var22.i()), Blocks.bN, var11 << 2 | ej.b(var10).b());
+                              EnumFacing var22 = EnumFacing.b(var10).d();
+                              this.a(var1, var3.a(var22.g(), var4 - 5 + var9, var22.i()), Blocks.bN, var11 << 2 | EnumFacing.b(var10).b());
                            }
                         }
                      }

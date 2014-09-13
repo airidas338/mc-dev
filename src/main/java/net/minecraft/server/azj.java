@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum azj implements va {
+public enum azj implements IName {
 
    a("ROUGH", 0, 0, "prismarine", "rough"),
    b("BRICKS", 1, 1, "prismarine_bricks", "bricks"),
@@ -35,7 +35,7 @@ public enum azj implements va {
       return d[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

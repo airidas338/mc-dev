@@ -5,7 +5,7 @@ public class ItemArmor extends Item {
 
    private static final int[] k = new int[]{11, 16, 15, 13};
    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_helmet", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_boots"};
-   private static final eo l = new ajo();
+   private static final IDispenseBehavior l = new ajo();
    public final int b;
    public final int c;
    public final int d;
@@ -31,19 +31,19 @@ public class ItemArmor extends Item {
       return this.m;
    }
 
-   public boolean d_(amj var1) {
-      return this.m != ajp.a?false:(!var1.n()?false:(!var1.o().b("display", 10)?false:var1.o().m("display").b("color", 3)));
+   public boolean d_(ItemStack var1) {
+      return this.m != ajp.a?false:(!var1.n()?false:(!var1.o().b("display", 10)?false:var1.o().getCompound("display").b("color", 3)));
    }
 
-   public int b(amj var1) {
+   public int b(ItemStack var1) {
       if(this.m != ajp.a) {
          return -1;
       } else {
          NBTTagCompound var2 = var1.o();
          if(var2 != null) {
-            NBTTagCompound var3 = var2.m("display");
+            NBTTagCompound var3 = var2.getCompound("display");
             if(var3 != null && var3.b("color", 3)) {
-               return var3.f("color");
+               return var3.getInt("color");
             }
          }
 
@@ -51,11 +51,11 @@ public class ItemArmor extends Item {
       }
    }
 
-   public void c(amj var1) {
+   public void c(ItemStack var1) {
       if(this.m == ajp.a) {
          NBTTagCompound var2 = var1.o();
          if(var2 != null) {
-            NBTTagCompound var3 = var2.m("display");
+            NBTTagCompound var3 = var2.getCompound("display");
             if(var3.c("color")) {
                var3.o("color");
             }
@@ -64,7 +64,7 @@ public class ItemArmor extends Item {
       }
    }
 
-   public void b(amj var1, int var2) {
+   public void b(ItemStack var1, int var2) {
       if(this.m != ajp.a) {
          throw new UnsupportedOperationException("Can\'t dye non-leather!");
       } else {
@@ -74,22 +74,22 @@ public class ItemArmor extends Item {
             var1.d(var3);
          }
 
-         NBTTagCompound var4 = var3.m("display");
+         NBTTagCompound var4 = var3.getCompound("display");
          if(!var3.b("display", 10)) {
-            var3.a("display", (NBTBase)var4);
+            var3.set("display", (NBTBase)var4);
          }
 
-         var4.a("color", var2);
+         var4.setInt("color", var2);
       }
    }
 
-   public boolean a(amj var1, amj var2) {
+   public boolean a(ItemStack var1, ItemStack var2) {
       return this.m.b() == var2.b()?true:super.a(var1, var2);
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       int var4 = EntityInsentient.c(var1) - 1;
-      amj var5 = var3.q(var4);
+      ItemStack var5 = var3.q(var4);
       if(var5 == null) {
          var3.c(var4, var1.k());
          var1.b = 0;

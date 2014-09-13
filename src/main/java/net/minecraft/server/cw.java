@@ -88,7 +88,7 @@ public class cw extends CommandAbstract {
                      var15 = MathHelper.g(var15 + 180.0F);
                   }
 
-                  ((Entity)var4).b(var6.a(), var7.a(), var8.a(), var15, var12);
+                  ((Entity)var4).setPositionRotation(var6.a(), var7.a(), var8.a(), var15, var12);
                   ((Entity)var4).f(var15);
                }
 
@@ -103,7 +103,7 @@ public class cw extends CommandAbstract {
                if(var4 instanceof EntityPlayer) {
                   ((EntityPlayer)var4).a.a(var5.s, var5.t, var5.u, var5.y, var5.z);
                } else {
-                  ((Entity)var4).b(var5.s, var5.t, var5.u, var5.y, var5.z);
+                  ((Entity)var4).setPositionRotation(var5.s, var5.t, var5.u, var5.y, var5.z);
                }
 
                a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).d_(), var5.d_()});

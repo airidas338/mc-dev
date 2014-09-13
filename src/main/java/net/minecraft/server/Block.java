@@ -224,7 +224,7 @@ public class Block {
       this.G = (double)var6;
    }
 
-   public boolean b(IBlockAccess var1, Location var2, ej var3) {
+   public boolean b(IBlockAccess var1, Location var2, EnumFacing var3) {
       return var1.getData(var2).c().r().a();
    }
 
@@ -295,7 +295,7 @@ public class Block {
             if(var1.s.nextFloat() <= var4) {
                Item var8 = this.a(var3, var1.s, var5);
                if(var8 != null) {
-                  a(var1, var2, new amj(var8, 1, this.a(var3)));
+                  a(var1, var2, new ItemStack(var8, 1, this.a(var3)));
                }
             }
          }
@@ -303,7 +303,7 @@ public class Block {
       }
    }
 
-   public static void a(World var0, Location var1, amj var2) {
+   public static void a(World var0, Location var1, ItemStack var2) {
       if(!var0.D && var0.Q().b("doTileDrops")) {
          float var3 = 0.5F;
          double var4 = (double)(var0.s.nextFloat() * var3) + (double)(1.0F - var3) * 0.5D;
@@ -334,16 +334,16 @@ public class Block {
       return this.x / 5.0F;
    }
 
-   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
       this.a((IBlockAccess)var1, var2);
       var3 = var3.b((double)(-var2.n()), (double)(-var2.o()), (double)(-var2.p()));
       var4 = var4.b((double)(-var2.n()), (double)(-var2.o()), (double)(-var2.p()));
-      ChunkCoordinates var5 = var3.a(var4, this.B);
-      ChunkCoordinates var6 = var3.a(var4, this.E);
-      ChunkCoordinates var7 = var3.b(var4, this.C);
-      ChunkCoordinates var8 = var3.b(var4, this.F);
-      ChunkCoordinates var9 = var3.c(var4, this.D);
-      ChunkCoordinates var10 = var3.c(var4, this.G);
+      Vec3D var5 = var3.a(var4, this.B);
+      Vec3D var6 = var3.a(var4, this.E);
+      Vec3D var7 = var3.b(var4, this.C);
+      Vec3D var8 = var3.b(var4, this.F);
+      Vec3D var9 = var3.c(var4, this.D);
+      Vec3D var10 = var3.c(var4, this.G);
       if(!this.a(var5)) {
          var5 = null;
       }
@@ -368,7 +368,7 @@ public class Block {
          var10 = null;
       }
 
-      ChunkCoordinates var11 = null;
+      Vec3D var11 = null;
       if(var5 != null && (var11 == null || var3.g(var5) < var3.g(var11))) {
          var11 = var5;
       }
@@ -396,54 +396,54 @@ public class Block {
       if(var11 == null) {
          return null;
       } else {
-         ej var12 = null;
+         EnumFacing var12 = null;
          if(var11 == var5) {
-            var12 = ej.e;
+            var12 = EnumFacing.WEST;
          }
 
          if(var11 == var6) {
-            var12 = ej.f;
+            var12 = EnumFacing.EAST;
          }
 
          if(var11 == var7) {
-            var12 = ej.a;
+            var12 = EnumFacing.DOWN;
          }
 
          if(var11 == var8) {
-            var12 = ej.b;
+            var12 = EnumFacing.UP;
          }
 
          if(var11 == var9) {
-            var12 = ej.c;
+            var12 = EnumFacing.NORTH;
          }
 
          if(var11 == var10) {
-            var12 = ej.d;
+            var12 = EnumFacing.SOUTH;
          }
 
          return new MovingObjectPosition(var11.b((double)var2.n(), (double)var2.o(), (double)var2.p()), var12, var2);
       }
    }
 
-   private boolean a(ChunkCoordinates var1) {
+   private boolean a(Vec3D var1) {
       return var1 == null?false:var1.b >= this.C && var1.b <= this.F && var1.c >= this.D && var1.c <= this.G;
    }
 
-   private boolean b(ChunkCoordinates var1) {
+   private boolean b(Vec3D var1) {
       return var1 == null?false:var1.a >= this.B && var1.a <= this.E && var1.c >= this.D && var1.c <= this.G;
    }
 
-   private boolean c(ChunkCoordinates var1) {
+   private boolean c(Vec3D var1) {
       return var1 == null?false:var1.a >= this.B && var1.a <= this.E && var1.b >= this.C && var1.b <= this.F;
    }
 
    public void a(World var1, Location var2, aqo var3) {}
 
-   public boolean a(World var1, Location var2, ej var3, amj var4) {
+   public boolean a(World var1, Location var2, EnumFacing var3, ItemStack var4) {
       return this.a(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, ej var3) {
+   public boolean a(World var1, Location var2, EnumFacing var3) {
       return this.c(var1, var2);
    }
 
@@ -451,19 +451,19 @@ public class Block {
       return var1.getData(var2).c().J.j();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       return false;
    }
 
    public void a(World var1, Location var2, Entity var3) {}
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.a(var7);
    }
 
    public void a(World var1, Location var2, EntityHuman var3) {}
 
-   public ChunkCoordinates a(World var1, Location var2, Entity var3, ChunkCoordinates var4) {
+   public Vec3D a(World var1, Location var2, Entity var3, Vec3D var4) {
       return var4;
    }
 
@@ -493,7 +493,7 @@ public class Block {
       return this.G;
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return 0;
    }
 
@@ -503,17 +503,17 @@ public class Block {
 
    public void a(World var1, Location var2, IBlock var3, Entity var4) throws IOException {}
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, ej var4) {
+   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
       return 0;
    }
 
    public void h() {}
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, bcm var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
       var2.b(ty.H[a(this)]);
       var2.a(0.025F);
       if(this.G() && EnchantmentManager.e(var2)) {
-         amj var7 = this.i(var4);
+         ItemStack var7 = this.i(var4);
          if(var7 != null) {
             a(var1, var3, var7);
          }
@@ -528,21 +528,21 @@ public class Block {
       return this.d() && !this.A;
    }
 
-   protected amj i(IBlock var1) {
+   protected ItemStack i(IBlock var1) {
       int var2 = 0;
       Item var3 = Item.a(this);
       if(var3 != null && var3.k()) {
          var2 = this.c(var1);
       }
 
-      return new amj(var3, 1, var2);
+      return new ItemStack(var3, 1, var2);
    }
 
    public int a(int var1, Random var2) {
       return this.a(var2);
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {}
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {}
 
    public Block c(String var1) {
       this.N = var1;

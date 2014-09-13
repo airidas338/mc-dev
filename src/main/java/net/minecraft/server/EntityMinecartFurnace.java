@@ -50,7 +50,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    public void a(DamageSource var1) {
       super.a(var1);
       if(!var1.c()) {
-         this.a(new amj(Blocks.al, 1), 0.0F);
+         this.a(new ItemStack(Blocks.al, 1), 0.0F);
       }
 
    }
@@ -59,7 +59,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
       super.a(var1, var2);
       double var3 = this.a * this.a + this.b * this.b;
       if(var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
-         var3 = (double)MathHelper.a(var3);
+         var3 = (double)MathHelper.sqrt(var3);
          this.a /= var3;
          this.b /= var3;
          if(this.a * this.v + this.b * this.x < 0.0D) {
@@ -77,7 +77,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    protected void o() {
       double var1 = this.a * this.a + this.b * this.b;
       if(var1 > 1.0E-4D) {
-         var1 = (double)MathHelper.a(var1);
+         var1 = (double)MathHelper.sqrt(var1);
          this.a /= var1;
          this.b /= var1;
          double var3 = 1.0D;
@@ -96,10 +96,10 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    }
 
    public boolean e(EntityHuman var1) {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.h) {
          if(!var1.by.d && --var2.b == 0) {
-            var1.bg.a(var1.bg.c, (amj)null);
+            var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
          this.c += 3600;
@@ -112,16 +112,16 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("PushX", this.a);
-      var1.a("PushZ", this.b);
-      var1.a("Fuel", (short)this.c);
+      var1.setDouble("PushX", this.a);
+      var1.setDouble("PushZ", this.b);
+      var1.setShort("Fuel", (short)this.c);
    }
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.i("PushX");
-      this.b = var1.i("PushZ");
-      this.c = var1.e("Fuel");
+      this.a = var1.getDouble("PushX");
+      this.b = var1.getDouble("PushZ");
+      this.c = var1.getShort("Fuel");
    }
 
    protected boolean j() {
@@ -138,6 +138,6 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
    }
 
    public IBlock u() {
-      return (this.j()?Blocks.am:Blocks.al).P().a(BlockFurnace.a, ej.c);
+      return (this.j()?Blocks.am:Blocks.al).P().a(BlockFurnace.a, EnumFacing.NORTH);
    }
 }

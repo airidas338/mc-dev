@@ -6,7 +6,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
 
    private static final int[] a = new int[]{3};
    private static final int[] f = new int[]{0, 1, 2};
-   private amj[] g = new amj[4];
+   private ItemStack[] g = new ItemStack[4];
    private int h;
    private boolean[] i;
    private Item j;
@@ -68,7 +68,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
 
    private boolean n() {
       if(this.g[3] != null && this.g[3].b > 0) {
-         amj var1 = this.g[3];
+         ItemStack var1 = this.g[3];
          if(!var1.b().l(var1)) {
             return false;
          } else {
@@ -101,7 +101,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
 
    private void o() {
       if(this.n()) {
-         amj var1 = this.g[3];
+         ItemStack var1 = this.g[3];
 
          for(int var2 = 0; var2 < 3; ++var2) {
             if(this.g[var2] != null && this.g[var2].b() == Items.bz) {
@@ -120,7 +120,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
          }
 
          if(var1.b().r()) {
-            this.g[3] = new amj(var1.b().q());
+            this.g[3] = new ItemStack(var1.b().q());
          } else {
             --this.g[3].b;
             if(this.g[3].b <= 0) {
@@ -131,58 +131,58 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       }
    }
 
-   private int c(int var1, amj var2) {
-      return var2 == null?var1:(var2.b().l(var2)?ans.a(var1, var2.b().j(var2)):var1);
+   private int c(int var1, ItemStack var2) {
+      return var2 == null?var1:(var2.b().l(var2)?PotionBrewer.a(var1, var2.b().j(var2)):var1);
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      fv var2 = var1.c("Items", 10);
-      this.g = new amj[this.n_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.g = new ItemStack[this.n_()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          NBTTagCompound var4 = var2.b(var3);
-         byte var5 = var4.d("Slot");
+         byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.g.length) {
-            this.g[var5] = amj.a(var4);
+            this.g[var5] = ItemStack.a(var4);
          }
       }
 
-      this.h = var1.e("BrewTime");
+      this.h = var1.getShort("BrewTime");
       if(var1.b("CustomName", 8)) {
-         this.k = var1.j("CustomName");
+         this.k = var1.getString("CustomName");
       }
 
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("BrewTime", (short)this.h);
-      fv var2 = new fv();
+      var1.setShort("BrewTime", (short)this.h);
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          if(this.g[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
-            var4.a("Slot", (byte)var3);
+            var4.setByte("Slot", (byte)var3);
             this.g[var3].b(var4);
             var2.a((NBTBase)var4);
          }
       }
 
-      var1.a("Items", (NBTBase)var2);
+      var1.set("Items", (NBTBase)var2);
       if(this.k_()) {
-         var1.a("CustomName", this.k);
+         var1.setString("CustomName", this.k);
       }
 
    }
 
-   public amj a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= 0 && var1 < this.g.length?this.g[var1]:null;
    }
 
-   public amj a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(var1 >= 0 && var1 < this.g.length) {
-         amj var3 = this.g[var1];
+         ItemStack var3 = this.g[var1];
          this.g[var1] = null;
          return var3;
       } else {
@@ -190,9 +190,9 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       }
    }
 
-   public amj b(int var1) {
+   public ItemStack b(int var1) {
       if(var1 >= 0 && var1 < this.g.length) {
-         amj var2 = this.g[var1];
+         ItemStack var2 = this.g[var1];
          this.g[var1] = null;
          return var2;
       } else {
@@ -200,7 +200,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       }
    }
 
-   public void a(int var1, amj var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 >= 0 && var1 < this.g.length) {
          this.g[var1] = var2;
       }
@@ -219,7 +219,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
 
    public void c(EntityHuman var1) {}
 
-   public boolean b(int var1, amj var2) {
+   public boolean b(int var1, ItemStack var2) {
       return var1 == 3?var2.b().l(var2):var2.b() == Items.bz || var2.b() == Items.bA;
    }
 
@@ -235,15 +235,15 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
       return var1;
    }
 
-   public int[] a(ej var1) {
-      return var1 == ej.b?a:f;
+   public int[] a(EnumFacing var1) {
+      return var1 == EnumFacing.UP?a:f;
    }
 
-   public boolean a(int var1, amj var2, ej var3) {
+   public boolean a(int var1, ItemStack var2, EnumFacing var3) {
       return this.b(var1, var2);
    }
 
-   public boolean b(int var1, amj var2, ej var3) {
+   public boolean b(int var1, ItemStack var2, EnumFacing var3) {
       return true;
    }
 

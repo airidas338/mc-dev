@@ -5,7 +5,7 @@ import java.util.Random;
 public class bmd extends bly {
 
    public void a(bms var1, List var2, Random var3) {
-      if(this.m != ej.c && this.m != ej.f) {
+      if(this.m != EnumFacing.NORTH && this.m != EnumFacing.EAST) {
          this.b((bmh)var1, var2, var3, 1, 1);
       } else {
          this.c((bmh)var1, var2, var3, 1, 1);
@@ -19,10 +19,10 @@ public class bmd extends bly {
       } else {
          this.a(var1, var3, 0, 0, 0, 4, 4, 4, true, var2, blr.c());
          this.a(var1, var2, var3, this.d, 1, 1, 0);
-         if(this.m != ej.c && this.m != ej.f) {
-            this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.a.P(), Blocks.a.P(), false);
+         if(this.m != EnumFacing.NORTH && this.m != EnumFacing.EAST) {
+            this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.AIR.P(), Blocks.AIR.P(), false);
          } else {
-            this.a(var1, var3, 4, 1, 1, 4, 3, 3, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 4, 1, 1, 4, 3, 3, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          return true;

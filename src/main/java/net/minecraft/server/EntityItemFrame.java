@@ -10,7 +10,7 @@ public class EntityItemFrame extends EntityHanging {
       super(var1);
    }
 
-   public EntityItemFrame(World var1, Location var2, ej var3) {
+   public EntityItemFrame(World var1, Location var2, EnumFacing var3) {
       super(var1, var2);
       this.a(var3);
    }
@@ -30,7 +30,7 @@ public class EntityItemFrame extends EntityHanging {
       } else if(!var1.c() && this.o() != null) {
          if(!this.o.D) {
             this.a(var1.getEntity(), false);
-            this.a((amj)null);
+            this.a((ItemStack)null);
          }
 
          return true;
@@ -53,7 +53,7 @@ public class EntityItemFrame extends EntityHanging {
 
    public void a(Entity var1, boolean var2) {
       if(this.o.Q().b("doTileDrops")) {
-         amj var3 = this.o();
+         ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;
             if(var4.by.d) {
@@ -63,7 +63,7 @@ public class EntityItemFrame extends EntityHanging {
          }
 
          if(var2) {
-            this.a(new amj(Items.bP), 0.0F);
+            this.a(new ItemStack(Items.bP), 0.0F);
          }
 
          if(var3 != null && this.V.nextFloat() < this.c) {
@@ -75,10 +75,10 @@ public class EntityItemFrame extends EntityHanging {
       }
    }
 
-   private void b(amj var1) {
+   private void b(ItemStack var1) {
       if(var1 != null) {
          if(var1.b() == Items.bd) {
-            bqe var2 = ((ItemWorldMap)var1.b()).a(var1, this.o);
+            WorldMap var2 = ((ItemWorldMap)var1.b()).a(var1, this.o);
             var2.h.remove("frame-" + this.F());
          }
 
@@ -86,15 +86,15 @@ public class EntityItemFrame extends EntityHanging {
       }
    }
 
-   public amj o() {
+   public ItemStack o() {
       return this.H().f(8);
    }
 
-   public void a(amj var1) {
+   public void a(ItemStack var1) {
       this.a(var1, true);
    }
 
-   private void a(amj var1, boolean var2) {
+   private void a(ItemStack var1, boolean var2) {
       if(var1 != null) {
          var1 = var1.k();
          var1.b = 1;
@@ -104,7 +104,7 @@ public class EntityItemFrame extends EntityHanging {
       this.H().b(8, var1);
       this.H().i(8);
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.a);
+         this.o.e(this.a, Blocks.AIR);
       }
 
    }
@@ -120,28 +120,28 @@ public class EntityItemFrame extends EntityHanging {
    private void a(int var1, boolean var2) {
       this.H().b(9, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.a);
+         this.o.e(this.a, Blocks.AIR);
       }
 
    }
 
    public void b(NBTTagCompound var1) {
       if(this.o() != null) {
-         var1.a("Item", (NBTBase)this.o().b(new NBTTagCompound()));
-         var1.a("ItemRotation", (byte)this.p());
-         var1.a("ItemDropChance", this.c);
+         var1.set("Item", (NBTBase)this.o().b(new NBTTagCompound()));
+         var1.setByte("ItemRotation", (byte)this.p());
+         var1.setFloat("ItemDropChance", this.c);
       }
 
       super.b(var1);
    }
 
    public void a(NBTTagCompound var1) {
-      NBTTagCompound var2 = var1.m("Item");
+      NBTTagCompound var2 = var1.getCompound("Item");
       if(var2 != null && !var2.c_()) {
-         this.a(amj.a(var2), false);
-         this.a(var1.d("ItemRotation"), false);
+         this.a(ItemStack.a(var2), false);
+         this.a(var1.getByte("ItemRotation"), false);
          if(var1.b("ItemDropChance", 99)) {
-            this.c = var1.h("ItemDropChance");
+            this.c = var1.getFloat("ItemDropChance");
          }
 
          if(var1.c("Direction")) {
@@ -154,11 +154,11 @@ public class EntityItemFrame extends EntityHanging {
 
    public boolean e(EntityHuman var1) {
       if(this.o() == null) {
-         amj var2 = var1.bz();
+         ItemStack var2 = var1.bz();
          if(var2 != null && !this.o.D) {
             this.a(var2);
             if(!var1.by.d && --var2.b <= 0) {
-               var1.bg.a(var1.bg.c, (amj)null);
+               var1.bg.a(var1.bg.c, (ItemStack)null);
             }
          }
       } else if(!this.o.D) {

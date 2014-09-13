@@ -10,17 +10,17 @@ public class EntityPig extends EntityAnimal {
    public EntityPig(World var1) {
       super(var1);
       this.a(0.9F, 0.9F);
-      ((aay)this.s()).a(true);
-      this.i.a(0, new yy(this));
-      this.i.a(1, new zu(this, 1.25D));
-      this.i.a(2, this.bk = new yu(this, 0.3F));
-      this.i.a(3, new yt(this, 1.0D));
-      this.i.a(4, new aag(this, 1.2D, Items.bY, false));
-      this.i.a(4, new aag(this, 1.2D, Items.bR, false));
-      this.i.a(5, new za(this, 1.1D));
-      this.i.a(6, new zy(this, 1.0D));
-      this.i.a(7, new zh(this, EntityHuman.class, 6.0F));
-      this.i.a(8, new zx(this));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(1, new zu(this, 1.25D));
+      this.goalSelector.a(2, this.bk = new yu(this, 0.3F));
+      this.goalSelector.a(3, new yt(this, 1.0D));
+      this.goalSelector.a(4, new aag(this, 1.2D, Items.bY, false));
+      this.goalSelector.a(4, new aag(this, 1.2D, Items.bR, false));
+      this.goalSelector.a(5, new za(this, 1.1D));
+      this.goalSelector.a(6, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(7, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
+      this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
    }
 
    protected void aW() {
@@ -30,7 +30,7 @@ public class EntityPig extends EntityAnimal {
    }
 
    public boolean bV() {
-      amj var1 = ((EntityHuman)this.l).bz();
+      ItemStack var1 = ((EntityHuman)this.l).bz();
       return var1 != null && var1.b() == Items.bY;
    }
 
@@ -41,7 +41,7 @@ public class EntityPig extends EntityAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Saddle", this.cj());
+      var1.setBoolean("Saddle", this.cj());
    }
 
    public void a(NBTTagCompound var1) {
@@ -113,8 +113,8 @@ public class EntityPig extends EntityAnimal {
    public void a(EntityLightning var1) {
       if(!this.o.D) {
          EntityPigZombie var2 = new EntityPigZombie(this.o);
-         var2.c(0, new amj(Items.B));
-         var2.b(this.s, this.t, this.u, this.y, this.z);
+         var2.c(0, new ItemStack(Items.B));
+         var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
          this.o.d((Entity)var2);
          this.J();
       }
@@ -132,7 +132,7 @@ public class EntityPig extends EntityAnimal {
       return new EntityPig(this.o);
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 != null && var1.b() == Items.bR;
    }
 

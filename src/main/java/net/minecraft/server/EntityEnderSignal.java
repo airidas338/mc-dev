@@ -31,7 +31,7 @@ public class EntityEnderSignal extends Entity {
       double var5 = (double)var1.p();
       double var7 = var2 - this.s;
       double var9 = var5 - this.u;
-      float var11 = MathHelper.a(var7 * var7 + var9 * var9);
+      float var11 = MathHelper.sqrt(var7 * var7 + var9 * var9);
       if(var11 > 12.0F) {
          this.a = this.s + var7 / (double)var11 * 12.0D;
          this.c = this.u + var9 / (double)var11 * 12.0D;
@@ -54,7 +54,7 @@ public class EntityEnderSignal extends Entity {
       this.s += this.v;
       this.t += this.w;
       this.u += this.x;
-      float var1 = MathHelper.a(this.v * this.v + this.x * this.x);
+      float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       this.y = (float)(Math.atan2(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
       for(this.z = (float)(Math.atan2(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
@@ -110,7 +110,7 @@ public class EntityEnderSignal extends Entity {
          if(this.d > 80 && !this.o.D) {
             this.J();
             if(this.e) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new amj(Items.bH))));
+               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bH))));
             } else {
                this.o.b(2003, new Location(this), 0);
             }

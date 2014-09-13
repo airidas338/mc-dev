@@ -35,7 +35,7 @@ public class EntityWitherSkull extends EntityFireball {
          if(var1.d != null) {
             if(this.a != null) {
                if(var1.d.a(DamageSource.a(this.a), 8.0F)) {
-                  if(!var1.d.ai()) {
+                  if(!var1.d.isAlive()) {
                      this.a.g(5.0F);
                   } else {
                      this.a(this.a, var1.d);
@@ -54,7 +54,7 @@ public class EntityWitherSkull extends EntityFireball {
                }
 
                if(var2 > 0) {
-                  ((EntityLiving)var1.d).c(new wq(wp.v.H, 20 * var2, 1));
+                  ((EntityLiving)var1.d).c(new MobEffect(MobEffectList.v.H, 20 * var2, 1));
                }
             }
          }

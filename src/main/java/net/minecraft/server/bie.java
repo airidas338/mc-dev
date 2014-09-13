@@ -89,7 +89,7 @@ public class bie extends WorldGenerator {
                         Iterator var21 = en.a.iterator();
 
                         while(var21.hasNext()) {
-                           ej var22 = (ej)var21.next();
+                           EnumFacing var22 = (EnumFacing)var21.next();
                            if(var1.getData(var25.a(var22)).c().r().a()) {
                               ++var20;
                            }
@@ -98,9 +98,9 @@ public class bie extends WorldGenerator {
                         if(var20 == 1) {
                            var1.a(var25, Blocks.ae.f(var1, var25, Blocks.ae.P()), 2);
                            List var28 = StructurePieceTreaasure.a(c, new StructurePieceTreaasure[]{Items.cd.b(var2)});
-                           bcm var27 = var1.s(var25);
+                           TileEntity var27 = var1.s(var25);
                            if(var27 instanceof bcr) {
-                              StructurePieceTreaasure.a(var2, var28, (vq)((bcr)var27), 8);
+                              StructurePieceTreaasure.a(var2, var28, (IInventory)((bcr)var27), 8);
                            }
                            break label100;
                         }
@@ -117,7 +117,7 @@ public class bie extends WorldGenerator {
          }
 
          var1.a(var3, Blocks.ac.P(), 2);
-         bcm var23 = var1.s(var3);
+         TileEntity var23 = var1.s(var3);
          if(var23 instanceof bdg) {
             ((bdg)var23).b().a(this.a(var2));
          } else {

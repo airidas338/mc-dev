@@ -9,24 +9,24 @@ public class ItemWorldMap extends ake {
       this.a(true);
    }
 
-   public bqe a(amj var1, World var2) {
+   public WorldMap a(ItemStack var1, World var2) {
       String var3 = "map_" + var1.i();
-      bqe var4 = (bqe)var2.a(bqe.class, var3);
+      WorldMap var4 = (WorldMap)var2.a(WorldMap.class, var3);
       if(var4 == null && !var2.D) {
          var1.b(var2.b("map"));
          var3 = "map_" + var1.i();
-         var4 = new bqe(var3);
+         var4 = new WorldMap(var3);
          var4.e = 3;
          var4.a((double)var2.P().c(), (double)var2.P().e(), var4.e);
          var4.d = (byte)var2.t.q();
          var4.c();
-         var2.a(var3, (bqc)var4);
+         var2.a(var3, (PersistentBase)var4);
       }
 
       return var4;
    }
 
-   public void a(World var1, Entity var2, bqe var3) {
+   public void a(World var1, Entity var2, WorldMap var3) {
       if(var1.t.q() == var3.d && var2 instanceof EntityHuman) {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
@@ -55,7 +55,7 @@ public class ItemWorldMap extends ake {
                      int var19 = (var5 / var4 + var12 - 64) * var4;
                      int var20 = (var6 / var4 + var15 - 64) * var4;
                      HashMultiset var21 = HashMultiset.create();
-                     bfh var22 = var1.f(new Location(var19, 0, var20));
+                     Chunk var22 = var1.f(new Location(var19, 0, var20));
                      if(!var22.f()) {
                         int var23 = var19 & 15;
                         int var24 = var20 & 15;
@@ -76,7 +76,7 @@ public class ItemWorldMap extends ake {
                            for(var28 = 0; var28 < var4; ++var28) {
                               for(int var29 = 0; var29 < var4; ++var29) {
                                  int var30 = var22.b(var28 + var23, var29 + var24) + 1;
-                                 IBlock var31 = Blocks.a.P();
+                                 IBlock var31 = Blocks.AIR.P();
                                  if(var30 > 1) {
                                     do {
                                        --var30;
@@ -143,9 +143,9 @@ public class ItemWorldMap extends ake {
       }
    }
 
-   public void a(amj var1, World var2, Entity var3, int var4, boolean var5) {
+   public void a(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
       if(!var2.D) {
-         bqe var6 = this.a(var1, var2);
+         WorldMap var6 = this.a(var1, var2);
          if(var3 instanceof EntityHuman) {
             EntityHuman var7 = (EntityHuman)var3;
             var6.a(var7, var1);
@@ -158,15 +158,15 @@ public class ItemWorldMap extends ake {
       }
    }
 
-   public Packet c(amj var1, World var2, EntityHuman var3) {
+   public Packet c(ItemStack var1, World var2, EntityHuman var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void d(amj var1, World var2, EntityHuman var3) {
+   public void d(ItemStack var1, World var2, EntityHuman var3) {
       if(var1.n() && var1.o().n("map_is_scaling")) {
-         bqe var4 = Items.bd.a(var1, var2);
+         WorldMap var4 = Items.bd.a(var1, var2);
          var1.b(var2.b("map"));
-         bqe var5 = new bqe("map_" + var1.i());
+         WorldMap var5 = new WorldMap("map_" + var1.i());
          var5.e = (byte)(var4.e + 1);
          if(var5.e > 4) {
             var5.e = 4;
@@ -175,7 +175,7 @@ public class ItemWorldMap extends ake {
          var5.a((double)var4.b, (double)var4.c, var5.e);
          var5.d = var4.d;
          var5.c();
-         var2.a("map_" + var1.i(), (bqc)var5);
+         var2.a("map_" + var1.i(), (PersistentBase)var5);
       }
 
    }

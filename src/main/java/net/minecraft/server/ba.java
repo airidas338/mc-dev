@@ -74,8 +74,8 @@ public class ba extends CommandAbstract {
                               Location var22 = new Location(var21, var20, var19);
                               Location var23 = var22.a((fd)var18);
                               IBlock var24 = var12.getData(var22);
-                              if((!var13 || var24.c() != Blocks.a) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
-                                 bcm var25 = var12.s(var22);
+                              if((!var13 || var24.c() != Blocks.AIR) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
+                                 TileEntity var25 = var12.s(var22);
                                  if(var25 != null) {
                                     NBTTagCompound var26 = new NBTTagCompound();
                                     var25.b(var26);
@@ -98,9 +98,9 @@ public class ba extends CommandAbstract {
                         Iterator var29;
                         for(var29 = var17.iterator(); var29.hasNext(); var12.a(var27, Blocks.cv.P(), 2)) {
                            var27 = (Location)var29.next();
-                           bcm var34 = var12.s(var27);
-                           if(var34 instanceof vq) {
-                              ((vq)var34).l();
+                           TileEntity var34 = var12.s(var27);
+                           if(var34 instanceof IInventory) {
+                              ((IInventory)var34).l();
                            }
                         }
 
@@ -108,7 +108,7 @@ public class ba extends CommandAbstract {
 
                         while(var29.hasNext()) {
                            var27 = (Location)var29.next();
-                           var12.a(var27, Blocks.a.P(), 3);
+                           var12.a(var27, Blocks.AIR.P(), 3);
                         }
                      }
 
@@ -118,14 +118,14 @@ public class ba extends CommandAbstract {
                      var28.addAll(var16);
                      List var33 = Lists.reverse(var28);
 
-                     bcm var31;
+                     TileEntity var31;
                      bb var30;
                      Iterator var35;
                      for(var35 = var33.iterator(); var35.hasNext(); var12.a(var30.a, Blocks.cv.P(), 2)) {
                         var30 = (bb)var35.next();
                         var31 = var12.s(var30.a);
-                        if(var31 instanceof vq) {
-                           ((vq)var31).l();
+                        if(var31 instanceof IInventory) {
+                           ((IInventory)var31).l();
                         }
                      }
 
@@ -143,9 +143,9 @@ public class ba extends CommandAbstract {
                         var30 = (bb)var35.next();
                         var31 = var12.s(var30.a);
                         if(var30.c != null && var31 != null) {
-                           var30.c.a("x", var30.a.n());
-                           var30.c.a("y", var30.a.o());
-                           var30.c.a("z", var30.a.p());
+                           var30.c.setInt("x", var30.a.n());
+                           var30.c.setInt("y", var30.a.o());
+                           var30.c.setInt("z", var30.a.p());
                            var31.a(var30.c);
                            var31.o_();
                         }

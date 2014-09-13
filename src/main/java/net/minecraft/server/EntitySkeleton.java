@@ -5,22 +5,22 @@ import java.util.Calendar;
 public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    private PathfinderGoalArrowAttack b = new PathfinderGoalArrowAttack(this, 1.0D, 20, 60, 15.0F);
-   private zk c = new zk(this, EntityHuman.class, 1.2D, false);
+   private PathfinderGoalMeleeAttack c = new PathfinderGoalMeleeAttack(this, EntityHuman.class, 1.2D, false);
 
 
    public EntitySkeleton(World var1) {
       super(var1);
-      this.i.a(1, new yy(this));
-      this.i.a(2, new aab(this));
-      this.i.a(2, this.a);
-      this.i.a(3, new yx(this, 1.0D));
-      this.i.a(3, new yp(this, new afx(this), 6.0F, 1.0D, 1.2D));
-      this.i.a(4, new zy(this, 1.0D));
-      this.i.a(6, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(6, new zx(this));
-      this.bg.a(1, new aal(this, false, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityHuman.class, true));
-      this.bg.a(3, new aaq(this, EntityIronGolem.class, true));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, new aab(this));
+      this.goalSelector.a(2, this.a);
+      this.goalSelector.a(3, new yx(this, 1.0D));
+      this.goalSelector.a(3, new yp(this, new afx(this), 6.0F, 1.0D, 1.2D));
+      this.goalSelector.a(4, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(6, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
+      this.targetSelector.a(3, new aaq(this, EntityIronGolem.class, true));
       if(var1 != null && !var1.D) {
          this.n();
       }
@@ -56,7 +56,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
    public boolean r(Entity var1) {
       if(super.r(var1)) {
          if(this.ck() == 1 && var1 instanceof EntityLiving) {
-            ((EntityLiving)var1).c(new wq(wp.v.H, 200));
+            ((EntityLiving)var1).c(new MobEffect(MobEffectList.v.H, 200));
          }
 
          return true;
@@ -75,13 +75,13 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
-            amj var4 = this.p(4);
+            ItemStack var4 = this.p(4);
             if(var4 != null) {
                if(var4.e()) {
                   var4.b(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
-                     this.c(4, (amj)null);
+                     this.c(4, (ItemStack)null);
                   }
                }
 
@@ -121,7 +121,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          }
       } else if(var1.getEntity() instanceof EntityCreeper && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
-         this.a(new amj(Items.bX, 1, this.ck() == 1?1:0), 0.0F);
+         this.a(new ItemStack(Items.bX, 1, this.ck() == 1?1:0), 0.0F);
       }
 
    }
@@ -157,25 +157,25 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    protected void bp() {
       if(this.ck() == 1) {
-         this.a(new amj(Items.bX, 1, 1), 0.0F);
+         this.a(new ItemStack(Items.bX, 1, 1), 0.0F);
       }
 
    }
 
    protected void a(vu var1) {
       super.a(var1);
-      this.c(0, new amj(Items.f));
+      this.c(0, new ItemStack(Items.f));
    }
 
    public xq a(vu var1, xq var2) {
       var2 = super.a(var1, var2);
       if(this.o.t instanceof bge && this.bb().nextInt(5) > 0) {
-         this.i.a(4, this.c);
+         this.goalSelector.a(4, this.c);
          this.a(1);
-         this.c(0, new amj(Items.q));
+         this.c(0, new ItemStack(Items.q));
          this.getAttributeInstance(GenericAttributes.e).a(4.0D);
       } else {
-         this.i.a(4, this.b);
+         this.goalSelector.a(4, this.b);
          this.a(var1);
          this.b(var1);
       }
@@ -184,7 +184,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       if(this.p(4) == null) {
          Calendar var3 = this.o.Y();
          if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.c(4, new amj(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
+            this.c(4, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.aZ:Blocks.aU));
             this.bh[4] = 0.0F;
          }
       }
@@ -193,13 +193,13 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
    }
 
    public void n() {
-      this.i.a((PathfinderGoal)this.c);
-      this.i.a((PathfinderGoal)this.b);
-      amj var1 = this.bz();
+      this.goalSelector.a((PathfinderGoal)this.c);
+      this.goalSelector.a((PathfinderGoal)this.b);
+      ItemStack var1 = this.bz();
       if(var1 != null && var1.b() == Items.f) {
-         this.i.a(4, this.b);
+         this.goalSelector.a(4, this.b);
       } else {
-         this.i.a(4, this.c);
+         this.goalSelector.a(4, this.c);
       }
 
    }
@@ -243,7 +243,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("SkeletonType", 99)) {
-         byte var2 = var1.d("SkeletonType");
+         byte var2 = var1.getByte("SkeletonType");
          this.a(var2);
       }
 
@@ -252,10 +252,10 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("SkeletonType", (byte)this.ck());
+      var1.setByte("SkeletonType", (byte)this.ck());
    }
 
-   public void c(int var1, amj var2) {
+   public void c(int var1, ItemStack var2) {
       super.c(var1, var2);
       if(!this.o.D && var1 == 0) {
          this.n();

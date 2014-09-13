@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bcz extends bcm implements IUpdatePlayerListBox, vv {
+public class bcz extends TileEntity implements IUpdatePlayerListBox, vv {
 
    public int a;
    public float f;
@@ -20,7 +20,7 @@ public class bcz extends bcm implements IUpdatePlayerListBox, vv {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.k_()) {
-         var1.a("CustomName", this.p);
+         var1.setString("CustomName", this.p);
       }
 
    }
@@ -28,7 +28,7 @@ public class bcz extends bcm implements IUpdatePlayerListBox, vv {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.b("CustomName", 8)) {
-         this.p = var1.j("CustomName");
+         this.p = var1.getString("CustomName");
       }
 
    }

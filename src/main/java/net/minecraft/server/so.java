@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-class so implements bez {
+class so implements WorldBorderListener {
 
    // $FF: synthetic field
    final PlayerList a;
@@ -10,27 +10,27 @@ class so implements bez {
       this.a = var1;
    }
 
-   public void a(bfb var1, double var2) {
+   public void a(WorldBorder var1, double var2) {
       this.a.a((Packet)(new kr(var1, kt.a)));
    }
 
-   public void a(bfb var1, double var2, double var4, long var6) {
+   public void a(WorldBorder var1, double var2, double var4, long var6) {
       this.a.a((Packet)(new kr(var1, kt.b)));
    }
 
-   public void a(bfb var1, double var2, double var4) {
+   public void a(WorldBorder var1, double var2, double var4) {
       this.a.a((Packet)(new kr(var1, kt.c)));
    }
 
-   public void a(bfb var1, int var2) {
+   public void a(WorldBorder var1, int var2) {
       this.a.a((Packet)(new kr(var1, kt.e)));
    }
 
-   public void b(bfb var1, int var2) {
+   public void b(WorldBorder var1, int var2) {
       this.a.a((Packet)(new kr(var1, kt.f)));
    }
 
-   public void b(bfb var1, double var2) {}
+   public void b(WorldBorder var1, double var2) {}
 
-   public void c(bfb var1, double var2) {}
+   public void c(WorldBorder var1, double var2) {}
 }

@@ -72,8 +72,8 @@ public class DataWatcher {
       return (String)this.j(var1).b();
    }
 
-   public amj f(int var1) {
-      return (amj)this.j(var1).b();
+   public ItemStack f(int var1) {
+      return (ItemStack)this.j(var1).b();
    }
 
    private xw j(int var1) {
@@ -204,7 +204,7 @@ public class DataWatcher {
          var0.a((String)var1.b());
          break;
       case 5:
-         amj var3 = (amj)var1.b();
+         ItemStack var3 = (ItemStack)var1.b();
          var0.a(var3);
          break;
       case 6:
@@ -285,7 +285,7 @@ public class DataWatcher {
       c.put(Integer.class, Integer.valueOf(2));
       c.put(Float.class, Integer.valueOf(3));
       c.put(String.class, Integer.valueOf(4));
-      c.put(amj.class, Integer.valueOf(5));
+      c.put(ItemStack.class, Integer.valueOf(5));
       c.put(Location.class, Integer.valueOf(6));
       c.put(fa.class, Integer.valueOf(7));
    }

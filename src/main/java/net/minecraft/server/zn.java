@@ -37,7 +37,7 @@ public abstract class zn extends PathfinderGoal {
    }
 
    public void c() {
-      this.c.s().a((double)((float)this.b.n()) + 0.5D, (double)(this.b.o() + 1), (double)((float)this.b.p()) + 0.5D, this.d);
+      this.c.getNavigation().a((double)((float)this.b.n()) + 0.5D, (double)(this.b.o() + 1), (double)((float)this.b.p()) + 0.5D, this.d);
       this.e = 0;
       this.f = this.c.bb().nextInt(this.c.bb().nextInt(1200) + 1200) + 1200;
    }
@@ -49,7 +49,7 @@ public abstract class zn extends PathfinderGoal {
          this.g = false;
          ++this.e;
          if(this.e % 40 == 0) {
-            this.c.s().a((double)((float)this.b.n()) + 0.5D, (double)(this.b.o() + 1), (double)((float)this.b.p()) + 0.5D, this.d);
+            this.c.getNavigation().a((double)((float)this.b.n()) + 0.5D, (double)(this.b.o() + 1), (double)((float)this.b.p()) + 0.5D, this.d);
          }
       } else {
          this.g = true;

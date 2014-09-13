@@ -9,7 +9,7 @@ class aga extends PathfinderGoal {
    public aga(EntitySlime var1) {
       this.a = var1;
       this.a(5);
-      ((aay)var1.s()).d(true);
+      ((aay)var1.getNavigation()).d(true);
    }
 
    public boolean a() {

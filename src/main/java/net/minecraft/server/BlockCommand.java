@@ -11,7 +11,7 @@ public class BlockCommand extends atg {
       this.j(this.L.b().a(a, Boolean.valueOf(false)));
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bct();
    }
 
@@ -30,7 +30,7 @@ public class BlockCommand extends atg {
    }
 
    public void b(World var1, Location var2, IBlock var3, Random var4) {
-      bcm var5 = var1.s(var2);
+      TileEntity var5 = var1.s(var2);
       if(var5 instanceof bct) {
          ((bct)var5).b().a(var1);
          var1.e(var2, this);
@@ -42,8 +42,8 @@ public class BlockCommand extends atg {
       return 1;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
-      bcm var9 = var1.s(var2);
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      TileEntity var9 = var1.s(var2);
       return var9 instanceof bct?((bct)var9).b().a(var4):false;
    }
 
@@ -52,12 +52,12 @@ public class BlockCommand extends atg {
    }
 
    public int l(World var1, Location var2) {
-      bcm var3 = var1.s(var2);
+      TileEntity var3 = var1.s(var2);
       return var3 instanceof bct?((bct)var3).b().j():0;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
-      bcm var6 = var1.s(var2);
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+      TileEntity var6 = var1.s(var2);
       if(var6 instanceof bct) {
          aqf var7 = ((bct)var6).b();
          if(var5.s()) {
@@ -96,7 +96,7 @@ public class BlockCommand extends atg {
       return new bed(this, new bex[]{a});
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, Boolean.valueOf(false));
    }
 

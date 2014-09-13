@@ -5,12 +5,12 @@ class aik extends ajk {
    private EntityHuman a;
 
 
-   public aik(EntityHuman var1, vq var2, int var3, int var4, int var5) {
+   public aik(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       return b_(var1);
    }
 
@@ -18,7 +18,7 @@ class aik extends ajk {
       return 1;
    }
 
-   public void a(EntityHuman var1, amj var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       if(var2.b() == Items.bz && var2.i() > 0) {
          this.a.b((tq)tl.B);
       }
@@ -26,7 +26,7 @@ class aik extends ajk {
       super.a(var1, var2);
    }
 
-   public static boolean b_(amj var0) {
+   public static boolean b_(ItemStack var0) {
       return var0 != null && (var0.b() == Items.bz || var0.b() == Items.bA);
    }
 }

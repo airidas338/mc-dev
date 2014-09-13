@@ -39,7 +39,7 @@ public class af {
 
    public void a(NBTTagCompound var1) {
       if(var1.b("CommandStats", 10)) {
-         NBTTagCompound var2 = var1.m("CommandStats");
+         NBTTagCompound var2 = var1.getCompound("CommandStats");
          ag[] var3 = ag.values();
          int var4 = var3.length;
 
@@ -48,8 +48,8 @@ public class af {
             String var7 = var6.b() + "Name";
             String var8 = var6.b() + "Objective";
             if(var2.b(var7, 8) && var2.b(var8, 8)) {
-               String var9 = var2.j(var7);
-               String var10 = var2.j(var8);
+               String var9 = var2.getString(var7);
+               String var10 = var2.getString(var8);
                a(this, var6, var9, var10);
             }
          }
@@ -67,13 +67,13 @@ public class af {
          String var7 = this.c[var6.a()];
          String var8 = this.d[var6.a()];
          if(var7 != null && var8 != null) {
-            var2.a(var6.b() + "Name", var7);
-            var2.a(var6.b() + "Objective", var8);
+            var2.setString(var6.b() + "Name", var7);
+            var2.setString(var6.b() + "Objective", var8);
          }
       }
 
       if(!var2.c_()) {
-         var1.a("CommandStats", (NBTBase)var2);
+         var1.set("CommandStats", (NBTBase)var2);
       }
 
    }

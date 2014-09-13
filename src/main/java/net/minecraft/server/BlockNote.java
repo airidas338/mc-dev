@@ -14,7 +14,7 @@ public class BlockNote extends atg {
 
    public void a(World var1, Location var2, IBlock var3, Block var4) {
       boolean var5 = var1.z(var2);
-      bcm var6 = var1.s(var2);
+      TileEntity var6 = var1.s(var2);
       if(var6 instanceof bdi) {
          bdi var7 = (bdi)var6;
          if(var7.f != var5) {
@@ -28,11 +28,11 @@ public class BlockNote extends atg {
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.D) {
          return true;
       } else {
-         bcm var9 = var1.s(var2);
+         TileEntity var9 = var1.s(var2);
          if(var9 instanceof bdi) {
             bdi var10 = (bdi)var9;
             var10.b();
@@ -45,7 +45,7 @@ public class BlockNote extends atg {
 
    public void a(World var1, Location var2, EntityHuman var3) {
       if(!var1.D) {
-         bcm var4 = var1.s(var2);
+         TileEntity var4 = var1.s(var2);
          if(var4 instanceof bdi) {
             ((bdi)var4).a(var1, var2);
          }
@@ -53,7 +53,7 @@ public class BlockNote extends atg {
       }
    }
 
-   public bcm a(World var1, int var2) {
+   public TileEntity a(World var1, int var2) {
       return new bdi();
    }
 

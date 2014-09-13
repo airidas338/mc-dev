@@ -12,7 +12,7 @@ public class ItemBow extends Item {
       this.a(CreativeModeTab.j);
    }
 
-   public void a(amj var1, World var2, EntityHuman var3, int var4) {
+   public void a(ItemStack var1, World var2, EntityHuman var3, int var4) {
       boolean var5 = var3.by.d || EnchantmentManager.a(apf.y.B, var1) > 0;
       if(var5 || var3.bg.b(Items.g)) {
          int var6 = this.d(var1) - var4;
@@ -61,19 +61,19 @@ public class ItemBow extends Item {
 
    }
 
-   public amj b(amj var1, World var2, EntityHuman var3) {
+   public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
       return var1;
    }
 
-   public int d(amj var1) {
+   public int d(ItemStack var1) {
       return 72000;
    }
 
-   public ano e(amj var1) {
+   public ano e(ItemStack var1) {
       return ano.e;
    }
 
-   public amj a(amj var1, World var2, EntityHuman var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(var3.by.d || var3.bg.b(Items.g)) {
          var3.a(var1, this.d(var1));
       }

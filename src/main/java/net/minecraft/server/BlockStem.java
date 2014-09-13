@@ -11,7 +11,7 @@ public class BlockStem extends BlockPlant implements atz {
 
 
    protected BlockStem(Block var1) {
-      this.j(this.L.b().a(a, Integer.valueOf(0)).a(b, ej.b));
+      this.j(this.L.b().a(a, Integer.valueOf(0)).a(b, EnumFacing.UP));
       this.M = var1;
       this.a(true);
       float var2 = 0.125F;
@@ -20,11 +20,11 @@ public class BlockStem extends BlockPlant implements atz {
    }
 
    public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
-      var1 = var1.a(b, ej.b);
+      var1 = var1.a(b, EnumFacing.UP);
       Iterator var4 = en.a.iterator();
 
       while(var4.hasNext()) {
-         ej var5 = (ej)var4.next();
+         EnumFacing var5 = (EnumFacing)var4.next();
          if(var2.getData(var3.a(var5)).c() == this.M) {
             var1 = var1.a(b, var5);
             break;
@@ -51,7 +51,7 @@ public class BlockStem extends BlockPlant implements atz {
                Iterator var7 = en.a.iterator();
 
                while(var7.hasNext()) {
-                  ej var8 = (ej)var7.next();
+                  EnumFacing var8 = (EnumFacing)var7.next();
                   if(var1.getData(var2.a(var8)).c() == this.M) {
                      return;
                   }
@@ -93,7 +93,7 @@ public class BlockStem extends BlockPlant implements atz {
 
             for(int var8 = 0; var8 < 3; ++var8) {
                if(var1.s.nextInt(15) <= var7) {
-                  a(var1, var2, new amj(var6));
+                  a(var1, var2, new ItemStack(var6));
                }
             }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class acd extends zk {
+class acd extends PathfinderGoalMeleeAttack {
 
    public acd(EntityRabbit var1) {
       super(var1, EntityLiving.class, 1.4D, true);

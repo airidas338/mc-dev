@@ -12,7 +12,7 @@ class afe extends PathfinderGoal {
    }
 
    public boolean a() {
-      yn var1 = this.a.q();
+      ControllerMove var1 = this.a.q();
       if(!var1.a()) {
          return true;
       } else {

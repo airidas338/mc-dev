@@ -25,7 +25,7 @@ class aet extends PathfinderGoal {
       Block var8 = var2.getData(var6.b()).c();
       if(this.a(var2, var6, this.a.ck().c(), var7, var8)) {
          var2.a(var6, this.a.ck(), 3);
-         this.a.a(Blocks.a.P());
+         this.a.a(Blocks.AIR.P());
       }
 
    }

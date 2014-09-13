@@ -8,7 +8,7 @@ public class BlockCocoa extends avb implements atz {
 
    public BlockCocoa() {
       super(Material.PLANT);
-      this.j(this.L.b().a(N, ej.c).a(a, Integer.valueOf(0)));
+      this.j(this.L.b().a(N, EnumFacing.NORTH).a(a, Integer.valueOf(0)));
       this.a(true);
    }
 
@@ -25,7 +25,7 @@ public class BlockCocoa extends avb implements atz {
    }
 
    public boolean e(World var1, Location var2, IBlock var3) {
-      var2 = var2.a((ej)var3.b(N));
+      var2 = var2.a((EnumFacing)var3.b(N));
       IBlock var4 = var1.getData(var2);
       return var4.c() == Blocks.r && var4.b(BlockWood.a) == ayx.d;
    }
@@ -45,7 +45,7 @@ public class BlockCocoa extends avb implements atz {
 
    public void a(IBlockAccess var1, Location var2) {
       IBlock var3 = var1.getData(var2);
-      ej var4 = (ej)var3.b(N);
+      EnumFacing var4 = (EnumFacing)var3.b(N);
       int var5 = ((Integer)var3.b(a)).intValue();
       int var6 = 4 + var5 * 2;
       int var7 = 5 + var5 * 2;
@@ -66,14 +66,14 @@ public class BlockCocoa extends avb implements atz {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, amj var5) {
-      ej var6 = ej.a((double)var4.y);
+   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+      EnumFacing var6 = EnumFacing.a((double)var4.y);
       var1.a(var2, var3.a(N, var6), 2);
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.k().c()) {
-         var3 = ej.c;
+         var3 = EnumFacing.NORTH;
       }
 
       return this.P().a(N, var3.d()).a(a, Integer.valueOf(0));
@@ -87,7 +87,7 @@ public class BlockCocoa extends avb implements atz {
    }
 
    private void f(World var1, Location var2, IBlock var3) {
-      var1.a(var2, Blocks.a.P(), 3);
+      var1.a(var2, Blocks.AIR.P(), 3);
       this.b(var1, var2, var3, 0);
    }
 
@@ -99,7 +99,7 @@ public class BlockCocoa extends avb implements atz {
       }
 
       for(int var8 = 0; var8 < var7; ++var8) {
-         a(var1, var2, new amj(Items.aW, 1, akv.m.b()));
+         a(var1, var2, new ItemStack(Items.aW, 1, akv.m.b()));
       }
 
    }
@@ -121,12 +121,12 @@ public class BlockCocoa extends avb implements atz {
    }
 
    public IBlock a(int var1) {
-      return this.P().a(N, ej.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
+      return this.P().a(N, EnumFacing.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
    }
 
    public int c(IBlock var1) {
       byte var2 = 0;
-      int var3 = var2 | ((ej)var1.b(N)).b();
+      int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       var3 |= ((Integer)var1.b(a)).intValue() << 2;
       return var3;
    }

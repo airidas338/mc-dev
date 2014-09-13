@@ -94,17 +94,17 @@ public class bn extends CommandAbstract {
                            }
                         } else if(var16 != var7.n() && var16 != var8.n() && var15 != var7.o() && var15 != var8.o() && var14 != var7.p() && var14 != var8.p()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a(var17, Blocks.a.P(), 2);
+                              var10.a(var17, Blocks.AIR.P(), 2);
                               var24.add(var17);
                            }
                            continue;
                         }
                      }
 
-                     bcm var28 = var10.s(var17);
+                     TileEntity var28 = var10.s(var17);
                      if(var28 != null) {
-                        if(var28 instanceof vq) {
-                           ((vq)var28).l();
+                        if(var28 instanceof IInventory) {
+                           ((IInventory)var28).l();
                         }
 
                         var10.a(var17, Blocks.cv.P(), var5 == Blocks.cv?2:4);
@@ -115,11 +115,11 @@ public class bn extends CommandAbstract {
                         var24.add(var17);
                         ++var9;
                         if(var22) {
-                           bcm var20 = var10.s(var17);
+                           TileEntity var20 = var10.s(var17);
                            if(var20 != null) {
-                              var23.a("x", var17.n());
-                              var23.a("y", var17.o());
-                              var23.a("z", var17.p());
+                              var23.setInt("x", var17.n());
+                              var23.setInt("y", var17.o());
+                              var23.setInt("z", var17.p());
                               var20.a(var23);
                            }
                         }

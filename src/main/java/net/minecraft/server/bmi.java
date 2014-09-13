@@ -10,7 +10,7 @@ public class bmi extends bmk {
 
    public bmi() {}
 
-   public bmi(int var1, Random var2, bjb var3, ej var4) {
+   public bmi(int var1, Random var2, bjb var3, EnumFacing var4) {
       super(var1);
       this.m = var4;
       this.d = this.a(var2);
@@ -21,8 +21,8 @@ public class bmi extends bmk {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Left", this.a);
-      var1.a("Right", this.b);
+      var1.setBoolean("Left", this.a);
+      var1.setBoolean("Right", this.b);
    }
 
    protected void b(NBTTagCompound var1) {
@@ -43,7 +43,7 @@ public class bmi extends bmk {
 
    }
 
-   public static bmi a(List var0, Random var1, int var2, int var3, int var4, ej var5, int var6) {
+   public static bmi a(List var0, Random var1, int var2, int var3, int var4, EnumFacing var5, int var6) {
       bjb var7 = bjb.a(var2, var3, var4, -1, -1, 0, 5, 5, 7, var5);
       return a(var7) && bms.a(var0, var7) == null?new bmi(var6, var1, var7, var5):null;
    }
@@ -60,11 +60,11 @@ public class bmi extends bmk {
          this.a(var1, var3, var2, 0.1F, 1, 2, 5, Blocks.aa.P());
          this.a(var1, var3, var2, 0.1F, 3, 2, 5, Blocks.aa.P());
          if(this.a) {
-            this.a(var1, var3, 0, 1, 2, 0, 3, 4, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 0, 1, 2, 0, 3, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          if(this.b) {
-            this.a(var1, var3, 4, 1, 2, 4, 3, 4, Blocks.a.P(), Blocks.a.P(), false);
+            this.a(var1, var3, 4, 1, 2, 4, 3, 4, Blocks.AIR.P(), Blocks.AIR.P(), false);
          }
 
          return true;

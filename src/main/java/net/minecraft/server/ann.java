@@ -25,7 +25,7 @@ public class ann extends aju {
       return this;
    }
 
-   public String e_(amj var1) {
+   public String e_(ItemStack var1) {
       if(this.c == null) {
          return super.e_(var1);
       } else {

@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class ajb extends aib {
 
    public ain a = new ain(this, 2, 2);
-   public vq f = new aji();
+   public IInventory f = new aji();
    public boolean g;
    private final EntityHuman h;
 
@@ -35,10 +35,10 @@ public class ajb extends aib {
          this.a(new ajk(var1, var4, 8 + var4 * 18, 142));
       }
 
-      this.a((vq)this.a);
+      this.a((IInventory)this.a);
    }
 
-   public void a(vq var1) {
+   public void a(IInventory var1) {
       this.f.a(0, aop.a().a(this.a, this.h.o));
    }
 
@@ -46,24 +46,24 @@ public class ajb extends aib {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         amj var3 = this.a.b(var2);
+         ItemStack var3 = this.a.b(var2);
          if(var3 != null) {
             var1.a(var3, false);
          }
       }
 
-      this.f.a(0, (amj)null);
+      this.f.a(0, (ItemStack)null);
    }
 
    public boolean a(EntityHuman var1) {
       return true;
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 0) {
             if(!this.a(var5, 9, 45, true)) {
@@ -97,7 +97,7 @@ public class ajb extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
@@ -112,7 +112,7 @@ public class ajb extends aib {
       return var3;
    }
 
-   public boolean a(amj var1, ajk var2) {
+   public boolean a(ItemStack var1, ajk var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 }

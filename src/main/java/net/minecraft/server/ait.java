@@ -6,12 +6,12 @@ class ait extends ajk {
    final aiq a;
 
 
-   ait(aiq var1, vq var2, int var3, int var4, int var5) {
+   ait(aiq var1, IInventory var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
 
-   public boolean a(amj var1) {
+   public boolean a(ItemStack var1) {
       return var1.b() == Items.aW && akv.a(var1.i()) == akv.l;
    }
 }

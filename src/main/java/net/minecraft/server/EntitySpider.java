@@ -7,20 +7,20 @@ public class EntitySpider extends EntityMonster {
    public EntitySpider(World var1) {
       super(var1);
       this.a(1.4F, 0.9F);
-      this.i.a(1, new yy(this));
-      this.i.a(2, this.a);
-      this.i.a(3, new zg(this, 0.4F));
-      this.i.a(4, new agf(this, EntityHuman.class));
-      this.i.a(4, new agf(this, EntityIronGolem.class));
-      this.i.a(5, new zy(this, 0.8D));
-      this.i.a(6, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(6, new zx(this));
-      this.bg.a(1, new aal(this, false, new Class[0]));
-      this.bg.a(2, new agh(this, EntityHuman.class));
-      this.bg.a(3, new agh(this, EntityIronGolem.class));
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, this.a);
+      this.goalSelector.a(3, new zg(this, 0.4F));
+      this.goalSelector.a(4, new agf(this, EntityHuman.class));
+      this.goalSelector.a(4, new agf(this, EntityIronGolem.class));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 0.8D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(6, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+      this.targetSelector.a(2, new agh(this, EntityHuman.class));
+      this.targetSelector.a(3, new agh(this, EntityIronGolem.class));
    }
 
-   protected aaz b(World var1) {
+   protected Navigation b(World var1) {
       return new aba(this, var1);
    }
 
@@ -81,8 +81,8 @@ public class EntitySpider extends EntityMonster {
       return xs.c;
    }
 
-   public boolean d(wq var1) {
-      return var1.a() == wp.u.H?false:super.d(var1);
+   public boolean d(MobEffect var1) {
+      return var1.getEffectId() == MobEffectList.u.H?false:super.d(var1);
    }
 
    public boolean n() {
@@ -104,7 +104,7 @@ public class EntitySpider extends EntityMonster {
       Object var4 = super.a(var1, var2);
       if(this.o.s.nextInt(100) == 0) {
          EntitySkeleton var3 = new EntitySkeleton(this.o);
-         var3.b(this.s, this.t, this.u, this.y, 0.0F);
+         var3.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
          var3.a(var1, (xq)null);
          this.o.d((Entity)var3);
          var3.a((Entity)this);
@@ -119,8 +119,8 @@ public class EntitySpider extends EntityMonster {
 
       if(var4 instanceof agg) {
          int var5 = ((agg)var4).a;
-         if(var5 > 0 && wp.a[var5] != null) {
-            this.c(new wq(var5, Integer.MAX_VALUE));
+         if(var5 > 0 && MobEffectList.a[var5] != null) {
+            this.c(new MobEffect(var5, Integer.MAX_VALUE));
          }
       }
 

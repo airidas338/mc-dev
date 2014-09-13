@@ -14,7 +14,7 @@ public class BlockPressurePlateWeighed extends ath {
    }
 
    protected int e(World var1, Location var2) {
-      int var3 = Math.min(var1.a(Entity.class, this.a(var2)).size(), this.b);
+      int var3 = Math.min(var1.getEntities(Entity.class, this.a(var2)).size(), this.b);
       if(var3 > 0) {
          float var4 = (float)Math.min(this.b, var3) / (float)this.b;
          return MathHelper.f(var4 * 15.0F);

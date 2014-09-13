@@ -9,9 +9,9 @@ public class bfu {
    public bfn e;
    public bfn f;
    public byte[] g;
-   public fv h;
-   public fv i;
-   public fv j;
+   public NBTTagList h;
+   public NBTTagList i;
+   public NBTTagList j;
    public final int k;
    public final int l;
 

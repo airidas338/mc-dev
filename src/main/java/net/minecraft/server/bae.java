@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public enum bae implements va {
+public enum bae implements IName {
 
    a("DEFAULT", 0, 0, "sandstone", "default"),
    b("CHISELED", 1, 1, "chiseled_sandstone", "chiseled"),
@@ -35,7 +35,7 @@ public enum bae implements va {
       return d[var0];
    }
 
-   public String l() {
+   public String getName() {
       return this.f;
    }
 

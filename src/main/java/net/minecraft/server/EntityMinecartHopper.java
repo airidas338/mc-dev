@@ -37,7 +37,7 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    public boolean e(EntityHuman var1) {
       if(!this.o.D) {
-         var1.a((vq)this);
+         var1.a((IInventory)this);
       }
 
       return true;
@@ -77,7 +77,7 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    public void s_() throws IOException {
       super.s_();
-      if(!this.o.D && this.ai() && this.y()) {
+      if(!this.o.D && this.isAlive() && this.y()) {
          Location var1 = new Location(this);
          if(var1.equals(this.c)) {
             --this.b;
@@ -100,9 +100,9 @@ public class EntityMinecartHopper extends aed implements bdd {
       if(bde.a((bdd)this)) {
          return true;
       } else {
-         List var1 = this.o.a(EntityItem.class, this.aQ().b(0.25D, 0.0D, 0.25D), xe.a);
+         List var1 = this.o.a(EntityItem.class, this.aQ().b(0.25D, 0.0D, 0.25D), EntitySelectors.a);
          if(var1.size() > 0) {
-            bde.a((vq)this, (EntityItem)var1.get(0));
+            bde.a((IInventory)this, (EntityItem)var1.get(0));
          }
 
          return false;
@@ -116,12 +116,12 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("TransferCooldown", this.b);
+      var1.setInt("TransferCooldown", this.b);
    }
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      this.b = var1.f("TransferCooldown");
+      this.b = var1.getInt("TransferCooldown");
    }
 
    public void m(int var1) {

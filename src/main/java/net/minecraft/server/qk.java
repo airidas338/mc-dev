@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class qk extends qx {
+public class qk extends PlayerInteractManager {
 
    private boolean c;
    private boolean d;
@@ -53,7 +53,7 @@ public class qk extends qx {
 
    }
 
-   public void a(Location var1, ej var2) {
+   public void a(Location var1, EnumFacing var2) {
       if(this.d) {
          this.f();
       } else {
@@ -71,7 +71,7 @@ public class qk extends qx {
       return this.d?false:super.b(var1);
    }
 
-   public boolean a(EntityHuman var1, World var2, amj var3) {
+   public boolean a(EntityHuman var1, World var2, ItemStack var3) {
       if(this.d) {
          this.f();
          return false;
@@ -80,7 +80,7 @@ public class qk extends qx {
       }
    }
 
-   public boolean a(EntityHuman var1, World var2, amj var3, Location var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(EntityHuman var1, World var2, ItemStack var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.d) {
          this.f();
          return false;

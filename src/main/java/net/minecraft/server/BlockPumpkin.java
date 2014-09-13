@@ -11,7 +11,7 @@ public class BlockPumpkin extends avb {
 
    protected BlockPumpkin() {
       super(Material.PUMPKIN);
-      this.j(this.L.b().a(N, ej.c));
+      this.j(this.L.b().a(N, EnumFacing.NORTH));
       this.a(true);
       this.a(CreativeModeTab.b);
    }
@@ -32,12 +32,12 @@ public class BlockPumpkin extends avb {
       if((var3 = this.l().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.l().b(); ++var4) {
             bei var5 = var3.a(0, var4, 0);
-            var1.a(var5.d(), Blocks.a.P(), 2);
+            var1.a(var5.d(), Blocks.AIR.P(), 2);
          }
 
          EntitySnowman var9 = new EntitySnowman(var1);
          Location var10 = var3.a(0, 2, 0).d();
-         var9.b((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
+         var9.setPositionRotation((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var9);
 
          for(var6 = 0; var6 < 120; ++var6) {
@@ -46,19 +46,19 @@ public class BlockPumpkin extends avb {
 
          for(var6 = 0; var6 < this.l().b(); ++var6) {
             bei var7 = var3.a(0, var6, 0);
-            var1.b(var7.d(), Blocks.a);
+            var1.b(var7.d(), Blocks.AIR);
          }
       } else if((var3 = this.T().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.T().c(); ++var4) {
             for(int var11 = 0; var11 < this.T().b(); ++var11) {
-               var1.a(var3.a(var4, var11, 0).d(), Blocks.a.P(), 2);
+               var1.a(var3.a(var4, var11, 0).d(), Blocks.AIR.P(), 2);
             }
          }
 
          Location var12 = var3.a(1, 2, 0).d();
          EntityIronGolem var13 = new EntityIronGolem(var1);
          var13.l(true);
-         var13.b((double)var12.n() + 0.5D, (double)var12.o() + 0.05D, (double)var12.p() + 0.5D, 0.0F, 0.0F);
+         var13.setPositionRotation((double)var12.n() + 0.5D, (double)var12.o() + 0.05D, (double)var12.p() + 0.5D, 0.0F, 0.0F);
          var1.d((Entity)var13);
 
          for(var6 = 0; var6 < 120; ++var6) {
@@ -68,7 +68,7 @@ public class BlockPumpkin extends avb {
          for(var6 = 0; var6 < this.T().c(); ++var6) {
             for(int var14 = 0; var14 < this.T().b(); ++var14) {
                bei var8 = var3.a(var6, var14, 0);
-               var1.b(var8.d(), Blocks.a);
+               var1.b(var8.d(), Blocks.AIR);
             }
          }
       }
@@ -79,16 +79,16 @@ public class BlockPumpkin extends avb {
       return var1.getData(var2).c().J.j() && World.a((IBlockAccess)var1, var2.b());
    }
 
-   public IBlock a(World var1, Location var2, ej var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 
    public IBlock a(int var1) {
-      return this.P().a(N, ej.b(var1));
+      return this.P().a(N, EnumFacing.b(var1));
    }
 
    public int c(IBlock var1) {
-      return ((ej)var1.b(N)).b();
+      return ((EnumFacing)var1.b(N)).b();
    }
 
    protected bed e() {
@@ -113,7 +113,7 @@ public class BlockPumpkin extends avb {
 
    protected bek S() {
       if(this.M == null) {
-         this.M = ben.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.a))).b();
+         this.M = ben.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.M;
@@ -121,7 +121,7 @@ public class BlockPumpkin extends avb {
 
    protected bek T() {
       if(this.O == null) {
-         this.O = ben.a().a(new String[]{"~^~", "###", "~#~"}).a('^', bei.a(beq.a(Blocks.aU))).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.a))).b();
+         this.O = ben.a().a(new String[]{"~^~", "###", "~#~"}).a('^', bei.a(beq.a(Blocks.aU))).a('#', bei.a(beq.a(Blocks.S))).a('~', bei.a(beq.a(Blocks.AIR))).b();
       }
 
       return this.O;

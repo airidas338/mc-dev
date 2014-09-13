@@ -61,7 +61,7 @@ public class cy extends CommandAbstract {
                   }
 
                   if(var8) {
-                     bcm var15 = var6.s(var3);
+                     TileEntity var15 = var6.s(var3);
                      if(var15 == null) {
                         throw new di("commands.testforblock.failed.tileEntity", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
                      }
@@ -107,9 +107,9 @@ public class cy extends CommandAbstract {
          } while(a(var13, var10.a(var12), var2));
 
          return false;
-      } else if(var0 instanceof fv && var2) {
-         fv var3 = (fv)var0;
-         fv var4 = (fv)var1;
+      } else if(var0 instanceof NBTTagList && var2) {
+         NBTTagList var3 = (NBTTagList)var0;
+         NBTTagList var4 = (NBTTagList)var1;
          if(var3.c() == 0) {
             return var4.c() == 0;
          } else {

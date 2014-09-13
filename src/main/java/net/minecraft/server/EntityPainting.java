@@ -12,7 +12,7 @@ public class EntityPainting extends EntityHanging {
       super(var1);
    }
 
-   public EntityPainting(World var1, Location var2, ej var3) {
+   public EntityPainting(World var1, Location var2, EnumFacing var3) {
       super(var1, var2);
       ArrayList var4 = Lists.newArrayList();
       adn[] var5 = adn.values();
@@ -35,12 +35,12 @@ public class EntityPainting extends EntityHanging {
    }
 
    public void b(NBTTagCompound var1) {
-      var1.a("Motive", this.c.B);
+      var1.setString("Motive", this.c.B);
       super.b(var1);
    }
 
    public void a(NBTTagCompound var1) {
-      String var2 = var1.j("Motive");
+      String var2 = var1.getString("Motive");
       adn[] var3 = adn.values();
       int var4 = var3.length;
 
@@ -75,11 +75,11 @@ public class EntityPainting extends EntityHanging {
             }
          }
 
-         this.a(new amj(Items.an), 0.0F);
+         this.a(new ItemStack(Items.an), 0.0F);
       }
    }
 
-   public void b(double var1, double var3, double var5, float var7, float var8) {
+   public void setPositionRotation(double var1, double var3, double var5, float var7, float var8) {
       Location var9 = new Location(var1 - this.s, var3 - this.t, var5 - this.u);
       Location var10 = this.a.a((fd)var9);
       this.b((double)var10.n(), (double)var10.o(), (double)var10.p());

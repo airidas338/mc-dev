@@ -13,7 +13,7 @@ class yq implements Predicate {
    }
 
    public boolean a(Entity var1) {
-      return var1.ai() && this.a.b.t().a(var1);
+      return var1.isAlive() && this.a.b.t().a(var1);
    }
 
    // $FF: synthetic method

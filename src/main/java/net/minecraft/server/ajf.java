@@ -40,7 +40,7 @@ public class ajf extends aib {
       super.b();
    }
 
-   public void a(vq var1) {
+   public void a(IInventory var1) {
       this.f.h();
       super.a(var1);
    }
@@ -53,11 +53,11 @@ public class ajf extends aib {
       return this.a.u_() == var1;
    }
 
-   public amj b(EntityHuman var1, int var2) {
-      amj var3 = null;
+   public ItemStack b(EntityHuman var1, int var2) {
+      ItemStack var3 = null;
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         amj var5 = var4.d();
+         ItemStack var5 = var4.d();
          var3 = var5.k();
          if(var2 == 2) {
             if(!this.a(var5, 3, 39, true)) {
@@ -78,7 +78,7 @@ public class ajf extends aib {
          }
 
          if(var5.b == 0) {
-            var4.d((amj)null);
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
@@ -98,7 +98,7 @@ public class ajf extends aib {
       this.a.a_((EntityHuman)null);
       super.b(var1);
       if(!this.g.D) {
-         amj var2 = this.f.b(0);
+         ItemStack var2 = this.f.b(0);
          if(var2 != null) {
             var1.a(var2, false);
          }

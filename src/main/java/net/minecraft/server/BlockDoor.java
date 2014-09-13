@@ -13,7 +13,7 @@ public class BlockDoor extends Block {
 
    protected BlockDoor(Material var1) {
       super(var1);
-      this.j(this.L.b().a(a, ej.c).a(b, Boolean.valueOf(false)).a(M, avh.a).a(N, Boolean.valueOf(false)).a(O, avg.b));
+      this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)).a(M, avh.a).a(N, Boolean.valueOf(false)).a(O, avg.b));
    }
 
    public boolean c() {
@@ -40,48 +40,48 @@ public class BlockDoor extends Block {
    private void k(int var1) {
       float var2 = 0.1875F;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 1.0F);
-      ej var3 = f(var1);
+      EnumFacing var3 = f(var1);
       boolean var4 = g(var1);
       boolean var5 = j(var1);
       if(var4) {
-         if(var3 == ej.f) {
+         if(var3 == EnumFacing.EAST) {
             if(!var5) {
                this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var2);
             } else {
                this.a(0.0F, 0.0F, 1.0F - var2, 1.0F, 1.0F, 1.0F);
             }
-         } else if(var3 == ej.d) {
+         } else if(var3 == EnumFacing.SOUTH) {
             if(!var5) {
                this.a(1.0F - var2, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             } else {
                this.a(0.0F, 0.0F, 0.0F, var2, 1.0F, 1.0F);
             }
-         } else if(var3 == ej.e) {
+         } else if(var3 == EnumFacing.WEST) {
             if(!var5) {
                this.a(0.0F, 0.0F, 1.0F - var2, 1.0F, 1.0F, 1.0F);
             } else {
                this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var2);
             }
-         } else if(var3 == ej.c) {
+         } else if(var3 == EnumFacing.NORTH) {
             if(!var5) {
                this.a(0.0F, 0.0F, 0.0F, var2, 1.0F, 1.0F);
             } else {
                this.a(1.0F - var2, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             }
          }
-      } else if(var3 == ej.f) {
+      } else if(var3 == EnumFacing.EAST) {
          this.a(0.0F, 0.0F, 0.0F, var2, 1.0F, 1.0F);
-      } else if(var3 == ej.d) {
+      } else if(var3 == EnumFacing.SOUTH) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var2);
-      } else if(var3 == ej.e) {
+      } else if(var3 == EnumFacing.WEST) {
          this.a(1.0F - var2, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-      } else if(var3 == ej.c) {
+      } else if(var3 == EnumFacing.NORTH) {
          this.a(0.0F, 0.0F, 1.0F - var2, 1.0F, 1.0F, 1.0F);
       }
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, ej var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
@@ -162,7 +162,7 @@ public class BlockDoor extends Block {
       return var1.b(O) == avg.a?null:this.j();
    }
 
-   public MovingObjectPosition a(World var1, Location var2, ChunkCoordinates var3, ChunkCoordinates var4) {
+   public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
       this.a(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
@@ -220,7 +220,7 @@ public class BlockDoor extends Block {
    }
 
    public IBlock a(int var1) {
-      return (var1 & 8) > 0?this.P().a(O, avg.a).a(M, (var1 & 1) > 0?avh.b:avh.a).a(N, Boolean.valueOf((var1 & 2) > 0)):this.P().a(O, avg.b).a(a, ej.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
+      return (var1 & 8) > 0?this.P().a(O, avg.a).a(M, (var1 & 1) > 0?avh.b:avh.a).a(N, Boolean.valueOf((var1 & 2) > 0)):this.P().a(O, avg.b).a(a, EnumFacing.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
    }
 
    public int c(IBlock var1) {
@@ -236,7 +236,7 @@ public class BlockDoor extends Block {
             var3 |= 2;
          }
       } else {
-         var3 = var2 | ((ej)var1.b(a)).e().b();
+         var3 = var2 | ((EnumFacing)var1.b(a)).e().b();
          if(((Boolean)var1.b(b)).booleanValue()) {
             var3 |= 4;
          }
@@ -253,12 +253,12 @@ public class BlockDoor extends Block {
       return g(e(var0, var1));
    }
 
-   public static ej h(IBlockAccess var0, Location var1) {
+   public static EnumFacing h(IBlockAccess var0, Location var1) {
       return f(e(var0, var1));
    }
 
-   public static ej f(int var0) {
-      return ej.b(var0 & 3).f();
+   public static EnumFacing f(int var0) {
+      return EnumFacing.b(var0 & 3).f();
    }
 
    protected static boolean g(int var0) {

@@ -4,10 +4,10 @@ import java.util.concurrent.Callable;
 class bcp implements Callable {
 
    // $FF: synthetic field
-   final bcm a;
+   final TileEntity a;
 
 
-   bcp(bcm var1) {
+   bcp(TileEntity var1) {
       this.a = var1;
    }
 

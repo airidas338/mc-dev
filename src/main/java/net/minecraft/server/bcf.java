@@ -29,7 +29,7 @@ public abstract class bcf extends BlockStepAbstract {
       return b;
    }
 
-   public Object a(amj var1) {
+   public Object a(ItemStack var1) {
       return ayx.a(var1.i() & 7);
    }
 

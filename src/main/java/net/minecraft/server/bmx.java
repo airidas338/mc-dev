@@ -53,7 +53,7 @@ public class bmx extends bmv {
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.a("Valid", this.c);
+      var1.setBoolean("Valid", this.c);
    }
 
    public void b(NBTTagCompound var1) {

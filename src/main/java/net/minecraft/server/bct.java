@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bct extends bcm {
+public class bct extends TileEntity {
 
    private final aqf a = new bcu(this);
 

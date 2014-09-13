@@ -12,18 +12,18 @@ public class EntityOcelot extends EntityTameableAnimal {
    public EntityOcelot(World var1) {
       super(var1);
       this.a(0.6F, 0.7F);
-      ((aay)this.s()).a(true);
-      this.i.a(1, new yy(this));
-      this.i.a(2, this.bk);
-      this.i.a(3, this.bn = new aag(this, 0.6D, Items.aU, true));
-      this.i.a(5, new yz(this, 1.0D, 10.0F, 5.0F));
-      this.i.a(6, new zr(this, 0.8D));
-      this.i.a(7, new zg(this, 0.3F));
-      this.i.a(8, new zq(this));
-      this.i.a(9, new yt(this, 0.8D));
-      this.i.a(10, new zy(this, 0.8D));
-      this.i.a(11, new zh(this, EntityHuman.class, 10.0F));
-      this.bg.a(1, new aat(this, EntityChicken.class, false, (Predicate)null));
+      ((aay)this.getNavigation()).save(true);
+      this.goalSelector.a(1, new yy(this));
+      this.goalSelector.a(2, this.bk);
+      this.goalSelector.a(3, this.bn = new aag(this, 0.6D, Items.aU, true));
+      this.goalSelector.a(5, new yz(this, 1.0D, 10.0F, 5.0F));
+      this.goalSelector.a(6, new zr(this, 0.8D));
+      this.goalSelector.a(7, new zg(this, 0.3F));
+      this.goalSelector.a(8, new zq(this));
+      this.goalSelector.a(9, new yt(this, 0.8D));
+      this.goalSelector.a(10, new PathfinderGoalRandomStroll(this, 0.8D));
+      this.goalSelector.a(11, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 10.0F));
+      this.targetSelector.a(1, new aat(this, EntityChicken.class, false, (Predicate)null));
    }
 
    protected void h() {
@@ -65,12 +65,12 @@ public class EntityOcelot extends EntityTameableAnimal {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("CatType", this.cr());
+      var1.setInt("CatType", this.cr());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.r(var1.f("CatType"));
+      this.r(var1.getInt("CatType"));
    }
 
    protected String z() {
@@ -109,7 +109,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    protected void b(boolean var1, int var2) {}
 
    public boolean a(EntityHuman var1) throws IOException {
-      amj var2 = var1.bg.h();
+      ItemStack var2 = var1.bg.h();
       if(this.cj()) {
          if(this.e(var1) && !this.o.D && !this.d(var2)) {
             this.bk.a(!this.cl());
@@ -120,7 +120,7 @@ public class EntityOcelot extends EntityTameableAnimal {
          }
 
          if(var2.b <= 0) {
-            var1.bg.a(var1.bg.c, (amj)null);
+            var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
          if(!this.o.D) {
@@ -154,7 +154,7 @@ public class EntityOcelot extends EntityTameableAnimal {
       return var2;
    }
 
-   public boolean d(amj var1) {
+   public boolean d(ItemStack var1) {
       return var1 != null && var1.b() == Items.aU;
    }
 
@@ -212,9 +212,9 @@ public class EntityOcelot extends EntityTameableAnimal {
          this.bm = new yp(this, new abz(this), 16.0F, 0.8D, 1.33D);
       }
 
-      this.i.a((PathfinderGoal)this.bm);
+      this.goalSelector.a((PathfinderGoal)this.bm);
       if(!this.cj()) {
-         this.i.a(4, this.bm);
+         this.goalSelector.a(4, this.bm);
       }
 
    }
@@ -224,7 +224,7 @@ public class EntityOcelot extends EntityTameableAnimal {
       if(this.o.s.nextInt(7) == 0) {
          for(int var3 = 0; var3 < 2; ++var3) {
             EntityOcelot var4 = new EntityOcelot(this.o);
-            var4.b(this.s, this.t, this.u, this.y, 0.0F);
+            var4.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
             var4.b(-24000);
             this.o.d((Entity)var4);
          }

@@ -23,14 +23,14 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       this.h(this.bt());
       this.a(0.9F, 3.5F);
       this.ab = true;
-      ((aay)this.s()).d(true);
-      this.i.a(0, new yy(this));
-      this.i.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 40, 20.0F));
-      this.i.a(5, new zy(this, 1.0D));
-      this.i.a(6, new zh(this, EntityHuman.class, 8.0F));
-      this.i.a(7, new zx(this));
-      this.bg.a(1, new aal(this, false, new Class[0]));
-      this.bg.a(2, new aaq(this, EntityInsentient.class, 0, false, false, bp));
+      ((aay)this.getNavigation()).d(true);
+      this.goalSelector.a(0, new yy(this));
+      this.goalSelector.a(2, new PathfinderGoalArrowAttack(this, 1.0D, 40, 20.0F));
+      this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 1.0D));
+      this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
+      this.goalSelector.a(7, new PathfinderGoalRandomLookaround(this));
+      this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
+      this.targetSelector.a(2, new aaq(this, EntityInsentient.class, 0, false, false, bp));
       this.b_ = 50;
    }
 
@@ -44,12 +44,12 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Invul", this.cj());
+      var1.setInt("Invul", this.cj());
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.r(var1.f("Invul"));
+      this.r(var1.getInt("Invul"));
    }
 
    protected String z() {
@@ -84,7 +84,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
             var4 = var1.u - this.u;
             var6 = var2 * var2 + var4 * var4;
             if(var6 > 9.0D) {
-               var8 = (double)MathHelper.a(var6);
+               var8 = (double)MathHelper.sqrt(var6);
                this.v += (var2 / var8 * 0.5D - this.v) * 0.6000000238418579D;
                this.x += (var4 / var8 * 0.5D - this.x) * 0.6000000238418579D;
             }
@@ -118,7 +118,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
             double var10 = var3.s - var4;
             double var12 = var3.t + (double)var3.aR() - var6;
             double var14 = var3.u - var8;
-            double var16 = (double)MathHelper.a(var10 * var10 + var14 * var14);
+            double var16 = (double)MathHelper.sqrt(var10 * var10 + var14 * var14);
             float var18 = (float)(Math.atan2(var14, var10) * 180.0D / 3.1415927410125732D) - 90.0F;
             float var19 = (float)(-(Math.atan2(var12, var16) * 180.0D / 3.1415927410125732D));
             this.b[var20] = this.b(this.b[var20], var19, 40.0F);
@@ -187,7 +187,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                var12 = this.s(var1);
                if(var12 > 0) {
                   Entity var14 = this.o.a(var12);
-                  if(var14 != null && var14.ai() && this.h(var14) <= 900.0D && this.t(var14)) {
+                  if(var14 != null && var14.isAlive() && this.h(var14) <= 900.0D && this.t(var14)) {
                      this.a(var1 + 1, (EntityLiving)var14);
                      this.bm[var1 - 1] = this.W + 40 + this.V.nextInt(20);
                      this.bn[var1 - 1] = 0;
@@ -195,11 +195,11 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                      this.b(var1, 0);
                   }
                } else {
-                  List var13 = this.o.a(EntityLiving.class, this.aQ().b(20.0D, 8.0D, 20.0D), Predicates.and(bp, xe.d));
+                  List var13 = this.o.a(EntityLiving.class, this.aQ().b(20.0D, 8.0D, 20.0D), Predicates.and(bp, EntitySelectors.d));
 
                   for(int var16 = 0; var16 < 10 && !var13.isEmpty(); ++var16) {
                      EntityLiving var5 = (EntityLiving)var13.get(this.V.nextInt(var13.size()));
-                     if(var5 != this && var5.ai() && this.t(var5)) {
+                     if(var5 != this && var5.isAlive() && this.t(var5)) {
                         if(var5 instanceof EntityHuman) {
                            if(!((EntityHuman)var5).by.a) {
                               this.b(var1, var5.F());
@@ -374,7 +374,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       }
 
       if(!this.o.D) {
-         Iterator var4 = this.o.a(EntityHuman.class, this.aQ().b(50.0D, 100.0D, 50.0D)).iterator();
+         Iterator var4 = this.o.getEntities(EntityHuman.class, this.aQ().b(50.0D, 100.0D, 50.0D)).iterator();
 
          while(var4.hasNext()) {
             EntityHuman var5 = (EntityHuman)var4.next();
@@ -390,7 +390,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
 
    public void e(float var1, float var2) {}
 
-   public void c(wq var1) {}
+   public void c(MobEffect var1) {}
 
    protected void aW() {
       super.aW();

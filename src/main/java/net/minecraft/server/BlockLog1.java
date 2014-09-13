@@ -50,8 +50,8 @@ public class BlockLog1 extends axm {
       return new bed(this, new bex[]{b, a});
    }
 
-   protected amj i(IBlock var1) {
-      return new amj(Item.a((Block)this), 1, ((ayx)var1.b(b)).a());
+   protected ItemStack i(IBlock var1) {
+      return new ItemStack(Item.a((Block)this), 1, ((ayx)var1.b(b)).a());
    }
 
    public int a(IBlock var1) {
