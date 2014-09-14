@@ -60,7 +60,7 @@ public class BlockTNT extends Block {
             var1.g(var2);
             if(var9 == Items.d) {
                var4.bY().a(1, (EntityLiving)var4);
-            } else if(!var4.by.d) {
+            } else if(!var4.by.canInstantlyBuild) {
                --var4.bY().b;
             }
 

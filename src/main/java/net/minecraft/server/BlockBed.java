@@ -160,7 +160,7 @@ public class BlockBed extends BlockDirectional {
    }
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
-      if(var4.by.d && var3.b(a) == atq.a) {
+      if(var4.by.canInstantlyBuild && var3.b(a) == atq.a) {
          Location var5 = var2.a(((EnumFacing)var3.b(N)).d());
          if(var1.getData(var5).c() == this) {
             var1.g(var5);

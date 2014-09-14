@@ -6,15 +6,15 @@ public interface ICommand extends Comparable {
 
    String c();
 
-   String c(ICommandSender var1);
+   String c(ICommandListener var1);
 
    List b();
 
-   void a(ICommandSender var1, String[] var2) throws CommandException, IOException;
+   void a(ICommandListener var1, String[] var2) throws CommandException, IOException;
 
-   boolean a(ICommandSender var1);
+   boolean a(ICommandListener var1);
 
-   List a(ICommandSender var1, String[] var2, Location var3);
+   List a(ICommandListener var1, String[] var2, Location var3);
 
    boolean b(String[] var1, int var2);
 }

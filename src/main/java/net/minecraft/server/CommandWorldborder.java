@@ -11,11 +11,11 @@ public class CommandWorldborder extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.worldborder.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.worldborder.usage", new Object[0]);
       } else {
@@ -132,7 +132,7 @@ public class CommandWorldborder extends CommandAbstract {
       return MinecraftServer.M().c[0].af();
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null));
    }
 }

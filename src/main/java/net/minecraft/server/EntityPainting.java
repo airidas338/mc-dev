@@ -70,7 +70,7 @@ public class EntityPainting extends EntityHanging {
       if(this.o.Q().b("doTileDrops")) {
          if(var1 instanceof EntityHuman) {
             EntityHuman var2 = (EntityHuman)var1;
-            if(var2.by.d) {
+            if(var2.by.canInstantlyBuild) {
                return;
             }
          }

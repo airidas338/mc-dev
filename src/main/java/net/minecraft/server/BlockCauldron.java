@@ -61,7 +61,7 @@ public class BlockCauldron extends Block {
             Item var11 = var9.b();
             if(var11 == Items.ax) {
                if(var10 < 3) {
-                  if(!var4.by.d) {
+                  if(!var4.by.canInstantlyBuild) {
                      var4.bg.a(var4.bg.c, new ItemStack(Items.aw));
                   }
 
@@ -73,7 +73,7 @@ public class BlockCauldron extends Block {
                ItemStack var13;
                if(var11 == Items.bA) {
                   if(var10 > 0) {
-                     if(!var4.by.d) {
+                     if(!var4.by.canInstantlyBuild) {
                         var13 = new ItemStack(Items.bz, 1, 0);
                         if(!var4.bg.a(var13)) {
                            var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
@@ -105,7 +105,7 @@ public class BlockCauldron extends Block {
                      var13 = var9.k();
                      var13.b = 1;
                      bci.e(var13);
-                     if(var9.b <= 1 && !var4.by.d) {
+                     if(var9.b <= 1 && !var4.by.canInstantlyBuild) {
                         var4.bg.a(var4.bg.c, var13);
                      } else {
                         if(!var4.bg.a(var13)) {
@@ -114,12 +114,12 @@ public class BlockCauldron extends Block {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
 
-                        if(!var4.by.d) {
+                        if(!var4.by.canInstantlyBuild) {
                            --var9.b;
                         }
                      }
 
-                     if(!var4.by.d) {
+                     if(!var4.by.canInstantlyBuild) {
                         this.a(var1, var2, var3, var10 - 1);
                      }
 

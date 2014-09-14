@@ -2,17 +2,17 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class bf extends CommandGamemode {
+public class CommandGamemodeDefault extends CommandGamemode {
 
    public String c() {
       return "defaultgamemode";
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.defaultgamemode.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException, IOException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException, IOException {
       if(var2.length <= 0) {
          throw new ExceptionUsage("commands.defaultgamemode.usage", new Object[0]);
       } else {

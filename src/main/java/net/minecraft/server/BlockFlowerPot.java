@@ -47,7 +47,7 @@ public class BlockFlowerPot extends atg {
                var10.a(var9.b(), var9.i());
                var10.o_();
                var1.h(var2);
-               if(!var4.by.d && --var9.b <= 0) {
+               if(!var4.by.canInstantlyBuild && --var9.b <= 0) {
                   var4.bg.a(var4.bg.c, (ItemStack)null);
                }
 
@@ -91,7 +91,7 @@ public class BlockFlowerPot extends atg {
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
-      if(var4.by.d) {
+      if(var4.by.canInstantlyBuild) {
          bdb var5 = this.d(var1, var2);
          if(var5 != null) {
             var5.a((Item)null, 0);

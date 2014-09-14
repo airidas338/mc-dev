@@ -56,7 +56,7 @@ public class WorldType {
       return this.m;
    }
 
-   public static WorldType a(String var0) {
+   public static WorldType getType(String var0) {
       for(int var1 = 0; var1 < types.length; ++var1) {
          if(types[var1] != null && types[var1].j.equalsIgnoreCase(var0)) {
             return types[var1];

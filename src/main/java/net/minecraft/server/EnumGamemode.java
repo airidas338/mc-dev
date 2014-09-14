@@ -26,21 +26,21 @@ public enum EnumGamemode {
       return this.g;
    }
 
-   public void a(aha var1) {
+   public void a(PlayerAbilities var1) {
       if(this == CREATIVE) {
-         var1.c = true;
-         var1.d = true;
-         var1.a = true;
+         var1.canFly = true;
+         var1.canInstantlyBuild = true;
+         var1.isInvulnerable = true;
       } else if(this == SPECTATOR) {
-         var1.c = true;
-         var1.d = false;
-         var1.a = true;
-         var1.b = true;
+         var1.canFly = true;
+         var1.canInstantlyBuild = false;
+         var1.isInvulnerable = true;
+         var1.isFlying = true;
       } else {
-         var1.c = false;
-         var1.d = false;
-         var1.a = false;
-         var1.b = false;
+         var1.canFly = false;
+         var1.canInstantlyBuild = false;
+         var1.isInvulnerable = false;
+         var1.isFlying = false;
       }
 
       var1.e = !this.c();
@@ -58,7 +58,7 @@ public enum EnumGamemode {
       return this == SURVIVAL || this == ADVENTURE;
    }
 
-   public static EnumGamemode a(int var0) {
+   public static EnumGamemode getById(int var0) {
       EnumGamemode[] var1 = values();
       int var2 = var1.length;
 

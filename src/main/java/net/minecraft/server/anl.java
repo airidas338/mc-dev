@@ -32,7 +32,7 @@ public class anl extends Item {
                var11.a(EntityTypes.b(var1.i()));
                var10.o_();
                var3.h(var4);
-               if(!var2.by.d) {
+               if(!var2.by.canInstantlyBuild) {
                   --var1.b;
                }
 
@@ -52,7 +52,7 @@ public class anl extends Item {
                var12.a(var1.q());
             }
 
-            if(!var2.by.d) {
+            if(!var2.by.canInstantlyBuild) {
                --var1.b;
             }
          }
@@ -86,7 +86,7 @@ public class anl extends Item {
                         ((EntityInsentient)var6).a(var1.q());
                      }
 
-                     if(!var3.by.d) {
+                     if(!var3.by.canInstantlyBuild) {
                         --var1.b;
                      }
 

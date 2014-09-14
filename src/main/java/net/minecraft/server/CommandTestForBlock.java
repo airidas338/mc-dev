@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class CommandTestforBlock extends CommandAbstract {
+public class CommandTestForBlock extends CommandAbstract {
 
    public String c() {
       return "testforblock";
@@ -12,11 +12,11 @@ public class CommandTestforBlock extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.testforblock.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 4) {
          throw new ExceptionUsage("commands.testforblock.usage", new Object[0]);
       } else {
@@ -146,7 +146,7 @@ public class CommandTestforBlock extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):null);
    }
 }

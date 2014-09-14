@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class CommandSetIdleTimeout extends CommandAbstract {
+public class CommandIdleTimeout extends CommandAbstract {
 
    public String c() {
       return "setidletimeout";
@@ -10,11 +10,11 @@ public class CommandSetIdleTimeout extends CommandAbstract {
       return 3;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.setidletimeout.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length != 1) {
          throw new ExceptionUsage("commands.setidletimeout.usage", new Object[0]);
       } else {

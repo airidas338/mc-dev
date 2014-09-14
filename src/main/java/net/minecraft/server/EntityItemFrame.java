@@ -56,7 +56,7 @@ public class EntityItemFrame extends EntityHanging {
          ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;
-            if(var4.by.d) {
+            if(var4.by.canInstantlyBuild) {
                this.b(var3);
                return;
             }
@@ -157,7 +157,7 @@ public class EntityItemFrame extends EntityHanging {
          ItemStack var2 = var1.bz();
          if(var2 != null && !this.o.D) {
             this.a(var2);
-            if(!var1.by.d && --var2.b <= 0) {
+            if(!var1.by.canInstantlyBuild && --var2.b <= 0) {
                var1.bg.a(var1.bg.c, (ItemStack)null);
             }
          }

@@ -7,7 +7,7 @@ public class CommandClear extends CommandAbstract {
       return "clear";
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.clear.usage";
    }
 
@@ -15,7 +15,7 @@ public class CommandClear extends CommandAbstract {
       return 2;
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       EntityPlayer var3 = var2.length == 0?b(var1):a(var1, var2[0]);
       Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
@@ -34,7 +34,7 @@ public class CommandClear extends CommandAbstract {
       } else {
          int var8 = var3.bg.a(var4, var5, var6, var7);
          var3.bh.b();
-         if(!var3.by.d) {
+         if(!var3.by.canInstantlyBuild) {
             var3.o();
          }
 
@@ -52,7 +52,7 @@ public class CommandClear extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.e.c()):null);
    }
 

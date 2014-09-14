@@ -17,7 +17,7 @@ public class BlockPistonExtension extends Block {
    }
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
-      if(var4.by.d) {
+      if(var4.by.canInstantlyBuild) {
          EnumFacing var5 = (EnumFacing)var3.b(a);
          if(var5 != null) {
             Location var6 = var2.a(var5.d());

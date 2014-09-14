@@ -15,11 +15,11 @@ public class CommandClone extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.clone.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 9) {
          throw new ExceptionUsage("commands.clone.usage", new Object[0]);
       } else {
@@ -188,7 +188,7 @@ public class CommandClone extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.c.c()):null)))));
    }
 }

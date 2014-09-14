@@ -16,11 +16,11 @@ public class CommandStats extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.stats.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.stats.usage", new Object[0]);
       } else {
@@ -127,7 +127,7 @@ public class CommandStats extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, ag.c())):a(var2, new String[]{"set", "clear"})));
    }
 

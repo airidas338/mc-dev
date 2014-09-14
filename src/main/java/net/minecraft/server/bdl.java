@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class bdl implements ICommandSender {
+class bdl implements ICommandListener {
 
    // $FF: synthetic field
    final EntityHuman a;

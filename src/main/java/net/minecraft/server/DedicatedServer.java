@@ -132,7 +132,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
                }
             }
 
-            WorldType var18 = WorldType.a(var7);
+            WorldType var18 = WorldType.getType(var7);
             if(var18 == null) {
                var18 = WorldType.NORMAL;
             }
@@ -189,7 +189,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
    }
 
    public EnumDifficulty n() {
-      return EnumDifficulty.a(this.n.a("difficulty", 1));
+      return EnumDifficulty.getById(this.n.a("difficulty", 1));
    }
 
    public boolean o() {
@@ -243,14 +243,14 @@ public class DedicatedServer extends MinecraftServer implements pj {
       return this.n.a("snooper-enabled", true);
    }
 
-   public void a(String var1, ICommandSender var2) {
-      this.k.add(new oz(var1, var2));
+   public void a(String var1, ICommandListener var2) {
+      this.k.add(new ServerCommand(var1, var2));
    }
 
    public void aM() {
       while(!this.k.isEmpty()) {
-         oz var1 = (oz)this.k.remove(0);
-         this.O().a(var1.b, var1.a);
+         ServerCommand var1 = (ServerCommand)this.k.remove(0);
+         this.O().a(var1.source, var1.command);
       }
 
    }

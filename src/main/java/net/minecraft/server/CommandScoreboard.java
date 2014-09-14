@@ -21,11 +21,11 @@ public class CommandScoreboard extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.scoreboard.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(!this.b(var1, var2)) {
          if(var2.length < 1) {
             throw new ExceptionUsage("commands.scoreboard.usage", new Object[0]);
@@ -176,7 +176,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   private boolean b(ICommandSender var1, String[] var2) throws CommandException {
+   private boolean b(ICommandListener var1, String[] var2) throws CommandException {
       int var3 = -1;
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
@@ -247,7 +247,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void b(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void b(ICommandListener var1, String[] var2, int var3) throws CommandException {
       String var4 = var2[var3++];
       String var5 = var2[var3++];
       Scoreboard var6 = this.d();
@@ -280,7 +280,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void c(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void c(ICommandListener var1, String[] var2, int var3) throws CommandException {
       String var4 = var2[var3++];
       Scoreboard var5 = this.d();
       if(var5.getTeam(var4) != null) {
@@ -309,7 +309,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void d(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void d(ICommandListener var1, String[] var2, int var3) throws CommandException {
       ScoreboardTeam var4 = this.e(var2[var3++]);
       if(var4 != null) {
          String var5 = var2[var3++].toLowerCase();
@@ -374,7 +374,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void e(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void e(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -383,7 +383,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void f(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void f(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          ScoreboardTeam var5 = this.e(var2[var3]);
@@ -421,7 +421,7 @@ public class CommandScoreboard extends CommandAbstract {
 
    }
 
-   protected void g(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void g(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       HashSet var6 = Sets.newHashSet();
@@ -471,7 +471,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void h(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void h(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       HashSet var5 = Sets.newHashSet();
       HashSet var6 = Sets.newHashSet();
@@ -520,7 +520,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void i(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void i(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       ScoreboardTeam var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -541,14 +541,14 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void h(ICommandSender var1, String var2) throws CommandException {
+   protected void h(ICommandListener var1, String var2) throws CommandException {
       Scoreboard var3 = this.d();
       ScoreboardObjective var4 = this.a(var2, false);
       var3.unregisterObjective(var4);
       a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[]{var2});
    }
 
-   protected void d(ICommandSender var1) throws CommandException {
+   protected void d(ICommandListener var1) throws CommandException {
       Scoreboard var2 = this.d();
       Collection var3 = var2.getObjectives();
       if(var3.size() <= 0) {
@@ -567,7 +567,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void j(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void j(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       int var6 = Scoreboard.getSlotForName(var5);
@@ -589,7 +589,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void k(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void k(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
@@ -623,7 +623,7 @@ public class CommandScoreboard extends CommandAbstract {
 
    }
 
-   protected void l(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void l(ICommandListener var1, String[] var2, int var3) throws CommandException {
       String var4 = var2[var3 - 1];
       int var5 = var3;
       String var6 = e(var1, var2[var3++]);
@@ -636,7 +636,7 @@ public class CommandScoreboard extends CommandAbstract {
             NBTTagCompound var10 = gg.a(a(var2, var3));
             NBTTagCompound var11 = new NBTTagCompound();
             var9.e(var11);
-            if(!CommandTestforBlock.a(var10, var11, true)) {
+            if(!CommandTestForBlock.a(var10, var11, true)) {
                throw new CommandException("commands.scoreboard.players.set.tagMismatch", new Object[]{var6});
             }
          } catch (gf var12) {
@@ -657,7 +657,7 @@ public class CommandScoreboard extends CommandAbstract {
       a(var1, this, "commands.scoreboard.players.set.success", new Object[]{var7.getName(), var6, Integer.valueOf(var14.getScore())});
    }
 
-   protected void m(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void m(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var2.length > var3) {
@@ -671,7 +671,7 @@ public class CommandScoreboard extends CommandAbstract {
 
    }
 
-   protected void n(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void n(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = d(var1, var2[var3++]);
       ScoreboardObjective var6 = this.a(var2[var3], false);
@@ -684,7 +684,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void o(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void o(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       ScoreboardObjective var6 = this.a(var2[var3++], false);
@@ -703,7 +703,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void p(ICommandSender var1, String[] var2, int var3) throws CommandException {
+   protected void p(ICommandListener var1, String[] var2, int var3) throws CommandException {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       ScoreboardObjective var6 = this.a(var2[var3++], true);
@@ -749,7 +749,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {

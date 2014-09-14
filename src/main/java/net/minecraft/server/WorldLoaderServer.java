@@ -30,7 +30,7 @@ public class WorldLoaderServer extends bqn {
    }
 
    public IDataManager a(String var1, boolean var2) {
-      return new bqi(this.a, var1, var2);
+      return new ServerNBTManager(this.a, var1, var2);
    }
 
    public boolean b(String var1) {
@@ -38,7 +38,7 @@ public class WorldLoaderServer extends bqn {
       return var2 != null && var2.l() != this.c();
    }
 
-   public boolean a(String var1, IProgressUpdate var2) {
+   public boolean convert(String var1, IProgressUpdate var2) {
       var2.a(0);
       ArrayList var3 = Lists.newArrayList();
       ArrayList var4 = Lists.newArrayList();

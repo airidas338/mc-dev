@@ -12,11 +12,11 @@ public class kd implements Packet {
 
    public kd() {}
 
-   public kd(aha var1) {
-      this.a(var1.a);
-      this.b(var1.b);
-      this.c(var1.c);
-      this.d(var1.d);
+   public kd(PlayerAbilities var1) {
+      this.a(var1.isInvulnerable);
+      this.b(var1.isFlying);
+      this.c(var1.canFly);
+      this.d(var1.canInstantlyBuild);
       this.a(var1.a());
       this.b(var1.b());
    }

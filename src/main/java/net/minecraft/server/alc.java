@@ -9,7 +9,7 @@ public class alc extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
-      if(var3.by.d) {
+      if(var3.by.canInstantlyBuild) {
          return var1;
       } else {
          --var1.b;

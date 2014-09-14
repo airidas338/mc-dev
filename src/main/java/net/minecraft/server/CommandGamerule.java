@@ -12,11 +12,11 @@ public class CommandGamerule extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.gamerule.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       aqq var3 = this.d();
       String var4 = var2.length > 0?var2[0]:"";
       String var5 = var2.length > 1?a(var2, 1):"";
@@ -58,7 +58,7 @@ public class CommandGamerule extends CommandAbstract {
 
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, this.d().b());
       } else {

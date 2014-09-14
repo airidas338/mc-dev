@@ -11,11 +11,11 @@ public class CommandSay extends CommandAbstract {
       return 1;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.say.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 0 && var2[0].length() > 0) {
          IChatBaseComponent var3 = b(var1, var2, 0, true);
          MinecraftServer.M().an().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.e_(), var3})));
@@ -24,7 +24,7 @@ public class CommandSay extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length >= 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

@@ -201,7 +201,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                      EntityLiving var5 = (EntityLiving)var13.get(this.V.nextInt(var13.size()));
                      if(var5 != this && var5.isAlive() && this.t(var5)) {
                         if(var5 instanceof EntityHuman) {
-                           if(!((EntityHuman)var5).by.a) {
+                           if(!((EntityHuman)var5).by.isInvulnerable) {
                               this.b(var1, var5.F());
                            }
                         } else {

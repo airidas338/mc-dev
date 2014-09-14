@@ -20,7 +20,7 @@ public class ab implements ICommandHandler {
    private final Set c = Sets.newHashSet();
 
 
-   public int a(ICommandSender var1, String var2) {
+   public int a(ICommandListener var1, String var2) {
       var2 = var2.trim();
       if(var2.startsWith("/")) {
          var2 = var2.substring(1);
@@ -69,7 +69,7 @@ public class ab implements ICommandHandler {
       return var7;
    }
 
-   protected boolean a(ICommandSender var1, String[] var2, ICommand var3, String var4) {
+   protected boolean a(ICommandListener var1, String[] var2, ICommand var3, String var4) {
       ChatMessage var6;
       try {
          var3.a(var1, var2);
@@ -114,7 +114,7 @@ public class ab implements ICommandHandler {
       return var1;
    }
 
-   public List a(ICommandSender var1, String var2, Location var3) {
+   public List a(ICommandListener var1, String var2, Location var3) {
       String[] var4 = var2.split(" ", -1);
       String var5 = var4[0];
       if(var4.length == 1) {
@@ -141,7 +141,7 @@ public class ab implements ICommandHandler {
       }
    }
 
-   public List a(ICommandSender var1) {
+   public List a(ICommandListener var1) {
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = this.c.iterator();
 

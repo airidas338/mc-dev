@@ -8,7 +8,7 @@ public class ald extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
-      if(!var3.by.d) {
+      if(!var3.by.canInstantlyBuild) {
          --var1.b;
       }
 

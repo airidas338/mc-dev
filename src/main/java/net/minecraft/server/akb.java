@@ -51,7 +51,7 @@ public class akb extends Item {
                   return var1;
                }
 
-               if(this.a(var2, var9) && !var3.by.d) {
+               if(this.a(var2, var9) && !var3.by.canInstantlyBuild) {
                   var3.b(ty.J[Item.b((Item)this)]);
                   return new ItemStack(Items.aw);
                }
@@ -63,7 +63,7 @@ public class akb extends Item {
    }
 
    private ItemStack a(ItemStack var1, EntityHuman var2, Item var3) {
-      if(var2.by.d) {
+      if(var2.by.canInstantlyBuild) {
          return var1;
       } else if(--var1.b <= 0) {
          return new ItemStack(var3);

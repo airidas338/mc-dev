@@ -386,7 +386,7 @@ public class EntityZombie extends EntityMonster {
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bY();
       if(var2 != null && var2.b() == Items.ao && var2.i() == 0 && this.cm() && this.a(MobEffectList.t)) {
-         if(!var1.by.d) {
+         if(!var1.by.canInstantlyBuild) {
             --var2.b;
          }
 

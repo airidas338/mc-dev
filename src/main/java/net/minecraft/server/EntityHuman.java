@@ -34,7 +34,7 @@ public abstract class EntityHuman extends EntityLiving {
    private Location c;
    private boolean d;
    private Location e;
-   public aha by = new aha();
+   public PlayerAbilities by = new PlayerAbilities();
    public int bz;
    public int bA;
    public float bB;
@@ -151,7 +151,7 @@ public abstract class EntityHuman extends EntityLiving {
          this.bi = this.bh;
       }
 
-      if(this.au() && this.by.a) {
+      if(this.au() && this.by.isInvulnerable) {
          this.N();
       }
 
@@ -211,7 +211,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public int L() {
-      return this.by.a?0:80;
+      return this.by.isInvulnerable?0:80;
    }
 
    protected String P() {
@@ -642,7 +642,7 @@ public abstract class EntityHuman extends EntityLiving {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.by.a && !var1.g()) {
+      } else if(this.by.isInvulnerable && !var1.g()) {
          return false;
       } else {
          this.aO = 0;
@@ -760,12 +760,12 @@ public abstract class EntityHuman extends EntityLiving {
          ItemStack var3 = var2 != null?var2.k():null;
          if(!var1.e(this)) {
             if(var2 != null && var1 instanceof EntityLiving) {
-               if(this.by.d) {
+               if(this.by.canInstantlyBuild) {
                   var2 = var3;
                }
 
                if(var2.a(this, (EntityLiving)var1)) {
-                  if(var2.b <= 0 && !this.by.d) {
+                  if(var2.b <= 0 && !this.by.canInstantlyBuild) {
                      this.bZ();
                   }
 
@@ -776,9 +776,9 @@ public abstract class EntityHuman extends EntityLiving {
             return false;
          } else {
             if(var2 != null && var2 == this.bY()) {
-               if(var2.b <= 0 && !this.by.d) {
+               if(var2.b <= 0 && !this.by.canInstantlyBuild) {
                   this.bZ();
-               } else if(var2.b < var3.b && this.by.d) {
+               } else if(var2.b < var3.b && this.by.canInstantlyBuild) {
                   var2.b = var3.b;
                }
             }
@@ -1105,7 +1105,7 @@ public abstract class EntityHuman extends EntityLiving {
       double var3 = this.s;
       double var5 = this.t;
       double var7 = this.u;
-      if(this.by.b && this.m == null) {
+      if(this.by.isFlying && this.m == null) {
          double var9 = this.w;
          float var11 = this.aK;
          this.aK = this.by.a() * (float)(this.ax()?2:1);
@@ -1191,7 +1191,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void e(float var1, float var2) {
-      if(!this.by.c) {
+      if(!this.by.canFly) {
          if(var1 >= 2.0F) {
             this.a(ty.m, (int)Math.round((double)var1 * 100.0D));
          }
@@ -1224,7 +1224,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void aB() {
-      if(!this.by.b) {
+      if(!this.by.isFlying) {
          super.aB();
       }
 
@@ -1286,7 +1286,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void a(float var1) {
-      if(!this.by.a) {
+      if(!this.by.isInvulnerable) {
          if(!this.o.D) {
             this.bj.a(var1);
          }
@@ -1299,7 +1299,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean j(boolean var1) {
-      return (var1 || this.bj.c()) && !this.by.a;
+      return (var1 || this.bj.c()) && !this.by.isInvulnerable;
    }
 
    public boolean cl() {
@@ -1369,7 +1369,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    protected boolean r_() {
-      return !this.by.b;
+      return !this.by.isFlying;
    }
 
    public void t() {}
@@ -1403,7 +1403,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean aK() {
-      return !this.by.b;
+      return !this.by.isFlying;
    }
 
    public Scoreboard co() {

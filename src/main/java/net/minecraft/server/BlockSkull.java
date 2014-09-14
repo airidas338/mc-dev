@@ -69,7 +69,7 @@ public class BlockSkull extends atg {
    public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
-      if(var4.by.d) {
+      if(var4.by.canInstantlyBuild) {
          var3 = var3.a(b, Boolean.valueOf(true));
          var1.a(var2, var3, 4);
       }

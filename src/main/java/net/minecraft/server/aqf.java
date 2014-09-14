@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Callable;
 
-public abstract class aqf implements ICommandSender {
+public abstract class aqf implements ICommandListener {
 
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
    private int b;
@@ -134,7 +134,7 @@ public abstract class aqf implements ICommandSender {
    }
 
    public boolean a(EntityHuman var1) {
-      if(!var1.by.d) {
+      if(!var1.by.canInstantlyBuild) {
          return false;
       } else {
          if(var1.e().D) {

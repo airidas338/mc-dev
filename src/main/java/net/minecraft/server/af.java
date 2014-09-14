@@ -13,7 +13,7 @@ public class af {
       this.d = b;
    }
 
-   public void a(ICommandSender var1, ag var2, int var3) {
+   public void a(ICommandListener var1, ag var2, int var3) {
       String var4 = this.c[var2.a()];
       if(var4 != null) {
          String var5;

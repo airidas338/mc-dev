@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public interface ICommandSender {
+public interface ICommandListener {
 
    String d_();
 

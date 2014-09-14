@@ -107,7 +107,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    protected void a(EntityHuman var1, ItemStack var2) {
-      if(!var1.by.d) {
+      if(!var1.by.canInstantlyBuild) {
          --var2.b;
          if(var2.b <= 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);

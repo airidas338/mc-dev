@@ -42,7 +42,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class MinecraftServer implements ICommandSender, Runnable, vn, wd {
+public abstract class MinecraftServer implements ICommandListener, Runnable, vn, wd {
 
 	private static final Logger j = LogManager.getLogger();
 	public static final File a = new File("usercache.json");
@@ -121,7 +121,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 		if (this.X().b(var1)) {
 			j.info("Converting map!");
 			this.b("menu.convertingLevel");
-			this.X().a(var1, new ConvertProgressUpdater(this));
+			this.X().convert(var1, new ConvertProgressUpdater(this));
 		}
 
 	}
@@ -180,7 +180,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 
 			this.c[var10].a((IWorldAccess) (new WorldManager(this, this.c[var10])));
 			if (!this.S()) {
-				this.c[var10].P().a(this.m());
+				this.c[var10].P().setGameType(this.m());
 			}
 		}
 
@@ -717,7 +717,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 		return var1;
 	}
 
-	public List a(ICommandSender var1, String var2, Location var3) {
+	public List a(ICommandListener var1, String var2, Location var3) {
 		ArrayList var4 = Lists.newArrayList();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);
@@ -864,7 +864,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 			}
 		}
 
-		this.X().e(this.c[0].O().g());
+		this.X().isConvertable(this.c[0].O().g());
 		this.u();
 	}
 
@@ -1001,7 +1001,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, vn, w
 
 	public void a(EnumGamemode var1) {
 		for (int var2 = 0; var2 < this.c.length; ++var2) {
-			M().c[var2].P().a(var1);
+			M().c[var2].P().setGameType(var1);
 		}
 
 	}

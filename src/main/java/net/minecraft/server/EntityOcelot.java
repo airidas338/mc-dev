@@ -115,7 +115,7 @@ public class EntityOcelot extends EntityTameableAnimal {
             this.bk.a(!this.cl());
          }
       } else if(this.bn.f() && var2 != null && var2.b() == Items.aU && var1.h(this) < 9.0D) {
-         if(!var1.by.d) {
+         if(!var1.by.canInstantlyBuild) {
             --var2.b;
          }
 

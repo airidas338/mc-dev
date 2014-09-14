@@ -56,7 +56,7 @@ public class ItemPotion extends Item {
    }
 
    public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
-      if(!var3.by.d) {
+      if(!var3.by.canInstantlyBuild) {
          --var1.b;
       }
 
@@ -73,7 +73,7 @@ public class ItemPotion extends Item {
       }
 
       var3.b(ty.J[Item.b((Item)this)]);
-      if(!var3.by.d) {
+      if(!var3.by.canInstantlyBuild) {
          if(var1.b <= 0) {
             return new ItemStack(Items.bA);
          }
@@ -94,7 +94,7 @@ public class ItemPotion extends Item {
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(f(var1.i())) {
-         if(!var3.by.d) {
+         if(!var3.by.canInstantlyBuild) {
             --var1.b;
          }
 

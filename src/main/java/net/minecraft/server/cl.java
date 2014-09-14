@@ -7,7 +7,7 @@ public class cl extends ab implements y {
       this.a(new CommandTime());
       this.a(new CommandGamemode());
       this.a(new CommandDifficulty());
-      this.a(new bf());
+      this.a(new CommandGamemodeDefault());
       this.a(new CommandKill());
       this.a(new CommandToggleDownfall());
       this.a(new CommandWeather());
@@ -25,25 +25,25 @@ public class cl extends ab implements y {
       this.a(new CommandDebug());
       this.a(new CommandTell());
       this.a(new CommandSay());
-      this.a(new CommandSpawnPoint());
+      this.a(new CommandSpawnpoint());
       this.a(new CommandSetWorldSpawn());
       this.a(new CommandGamerule());
       this.a(new CommandClear());
-      this.a(new CommandTestfor());
-      this.a(new CommandSpreadplayers());
+      this.a(new CommandTestFor());
+      this.a(new CommandSpreadPlayers());
       this.a(new CommandPlaySound());
       this.a(new CommandScoreboard());
       this.a(new CommandExecute());
       this.a(new CommandTrigger());
       this.a(new CommandAchievement());
       this.a(new CommandSummon());
-      this.a(new CommandSetblock());
+      this.a(new CommandSetBlock());
       this.a(new CommandFill());
       this.a(new CommandClone());
-      this.a(new CommandTestforblocks());
+      this.a(new CommandTestForBlocks());
       this.a(new CommandBlockdata());
-      this.a(new CommandTestforBlock());
-      this.a(new CommandTellraw());
+      this.a(new CommandTestForBlock());
+      this.a(new CommandTellRaw());
       this.a(new CommandWorldborder());
       this.a(new CommandTitle());
       this.a(new CommandEntityData());
@@ -55,14 +55,14 @@ public class cl extends ab implements y {
          this.a(new CommandSaveOff());
          this.a(new CommandSaveOn());
          this.a(new CommandBanIp());
-         this.a(new CommandPardonIp());
+         this.a(new CommandPardonIP());
          this.a(new CommandBan());
-         this.a(new CommandBanlist());
+         this.a(new CommandBanList());
          this.a(new CommandPardon());
          this.a(new CommandKick());
          this.a(new CommandList());
          this.a(new CommandWhitelist());
-         this.a(new CommandSetIdleTimeout());
+         this.a(new CommandIdleTimeout());
       } else {
          this.a(new CommandPublish());
       }
@@ -70,7 +70,7 @@ public class cl extends ab implements y {
       CommandAbstract.a((y)this);
    }
 
-   public void a(ICommandSender var1, ICommand var2, int var3, String var4, Object ... var5) {
+   public void a(ICommandListener var1, ICommand var2, int var3, String var4, Object ... var5) {
       boolean var6 = true;
       MinecraftServer var7 = MinecraftServer.M();
       if(!var1.t_()) {

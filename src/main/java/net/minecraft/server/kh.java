@@ -60,7 +60,7 @@ public class kh implements Packet {
                }
             }
 
-            var6 = EnumGamemode.a(var1.e());
+            var6 = EnumGamemode.getById(var1.e());
             var5 = var1.e();
             if(var1.readBoolean()) {
                var7 = var1.d();
@@ -68,7 +68,7 @@ public class kh implements Packet {
             break;
          case 2:
             var4 = new GameProfile(var1.g(), (String)null);
-            var6 = EnumGamemode.a(var1.e());
+            var6 = EnumGamemode.getById(var1.e());
             break;
          case 3:
             var4 = new GameProfile(var1.g(), (String)null);

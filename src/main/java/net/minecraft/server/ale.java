@@ -19,7 +19,7 @@ public class ale extends Item {
                var3.a(var4, Blocks.FIRE.P());
             }
 
-            if(!var2.by.d) {
+            if(!var2.by.canInstantlyBuild) {
                --var1.b;
             }
 

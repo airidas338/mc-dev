@@ -12,11 +12,11 @@ public class CommandGamemode extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.gamemode.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException, IOException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException, IOException {
       if(var2.length <= 0) {
          throw new ExceptionUsage("commands.gamemode.usage", new Object[0]);
       } else {
@@ -38,11 +38,11 @@ public class CommandGamemode extends CommandAbstract {
       }
    }
 
-   protected EnumGamemode h(ICommandSender var1, String var2) throws ExceptionInvalidNumber {
+   protected EnumGamemode h(ICommandListener var1, String var2) throws ExceptionInvalidNumber {
       return !var2.equalsIgnoreCase(EnumGamemode.SURVIVAL.b()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(EnumGamemode.CREATIVE.b()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(EnumGamemode.ADVENTURE.b()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(EnumGamemode.SPECTATOR.b()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, EnumGamemode.values().length - 2)):EnumGamemode.SPECTATOR):EnumGamemode.ADVENTURE):EnumGamemode.CREATIVE):EnumGamemode.SURVIVAL;
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"survival", "creative", "adventure", "spectator"}):(var2.length == 2?a(var2, this.d()):null);
    }
 

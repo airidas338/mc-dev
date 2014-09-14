@@ -306,7 +306,7 @@ public class EntityArmorStand extends EntityLiving {
             int var4 = var1.bg.c;
             ItemStack var5 = var1.bg.a(var4);
             ItemStack var6;
-            if(var1.by.d && (var3 == null || var3.b() == Item.a(Blocks.AIR)) && var5 != null) {
+            if(var1.by.canInstantlyBuild && (var3 == null || var3.b() == Item.a(Blocks.AIR)) && var5 != null) {
                var6 = var5.k();
                var6.b = 1;
                this.c(var2, var6);

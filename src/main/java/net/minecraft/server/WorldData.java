@@ -73,7 +73,7 @@ public class WorldData {
       this.b = var1.getLong("RandomSeed");
       if(var1.hasKeyOfType("generatorName", 8)) {
          String var2 = var1.getString("generatorName");
-         this.c = WorldType.a(var2);
+         this.c = WorldType.getType(var2);
          if(this.c == null) {
             this.c = WorldType.NORMAL;
          } else if(this.c.f()) {
@@ -90,7 +90,7 @@ public class WorldData {
          }
       }
 
-      this.u = EnumGamemode.a(var1.getInt("GameType"));
+      this.u = EnumGamemode.getById(var1.getInt("GameType"));
       if(var1.hasKeyOfType("MapFeatures", 99)) {
          this.v = var1.getBoolean("MapFeatures");
       } else {
@@ -139,7 +139,7 @@ public class WorldData {
       }
 
       if(var1.hasKeyOfType("Difficulty", 99)) {
-         this.z = EnumDifficulty.a(var1.getByte("Difficulty"));
+         this.z = EnumDifficulty.getById(var1.getByte("Difficulty"));
       }
 
       if(var1.hasKeyOfType("DifficultyLocked", 1)) {
@@ -430,7 +430,7 @@ public class WorldData {
       this.v = var1;
    }
 
-   public void a(EnumGamemode var1) {
+   public void setGameType(EnumGamemode var1) {
       this.u = var1;
    }
 

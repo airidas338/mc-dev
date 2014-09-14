@@ -30,11 +30,11 @@ public class jw implements Packet {
       short var2 = var1.readUnsignedByte();
       this.b = (var2 & 8) == 8;
       int var3 = var2 & -9;
-      this.c = EnumGamemode.a(var3);
+      this.c = EnumGamemode.getById(var3);
       this.d = var1.readByte();
-      this.e = EnumDifficulty.a(var1.readUnsignedByte());
+      this.e = EnumDifficulty.getById(var1.readUnsignedByte());
       this.f = var1.readUnsignedByte();
-      this.g = WorldType.a(var1.c(16));
+      this.g = WorldType.getType(var1.c(16));
       if(this.g == null) {
          this.g = WorldType.NORMAL;
       }

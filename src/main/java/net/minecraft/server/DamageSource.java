@@ -165,7 +165,7 @@ public class DamageSource {
 
    public boolean u() {
       Entity var1 = this.getEntity();
-      return var1 instanceof EntityHuman && ((EntityHuman)var1).by.d;
+      return var1 instanceof EntityHuman && ((EntityHuman)var1).by.canInstantlyBuild;
    }
 
 }

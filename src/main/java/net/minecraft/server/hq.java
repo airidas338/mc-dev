@@ -4,7 +4,7 @@ import java.util.List;
 
 public class hq {
 
-   public static IChatBaseComponent a(ICommandSender var0, IChatBaseComponent var1, Entity var2) throws ExceptionInvalidUUID {
+   public static IChatBaseComponent a(ICommandListener var0, IChatBaseComponent var1, Entity var2) throws ExceptionInvalidUUID {
       Object var3 = null;
       if(var1 instanceof ht) {
          ht var4 = (ht)var1;

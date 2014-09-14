@@ -11,11 +11,11 @@ public class CommandTime extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.time.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 1) {
          int var3;
          if(var2[0].equals("set")) {
@@ -59,18 +59,18 @@ public class CommandTime extends CommandAbstract {
       throw new ExceptionUsage("commands.time.usage", new Object[0]);
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "add", "query"}):(var2.length == 2 && var2[0].equals("set")?a(var2, new String[]{"day", "night"}):(var2.length == 2 && var2[0].equals("query")?a(var2, new String[]{"daytime", "gametime"}):null));
    }
 
-   protected void a(ICommandSender var1, int var2) {
+   protected void a(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.M().c.length; ++var3) {
          MinecraftServer.M().c[var3].b((long)var2);
       }
 
    }
 
-   protected void b(ICommandSender var1, int var2) {
+   protected void b(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.M().c.length; ++var3) {
          WorldServer var4 = MinecraftServer.M().c[var3];
          var4.b(var4.L() + (long)var2);

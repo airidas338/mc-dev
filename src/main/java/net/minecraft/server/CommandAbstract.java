@@ -24,11 +24,11 @@ public abstract class CommandAbstract implements ICommand {
 		return Collections.emptyList();
 	}
 
-	public boolean a(ICommandSender var1) {
+	public boolean a(ICommandListener var1) {
 		return var1.a(this.a(), this.c());
 	}
 
-	public List a(ICommandSender var1, String[] var2, Location var3) {
+	public List a(ICommandListener var1, String[] var2, Location var3) {
 		return null;
 	}
 
@@ -74,7 +74,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static Location a(ICommandSender var0, String[] var1, int var2, boolean var3) throws ExceptionInvalidNumber {
+	public static Location a(ICommandListener var0, String[] var1, int var2, boolean var3) throws ExceptionInvalidNumber {
 		Location var4 = var0.c();
 		return new Location(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
@@ -123,7 +123,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static EntityPlayer b(ICommandSender var0) throws ExceptionPlayerNotFound {
+	public static EntityPlayer b(ICommandListener var0) throws ExceptionPlayerNotFound {
 		if (var0 instanceof EntityPlayer) {
 			return (EntityPlayer) var0;
 		} else {
@@ -131,7 +131,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static EntityPlayer a(ICommandSender var0, String var1) throws ExceptionPlayerNotFound {
+	public static EntityPlayer a(ICommandListener var0, String var1) throws ExceptionPlayerNotFound {
 		EntityPlayer var2 = ah.a(var0, var1);
 		if (var2 == null) {
 			try {
@@ -152,11 +152,11 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static Entity b(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
+	public static Entity b(ICommandListener var0, String var1) throws ExceptionInvalidUUID {
 		return a(var0, var1, Entity.class);
 	}
 
-	public static Entity a(ICommandSender var0, String var1, Class var2) throws ExceptionInvalidUUID {
+	public static Entity a(ICommandListener var0, String var1, Class var2) throws ExceptionInvalidUUID {
 		Object var3 = ah.a(var0, var1, var2);
 		MinecraftServer var4 = MinecraftServer.M();
 		if (var3 == null) {
@@ -182,11 +182,11 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static List c(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
+	public static List c(ICommandListener var0, String var1) throws ExceptionInvalidUUID {
 		return (List) (ah.b(var1) ? ah.b(var0, var1, Entity.class) : Lists.newArrayList(new Entity[] { b(var0, var1) }));
 	}
 
-	public static String d(ICommandSender var0, String var1) throws ExceptionPlayerNotFound {
+	public static String d(ICommandListener var0, String var1) throws ExceptionPlayerNotFound {
 		try {
 			return a(var0, var1).d_();
 		} catch (ExceptionPlayerNotFound var3) {
@@ -198,7 +198,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static String e(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
+	public static String e(ICommandListener var0, String var1) throws ExceptionInvalidUUID {
 		try {
 			return a(var0, var1).d_();
 		} catch (ExceptionPlayerNotFound var5) {
@@ -214,11 +214,11 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static IChatBaseComponent a(ICommandSender var0, String[] var1, int var2) throws ExceptionPlayerNotFound {
+	public static IChatBaseComponent a(ICommandListener var0, String[] var1, int var2) throws ExceptionPlayerNotFound {
 		return b(var0, var1, var2, false);
 	}
 
-	public static IChatBaseComponent b(ICommandSender var0, String[] var1, int var2, boolean var3) throws ExceptionPlayerNotFound {
+	public static IChatBaseComponent b(ICommandListener var0, String[] var1, int var2, boolean var3) throws ExceptionPlayerNotFound {
 		ChatComponentText var4 = new ChatComponentText("");
 
 		for (int var5 = var2; var5 < var1.length; ++var5) {
@@ -331,7 +331,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static Item f(ICommandSender var0, String var1) throws ExceptionInvalidNumber {
+	public static Item f(ICommandListener var0, String var1) throws ExceptionInvalidNumber {
 		RegistryPrepender var2 = new RegistryPrepender(var1);
 		Item var3 = (Item) Item.e.a(var2);
 		if (var3 == null) {
@@ -341,7 +341,7 @@ public abstract class CommandAbstract implements ICommand {
 		}
 	}
 
-	public static Block g(ICommandSender var0, String var1) throws ExceptionInvalidNumber {
+	public static Block g(ICommandListener var0, String var1) throws ExceptionInvalidNumber {
 		RegistryPrepender var2 = new RegistryPrepender(var1);
 		if (!Block.c.d(var2)) {
 			throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
@@ -457,11 +457,11 @@ public abstract class CommandAbstract implements ICommand {
 		return false;
 	}
 
-	public static void a(ICommandSender var0, ICommand var1, String var2, Object... var3) {
+	public static void a(ICommandListener var0, ICommand var1, String var2, Object... var3) {
 		a(var0, var1, 0, var2, var3);
 	}
 
-	public static void a(ICommandSender var0, ICommand var1, int var2, String var3, Object... var4) {
+	public static void a(ICommandListener var0, ICommand var1, int var2, String var3, Object... var4) {
 		if (a != null) {
 			a.a(var0, var1, var2, var3, var4);
 		}

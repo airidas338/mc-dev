@@ -23,11 +23,11 @@ public class CommandDebug extends CommandAbstract {
       return 3;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.debug.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.debug.usage", new Object[0]);
       } else {
@@ -130,7 +130,7 @@ public class CommandDebug extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"start", "stop"}):null;
    }
 

@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class CommandSpreadplayers extends CommandAbstract {
+public class CommandSpreadPlayers extends CommandAbstract {
 
    public String c() {
       return "spreadplayers";
@@ -20,11 +20,11 @@ public class CommandSpreadplayers extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.spreadplayers.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 6) {
          throw new ExceptionUsage("commands.spreadplayers.usage", new Object[0]);
       } else {
@@ -68,7 +68,7 @@ public class CommandSpreadplayers extends CommandAbstract {
       }
    }
 
-   private void a(ICommandSender var1, List var2, cs var3, double var4, double var6, World var8, boolean var9) throws CommandException {
+   private void a(ICommandListener var1, List var2, cs var3, double var4, double var6, World var8, boolean var9) throws CommandException {
       Random var10 = new Random();
       double var11 = var3.a - var6;
       double var13 = var3.b - var6;

@@ -64,7 +64,7 @@ public final class WorldSettings {
    }
 
    public static EnumGamemode a(int var0) {
-      return EnumGamemode.a(var0);
+      return EnumGamemode.getById(var0);
    }
 
    public String j() {

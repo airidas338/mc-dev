@@ -2278,7 +2278,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public PersistentBase a(Class var1, String var2) {
-		return this.worldMaps.a(var1, var2);
+		return this.worldMaps.get(var1, var2);
 	}
 
 	public int b(String var1) {

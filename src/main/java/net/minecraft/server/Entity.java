@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
-public abstract class Entity implements ICommandSender {
+public abstract class Entity implements ICommandListener {
 
 	private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 	private static int b;

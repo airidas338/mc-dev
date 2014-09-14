@@ -55,7 +55,7 @@ public class WorldServer extends World implements vn {
    public World b() {
       this.worldMaps = new PersistentCollection(this.w);
       String var1 = VillageSiege.a(this.t);
-      VillageSiege var2 = (VillageSiege)this.worldMaps.a(VillageSiege.class, var1);
+      VillageSiege var2 = (VillageSiege)this.worldMaps.get(VillageSiege.class, var1);
       if(var2 == null) {
          this.A = new VillageSiege(this);
          this.worldMaps.a(var1, (PersistentBase)this.A);
@@ -65,7 +65,7 @@ public class WorldServer extends World implements vn {
       }
 
       this.C = new ScoreboardServer(this.I);
-      PersistentScoreboard var3 = (PersistentScoreboard)this.worldMaps.a(PersistentScoreboard.class, "scoreboard");
+      PersistentScoreboard var3 = (PersistentScoreboard)this.worldMaps.get(PersistentScoreboard.class, "scoreboard");
       if(var3 == null) {
          var3 = new PersistentScoreboard();
          this.worldMaps.a("scoreboard", (PersistentBase)var3);
@@ -550,7 +550,7 @@ public class WorldServer extends World implements vn {
       this.x.a(false);
       this.x.i(1000000000);
       this.x.c(6000L);
-      this.x.a(EnumGamemode.SPECTATOR);
+      this.x.setGameType(EnumGamemode.SPECTATOR);
       this.x.g(false);
       this.x.a(EnumDifficulty.PEACEFUL);
       this.x.e(true);

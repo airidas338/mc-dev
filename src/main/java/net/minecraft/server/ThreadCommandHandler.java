@@ -20,7 +20,7 @@ class ThreadCommandHandler extends Thread {
       String var2;
       try {
          while(!this.a.am() && this.a.t() && (var2 = var1.readLine()) != null) {
-            this.a.a(var2, (ICommandSender)this.a);
+            this.a.a(var2, (ICommandListener)this.a);
          }
       } catch (IOException var4) {
          DedicatedServer.aR().error("Exception handling console input", var4);

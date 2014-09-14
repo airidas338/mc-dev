@@ -15,7 +15,7 @@ public class CommandHelp extends CommandAbstract {
       return 0;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.help.usage";
    }
 
@@ -23,7 +23,7 @@ public class CommandHelp extends CommandAbstract {
       return Arrays.asList(new String[]{"?"});
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       List var3 = this.d(var1);
       boolean var4 = true;
       int var5 = (var3.size() - 1) / 7;
@@ -66,7 +66,7 @@ public class CommandHelp extends CommandAbstract {
 
    }
 
-   protected List d(ICommandSender var1) {
+   protected List d(ICommandListener var1) {
       List var2 = MinecraftServer.M().O().a(var1);
       Collections.sort(var2);
       return var2;
@@ -76,7 +76,7 @@ public class CommandHelp extends CommandAbstract {
       return MinecraftServer.M().O().a();
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Set var4 = this.d().keySet();
          return a(var2, (String[])var4.toArray(new String[var4.size()]));

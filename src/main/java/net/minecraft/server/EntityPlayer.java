@@ -79,7 +79,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 			if (MinecraftServer.M().av()) {
 				this.c.a(MinecraftServer.M().m());
 			} else {
-				this.c.a(EnumGamemode.a(var1.getInt("playerGameType")));
+				this.c.a(EnumGamemode.getById(var1.getInt("playerGameType")));
 			}
 		}
 

@@ -11,11 +11,11 @@ public class CommandParticle extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.particle.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 8) {
          throw new ExceptionUsage("commands.particle.usage", new Object[0]);
       } else {
@@ -85,7 +85,7 @@ public class CommandParticle extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, ew.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 9?a(var2, new String[]{"normal", "force"}):null));
    }
 }

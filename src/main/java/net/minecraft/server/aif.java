@@ -22,11 +22,11 @@ class aif extends ajk {
    }
 
    public boolean a(EntityHuman var1) {
-      return (var1.by.d || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
+      return (var1.by.canInstantlyBuild || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
    }
 
    public void a(EntityHuman var1, ItemStack var2) {
-      if(!var1.by.d) {
+      if(!var1.by.canInstantlyBuild) {
          var1.a(-this.c.a);
       }
 
@@ -45,7 +45,7 @@ class aif extends ajk {
 
       this.c.a = 0;
       IBlock var5 = this.a.getData(this.b);
-      if(!var1.by.d && !this.a.D && var5.c() == Blocks.ANVIL && var1.bb().nextFloat() < 0.12F) {
+      if(!var1.by.canInstantlyBuild && !this.a.D && var5.c() == Blocks.ANVIL && var1.bb().nextFloat() < 0.12F) {
          int var4 = ((Integer)var5.b(BlockAnvil.b)).intValue();
          ++var4;
          if(var4 > 2) {

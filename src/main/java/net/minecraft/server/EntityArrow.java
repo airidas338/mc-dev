@@ -178,7 +178,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
          if(var6 != null && var6.d != null && var6.d instanceof EntityHuman) {
             EntityHuman var23 = (EntityHuman)var6.d;
-            if(var23.by.a || this.c instanceof EntityHuman && !((EntityHuman)this.c).a(var23)) {
+            if(var23.by.isInvulnerable || this.c instanceof EntityHuman && !((EntityHuman)this.c).a(var23)) {
                var6 = null;
             }
          }
@@ -362,7 +362,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
    public void d(EntityHuman var1) {
       if(!this.o.D && this.i && this.b <= 0) {
-         boolean var2 = this.a == 1 || this.a == 2 && var1.by.d;
+         boolean var2 = this.a == 1 || this.a == 2 && var1.by.canInstantlyBuild;
          if(this.a == 1 && !var1.bg.a(new ItemStack(Items.g, 1))) {
             var2 = false;
          }

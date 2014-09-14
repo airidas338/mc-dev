@@ -4,22 +4,22 @@ import com.google.common.collect.Lists;
 import java.util.Collections;
 import java.util.List;
 
-public class brp implements Runnable {
+public class FileIOThread implements Runnable {
 
-   private static final brp a = new brp();
+   private static final FileIOThread a = new FileIOThread();
    private List b = Collections.synchronizedList(Lists.newArrayList());
    private volatile long c;
    private volatile long d;
    private volatile boolean e;
 
 
-   private brp() {
+   private FileIOThread() {
       Thread var1 = new Thread(this, "File IO Thread");
       var1.setPriority(1);
       var1.start();
    }
 
-   public static brp a() {
+   public static FileIOThread a() {
       return a;
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class CommandSpawnPoint extends CommandAbstract {
+public class CommandSpawnpoint extends CommandAbstract {
 
    public String c() {
       return "spawnpoint";
@@ -11,11 +11,11 @@ public class CommandSpawnPoint extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.spawnpoint.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 0 && var2.length < 4) {
          throw new ExceptionUsage("commands.spawnpoint.usage", new Object[0]);
       } else {
@@ -29,7 +29,7 @@ public class CommandSpawnPoint extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 

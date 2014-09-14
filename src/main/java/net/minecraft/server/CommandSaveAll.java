@@ -6,11 +6,11 @@ public class CommandSaveAll extends CommandAbstract {
       return "save-all";
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.save.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       MinecraftServer var3 = MinecraftServer.M();
       var1.a(new ChatMessage("commands.save.start", new Object[0]));
       if(var3.an() != null) {

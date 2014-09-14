@@ -18,7 +18,7 @@ public class EntityMushroomCow extends EntityCow {
             return true;
          }
 
-         if(var1.bg.a(new ItemStack(Items.A)) && !var1.by.d) {
+         if(var1.bg.a(new ItemStack(Items.A)) && !var1.by.canInstantlyBuild) {
             var1.bg.a(var1.bg.c, 1);
             return true;
          }

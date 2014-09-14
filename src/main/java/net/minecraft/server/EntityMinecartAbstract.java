@@ -90,7 +90,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 				this.j(10);
 				this.ac();
 				this.a(this.p() + var2 * 10.0F);
-				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).by.d;
+				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).by.canInstantlyBuild;
 				if (var3 || this.p() > 40.0F) {
 					if (this.l != null) {
 						this.l.a((Entity) null);

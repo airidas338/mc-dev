@@ -13,7 +13,7 @@ public class ItemBow extends Item {
    }
 
    public void a(ItemStack var1, World var2, EntityHuman var3, int var4) {
-      boolean var5 = var3.by.d || EnchantmentManager.a(Enchantment.ARROW_INFINITE.B, var1) > 0;
+      boolean var5 = var3.by.canInstantlyBuild || EnchantmentManager.a(Enchantment.ARROW_INFINITE.B, var1) > 0;
       if(var5 || var3.bg.b(Items.g)) {
          int var6 = this.d(var1) - var4;
          float var7 = (float)var6 / 20.0F;
@@ -74,7 +74,7 @@ public class ItemBow extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
-      if(var3.by.d || var3.bg.b(Items.g)) {
+      if(var3.by.canInstantlyBuild || var3.bg.b(Items.g)) {
          var3.a(var1, this.d(var1));
       }
 

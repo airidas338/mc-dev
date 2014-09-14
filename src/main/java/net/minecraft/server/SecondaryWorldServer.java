@@ -17,7 +17,7 @@ public class SecondaryWorldServer extends WorldServer {
       this.worldMaps = this.a.T();
       this.C = this.a.Z();
       String var1 = VillageSiege.a(this.t);
-      VillageSiege var2 = (VillageSiege)this.worldMaps.a(VillageSiege.class, var1);
+      VillageSiege var2 = (VillageSiege)this.worldMaps.get(VillageSiege.class, var1);
       if(var2 == null) {
          this.A = new VillageSiege(this);
          this.worldMaps.a(var1, (PersistentBase)this.A);

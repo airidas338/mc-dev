@@ -63,7 +63,7 @@ public class ajw extends Item {
                   var2.d((Entity)var33);
                }
 
-               if(!var3.by.d) {
+               if(!var3.by.canInstantlyBuild) {
                   --var1.b;
                }
 

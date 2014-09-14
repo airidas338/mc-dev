@@ -18,7 +18,7 @@ public class ix implements Packet {
    }
 
    public void a(hd var1) {
-      this.a = EnumDifficulty.a(var1.readUnsignedByte());
+      this.a = EnumDifficulty.getById(var1.readUnsignedByte());
    }
 
    public void b(hd var1) {

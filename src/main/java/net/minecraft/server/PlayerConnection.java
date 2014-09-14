@@ -242,7 +242,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				}
 
 				AxisAlignedBB var47 = this.b.aQ().b((double) var41, (double) var41, (double) var41).a(0.0D, -0.55D, 0.0D);
-				if (!this.d.ai() && !this.b.by.c && !var2.c(var47)) {
+				if (!this.d.ai() && !this.b.by.canFly && !var2.c(var47)) {
 					if (var43 >= -0.03125D) {
 						++this.g;
 						if (this.g > 80) {
@@ -794,13 +794,13 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 	public void a(PacketPlayInAbilities var1) {
 		ig.a(var1, this, this.b.u());
-		this.b.by.b = var1.b() && this.b.by.c;
+		this.b.by.isFlying = var1.b() && this.b.by.canFly;
 	}
 
 	public void a(PacketPlayInTabComplete var1) {
 		ig.a(var1, this, this.b.u());
 		ArrayList var2 = Lists.newArrayList();
-		Iterator var3 = this.d.a((ICommandSender) this.b, var1.a(), var1.b()).iterator();
+		Iterator var3 = this.d.a((ICommandListener) this.b, var1.a(), var1.b()).iterator();
 
 		while (var3.hasNext()) {
 			String var4 = (String) var3.next();
@@ -894,7 +894,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		} else if ("MC|AdvCdm".equals(var1.a())) {
 			if (!this.d.aj()) {
 				this.b.a((IChatBaseComponent) (new ChatMessage("advMode.notEnabled", new Object[0])));
-			} else if (this.b.a(2, "") && this.b.by.d) {
+			} else if (this.b.a(2, "") && this.b.by.canInstantlyBuild) {
 				var2 = var1.b();
 
 				try {

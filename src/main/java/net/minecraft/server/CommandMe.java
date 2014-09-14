@@ -11,11 +11,11 @@ public class CommandMe extends CommandAbstract {
       return 0;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.me.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length <= 0) {
          throw new ExceptionUsage("commands.me.usage", new Object[0]);
       } else {
@@ -24,7 +24,7 @@ public class CommandMe extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return a(var2, MinecraftServer.M().I());
    }
 }

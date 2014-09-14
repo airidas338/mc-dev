@@ -23,9 +23,9 @@ public class kp implements Packet {
 
    public void a(hd var1) {
       this.a = var1.readInt();
-      this.b = EnumDifficulty.a(var1.readUnsignedByte());
-      this.c = EnumGamemode.a(var1.readUnsignedByte());
-      this.d = WorldType.a(var1.c(16));
+      this.b = EnumDifficulty.getById(var1.readUnsignedByte());
+      this.c = EnumGamemode.getById(var1.readUnsignedByte());
+      this.d = WorldType.getType(var1.c(16));
       if(this.d == null) {
          this.d = WorldType.NORMAL;
       }

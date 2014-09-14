@@ -6,11 +6,11 @@ public class CommandStop extends CommandAbstract {
       return "stop";
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.stop.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(MinecraftServer.M().c != null) {
          a(var1, this, "commands.stop.start", new Object[0]);
       }

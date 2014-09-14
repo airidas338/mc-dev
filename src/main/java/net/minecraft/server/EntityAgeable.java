@@ -33,7 +33,7 @@ public abstract class EntityAgeable extends EntityCreature {
                      var4.a(var2.q());
                   }
 
-                  if(!var1.by.d) {
+                  if(!var1.by.canInstantlyBuild) {
                      --var2.b;
                      if(var2.b <= 0) {
                         var1.bg.a(var1.bg.c, (ItemStack)null);

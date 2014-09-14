@@ -54,7 +54,7 @@ public class bqn implements Convertable {
       }
    }
 
-   public boolean e(String var1) {
+   public boolean isConvertable(String var1) {
       File var2 = new File(this.a, var1);
       if(!var2.exists()) {
          return true;
@@ -107,7 +107,7 @@ public class bqn implements Convertable {
       return false;
    }
 
-   public boolean a(String var1, IProgressUpdate var2) {
+   public boolean convert(String var1, IProgressUpdate var2) {
       return false;
    }
 

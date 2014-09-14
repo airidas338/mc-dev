@@ -196,7 +196,7 @@ public class BlockDoor extends Block {
 
    public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
       Location var5 = var2.b();
-      if(var4.by.d && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
+      if(var4.by.canInstantlyBuild && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
          var1.g(var5);
       }
 

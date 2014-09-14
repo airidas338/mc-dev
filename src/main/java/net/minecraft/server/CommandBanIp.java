@@ -18,15 +18,15 @@ public class CommandBanIp extends CommandAbstract {
       return 3;
    }
 
-   public boolean a(ICommandSender var1) {
+   public boolean a(ICommandListener var1) {
       return MinecraftServer.M().an().j().b() && super.a(var1);
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.banip.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length >= 1 && var2[0].length() > 1) {
          IChatBaseComponent var3 = var2.length >= 2?a(var1, var2, 1):null;
          Matcher var4 = a.matcher(var2[0]);
@@ -46,11 +46,11 @@ public class CommandBanIp extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 
-   protected void a(ICommandSender var1, String var2, String var3) {
+   protected void a(ICommandListener var1, String var2, String var3) {
       IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.d_(), (Date)null, var3);
       MinecraftServer.M().an().j().a((JsonListEntry)var4);
       List var5 = MinecraftServer.M().an().b(var2);

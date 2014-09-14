@@ -7,7 +7,7 @@ public class alg extends Item {
       if(!var3.D) {
          EntityFireworks var9 = new EntityFireworks(var3, (double)((float)var4.n() + var6), (double)((float)var4.o() + var7), (double)((float)var4.p() + var8), var1);
          var3.d((Entity)var9);
-         if(!var2.by.d) {
+         if(!var2.by.canInstantlyBuild) {
             --var1.b;
          }
 

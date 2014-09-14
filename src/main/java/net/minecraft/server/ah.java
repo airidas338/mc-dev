@@ -23,16 +23,16 @@ public class ah {
    private static final Set d = Sets.newHashSet(new String[]{"x", "y", "z", "dx", "dy", "dz", "rm", "r"});
 
 
-   public static EntityPlayer a(ICommandSender var0, String var1) {
+   public static EntityPlayer a(ICommandListener var0, String var1) {
       return (EntityPlayer)a(var0, var1, EntityPlayer.class);
    }
 
-   public static Entity a(ICommandSender var0, String var1, Class var2) {
+   public static Entity a(ICommandListener var0, String var1, Class var2) {
       List var3 = b(var0, var1, var2);
       return var3.size() == 1?(Entity)var3.get(0):null;
    }
 
-   public static IChatBaseComponent b(ICommandSender var0, String var1) {
+   public static IChatBaseComponent b(ICommandListener var0, String var1) {
       List var2 = b(var0, var1, Entity.class);
       if(var2.isEmpty()) {
          return null;
@@ -49,7 +49,7 @@ public class ah {
       }
    }
 
-   public static List b(ICommandSender var0, String var1, Class var2) {
+   public static List b(ICommandListener var0, String var1, Class var2) {
       Matcher var3 = a.matcher(var1);
       if(var3.matches() && var0.a(1, "@")) {
          Map var4 = c(var3.group(2));
@@ -85,7 +85,7 @@ public class ah {
       }
    }
 
-   private static List a(ICommandSender var0, Map var1) {
+   private static List a(ICommandListener var0, Map var1) {
       ArrayList var2 = Lists.newArrayList();
       if(h(var1)) {
          var2.add(var0.e());
@@ -96,7 +96,7 @@ public class ah {
       return var2;
    }
 
-   private static boolean b(ICommandSender var0, Map var1) {
+   private static boolean b(ICommandListener var0, Map var1) {
       String var2 = b(var1, "type");
       var2 = var2 != null && var2.startsWith("!")?var2.substring(1):var2;
       if(var2 != null && !EntityTypes.b(var2)) {
@@ -275,7 +275,7 @@ public class ah {
       return var6;
    }
 
-   private static List a(List var0, Map var1, ICommandSender var2, Class var3, String var4, Location var5) {
+   private static List a(List var0, Map var1, ICommandListener var2, Class var3, String var4, Location var5) {
       int var6 = a(var1, "c", !var4.equals("a") && !var4.equals("e")?1:0);
       if(!var4.equals("p") && !var4.equals("a") && !var4.equals("e")) {
          if(var4.equals("r")) {

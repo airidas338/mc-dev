@@ -10,11 +10,11 @@ public class CommandToggleDownfall extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.downfall.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       this.d();
       a(var1, this, "commands.downfall.success", new Object[0]);
    }

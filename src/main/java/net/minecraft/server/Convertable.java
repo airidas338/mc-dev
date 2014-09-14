@@ -6,9 +6,9 @@ public interface Convertable {
 
    void d();
 
-   boolean e(String var1);
+   boolean isConvertable(String var1);
 
    boolean b(String var1);
 
-   boolean a(String var1, IProgressUpdate var2);
+   boolean convert(String var1, IProgressUpdate var2);
 }

@@ -202,7 +202,7 @@ public final class ItemStack {
    }
 
    public void a(int var1, EntityLiving var2) {
-      if(!(var2 instanceof EntityHuman) || !((EntityHuman)var2).by.d) {
+      if(!(var2 instanceof EntityHuman) || !((EntityHuman)var2).by.canInstantlyBuild) {
          if(this.e()) {
             if(this.a(var1, var2.bb())) {
                var2.b(this);

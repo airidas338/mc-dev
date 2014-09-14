@@ -26,7 +26,7 @@ public class PersistentCollection {
       this.b();
    }
 
-   public PersistentBase a(Class var1, String var2) {
+   public PersistentBase get(Class var1, String var2) {
       PersistentBase var3 = (PersistentBase)this.a.get(var2);
       if(var3 != null) {
          return var3;

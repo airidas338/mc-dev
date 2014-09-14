@@ -16,11 +16,11 @@ public class CommandAchievement extends CommandAbstract {
       return 2;
    }
 
-   public String c(ICommandSender var1) {
+   public String c(ICommandListener var1) {
       return "commands.achievement.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws CommandException {
+   public void a(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.achievement.usage", new Object[0]);
       } else {
@@ -108,7 +108,7 @@ public class CommandAchievement extends CommandAbstract {
       }
    }
 
-   public List a(ICommandSender var1, String[] var2, Location var3) {
+   public List a(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"give", "take"});
       } else if(var2.length != 2) {

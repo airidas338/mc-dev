@@ -675,7 +675,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public final boolean e(EntityHuman var1) throws IOException {
       if(this.cb() && this.cc() == var1) {
-         this.a(true, !var1.by.d);
+         this.a(true, !var1.by.canInstantlyBuild);
          return true;
       } else {
          ItemStack var2 = var1.bg.h();

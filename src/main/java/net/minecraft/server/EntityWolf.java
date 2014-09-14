@@ -213,7 +213,7 @@ public class EntityWolf extends EntityTameableAnimal {
             if(var2.b() instanceof ItemFood) {
                ItemFood var3 = (ItemFood)var2.b();
                if(var3.g() && this.ac.d(18) < 20.0F) {
-                  if(!var1.by.d) {
+                  if(!var1.by.canInstantlyBuild) {
                      --var2.b;
                   }
 
@@ -228,7 +228,7 @@ public class EntityWolf extends EntityTameableAnimal {
                akv var4 = akv.a(var2.i());
                if(var4 != this.cu()) {
                   this.a(var4);
-                  if(!var1.by.d && --var2.b <= 0) {
+                  if(!var1.by.canInstantlyBuild && --var2.b <= 0) {
                      var1.bg.a(var1.bg.c, (ItemStack)null);
                   }
 
@@ -244,7 +244,7 @@ public class EntityWolf extends EntityTameableAnimal {
             this.d((EntityLiving)null);
          }
       } else if(var2 != null && var2.b() == Items.aX && !this.ct()) {
-         if(!var1.by.d) {
+         if(!var1.by.canInstantlyBuild) {
             --var2.b;
          }
 

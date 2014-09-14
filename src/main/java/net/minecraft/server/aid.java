@@ -134,7 +134,7 @@ public class aid extends aib {
 
                      var21 = var10000;
                      boolean var22 = var28.a(var8);
-                     if(this.m.by.d || var8.b() == Items.cd) {
+                     if(this.m.by.canInstantlyBuild || var8.b() == Items.cd) {
                         var22 = true;
                      }
 
@@ -208,7 +208,7 @@ public class aid extends aib {
             this.a = 39;
          }
 
-         if(this.a >= 40 && !this.m.by.d) {
+         if(this.a >= 40 && !this.m.by.canInstantlyBuild) {
             var12 = null;
          }
 

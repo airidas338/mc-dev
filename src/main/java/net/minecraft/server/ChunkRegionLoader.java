@@ -14,7 +14,7 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class bfy implements IChunkLoader, brq {
+public class ChunkRegionLoader implements IChunkLoader, brq {
 
    private static final Logger a = LogManager.getLogger();
    private List b = Lists.newArrayList();
@@ -23,7 +23,7 @@ public class bfy implements IChunkLoader, brq {
    private final File e;
 
 
-   public bfy(File var1) {
+   public ChunkRegionLoader(File var1) {
       this.e = var1;
    }
 
@@ -103,7 +103,7 @@ public class bfy implements IChunkLoader, brq {
 
          this.b.add(new bfz(var1, var2));
          this.c.add(var1);
-         brp.a().a(this);
+         FileIOThread.a().a(this);
       }
    }
 
