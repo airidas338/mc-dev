@@ -4,7 +4,7 @@ package net.minecraft.server;
 
 public class MobEffectAttackDamage extends MobEffectList {
 
-   protected MobEffectAttackDamage(int var1, RegistryMaterials var2, boolean var3, int var4) {
+   protected MobEffectAttackDamage(int var1, RegistryPrepender var2, boolean var3, int var4) {
       super(var1, var2, var3, var4);
    }
 

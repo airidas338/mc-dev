@@ -238,7 +238,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof anm && ((anm)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.SAPLING)?100:(var1 == Items.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof ItemSword && ((ItemSword)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.SAPLING)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 

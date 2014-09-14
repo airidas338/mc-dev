@@ -235,7 +235,7 @@ public class BiomeMesa extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      boolean var2 = this.az == BiomeBase.aa.az;
+      boolean var2 = this.az == BiomeBase.MESA.az;
       BiomeMesa var3 = new BiomeMesa(var1, var2, this.aJ);
       if(!var2) {
          var3.a(g);

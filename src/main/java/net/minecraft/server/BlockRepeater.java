@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockRepeater extends ava {
+public class BlockRepeater extends BlockDiodeAbstract {
 
    public static final bet a = bet.a("locked");
    public static final bew b = bew.a("delay", 1, 4);

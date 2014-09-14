@@ -105,7 +105,7 @@ public class aqo {
                   double var37 = (double)this.d.a(var11, var13.aQ());
                   double var26 = (1.0D - var35) * var37;
                   var13.a(DamageSource.a(this), (float)((int)((var26 * var26 + var26) / 2.0D * 8.0D * (double)var30 + 1.0D)));
-                  double var28 = apu.a(var13, var26);
+                  double var28 = EnchantmentProtection.a(var13, var26);
                   var13.v += var16 * var28;
                   var13.w += var18 * var28;
                   var13.x += var20 * var28;

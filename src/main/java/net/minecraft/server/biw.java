@@ -51,7 +51,7 @@ public class biw {
    public String toString() {
       String var1;
       if(this.a >= 3) {
-         RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.e());
+         RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.e());
          var1 = var2 == null?"null":var2.toString();
          if(this.c > 1) {
             var1 = this.c + "*" + var1;

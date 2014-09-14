@@ -61,7 +61,7 @@ public class ahb implements IInventory {
       int var8;
       for(var6 = 0; var6 < this.a.length; ++var6) {
          var7 = this.a[var6];
-         if(var7 != null && (var1 == null || var7.b() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || cy.a(var4, var7.o(), true))) {
+         if(var7 != null && (var1 == null || var7.b() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || CommandTestforBlock.a(var4, var7.o(), true))) {
             var8 = var3 <= 0?var7.b:Math.min(var3 - var5, var7.b);
             var5 += var8;
             if(var3 != 0) {
@@ -79,7 +79,7 @@ public class ahb implements IInventory {
 
       for(var6 = 0; var6 < this.b.length; ++var6) {
          var7 = this.b[var6];
-         if(var7 != null && (var1 == null || var7.b() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || cy.a(var4, var7.o(), false))) {
+         if(var7 != null && (var1 == null || var7.b() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || CommandTestforBlock.a(var4, var7.o(), false))) {
             var8 = var3 <= 0?var7.b:Math.min(var3 - var5, var7.b);
             var5 += var8;
             if(var3 != 0) {
@@ -104,7 +104,7 @@ public class ahb implements IInventory {
             return var5;
          }
 
-         if(var4 != null && !cy.a(var4, this.f.o(), false)) {
+         if(var4 != null && !CommandTestforBlock.a(var4, this.f.o(), false)) {
             return var5;
          }
 

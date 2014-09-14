@@ -11,7 +11,7 @@ public class bkg extends bmm {
 
    private int f;
    private int g;
-   public static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.p, BiomeBase.N, BiomeBase.w, BiomeBase.z, BiomeBase.A});
+   public static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.OCEAN, BiomeBase.DEEP_OCEAN, BiomeBase.RIVER, BiomeBase.FROZEN_OCEAN, BiomeBase.FROZEN_RIVER});
    private static final List h = Lists.newArrayList();
 
 
@@ -58,7 +58,7 @@ public class bkg extends bmm {
       var5 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       var6 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       if(var3 == var5 && var4 == var6) {
-         if(this.c.v().a(new Location(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.N) {
+         if(this.c.v().a(new Location(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.DEEP_OCEAN) {
             return false;
          }
 

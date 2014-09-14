@@ -206,8 +206,8 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void a(EntityLiving var1, float var2) {
       EntityArrow var3 = new EntityArrow(this.o, this, var1, 1.6F, (float)(14 - this.o.aa().a() * 4));
-      int var4 = EnchantmentManager.a(apf.v.B, this.bz());
-      int var5 = EnchantmentManager.a(apf.w.B, this.bz());
+      int var4 = EnchantmentManager.a(Enchantment.ARROW_DAMAGE.B, this.bz());
+      int var5 = EnchantmentManager.a(Enchantment.ARROW_KNOCKBACK.B, this.bz());
       var3.b((double)(var2 * 2.0F) + this.V.nextGaussian() * 0.25D + (double)((float)this.o.aa().a() * 0.11F));
       if(var4 > 0) {
          var3.b(var3.j() + (double)var4 * 0.5D + 0.5D);
@@ -217,7 +217,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          var3.a(var5);
       }
 
-      if(EnchantmentManager.a(apf.x.B, this.bz()) > 0 || this.ck() == 1) {
+      if(EnchantmentManager.a(Enchantment.ARROW_FIRE.B, this.bz()) > 0 || this.ck() == 1) {
          var3.e(100);
       }
 

@@ -15,7 +15,7 @@ public class bdb extends TileEntity {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      RegistryMaterials var2 = (RegistryMaterials)Item.e.c(this.a);
+      RegistryPrepender var2 = (RegistryPrepender)Item.e.c(this.a);
       var1.setString("Item", var2 == null?"":var2.toString());
       var1.setInt("Data", this.f);
    }

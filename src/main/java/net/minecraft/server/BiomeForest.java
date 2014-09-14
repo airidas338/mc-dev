@@ -130,7 +130,7 @@ public class BiomeForest extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      if(this.az == BiomeBase.t.az) {
+      if(this.az == BiomeBase.FOREST.az) {
          BiomeForest var2 = new BiomeForest(var1, 1);
          var2.a(new BiomeTemperature(this.an, this.ao + 0.2F));
          var2.a("Flower Forest");
@@ -138,7 +138,7 @@ public class BiomeForest extends BiomeBase {
          var2.a(8233509);
          return var2;
       } else {
-         return (BiomeBase)(this.az != BiomeBase.Q.az && this.az != BiomeBase.R.az?new asf(this, var1, this):new ase(this, var1, this));
+         return (BiomeBase)(this.az != BiomeBase.BIRCH_FOREST.az && this.az != BiomeBase.BIRCH_FOREST_HILLS.az?new asf(this, var1, this):new ase(this, var1, this));
       }
    }
 

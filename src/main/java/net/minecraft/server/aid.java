@@ -120,7 +120,7 @@ public class aid extends aib {
 
                while(var27.hasNext()) {
                   var18 = ((Integer)var27.next()).intValue();
-                  apf var28 = apf.c(var18);
+                  Enchantment var28 = Enchantment.c(var18);
                   if(var28 != null) {
                      var20 = var14.containsKey(Integer.valueOf(var18))?((Integer)var14.get(Integer.valueOf(var18))).intValue():0;
                      int var21 = ((Integer)var26.get(Integer.valueOf(var18))).intValue();
@@ -142,7 +142,7 @@ public class aid extends aib {
 
                      while(var23.hasNext()) {
                         int var24 = ((Integer)var23.next()).intValue();
-                        if(var24 != var18 && !var28.a(apf.c(var24))) {
+                        if(var24 != var18 && !var28.a(Enchantment.c(var24))) {
                            var22 = false;
                            ++var9;
                         }

@@ -273,7 +273,7 @@ public abstract class bms {
                   return 4;
                }
             }
-         } else if(var1 != Blocks.TRIPWIRE_HOOK && !(var1 instanceof avb)) {
+         } else if(var1 != Blocks.TRIPWIRE_HOOK && !(var1 instanceof BlockDirectional)) {
             if(var1 == Blocks.PISTON || var1 == Blocks.PISTON_STICKEY || var1 == Blocks.LEVER || var1 == Blocks.DISPENSER) {
                if(this.m == EnumFacing.SOUTH) {
                   if(var2 == EnumFacing.NORTH.a() || var2 == EnumFacing.SOUTH.a()) {

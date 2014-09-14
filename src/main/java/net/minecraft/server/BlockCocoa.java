@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockCocoa extends avb implements atz {
+public class BlockCocoa extends BlockDirectional implements atz {
 
    public static final bew a = bew.a("age", 0, 2);
 

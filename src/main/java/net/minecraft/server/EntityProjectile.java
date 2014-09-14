@@ -199,7 +199,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       var1.setShort("xTile", (short)this.c);
       var1.setShort("yTile", (short)this.d);
       var1.setShort("zTile", (short)this.e);
-      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.f);
+      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.f);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("shake", (byte)this.b);
       var1.setByte("inGround", (byte)(this.a?1:0));

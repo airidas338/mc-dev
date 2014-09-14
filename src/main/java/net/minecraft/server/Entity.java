@@ -266,7 +266,7 @@ public abstract class Entity implements ICommandSender {
 
 	public void e(int var1) {
 		int var2 = var1 * 20;
-		var2 = apu.a(this, var2);
+		var2 = EnchantmentProtection.a(this, var2);
 		if (this.i < var2) {
 			this.i = var2;
 		}

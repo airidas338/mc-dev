@@ -16,10 +16,10 @@ class bl implements ICommandSender {
    // $FF: synthetic field
    final double f;
    // $FF: synthetic field
-   final bk g;
+   final CommandExecute g;
 
 
-   bl(bk var1, Entity var2, ICommandSender var3, Location var4, double var5, double var7, double var9) {
+   bl(CommandExecute var1, Entity var2, ICommandSender var3, Location var4, double var5, double var7, double var9) {
       this.g = var1;
       this.a = var2;
       this.b = var3;

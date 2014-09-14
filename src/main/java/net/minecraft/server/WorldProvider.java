@@ -38,7 +38,7 @@ public abstract class WorldProvider {
          biv var2 = biv.a(this.b.P().B());
          this.c = new asc(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
-         this.c = new asc(BiomeBase.q, 0.0F);
+         this.c = new asc(BiomeBase.PLAINS, 0.0F);
       } else {
          this.c = new WorldChunkManager(this.b);
       }

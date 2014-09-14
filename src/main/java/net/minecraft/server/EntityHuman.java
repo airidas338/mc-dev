@@ -955,7 +955,7 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.a(0.2F, 0.2F);
       if(this.o.e(var1)) {
-         EnumFacing var7 = (EnumFacing)this.o.getData(var1).b(avb.N);
+         EnumFacing var7 = (EnumFacing)this.o.getData(var1).b(BlockDirectional.N);
          float var3 = 0.5F;
          float var8 = 0.5F;
          switch(ahe.a[var7.ordinal()]) {

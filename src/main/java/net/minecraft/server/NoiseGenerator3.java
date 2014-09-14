@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class NoiseGenerator3 extends boa {
+public class NoiseGenerator3 extends NoiseGenerator {
 
-   private bnz[] a;
+   private NoiseGenerator3Handler[] a;
    private int b;
 
 
    public NoiseGenerator3(Random var1, int var2) {
       this.b = var2;
-      this.a = new bnz[var2];
+      this.a = new NoiseGenerator3Handler[var2];
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         this.a[var3] = new bnz(var1);
+         this.a[var3] = new NoiseGenerator3Handler(var1);
       }
 
    }

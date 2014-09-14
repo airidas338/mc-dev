@@ -175,7 +175,7 @@ public class PlayerInteractManager {
    }
 
    public boolean b(Location var1) {
-      if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof anm) {
+      if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof ItemSword) {
          return false;
       } else {
          IBlock var2 = this.a.getData(var1);

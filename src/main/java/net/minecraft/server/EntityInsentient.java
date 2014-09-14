@@ -297,11 +297,11 @@ public abstract class EntityInsentient extends EntityLiving {
          ItemStack var5 = this.p(var3);
          if(var5 != null) {
             if(var3 == 0) {
-               if(var2.b() instanceof anm && !(var5.b() instanceof anm)) {
+               if(var2.b() instanceof ItemSword && !(var5.b() instanceof ItemSword)) {
                   var4 = true;
-               } else if(var2.b() instanceof anm && var5.b() instanceof anm) {
-                  anm var6 = (anm)var2.b();
-                  anm var7 = (anm)var5.b();
+               } else if(var2.b() instanceof ItemSword && var5.b() instanceof ItemSword) {
+                  ItemSword var6 = (ItemSword)var2.b();
+                  ItemSword var7 = (ItemSword)var5.b();
                   if(var6.g() == var7.g()) {
                      var4 = var2.i() > var5.i() || var2.n() && !var5.n();
                   } else {

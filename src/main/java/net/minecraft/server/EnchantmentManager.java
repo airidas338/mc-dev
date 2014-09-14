@@ -60,7 +60,7 @@ public class EnchantmentManager {
 
       while(var3.hasNext()) {
          int var4 = ((Integer)var3.next()).intValue();
-         apf var5 = apf.c(var4);
+         Enchantment var5 = Enchantment.c(var4);
          if(var5 != null) {
             NBTTagCompound var6 = new NBTTagCompound();
             var6.setShort("id", (short)var4);
@@ -109,8 +109,8 @@ public class EnchantmentManager {
             for(int var3 = 0; var3 < var2.c(); ++var3) {
                short var4 = var2.b(var3).getShort("id");
                short var5 = var2.b(var3).getShort("lvl");
-               if(apf.c(var4) != null) {
-                  var0.a(apf.c(var4), var5);
+               if(Enchantment.c(var4) != null) {
+                  var0.a(Enchantment.c(var4), var5);
                }
             }
 
@@ -174,50 +174,50 @@ public class EnchantmentManager {
    }
 
    public static int a(EntityLiving var0) {
-      return a(apf.o.B, var0.bz());
+      return a(Enchantment.KNOCKBACK.B, var0.bz());
    }
 
    public static int getFireAspectEnchantmentLevel(EntityLiving var0) {
-      return a(apf.p.B, var0.bz());
+      return a(Enchantment.FIRE_ASPECT.B, var0.bz());
    }
 
    public static int a(Entity var0) {
-      return a(apf.h.B, var0.at());
+      return a(Enchantment.OXYGEN.B, var0.at());
    }
 
    public static int b(Entity var0) {
-      return a(apf.k.B, var0.at());
+      return a(Enchantment.DEPTH_STRIDER.B, var0.at());
    }
 
    public static int c(EntityLiving var0) {
-      return a(apf.r.B, var0.bz());
+      return a(Enchantment.DIG_SPEED.B, var0.bz());
    }
 
    public static boolean e(EntityLiving var0) {
-      return a(apf.s.B, var0.bz()) > 0;
+      return a(Enchantment.DURABILITY.B, var0.bz()) > 0;
    }
 
    public static int f(EntityLiving var0) {
-      return a(apf.u.B, var0.bz());
+      return a(Enchantment.LOOT_BONUS_BLOCKS.B, var0.bz());
    }
 
    public static int g(EntityLiving var0) {
-      return a(apf.z.B, var0.bz());
+      return a(Enchantment.LUCK.B, var0.bz());
    }
 
    public static int h(EntityLiving var0) {
-      return a(apf.A.B, var0.bz());
+      return a(Enchantment.LURE.B, var0.bz());
    }
 
    public static int i(EntityLiving var0) {
-      return a(apf.q.B, var0.bz());
+      return a(Enchantment.LOOT_BONUS_MOBS.B, var0.bz());
    }
 
    public static boolean j(EntityLiving var0) {
-      return a(apf.i.B, var0.at()) > 0;
+      return a(Enchantment.WATER_WORKER.B, var0.at()) > 0;
    }
 
-   public static ItemStack a(apf var0, EntityLiving var1) {
+   public static ItemStack a(Enchantment var0, EntityLiving var1) {
       ItemStack[] var2 = var1.at();
       int var3 = var2.length;
 
@@ -303,7 +303,7 @@ public class EnchantmentManager {
                      while(true) {
                         if(var15.hasNext()) {
                            apo var16 = (apo)var15.next();
-                           if(var16.b.a(apf.c(var13.intValue()))) {
+                           if(var16.b.a(Enchantment.c(var13.intValue()))) {
                               continue;
                            }
 
@@ -333,11 +333,11 @@ public class EnchantmentManager {
       Item var2 = var1.b();
       HashMap var3 = null;
       boolean var4 = var1.b() == Items.aL;
-      apf[] var5 = apf.b;
+      Enchantment[] var5 = Enchantment.b;
       int var6 = var5.length;
 
       for(int var7 = 0; var7 < var6; ++var7) {
-         apf var8 = var5[var7];
+         Enchantment var8 = var5[var7];
          if(var8 != null && (var8.C.a(var2) || var4)) {
             for(int var9 = var8.e(); var9 <= var8.b(); ++var9) {
                if(var0 >= var8.a(var9) && var0 <= var8.b(var9)) {

@@ -19,7 +19,7 @@ public class af {
          String var5;
          try {
             var5 = CommandAbstract.e(var1, var4);
-         } catch (dj var10) {
+         } catch (ExceptionInvalidUUID var10) {
             return;
          }
 

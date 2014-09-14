@@ -169,7 +169,7 @@ public abstract class EntityFireball extends Entity {
       var1.setShort("xTile", (short)this.e);
       var1.setShort("yTile", (short)this.f);
       var1.setShort("zTile", (short)this.g);
-      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.h);
+      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.h);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("inGround", (byte)(this.i?1:0));
       var1.set("direction", (NBTBase)this.a(new double[]{this.v, this.w, this.x}));

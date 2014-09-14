@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class aka extends all {
+public class aka extends ItemFood {
 
    public aka(int var1) {
       super(var1, false);

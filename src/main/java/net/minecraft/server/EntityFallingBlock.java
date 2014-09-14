@@ -147,7 +147,7 @@ public class EntityFallingBlock extends Entity {
 
    protected void b(NBTTagCompound var1) {
       Block var2 = this.d != null?this.d.c():Blocks.AIR;
-      RegistryMaterials var3 = (RegistryMaterials)Block.c.c(var2);
+      RegistryPrepender var3 = (RegistryPrepender)Block.c.c(var2);
       var1.setString("Block", var3 == null?"":var3.toString());
       var1.setByte("Data", (byte)var2.c(this.d));
       var1.setByte("Time", (byte)this.a);

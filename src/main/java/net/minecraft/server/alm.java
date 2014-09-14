@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class alm extends all {
+public class alm extends ItemFood {
 
    public alm(int var1, float var2, boolean var3) {
       super(var1, var2, var3);

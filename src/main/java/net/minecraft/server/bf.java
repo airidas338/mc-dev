@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class bf extends bp {
+public class bf extends CommandGamemode {
 
    public String c() {
       return "defaultgamemode";
@@ -12,9 +12,9 @@ public class bf extends bp {
       return "commands.defaultgamemode.usage";
    }
 
-   public void a(ICommandSender var1, String[] var2) throws di, IOException {
+   public void a(ICommandSender var1, String[] var2) throws CommandException, IOException {
       if(var2.length <= 0) {
-         throw new dp("commands.defaultgamemode.usage", new Object[0]);
+         throw new ExceptionUsage("commands.defaultgamemode.usage", new Object[0]);
       } else {
          EnumGamemode var3 = this.h(var1, var2[0]);
          this.a(var3);

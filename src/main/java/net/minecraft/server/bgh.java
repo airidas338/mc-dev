@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class bgh extends WorldProvider {
 
    public void b() {
-      this.c = new asc(BiomeBase.y, 0.0F);
+      this.c = new asc(BiomeBase.SKY, 0.0F);
       this.g = 1;
       this.e = true;
    }

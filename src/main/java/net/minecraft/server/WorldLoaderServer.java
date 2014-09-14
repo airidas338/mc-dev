@@ -61,14 +61,14 @@ public class WorldLoaderServer extends bqn {
       WorldData var10 = this.c(var1);
       Object var11 = null;
       if(var10.u() == WorldType.FLAT) {
-         var11 = new asc(BiomeBase.q, 0.5F);
+         var11 = new asc(BiomeBase.PLAINS, 0.5F);
       } else {
          var11 = new WorldChunkManager(var10.b(), var10.u(), var10.B());
       }
 
       this.a(new File(var6, "region"), (Iterable)var3, (WorldChunkManager)var11, 0, var9, var2);
-      this.a(new File(var7, "region"), (Iterable)var4, new asc(BiomeBase.x, 0.0F), var3.size(), var9, var2);
-      this.a(new File(var8, "region"), (Iterable)var5, new asc(BiomeBase.y, 0.0F), var3.size() + var4.size(), var9, var2);
+      this.a(new File(var7, "region"), (Iterable)var4, new asc(BiomeBase.HELL, 0.0F), var3.size(), var9, var2);
+      this.a(new File(var8, "region"), (Iterable)var5, new asc(BiomeBase.SKY, 0.0F), var3.size() + var4.size(), var9, var2);
       var10.e(19133);
       if(var10.u() == WorldType.NORMAL_1_1) {
          var10.a(WorldType.NORMAL);

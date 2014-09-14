@@ -284,7 +284,7 @@ public class BlockRedstoneWire extends Block {
       Block var6 = var5.c();
       boolean var7 = var6.t();
       boolean var8 = var1.getData(var2.a()).c().t();
-      return !var8 && var7 && e(var1, var4.a())?true:(a(var5, var3)?true:(var6 == Blocks.DIODE_ON && var5.b(ava.N) == var3?true:!var7 && e(var1, var4.b())));
+      return !var8 && var7 && e(var1, var4.a())?true:(a(var5, var3)?true:(var6 == Blocks.DIODE_ON && var5.b(BlockDiodeAbstract.N) == var3?true:!var7 && e(var1, var4.b())));
    }
 
    protected static boolean e(IBlockAccess var0, Location var1) {

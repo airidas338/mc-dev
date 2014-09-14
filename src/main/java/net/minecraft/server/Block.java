@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class Block {
 
-   private static final RegistryMaterials a = new RegistryMaterials("air");
-   public static final NoIdea c = new NoIdea(a);
-   public static final er d = new er();
+   private static final RegistryPrepender a = new RegistryPrepender("air");
+   public static final RegistryBlocks c = new RegistryBlocks(a);
+   public static final RegistryID d = new RegistryID();
    private CreativeModeTab b;
    public static final StepSound e = new StepSound("stone", 1.0F, 1.0F);
    public static final StepSound f = new StepSound("wood", 1.0F, 1.0F);
@@ -71,7 +71,7 @@ public class Block {
    }
 
    public static Block b(String var0) {
-      RegistryMaterials var1 = new RegistryMaterials(var0);
+      RegistryPrepender var1 = new RegistryPrepender(var0);
       if(c.d(var1)) {
          return (Block)c.a(var1);
       } else {
@@ -885,12 +885,12 @@ public class Block {
 
    }
 
-   private static void a(int var0, RegistryMaterials var1, Block var2) {
+   private static void a(int var0, RegistryPrepender var1, Block var2) {
       c.a(var0, var1, var2);
    }
 
    private static void a(int var0, String var1, Block var2) {
-      a(var0, new RegistryMaterials(var1), var2);
+      a(var0, new RegistryPrepender(var1), var2);
    }
 
 }

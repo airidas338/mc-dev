@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class BlockPumpkin extends avb {
+public class BlockPumpkin extends BlockDirectional {
 
    private bek a;
    private bek b;

@@ -40,7 +40,7 @@ public class ajj extends ajk {
          this.b.b((tq)AchievementList.h);
       }
 
-      if(var1.b() instanceof amu) {
+      if(var1.b() instanceof ItemPickaxe) {
          this.b.b((tq)AchievementList.i);
       }
 
@@ -60,11 +60,11 @@ public class ajj extends ajk {
          this.b.b((tq)AchievementList.n);
       }
 
-      if(var1.b() instanceof amu && ((amu)var1.b()).g() != ami.a) {
+      if(var1.b() instanceof ItemPickaxe && ((ItemPickaxe)var1.b()).g() != ami.a) {
          this.b.b((tq)AchievementList.o);
       }
 
-      if(var1.b() instanceof anm) {
+      if(var1.b() instanceof ItemSword) {
          this.b.b((tq)AchievementList.r);
       }
 

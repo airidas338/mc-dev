@@ -12,29 +12,29 @@ public class MobEffectList {
    public static final MobEffectList[] a = new MobEffectList[32];
    private static final Map I = Maps.newHashMap();
    public static final MobEffectList b = null;
-   public static final MobEffectList c = (new MobEffectList(1, new RegistryMaterials("speed"), false, 8171462)).c("potion.moveSpeed").b(0, 0).a(GenericAttributes.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
-   public static final MobEffectList d = (new MobEffectList(2, new RegistryMaterials("slowness"), true, 5926017)).c("potion.moveSlowdown").b(1, 0).a(GenericAttributes.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2);
-   public static final MobEffectList e = (new MobEffectList(3, new RegistryMaterials("haste"), false, 14270531)).c("potion.digSpeed").b(2, 0).a(1.5D);
-   public static final MobEffectList f = (new MobEffectList(4, new RegistryMaterials("mining_fatigue"), true, 4866583)).c("potion.digSlowDown").b(3, 0);
-   public static final MobEffectList g = (new MobEffectAttackDamage(5, new RegistryMaterials("strength"), false, 9643043)).c("potion.damageBoost").b(4, 0).a(GenericAttributes.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2);
-   public static final MobEffectList h = (new InstantMobEffect(6, new RegistryMaterials("instant_health"), false, 16262179)).c("potion.heal");
-   public static final MobEffectList i = (new InstantMobEffect(7, new RegistryMaterials("instant_damage"), true, 4393481)).c("potion.harm");
-   public static final MobEffectList j = (new MobEffectList(8, new RegistryMaterials("jump_boost"), false, 2293580)).c("potion.jump").b(2, 1);
-   public static final MobEffectList k = (new MobEffectList(9, new RegistryMaterials("nausea"), true, 5578058)).c("potion.confusion").b(3, 1).a(0.25D);
-   public static final MobEffectList l = (new MobEffectList(10, new RegistryMaterials("regeneration"), false, 13458603)).c("potion.regeneration").b(7, 0).a(0.25D);
-   public static final MobEffectList m = (new MobEffectList(11, new RegistryMaterials("resistance"), false, 10044730)).c("potion.resistance").b(6, 1);
-   public static final MobEffectList n = (new MobEffectList(12, new RegistryMaterials("fire_resistance"), false, 14981690)).c("potion.fireResistance").b(7, 1);
-   public static final MobEffectList o = (new MobEffectList(13, new RegistryMaterials("water_breathing"), false, 3035801)).c("potion.waterBreathing").b(0, 2);
-   public static final MobEffectList p = (new MobEffectList(14, new RegistryMaterials("invisibility"), false, 8356754)).c("potion.invisibility").b(0, 1);
-   public static final MobEffectList q = (new MobEffectList(15, new RegistryMaterials("blindness"), true, 2039587)).c("potion.blindness").b(5, 1).a(0.25D);
-   public static final MobEffectList r = (new MobEffectList(16, new RegistryMaterials("night_vision"), false, 2039713)).c("potion.nightVision").b(4, 1);
-   public static final MobEffectList s = (new MobEffectList(17, new RegistryMaterials("hunger"), true, 5797459)).c("potion.hunger").b(1, 1);
-   public static final MobEffectList t = (new MobEffectAttackDamage(18, new RegistryMaterials("weakness"), true, 4738376)).c("potion.weakness").b(5, 0).a(GenericAttributes.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0);
-   public static final MobEffectList u = (new MobEffectList(19, new RegistryMaterials("poison"), true, 5149489)).c("potion.poison").b(6, 0).a(0.25D);
-   public static final MobEffectList v = (new MobEffectList(20, new RegistryMaterials("wither"), true, 3484199)).c("potion.wither").b(1, 2).a(0.25D);
-   public static final MobEffectList w = (new MobEffectHealthBoost(21, new RegistryMaterials("health_boost"), false, 16284963)).c("potion.healthBoost").b(2, 2).a(GenericAttributes.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0);
-   public static final MobEffectList x = (new MobEffectAbsorption(22, new RegistryMaterials("absorption"), false, 2445989)).c("potion.absorption").b(2, 2);
-   public static final MobEffectList y = (new InstantMobEffect(23, new RegistryMaterials("saturation"), false, 16262179)).c("potion.saturation");
+   public static final MobEffectList c = (new MobEffectList(1, new RegistryPrepender("speed"), false, 8171462)).c("potion.moveSpeed").b(0, 0).a(GenericAttributes.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
+   public static final MobEffectList d = (new MobEffectList(2, new RegistryPrepender("slowness"), true, 5926017)).c("potion.moveSlowdown").b(1, 0).a(GenericAttributes.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2);
+   public static final MobEffectList e = (new MobEffectList(3, new RegistryPrepender("haste"), false, 14270531)).c("potion.digSpeed").b(2, 0).a(1.5D);
+   public static final MobEffectList f = (new MobEffectList(4, new RegistryPrepender("mining_fatigue"), true, 4866583)).c("potion.digSlowDown").b(3, 0);
+   public static final MobEffectList g = (new MobEffectAttackDamage(5, new RegistryPrepender("strength"), false, 9643043)).c("potion.damageBoost").b(4, 0).a(GenericAttributes.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2);
+   public static final MobEffectList h = (new InstantMobEffect(6, new RegistryPrepender("instant_health"), false, 16262179)).c("potion.heal");
+   public static final MobEffectList i = (new InstantMobEffect(7, new RegistryPrepender("instant_damage"), true, 4393481)).c("potion.harm");
+   public static final MobEffectList j = (new MobEffectList(8, new RegistryPrepender("jump_boost"), false, 2293580)).c("potion.jump").b(2, 1);
+   public static final MobEffectList k = (new MobEffectList(9, new RegistryPrepender("nausea"), true, 5578058)).c("potion.confusion").b(3, 1).a(0.25D);
+   public static final MobEffectList l = (new MobEffectList(10, new RegistryPrepender("regeneration"), false, 13458603)).c("potion.regeneration").b(7, 0).a(0.25D);
+   public static final MobEffectList m = (new MobEffectList(11, new RegistryPrepender("resistance"), false, 10044730)).c("potion.resistance").b(6, 1);
+   public static final MobEffectList n = (new MobEffectList(12, new RegistryPrepender("fire_resistance"), false, 14981690)).c("potion.fireResistance").b(7, 1);
+   public static final MobEffectList o = (new MobEffectList(13, new RegistryPrepender("water_breathing"), false, 3035801)).c("potion.waterBreathing").b(0, 2);
+   public static final MobEffectList p = (new MobEffectList(14, new RegistryPrepender("invisibility"), false, 8356754)).c("potion.invisibility").b(0, 1);
+   public static final MobEffectList q = (new MobEffectList(15, new RegistryPrepender("blindness"), true, 2039587)).c("potion.blindness").b(5, 1).a(0.25D);
+   public static final MobEffectList r = (new MobEffectList(16, new RegistryPrepender("night_vision"), false, 2039713)).c("potion.nightVision").b(4, 1);
+   public static final MobEffectList s = (new MobEffectList(17, new RegistryPrepender("hunger"), true, 5797459)).c("potion.hunger").b(1, 1);
+   public static final MobEffectList t = (new MobEffectAttackDamage(18, new RegistryPrepender("weakness"), true, 4738376)).c("potion.weakness").b(5, 0).a(GenericAttributes.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0);
+   public static final MobEffectList u = (new MobEffectList(19, new RegistryPrepender("poison"), true, 5149489)).c("potion.poison").b(6, 0).a(0.25D);
+   public static final MobEffectList v = (new MobEffectList(20, new RegistryPrepender("wither"), true, 3484199)).c("potion.wither").b(1, 2).a(0.25D);
+   public static final MobEffectList w = (new MobEffectHealthBoost(21, new RegistryPrepender("health_boost"), false, 16284963)).c("potion.healthBoost").b(2, 2).a(GenericAttributes.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0);
+   public static final MobEffectList x = (new MobEffectAbsorption(22, new RegistryPrepender("absorption"), false, 2445989)).c("potion.absorption").b(2, 2);
+   public static final MobEffectList y = (new InstantMobEffect(23, new RegistryPrepender("saturation"), false, 16262179)).c("potion.saturation");
    public static final MobEffectList z = null;
    public static final MobEffectList A = null;
    public static final MobEffectList B = null;
@@ -53,7 +53,7 @@ public class MobEffectList {
    private boolean P;
 
 
-   protected MobEffectList(int var1, RegistryMaterials var2, boolean var3, int var4) {
+   protected MobEffectList(int var1, RegistryPrepender var2, boolean var3, int var4) {
       this.H = var1;
       a[var1] = this;
       I.put(var2, this);
@@ -68,16 +68,16 @@ public class MobEffectList {
    }
 
    public static MobEffectList b(String var0) {
-      return (MobEffectList)I.get(new RegistryMaterials(var0));
+      return (MobEffectList)I.get(new RegistryPrepender(var0));
    }
 
    public static String[] c() {
       String[] var0 = new String[I.size()];
       int var1 = 0;
 
-      RegistryMaterials var3;
+      RegistryPrepender var3;
       for(Iterator var2 = I.keySet().iterator(); var2.hasNext(); var0[var1++] = var3.toString()) {
-         var3 = (RegistryMaterials)var2.next();
+         var3 = (RegistryPrepender)var2.next();
       }
 
       return var0;

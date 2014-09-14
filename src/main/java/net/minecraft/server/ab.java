@@ -29,7 +29,7 @@ public class ab implements ICommandHandler {
       String[] var3 = var2.split(" ");
       String var4 = var3[0];
       var3 = a(var3);
-      ac var5 = (ac)this.b.get(var4);
+      ICommand var5 = (ICommand)this.b.get(var4);
       int var6 = this.a(var5, var3);
       int var7 = 0;
       ChatMessage var8;
@@ -69,16 +69,16 @@ public class ab implements ICommandHandler {
       return var7;
    }
 
-   protected boolean a(ICommandSender var1, String[] var2, ac var3, String var4) {
+   protected boolean a(ICommandSender var1, String[] var2, ICommand var3, String var4) {
       ChatMessage var6;
       try {
          var3.a(var1, var2);
          return true;
-      } catch (dp var7) {
+      } catch (ExceptionUsage var7) {
          var6 = new ChatMessage("commands.generic.usage", new Object[]{new ChatMessage(var7.getMessage(), var7.a())});
          var6.b().a(EnumChatFormat.m);
          var1.a(var6);
-      } catch (di var8) {
+      } catch (CommandException var8) {
          var6 = new ChatMessage(var8.getMessage(), var8.a());
          var6.b().a(EnumChatFormat.m);
          var1.a(var6);
@@ -92,14 +92,14 @@ public class ab implements ICommandHandler {
       return false;
    }
 
-   public ac a(ac var1) {
+   public ICommand a(ICommand var1) {
       this.b.put(var1.c(), var1);
       this.c.add(var1);
       Iterator var2 = var1.b().iterator();
 
       while(var2.hasNext()) {
          String var3 = (String)var2.next();
-         ac var4 = (ac)this.b.get(var3);
+         ICommand var4 = (ICommand)this.b.get(var3);
          if(var4 == null || !var4.c().equals(var3)) {
             this.b.put(var3, var1);
          }
@@ -123,7 +123,7 @@ public class ab implements ICommandHandler {
 
          while(var7.hasNext()) {
             Entry var8 = (Entry)var7.next();
-            if(CommandAbstract.a(var5, (String)var8.getKey()) && ((ac)var8.getValue()).a(var1)) {
+            if(CommandAbstract.a(var5, (String)var8.getKey()) && ((ICommand)var8.getValue()).a(var1)) {
                var9.add(var8.getKey());
             }
          }
@@ -131,7 +131,7 @@ public class ab implements ICommandHandler {
          return var9;
       } else {
          if(var4.length > 1) {
-            ac var6 = (ac)this.b.get(var5);
+            ICommand var6 = (ICommand)this.b.get(var5);
             if(var6 != null && var6.a(var1)) {
                return var6.a(var1, a(var4), var3);
             }
@@ -146,7 +146,7 @@ public class ab implements ICommandHandler {
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {
-         ac var4 = (ac)var3.next();
+         ICommand var4 = (ICommand)var3.next();
          if(var4.a(var1)) {
             var2.add(var4);
          }
@@ -159,7 +159,7 @@ public class ab implements ICommandHandler {
       return this.b;
    }
 
-   private int a(ac var1, String[] var2) {
+   private int a(ICommand var1, String[] var2) {
       if(var1 == null) {
          return -1;
       } else {

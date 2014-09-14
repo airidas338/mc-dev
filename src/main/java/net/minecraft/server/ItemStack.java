@@ -103,7 +103,7 @@ public final class ItemStack {
    }
 
    public NBTTagCompound b(NBTTagCompound var1) {
-      RegistryMaterials var2 = (RegistryMaterials)Item.e.c(this.d);
+      RegistryPrepender var2 = (RegistryPrepender)Item.e.c(this.d);
       var1.setString("id", var2 == null?"minecraft:air":var2.toString());
       var1.setByte("Count", (byte)this.b);
       var1.setShort("Damage", (short)this.f);
@@ -181,11 +181,11 @@ public final class ItemStack {
          return false;
       } else {
          if(var1 > 0) {
-            int var3 = EnchantmentManager.a(apf.t.B, this);
+            int var3 = EnchantmentManager.a(Enchantment.DURABILITY.B, this);
             int var4 = 0;
 
             for(int var5 = 0; var3 > 0 && var5 < var1; ++var5) {
-               if(apd.a(this, var3, var2)) {
+               if(EnchantmentDurability.a(this, var3, var2)) {
                   ++var4;
                }
             }
@@ -397,7 +397,7 @@ public final class ItemStack {
       return !this.b().f_(this)?false:!this.w();
    }
 
-   public void a(apf var1, int var2) {
+   public void a(Enchantment var1, int var2) {
       if(this.e == null) {
          this.d(new NBTTagCompound());
       }

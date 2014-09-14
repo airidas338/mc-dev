@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class BlockFenceGate extends avb {
+public class BlockFenceGate extends BlockDirectional {
 
    public static final bet a = bet.a("open");
    public static final bet b = bet.a("powered");

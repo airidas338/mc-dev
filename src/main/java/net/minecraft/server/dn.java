@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class dn extends di {
+public class dn extends CommandException {
 
    public dn() {
       this("commands.generic.notFound", new Object[0]);

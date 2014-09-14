@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 
 public class blg extends bmm {
 
-   private static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.r, BiomeBase.G, BiomeBase.K, BiomeBase.L, BiomeBase.v});
+   private static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.DESERT, BiomeBase.DESERT_HILLS, BiomeBase.JUNGLE, BiomeBase.JUNGLE_HILLS, BiomeBase.SWAMPLAND});
    private List f;
    private int g;
    private int h;

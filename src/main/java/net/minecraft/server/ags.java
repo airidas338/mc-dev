@@ -4,7 +4,7 @@ import java.util.Random;
 class ags implements agw {
 
    public void a(aqd var1, Random var2) {
-      apf var3 = apf.b[var2.nextInt(apf.b.length)];
+      Enchantment var3 = Enchantment.b[var2.nextInt(Enchantment.b.length)];
       int var4 = MathHelper.a(var2, var3.e(), var3.b());
       ItemStack var5 = Items.cd.a(new apo(var3, var4));
       int var6 = 2 + var2.nextInt(5 + var4 * 10) + 3 * var4;

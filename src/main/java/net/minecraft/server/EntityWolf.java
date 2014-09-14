@@ -210,8 +210,8 @@ public class EntityWolf extends EntityTameableAnimal {
       ItemStack var2 = var1.bg.h();
       if(this.cj()) {
          if(var2 != null) {
-            if(var2.b() instanceof all) {
-               all var3 = (all)var2.b();
+            if(var2.b() instanceof ItemFood) {
+               ItemFood var3 = (ItemFood)var2.b();
                if(var3.g() && this.ac.d(18) < 20.0F) {
                   if(!var1.by.d) {
                      --var2.b;
@@ -275,7 +275,7 @@ public class EntityWolf extends EntityTameableAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:(!(var1.b() instanceof all)?false:((all)var1.b()).g());
+      return var1 == null?false:(!(var1.b() instanceof ItemFood)?false:((ItemFood)var1.b()).g());
    }
 
    public int bU() {

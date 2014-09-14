@@ -87,7 +87,7 @@ public abstract class World implements IBlockAccess {
 				throw new ReportedException(var4);
 			}
 		} else {
-			return this.t.m().a(var1, BiomeBase.q);
+			return this.t.m().a(var1, BiomeBase.PLAINS);
 		}
 	}
 

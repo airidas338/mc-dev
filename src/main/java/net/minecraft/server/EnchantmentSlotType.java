@@ -32,7 +32,7 @@ public enum EnchantmentSlotType {
             return var2.b == 0?this == ARMOR_HEAD:(var2.b == 2?this == ARMOR_LEGS:(var2.b == 1?this == ARMOR_TORSO:(var2.b == 3?this == ARMOR_FEET:false)));
          }
       } else {
-         return var1 instanceof anm?this == WEAPON:(var1 instanceof aks?this == DIGGER:(var1 instanceof ItemBow?this == BOW:(var1 instanceof ItemFishingRod?this == FISHING_ROD:false)));
+         return var1 instanceof ItemSword?this == WEAPON:(var1 instanceof aks?this == DIGGER:(var1 instanceof ItemBow?this == BOW:(var1 instanceof ItemFishingRod?this == FISHING_ROD:false)));
       }
    }
 

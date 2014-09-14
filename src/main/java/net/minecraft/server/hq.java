@@ -4,7 +4,7 @@ import java.util.List;
 
 public class hq {
 
-   public static IChatBaseComponent a(ICommandSender var0, IChatBaseComponent var1, Entity var2) throws dj {
+   public static IChatBaseComponent a(ICommandSender var0, IChatBaseComponent var1, Entity var2) throws ExceptionInvalidUUID {
       Object var3 = null;
       if(var1 instanceof ht) {
          ht var4 = (ht)var1;
@@ -12,7 +12,7 @@ public class hq {
          if(ah.b(var5)) {
             List var6 = ah.b(var0, var5, Entity.class);
             if(var6.size() != 1) {
-               throw new dj();
+               throw new ExceptionInvalidUUID();
             }
 
             var5 = ((Entity)var6.get(0)).d_();

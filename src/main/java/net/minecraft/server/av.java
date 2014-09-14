@@ -8,10 +8,10 @@ class av implements Predicate {
    // $FF: synthetic field
    final tq b;
    // $FF: synthetic field
-   final au c;
+   final CommandAchievement c;
 
 
-   av(au var1, EntityPlayer var2, tq var3) {
+   av(CommandAchievement var1, EntityPlayer var2, tq var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;

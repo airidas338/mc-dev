@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BlockBed extends avb {
+public class BlockBed extends BlockDirectional {
 
    public static final bev a = bev.a("part", atq.class);
    public static final bet b = bet.a("occupied");
@@ -26,7 +26,7 @@ public class BlockBed extends avb {
             }
          }
 
-         if(var1.t.e() && var1.b(var2) != BiomeBase.x) {
+         if(var1.t.e() && var1.b(var2) != BiomeBase.HELL) {
             if(((Boolean)var3.b(b)).booleanValue()) {
                EntityHuman var10 = this.e(var1, var2);
                if(var10 != null) {

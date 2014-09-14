@@ -21,7 +21,7 @@ public class BiomeDesert extends BiomeBase {
          int var4 = var2.nextInt(16) + 8;
          int var5 = var2.nextInt(16) + 8;
          Location var6 = var1.m(var3.a(var4, 0, var5)).a();
-         (new bhn()).generate(var1, var2, var6);
+         (new WorldGenDesertWell()).generate(var1, var2, var6);
       }
 
    }

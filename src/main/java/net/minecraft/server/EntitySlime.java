@@ -208,7 +208,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
       } else {
          if(this.o.aa() != EnumDifficulty.PEACEFUL) {
             BiomeBase var2 = this.o.b(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
-            if(var2 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new Location(this)) <= this.V.nextInt(8)) {
+            if(var2 == BiomeBase.SWAMPLAND && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new Location(this)) <= this.V.nextInt(8)) {
                return super.bQ();
             }
 

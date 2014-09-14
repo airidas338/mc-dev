@@ -13,7 +13,7 @@ public class ItemBow extends Item {
    }
 
    public void a(ItemStack var1, World var2, EntityHuman var3, int var4) {
-      boolean var5 = var3.by.d || EnchantmentManager.a(apf.y.B, var1) > 0;
+      boolean var5 = var3.by.d || EnchantmentManager.a(Enchantment.ARROW_INFINITE.B, var1) > 0;
       if(var5 || var3.bg.b(Items.g)) {
          int var6 = this.d(var1) - var4;
          float var7 = (float)var6 / 20.0F;
@@ -31,17 +31,17 @@ public class ItemBow extends Item {
             var8.a(true);
          }
 
-         int var9 = EnchantmentManager.a(apf.v.B, var1);
+         int var9 = EnchantmentManager.a(Enchantment.ARROW_DAMAGE.B, var1);
          if(var9 > 0) {
             var8.b(var8.j() + (double)var9 * 0.5D + 0.5D);
          }
 
-         int var10 = EnchantmentManager.a(apf.w.B, var1);
+         int var10 = EnchantmentManager.a(Enchantment.ARROW_KNOCKBACK.B, var1);
          if(var10 > 0) {
             var8.a(var10);
          }
 
-         if(EnchantmentManager.a(apf.x.B, var1) > 0) {
+         if(EnchantmentManager.a(Enchantment.ARROW_FIRE.B, var1) > 0) {
             var8.e(100);
          }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class anb extends all {
+public class anb extends ItemFood {
 
    private Block b;
    private Block c;

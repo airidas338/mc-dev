@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class alh extends all {
+public class alh extends ItemFood {
 
    private final boolean b;
 

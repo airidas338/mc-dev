@@ -149,7 +149,7 @@ public class ty {
    }
 
    private static String a(Item var0) {
-      RegistryMaterials var1 = (RegistryMaterials)Item.e.c(var0);
+      RegistryPrepender var1 = (RegistryPrepender)Item.e.c(var0);
       return var1 != null?var1.toString().replace(':', '.'):null;
    }
 

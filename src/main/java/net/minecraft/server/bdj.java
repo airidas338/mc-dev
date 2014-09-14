@@ -34,7 +34,7 @@ public class bdj extends TileEntity {
 
             try {
                this.a[var3] = hq.a(var2, var5, (Entity)null);
-            } catch (di var7) {
+            } catch (CommandException var7) {
                this.a[var3] = var5;
             }
          } catch (JsonParseException var8) {

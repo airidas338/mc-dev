@@ -192,7 +192,7 @@ public class Items {
 
 
    private static Item a(String var0) {
-      return (Item)Item.e.a(new RegistryMaterials(var0));
+      return (Item)Item.e.a(new RegistryPrepender(var0));
    }
 
    static {

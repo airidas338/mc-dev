@@ -8,7 +8,7 @@ final class apn implements apl {
 
    private apn() {}
 
-   public void a(apf var1, int var2) {
+   public void a(Enchantment var1, int var2) {
       this.a += var1.a(var2, this.b);
    }
 

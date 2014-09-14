@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class CommandAbstract implements ac {
+public abstract class CommandAbstract implements ICommand {
 
 	private static y a;
 
@@ -32,89 +32,89 @@ public abstract class CommandAbstract implements ac {
 		return null;
 	}
 
-	public static int a(String var0) throws dk {
+	public static int a(String var0) throws ExceptionInvalidNumber {
 		try {
 			return Integer.parseInt(var0);
 		} catch (NumberFormatException var2) {
-			throw new dk("commands.generic.num.invalid", new Object[] { var0 });
+			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { var0 });
 		}
 	}
 
-	public static int a(String var0, int var1) throws dk {
+	public static int a(String var0, int var1) throws ExceptionInvalidNumber {
 		return a(var0, var1, Integer.MAX_VALUE);
 	}
 
-	public static int a(String var0, int var1, int var2) throws dk {
+	public static int a(String var0, int var1, int var2) throws ExceptionInvalidNumber {
 		int var3 = a(var0);
 		if (var3 < var1) {
-			throw new dk("commands.generic.num.tooSmall", new Object[] { Integer.valueOf(var3), Integer.valueOf(var1) });
+			throw new ExceptionInvalidNumber("commands.generic.num.tooSmall", new Object[] { Integer.valueOf(var3), Integer.valueOf(var1) });
 		} else if (var3 > var2) {
-			throw new dk("commands.generic.num.tooBig", new Object[] { Integer.valueOf(var3), Integer.valueOf(var2) });
+			throw new ExceptionInvalidNumber("commands.generic.num.tooBig", new Object[] { Integer.valueOf(var3), Integer.valueOf(var2) });
 		} else {
 			return var3;
 		}
 	}
 
-	public static long b(String var0) throws dk {
+	public static long b(String var0) throws ExceptionInvalidNumber {
 		try {
 			return Long.parseLong(var0);
 		} catch (NumberFormatException var2) {
-			throw new dk("commands.generic.num.invalid", new Object[] { var0 });
+			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { var0 });
 		}
 	}
 
-	public static long a(String var0, long var1, long var3) throws dk {
+	public static long a(String var0, long var1, long var3) throws ExceptionInvalidNumber {
 		long var5 = b(var0);
 		if (var5 < var1) {
-			throw new dk("commands.generic.num.tooSmall", new Object[] { Long.valueOf(var5), Long.valueOf(var1) });
+			throw new ExceptionInvalidNumber("commands.generic.num.tooSmall", new Object[] { Long.valueOf(var5), Long.valueOf(var1) });
 		} else if (var5 > var3) {
-			throw new dk("commands.generic.num.tooBig", new Object[] { Long.valueOf(var5), Long.valueOf(var3) });
+			throw new ExceptionInvalidNumber("commands.generic.num.tooBig", new Object[] { Long.valueOf(var5), Long.valueOf(var3) });
 		} else {
 			return var5;
 		}
 	}
 
-	public static Location a(ICommandSender var0, String[] var1, int var2, boolean var3) throws dk {
+	public static Location a(ICommandSender var0, String[] var1, int var2, boolean var3) throws ExceptionInvalidNumber {
 		Location var4 = var0.c();
 		return new Location(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
 
-	public static double c(String var0) throws dk {
+	public static double c(String var0) throws ExceptionInvalidNumber {
 		try {
 			double var1 = Double.parseDouble(var0);
 			if (!Doubles.isFinite(var1)) {
-				throw new dk("commands.generic.num.invalid", new Object[] { var0 });
+				throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { var0 });
 			} else {
 				return var1;
 			}
 		} catch (NumberFormatException var3) {
-			throw new dk("commands.generic.num.invalid", new Object[] { var0 });
-		} catch (dk e) {
+			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { var0 });
+		} catch (ExceptionInvalidNumber e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return 0;
 	}
 
-	public static double a(String var0, double var1) throws dk {
+	public static double a(String var0, double var1) throws ExceptionInvalidNumber {
 		return a(var0, var1, Double.MAX_VALUE);
 	}
 
-	public static double a(String var0, double var1, double var3) throws dk {
+	public static double a(String var0, double var1, double var3) throws ExceptionInvalidNumber {
 		double var5 = c(var0);
 		if (var5 < var1) {
-			throw new dk("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var5), Double.valueOf(var1) });
+			throw new ExceptionInvalidNumber("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var5), Double.valueOf(var1) });
 		} else if (var5 > var3) {
-			throw new dk("commands.generic.double.tooBig", new Object[] { Double.valueOf(var5), Double.valueOf(var3) });
+			throw new ExceptionInvalidNumber("commands.generic.double.tooBig", new Object[] { Double.valueOf(var5), Double.valueOf(var3) });
 		} else {
 			return var5;
 		}
 	}
 
-	public static boolean d(String var0) throws di {
+	public static boolean d(String var0) throws CommandException {
 		if (!var0.equals("true") && !var0.equals("1")) {
 			if (!var0.equals("false") && !var0.equals("0")) {
-				throw new di("commands.generic.boolean.invalid", new Object[] { var0 });
+				throw new CommandException("commands.generic.boolean.invalid", new Object[] { var0 });
 			} else {
 				return false;
 			}
@@ -123,15 +123,15 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static EntityPlayer b(ICommandSender var0) throws dm {
+	public static EntityPlayer b(ICommandSender var0) throws ExceptionPlayerNotFound {
 		if (var0 instanceof EntityPlayer) {
 			return (EntityPlayer) var0;
 		} else {
-			throw new dm("You must specify which player you wish to perform this action on.", new Object[0]);
+			throw new ExceptionPlayerNotFound("You must specify which player you wish to perform this action on.", new Object[0]);
 		}
 	}
 
-	public static EntityPlayer a(ICommandSender var0, String var1) throws dm {
+	public static EntityPlayer a(ICommandSender var0, String var1) throws ExceptionPlayerNotFound {
 		EntityPlayer var2 = ah.a(var0, var1);
 		if (var2 == null) {
 			try {
@@ -146,17 +146,17 @@ public abstract class CommandAbstract implements ac {
 		}
 
 		if (var2 == null) {
-			throw new dm();
+			throw new ExceptionPlayerNotFound();
 		} else {
 			return var2;
 		}
 	}
 
-	public static Entity b(ICommandSender var0, String var1) throws dj {
+	public static Entity b(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
 		return a(var0, var1, Entity.class);
 	}
 
-	public static Entity a(ICommandSender var0, String var1, Class var2) throws dj {
+	public static Entity a(ICommandSender var0, String var1, Class var2) throws ExceptionInvalidUUID {
 		Object var3 = ah.a(var0, var1, var2);
 		MinecraftServer var4 = MinecraftServer.M();
 		if (var3 == null) {
@@ -171,25 +171,25 @@ public abstract class CommandAbstract implements ac {
 					var3 = var4.an().a(var5);
 				}
 			} catch (IllegalArgumentException var6) {
-				throw new dj("commands.generic.entity.invalidUuid", new Object[0]);
+				throw new ExceptionInvalidUUID("commands.generic.entity.invalidUuid", new Object[0]);
 			}
 		}
 
 		if (var3 != null && var2.isAssignableFrom(var3.getClass())) {
 			return (Entity) var3;
 		} else {
-			throw new dj();
+			throw new ExceptionInvalidUUID();
 		}
 	}
 
-	public static List c(ICommandSender var0, String var1) throws dj {
+	public static List c(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
 		return (List) (ah.b(var1) ? ah.b(var0, var1, Entity.class) : Lists.newArrayList(new Entity[] { b(var0, var1) }));
 	}
 
-	public static String d(ICommandSender var0, String var1) throws dm {
+	public static String d(ICommandSender var0, String var1) throws ExceptionPlayerNotFound {
 		try {
 			return a(var0, var1).d_();
-		} catch (dm var3) {
+		} catch (ExceptionPlayerNotFound var3) {
 			if (ah.b(var1)) {
 				throw var3;
 			} else {
@@ -198,13 +198,13 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static String e(ICommandSender var0, String var1) throws dj {
+	public static String e(ICommandSender var0, String var1) throws ExceptionInvalidUUID {
 		try {
 			return a(var0, var1).d_();
-		} catch (dm var5) {
+		} catch (ExceptionPlayerNotFound var5) {
 			try {
 				return b(var0, var1).aJ().toString();
-			} catch (dj var4) {
+			} catch (ExceptionInvalidUUID var4) {
 				if (ah.b(var1)) {
 					throw var4;
 				} else {
@@ -214,11 +214,11 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static IChatBaseComponent a(ICommandSender var0, String[] var1, int var2) throws dm {
+	public static IChatBaseComponent a(ICommandSender var0, String[] var1, int var2) throws ExceptionPlayerNotFound {
 		return b(var0, var1, var2, false);
 	}
 
-	public static IChatBaseComponent b(ICommandSender var0, String[] var1, int var2, boolean var3) throws dm {
+	public static IChatBaseComponent b(ICommandSender var0, String[] var1, int var2, boolean var3) throws ExceptionPlayerNotFound {
 		ChatComponentText var4 = new ChatComponentText("");
 
 		for (int var5 = var2; var5 < var1.length; ++var5) {
@@ -231,7 +231,7 @@ public abstract class CommandAbstract implements ac {
 				IChatBaseComponent var7 = ah.b(var0, var1[var5]);
 				if (var7 == null) {
 					if (ah.b(var1[var5])) {
-						throw new dm();
+						throw new ExceptionPlayerNotFound();
 					}
 				} else {
 					var6 = var7;
@@ -259,14 +259,14 @@ public abstract class CommandAbstract implements ac {
 		return var2.toString();
 	}
 
-	public static aa a(double var0, String var2, boolean var3) throws dk {
+	public static aa a(double var0, String var2, boolean var3) throws ExceptionInvalidNumber {
 		return a(var0, var2, -30000000, 30000000, var3);
 	}
 
-	public static aa a(double var0, String var2, int var3, int var4, boolean var5) throws dk {
+	public static aa a(double var0, String var2, int var3, int var4, boolean var5) throws ExceptionInvalidNumber {
 		boolean var6 = var2.startsWith("~");
 		if (var6 && Double.isNaN(var0)) {
-			throw new dk("commands.generic.num.invalid", new Object[] { Double.valueOf(var0) });
+			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { Double.valueOf(var0) });
 		} else {
 			double var7 = 0.0D;
 			if (!var6 || var2.length() > 1) {
@@ -283,11 +283,11 @@ public abstract class CommandAbstract implements ac {
 
 			if (var3 != 0 || var4 != 0) {
 				if (var7 < (double) var3) {
-					throw new dk("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var7), Integer.valueOf(var3) });
+					throw new ExceptionInvalidNumber("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var7), Integer.valueOf(var3) });
 				}
 
 				if (var7 > (double) var4) {
-					throw new dk("commands.generic.double.tooBig", new Object[] { Double.valueOf(var7), Integer.valueOf(var4) });
+					throw new ExceptionInvalidNumber("commands.generic.double.tooBig", new Object[] { Double.valueOf(var7), Integer.valueOf(var4) });
 				}
 			}
 
@@ -295,14 +295,14 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static double b(double var0, String var2, boolean var3) throws dk {
+	public static double b(double var0, String var2, boolean var3) throws ExceptionInvalidNumber {
 		return b(var0, var2, -30000000, 30000000, var3);
 	}
 
-	public static double b(double var0, String var2, int var3, int var4, boolean var5) throws dk {
+	public static double b(double var0, String var2, int var3, int var4, boolean var5) throws ExceptionInvalidNumber {
 		boolean var6 = var2.startsWith("~");
 		if (var6 && Double.isNaN(var0)) {
-			throw new dk("commands.generic.num.invalid", new Object[] { Double.valueOf(var0) });
+			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { Double.valueOf(var0) });
 		} else {
 			double var7 = var6 ? var0 : 0.0D;
 			if (!var6 || var2.length() > 1) {
@@ -319,11 +319,11 @@ public abstract class CommandAbstract implements ac {
 
 			if (var3 != 0 || var4 != 0) {
 				if (var7 < (double) var3) {
-					throw new dk("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var7), Integer.valueOf(var3) });
+					throw new ExceptionInvalidNumber("commands.generic.double.tooSmall", new Object[] { Double.valueOf(var7), Integer.valueOf(var3) });
 				}
 
 				if (var7 > (double) var4) {
-					throw new dk("commands.generic.double.tooBig", new Object[] { Double.valueOf(var7), Integer.valueOf(var4) });
+					throw new ExceptionInvalidNumber("commands.generic.double.tooBig", new Object[] { Double.valueOf(var7), Integer.valueOf(var4) });
 				}
 			}
 
@@ -331,24 +331,24 @@ public abstract class CommandAbstract implements ac {
 		}
 	}
 
-	public static Item f(ICommandSender var0, String var1) throws dk {
-		RegistryMaterials var2 = new RegistryMaterials(var1);
+	public static Item f(ICommandSender var0, String var1) throws ExceptionInvalidNumber {
+		RegistryPrepender var2 = new RegistryPrepender(var1);
 		Item var3 = (Item) Item.e.a(var2);
 		if (var3 == null) {
-			throw new dk("commands.give.notFound", new Object[] { var2 });
+			throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
 		} else {
 			return var3;
 		}
 	}
 
-	public static Block g(ICommandSender var0, String var1) throws dk {
-		RegistryMaterials var2 = new RegistryMaterials(var1);
+	public static Block g(ICommandSender var0, String var1) throws ExceptionInvalidNumber {
+		RegistryPrepender var2 = new RegistryPrepender(var1);
 		if (!Block.c.d(var2)) {
-			throw new dk("commands.give.notFound", new Object[] { var2 });
+			throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
 		} else {
 			Block var3 = (Block) Block.c.a(var2);
 			if (var3 == null) {
-				throw new dk("commands.give.notFound", new Object[] { var2 });
+				throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
 			} else {
 				return var3;
 			}
@@ -443,7 +443,7 @@ public abstract class CommandAbstract implements ac {
 
 				while (var4.hasNext()) {
 					Object var6 = var4.next();
-					if (var6 instanceof RegistryMaterials && a(var2, ((RegistryMaterials) var6).a())) {
+					if (var6 instanceof RegistryPrepender && a(var2, ((RegistryPrepender) var6).a())) {
 						var3.add(String.valueOf(var6));
 					}
 				}
@@ -457,11 +457,11 @@ public abstract class CommandAbstract implements ac {
 		return false;
 	}
 
-	public static void a(ICommandSender var0, ac var1, String var2, Object... var3) {
+	public static void a(ICommandSender var0, ICommand var1, String var2, Object... var3) {
 		a(var0, var1, 0, var2, var3);
 	}
 
-	public static void a(ICommandSender var0, ac var1, int var2, String var3, Object... var4) {
+	public static void a(ICommandSender var0, ICommand var1, int var2, String var3, Object... var4) {
 		if (a != null) {
 			a.a(var0, var1, var2, var3, var4);
 		}
@@ -472,12 +472,12 @@ public abstract class CommandAbstract implements ac {
 		a = var0;
 	}
 
-	public int a(ac var1) {
+	public int a(ICommand var1) {
 		return this.c().compareTo(var1.c());
 	}
 
 	// $FF: synthetic method
 	public int compareTo(Object var1) {
-		return this.a((ac) var1);
+		return this.a((ICommand) var1);
 	}
 }

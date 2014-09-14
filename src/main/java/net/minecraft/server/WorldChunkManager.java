@@ -16,13 +16,13 @@ public class WorldChunkManager {
       this.d = new BiomeCache(this);
       this.f = "";
       this.e = Lists.newArrayList();
-      this.e.add(BiomeBase.t);
-      this.e.add(BiomeBase.q);
-      this.e.add(BiomeBase.u);
-      this.e.add(BiomeBase.I);
-      this.e.add(BiomeBase.H);
-      this.e.add(BiomeBase.K);
-      this.e.add(BiomeBase.L);
+      this.e.add(BiomeBase.FOREST);
+      this.e.add(BiomeBase.PLAINS);
+      this.e.add(BiomeBase.TAIGA);
+      this.e.add(BiomeBase.TAIGA_HILLS);
+      this.e.add(BiomeBase.FOREST_HILLS);
+      this.e.add(BiomeBase.JUNGLE);
+      this.e.add(BiomeBase.JUNGLE_HILLS);
    }
 
    public WorldChunkManager(long var1, WorldType var3, String var4) {

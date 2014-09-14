@@ -891,13 +891,13 @@ public class Chunk {
       int var5 = this.e[var4 << 4 | var3] & 255;
       BiomeBase var6;
       if(var5 == 255) {
-         var6 = var2.a(var1, BiomeBase.q);
+         var6 = var2.a(var1, BiomeBase.PLAINS);
          var5 = var6.az;
          this.e[var4 << 4 | var3] = (byte)(var5 & 255);
       }
 
       var6 = BiomeBase.e(var5);
-      return var6 == null?BiomeBase.q:var6;
+      return var6 == null?BiomeBase.PLAINS:var6;
    }
 
    public byte[] k() {

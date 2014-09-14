@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class dl extends di {
+public class dl extends CommandException {
 
    public dl() {
       this("commands.generic.snytax", new Object[0]);

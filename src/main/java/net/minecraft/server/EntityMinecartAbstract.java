@@ -555,7 +555,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		if (this.x()) {
 			var1.setBoolean("CustomDisplayTile", true);
 			IBlock var2 = this.t();
-			RegistryMaterials var3 = (RegistryMaterials) Block.c.c(var2.c());
+			RegistryPrepender var3 = (RegistryPrepender) Block.c.c(var2.c());
 			var1.setString("DisplayTile", var3 == null ? "" : var3.toString());
 			var1.setInt("DisplayData", var2.c().c(var2));
 			var1.setInt("DisplayOffset", this.v());

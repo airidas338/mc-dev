@@ -325,7 +325,7 @@ public class EntityArrow extends Entity implements IProjectile {
       var1.setShort("yTile", (short)this.e);
       var1.setShort("zTile", (short)this.f);
       var1.setShort("life", (short)this.ap);
-      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.g);
+      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.g);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("inData", (byte)this.h);
       var1.setByte("shake", (byte)this.b);

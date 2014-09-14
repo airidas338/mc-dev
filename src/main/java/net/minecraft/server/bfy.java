@@ -246,7 +246,7 @@ public class bfy implements IChunkLoader, brq {
          while(var28.hasNext()) {
             NextTickListEntry var29 = (NextTickListEntry)var28.next();
             NBTTagCompound var31 = new NBTTagCompound();
-            RegistryMaterials var30 = (RegistryMaterials)Block.c.c(var29.a());
+            RegistryPrepender var30 = (RegistryPrepender)Block.c.c(var29.a());
             var31.setString("i", var30 == null?"":var30.toString());
             var31.setInt("x", var29.a.n());
             var31.setInt("y", var29.a.o());

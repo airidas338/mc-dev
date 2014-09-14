@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 
 public class bmw extends bmm {
 
-   public static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.q, BiomeBase.r, BiomeBase.Y});
+   public static final List d = Arrays.asList(new BiomeBase[]{BiomeBase.PLAINS, BiomeBase.DESERT, BiomeBase.SAVANNA});
    private int f;
    private int g;
    private int h;

@@ -5,13 +5,13 @@ import java.util.Random;
 public class bgv implements IChunkProvider {
 
    private Random h;
-   private bnv i;
-   private bnv j;
-   private bnv k;
+   private NoiseGeneratorOctaves i;
+   private NoiseGeneratorOctaves j;
+   private NoiseGeneratorOctaves k;
    private NoiseGenerator3 l;
-   public bnv a;
-   public bnv b;
-   public bnv c;
+   public NoiseGeneratorOctaves a;
+   public NoiseGeneratorOctaves b;
+   public NoiseGeneratorOctaves c;
    private World m;
    private final boolean n;
    private WorldType o;
@@ -48,13 +48,13 @@ public class bgv implements IChunkProvider {
       this.n = var4;
       this.o = var1.P().u();
       this.h = new Random(var2);
-      this.i = new bnv(this.h, 16);
-      this.j = new bnv(this.h, 16);
-      this.k = new bnv(this.h, 8);
+      this.i = new NoiseGeneratorOctaves(this.h, 16);
+      this.j = new NoiseGeneratorOctaves(this.h, 16);
+      this.k = new NoiseGeneratorOctaves(this.h, 8);
       this.l = new NoiseGenerator3(this.h, 4);
-      this.a = new bnv(this.h, 10);
-      this.b = new bnv(this.h, 16);
-      this.c = new bnv(this.h, 8);
+      this.a = new NoiseGeneratorOctaves(this.h, 10);
+      this.b = new NoiseGeneratorOctaves(this.h, 16);
+      this.c = new NoiseGeneratorOctaves(this.h, 8);
       this.p = new double[825];
       this.q = new float[25];
 
@@ -326,7 +326,7 @@ public class bgv implements IChunkProvider {
       int var14;
       int var15;
       int var16;
-      if(var7 != BiomeBase.r && var7 != BiomeBase.G && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
+      if(var7 != BiomeBase.DESERT && var7 != BiomeBase.DESERT_HILLS && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
          var14 = this.h.nextInt(16) + 8;
          var15 = this.h.nextInt(256);
          var16 = this.h.nextInt(16) + 8;

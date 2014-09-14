@@ -1,56 +1,49 @@
 package net.minecraft.server;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.Validate;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import java.util.Iterator;
+import java.util.Map;
 
-public class RegistryMaterials {
+public class RegistryMaterials extends RegistrySimple implements eq {
 
-   protected final String a;
-   protected final String b;
+   protected final RegistryID a = new RegistryID();
+   protected final Map b;
 
 
-   protected RegistryMaterials(int var1, String ... var2) {
-      this.a = StringUtils.isEmpty(var2[0])?"minecraft":var2[0].toLowerCase();
-      this.b = var2[1];
-      Validate.notNull(this.b);
+   public RegistryMaterials() {
+      this.b = ((BiMap)this.c).inverse();
    }
 
-   public RegistryMaterials(String var1) {
-      this(0, a(var1));
+   public void a(int var1, Object var2, Object var3) {
+      this.a.a(var3, var1);
+      this.a(var2, var3);
    }
 
-   protected static String[] a(String var0) {
-      String[] var1 = new String[]{null, var0};
-      int var2 = var0.indexOf(58);
-      if(var2 >= 0) {
-         var1[1] = var0.substring(var2 + 1, var0.length());
-         if(var2 > 1) {
-            var1[0] = var0.substring(0, var2);
-         }
-      }
-
-      return var1;
+   protected Map b() {
+      return HashBiMap.create();
    }
 
-   public String a() {
-      return this.b;
+   public Object a(Object var1) {
+      return super.a(var1);
    }
 
-   public String toString() {
-      return this.a + ':' + this.b;
+   public Object c(Object var1) {
+      return this.b.get(var1);
    }
 
-   public boolean equals(Object var1) {
-      if(this == var1) {
-         return true;
-      } else if(!(var1 instanceof RegistryMaterials)) {
-         return false;
-      } else {
-         RegistryMaterials var2 = (RegistryMaterials)var1;
-         return this.a.equals(var2.a) && this.b.equals(var2.b);
-      }
+   public boolean d(Object var1) {
+      return super.d(var1);
    }
 
-   public int hashCode() {
-      return 31 * this.a.hashCode() + this.b.hashCode();
+   public int b(Object var1) {
+      return this.a.b(var1);
+   }
+
+   public Object a(int var1) {
+      return this.a.a(var1);
+   }
+
+   public Iterator iterator() {
+      return this.a.iterator();
    }
 }

@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
 
-public class BlockRedstoneComparator extends ava implements avs {
+public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
 
    public static final bet a = bet.a("powered");
    public static final bev b = bev.a("mode", aur.class);

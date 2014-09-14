@@ -329,7 +329,7 @@ public class EntityFishingHook extends Entity {
       var1.setShort("xTile", (short)this.g);
       var1.setShort("yTile", (short)this.h);
       var1.setShort("zTile", (short)this.i);
-      RegistryMaterials var2 = (RegistryMaterials)Block.c.c(this.ap);
+      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.ap);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("shake", (byte)this.a);
       var1.setByte("inGround", (byte)(this.aq?1:0));
