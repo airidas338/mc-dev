@@ -1,33 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.minecraft</groupId>
-	<artifactId>server</artifactId>
+	<groupId>org.bukkit</groupId>
+	<artifactId>minecraft-server</artifactId>
 	<packaging>jar</packaging>
 	<version>1.8</version>
-	<name>Minecraft Server</name>
-	<url>http://www.minecraft.net</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<api.version>unknown</api.version>
-		<junit.version>4.11</junit.version>
-		<minecraft.version>1.8</minecraft.version>
-		<minecraft_version>1_8_R1</minecraft_version>
-		<buildtag.prefix>git-Bukkit-</buildtag.prefix>
-		<buildtag.suffix></buildtag.suffix>
-	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>libs</groupId>
-			<artifactId>libs</artifactId>
+			<groupId>org.bukkit</groupId>
+			<artifactId>server-libs</artifactId>
 			<version>1.8</version>
 		</dependency>
 	</dependencies>
 
-	<!-- This builds a completely 'ready to start' jar with all dependencies 
-		inside -->
 	<build>
 		<plugins>
 			<plugin>
@@ -72,8 +58,24 @@
 							</artifactSet>
 							<relocations>
 								<relocation>
+									<pattern>com.mojang</pattern>
+									<shadedPattern>net.minecraft.util.com.mojang</shadedPattern>
+								</relocation>
+								<relocation>
 									<pattern>com.google</pattern>
 									<shadedPattern>net.minecraft.util.com.google</shadedPattern>
+								</relocation>
+								<relocation>
+									<pattern>gnu.trove</pattern>
+									<shadedPattern>net.minecraft.util.gnu.trove</shadedPattern>
+								</relocation>
+								<relocation>
+									<pattern>io.netty</pattern>
+									<shadedPattern>net.minecraft.util.io.netty</shadedPattern>
+								</relocation>
+								<relocation>
+									<pattern>org.apache</pattern>
+									<shadedPattern>net.minecraft.util.org.apache</shadedPattern>
 								</relocation>
 							</relocations>
 						</configuration>
