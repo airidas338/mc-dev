@@ -57,7 +57,7 @@ public class PlayerInteractManager {
       if(this.h) {
          int var1 = this.g - this.j;
          Block var2 = this.a.getData(this.i).c();
-         if(var2.r() == Material.AIR) {
+         if(var2.getMaterial() == Material.AIR) {
             this.h = false;
          } else {
             var3 = var2.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
@@ -74,7 +74,7 @@ public class PlayerInteractManager {
          }
       } else if(this.d) {
          Block var5 = this.a.getData(this.f).c();
-         if(var5.r() == Material.AIR) {
+         if(var5.getMaterial() == Material.AIR) {
             this.a.c(this.b.F(), this.f, -1);
             this.k = -1;
             this.d = false;
@@ -119,12 +119,12 @@ public class PlayerInteractManager {
          this.a.a((EntityHuman)null, var1, var2);
          this.e = this.g;
          float var6 = 1.0F;
-         if(var3.r() != Material.AIR) {
+         if(var3.getMaterial() != Material.AIR) {
             var3.a(this.a, var1, (EntityHuman)this.b);
             var6 = var3.a((EntityHuman)this.b, this.b.o, var1);
          }
 
-         if(var3.r() != Material.AIR && var6 >= 1.0F) {
+         if(var3.getMaterial() != Material.AIR && var6 >= 1.0F) {
             this.b(var1);
          } else {
             this.d = true;
@@ -141,7 +141,7 @@ public class PlayerInteractManager {
       if(var1.equals(this.f)) {
          int var2 = this.g - this.e;
          Block var3 = this.a.getData(var1).c();
-         if(var3.r() != Material.AIR) {
+         if(var3.getMaterial() != Material.AIR) {
             float var4 = var3.a((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
@@ -257,7 +257,7 @@ public class PlayerInteractManager {
          if(var13 instanceof vy) {
             Block var15 = var2.getData(var4).c();
             vy var14 = (vy)var13;
-            if(var14 instanceof bcr && var15 instanceof BlockChest) {
+            if(var14 instanceof TileEntityChest && var15 instanceof BlockChest) {
                var14 = ((BlockChest)var15).d(var2, var4);
             }
 
@@ -274,7 +274,7 @@ public class PlayerInteractManager {
       } else {
          if(!var1.aw() || var1.bz() == null) {
             IBlockData var9 = var2.getData(var4);
-            if(var9.c().a(var2, var4, var9, var1, var5, var6, var7, var8)) {
+            if(var9.c().interact(var2, var4, var9, var1, var5, var6, var7, var8)) {
                return true;
             }
          }

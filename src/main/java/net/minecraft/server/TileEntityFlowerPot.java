@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-public class bdb extends TileEntity {
+public class TileEntityFlowerPot extends TileEntity {
 
    private Item a;
    private int f;
 
 
-   public bdb() {}
+   public TileEntityFlowerPot() {}
 
-   public bdb(Item var1, int var2) {
+   public TileEntityFlowerPot(Item var1, int var2) {
       this.a = var1;
       this.f = var2;
    }

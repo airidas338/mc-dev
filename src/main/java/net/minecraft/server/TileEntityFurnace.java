@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bdc extends bdf implements IUpdatePlayerListBox, we {
+public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlayerListBox, IWorldInventory {
 
    private static final int[] a = new int[]{0};
    private static final int[] f = new int[]{2, 1};
@@ -229,7 +229,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
                return 150;
             }
 
-            if(var2.r() == Material.WOOD) {
+            if(var2.getMaterial() == Material.WOOD) {
                return 300;
             }
 

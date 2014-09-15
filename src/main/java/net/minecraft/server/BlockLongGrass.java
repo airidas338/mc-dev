@@ -25,7 +25,7 @@ public class BlockLongGrass extends BlockPlant implements atz {
       return var2.nextInt(8) == 0?Items.N:null;
    }
 
-   public int a(int var1, Random var2) {
+   public int getDropCount(int var1, Random var2) {
       return 1 + var2.nextInt(var1 * 2 + 1);
    }
 
@@ -58,7 +58,7 @@ public class BlockLongGrass extends BlockPlant implements atz {
          var5 = avk.d;
       }
 
-      if(Blocks.DOUBLE_PLANT.c(var1, var3)) {
+      if(Blocks.DOUBLE_PLANT.canPlace(var1, var3)) {
          Blocks.DOUBLE_PLANT.a(var1, var3, var5, 2);
       }
 

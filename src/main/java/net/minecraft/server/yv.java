@@ -69,6 +69,6 @@ public abstract class yv extends PathfinderGoal {
 
    private BlockDoor a(Location var1) {
       Block var2 = this.a.o.getData(var1).c();
-      return var2 instanceof BlockDoor && var2.r() == Material.WOOD?(BlockDoor)var2:null;
+      return var2 instanceof BlockDoor && var2.getMaterial() == Material.WOOD?(BlockDoor)var2:null;
    }
 }

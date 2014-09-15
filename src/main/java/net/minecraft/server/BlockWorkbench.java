@@ -7,7 +7,7 @@ public class BlockWorkbench extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {

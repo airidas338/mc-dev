@@ -10,13 +10,13 @@ public class anf extends Item {
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var5 == EnumFacing.DOWN) {
          return false;
-      } else if(!var3.getData(var4).c().r().a()) {
+      } else if(!var3.getData(var4).c().getMaterial().a()) {
          return false;
       } else {
          var4 = var4.a(var5);
          if(!var2.a(var4, var5, var1)) {
             return false;
-         } else if(!Blocks.SIGN_POST.c(var3, var4)) {
+         } else if(!Blocks.SIGN_POST.canPlace(var3, var4)) {
             return false;
          } else if(var3.isStatic) {
             return true;
@@ -30,8 +30,8 @@ public class anf extends Item {
 
             --var1.b;
             TileEntity var10 = var3.s(var4);
-            if(var10 instanceof bdj && !aju.a(var3, var4, var1)) {
-               var2.a((bdj)var10);
+            if(var10 instanceof TileEntitySign && !aju.a(var3, var4, var1)) {
+               var2.a((TileEntitySign)var10);
             }
 
             return true;

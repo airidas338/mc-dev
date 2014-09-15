@@ -99,12 +99,12 @@ public class Block {
         return this.v;
     }
 
-    public Material r() {
+    public Material getMaterial() {
         return this.J;
     }
 
     public MaterialMapColor g(IBlockData var1) {
-        return this.r().r();
+        return this.getMaterial().r();
     }
 
     public IBlockData a(int var1) {
@@ -225,7 +225,7 @@ public class Block {
     }
 
     public boolean b(IBlockAccess var1, Location var2, EnumFacing var3) {
-        return var1.getData(var2).c().r().a();
+        return var1.getData(var2).c().getMaterial().a();
     }
 
     public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
@@ -272,7 +272,7 @@ public class Block {
     public void c(World var1, Location var2, IBlockData var3) {
     }
 
-    public void b(World var1, Location var2, IBlockData var3) {
+    public void remove(World var1, Location var2, IBlockData var3) {
     }
 
     public int a(Random var1) {
@@ -289,12 +289,12 @@ public class Block {
     }
 
     public final void b(World var1, Location var2, IBlockData var3, int var4) {
-        this.a(var1, var2, var3, 1.0F, var4);
+        this.dropNaturally(var1, var2, var3, 1.0F, var4);
     }
 
-    public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
         if (!var1.isStatic) {
-            int var6 = this.a(var5, var1.random);
+            int var6 = this.getDropCount(var5, var1.random);
 
             for (int var7 = 0; var7 < var6; ++var7) {
                 if (var1.random.nextFloat() <= var4) {
@@ -446,25 +446,25 @@ public class Block {
     }
 
     public boolean a(World var1, Location var2, EnumFacing var3, ItemStack var4) {
-        return this.a(var1, var2, var3);
+        return this.canPlace(var1, var2, var3);
     }
 
-    public boolean a(World var1, Location var2, EnumFacing var3) {
-        return this.c(var1, var2);
+    public boolean canPlace(World var1, Location var2, EnumFacing var3) {
+        return this.canPlace(var1, var2);
     }
 
-    public boolean c(World var1, Location var2) {
+    public boolean canPlace(World var1, Location var2) {
         return var1.getData(var2).c().J.j();
     }
 
-    public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
         return false;
     }
 
     public void a(World var1, Location var2, Entity var3) {
     }
 
-    public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+    public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
         return this.a(var7);
     }
 
@@ -549,7 +549,7 @@ public class Block {
         return new ItemStack(var3, 1, var2);
     }
 
-    public int a(int var1, Random var2) {
+    public int getDropCount(int var1, Random var2) {
         return this.a(var2);
     }
 
@@ -583,7 +583,7 @@ public class Block {
     }
 
     public int i() {
-        return this.J.m();
+        return this.J.getPushReaction();
     }
 
     public void a(World var1, Location var2, Entity var3, float var4) {
@@ -625,11 +625,11 @@ public class Block {
         return var0 != null && var1 != null ? (var0 == var1 ? true : var0.b(var1)) : false;
     }
 
-    public boolean N() {
+    public boolean isComplexRedstone() {
         return false;
     }
 
-    public int l(World var1, Location var2) {
+    public int getDropData(World var1, Location var2) {
         return 0;
     }
 
@@ -741,7 +741,7 @@ public class Block {
         a(81, "cactus", (new BlockCactus()).c(0.4F).a(l).c("cactus"));
         a(82, "clay", (new BlockClay()).c(0.6F).a(g).c("clay"));
         a(83, "reeds", (new BlockReed()).c(0.0F).a(h).c("reeds").J());
-        a(84, "jukebox", (new BlockJukebox()).c(2.0F).b(10.0F).a(i).c("jukebox"));
+        a(84, "jukebox", (new BlockJukeBox()).c(2.0F).b(10.0F).a(i).c("jukebox"));
         a(85, "fence", (new BlockFence(Material.WOOD)).c(2.0F).b(5.0F).a(f).c("fence"));
         Block var7 = (new BlockPumpkin()).c(1.0F).a(f).c("pumpkin");
         a(86, "pumpkin", var7);

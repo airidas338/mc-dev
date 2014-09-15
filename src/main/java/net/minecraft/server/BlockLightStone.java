@@ -8,7 +8,7 @@ public class BlockLightStone extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(int var1, Random var2) {
+   public int getDropCount(int var1, Random var2) {
       return MathHelper.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 4);
    }
 

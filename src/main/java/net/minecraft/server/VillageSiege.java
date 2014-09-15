@@ -212,7 +212,7 @@ public class VillageSiege extends PersistentBase {
 
    private boolean f(Location var1) {
       Block var2 = this.b.getData(var1).c();
-      return var2 instanceof BlockDoor?var2.r() == Material.WOOD:false;
+      return var2 instanceof BlockDoor?var2.getMaterial() == Material.WOOD:false;
    }
 
    public void a(NBTTagCompound var1) {

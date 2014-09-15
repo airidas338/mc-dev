@@ -75,11 +75,11 @@ public class BlockPumpkin extends BlockDirectional {
 
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return var1.getData(var2).c().J.j() && World.a((IBlockAccess)var1, var2.b());
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 

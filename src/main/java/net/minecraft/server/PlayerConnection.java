@@ -346,7 +346,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 						this.b.c.e();
 					}
 
-					if (var2.getData(var3).c().r() != Material.AIR) {
+					if (var2.getData(var3).c().getMaterial() != Material.AIR) {
 						this.b.a.sendPacket((Packet) (new iw(var2, var3)));
 					}
 				}
@@ -763,11 +763,11 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		Location var3 = var1.a();
 		if (var2.isLoaded(var3)) {
 			TileEntity var4 = var2.s(var3);
-			if (!(var4 instanceof bdj)) {
+			if (!(var4 instanceof TileEntitySign)) {
 				return;
 			}
 
-			bdj var5 = (bdj) var4;
+			TileEntitySign var5 = (TileEntitySign) var4;
 			if (!var5.b() || var5.c() != this.b) {
 				this.d.f("Player " + this.b.getName() + " just tried to change non-editable sign");
 				return;
@@ -902,8 +902,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					CommandBlockListenerAbstract var46 = null;
 					if (var43 == 0) {
 						TileEntity var5 = this.b.o.s(new Location(var2.readInt(), var2.readInt(), var2.readInt()));
-						if (var5 instanceof bct) {
-							var46 = ((bct) var5).b();
+						if (var5 instanceof TileEntityCommand) {
+							var46 = ((TileEntityCommand) var5).getCommandBlock();
 						}
 					} else if (var43 == 1) {
 						Entity var47 = this.b.o.a(var2.readInt());

@@ -55,8 +55,8 @@ public class bka extends bkb {
             this.b = true;
             var1.a(var4, Blocks.MOB_SPAWNER.P(), 2);
             TileEntity var5 = var1.s(var4);
-            if(var5 instanceof bdg) {
-               ((bdg)var5).b().a("Blaze");
+            if(var5 instanceof TileEntityMobSpawner) {
+               ((TileEntityMobSpawner)var5).getSpawner().a("Blaze");
             }
          }
       }

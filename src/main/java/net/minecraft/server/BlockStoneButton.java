@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class BlockStoneButton extends aud {
+public class BlockStoneButton extends BlockButtonAbstract {
 
    protected BlockStoneButton() {
       super(false);

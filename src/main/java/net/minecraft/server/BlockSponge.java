@@ -53,7 +53,7 @@ public class BlockSponge extends Block {
          for(int var11 = 0; var11 < var10; ++var11) {
             EnumFacing var12 = var9[var11];
             Location var13 = var7.a(var12);
-            if(var1.getData(var13).c().r() == Material.WATER) {
+            if(var1.getData(var13).c().getMaterial() == Material.WATER) {
                var1.a(var13, Blocks.AIR.P(), 2);
                var4.add(var13);
                ++var5;

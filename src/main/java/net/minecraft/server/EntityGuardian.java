@@ -173,7 +173,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    public float a(Location var1) {
-      return this.o.getData(var1).c().r() == Material.WATER?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+      return this.o.getData(var1).c().getMaterial() == Material.WATER?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() throws IOException {

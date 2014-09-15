@@ -12,7 +12,7 @@ public class WorldGenDesertWell extends WorldGenerator {
 
 
    public WorldGenDesertWell() {
-      this.b = Blocks.STEP1.P().a(bbf.M, bbg.b).a(BlockStepAbstract.a, awr.b);
+      this.b = Blocks.STEP1.P().a(BlockStep1Abstract.M, bbg.b).a(BlockStepAbstract.a, awr.b);
       this.c = Blocks.SANDSTONE.P();
       this.d = Blocks.WATER.P();
    }

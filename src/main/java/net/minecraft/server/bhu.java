@@ -15,7 +15,7 @@ public class bhu extends WorldGenerator {
    public boolean generate(World var1, Random var2, Location var3) {
       if(var1.getData(var3.a()).c() != Blocks.NETHERRACK) {
          return false;
-      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != Blocks.NETHERRACK) {
+      } else if(var1.getData(var3).c().getMaterial() != Material.AIR && var1.getData(var3).c() != Blocks.NETHERRACK) {
          return false;
       } else {
          int var4 = 0;

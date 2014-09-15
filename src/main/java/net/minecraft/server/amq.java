@@ -14,21 +14,21 @@ final class amq extends DispenserBehaviorItem {
       double var9 = var1.getZ() + (double)var3.i() * 1.125D;
       Location var11 = var1.d().a(var3);
       IBlockData var12 = var4.getData(var11);
-      atl var13 = var12.c() instanceof ati?(atl)var12.b(((ati)var12.c()).l()):atl.a;
+      atl var13 = var12.c() instanceof BlockMinecartTrackAbstract?(atl)var12.b(((BlockMinecartTrackAbstract)var12.c()).l()):atl.a;
       double var14;
-      if(ati.d(var12)) {
+      if(BlockMinecartTrackAbstract.d(var12)) {
          if(var13.c()) {
             var14 = 0.6D;
          } else {
             var14 = 0.1D;
          }
       } else {
-         if(var12.c().r() != Material.AIR || !ati.d(var4.getData(var11.b()))) {
+         if(var12.c().getMaterial() != Material.AIR || !BlockMinecartTrackAbstract.d(var4.getData(var11.b()))) {
             return this.b.a(var1, var2);
          }
 
          IBlockData var16 = var4.getData(var11.b());
-         atl var17 = var16.c() instanceof ati?(atl)var16.b(((ati)var16.c()).l()):atl.a;
+         atl var17 = var16.c() instanceof BlockMinecartTrackAbstract?(atl)var16.b(((BlockMinecartTrackAbstract)var16.c()).l()):atl.a;
          if(var3 != EnumFacing.DOWN && var17.c()) {
             var14 = -0.4D;
          } else {

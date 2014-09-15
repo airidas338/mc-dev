@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class BlockPressurePlateBinary extends ath {
+public class BlockPressurePlateBinary extends BlockPressurePlateAbstract {
 
    public static final bet a = bet.a("powered");
    private final azh b;

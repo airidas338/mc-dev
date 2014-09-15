@@ -46,7 +46,7 @@ public class EntityFallingBlock extends Entity {
 
    public void s_() {
       Block var1 = this.d.c();
-      if(var1.r() == Material.AIR) {
+      if(var1.getMaterial() == Material.AIR) {
          this.J();
       } else {
          this.p = this.s;
@@ -76,12 +76,12 @@ public class EntityFallingBlock extends Entity {
                this.w *= -0.5D;
                if(this.o.getData(var2).c() != Blocks.PISTON_MOVING) {
                   this.J();
-                  if(!this.e && this.o.a(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !avt.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
-                     if(var1 instanceof avt) {
-                        ((avt)var1).a_(this.o, var2);
+                  if(!this.e && this.o.a(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !BlockFalling.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
+                     if(var1 instanceof BlockFalling) {
+                        ((BlockFalling)var1).a_(this.o, var2);
                      }
 
-                     if(this.c != null && var1 instanceof avs) {
+                     if(this.c != null && var1 instanceof IContainer) {
                         TileEntity var3 = this.o.s(var2);
                         if(var3 != null) {
                            NBTTagCompound var4 = new NBTTagCompound();
@@ -189,7 +189,7 @@ public class EntityFallingBlock extends Entity {
          this.c = var1.getCompound("TileEntityData");
       }
 
-      if(var3 == null || var3.r() == Material.AIR) {
+      if(var3 == null || var3.getMaterial() == Material.AIR) {
          this.d = Blocks.SAND.P();
       }
 

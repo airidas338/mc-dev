@@ -46,10 +46,10 @@ public class BlockSnow extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, (float)var1 / 8.0F, 1.0F);
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       IBlockData var3 = var1.getData(var2.b());
       Block var4 = var3.c();
-      return var4 != Blocks.ICE && var4 != Blocks.PACKET_ICE?(var4.r() == Material.LEAVES?true:(var4 == this && ((Integer)var3.b(a)).intValue() == 7?true:var4.c() && var4.J.c())):false;
+      return var4 != Blocks.ICE && var4 != Blocks.PACKET_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.b(a)).intValue() == 7?true:var4.c() && var4.J.c())):false;
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
@@ -57,7 +57,7 @@ public class BlockSnow extends Block {
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
-      if(!this.c(var1, var2)) {
+      if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
          return false;

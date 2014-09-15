@@ -15,7 +15,7 @@ public class bpj extends GenLayer {
          for(int var8 = 0; var8 < var3; ++var8) {
             this.a((long)(var8 + var1), (long)(var7 + var2));
             int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
-            BiomeBase var10 = BiomeBase.e(var9);
+            BiomeBase var10 = BiomeBase.getBiome(var9);
             int var11;
             int var12;
             int var13;
@@ -103,10 +103,10 @@ public class bpj extends GenLayer {
    }
 
    private boolean c(int var1) {
-      return BiomeBase.e(var1) != null && BiomeBase.e(var1).l() == BiomeJungle.class?true:var1 == BiomeBase.JUNGLE_EDGE.id || var1 == BiomeBase.JUNGLE.id || var1 == BiomeBase.JUNGLE_HILLS.id || var1 == BiomeBase.FOREST.id || var1 == BiomeBase.TAIGA.id || b(var1);
+      return BiomeBase.getBiome(var1) != null && BiomeBase.getBiome(var1).l() == BiomeJungle.class?true:var1 == BiomeBase.JUNGLE_EDGE.id || var1 == BiomeBase.JUNGLE.id || var1 == BiomeBase.JUNGLE_HILLS.id || var1 == BiomeBase.FOREST.id || var1 == BiomeBase.TAIGA.id || b(var1);
    }
 
    private boolean d(int var1) {
-      return BiomeBase.e(var1) instanceof BiomeMesa;
+      return BiomeBase.getBiome(var1) instanceof BiomeMesa;
    }
 }

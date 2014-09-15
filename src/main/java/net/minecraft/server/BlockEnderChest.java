@@ -3,7 +3,7 @@ import com.google.common.base.Predicate;
 
 import java.util.Random;
 
-public class BlockEnderChest extends atg {
+public class BlockEnderChest extends BlockContainer {
 
    public static final beu a = beu.a("facing", (Predicate)en.a);
 
@@ -39,7 +39,7 @@ public class BlockEnderChest extends atg {
       return true;
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d());
    }
 
@@ -47,16 +47,16 @@ public class BlockEnderChest extends atg {
       var1.a(var2, var3.a(a, var4.aO().d()), 2);
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ajh var9 = var4.cn();
       TileEntity var10 = var1.s(var2);
-      if(var9 != null && var10 instanceof bda) {
+      if(var9 != null && var10 instanceof TileEntityEnderChest) {
          if(var1.getData(var2.a()).c().t()) {
             return true;
          } else if(var1.isStatic) {
             return true;
          } else {
-            var9.a((bda)var10);
+            var9.a((TileEntityEnderChest)var10);
             var4.a((IInventory)var9);
             return true;
          }
@@ -66,7 +66,7 @@ public class BlockEnderChest extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bda();
+      return new TileEntityEnderChest();
    }
 
    public IBlockData a(int var1) {

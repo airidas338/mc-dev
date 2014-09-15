@@ -37,7 +37,7 @@ public class BlockReed extends Block {
       }
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       Block var3 = var1.getData(var2.b()).c();
       if(var3 == this) {
          return true;
@@ -53,7 +53,7 @@ public class BlockReed extends Block {
             }
 
             var5 = (EnumFacing)var4.next();
-         } while(var1.getData(var2.a(var5).b()).c().r() != Material.WATER);
+         } while(var1.getData(var2.a(var5).b()).c().getMaterial() != Material.WATER);
 
          return true;
       }
@@ -74,7 +74,7 @@ public class BlockReed extends Block {
    }
 
    public boolean d(World var1, Location var2) {
-      return this.c(var1, var2);
+      return this.canPlace(var1, var2);
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {

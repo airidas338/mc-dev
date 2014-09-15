@@ -148,7 +148,7 @@ public class BiomeDecorator {
          var7 = this.c.a(var4, var10, var5);
          EnumFlowerType var8 = var1.a(this.b, var7);
          BlockFlowers var9 = var8.a().a();
-         if(var9.r() != Material.AIR) {
+         if(var9.getMaterial() != Material.AIR) {
             this.s.a(var9, var8);
             this.s.generate(this.a, this.b, var7);
          }

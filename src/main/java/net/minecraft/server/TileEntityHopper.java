@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class bde extends bdf implements bdd, IUpdatePlayerListBox {
+public class TileEntityHopper extends TileEntityLockable implements IHopper, IUpdatePlayerListBox {
 
    private ItemStack[] a = new ItemStack[5];
    private String f;
@@ -147,7 +147,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
             }
 
             if(!this.q()) {
-               var1 = a((bdd)this) || var1;
+               var1 = a((IHopper)this) || var1;
             }
 
             if(var1) {
@@ -219,8 +219,8 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    private boolean a(IInventory var1, EnumFacing var2) {
-      if(var1 instanceof we) {
-         we var3 = (we)var1;
+      if(var1 instanceof IWorldInventory) {
+         IWorldInventory var3 = (IWorldInventory)var1;
          int[] var4 = var3.a(var2);
 
          for(int var5 = 0; var5 < var4.length; ++var5) {
@@ -244,8 +244,8 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    private static boolean b(IInventory var0, EnumFacing var1) {
-      if(var0 instanceof we) {
-         we var2 = (we)var0;
+      if(var0 instanceof IWorldInventory) {
+         IWorldInventory var2 = (IWorldInventory)var0;
          int[] var3 = var2.a(var1);
 
          for(int var4 = 0; var4 < var3.length; ++var4) {
@@ -266,7 +266,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return true;
    }
 
-   public static boolean a(bdd var0) {
+   public static boolean a(IHopper var0) {
       IInventory var1 = b(var0);
       if(var1 != null) {
          EnumFacing var2 = EnumFacing.DOWN;
@@ -274,8 +274,8 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
             return false;
          }
 
-         if(var1 instanceof we) {
-            we var3 = (we)var1;
+         if(var1 instanceof IWorldInventory) {
+            IWorldInventory var3 = (IWorldInventory)var1;
             int[] var4 = var3.a(var2);
 
             for(int var5 = 0; var5 < var4.length; ++var5) {
@@ -302,7 +302,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return false;
    }
 
-   private static boolean a(bdd var0, IInventory var1, int var2, EnumFacing var3) {
+   private static boolean a(IHopper var0, IInventory var1, int var2, EnumFacing var3) {
       ItemStack var4 = var1.a(var2);
       if(var4 != null && b(var1, var4, var2, var3)) {
          ItemStack var5 = var4.k();
@@ -337,8 +337,8 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    public static ItemStack a(IInventory var0, ItemStack var1, EnumFacing var2) {
-      if(var0 instanceof we && var2 != null) {
-         we var6 = (we)var0;
+      if(var0 instanceof IWorldInventory && var2 != null) {
+         IWorldInventory var6 = (IWorldInventory)var0;
          int[] var7 = var6.a(var2);
 
          for(int var5 = 0; var5 < var7.length && var1 != null && var1.b > 0; ++var5) {
@@ -360,11 +360,11 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    private static boolean a(IInventory var0, ItemStack var1, int var2, EnumFacing var3) {
-      return !var0.b(var2, var1)?false:!(var0 instanceof we) || ((we)var0).a(var2, var1, var3);
+      return !var0.b(var2, var1)?false:!(var0 instanceof IWorldInventory) || ((IWorldInventory)var0).a(var2, var1, var3);
    }
 
    private static boolean b(IInventory var0, ItemStack var1, int var2, EnumFacing var3) {
-      return !(var0 instanceof we) || ((we)var0).b(var2, var1, var3);
+      return !(var0 instanceof IWorldInventory) || ((IWorldInventory)var0).b(var2, var1, var3);
    }
 
    private static ItemStack c(IInventory var0, ItemStack var1, int var2, EnumFacing var3) {
@@ -384,8 +384,8 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
          }
 
          if(var5) {
-            if(var0 instanceof bde) {
-               bde var8 = (bde)var0;
+            if(var0 instanceof TileEntityHopper) {
+               TileEntityHopper var8 = (TileEntityHopper)var0;
                if(var8.o()) {
                   var8.d(8);
                }
@@ -405,7 +405,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       return b(this.z(), (double)(this.c.n() + var1.g()), (double)(this.c.o() + var1.h()), (double)(this.c.p() + var1.i()));
    }
 
-   public static IInventory b(bdd var0) {
+   public static IInventory b(IHopper var0) {
       return b(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
    }
 
@@ -423,7 +423,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       TileEntity var12 = var0.s(new Location(var8, var9, var10));
       if(var12 instanceof IInventory) {
          var7 = (IInventory)var12;
-         if(var7 instanceof bcr) {
+         if(var7 instanceof TileEntityChest) {
             Block var13 = var0.getData(new Location(var8, var9, var10)).c();
             if(var13 instanceof BlockChest) {
                var7 = ((BlockChest)var13).d(var0, var11);

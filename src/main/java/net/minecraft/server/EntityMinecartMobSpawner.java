@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class EntityMinecartMobSpawner extends EntityMinecartAbstract {
 
-   private final aqi a = new aei(this);
+   private final MobSpawnerAbstract a = new aei(this);
 
 
    public EntityMinecartMobSpawner(World var1) {

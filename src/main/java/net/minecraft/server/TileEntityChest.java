@@ -2,14 +2,14 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
+public class TileEntityChest extends TileEntityLockable implements IUpdatePlayerListBox, IInventory {
 
    private ItemStack[] m = new ItemStack[27];
    public boolean a;
-   public bcr f;
-   public bcr g;
-   public bcr h;
-   public bcr i;
+   public TileEntityChest f;
+   public TileEntityChest g;
+   public TileEntityChest h;
+   public TileEntityChest i;
    public float j;
    public float k;
    public int l;
@@ -130,7 +130,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
       this.a = false;
    }
 
-   private void a(bcr var1, EnumFacing var2) {
+   private void a(TileEntityChest var1, EnumFacing var2) {
       if(var1.x()) {
          this.a = false;
       } else if(this.a) {
@@ -169,12 +169,12 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
       }
    }
 
-   protected bcr a(EnumFacing var1) {
+   protected TileEntityChest a(EnumFacing var1) {
       Location var2 = this.c.a(var1);
       if(this.b(var2)) {
          TileEntity var3 = this.b.s(var2);
-         if(var3 instanceof bcr) {
-            bcr var4 = (bcr)var3;
+         if(var3 instanceof TileEntityChest) {
+            TileEntityChest var4 = (TileEntityChest)var3;
             var4.a(this, var1.d());
             return var4;
          }

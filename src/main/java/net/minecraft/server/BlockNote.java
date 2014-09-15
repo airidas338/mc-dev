@@ -2,7 +2,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.List;
 
-public class BlockNote extends atg {
+public class BlockNote extends BlockContainer {
 
    private static final List a = Lists.newArrayList(new String[]{"harp", "bd", "snare", "hat", "bassattack"});
 
@@ -15,8 +15,8 @@ public class BlockNote extends atg {
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       boolean var5 = var1.z(var2);
       TileEntity var6 = var1.s(var2);
-      if(var6 instanceof bdi) {
-         bdi var7 = (bdi)var6;
+      if(var6 instanceof TileEntityNote) {
+         TileEntityNote var7 = (TileEntityNote)var6;
          if(var7.f != var5) {
             if(var5) {
                var7.a(var1, var2);
@@ -28,13 +28,13 @@ public class BlockNote extends atg {
 
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
-         if(var9 instanceof bdi) {
-            bdi var10 = (bdi)var9;
+         if(var9 instanceof TileEntityNote) {
+            TileEntityNote var10 = (TileEntityNote)var9;
             var10.b();
             var10.a(var1, var2);
          }
@@ -46,15 +46,15 @@ public class BlockNote extends atg {
    public void a(World var1, Location var2, EntityHuman var3) {
       if(!var1.isStatic) {
          TileEntity var4 = var1.s(var2);
-         if(var4 instanceof bdi) {
-            ((bdi)var4).a(var1, var2);
+         if(var4 instanceof TileEntityNote) {
+            ((TileEntityNote)var4).a(var1, var2);
          }
 
       }
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bdi();
+      return new TileEntityNote();
    }
 
    private String b(int var1) {

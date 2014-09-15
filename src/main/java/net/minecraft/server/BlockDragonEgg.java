@@ -21,15 +21,15 @@ public class BlockDragonEgg extends Block {
    }
 
    private void d(World var1, Location var2) {
-      if(avt.d(var1, var2.b()) && var2.o() >= 0) {
+      if(BlockFalling.d(var1, var2.b()) && var2.o() >= 0) {
          byte var3 = 32;
-         if(!avt.M && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
+         if(!BlockFalling.M && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
             var1.d((Entity)(new EntityFallingBlock(var1, (double)((float)var2.n() + 0.5F), (double)var2.o(), (double)((float)var2.p() + 0.5F), this.P())));
          } else {
             var1.g(var2);
 
             Location var4;
-            for(var4 = var2; avt.d(var1, var4) && var4.o() > 0; var4 = var4.b()) {
+            for(var4 = var2; BlockFalling.d(var1, var4) && var4.o() > 0; var4 = var4.b()) {
                ;
             }
 
@@ -41,7 +41,7 @@ public class BlockDragonEgg extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.e(var1, var2);
       return true;
    }

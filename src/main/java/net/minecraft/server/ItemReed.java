@@ -25,7 +25,7 @@ public class ItemReed extends Item {
          return false;
       } else {
          if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
-            IBlockData var11 = this.a.a(var3, var4, var5, var6, var7, var8, 0, var2);
+            IBlockData var11 = this.a.getPlacedData(var3, var4, var5, var6, var7, var8, 0, var2);
             if(var3.a(var4, var11, 3)) {
                var11 = var3.getData(var4);
                if(var11.c() == this.a) {

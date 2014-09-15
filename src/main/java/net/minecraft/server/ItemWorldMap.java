@@ -83,14 +83,14 @@ public class ItemWorldMap extends ake {
                                        var31 = var22.g(new Location(var28 + var23, var30, var29 + var24));
                                     } while(var31.c().g(var31) == MaterialMapColor.b && var30 > 0);
 
-                                    if(var30 > 0 && var31.c().r().d()) {
+                                    if(var30 > 0 && var31.c().getMaterial().d()) {
                                        int var32 = var30 - 1;
 
                                        Block var33;
                                        do {
                                           var33 = var22.a(var28 + var23, var32--, var29 + var24);
                                           ++var25;
-                                       } while(var32 > 0 && var33.r().d());
+                                       } while(var32 > 0 && var33.getMaterial().d());
                                     }
                                  }
 

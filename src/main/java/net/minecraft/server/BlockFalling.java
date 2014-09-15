@@ -1,17 +1,17 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class avt extends Block {
+public class BlockFalling extends Block {
 
    public static boolean M;
 
 
-   public avt() {
+   public BlockFalling() {
       super(Material.SAND);
       this.a(CreativeModeTab.b);
    }
 
-   public avt(Material var1) {
+   public BlockFalling(Material var1) {
       super(var1);
    }
 

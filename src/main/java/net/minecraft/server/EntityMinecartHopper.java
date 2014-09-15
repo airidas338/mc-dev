@@ -2,7 +2,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 
-public class EntityMinecartHopper extends aed implements bdd {
+public class EntityMinecartHopper extends aed implements IHopper {
 
    private boolean a = true;
    private int b = -1;
@@ -97,12 +97,12 @@ public class EntityMinecartHopper extends aed implements bdd {
    }
 
    public boolean D() {
-      if(bde.a((bdd)this)) {
+      if(TileEntityHopper.a((IHopper)this)) {
          return true;
       } else {
          List var1 = this.o.a(EntityItem.class, this.aQ().b(0.25D, 0.0D, 0.25D), EntitySelectors.a);
          if(var1.size() > 0) {
-            bde.a((IInventory)this, (EntityItem)var1.get(0));
+            TileEntityHopper.a((IInventory)this, (EntityItem)var1.get(0));
          }
 
          return false;

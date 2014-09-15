@@ -292,7 +292,7 @@ public class bgv implements IChunkProvider {
    }
 
    public void getChunkAt(IChunkProvider var1, int var2, int var3) {
-      avt.M = true;
+      BlockFalling.M = true;
       int var4 = var2 * 16;
       int var5 = var3 * 16;
       Location var6 = new Location(var4, 0, var5);
@@ -369,7 +369,7 @@ public class bgv implements IChunkProvider {
          }
       }
 
-      avt.M = false;
+      BlockFalling.M = false;
    }
 
    public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {

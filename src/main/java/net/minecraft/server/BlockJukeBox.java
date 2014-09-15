@@ -1,20 +1,20 @@
 package net.minecraft.server;
 
 
-public class BlockJukebox extends atg {
+public class BlockJukeBox extends BlockContainer {
 
    public static final bet a = bet.a("has_record");
 
 
-   protected BlockJukebox() {
+   protected BlockJukeBox() {
       super(Material.WOOD);
       this.j(this.L.b().a(a, Boolean.valueOf(false)));
       this.a(CreativeModeTab.c);
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
-         this.e(var1, var2, var3);
+         this.dropRecord(var1, var2, var3);
          var3 = var3.a(a, Boolean.valueOf(false));
          var1.a(var2, var3, 2);
          return true;
@@ -26,18 +26,18 @@ public class BlockJukebox extends atg {
    public void a(World var1, Location var2, IBlockData var3, ItemStack var4) {
       if(!var1.isStatic) {
          TileEntity var5 = var1.s(var2);
-         if(var5 instanceof axd) {
-            ((axd)var5).a(new ItemStack(var4.b(), 1, var4.i()));
+         if(var5 instanceof TileEntityRecordPlayer) {
+            ((TileEntityRecordPlayer)var5).a(new ItemStack(var4.b(), 1, var4.i()));
             var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
          }
       }
    }
 
-   private void e(World var1, Location var2, IBlockData var3) {
+   private void dropRecord(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          TileEntity var4 = var1.s(var2);
-         if(var4 instanceof axd) {
-            axd var5 = (axd)var4;
+         if(var4 instanceof TileEntityRecordPlayer) {
+            TileEntityRecordPlayer var5 = (TileEntityRecordPlayer)var4;
             ItemStack var6 = var5.a();
             if(var6 != null) {
                var1.b(1005, var2, 0);
@@ -56,29 +56,29 @@ public class BlockJukebox extends atg {
       }
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      this.e(var1, var2, var3);
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      this.dropRecord(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       if(!var1.isStatic) {
-         super.a(var1, var2, var3, var4, 0);
+         super.dropNaturally(var1, var2, var3, var4, 0);
       }
    }
 
    public TileEntity a(World var1, int var2) {
-      return new axd();
+      return new TileEntityRecordPlayer();
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       TileEntity var3 = var1.s(var2);
-      if(var3 instanceof axd) {
-         ItemStack var4 = ((axd)var3).a();
+      if(var3 instanceof TileEntityRecordPlayer) {
+         ItemStack var4 = ((TileEntityRecordPlayer)var3).a();
          if(var4 != null) {
             return Item.b(var4.b()) + 1 - Item.b(Items.cq);
          }

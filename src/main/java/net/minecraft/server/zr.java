@@ -49,7 +49,7 @@ public class zr extends zn {
          Block var4 = var3.c();
          if(var4 == Blocks.CHEST) {
             TileEntity var5 = var1.s(var2);
-            if(var5 instanceof bcr && ((bcr)var5).l < 1) {
+            if(var5 instanceof TileEntityChest && ((TileEntityChest)var5).l < 1) {
                return true;
             }
          } else {

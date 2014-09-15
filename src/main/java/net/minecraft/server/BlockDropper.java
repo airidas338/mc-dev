@@ -10,12 +10,12 @@ public class BlockDropper extends BlockDispenser {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bcy();
+      return new TileEntityDropper();
    }
 
    protected void d(World var1, Location var2) {
       SourceBlock var3 = new SourceBlock(var1, var2);
-      bcx var4 = (bcx)var3.h();
+      TileEntityDispenser var4 = (TileEntityDispenser)var3.h();
       if(var4 != null) {
          int var5 = var4.m();
          if(var5 < 0) {
@@ -25,7 +25,7 @@ public class BlockDropper extends BlockDispenser {
             if(var6 != null) {
                EnumFacing var7 = (EnumFacing)var1.getData(var2).b(a);
                Location var8 = var2.a(var7);
-               IInventory var9 = bde.b(var1, (double)var8.n(), (double)var8.o(), (double)var8.p());
+               IInventory var9 = TileEntityHopper.b(var1, (double)var8.n(), (double)var8.o(), (double)var8.p());
                ItemStack var10;
                if(var9 == null) {
                   var10 = this.O.a(var3, var6);
@@ -33,7 +33,7 @@ public class BlockDropper extends BlockDispenser {
                      var10 = null;
                   }
                } else {
-                  var10 = bde.a(var9, var6.k().a(1), var7.d());
+                  var10 = TileEntityHopper.a(var9, var6.k().a(1), var7.d());
                   if(var10 == null) {
                      var10 = var6.k();
                      if(--var10.b == 0) {

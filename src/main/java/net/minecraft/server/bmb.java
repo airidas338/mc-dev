@@ -117,8 +117,8 @@ public class bmb extends bmk {
             this.a = true;
             var1.a(var10, Blocks.MOB_SPAWNER.P(), 2);
             TileEntity var11 = var1.s(var10);
-            if(var11 instanceof bdg) {
-               ((bdg)var11).b().a("Silverfish");
+            if(var11 instanceof TileEntityMobSpawner) {
+               ((TileEntityMobSpawner)var11).getSpawner().a("Silverfish");
             }
          }
       }

@@ -109,12 +109,12 @@ public class vp implements vy {
       return this.b.q_() || this.c.q_();
    }
 
-   public void a(vx var1) {
+   public void a(InventoryPlayerLock var1) {
       this.b.a(var1);
       this.c.a(var1);
    }
 
-   public vx i() {
+   public InventoryPlayerLock i() {
       return this.b.i();
    }
 

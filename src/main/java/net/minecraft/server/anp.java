@@ -23,7 +23,7 @@ public class anp extends ann {
 
             Location var6 = var5.a();
             IBlockData var7 = var2.getData(var5);
-            if(var7.c().r() == Material.WATER && ((Integer)var7.b(axl.b)).intValue() == 0 && var2.isEmpty(var6)) {
+            if(var7.c().getMaterial() == Material.WATER && ((Integer)var7.b(BlockFluids.b)).intValue() == 0 && var2.isEmpty(var6)) {
                var2.a(var6, Blocks.WATER_LILY.P());
                if(!var3.by.canInstantlyBuild) {
                   --var1.b;

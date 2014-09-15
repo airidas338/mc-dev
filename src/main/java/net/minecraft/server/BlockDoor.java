@@ -81,7 +81,7 @@ public class BlockDoor extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
@@ -167,8 +167,8 @@ public class BlockDoor extends Block {
       return super.a(var1, var2, var3, var4);
    }
 
-   public boolean c(World var1, Location var2) {
-      return var2.o() >= 255?false:World.a((IBlockAccess)var1, var2.b()) && super.c(var1, var2) && super.c(var1, var2.a());
+   public boolean canPlace(World var1, Location var2) {
+      return var2.o() >= 255?false:World.a((IBlockAccess)var1, var2.b()) && super.canPlace(var1, var2) && super.canPlace(var1, var2.a());
    }
 
    public int i() {

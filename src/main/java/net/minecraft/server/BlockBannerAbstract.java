@@ -2,13 +2,13 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Random;
 
-public class atb extends atg {
+public class BlockBannerAbstract extends BlockContainer {
 
    public static final beu a = beu.a("facing", (Predicate)en.a);
    public static final bew b = bew.a("rotation", 0, 15);
 
 
-   protected atb() {
+   protected BlockBannerAbstract() {
       super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
@@ -32,17 +32,17 @@ public class atb extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bci();
+      return new TileEntityBanner();
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
       return Items.cE;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       TileEntity var6 = var1.s(var2);
-      if(var6 instanceof bci) {
-         ItemStack var7 = new ItemStack(Items.cE, 1, ((bci)var6).b());
+      if(var6 instanceof TileEntityBanner) {
+         ItemStack var7 = new ItemStack(Items.cE, 1, ((TileEntityBanner)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();
          var6.b(var8);
          var8.o("x");
@@ -52,14 +52,14 @@ public class atb extends atg {
          var7.a("BlockEntityTag", (NBTBase)var8);
          a(var1, var2, var7);
       } else {
-         super.a(var1, var2, var3, var4, var5);
+         super.dropNaturally(var1, var2, var3, var4, var5);
       }
 
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-      if(var5 instanceof bci) {
-         ItemStack var6 = new ItemStack(Items.cE, 1, ((bci)var5).b());
+      if(var5 instanceof TileEntityBanner) {
+         ItemStack var6 = new ItemStack(Items.cE, 1, ((TileEntityBanner)var5).b());
          NBTTagCompound var7 = new NBTTagCompound();
          var5.b(var7);
          var7.o("x");

@@ -16,9 +16,9 @@ public class amp extends Item {
 
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       IBlockData var9 = var3.getData(var4);
-      if(ati.d(var9)) {
+      if(BlockMinecartTrackAbstract.d(var9)) {
          if(!var3.isStatic) {
-            atl var10 = var9.c() instanceof ati?(atl)var9.b(((ati)var9.c()).l()):atl.a;
+            atl var10 = var9.c() instanceof BlockMinecartTrackAbstract?(atl)var9.b(((BlockMinecartTrackAbstract)var9.c()).l()):atl.a;
             double var11 = 0.0D;
             if(var10.c()) {
                var11 = 0.5D;

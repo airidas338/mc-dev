@@ -13,7 +13,7 @@ public class bht extends WorldGenerator {
 
          for(int var4 = 0; var4 < 1500; ++var4) {
             Location var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
-            if(var1.getData(var5).c().r() == Material.AIR) {
+            if(var1.getData(var5).c().getMaterial() == Material.AIR) {
                int var6 = 0;
                EnumFacing[] var7 = EnumFacing.values();
                int var8 = var7.length;

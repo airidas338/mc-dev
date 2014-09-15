@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class BlockLeaves extends bbo {
+public abstract class BlockLeaves extends BlockTransparent {
 
    public static final bet a = bet.a("decayable");
    public static final bet b = bet.a("check_decay");
@@ -17,7 +17,7 @@ public abstract class BlockLeaves extends bbo {
       this.a(h);
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       byte var4 = 1;
       int var5 = var4 + 1;
       int var6 = var2.n();
@@ -29,7 +29,7 @@ public abstract class BlockLeaves extends bbo {
                for(int var11 = -var4; var11 <= var4; ++var11) {
                   Location var12 = var2.a(var9, var10, var11);
                   IBlockData var13 = var1.getData(var12);
-                  if(var13.c().r() == Material.LEAVES && !((Boolean)var13.b(b)).booleanValue()) {
+                  if(var13.c().getMaterial() == Material.LEAVES && !((Boolean)var13.b(b)).booleanValue()) {
                      var1.a(var12, var13.a(b, Boolean.valueOf(true)), 4);
                   }
                }
@@ -63,7 +63,7 @@ public abstract class BlockLeaves extends bbo {
                      for(var15 = -var5; var15 <= var5; ++var15) {
                         Block var16 = var1.getData(new Location(var7 + var13, var8 + var14, var9 + var15)).c();
                         if(var16 != Blocks.LOG && var16 != Blocks.LOG2) {
-                           if(var16.r() == Material.LEAVES) {
+                           if(var16.getMaterial() == Material.LEAVES) {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -2;
                            } else {
                               this.M[(var13 + var12) * var11 + (var14 + var12) * var10 + var15 + var12] = -1;
@@ -134,7 +134,7 @@ public abstract class BlockLeaves extends bbo {
       return Item.a(Blocks.SAPLING);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       if(!var1.isStatic) {
          int var6 = this.d(var3);
          if(var5 > 0) {

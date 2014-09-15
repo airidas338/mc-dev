@@ -49,11 +49,11 @@ public class BlockLadder extends Block {
       return false;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return var1.getData(var2.e()).c().t()?true:(var1.getData(var2.f()).c().t()?true:(var1.getData(var2.c()).c().t()?true:var1.getData(var2.d()).c().t()));
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var3.k().c() && this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {

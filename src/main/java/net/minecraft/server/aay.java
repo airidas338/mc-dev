@@ -138,7 +138,7 @@ public class aay extends Navigation {
                double var18 = (double)var15 + 0.5D - var7.c;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
                   Block var20 = this.c.getData(new Location(var14, var2 - 1, var15)).c();
-                  Material var21 = var20.r();
+                  Material var21 = var20.getMaterial();
                   if(var21 == Material.AIR) {
                      return false;
                   }

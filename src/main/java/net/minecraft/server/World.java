@@ -115,7 +115,7 @@ public abstract class World implements IBlockAccess {
     }
 
     public boolean isEmpty(Location var1) {
-        return this.getData(var1).c().r() == Material.AIR;
+        return this.getData(var1).c().getMaterial() == Material.AIR;
     }
 
     public boolean isLoaded(Location var1) {
@@ -208,7 +208,7 @@ public abstract class World implements IBlockAccess {
 
                 if (!this.isStatic && (var3 & 1) != 0) {
                     this.b(var1, var6.c());
-                    if (var5.N()) {
+                    if (var5.isComplexRedstone()) {
                         this.e(var1, var5);
                     }
                 }
@@ -225,7 +225,7 @@ public abstract class World implements IBlockAccess {
     public boolean b(Location var1, boolean var2) {
         IBlockData var3 = this.getData(var1);
         Block var4 = var3.c();
-        if (var4.r() == Material.AIR) {
+        if (var4.getMaterial() == Material.AIR) {
             return false;
         } else {
             this.b(2001, var1, Block.f(var3));
@@ -353,7 +353,7 @@ public abstract class World implements IBlockAccess {
             } else {
                 for (var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
                     Block var3 = this.getData(var2).c();
-                    if (var3.n() > 0 && !var3.r().d()) {
+                    if (var3.n() > 0 && !var3.getMaterial().d()) {
                         return false;
                     }
                 }
@@ -899,7 +899,7 @@ public abstract class World implements IBlockAccess {
         Location var4;
         for (var3 = new Location(var1.n(), var2.g() + 16, var1.p()); var3.o() >= 0; var3 = var4) {
             var4 = var3.b();
-            Material var5 = var2.a(var4).r();
+            Material var5 = var2.a(var4).getMaterial();
             if (var5.c() && var5 != Material.LEAVES) {
                 break;
             }
@@ -1196,7 +1196,7 @@ public abstract class World implements IBlockAccess {
             for (int var9 = var4; var9 <= var5; ++var9) {
                 for (int var10 = var6; var10 <= var7; ++var10) {
                     Block var11 = this.getData(new Location(var8, var9, var10)).c();
-                    if (var11.r() != Material.AIR) {
+                    if (var11.getMaterial() != Material.AIR) {
                         return true;
                     }
                 }
@@ -1218,7 +1218,7 @@ public abstract class World implements IBlockAccess {
             for (int var9 = var4; var9 <= var5; ++var9) {
                 for (int var10 = var6; var10 <= var7; ++var10) {
                     Block var11 = this.getData(new Location(var8, var9, var10)).c();
-                    if (var11.r().d()) {
+                    if (var11.getMaterial().d()) {
                         return true;
                     }
                 }
@@ -1270,8 +1270,8 @@ public abstract class World implements IBlockAccess {
                         Location var15 = new Location(var12, var13, var14);
                         IBlockData var16 = this.getData(var15);
                         Block var17 = var16.c();
-                        if (var17.r() == var2) {
-                            double var18 = (double) ((float) (var13 + 1) - axl.b(((Integer) var16.b(axl.b)).intValue()));
+                        if (var17.getMaterial() == var2) {
+                            double var18 = (double) ((float) (var13 + 1) - BlockFluids.b(((Integer) var16.b(BlockFluids.b)).intValue()));
                             if ((double) var7 >= var18) {
                                 var10 = true;
                                 var11 = var17.a(this, var15, var3, var11);
@@ -1304,7 +1304,7 @@ public abstract class World implements IBlockAccess {
         for (int var9 = var3; var9 < var4; ++var9) {
             for (int var10 = var5; var10 < var6; ++var10) {
                 for (int var11 = var7; var11 < var8; ++var11) {
-                    if (this.getData(new Location(var9, var10, var11)).c().r() == var2) {
+                    if (this.getData(new Location(var9, var10, var11)).c().getMaterial() == var2) {
                         return true;
                     }
                 }
@@ -1328,8 +1328,8 @@ public abstract class World implements IBlockAccess {
                     Location var12 = new Location(var9, var10, var11);
                     IBlockData var13 = this.getData(var12);
                     Block var14 = var13.c();
-                    if (var14.r() == var2) {
-                        int var15 = ((Integer) var13.b(axl.b)).intValue();
+                    if (var14.getMaterial() == var2) {
+                        int var15 = ((Integer) var13.b(BlockFluids.b)).intValue();
                         double var16 = (double) (var10 + 1);
                         if (var15 < 8) {
                             var16 = (double) (var10 + 1) - (double) var15 / 8.0D;
@@ -1485,7 +1485,7 @@ public abstract class World implements IBlockAccess {
     public static boolean a(IBlockAccess var0, Location var1) {
         IBlockData var2 = var0.getData(var1);
         Block var3 = var2.c();
-        return var3.r().k() && var3.d() ? true : (var3 instanceof BlockStairs ? var2.b(BlockStairs.b) == bau.a : (var3 instanceof BlockStepAbstract ? var2.b(BlockStepAbstract.a) == awr.a
+        return var3.getMaterial().k() && var3.d() ? true : (var3 instanceof BlockStairs ? var2.b(BlockStairs.b) == bau.a : (var3 instanceof BlockStepAbstract ? var2.b(BlockStepAbstract.a) == awr.a
                 : (var3 instanceof BlockHopper ? true : (var3 instanceof BlockSnow ? ((Integer) var2.b(BlockSnow.a)).intValue() == 7 : false))));
     }
 
@@ -1498,7 +1498,7 @@ public abstract class World implements IBlockAccess {
                 return var2;
             } else {
                 Block var4 = this.getData(var1).c();
-                return var4.r().k() && var4.d();
+                return var4.getMaterial().k() && var4.d();
             }
         }
     }
@@ -1645,7 +1645,7 @@ public abstract class World implements IBlockAccess {
             Block var9 = var3.a(var8);
             var5 += var1;
             var6 += var2;
-            if (var9.r() == Material.AIR && this.k(var8) <= this.random.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
+            if (var9.getMaterial() == Material.AIR && this.k(var8) <= this.random.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
                 EntityHuman var10 = this.a((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, 8.0D);
                 if (var10 != null && var10.e((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D) > 4.0D) {
                     this.a((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.random.nextFloat() * 0.2F);
@@ -1685,7 +1685,7 @@ public abstract class World implements IBlockAccess {
             if (var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
                 IBlockData var5 = this.getData(var1);
                 Block var6 = var5.c();
-                if ((var6 == Blocks.STATIONARY_WATER || var6 == Blocks.WATER) && ((Integer) var5.b(axl.b)).intValue() == 0) {
+                if ((var6 == Blocks.STATIONARY_WATER || var6 == Blocks.WATER) && ((Integer) var5.b(BlockFluids.b)).intValue() == 0) {
                     if (!var2) {
                         return true;
                     }
@@ -1702,7 +1702,7 @@ public abstract class World implements IBlockAccess {
     }
 
     private boolean F(Location var1) {
-        return this.getData(var1).c().r() == Material.WATER;
+        return this.getData(var1).c().getMaterial() == Material.WATER;
     }
 
     public boolean f(Location var1, boolean var2) {
@@ -1715,7 +1715,7 @@ public abstract class World implements IBlockAccess {
         } else {
             if (var1.o() >= 0 && var1.o() < 256 && this.b(EnumSkyBlock.BLOCK, var1) < 10) {
                 Block var5 = this.getData(var1).c();
-                if (var5.r() == Material.AIR && Blocks.SNOW.c(this, var1)) {
+                if (var5.getMaterial() == Material.AIR && Blocks.SNOW.canPlace(this, var1)) {
                     return true;
                 }
             }
@@ -2036,7 +2036,7 @@ public abstract class World implements IBlockAccess {
     public boolean a(Block var1, Location var2, boolean var3, EnumFacing var4, Entity var5, ItemStack var6) {
         Block var7 = this.getData(var2).c();
         AxisAlignedBB var8 = var3 ? null : var1.a(this, var2, var1.P());
-        return var8 != null && !this.a(var8, var5) ? false : (var7.r() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.r().j() && var1.a(this, var2, var4, var6));
+        return var8 != null && !this.a(var8, var5) ? false : (var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.getMaterial().j() && var1.a(this, var2, var4, var6));
     }
 
     public int a(Location var1, EnumFacing var2) {

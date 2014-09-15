@@ -39,7 +39,7 @@ public class CommandWhitelist extends CommandAbstract {
                   throw new ExceptionUsage("commands.whitelist.add.usage", new Object[0]);
                }
 
-               var5 = var3.aD().a(var2[1]);
+               var5 = var3.aD().getProfile(var2[1]);
                if(var5 == null) {
                   throw new CommandException("commands.whitelist.add.failed", new Object[]{var2[1]});
                }

@@ -44,7 +44,7 @@ public class akw extends Item {
 
                var4 = var4.a(var5);
                if(var3.isEmpty(var4)) {
-                  IBlockData var12 = Blocks.COCOA.a(var3, var4, var5, var6, var7, var8, 0, var2);
+                  IBlockData var12 = Blocks.COCOA.getPlacedData(var3, var4, var5, var6, var7, var8, 0, var2);
                   var3.a(var4, var12, 2);
                   if(!var2.by.canInstantlyBuild) {
                      --var1.b;

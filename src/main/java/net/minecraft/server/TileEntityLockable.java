@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
-public abstract class bdf extends TileEntity implements vv, vy {
+public abstract class TileEntityLockable extends TileEntity implements vv, vy {
 
-   private vx a;
+   private InventoryPlayerLock a;
 
 
-   public bdf() {
-      this.a = vx.a;
+   public TileEntityLockable() {
+      this.a = InventoryPlayerLock.a;
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = vx.b(var1);
+      this.a = InventoryPlayerLock.b(var1);
    }
 
    public void b(NBTTagCompound var1) {
@@ -26,11 +26,11 @@ public abstract class bdf extends TileEntity implements vv, vy {
       return this.a != null && !this.a.a();
    }
 
-   public vx i() {
+   public InventoryPlayerLock i() {
       return this.a;
    }
 
-   public void a(vx var1) {
+   public void a(InventoryPlayerLock var1) {
       this.a = var1;
    }
 

@@ -25,7 +25,7 @@ public class CommandBan extends CommandAbstract {
    public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length >= 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.M();
-         GameProfile var4 = var3.aD().a(var2[0]);
+         GameProfile var4 = var3.aD().getProfile(var2[0]);
          if(var4 == null) {
             throw new CommandException("commands.ban.failed", new Object[]{var2[0]});
          } else {

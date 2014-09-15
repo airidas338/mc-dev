@@ -139,11 +139,11 @@ public abstract class TileEntity {
    }
 
    public void a(CrashReportSystemDetails var1) {
-      var1.a("Name", (Callable)(new bcn(this)));
+      var1.a("Name", (Callable)(new CrashReportTileEntityName(this)));
       if(this.b != null) {
          CrashReportSystemDetails.a(var1, this.c, this.w(), this.u());
-         var1.a("Actual block type", (Callable)(new bco(this)));
-         var1.a("Actual block data value", (Callable)(new bcp(this)));
+         var1.a("Actual block type", (Callable)(new CrashReportTileEntityType(this)));
+         var1.a("Actual block data value", (Callable)(new CrashReportTileEntityData(this)));
       }
    }
 
@@ -157,26 +157,26 @@ public abstract class TileEntity {
    }
 
    static {
-      a(bdc.class, "Furnace");
-      a(bcr.class, "Chest");
-      a(bda.class, "EnderChest");
-      a(axd.class, "RecordPlayer");
-      a(bcx.class, "Trap");
-      a(bcy.class, "Dropper");
-      a(bdj.class, "Sign");
-      a(bdg.class, "MobSpawner");
-      a(bdi.class, "Music");
-      a(bdv.class, "Piston");
-      a(bcq.class, "Cauldron");
-      a(bcz.class, "EnchantTable");
-      a(bdn.class, "Airportal");
-      a(bct.class, "Control");
-      a(bck.class, "Beacon");
-      a(bdm.class, "Skull");
-      a(bcw.class, "DLDetector");
-      a(bde.class, "Hopper");
-      a(bcv.class, "Comparator");
-      a(bdb.class, "FlowerPot");
-      a(bci.class, "Banner");
+      a(TileEntityFurnace.class, "Furnace");
+      a(TileEntityChest.class, "Chest");
+      a(TileEntityEnderChest.class, "EnderChest");
+      a(TileEntityRecordPlayer.class, "RecordPlayer");
+      a(TileEntityDispenser.class, "Trap");
+      a(TileEntityDropper.class, "Dropper");
+      a(TileEntitySign.class, "Sign");
+      a(TileEntityMobSpawner.class, "MobSpawner");
+      a(TileEntityNote.class, "Music");
+      a(TileEntityPiston.class, "Piston");
+      a(TileEntityBrewingStand.class, "Cauldron");
+      a(TileEntityEnchantTable.class, "EnchantTable");
+      a(TileEntityEnderPortal.class, "Airportal");
+      a(TileEntityCommand.class, "Control");
+      a(TileEntityBeacon.class, "Beacon");
+      a(TileEntitySkull.class, "Skull");
+      a(TileEntityLightDetector.class, "DLDetector");
+      a(TileEntityHopper.class, "Hopper");
+      a(TileEntityComparator.class, "Comparator");
+      a(TileEntityFlowerPot.class, "FlowerPot");
+      a(TileEntityBanner.class, "Banner");
    }
 }

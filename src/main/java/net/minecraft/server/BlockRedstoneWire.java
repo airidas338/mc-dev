@@ -55,7 +55,7 @@ public class BlockRedstoneWire extends Block {
       return false;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return World.a((IBlockAccess)var1, var2.b()) || var1.getData(var2.b()).c() == Blocks.GLOWSTONE;
    }
 
@@ -183,8 +183,8 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
       if(!var1.isStatic) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
@@ -229,7 +229,7 @@ public class BlockRedstoneWire extends Block {
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
-         if(this.c(var1, var2)) {
+         if(this.canPlace(var1, var2)) {
             this.e(var1, var2, var3);
          } else {
             this.b(var1, var2, var3, 0);

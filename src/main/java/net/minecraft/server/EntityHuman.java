@@ -734,7 +734,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
    }
 
-   public void a(bdj var1) {}
+   public void a(TileEntitySign var1) {}
 
    public void a(CommandBlockListenerAbstract var1) {}
 
@@ -1042,8 +1042,8 @@ public abstract class EntityHuman extends EntityLiving {
          if(!var2) {
             return null;
          } else {
-            Material var3 = var0.getData(var1).c().r();
-            Material var4 = var0.getData(var1.a()).c().r();
+            Material var3 = var0.getData(var1).c().getMaterial();
+            Material var4 = var0.getData(var1.a()).c().getMaterial();
             boolean var5 = !var3.a() && !var3.d();
             boolean var6 = !var4.a() && !var4.d();
             return var5 && var6?var1:null;
@@ -1460,7 +1460,7 @@ public abstract class EntityHuman extends EntityLiving {
       return UUID.nameUUIDFromBytes(("OfflinePlayer:" + var0).getBytes(Charsets.UTF_8));
    }
 
-   public boolean a(vx var1) {
+   public boolean a(InventoryPlayerLock var1) {
       if(var1.a()) {
          return true;
       } else {

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-public class BlockEnderPortal extends atg {
+public class BlockEnderPortal extends BlockContainer {
 
    protected BlockEnderPortal(Material var1) {
       super(var1);
@@ -11,7 +11,7 @@ public class BlockEnderPortal extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bdn();
+      return new TileEntityEnderPortal();
    }
 
    public void a(IBlockAccess var1, Location var2) {

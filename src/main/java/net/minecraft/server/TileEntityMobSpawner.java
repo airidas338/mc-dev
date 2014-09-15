@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bdg extends TileEntity implements IUpdatePlayerListBox {
+public class TileEntityMobSpawner extends TileEntity implements IUpdatePlayerListBox {
 
-   private final aqi a = new bdh(this);
+   private final MobSpawnerAbstract a = new MobSpawner(this);
 
 
    public void a(NBTTagCompound var1) {
@@ -30,7 +30,7 @@ public class bdg extends TileEntity implements IUpdatePlayerListBox {
       return this.a.b(var1)?true:super.c(var1, var2);
    }
 
-   public aqi b() {
+   public MobSpawnerAbstract getSpawner() {
       return this.a;
    }
 }

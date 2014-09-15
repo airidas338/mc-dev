@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-final class bog extends Material {
+final class MaterialWeb extends Material {
 
-   bog(MaterialMapColor var1) {
+   MaterialWeb(MaterialMapColor var1) {
       super(var1);
    }
 

@@ -5,7 +5,7 @@ public class bhm extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
       Block var4;
-      while(((var4 = var1.getData(var3).c()).r() == Material.AIR || var4.r() == Material.LEAVES) && var3.o() > 0) {
+      while(((var4 = var1.getData(var3).c()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.o() > 0) {
          var3 = var3.b();
       }
 

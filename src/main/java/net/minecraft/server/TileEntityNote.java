@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bdi extends TileEntity {
+public class TileEntityNote extends TileEntity {
 
    public byte a;
    public boolean f;
@@ -23,8 +23,8 @@ public class bdi extends TileEntity {
    }
 
    public void a(World var1, Location var2) {
-      if(var1.getData(var2.a()).c().r() == Material.AIR) {
-         Material var3 = var1.getData(var2.b()).c().r();
+      if(var1.getData(var2.a()).c().getMaterial() == Material.AIR) {
+         Material var3 = var1.getData(var2.b()).c().getMaterial();
          byte var4 = 0;
          if(var3 == Material.STONE) {
             var4 = 1;

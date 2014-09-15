@@ -1,9 +1,9 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class ath extends Block {
+public abstract class BlockPressurePlateAbstract extends Block {
 
-   protected ath(Material var1) {
+   protected BlockPressurePlateAbstract(Material var1) {
       super(var1);
       this.a(CreativeModeTab.d);
       this.a(true);
@@ -44,7 +44,7 @@ public abstract class ath extends Block {
       return true;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return this.m(var1, var2.b());
    }
 
@@ -110,12 +110,12 @@ public abstract class ath extends Block {
       return new AxisAlignedBB((double)((float)var1.n() + 0.125F), (double)var1.o(), (double)((float)var1.p() + 0.125F), (double)((float)(var1.n() + 1) - 0.125F), (double)var1.o() + 0.25D, (double)((float)(var1.p() + 1) - 0.125F));
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(this.e(var3) > 0) {
          this.d(var1, var2);
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    protected void d(World var1, Location var2) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.List;
 
-public class bci extends TileEntity {
+public class TileEntityBanner extends TileEntity {
 
    private int a;
    private NBTTagList f;

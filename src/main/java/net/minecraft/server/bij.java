@@ -63,7 +63,7 @@ public class bij extends WorldGenTreeAbstract {
                   }
 
                   Location var15 = new Location(var10, var14, var11);
-                  Material var16 = var1.getData(var15).c().r();
+                  Material var16 = var1.getData(var15).c().getMaterial();
                   if(var16 == Material.AIR || var16 == Material.LEAVES) {
                      this.a(var1, var15, Blocks.LOG2, ayx.f.a() - 4);
                      this.a(var1, var15.f(), Blocks.LOG2, ayx.f.a() - 4);
@@ -145,7 +145,7 @@ public class bij extends WorldGenTreeAbstract {
 
    private void a(World var1, int var2, int var3, int var4) {
       Block var5 = var1.getData(new Location(var2, var3, var4)).c();
-      if(var5.r() == Material.AIR) {
+      if(var5.getMaterial() == Material.AIR) {
          this.a(var1, new Location(var2, var3, var4), Blocks.LEAVES2, 1);
       }
 

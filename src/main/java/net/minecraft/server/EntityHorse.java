@@ -291,7 +291,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          }
 
          Block var4 = this.o.getData(new Location(this.s, this.t - 0.2D - (double)this.A, this.u)).c();
-         if(var4.r() != Material.AIR && !this.R()) {
+         if(var4.getMaterial() != Material.AIR && !this.R()) {
             StepSound var5 = var4.H;
             this.o.a((Entity)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
@@ -428,7 +428,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          var3 = Blocks.SNOW.H;
       }
 
-      if(!var2.r().d()) {
+      if(!var2.getMaterial().d()) {
          int var4 = this.cj();
          if(this.l != null && var4 != 1 && var4 != 2) {
             ++this.bL;

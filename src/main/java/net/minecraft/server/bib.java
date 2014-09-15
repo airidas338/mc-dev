@@ -20,23 +20,23 @@ public class bib extends bic {
 
          for(int var5 = 0; var5 < var4; ++var5) {
             Block var6 = var1.getData(var3.b(var5)).c();
-            if(var6.r() == Material.AIR || var6.r() == Material.LEAVES) {
+            if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
                this.a(var1, var3.b(var5), Blocks.LOG, this.b);
             }
 
             if(var5 < var4 - 1) {
                var6 = var1.getData(var3.a(1, var5, 0)).c();
-               if(var6.r() == Material.AIR || var6.r() == Material.LEAVES) {
+               if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
                   this.a(var1, var3.a(1, var5, 0), Blocks.LOG, this.b);
                }
 
                var6 = var1.getData(var3.a(1, var5, 1)).c();
-               if(var6.r() == Material.AIR || var6.r() == Material.LEAVES) {
+               if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
                   this.a(var1, var3.a(1, var5, 1), Blocks.LOG, this.b);
                }
 
                var6 = var1.getData(var3.a(0, var5, 1)).c();
-               if(var6.r() == Material.AIR || var6.r() == Material.LEAVES) {
+               if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
                   this.a(var1, var3.a(0, var5, 1), Blocks.LOG, this.b);
                }
             }
@@ -96,7 +96,7 @@ public class bib extends bic {
             break;
          }
 
-         if(var5.r() != Material.AIR && var3 < 0) {
+         if(var5.getMaterial() != Material.AIR && var3 < 0) {
             break;
          }
       }

@@ -15,7 +15,7 @@ public class bin extends WorldGenerator {
          return false;
       } else if(var1.getData(var3.b()).c() != Blocks.STONE) {
          return false;
-      } else if(var1.getData(var3).c().r() != Material.AIR && var1.getData(var3).c() != Blocks.STONE) {
+      } else if(var1.getData(var3).c().getMaterial() != Material.AIR && var1.getData(var3).c() != Blocks.STONE) {
          return false;
       } else {
          int var4 = 0;

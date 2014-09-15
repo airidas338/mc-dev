@@ -36,7 +36,7 @@ public class BlockTorch extends Block {
       }
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       Iterator var3 = a.c().iterator();
 
       EnumFacing var4;
@@ -57,7 +57,7 @@ public class BlockTorch extends Block {
       return var5 && var1.d(var4, true) || var3.equals(EnumFacing.UP) && this.d(var1, var4);
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {

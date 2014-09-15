@@ -1,13 +1,13 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class bcn implements Callable {
+class CrashReportTileEntityName implements Callable {
 
    // $FF: synthetic field
    final TileEntity a;
 
 
-   bcn(TileEntity var1) {
+   CrashReportTileEntityName(TileEntity var1) {
       this.a = var1;
    }
 

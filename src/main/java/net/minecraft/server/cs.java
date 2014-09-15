@@ -65,7 +65,7 @@ class cs {
          }
 
          var2 = var2.b();
-      } while(var1.getData(var2).c().r() == Material.AIR);
+      } while(var1.getData(var2).c().getMaterial() == Material.AIR);
 
       return var2.o() + 1;
    }
@@ -80,7 +80,7 @@ class cs {
          }
 
          var2 = var2.b();
-         var3 = var1.getData(var2).c().r();
+         var3 = var1.getData(var2).c().getMaterial();
       } while(var3 == Material.AIR);
 
       return !var3.d() && var3 != Material.FIRE;

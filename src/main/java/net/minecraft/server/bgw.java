@@ -100,7 +100,7 @@ public class bgw implements IChunkProvider {
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlockData var9 = var1.a(var2, var8, var3);
-               if(var9.c().r() == Material.AIR) {
+               if(var9.c().getMaterial() == Material.AIR) {
                   var5 = -1;
                } else if(var9.c() == Blocks.STONE) {
                   if(var5 == -1) {
@@ -214,10 +214,10 @@ public class bgw implements IChunkProvider {
    }
 
    public void getChunkAt(IChunkProvider var1, int var2, int var3) {
-      avt.M = true;
+      BlockFalling.M = true;
       Location var4 = new Location(var2 * 16, 0, var3 * 16);
       this.l.getBiome(var4.a(16, 0, 16)).a(this.l, this.l.random, var4);
-      avt.M = false;
+      BlockFalling.M = false;
    }
 
    public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {

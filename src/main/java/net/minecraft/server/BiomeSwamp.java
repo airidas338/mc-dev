@@ -34,7 +34,7 @@ public class BiomeSwamp extends BiomeBase {
          int var11 = var5 & 15;
 
          for(int var12 = 255; var12 >= 0; --var12) {
-            if(var3.a(var11, var12, var10).c().r() != Material.AIR) {
+            if(var3.a(var11, var12, var10).c().getMaterial() != Material.AIR) {
                if(var12 == 62 && var3.a(var11, var12, var10).c() != Blocks.STATIONARY_WATER) {
                   var3.a(var11, var12, var10, Blocks.STATIONARY_WATER.P());
                   if(var8 < 0.12D) {

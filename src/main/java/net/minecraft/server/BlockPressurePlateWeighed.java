@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class BlockPressurePlateWeighed extends ath {
+public class BlockPressurePlateWeighed extends BlockPressurePlateAbstract {
 
    public static final bew a = bew.a("power", 0, 15);
    private final int b;

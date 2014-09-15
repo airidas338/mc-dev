@@ -37,7 +37,7 @@ public class bia extends bic {
 
          for(int var13 = 0; var13 < var4; ++var13) {
             Location var14 = var3.b(var13);
-            if(this.a(var1.getData(var14).c().r())) {
+            if(this.a(var1.getData(var14).c().getMaterial())) {
                this.a(var1, var14, Blocks.LOG, this.b);
                if(var13 > 0) {
                   this.b(var1, var2, var14.e(), BlockVine.S);
@@ -47,7 +47,7 @@ public class bia extends bic {
 
             if(var13 < var4 - 1) {
                Location var15 = var14.f();
-               if(this.a(var1.getData(var15).c().r())) {
+               if(this.a(var1.getData(var15).c().getMaterial())) {
                   this.a(var1, var15, Blocks.LOG, this.b);
                   if(var13 > 0) {
                      this.b(var1, var2, var15.f(), BlockVine.T);
@@ -56,7 +56,7 @@ public class bia extends bic {
                }
 
                Location var16 = var14.d().f();
-               if(this.a(var1.getData(var16).c().r())) {
+               if(this.a(var1.getData(var16).c().getMaterial())) {
                   this.a(var1, var16, Blocks.LOG, this.b);
                   if(var13 > 0) {
                      this.b(var1, var2, var16.f(), BlockVine.T);
@@ -65,7 +65,7 @@ public class bia extends bic {
                }
 
                Location var17 = var14.d();
-               if(this.a(var1.getData(var17).c().r())) {
+               if(this.a(var1.getData(var17).c().getMaterial())) {
                   this.a(var1, var17, Blocks.LOG, this.b);
                   if(var13 > 0) {
                      this.b(var1, var2, var17.e(), BlockVine.S);

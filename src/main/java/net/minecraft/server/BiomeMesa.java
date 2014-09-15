@@ -85,7 +85,7 @@ public class BiomeMesa extends BiomeBase {
       boolean var26 = false;
 
       for(int var19 = 255; var19 >= 0; --var19) {
-         if(var3.a(var11, var19, var10).c().r() == Material.AIR && var19 < (int)var22) {
+         if(var3.a(var11, var19, var10).c().getMaterial() == Material.AIR && var19 < (int)var22) {
             var3.a(var11, var19, var10, Blocks.STONE.P());
          }
 
@@ -93,7 +93,7 @@ public class BiomeMesa extends BiomeBase {
             var3.a(var11, var19, var10, Blocks.BEDROCK.P());
          } else {
             IBlockData var20 = var3.a(var11, var19, var10);
-            if(var20.c().r() == Material.AIR) {
+            if(var20.c().getMaterial() == Material.AIR) {
                var17 = -1;
             } else if(var20.c() == Blocks.STONE) {
                IBlockData var21;
@@ -107,7 +107,7 @@ public class BiomeMesa extends BiomeBase {
                      var24 = this.al;
                   }
 
-                  if(var19 < 63 && (var13 == null || var13.c().r() == Material.AIR)) {
+                  if(var19 < 63 && (var13 == null || var13.c().getMaterial() == Material.AIR)) {
                      var13 = Blocks.STATIONARY_WATER.P();
                   }
 

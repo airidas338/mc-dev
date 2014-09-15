@@ -19,7 +19,7 @@ public class alo extends Item {
       } else {
          IBlockData var9 = var3.getData(var4);
          Block var10 = var9.c();
-         if(var5 != EnumFacing.DOWN && var3.getData(var4.a()).c().r() == Material.AIR) {
+         if(var5 != EnumFacing.DOWN && var3.getData(var4.a()).c().getMaterial() == Material.AIR) {
             if(var10 == Blocks.GRASS) {
                return this.a(var1, var2, var3, var4, Blocks.FARMLAND.P());
             }

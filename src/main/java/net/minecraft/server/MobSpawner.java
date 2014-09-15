@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-class bdh extends aqi {
+class MobSpawner extends MobSpawnerAbstract {
 
    // $FF: synthetic field
-   final bdg a;
+   final TileEntityMobSpawner a;
 
 
-   bdh(bdg var1) {
+   MobSpawner(TileEntityMobSpawner var1) {
       this.a = var1;
    }
 
@@ -22,7 +22,7 @@ class bdh extends aqi {
       return this.a.c;
    }
 
-   public void a(aqj var1) {
+   public void a(TileEntityMobSpawnerData var1) {
       super.a(var1);
       if(this.a() != null) {
          this.a().h(this.a.c);

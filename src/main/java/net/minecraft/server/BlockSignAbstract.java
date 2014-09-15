@@ -1,9 +1,9 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bai extends atg {
+public class BlockSignAbstract extends BlockContainer {
 
-   protected bai() {
+   protected BlockSignAbstract() {
       super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
@@ -27,19 +27,19 @@ public class bai extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bdj();
+      return new TileEntitySign();
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
       return Items.ap;
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
-         return var9 instanceof bdj?((bdj)var9).b(var4):false;
+         return var9 instanceof TileEntitySign?((TileEntitySign)var9).b(var4):false;
       }
    }
 }

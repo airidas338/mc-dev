@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class boi extends Material {
+public class MaterialPortal extends Material {
 
-   public boi(MaterialMapColor var1) {
+   public MaterialPortal(MaterialMapColor var1) {
       super(var1);
    }
 

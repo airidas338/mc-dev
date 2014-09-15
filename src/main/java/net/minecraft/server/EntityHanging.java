@@ -95,7 +95,7 @@ public abstract class EntityHanging extends Entity {
             for(int var6 = 0; var6 < var2; ++var6) {
                Location var7 = var3.a(var4, var5).b(var6);
                Block var8 = this.o.getData(var7).c();
-               if(!var8.r().a() && !BlockDiodeAbstract.d(var8)) {
+               if(!var8.getMaterial().a() && !BlockDiodeAbstract.d(var8)) {
                   return false;
                }
             }

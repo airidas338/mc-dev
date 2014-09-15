@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class boe extends Material {
+public class MaterialLiquid extends Material {
 
-   public boe(MaterialMapColor var1) {
+   public MaterialLiquid(MaterialMapColor var1) {
       super(var1);
       this.i();
       this.n();

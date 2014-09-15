@@ -39,7 +39,7 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
             var1 = MathHelper.floor(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
             var2 = MathHelper.floor(this.t);
             var3 = MathHelper.floor(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
-            if(this.o.getData(new Location(var1, var2, var3)).c().r() == Material.AIR && this.o.getBiome(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && Blocks.SNOW.c(this.o, new Location(var1, var2, var3))) {
+            if(this.o.getData(new Location(var1, var2, var3)).c().getMaterial() == Material.AIR && this.o.getBiome(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && Blocks.SNOW.canPlace(this.o, new Location(var1, var2, var3))) {
                this.o.a(new Location(var1, var2, var3), Blocks.SNOW.P());
             }
          }

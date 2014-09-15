@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
 
-public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
+public class BlockRedstoneComparator extends BlockDiodeAbstract implements IContainer {
 
    public static final bet a = bet.a("powered");
    public static final bev b = bev.a("mode", aur.class);
@@ -44,7 +44,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
 
    protected int a(IBlockAccess var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
-      return var4 instanceof bcv?((bcv)var4).b():0;
+      return var4 instanceof TileEntityComparator?((TileEntityComparator)var4).b():0;
    }
 
    private int j(World var1, Location var2, IBlockData var3) {
@@ -68,14 +68,14 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       EnumFacing var5 = (EnumFacing)var3.b(N);
       Location var6 = var2.a(var5);
       Block var7 = var1.getData(var6).c();
-      if(var7.N()) {
-         var4 = var7.l(var1, var6);
+      if(var7.isComplexRedstone()) {
+         var4 = var7.getDropData(var1, var6);
       } else if(var4 < 15 && var7.t()) {
          var6 = var6.a(var5);
          var7 = var1.getData(var6).c();
-         if(var7.N()) {
-            var4 = var7.l(var1, var6);
-         } else if(var7.r() == Material.AIR) {
+         if(var7.isComplexRedstone()) {
+            var4 = var7.getDropData(var1, var6);
+         } else if(var7.getMaterial() == Material.AIR) {
             EntityItemFrame var8 = this.a(var1, var5, var6);
             if(var8 != null) {
                var4 = var8.q();
@@ -91,7 +91,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -107,7 +107,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       if(!var1.a(var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
          TileEntity var5 = var1.s(var2);
-         int var6 = var5 instanceof bcv?((bcv)var5).b():0;
+         int var6 = var5 instanceof TileEntityComparator?((TileEntityComparator)var5).b():0;
          if(var4 != var6 || this.l(var3) != this.e(var1, var2, var3)) {
             if(this.i(var1, var2, var3)) {
                var1.a(var2, this, 2, -1);
@@ -123,8 +123,8 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       int var4 = this.j(var1, var2, var3);
       TileEntity var5 = var1.s(var2);
       int var6 = 0;
-      if(var5 instanceof bcv) {
-         bcv var7 = (bcv)var5;
+      if(var5 instanceof TileEntityComparator) {
+         TileEntityComparator var7 = (TileEntityComparator)var5;
          var6 = var7.b();
          var7.a(var4);
       }
@@ -156,8 +156,8 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       var1.a(var2, this.a(var1, 0));
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
       var1.t(var2);
       this.h(var1, var2, var3);
    }
@@ -169,7 +169,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bcv();
+      return new TileEntityComparator();
    }
 
    public IBlockData a(int var1) {
@@ -194,7 +194,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       return new bed(this, new bex[]{N, b, a});
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d()).a(a, Boolean.valueOf(false)).a(b, aur.a);
    }
 

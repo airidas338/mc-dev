@@ -17,13 +17,13 @@ public class EntityLightning extends EntityWeather {
       this.c = this.V.nextInt(3) + 1;
       if(!var1.isStatic && var1.Q().b("doFireTick") && (var1.aa() == EnumDifficulty.NORMAL || var1.aa() == EnumDifficulty.HARD) && var1.a(new Location(this), (int)10)) {
          Location var8 = new Location(this);
-         if(var1.getData(var8).c().r() == Material.AIR && Blocks.FIRE.c(var1, var8)) {
+         if(var1.getData(var8).c().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var8)) {
             var1.a(var8, Blocks.FIRE.P());
          }
 
          for(int var9 = 0; var9 < 4; ++var9) {
             Location var10 = var8.a(this.V.nextInt(3) - 1, this.V.nextInt(3) - 1, this.V.nextInt(3) - 1);
-            if(var1.getData(var10).c().r() == Material.AIR && Blocks.FIRE.c(var1, var10)) {
+            if(var1.getData(var10).c().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var10)) {
                var1.a(var10, Blocks.FIRE.P());
             }
          }
@@ -47,7 +47,7 @@ public class EntityLightning extends EntityWeather {
             this.b = 1;
             this.a = this.V.nextLong();
             Location var1 = new Location(this);
-            if(!this.o.isStatic && this.o.Q().b("doFireTick") && this.o.a(var1, (int)10) && this.o.getData(var1).c().r() == Material.AIR && Blocks.FIRE.c(this.o, var1)) {
+            if(!this.o.isStatic && this.o.Q().b("doFireTick") && this.o.a(var1, (int)10) && this.o.getData(var1).c().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
                this.o.a(var1, Blocks.FIRE.P());
             }
          }

@@ -52,7 +52,7 @@ public class BlockTNT extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var4.bY() != null) {
          Item var9 = var4.bY().b();
          if(var9 == Items.d || var9 == Items.bL) {
@@ -68,7 +68,7 @@ public class BlockTNT extends Block {
          }
       }
 
-      return super.a(var1, var2, var3, var4, var5, var6, var7, var8);
+      return super.interact(var1, var2, var3, var4, var5, var6, var7, var8);
    }
 
    public void a(World var1, Location var2, IBlockData var3, Entity var4) {

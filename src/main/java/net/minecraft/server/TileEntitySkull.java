@@ -5,7 +5,7 @@ import com.mojang.authlib.properties.Property;
 
 import java.util.UUID;
 
-public class bdm extends TileEntity {
+public class TileEntitySkull extends TileEntity {
 
    private int a;
    private int f;
@@ -75,7 +75,7 @@ public class bdm extends TileEntity {
          } else if(MinecraftServer.M() == null) {
             return var0;
          } else {
-            GameProfile var1 = MinecraftServer.M().aD().a(var0.getName());
+            GameProfile var1 = MinecraftServer.M().aD().getProfile(var0.getName());
             if(var1 == null) {
                return var0;
             } else {

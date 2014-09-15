@@ -3,7 +3,7 @@ import com.google.common.base.Predicate;
 
 import java.util.Random;
 
-public class BlockFurnace extends atg {
+public class BlockFurnace extends BlockContainer {
 
    public static final beu a = beu.a("facing", (Predicate)en.a);
    private final boolean b;
@@ -45,13 +45,13 @@ public class BlockFurnace extends atg {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
-         if(var9 instanceof bdc) {
-            var4.a((IInventory)((bdc)var9));
+         if(var9 instanceof TileEntityFurnace) {
+            var4.a((IInventory)((TileEntityFurnace)var9));
          }
 
          return true;
@@ -79,10 +79,10 @@ public class BlockFurnace extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bdc();
+      return new TileEntityFurnace();
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d());
    }
 
@@ -90,30 +90,30 @@ public class BlockFurnace extends atg {
       var1.a(var2, var3.a(a, var4.aO().d()), 2);
       if(var5.s()) {
          TileEntity var6 = var1.s(var2);
-         if(var6 instanceof bdc) {
-            ((bdc)var6).a(var5.q());
+         if(var6 instanceof TileEntityFurnace) {
+            ((TileEntityFurnace)var6).a(var5.q());
          }
       }
 
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(!M) {
          TileEntity var4 = var1.s(var2);
-         if(var4 instanceof bdc) {
-            vs.a(var1, var2, (bdc)var4);
+         if(var4 instanceof TileEntityFurnace) {
+            vs.a(var1, var2, (TileEntityFurnace)var4);
             var1.e(var2, this);
          }
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       return aib.a(var1.s(var2));
    }
 

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 
-public class BlockFlowing extends axl {
+public class BlockFlowing extends BlockFluids {
 
    int a;
 
@@ -51,9 +51,9 @@ public class BlockFlowing extends axl {
 
          if(this.a >= 2 && this.J == Material.WATER) {
             IBlockData var16 = var1.getData(var2.b());
-            if(var16.c().r().a()) {
+            if(var16.c().getMaterial().a()) {
                var14 = 0;
-            } else if(var16.c().r() == this.J && ((Integer)var16.b(b)).intValue() == 0) {
+            } else if(var16.c().getMaterial() == this.J && ((Integer)var16.b(b)).intValue() == 0) {
                var14 = 0;
             }
          }
@@ -81,7 +81,7 @@ public class BlockFlowing extends axl {
 
       IBlockData var13 = var1.getData(var2.b());
       if(this.h(var1, var2.b(), var13)) {
-         if(this.J == Material.LAVA && var1.getData(var2.b()).c().r() == Material.WATER) {
+         if(this.J == Material.LAVA && var1.getData(var2.b()).c().getMaterial() == Material.WATER) {
             var1.a(var2.b(), Blocks.STONE.P());
             this.d(var1, var2.b());
             return;
@@ -137,7 +137,7 @@ public class BlockFlowing extends axl {
          if(var7 != var4) {
             Location var8 = var2.a(var7);
             IBlockData var9 = var1.getData(var8);
-            if(!this.g(var1, var8, var9) && (var9.c().r() != this.J || ((Integer)var9.b(b)).intValue() > 0)) {
+            if(!this.g(var1, var8, var9) && (var9.c().getMaterial() != this.J || ((Integer)var9.b(b)).intValue() > 0)) {
                if(!this.g(var1, var8.b(), var9)) {
                   return var3;
                }
@@ -164,7 +164,7 @@ public class BlockFlowing extends axl {
          EnumFacing var6 = (EnumFacing)var5.next();
          Location var7 = var2.a(var6);
          IBlockData var8 = var1.getData(var7);
-         if(!this.g(var1, var7, var8) && (var8.c().r() != this.J || ((Integer)var8.b(b)).intValue() > 0)) {
+         if(!this.g(var1, var7, var8) && (var8.c().getMaterial() != this.J || ((Integer)var8.b(b)).intValue() > 0)) {
             int var9;
             if(this.g(var1, var7.b(), var1.getData(var7.b()))) {
                var9 = this.a(var1, var7, 1, var6.d());
@@ -209,7 +209,7 @@ public class BlockFlowing extends axl {
    }
 
    private boolean h(World var1, Location var2, IBlockData var3) {
-      Material var4 = var3.c().r();
+      Material var4 = var3.c().getMaterial();
       return var4 != this.J && var4 != Material.LAVA && !this.g(var1, var2, var3);
    }
 

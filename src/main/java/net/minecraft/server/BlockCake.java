@@ -40,7 +40,7 @@ public class BlockCake extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.b(var1, var2, var3, var4);
       return true;
    }
@@ -62,8 +62,8 @@ public class BlockCake extends Block {
       }
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2)?this.d(var1, var2):false;
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2)?this.d(var1, var2):false;
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
@@ -74,7 +74,7 @@ public class BlockCake extends Block {
    }
 
    private boolean d(World var1, Location var2) {
-      return var1.getData(var2.b()).c().r().a();
+      return var1.getData(var2.b()).c().getMaterial().a();
    }
 
    public int a(Random var1) {
@@ -97,11 +97,11 @@ public class BlockCake extends Block {
       return new bed(this, new bex[]{a});
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       return (7 - ((Integer)var1.getData(var2).b(a)).intValue()) * 2;
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 

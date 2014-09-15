@@ -7,21 +7,21 @@ public class atk {
 
    private final World b;
    private final Location c;
-   private final ati d;
+   private final BlockMinecartTrackAbstract d;
    private IBlockData e;
    private final boolean f;
    private final List g;
    // $FF: synthetic field
-   final ati a;
+   final BlockMinecartTrackAbstract a;
 
 
-   public atk(ati var1, World var2, Location var3, IBlockData var4) {
+   public atk(BlockMinecartTrackAbstract var1, World var2, Location var3, IBlockData var4) {
       this.a = var1;
       this.g = Lists.newArrayList();
       this.b = var2;
       this.c = var3;
       this.e = var4;
-      this.d = (ati)var4.c();
+      this.d = (BlockMinecartTrackAbstract)var4.c();
       atl var5 = (atl)var4.b(var1.l());
       this.f = this.d.a;
       this.a(var5);
@@ -86,22 +86,22 @@ public class atk {
    }
 
    private boolean a(Location var1) {
-      return ati.d(this.b, var1) || ati.d(this.b, var1.a()) || ati.d(this.b, var1.b());
+      return BlockMinecartTrackAbstract.d(this.b, var1) || BlockMinecartTrackAbstract.d(this.b, var1.a()) || BlockMinecartTrackAbstract.d(this.b, var1.b());
    }
 
    private atk b(Location var1) {
       IBlockData var3 = this.b.getData(var1);
-      if(ati.d(var3)) {
+      if(BlockMinecartTrackAbstract.d(var3)) {
          return new atk(this.a, this.b, var1, var3);
       } else {
          Location var2 = var1.a();
          var3 = this.b.getData(var2);
-         if(ati.d(var3)) {
+         if(BlockMinecartTrackAbstract.d(var3)) {
             return new atk(this.a, this.b, var2, var3);
          } else {
             var2 = var1.b();
             var3 = this.b.getData(var2);
-            return ati.d(var3)?new atk(this.a, this.b, var2, var3):null;
+            return BlockMinecartTrackAbstract.d(var3)?new atk(this.a, this.b, var2, var3):null;
          }
       }
    }
@@ -177,21 +177,21 @@ public class atk {
       }
 
       if(var10 == atl.a) {
-         if(ati.d(this.b, var2.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var2.a())) {
             var10 = atl.e;
          }
 
-         if(ati.d(this.b, var3.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var3.a())) {
             var10 = atl.f;
          }
       }
 
       if(var10 == atl.b) {
-         if(ati.d(this.b, var5.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var5.a())) {
             var10 = atl.c;
          }
 
-         if(ati.d(this.b, var4.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var4.a())) {
             var10 = atl.d;
          }
       }
@@ -297,21 +297,21 @@ public class atk {
       }
 
       if(var11 == atl.a) {
-         if(ati.d(this.b, var3.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var3.a())) {
             var11 = atl.e;
          }
 
-         if(ati.d(this.b, var4.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var4.a())) {
             var11 = atl.f;
          }
       }
 
       if(var11 == atl.b) {
-         if(ati.d(this.b, var6.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var6.a())) {
             var11 = atl.c;
          }
 
-         if(ati.d(this.b, var5.a())) {
+         if(BlockMinecartTrackAbstract.d(this.b, var5.a())) {
             var11 = atl.d;
          }
       }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class aei extends aqi {
+class aei extends MobSpawnerAbstract {
 
    // $FF: synthetic field
    final EntityMinecartMobSpawner a;

@@ -23,8 +23,8 @@ public class BlockFenceGate extends BlockDirectional {
       return var1;
    }
 
-   public boolean c(World var1, Location var2) {
-      return var1.getData(var2.b()).c().r().a()?super.c(var1, var2):false;
+   public boolean canPlace(World var1, Location var2) {
+      return var1.getData(var2.b()).c().getMaterial().a()?super.canPlace(var1, var2):false;
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
@@ -58,11 +58,11 @@ public class BlockFenceGate extends BlockDirectional {
       return ((Boolean)var1.getData(var2).b(a)).booleanValue();
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false));
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          var3 = var3.a(a, Boolean.valueOf(false));
          var1.a(var2, var3, 2);

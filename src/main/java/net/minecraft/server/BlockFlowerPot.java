@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockFlowerPot extends atg {
+public class BlockFlowerPot extends BlockContainer {
 
    public static final bew a = bew.a("legacy_data", 0, 15);
    public static final bev b = bev.a("contents", awf.class);
@@ -31,10 +31,10 @@ public class BlockFlowerPot extends atg {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ItemStack var9 = var4.bg.h();
       if(var9 != null && var9.b() instanceof aju) {
-         bdb var10 = this.d(var1, var2);
+         TileEntityFlowerPot var10 = this.d(var1, var2);
          if(var10 == null) {
             return false;
          } else if(var10.b() != null) {
@@ -64,12 +64,12 @@ public class BlockFlowerPot extends atg {
    }
 
    public int j(World var1, Location var2) {
-      bdb var3 = this.d(var1, var2);
+      TileEntityFlowerPot var3 = this.d(var1, var2);
       return var3 != null && var3.b() != null?var3.c():0;
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && World.a((IBlockAccess)var1, var2.b());
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2) && World.a((IBlockAccess)var1, var2.b());
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
@@ -80,19 +80,19 @@ public class BlockFlowerPot extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      bdb var4 = this.d(var1, var2);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      TileEntityFlowerPot var4 = this.d(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new ItemStack(var4.b(), 1, var4.c()));
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
       if(var4.by.canInstantlyBuild) {
-         bdb var5 = this.d(var1, var2);
+         TileEntityFlowerPot var5 = this.d(var1, var2);
          if(var5 != null) {
             var5.a((Item)null, 0);
          }
@@ -104,9 +104,9 @@ public class BlockFlowerPot extends atg {
       return Items.bQ;
    }
 
-   private bdb d(World var1, Location var2) {
+   private TileEntityFlowerPot d(World var1, Location var2) {
       TileEntity var3 = var1.s(var2);
-      return var3 instanceof bdb?(bdb)var3:null;
+      return var3 instanceof TileEntityFlowerPot?(TileEntityFlowerPot)var3:null;
    }
 
    public TileEntity a(World var1, int var2) {
@@ -161,7 +161,7 @@ public class BlockFlowerPot extends atg {
          var4 = ayx.f.a();
       }
 
-      return new bdb(Item.a((Block)var3), var4);
+      return new TileEntityFlowerPot(Item.a((Block)var3), var4);
    }
 
    protected bed e() {
@@ -175,8 +175,8 @@ public class BlockFlowerPot extends atg {
    public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       awf var4 = awf.a;
       TileEntity var5 = var2.s(var3);
-      if(var5 instanceof bdb) {
-         bdb var6 = (bdb)var5;
+      if(var5 instanceof TileEntityFlowerPot) {
+         TileEntityFlowerPot var6 = (TileEntityFlowerPot)var5;
          Item var7 = var6.b();
          if(var7 instanceof aju) {
             int var8 = var6.c();

@@ -25,11 +25,11 @@ public class BlockLever extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       return var3 == EnumFacing.UP && World.a((IBlockAccess)var1, var2.b())?true:this.d(var1, var2.a(var3.d()));
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return this.d(var1, var2.e())?true:(this.d(var1, var2.f())?true:(this.d(var1, var2.c())?true:(this.d(var1, var2.d())?true:(World.a((IBlockAccess)var1, var2.b())?true:this.d(var1, var2.a())))));
    }
 
@@ -37,7 +37,7 @@ public class BlockLever extends Block {
       return var1.getData(var2).c().t();
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.P().a(b, Boolean.valueOf(false));
       if(this.d(var1, var2.a(var3.d()))) {
          return var9.a(a, axk.a(var3, var8.aO()));
@@ -89,7 +89,7 @@ public class BlockLever extends Block {
    }
 
    private boolean e(World var1, Location var2) {
-      if(this.c(var1, var2)) {
+      if(this.canPlace(var1, var2)) {
          return true;
       } else {
          this.b(var1, var2, var1.getData(var2), 0);
@@ -126,7 +126,7 @@ public class BlockLever extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
@@ -140,14 +140,14 @@ public class BlockLever extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          var1.c(var2, (Block)this);
          EnumFacing var4 = ((axk)var3.b(a)).c();
          var1.c(var2.a(var4.d()), (Block)this);
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockPortal extends awt {
+public class BlockPortal extends BlockHalfTransparent {
 
    public static final bev a = bev.a("axis", el.class, (Enum[])(new el[]{el.a, el.c}));
 

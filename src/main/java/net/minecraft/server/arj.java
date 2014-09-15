@@ -59,7 +59,7 @@ public class arj implements IBlockAccess {
    }
 
    public boolean isEmpty(Location var1) {
-      return this.getData(var1).c().r() == Material.AIR;
+      return this.getData(var1).c().getMaterial() == Material.AIR;
    }
 
    public int a(Location var1, EnumFacing var2) {

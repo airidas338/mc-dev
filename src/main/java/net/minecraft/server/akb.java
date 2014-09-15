@@ -29,14 +29,14 @@ public class akb extends Item {
                }
 
                IBlockData var7 = var2.getData(var6);
-               Material var8 = var7.c().r();
-               if(var8 == Material.WATER && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               Material var8 = var7.c().getMaterial();
+               if(var8 == Material.WATER && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
                   var2.g(var6);
                   var3.b(ty.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ax);
                }
 
-               if(var8 == Material.LAVA && ((Integer)var7.b(axl.b)).intValue() == 0) {
+               if(var8 == Material.LAVA && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
                   var2.g(var6);
                   var3.b(ty.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ay);
@@ -80,7 +80,7 @@ public class akb extends Item {
       if(this.a == Blocks.AIR) {
          return false;
       } else {
-         Material var3 = var1.getData(var2).c().r();
+         Material var3 = var1.getData(var2).c().getMaterial();
          boolean var4 = !var3.a();
          if(!var1.isEmpty(var2) && !var4) {
             return false;

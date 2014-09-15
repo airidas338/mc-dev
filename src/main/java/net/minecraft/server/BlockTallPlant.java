@@ -29,8 +29,8 @@ public class BlockTallPlant extends BlockPlant implements atz {
       }
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && var1.isEmpty(var2.a());
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2) && var1.isEmpty(var2.a());
    }
 
    public boolean f(World var1, Location var2) {

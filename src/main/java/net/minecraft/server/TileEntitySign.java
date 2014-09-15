@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.gson.JsonParseException;
 
-public class bdj extends TileEntity {
+public class TileEntitySign extends TileEntity {
 
    public final IChatBaseComponent[] a = new IChatBaseComponent[]{new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText(""), new ChatComponentText("")};
    public int f = -1;
@@ -84,7 +84,7 @@ public class bdj extends TileEntity {
    }
 
    // $FF: synthetic method
-   static af a(bdj var0) {
+   static af a(TileEntitySign var0) {
       return var0.i;
    }
 }

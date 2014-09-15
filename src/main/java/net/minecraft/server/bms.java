@@ -84,11 +84,11 @@ public abstract class bms {
       int var10;
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var5; var10 <= var8; ++var10) {
-            if(var1.getData(new Location(var9, var4, var10)).c().r().d()) {
+            if(var1.getData(new Location(var9, var4, var10)).c().getMaterial().d()) {
                return true;
             }
 
-            if(var1.getData(new Location(var9, var7, var10)).c().r().d()) {
+            if(var1.getData(new Location(var9, var7, var10)).c().getMaterial().d()) {
                return true;
             }
          }
@@ -96,11 +96,11 @@ public abstract class bms {
 
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.getData(new Location(var9, var10, var5)).c().r().d()) {
+            if(var1.getData(new Location(var9, var10, var5)).c().getMaterial().d()) {
                return true;
             }
 
-            if(var1.getData(new Location(var9, var10, var8)).c().r().d()) {
+            if(var1.getData(new Location(var9, var10, var8)).c().getMaterial().d()) {
                return true;
             }
          }
@@ -108,11 +108,11 @@ public abstract class bms {
 
       for(var9 = var5; var9 <= var8; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.getData(new Location(var3, var10, var9)).c().r().d()) {
+            if(var1.getData(new Location(var3, var10, var9)).c().getMaterial().d()) {
                return true;
             }
 
-            if(var1.getData(new Location(var6, var10, var9)).c().r().d()) {
+            if(var1.getData(new Location(var6, var10, var9)).c().getMaterial().d()) {
                return true;
             }
          }
@@ -427,7 +427,7 @@ public abstract class bms {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var11 || this.a(var1, var13, var12, var14, var2).c().r() != Material.AIR) {
+               if(!var11 || this.a(var1, var13, var12, var14, var2).c().getMaterial() != Material.AIR) {
                   if(var12 != var4 && var12 != var7 && var13 != var3 && var13 != var6 && var14 != var5 && var14 != var8) {
                      this.a(var1, var10, var13, var12, var14, var2);
                   } else {
@@ -444,7 +444,7 @@ public abstract class bms {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var9 || this.a(var1, var13, var12, var14, var2).c().r() != Material.AIR) {
+               if(!var9 || this.a(var1, var13, var12, var14, var2).c().getMaterial() != Material.AIR) {
                   var11.a(var10, var13, var12, var14, var12 == var4 || var12 == var7 || var13 == var3 || var13 == var6 || var14 == var5 || var14 == var8);
                   this.a(var1, var11.a(), var13, var12, var14, var2);
                }
@@ -458,7 +458,7 @@ public abstract class bms {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
-               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().r() != Material.AIR)) {
+               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).c().getMaterial() != Material.AIR)) {
                   if(var14 != var6 && var14 != var9 && var15 != var5 && var15 != var8 && var16 != var7 && var16 != var10) {
                      this.a(var1, var12, var15, var14, var16, var2);
                   } else {
@@ -493,7 +493,7 @@ public abstract class bms {
 
             for(int var20 = var5; var20 <= var8; ++var20) {
                float var21 = ((float)var20 - var15) / (var13 * 0.5F);
-               if(!var10 || this.a(var1, var18, var16, var20, var2).c().r() != Material.AIR) {
+               if(!var10 || this.a(var1, var18, var16, var20, var2).c().getMaterial() != Material.AIR) {
                   float var22 = var19 * var19 + var17 * var17 + var21 * var21;
                   if(var22 <= 1.05F) {
                      this.a(var1, var9, var18, var16, var20, var2);
@@ -521,7 +521,7 @@ public abstract class bms {
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
       if(var6.b((fd)(new Location(var7, var8, var9)))) {
-         while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
+         while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().getMaterial().d()) && var8 > 1) {
             var1.a(new Location(var7, var8, var9), var2, 2);
             --var8;
          }
@@ -535,8 +535,8 @@ public abstract class bms {
          IBlockData var10 = Blocks.CHEST.P();
          var1.a(var9, Blocks.CHEST.f(var1, var9, var10), 2);
          TileEntity var11 = var1.s(var9);
-         if(var11 instanceof bcr) {
-            StructurePieceTreaasure.a(var3, var7, (IInventory)((bcr)var11), var8);
+         if(var11 instanceof TileEntityChest) {
+            StructurePieceTreaasure.a(var3, var7, (IInventory)((TileEntityChest)var11), var8);
          }
 
          return true;
@@ -550,8 +550,8 @@ public abstract class bms {
       if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.DISPENSER) {
          var1.a(var10, Blocks.DISPENSER.a(this.a(Blocks.DISPENSER, var7)), 2);
          TileEntity var11 = var1.s(var10);
-         if(var11 instanceof bcx) {
-            StructurePieceTreaasure.a(var3, var8, (bcx)var11, var9);
+         if(var11 instanceof TileEntityDispenser) {
+            StructurePieceTreaasure.a(var3, var8, (TileEntityDispenser)var11, var9);
          }
 
          return true;

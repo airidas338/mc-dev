@@ -81,7 +81,7 @@ public class EntityIronGolem extends EntityGolem {
          int var3 = MathHelper.floor(this.u);
          IBlockData var4 = this.o.getData(new Location(var1, var2, var3));
          Block var5 = var4.c();
-         if(var5.r() != Material.AIR) {
+         if(var5.getMaterial() != Material.AIR) {
             this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
          }
       }

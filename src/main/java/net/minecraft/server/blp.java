@@ -21,7 +21,7 @@ public class blp extends bmm {
       this.h = 32.0D;
       this.i = 3;
       this.d = Lists.newArrayList();
-      BiomeBase[] var1 = BiomeBase.n();
+      BiomeBase[] var1 = BiomeBase.getBiomes();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
+public class TileEntityBeacon extends TileEntityLockable implements IUpdatePlayerListBox, IInventory {
 
    public static final MobEffectList[][] a = new MobEffectList[][]{{MobEffectList.c, MobEffectList.e}, {MobEffectList.m, MobEffectList.j}, {MobEffectList.g}, {MobEffectList.l}};
    private final List f = Lists.newArrayList();

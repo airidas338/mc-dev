@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-public class vx {
+public class InventoryPlayerLock {
 
-   public static final vx a = new vx("");
+   public static final InventoryPlayerLock a = new InventoryPlayerLock("");
    private final String b;
 
 
-   public vx(String var1) {
+   public InventoryPlayerLock(String var1) {
       this.b = var1;
    }
 
@@ -22,10 +22,10 @@ public class vx {
       var1.setString("Lock", this.b);
    }
 
-   public static vx b(NBTTagCompound var0) {
+   public static InventoryPlayerLock b(NBTTagCompound var0) {
       if(var0.hasKeyOfType("Lock", 8)) {
          String var1 = var0.getString("Lock");
-         return new vx(var1);
+         return new InventoryPlayerLock(var1);
       } else {
          return a;
       }

@@ -106,7 +106,7 @@ public class BlockFire extends Block {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.Q().b("doFireTick")) {
-         if(!this.c(var1, var2)) {
+         if(!this.canPlace(var1, var2)) {
             var1.g(var2);
          }
 
@@ -268,7 +268,7 @@ public class BlockFire extends Block {
       return this.d(var1.getData(var2).c()) > 0;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return World.a((IBlockAccess)var1, var2.b()) || this.e(var1, var2);
    }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public interface we extends IInventory {
+public interface IWorldInventory extends IInventory {
 
    int[] a(EnumFacing var1);
 

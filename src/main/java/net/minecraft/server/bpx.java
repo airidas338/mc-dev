@@ -46,7 +46,7 @@ public class bpx extends bpu {
             for(int var7 = var4; var7 < var4 + this.e; ++var7) {
                Location var8 = new Location(var5, var6, var7);
                Block var9 = this.a.getData(var8).c();
-               if(var9.r() != Material.WATER) {
+               if(var9.getMaterial() != Material.WATER) {
                   return 0;
                }
             }

@@ -74,7 +74,7 @@ public class Chunk {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
                IBlockData var11 = var2.a(var10);
-               if(var11.c().r() != Material.AIR) {
+               if(var11.c().getMaterial() != Material.AIR) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new bfm(var12 << 4, var6);
@@ -444,8 +444,8 @@ public class Chunk {
          var11.a(var3, var4 & 15, var5, var2);
          if(var10 != var9) {
             if(!this.i.isStatic) {
-               var10.b(this.i, var1, var8);
-            } else if(var10 instanceof avs) {
+               var10.remove(this.i, var1, var8);
+            } else if(var10 instanceof IContainer) {
                this.i.t(var1);
             }
          }
@@ -472,7 +472,7 @@ public class Chunk {
             }
 
             TileEntity var15;
-            if(var10 instanceof avs) {
+            if(var10 instanceof IContainer) {
                var15 = this.a(var1, bfl.c);
                if(var15 != null) {
                   var15.E();
@@ -483,10 +483,10 @@ public class Chunk {
                var9.c(this.i, var1, var2);
             }
 
-            if(var9 instanceof avs) {
+            if(var9 instanceof IContainer) {
                var15 = this.a(var1, bfl.c);
                if(var15 == null) {
-                  var15 = ((avs)var9).a(this.i, var9.c(var2));
+                  var15 = ((IContainer)var9).a(this.i, var9.c(var2));
                   this.i.a(var1, var15);
                }
 
@@ -599,7 +599,7 @@ public class Chunk {
 
    private TileEntity i(Location var1) {
       Block var2 = this.a(var1);
-      return !var2.x()?null:((avs)var2).a(this.i, this.c(var1));
+      return !var2.x()?null:((IContainer)var2).a(this.i, this.c(var1));
    }
 
    public TileEntity a(Location var1, bfl var2) {
@@ -630,7 +630,7 @@ public class Chunk {
    public void a(Location var1, TileEntity var2) {
       var2.a(this.i);
       var2.a(var1);
-      if(this.a(var1) instanceof avs) {
+      if(this.a(var1) instanceof IContainer) {
          if(this.l.containsKey(var1)) {
             ((TileEntity)this.l.get(var1)).y();
          }
@@ -812,7 +812,7 @@ public class Chunk {
 
          while(var5.o() > 0 && var7 == -1) {
             Block var8 = this.a(var5);
-            Material var9 = var8.r();
+            Material var9 = var8.getMaterial();
             if(!var9.c() && !var9.d()) {
                var5 = var5.b();
             } else {
@@ -896,7 +896,7 @@ public class Chunk {
          this.e[var4 << 4 | var3] = (byte)(var5 & 255);
       }
 
-      var6 = BiomeBase.e(var5);
+      var6 = BiomeBase.getBiome(var5);
       return var6 == null?BiomeBase.PLAINS:var6;
    }
 
@@ -935,7 +935,7 @@ public class Chunk {
          for(int var6 = 0; var6 < 16; ++var6) {
             Location var7 = var1.a(var4, (var3 << 4) + var6, var5);
             boolean var8 = var6 == 0 || var6 == 15 || var4 == 0 || var4 == 15 || var5 == 0 || var5 == 15;
-            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).r() == Material.AIR) {
+            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).getMaterial() == Material.AIR) {
                EnumFacing[] var9 = EnumFacing.values();
                int var10 = var9.length;
 

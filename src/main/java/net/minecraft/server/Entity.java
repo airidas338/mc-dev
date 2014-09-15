@@ -478,7 +478,7 @@ public abstract class Entity implements ICommandListener {
 			int var56 = MathHelper.floor(this.u);
 			Location var26 = new Location(var58, var59, var56);
 			Block var62 = this.o.getData(var26).c();
-			if (var62.r() == Material.AIR) {
+			if (var62.getMaterial() == Material.AIR) {
 				Block var28 = this.o.getData(var26.b()).c();
 				if (var28 instanceof BlockFence || var28 instanceof BlockCobbleWall || var28 instanceof BlockFenceGate) {
 					var62 = var28;
@@ -513,7 +513,7 @@ public abstract class Entity implements ICommandListener {
 
 				this.M = (float) ((double) this.M + (double) MathHelper.sqrt(var61 * var61 + var66 * var66) * 0.6D);
 				this.N = (float) ((double) this.N + (double) MathHelper.sqrt(var61 * var61 + var63 * var63 + var66 * var66) * 0.6D);
-				if (this.N > (float) this.h && var62.r() != Material.AIR) {
+				if (this.N > (float) this.h && var62.getMaterial() != Material.AIR) {
 					this.h = (int) this.N + 1;
 					if (this.V()) {
 						float var34 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
@@ -599,7 +599,7 @@ public abstract class Entity implements ICommandListener {
 		if (this.o.getData(var1.a()).c() == Blocks.SNOW) {
 			var3 = Blocks.SNOW.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
-		} else if (!var2.r().d()) {
+		} else if (!var2.getMaterial().d()) {
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		}
 
@@ -743,8 +743,8 @@ public abstract class Entity implements ICommandListener {
 		Location var4 = new Location(this.s, var2, this.u);
 		IBlockData var5 = this.o.getData(var4);
 		Block var6 = var5.c();
-		if (var6.r() == var1) {
-			float var7 = axl.b(var5.c().c(var5)) - 0.11111111F;
+		if (var6.getMaterial() == var1) {
+			float var7 = BlockFluids.b(var5.c().c(var5)) - 0.11111111F;
 			float var8 = (float) (var4.o() + 1) - var7;
 			boolean var9 = var2 < (double) var8;
 			return !var9 && this instanceof EntityHuman ? false : var9;

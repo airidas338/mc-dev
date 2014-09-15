@@ -159,10 +159,10 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
       return false;
    }
 
-   public void a(vx var1) {}
+   public void a(InventoryPlayerLock var1) {}
 
-   public vx i() {
-      return vx.a;
+   public InventoryPlayerLock i() {
+      return InventoryPlayerLock.a;
    }
 
    public void l() {

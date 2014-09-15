@@ -370,7 +370,7 @@ public class ahb implements IInventory {
    }
 
    public boolean b(Block var1) {
-      if(var1.r().l()) {
+      if(var1.getMaterial().l()) {
          return true;
       } else {
          ItemStack var2 = this.a(this.c);

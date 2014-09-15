@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class axd extends TileEntity {
+public class TileEntityRecordPlayer extends TileEntity {
 
    private ItemStack a;
 

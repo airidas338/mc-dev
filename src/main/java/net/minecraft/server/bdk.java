@@ -4,10 +4,10 @@ package net.minecraft.server;
 class bdk implements ICommandListener {
 
    // $FF: synthetic field
-   final bdj a;
+   final TileEntitySign a;
 
 
-   bdk(bdj var1) {
+   bdk(TileEntitySign var1) {
       this.a = var1;
    }
 

@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public class bdv extends TileEntity implements IUpdatePlayerListBox {
+public class TileEntityPiston extends TileEntity implements IUpdatePlayerListBox {
 
    private IBlockData a;
    private EnumFacing f;
@@ -15,9 +15,9 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
    private List k = Lists.newArrayList();
 
 
-   public bdv() {}
+   public TileEntityPiston() {}
 
-   public bdv(IBlockData var1, EnumFacing var2, boolean var3, boolean var4) {
+   public TileEntityPiston(IBlockData var1, EnumFacing var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;

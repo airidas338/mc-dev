@@ -90,7 +90,7 @@ public class UserCache {
       this.e.addFirst(var1);
    }
 
-   public GameProfile a(String var1) {
+   public GameProfile getProfile(String var1) {
       String var2 = var1.toLowerCase(Locale.ROOT);
       sb var3 = (sb)this.c.get(var2);
       if(var3 != null && (new Date()).getTime() >= sb.a(var3).getTime()) {

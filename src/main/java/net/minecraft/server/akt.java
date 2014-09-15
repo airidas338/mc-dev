@@ -22,7 +22,7 @@ public class akt extends Item {
 
          if(!var2.a(var4, var5, var1)) {
             return false;
-         } else if(!this.a.c(var3, var4)) {
+         } else if(!this.a.canPlace(var3, var4)) {
             return false;
          } else {
             a(var3, var4, EnumFacing.a((double)var2.y), this.a);

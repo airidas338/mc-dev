@@ -76,7 +76,7 @@ public class BlockTrapdoor extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
@@ -112,7 +112,7 @@ public class BlockTrapdoor extends Block {
       return super.a(var1, var2, var3, var4);
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.P();
       if(var3.k().c()) {
          var9 = var9.a(a, var3).a(b, Boolean.valueOf(false));
@@ -122,7 +122,7 @@ public class BlockTrapdoor extends Block {
       return var9;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       return !var3.k().b() && c(var1.getData(var2.a(var3.d())).c());
    }
 

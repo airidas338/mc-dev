@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class ati extends Block {
+public abstract class BlockMinecartTrackAbstract extends Block {
 
    protected final boolean a;
 
@@ -14,7 +14,7 @@ public abstract class ati extends Block {
       return var1 == Blocks.RAILS || var1 == Blocks.GOLDEN_RAIL || var1 == Blocks.DETECTOR_RAIL || var1 == Blocks.ACTIVATOR_RAIL;
    }
 
-   protected ati(boolean var1) {
+   protected BlockMinecartTrackAbstract(boolean var1) {
       super(Material.ORIENTABLE);
       this.a = var1;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
@@ -49,7 +49,7 @@ public abstract class ati extends Block {
       return false;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return World.a((IBlockAccess)var1, var2.b());
    }
 
@@ -101,8 +101,8 @@ public abstract class ati extends Block {
       return 0;
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
       if(((atl)var3.b(this.l())).c()) {
          var1.c(var2.a(), (Block)this);
       }

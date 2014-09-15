@@ -89,14 +89,14 @@ public class CommandStats extends CommandAbstract {
                   throw new CommandException("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.n()), Integer.valueOf(var9.o()), Integer.valueOf(var9.p())});
                }
 
-               if(var10 instanceof bct) {
-                  var8 = ((bct)var10).c();
+               if(var10 instanceof TileEntityCommand) {
+                  var8 = ((TileEntityCommand)var10).c();
                } else {
-                  if(!(var10 instanceof bdj)) {
+                  if(!(var10 instanceof TileEntitySign)) {
                      throw new CommandException("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.n()), Integer.valueOf(var9.o()), Integer.valueOf(var9.p())});
                   }
 
-                  var8 = ((bdj)var10).d();
+                  var8 = ((TileEntitySign)var10).d();
                }
             } else {
                Entity var13 = b(var1, var2[1]);

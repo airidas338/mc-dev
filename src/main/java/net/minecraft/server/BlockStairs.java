@@ -408,8 +408,8 @@ public class BlockStairs extends Block {
       return this.O.a(var1, var2);
    }
 
-   public boolean c(World var1, Location var2) {
-      return this.O.c(var1, var2);
+   public boolean canPlace(World var1, Location var2) {
+      return this.O.canPlace(var1, var2);
    }
 
    public void c(World var1, Location var2, IBlockData var3) {
@@ -417,8 +417,8 @@ public class BlockStairs extends Block {
       this.O.c(var1, var2, this.P);
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      this.O.b(var1, var2, this.P);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      this.O.remove(var1, var2, this.P);
    }
 
    public void a(World var1, Location var2, Entity var3) {
@@ -429,8 +429,8 @@ public class BlockStairs extends Block {
       this.O.b(var1, var2, var3, var4);
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      return this.O.a(var1, var2, this.P, var4, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      return this.O.interact(var1, var2, this.P, var4, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
    }
 
    public void a(World var1, Location var2, aqo var3) {
@@ -441,8 +441,8 @@ public class BlockStairs extends Block {
       return this.O.g(this.P);
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlockData var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8);
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = super.getPlacedData(var1, var2, var3, var4, var5, var6, var7, var8);
       var9 = var9.a(a, var8.aO()).a(M, bav.a);
       return var3 != EnumFacing.DOWN && (var3 == EnumFacing.UP || (double)var5 <= 0.5D)?var9.a(b, bau.b):var9.a(b, bau.a);
    }

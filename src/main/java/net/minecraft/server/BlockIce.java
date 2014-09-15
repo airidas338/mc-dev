@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockIce extends awt {
+public class BlockIce extends BlockHalfTransparent {
 
    public BlockIce() {
       super(Material.ICE, false);
@@ -26,7 +26,7 @@ public class BlockIce extends awt {
 
          int var6 = EnchantmentManager.f(var2);
          this.b(var1, var3, var4, var6);
-         Material var7 = var1.getData(var3.b()).c().r();
+         Material var7 = var1.getData(var3.b()).c().getMaterial();
          if(var7.c() || var7.d()) {
             var1.a(var3, Blocks.WATER.P());
          }

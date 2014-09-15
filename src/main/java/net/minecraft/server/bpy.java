@@ -132,10 +132,10 @@ public class bpy extends bpu {
             for(int var15 = var4; var15 < var4 + var7; ++var15) {
                Location var16 = new Location(var13, var14, var15);
                Block var17 = var0.getData(var16).c();
-               if(var17.r() != Material.AIR) {
+               if(var17.getMaterial() != Material.AIR) {
                   if(var17 != Blocks.TRAP_DOOR_WOOD && var17 != Blocks.TRAP_DOOR_IRON) {
                      if(var17 != Blocks.WATER && var17 != Blocks.STATIONARY_WATER) {
-                        if(!var10 && var17 instanceof BlockDoor && var17.r() == Material.WOOD) {
+                        if(!var10 && var17 instanceof BlockDoor && var17.getMaterial() == Material.WOOD) {
                            return 0;
                         }
                      } else {
@@ -149,11 +149,11 @@ public class bpy extends bpu {
                      var11 = true;
                   }
 
-                  if(var1.o.getData(var16).c() instanceof ati) {
-                     if(!(var1.o.getData(var12).c() instanceof ati) && !(var1.o.getData(var12.b()).c() instanceof ati)) {
+                  if(var1.o.getData(var16).c() instanceof BlockMinecartTrackAbstract) {
+                     if(!(var1.o.getData(var12).c() instanceof BlockMinecartTrackAbstract) && !(var1.o.getData(var12.b()).c() instanceof BlockMinecartTrackAbstract)) {
                         return -3;
                      }
-                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof BlockDoor) || var17.r() != Material.WOOD)) {
+                  } else if(!var17.b(var0, var16) && (!var9 || !(var17 instanceof BlockDoor) || var17.getMaterial() != Material.WOOD)) {
                      if(var17 instanceof BlockFence || var17 instanceof BlockFenceGate || var17 instanceof BlockCobbleWall) {
                         return -3;
                      }
@@ -162,7 +162,7 @@ public class bpy extends bpu {
                         return -4;
                      }
 
-                     Material var18 = var17.r();
+                     Material var18 = var17.getMaterial();
                      if(var18 != Material.LAVA) {
                         return 0;
                      }

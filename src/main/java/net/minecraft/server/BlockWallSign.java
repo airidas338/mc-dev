@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.common.base.Predicate;
 
-public class BlockWallSign extends bai {
+public class BlockWallSign extends BlockSignAbstract {
 
    public static final beu a = beu.a("facing", (Predicate)en.a);
 
@@ -36,7 +36,7 @@ public class BlockWallSign extends bai {
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
-      if(!var1.getData(var2.a(var5.d())).c().r().a()) {
+      if(!var1.getData(var2.a(var5.d())).c().getMaterial().a()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }

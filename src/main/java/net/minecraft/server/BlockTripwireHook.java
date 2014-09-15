@@ -36,11 +36,11 @@ public class BlockTripwireHook extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       return var3.k().c() && var1.getData(var2.a(var3.d())).c().t();
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       Iterator var3 = en.a.iterator();
 
       EnumFacing var4;
@@ -55,7 +55,7 @@ public class BlockTripwireHook extends Block {
       return true;
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.P().a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
       if(var3.k().c()) {
          var9 = var9.a(a, var3);
@@ -179,7 +179,7 @@ public class BlockTripwireHook extends Block {
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
-      if(!this.c(var1, var2)) {
+      if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
          return false;
@@ -206,7 +206,7 @@ public class BlockTripwireHook extends Block {
 
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       boolean var4 = ((Boolean)var3.b(M)).booleanValue();
       boolean var5 = ((Boolean)var3.b(b)).booleanValue();
       if(var4 || var5) {
@@ -218,7 +218,7 @@ public class BlockTripwireHook extends Block {
          var1.c(var2.a(((EnumFacing)var3.b(a)).d()), (Block)this);
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {

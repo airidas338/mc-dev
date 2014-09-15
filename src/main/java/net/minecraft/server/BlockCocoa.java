@@ -71,7 +71,7 @@ public class BlockCocoa extends BlockDirectional implements atz {
       var1.a(var2, var3.a(N, var6), 2);
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.k().c()) {
          var3 = EnumFacing.NORTH;
       }
@@ -91,7 +91,7 @@ public class BlockCocoa extends BlockDirectional implements atz {
       this.b(var1, var2, var3, 0);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       int var6 = ((Integer)var3.b(a)).intValue();
       byte var7 = 1;
       if(var6 >= 2) {

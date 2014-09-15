@@ -111,7 +111,7 @@ public class EntityArrow extends Entity implements IProjectile {
       Location var18 = new Location(this.d, this.e, this.f);
       IBlockData var2 = this.o.getData(var18);
       Block var3 = var2.c();
-      if(var3.r() != Material.AIR) {
+      if(var3.getMaterial() != Material.AIR) {
          var3.a((IBlockAccess)this.o, var18);
          AxisAlignedBB var4 = var3.a(this.o, var18, var2);
          if(var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
@@ -260,7 +260,7 @@ public class EntityArrow extends Entity implements IProjectile {
                this.i = true;
                this.b = 7;
                this.a(false);
-               if(this.g.r() != Material.AIR) {
+               if(this.g.getMaterial() != Material.AIR) {
                   this.g.a(this.o, var21, var2, (Entity)this);
                }
             }

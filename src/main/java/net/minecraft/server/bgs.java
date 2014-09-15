@@ -161,7 +161,7 @@ public class bgs extends bgt {
    }
 
    protected boolean a(IBlockData var1, IBlockData var2) {
-      return var1.c() == Blocks.STONE?true:(var1.c() == Blocks.DIRT?true:(var1.c() == Blocks.GRASS?true:(var1.c() == Blocks.HARDENED_CLAY?true:(var1.c() == Blocks.STAINED_HARDENED_CLAY?true:(var1.c() == Blocks.SANDSTONE?true:(var1.c() == Blocks.RED_SANDSTONE?true:(var1.c() == Blocks.MYCEL?true:(var1.c() == Blocks.SNOW?true:(var1.c() == Blocks.SAND || var1.c() == Blocks.GRAVEL) && var2.c().r() != Material.WATER))))))));
+      return var1.c() == Blocks.STONE?true:(var1.c() == Blocks.DIRT?true:(var1.c() == Blocks.GRASS?true:(var1.c() == Blocks.HARDENED_CLAY?true:(var1.c() == Blocks.STAINED_HARDENED_CLAY?true:(var1.c() == Blocks.SANDSTONE?true:(var1.c() == Blocks.RED_SANDSTONE?true:(var1.c() == Blocks.MYCEL?true:(var1.c() == Blocks.SNOW?true:(var1.c() == Blocks.SAND || var1.c() == Blocks.GRAVEL) && var2.c().getMaterial() != Material.WATER))))))));
    }
 
    protected void a(World var1, int var2, int var3, int var4, int var5, bgk var6) {

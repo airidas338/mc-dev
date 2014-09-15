@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockCommand extends atg {
+public class BlockCommand extends BlockContainer {
 
    public static final bet a = bet.a("triggered");
 
@@ -12,7 +12,7 @@ public class BlockCommand extends atg {
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bct();
+      return new TileEntityCommand();
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
@@ -31,8 +31,8 @@ public class BlockCommand extends atg {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       TileEntity var5 = var1.s(var2);
-      if(var5 instanceof bct) {
-         ((bct)var5).b().a(var1);
+      if(var5 instanceof TileEntityCommand) {
+         ((TileEntityCommand)var5).getCommandBlock().a(var1);
          var1.e(var2, this);
       }
 
@@ -42,24 +42,24 @@ public class BlockCommand extends atg {
       return 1;
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       TileEntity var9 = var1.s(var2);
-      return var9 instanceof bct?((bct)var9).b().a(var4):false;
+      return var9 instanceof TileEntityCommand?((TileEntityCommand)var9).getCommandBlock().a(var4):false;
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       TileEntity var3 = var1.s(var2);
-      return var3 instanceof bct?((bct)var3).b().j():0;
+      return var3 instanceof TileEntityCommand?((TileEntityCommand)var3).getCommandBlock().j():0;
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       TileEntity var6 = var1.s(var2);
-      if(var6 instanceof bct) {
-         CommandBlockListenerAbstract var7 = ((bct)var6).b();
+      if(var6 instanceof TileEntityCommand) {
+         CommandBlockListenerAbstract var7 = ((TileEntityCommand)var6).getCommandBlock();
          if(var5.s()) {
             var7.b(var5.q());
          }
@@ -96,7 +96,7 @@ public class BlockCommand extends atg {
       return new bed(this, new bex[]{a});
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, Boolean.valueOf(false));
    }
 

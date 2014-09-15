@@ -453,7 +453,7 @@ public class EntityPlayer extends EntityHuman implements ail {
         int var6 = MathHelper.floor(this.u);
         Location var7 = new Location(var4, var5, var6);
         Block var8 = this.o.getData(var7).c();
-        if (var8.r() == Material.AIR) {
+        if (var8.getMaterial() == Material.AIR) {
             Block var9 = this.o.getData(var7.b()).c();
             if (var9 instanceof BlockFence || var9 instanceof BlockCobbleWall || var9 instanceof BlockFenceGate) {
                 var7 = var7.b();
@@ -464,7 +464,7 @@ public class EntityPlayer extends EntityHuman implements ail {
         super.a(var1, var3, var8, var7);
     }
 
-    public void a(bdj var1) {
+    public void a(TileEntitySign var1) {
         var1.a((EntityHuman) this);
         this.a.sendPacket((Packet) (new kc(var1.v())));
     }

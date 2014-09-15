@@ -15,8 +15,8 @@ class ato implements Runnable {
 
    public void run() {
       TileEntity var1 = this.b.a.s(this.a);
-      if(var1 instanceof bck) {
-         ((bck)var1).m();
+      if(var1 instanceof TileEntityBeacon) {
+         ((TileEntityBeacon)var1).m();
          this.b.a.c(this.a, Blocks.BEACON, 1, 0);
       }
 

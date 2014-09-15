@@ -59,7 +59,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(this.M) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;

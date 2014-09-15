@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bcz extends TileEntity implements IUpdatePlayerListBox, vv {
+public class TileEntityEnchantTable extends TileEntity implements IUpdatePlayerListBox, vv {
 
    public int a;
    public float f;

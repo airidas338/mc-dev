@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bcv extends TileEntity {
+public class TileEntityComparator extends TileEntity {
 
    private int a;
 

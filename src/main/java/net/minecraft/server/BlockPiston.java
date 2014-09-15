@@ -43,7 +43,7 @@ public class BlockPiston extends Block {
 
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, a(var1, var2, var8)).a(b, Boolean.valueOf(false));
    }
 
@@ -114,8 +114,8 @@ public class BlockPiston extends Block {
          var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.out", 0.5F, var1.random.nextFloat() * 0.25F + 0.6F);
       } else if(var4 == 1) {
          TileEntity var13 = var1.s(var2.a(var6));
-         if(var13 instanceof bdv) {
-            ((bdv)var13).h();
+         if(var13 instanceof TileEntityPiston) {
+            ((TileEntityPiston)var13).h();
          }
 
          var1.a(var2, Blocks.PISTON_MOVING.P().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a), 3);
@@ -126,8 +126,8 @@ public class BlockPiston extends Block {
             boolean var10 = false;
             if(var9 == Blocks.PISTON_MOVING) {
                TileEntity var11 = var1.s(var8);
-               if(var11 instanceof bdv) {
-                  bdv var12 = (bdv)var11;
+               if(var11 instanceof TileEntityPiston) {
+                  TileEntityPiston var12 = (TileEntityPiston)var11;
                   if(var12.e() == var6 && var12.d()) {
                      var12.h();
                      var10 = true;
@@ -135,7 +135,7 @@ public class BlockPiston extends Block {
                }
             }
 
-            if(!var10 && var9.r() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.i() == 0 || var9 == Blocks.PISTON || var9 == Blocks.PISTON_STICKEY)) {
+            if(!var10 && var9.getMaterial() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.i() == 0 || var9 == Blocks.PISTON || var9 == Blocks.PISTON_STICKEY)) {
                this.a(var1, var2, var6, false);
             }
          } else {
@@ -245,7 +245,7 @@ public class BlockPiston extends Block {
                return false;
             }
 
-            return !(var0 instanceof avs);
+            return !(var0 instanceof IContainer);
          } else {
             return false;
          }

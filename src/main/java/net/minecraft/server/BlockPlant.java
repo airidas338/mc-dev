@@ -15,8 +15,8 @@ public class BlockPlant extends Block {
       this(Material.PLANT);
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && this.c(var1.getData(var2.b()).c());
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2) && this.c(var1.getData(var2.b()).c());
    }
 
    protected boolean c(Block var1) {

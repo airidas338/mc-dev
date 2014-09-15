@@ -76,7 +76,7 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
                         if(Math.abs(var13) != var11 || Math.abs(var15) != var11 || var2.nextInt(2) != 0 && var10 != 0) {
                            var16 = new Location(var12, var9, var14);
                            Block var17 = var1.getData(var16).c();
-                           if(var17.r() == Material.AIR || var17.r() == Material.LEAVES || var17.r() == Material.REPLACAEBLE_PLAN) {
+                           if(var17.getMaterial() == Material.AIR || var17.getMaterial() == Material.LEAVES || var17.getMaterial() == Material.REPLACAEBLE_PLAN) {
                               this.a(var1, var16, Blocks.LEAVES, this.d);
                            }
                         }
@@ -86,7 +86,7 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
 
                for(var9 = 0; var9 < var4; ++var9) {
                   Block var21 = var1.getData(var3.b(var9)).c();
-                  if(var21.r() == Material.AIR || var21.r() == Material.LEAVES || var21.r() == Material.REPLACAEBLE_PLAN) {
+                  if(var21.getMaterial() == Material.AIR || var21.getMaterial() == Material.LEAVES || var21.getMaterial() == Material.REPLACAEBLE_PLAN) {
                      this.a(var1, var3.b(var9), Blocks.LOG, this.c);
                      if(this.b && var9 > 0) {
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.a(-1, var9, 0))) {
@@ -116,24 +116,24 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
                      for(var12 = var3.n() - var11; var12 <= var3.n() + var11; ++var12) {
                         for(var13 = var3.p() - var11; var13 <= var3.p() + var11; ++var13) {
                            Location var24 = new Location(var12, var9, var13);
-                           if(var1.getData(var24).c().r() == Material.LEAVES) {
+                           if(var1.getData(var24).c().getMaterial() == Material.LEAVES) {
                               Location var23 = var24.e();
                               var16 = var24.f();
                               Location var25 = var24.c();
                               Location var18 = var24.d();
-                              if(var2.nextInt(4) == 0 && var1.getData(var23).c().r() == Material.AIR) {
+                              if(var2.nextInt(4) == 0 && var1.getData(var23).c().getMaterial() == Material.AIR) {
                                  this.a(var1, var23, BlockVine.S);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.getData(var16).c().r() == Material.AIR) {
+                              if(var2.nextInt(4) == 0 && var1.getData(var16).c().getMaterial() == Material.AIR) {
                                  this.a(var1, var16, BlockVine.T);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.getData(var25).c().r() == Material.AIR) {
+                              if(var2.nextInt(4) == 0 && var1.getData(var25).c().getMaterial() == Material.AIR) {
                                  this.a(var1, var25, BlockVine.Q);
                               }
 
-                              if(var2.nextInt(4) == 0 && var1.getData(var18).c().r() == Material.AIR) {
+                              if(var2.nextInt(4) == 0 && var1.getData(var18).c().getMaterial() == Material.AIR) {
                                  this.a(var1, var18, BlockVine.R);
                               }
                            }
@@ -168,7 +168,7 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
       this.a(var1, var2, Blocks.VINE, var3);
       int var4 = 4;
 
-      for(var2 = var2.b(); var1.getData(var2).c().r() == Material.AIR && var4 > 0; --var4) {
+      for(var2 = var2.b(); var1.getData(var2).c().getMaterial() == Material.AIR && var4 > 0; --var4) {
          this.a(var1, var2, Blocks.VINE, var3);
          var2 = var2.b();
       }

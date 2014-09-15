@@ -1,12 +1,12 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class bcf extends BlockStepAbstract {
+public abstract class BlockWoodStepAbstract extends BlockStepAbstract {
 
    public static final bev b = bev.a("variant", ayx.class);
 
 
-   public bcf() {
+   public BlockWoodStepAbstract() {
       super(Material.WOOD);
       IBlockData var1 = this.L.b();
       if(!this.j()) {

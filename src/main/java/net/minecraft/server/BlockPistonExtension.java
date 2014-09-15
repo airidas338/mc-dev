@@ -31,8 +31,8 @@ public class BlockPistonExtension extends Block {
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
       EnumFacing var4 = ((EnumFacing)var3.b(a)).d();
       var2 = var2.a(var4);
       IBlockData var5 = var1.getData(var2);
@@ -51,11 +51,11 @@ public class BlockPistonExtension extends Block {
       return false;
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       return false;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       return false;
    }
 

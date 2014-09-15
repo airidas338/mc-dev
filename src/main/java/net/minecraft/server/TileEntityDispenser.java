@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class bcx extends bdf implements IInventory {
+public class TileEntityDispenser extends TileEntityLockable implements IInventory {
 
    private static final Random f = new Random();
    private ItemStack[] g = new ItemStack[9];

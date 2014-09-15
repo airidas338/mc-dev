@@ -16,7 +16,7 @@ public class BlockMelon extends Block {
       return 3 + var1.nextInt(5);
    }
 
-   public int a(int var1, Random var2) {
+   public int getDropCount(int var1, Random var2) {
       return Math.min(9, this.a(var2) + var2.nextInt(1 + var1));
    }
 }

@@ -108,7 +108,7 @@ public class BlockFence extends Block {
       return var3 == Blocks.BARRIER?false:((!(var3 instanceof BlockFence) || var3.J != this.J) && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       return var1.isStatic?true:aml.a(var4, var1, var2);
    }
 

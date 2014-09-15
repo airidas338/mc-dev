@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class BlockDispenser extends atg {
+public class BlockDispenser extends BlockContainer {
 
 	public static final beu a = beu.a("facing");
 	public static final bet b = bet.a("triggered");
@@ -47,13 +47,13 @@ public class BlockDispenser extends atg {
 		}
 	}
 
-	public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+	public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
 		if (var1.isStatic) {
 			return true;
 		} else {
 			TileEntity var9 = var1.s(var2);
-			if (var9 instanceof bcx) {
-				var4.a((IInventory) ((bcx) var9));
+			if (var9 instanceof TileEntityDispenser) {
+				var4.a((IInventory) ((TileEntityDispenser) var9));
 			}
 
 			return true;
@@ -62,7 +62,7 @@ public class BlockDispenser extends atg {
 
 	protected void d(World var1, Location var2) {
 		SourceBlock var3 = new SourceBlock(var1, var2);
-		bcx var4 = (bcx) var3.h();
+		TileEntityDispenser var4 = (TileEntityDispenser) var3.h();
 		if (var4 != null) {
 			int var5 = var4.m();
 			if (var5 < 0) {
@@ -103,10 +103,10 @@ public class BlockDispenser extends atg {
 	}
 
 	public TileEntity a(World var1, int var2) {
-		return new bcx();
+		return new TileEntityDispenser();
 	}
 
-	public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+	public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		return this.P().a(a, BlockPiston.a(var1, var2, var8)).a(b, Boolean.valueOf(false));
 	}
 
@@ -114,21 +114,21 @@ public class BlockDispenser extends atg {
 		var1.a(var2, var3.a(a, BlockPiston.a(var1, var2, var4)), 2);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);
-			if (var6 instanceof bcx) {
-				((bcx) var6).a(var5.q());
+			if (var6 instanceof TileEntityDispenser) {
+				((TileEntityDispenser) var6).a(var5.q());
 			}
 		}
 
 	}
 
-	public void b(World var1, Location var2, IBlockData var3) {
+	public void remove(World var1, Location var2, IBlockData var3) {
 		TileEntity var4 = var1.s(var2);
-		if (var4 instanceof bcx) {
-			vs.a(var1, var2, (bcx) var4);
+		if (var4 instanceof TileEntityDispenser) {
+			vs.a(var1, var2, (TileEntityDispenser) var4);
 			var1.e(var2, this);
 		}
 
-		super.b(var1, var2, var3);
+		super.remove(var1, var2, var3);
 	}
 
 	public static IPosition a(ISourceBlock var0) {
@@ -143,11 +143,11 @@ public class BlockDispenser extends atg {
 		return EnumFacing.a(var0 & 7);
 	}
 
-	public boolean N() {
+	public boolean isComplexRedstone() {
 		return true;
 	}
 
-	public int l(World var1, Location var2) {
+	public int getDropData(World var1, Location var2) {
 		return aib.a(var1.s(var2));
 	}
 

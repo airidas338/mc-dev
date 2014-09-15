@@ -1,22 +1,22 @@
 package net.minecraft.server;
 
-public class aqj extends vk {
+public class TileEntityMobSpawnerData extends vk {
 
    private final NBTTagCompound c;
    private final String d;
    // $FF: synthetic field
-   final aqi b;
+   final MobSpawnerAbstract b;
 
 
-   public aqj(aqi var1, NBTTagCompound var2) {
+   public TileEntityMobSpawnerData(MobSpawnerAbstract var1, NBTTagCompound var2) {
       this(var1, var2.getCompound("Properties"), var2.getString("Type"), var2.getInt("Weight"));
    }
 
-   public aqj(aqi var1, NBTTagCompound var2, String var3) {
+   public TileEntityMobSpawnerData(MobSpawnerAbstract var1, NBTTagCompound var2, String var3) {
       this(var1, var2, var3, 1);
    }
 
-   private aqj(aqi var1, NBTTagCompound var2, String var3, int var4) {
+   private TileEntityMobSpawnerData(MobSpawnerAbstract var1, NBTTagCompound var2, String var3, int var4) {
       super(var4);
       this.b = var1;
       if(var3.equals("Minecart")) {
@@ -40,12 +40,12 @@ public class aqj extends vk {
    }
 
    // $FF: synthetic method
-   static String a(aqj var0) {
+   static String a(TileEntityMobSpawnerData var0) {
       return var0.d;
    }
 
    // $FF: synthetic method
-   static NBTTagCompound b(aqj var0) {
+   static NBTTagCompound b(TileEntityMobSpawnerData var0) {
       return var0.c;
    }
 }

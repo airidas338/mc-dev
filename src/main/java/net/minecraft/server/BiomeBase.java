@@ -278,7 +278,7 @@ public abstract class BiomeBase {
             var3.a(var14, var15, var13, Blocks.BEDROCK.P());
          } else {
             IBlockData var16 = var3.a(var14, var15, var13);
-            if(var16.c().r() == Material.AIR) {
+            if(var16.c().getMaterial() == Material.AIR) {
                var11 = -1;
             } else if(var16.c() == Blocks.STONE) {
                if(var11 == -1) {
@@ -290,7 +290,7 @@ public abstract class BiomeBase {
                      var10 = this.al;
                   }
 
-                  if(var15 < 63 && (var9 == null || var9.c().r() == Material.AIR)) {
+                  if(var15 < 63 && (var9 == null || var9.c().getMaterial() == Material.AIR)) {
                      if(this.a(new Location(var4, var15, var5)) < 0.15F) {
                         var9 = Blocks.ICE.P();
                      } else {
@@ -342,15 +342,15 @@ public abstract class BiomeBase {
       return (double)this.ap < 0.2D?arp.b:((double)this.ap < 1.0D?arp.c:arp.d);
    }
 
-   public static BiomeBase[] n() {
+   public static BiomeBase[] getBiomes() {
       return aE;
    }
 
-   public static BiomeBase e(int var0) {
-      return a(var0, (BiomeBase)null);
+   public static BiomeBase getBiome(int var0) {
+      return getBiome(var0, (BiomeBase)null);
    }
 
-   public static BiomeBase a(int var0, BiomeBase var1) {
+   public static BiomeBase getBiome(int var0, BiomeBase var1) {
       if(var0 >= 0 && var0 <= aE.length) {
          BiomeBase var2 = aE[var0];
          return var2 == null?var1:var2;

@@ -155,7 +155,7 @@ public final class SpawnerCreature {
       } else {
          Block var3 = var1.getData(var2).c();
          if(var0 == xo.c) {
-            return var3.r().d() && var1.getData(var2.b()).c().r().d() && !var1.getData(var2.a()).c().t();
+            return var3.getMaterial().d() && var1.getData(var2.b()).c().getMaterial().d() && !var1.getData(var2.a()).c().t();
          } else {
             Location var4 = var2.b();
             if(!World.a((IBlockAccess)var1, var4)) {
@@ -163,7 +163,7 @@ public final class SpawnerCreature {
             } else {
                Block var5 = var1.getData(var4).c();
                boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
-               return var6 && !var3.t() && !var3.r().d() && !var1.getData(var2.a()).c().t();
+               return var6 && !var3.t() && !var3.getMaterial().d() && !var1.getData(var2.a()).c().t();
             }
          }
       }

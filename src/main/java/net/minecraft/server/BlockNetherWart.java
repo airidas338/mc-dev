@@ -32,7 +32,7 @@ public class BlockNetherWart extends BlockPlant {
       super.b(var1, var2, var3, var4);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       if(!var1.isStatic) {
          int var6 = 1;
          if(((Integer)var3.b(a)).intValue() >= 3) {

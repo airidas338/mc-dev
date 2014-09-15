@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BlockSkull extends atg {
+public class BlockSkull extends BlockContainer {
 
    public static final beu a = beu.a("facing");
    public static final bet b = bet.a("nodrop");
@@ -53,20 +53,20 @@ public class BlockSkull extends atg {
       return super.a(var1, var2, var3);
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO()).a(b, Boolean.valueOf(false));
    }
 
    public TileEntity a(World var1, int var2) {
-      return new bdm();
+      return new TileEntitySkull();
    }
 
    public int j(World var1, Location var2) {
       TileEntity var3 = var1.s(var2);
-      return var3 instanceof bdm?((bdm)var3).c():super.j(var1, var2);
+      return var3 instanceof TileEntitySkull?((TileEntitySkull)var3).c():super.j(var1, var2);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {}
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {}
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.by.canInstantlyBuild) {
@@ -77,12 +77,12 @@ public class BlockSkull extends atg {
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          if(!((Boolean)var3.b(b)).booleanValue()) {
             TileEntity var4 = var1.s(var2);
-            if(var4 instanceof bdm) {
-               bdm var5 = (bdm)var4;
+            if(var4 instanceof TileEntitySkull) {
+               TileEntitySkull var5 = (TileEntitySkull)var4;
                ItemStack var6 = new ItemStack(Items.bX, 1, this.j(var1, var2));
                if(var5.c() == 3 && var5.b() != null) {
                   var6.d(new NBTTagCompound());
@@ -95,7 +95,7 @@ public class BlockSkull extends atg {
             }
          }
 
-         super.b(var1, var2, var3);
+         super.remove(var1, var2, var3);
       }
    }
 
@@ -107,7 +107,7 @@ public class BlockSkull extends atg {
       return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic?this.j().a(var1, var2) != null:false;
    }
 
-   public void a(World var1, Location var2, bdm var3) {
+   public void a(World var1, Location var2, TileEntitySkull var3) {
       if(var3.c() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic) {
          bek var4 = this.l();
          bem var5 = var4.a(var1, var2);

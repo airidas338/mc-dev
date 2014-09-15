@@ -66,7 +66,7 @@ public class EntityItem extends Entity {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.getData(new Location(this)).c().r() == Material.LAVA) {
+            if(this.o.getData(new Location(this)).c().getMaterial() == Material.LAVA) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);

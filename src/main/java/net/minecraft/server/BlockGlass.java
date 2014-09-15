@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockGlass extends awt {
+public class BlockGlass extends BlockHalfTransparent {
 
    public BlockGlass(Material var1, boolean var2) {
       super(var1, var2);

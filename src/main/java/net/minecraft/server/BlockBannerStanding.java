@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-public class BlockBannerStanding extends atb {
+public class BlockBannerStanding extends BlockBannerAbstract {
 
    public BlockBannerStanding() {
       this.j(this.L.b().a(b, Integer.valueOf(0)));
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
-      if(!var1.getData(var2.b()).c().r().a()) {
+      if(!var1.getData(var2.b()).c().getMaterial().a()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }

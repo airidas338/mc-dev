@@ -49,7 +49,7 @@ public class BlockCauldron extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
@@ -101,10 +101,10 @@ public class BlockCauldron extends Block {
                      }
                   }
 
-                  if(var10 > 0 && var11 instanceof ajs && bci.c(var9) > 0) {
+                  if(var10 > 0 && var11 instanceof ajs && TileEntityBanner.c(var9) > 0) {
                      var13 = var9.k();
                      var13.b = 1;
-                     bci.e(var13);
+                     TileEntityBanner.e(var13);
                      if(var9.b <= 1 && !var4.by.canInstantlyBuild) {
                         var4.bg.a(var4.bg.c, var13);
                      } else {
@@ -152,11 +152,11 @@ public class BlockCauldron extends Block {
       return Items.bG;
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       return ((Integer)var1.getData(var2).b(a)).intValue();
    }
 

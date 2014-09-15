@@ -94,8 +94,8 @@ public class bor extends GenLayer {
       if(a(var1, var2)) {
          return true;
       } else {
-         BiomeBase var3 = BiomeBase.e(var1);
-         BiomeBase var4 = BiomeBase.e(var2);
+         BiomeBase var3 = BiomeBase.getBiome(var1);
+         BiomeBase var4 = BiomeBase.getBiome(var2);
          if(var3 != null && var4 != null) {
             arp var5 = var3.m();
             arp var6 = var4.m();

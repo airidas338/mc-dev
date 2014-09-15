@@ -38,15 +38,15 @@ public class BlockEnderPortalFrame extends Block {
       return null;
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d()).a(b, Boolean.valueOf(false));
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       return ((Boolean)var1.getData(var2).b(b)).booleanValue()?15:0;
    }
 

@@ -27,8 +27,8 @@ public class anl extends Item {
          IBlockData var9 = var3.getData(var4);
          if(var9.c() == Blocks.MOB_SPAWNER) {
             TileEntity var10 = var3.s(var4);
-            if(var10 instanceof bdg) {
-               aqi var11 = ((bdg)var10).b();
+            if(var10 instanceof TileEntityMobSpawner) {
+               MobSpawnerAbstract var11 = ((TileEntityMobSpawner)var10).getSpawner();
                var11.a(EntityTypes.b(var1.i()));
                var10.o_();
                var3.h(var4);
@@ -79,7 +79,7 @@ public class anl extends Item {
                   return var1;
                }
 
-               if(var2.getData(var5).c() instanceof axl) {
+               if(var2.getData(var5).c() instanceof BlockFluids) {
                   Entity var6 = a(var2, var1.i(), (double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D);
                   if(var6 != null) {
                      if(var6 instanceof EntityLiving && var1.s()) {

@@ -82,7 +82,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
          for(int var6 = -var4; var6 <= var4; ++var6) {
             if(Math.pow((double)Math.abs(var5) + 0.5D, 2.0D) + Math.pow((double)Math.abs(var6) + 0.5D, 2.0D) <= (double)(var2 * var2)) {
                Location var7 = var1.a(var5, 0, var6);
-               Material var8 = this.l.getData(var7).c().r();
+               Material var8 = this.l.getData(var7).c().getMaterial();
                if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(this.l, var7, var3, 0);
                }
@@ -130,7 +130,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
       for(int var9 = 0; var9 <= var5; ++var9) {
          Location var10 = var1.a((double)(0.5F + (float)var9 * var6), (double)(0.5F + (float)var9 * var7), (double)(0.5F + (float)var9 * var8));
          axo var11 = this.b(var1, var10);
-         this.a(this.l, var10, var3.P().a(axm.a, var11));
+         this.a(this.l, var10, var3.P().a(BlockLogAbstract.a, var11));
       }
 
    }

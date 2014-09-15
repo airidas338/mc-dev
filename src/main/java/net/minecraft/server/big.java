@@ -70,7 +70,7 @@ public class big extends WorldGenTreeAbstract {
 
                for(var11 = 0; var11 < var4 - 1; ++var11) {
                   Block var19 = var1.getData(var3.b(var11)).c();
-                  if(var19.r() == Material.AIR || var19.r() == Material.LEAVES) {
+                  if(var19.getMaterial() == Material.AIR || var19.getMaterial() == Material.LEAVES) {
                      this.a(var1, var3.b(var11), Blocks.LOG, ayx.b.a());
                   }
                }

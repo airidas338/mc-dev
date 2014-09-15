@@ -383,7 +383,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
                Block var13 = this.o.getData(new Location(var10, var11, var12)).c();
-               if(var13.r() != Material.AIR) {
+               if(var13.getMaterial() != Material.AIR) {
                   if(var13 != Blocks.BARRIER && var13 != Blocks.OBSIDIAN && var13 != Blocks.WHITESTONE && var13 != Blocks.BEDROCK && var13 != Blocks.COMMAND && this.o.Q().b("mobGriefing")) {
                      var9 = this.o.g(new Location(var10, var11, var12)) || var9;
                   } else {

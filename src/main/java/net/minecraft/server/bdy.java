@@ -53,7 +53,7 @@ public class bdy {
 
    private boolean a(Location var1) {
       Block var2 = this.a.getData(var1).c();
-      if(var2.r() == Material.AIR) {
+      if(var2.getMaterial() == Material.AIR) {
          return true;
       } else if(!BlockPiston.a(var2, this.a, var1, this.d, false)) {
          return true;
@@ -69,7 +69,7 @@ public class bdy {
             while(var2 == Blocks.SLIME) {
                Location var4 = var1.a(this.d.d(), var3);
                var2 = this.a.getData(var4).c();
-               if(var2.r() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
+               if(var2.getMaterial() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
 
@@ -106,7 +106,7 @@ public class bdy {
                }
 
                var2 = this.a.getData(var6).c();
-               if(var2.r() == Material.AIR) {
+               if(var2.getMaterial() == Material.AIR) {
                   return true;
                }
 

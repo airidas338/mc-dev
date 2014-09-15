@@ -311,12 +311,12 @@ public class WorldServer extends World implements vn {
    public void a(Location var1, Block var2, int var3, int var4) {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       byte var6 = 0;
-      if(this.e && var2.r() != Material.AIR) {
+      if(this.e && var2.getMaterial() != Material.AIR) {
          if(var2.M()) {
             var6 = 8;
             if(this.a(var5.a.a(-var6, -var6, -var6), var5.a.a(var6, var6, var6))) {
                IBlockData var7 = this.getData(var5.a);
-               if(var7.c().r() != Material.AIR && var7.c() == var5.a()) {
+               if(var7.c().getMaterial() != Material.AIR && var7.c() == var5.a()) {
                   var7.c().b((World)this, var5.a, var7, this.random);
                }
             }
@@ -328,7 +328,7 @@ public class WorldServer extends World implements vn {
       }
 
       if(this.a(var1.a(-var6, -var6, -var6), var1.a(var6, var6, var6))) {
-         if(var2.r() != Material.AIR) {
+         if(var2.getMaterial() != Material.AIR) {
             var5.a((long)var3 + this.worldData.f());
             var5.a(var4);
          }
@@ -344,7 +344,7 @@ public class WorldServer extends World implements vn {
    public void b(Location var1, Block var2, int var3, int var4) {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       var5.a(var4);
-      if(var2.r() != Material.AIR) {
+      if(var2.getMaterial() != Material.AIR) {
          var5.a((long)var3 + this.worldData.f());
       }
 
@@ -407,7 +407,7 @@ public class WorldServer extends World implements vn {
                byte var5 = 0;
                if(this.a(var4.a.a(-var5, -var5, -var5), var4.a.a(var5, var5, var5))) {
                   IBlockData var6 = this.getData(var4.a);
-                  if(var6.c().r() != Material.AIR && Block.a(var6.c(), var4.a())) {
+                  if(var6.c().getMaterial() != Material.AIR && Block.a(var6.c(), var4.a())) {
                      try {
                         var6.c().b((World)this, var4.a, var6, this.random);
                      } catch (Throwable var10) {

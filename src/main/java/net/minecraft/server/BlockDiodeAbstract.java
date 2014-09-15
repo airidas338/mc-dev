@@ -16,8 +16,8 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       return false;
    }
 
-   public boolean c(World var1, Location var2) {
-      return World.a((IBlockAccess)var1, var2.b())?super.c(var1, var2):false;
+   public boolean canPlace(World var1, Location var2) {
+      return World.a((IBlockAccess)var1, var2.b())?super.canPlace(var1, var2):false;
    }
 
    public boolean d(World var1, Location var2) {
@@ -124,7 +124,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       return true;
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 

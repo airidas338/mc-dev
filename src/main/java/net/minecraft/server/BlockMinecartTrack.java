@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class BlockMinecartTrack extends ati {
+public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
 
    public static final bev b = bev.a("shape", atl.class);
 

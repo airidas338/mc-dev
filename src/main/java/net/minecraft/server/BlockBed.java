@@ -14,7 +14,7 @@ public class BlockBed extends BlockDirectional {
       this.j();
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var1.isStatic) {
          return true;
       } else {
@@ -145,12 +145,12 @@ public class BlockBed extends BlockDirectional {
    }
 
    protected static boolean d(World var0, Location var1) {
-      return World.a((IBlockAccess)var0, var1.b()) && !var0.getData(var1).c().r().a() && !var0.getData(var1.a()).c().r().a();
+      return World.a((IBlockAccess)var0, var1.b()) && !var0.getData(var1).c().getMaterial().a() && !var0.getData(var1.a()).c().getMaterial().a();
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       if(var3.b(a) == atq.b) {
-         super.a(var1, var2, var3, var4, 0);
+         super.dropNaturally(var1, var2, var3, var4, 0);
       }
 
    }

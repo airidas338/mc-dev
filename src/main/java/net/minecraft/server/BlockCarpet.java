@@ -36,8 +36,8 @@ public class BlockCarpet extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && this.d(var1, var2);
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2) && this.d(var1, var2);
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {

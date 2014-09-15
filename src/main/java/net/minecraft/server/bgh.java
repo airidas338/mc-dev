@@ -25,7 +25,7 @@ public class bgh extends WorldProvider {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.getType(new Location(var1, 0, var2)).r().c();
+      return this.b.getType(new Location(var1, 0, var2)).getMaterial().c();
    }
 
    public Location h() {

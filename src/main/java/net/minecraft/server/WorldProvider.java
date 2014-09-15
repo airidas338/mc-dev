@@ -36,7 +36,7 @@ public abstract class WorldProvider {
       WorldType var1 = this.b.P().u();
       if(var1 == WorldType.FLAT) {
          biv var2 = biv.a(this.b.P().B());
-         this.c = new asc(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
+         this.c = new asc(BiomeBase.getBiome(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
          this.c = new asc(BiomeBase.PLAINS, 0.0F);
       } else {

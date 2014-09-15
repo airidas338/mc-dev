@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bcw extends TileEntity implements IUpdatePlayerListBox {
+public class TileEntityLightDetector extends TileEntity implements IUpdatePlayerListBox {
 
    public void c() {
       if(this.b != null && !this.b.isStatic && this.b.K() % 20L == 0L) {

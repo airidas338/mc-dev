@@ -1,13 +1,13 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public abstract class ayl extends BlockStepAbstract {
+public abstract class BlockStep2Abstract extends BlockStepAbstract {
 
    public static final bet b = bet.a("seamless");
    public static final bev M = bev.a("variant", aym.class);
 
 
-   public ayl() {
+   public BlockStep2Abstract() {
       super(Material.STONE);
       IBlockData var1 = this.L.b();
       if(this.j()) {

@@ -139,7 +139,7 @@ public class bgr implements IChunkProvider {
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlockData var16 = var3.a(var8, var15, var7);
-                  if(var16.c() != null && var16.c().r() != Material.AIR) {
+                  if(var16.c() != null && var16.c().getMaterial() != Material.AIR) {
                      if(var16.c() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
@@ -159,7 +159,7 @@ public class bgr implements IChunkProvider {
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.c().r() == Material.AIR)) {
+                           if(var15 < var4 && (var13 == null || var13.c().getMaterial() == Material.AIR)) {
                               var13 = Blocks.STATIONARY_LAVA.P();
                            }
 
@@ -282,7 +282,7 @@ public class bgr implements IChunkProvider {
    }
 
    public void getChunkAt(IChunkProvider var1, int var2, int var3) {
-      avt.M = true;
+      BlockFalling.M = true;
       Location var4 = new Location(var2 * 16, 0, var3 * 16);
       aqm var5 = new aqm(var2, var3);
       this.B.a(this.h, this.j, var5);
@@ -320,7 +320,7 @@ public class bgr implements IChunkProvider {
          this.x.generate(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
-      avt.M = false;
+      BlockFalling.M = false;
    }
 
    public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {

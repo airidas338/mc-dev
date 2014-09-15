@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class bcy extends bcx {
+public class TileEntityDropper extends TileEntityDispenser {
 
    public String getName() {
       return this.k_()?this.a:"container.dropper";

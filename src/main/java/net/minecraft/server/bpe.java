@@ -30,7 +30,7 @@ public class bpe extends GenLayer {
             }
 
             if(var10 != 0 && var11 >= 2 && (var11 - 2) % 29 == 1 && var10 < 128) {
-               if(BiomeBase.e(var10 + 128) != null) {
+               if(BiomeBase.getBiome(var10 + 128) != null) {
                   var7[var9 + var8 * var3] = var10 + 128;
                } else {
                   var7[var9 + var8 * var3] = var10;
@@ -82,7 +82,7 @@ public class bpe extends GenLayer {
                }
 
                if(var12 && var13 != var10) {
-                  if(BiomeBase.e(var13 + 128) != null) {
+                  if(BiomeBase.getBiome(var13 + 128) != null) {
                      var13 += 128;
                   } else {
                      var13 = var10;

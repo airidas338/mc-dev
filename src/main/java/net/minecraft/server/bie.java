@@ -33,7 +33,7 @@ public class bie extends WorldGenerator {
          for(var15 = -1; var15 <= 4; ++var15) {
             for(var16 = var11; var16 <= var12; ++var16) {
                var17 = var3.a(var14, var15, var16);
-               Material var18 = var1.getData(var17).c().r();
+               Material var18 = var1.getData(var17).c().getMaterial();
                boolean var19 = var18.a();
                if(var15 == -1 && !var19) {
                   return false;
@@ -59,9 +59,9 @@ public class bie extends WorldGenerator {
                      if(var1.getData(var17).c() != Blocks.CHEST) {
                         var1.g(var17);
                      }
-                  } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().r().a()) {
+                  } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().getMaterial().a()) {
                      var1.g(var17);
-                  } else if(var1.getData(var17).c().r().a() && var1.getData(var17).c() != Blocks.CHEST) {
+                  } else if(var1.getData(var17).c().getMaterial().a() && var1.getData(var17).c() != Blocks.CHEST) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
                         var1.a(var17, Blocks.MOSSY_COBBLESTONE.P(), 2);
                      } else {
@@ -90,7 +90,7 @@ public class bie extends WorldGenerator {
 
                         while(var21.hasNext()) {
                            EnumFacing var22 = (EnumFacing)var21.next();
-                           if(var1.getData(var25.a(var22)).c().r().a()) {
+                           if(var1.getData(var25.a(var22)).c().getMaterial().a()) {
                               ++var20;
                            }
                         }
@@ -99,8 +99,8 @@ public class bie extends WorldGenerator {
                            var1.a(var25, Blocks.CHEST.f(var1, var25, Blocks.CHEST.P()), 2);
                            List var28 = StructurePieceTreaasure.a(c, new StructurePieceTreaasure[]{Items.cd.b(var2)});
                            TileEntity var27 = var1.s(var25);
-                           if(var27 instanceof bcr) {
-                              StructurePieceTreaasure.a(var2, var28, (IInventory)((bcr)var27), 8);
+                           if(var27 instanceof TileEntityChest) {
+                              StructurePieceTreaasure.a(var2, var28, (IInventory)((TileEntityChest)var27), 8);
                            }
                            break label100;
                         }
@@ -118,8 +118,8 @@ public class bie extends WorldGenerator {
 
          var1.a(var3, Blocks.MOB_SPAWNER.P(), 2);
          TileEntity var23 = var1.s(var3);
-         if(var23 instanceof bdg) {
-            ((bdg)var23).b().a(this.a(var2));
+         if(var23 instanceof TileEntityMobSpawner) {
+            ((TileEntityMobSpawner)var23).getSpawner().a(this.a(var2));
          } else {
             a.error("Failed to fetch mob spawner entity at (" + var3.n() + ", " + var3.o() + ", " + var3.p() + ")");
          }

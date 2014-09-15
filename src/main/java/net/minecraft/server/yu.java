@@ -106,7 +106,7 @@ public class yu extends PathfinderGoal {
       int var21 = MathHelper.d(this.a.J + 1.0F);
       if(var4 != var17 || var6 != var18) {
          Block var22 = this.a.o.getData(new Location(var4, var5, var6)).c();
-         boolean var23 = !this.a(var22) && (var22.r() != Material.AIR || !this.a(this.a.o.getData(new Location(var4, var5 - 1, var6)).c()));
+         boolean var23 = !this.a(var22) && (var22.getMaterial() != Material.AIR || !this.a(this.a.o.getData(new Location(var4, var5 - 1, var6)).c()));
          if(var23 && 0 == bpy.a(this.a.o, this.a, var17, var5, var18, var19, var20, var21, false, false, true) && 1 == bpy.a(this.a.o, this.a, var4, var5 + 1, var6, var19, var20, var21, false, false, true) && 1 == bpy.a(this.a.o, this.a, var17, var5 + 1, var18, var19, var20, var21, false, false, true)) {
             var2.r().a();
          }

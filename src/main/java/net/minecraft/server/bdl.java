@@ -6,10 +6,10 @@ class bdl implements ICommandListener {
    // $FF: synthetic field
    final EntityHuman a;
    // $FF: synthetic field
-   final bdj b;
+   final TileEntitySign b;
 
 
-   bdl(bdj var1, EntityHuman var2) {
+   bdl(TileEntitySign var1, EntityHuman var2) {
       this.b = var1;
       this.a = var2;
    }
@@ -49,6 +49,6 @@ class bdl implements ICommandListener {
    }
 
    public void a(ag var1, int var2) {
-      bdj.a(this.b).a(this, var1, var2);
+      TileEntitySign.a(this.b).a(this, var1, var2);
    }
 }

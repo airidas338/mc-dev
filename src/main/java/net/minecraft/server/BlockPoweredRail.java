@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import com.google.common.base.Predicate;
 
-public class BlockPoweredRail extends ati {
+public class BlockPoweredRail extends BlockMinecartTrackAbstract {
 
    public static final bev b = bev.a("shape", atl.class, (Predicate)(new azd()));
    public static final bet M = bet.a("powered");

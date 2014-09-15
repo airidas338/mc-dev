@@ -11,7 +11,7 @@ class aev extends PathfinderGoal {
    }
 
    public boolean a() {
-      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().r() != Material.AIR?false:this.a.bb().nextInt(20) == 0);
+      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().getMaterial() != Material.AIR?false:this.a.bb().nextInt(20) == 0);
    }
 
    public void e() {

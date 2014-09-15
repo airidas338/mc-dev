@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
 
-public class BlockMinecartDetector extends ati {
+public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 
    public static final bev b = bev.a("shape", atl.class, (Predicate)(new auz()));
    public static final bet M = bet.a("powered");
@@ -86,11 +86,11 @@ public class BlockMinecartDetector extends ati {
       return b;
    }
 
-   public boolean N() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, Location var2) {
+   public int getDropData(World var1, Location var2) {
       if(((Boolean)var1.getData(var2).b(M)).booleanValue()) {
          List var3 = this.a(var1, var2, EntityMinecartCommandBlock.class, new Predicate[0]);
          if(!var3.isEmpty()) {

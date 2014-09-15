@@ -43,8 +43,8 @@ public class BlockMushroom extends BlockPlant implements atz {
 
    }
 
-   public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && this.f(var1, var2, this.P());
+   public boolean canPlace(World var1, Location var2) {
+      return super.canPlace(var1, var2) && this.f(var1, var2, this.P());
    }
 
    protected boolean c(Block var1) {

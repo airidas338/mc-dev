@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 
-class bcu extends CommandBlockListenerAbstract {
+class TileEntityCommandListener extends CommandBlockListenerAbstract {
 
    // $FF: synthetic field
-   final bct a;
+   final TileEntityCommand a;
 
 
-   bcu(bct var1) {
+   TileEntityCommandListener(TileEntityCommand var1) {
       this.a = var1;
    }
 

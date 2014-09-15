@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Random;
 
-public class BlockStationary extends axl {
+public class BlockStationary extends BlockFluids {
 
    protected BlockStationary(Material var1) {
       super(var1);
@@ -72,6 +72,6 @@ public class BlockStationary extends axl {
    }
 
    private boolean m(World var1, Location var2) {
-      return var1.getData(var2).c().r().h();
+      return var1.getData(var2).c().getMaterial().h();
    }
 }

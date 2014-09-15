@@ -204,13 +204,13 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 			int var14 = MathHelper.floor(this.s);
 			var2 = MathHelper.floor(this.t);
 			int var16 = MathHelper.floor(this.u);
-			if (ati.d(this.o, new Location(var14, var2 - 1, var16))) {
+			if (BlockMinecartTrackAbstract.d(this.o, new Location(var14, var2 - 1, var16))) {
 				--var2;
 			}
 
 			Location var4 = new Location(var14, var2, var16);
 			IBlockData var5 = this.o.getData(var4);
-			if (ati.d(var5)) {
+			if (BlockMinecartTrackAbstract.d(var5)) {
 				this.a(var4, var5);
 				if (var5.c() == Blocks.ACTIVATOR_RAIL) {
 					this.a(var14, var2, var16, ((Boolean) var5.b(BlockPoweredRail.M)).booleanValue());
@@ -290,7 +290,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		this.t = (double) var1.o();
 		boolean var4 = false;
 		boolean var5 = false;
-		ati var6 = (ati) var2.c();
+		BlockMinecartTrackAbstract var6 = (BlockMinecartTrackAbstract) var2.c();
 		if (var6 == Blocks.GOLDEN_RAIL) {
 			var4 = ((Boolean) var2.b(BlockPoweredRail.M)).booleanValue();
 			var5 = !var4;
@@ -475,13 +475,13 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		int var7 = MathHelper.floor(var1);
 		int var8 = MathHelper.floor(var3);
 		int var9 = MathHelper.floor(var5);
-		if (ati.d(this.o, new Location(var7, var8 - 1, var9))) {
+		if (BlockMinecartTrackAbstract.d(this.o, new Location(var7, var8 - 1, var9))) {
 			--var8;
 		}
 
 		IBlockData var10 = this.o.getData(new Location(var7, var8, var9));
-		if (ati.d(var10)) {
-			atl var11 = (atl) var10.b(((ati) var10.c()).l());
+		if (BlockMinecartTrackAbstract.d(var10)) {
+			atl var11 = (atl) var10.b(((BlockMinecartTrackAbstract) var10.c()).l());
 			int[][] var12 = c[var11.a()];
 			double var13 = 0.0D;
 			double var15 = (double) var7 + 0.5D + (double) var12[0][0] * 0.5D;

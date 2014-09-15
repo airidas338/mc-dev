@@ -28,11 +28,11 @@ public class aju extends Item {
          return false;
       } else if(!var2.a(var4, var5, var1)) {
          return false;
-      } else if(var4.o() == 255 && this.a.r().a()) {
+      } else if(var4.o() == 255 && this.a.getMaterial().a()) {
          return false;
       } else if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
          int var11 = this.a(var1.i());
-         IBlockData var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
+         IBlockData var12 = this.a.getPlacedData(var3, var4, var5, var6, var7, var8, var11, var2);
          if(var3.a(var4, var12, 3)) {
             var12 = var3.getData(var4);
             if(var12.c() == this.a) {

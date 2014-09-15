@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class BlockSlime extends awt {
+public class BlockSlime extends BlockHalfTransparent {
 
    public BlockSlime() {
       super(Material.CLAY, false);

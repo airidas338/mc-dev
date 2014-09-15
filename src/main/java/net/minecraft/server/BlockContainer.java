@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public abstract class atg extends Block implements avs {
+public abstract class BlockContainer extends Block implements IContainer {
 
-   protected atg(Material var1) {
+   protected BlockContainer(Material var1) {
       super(var1);
       this.A = true;
    }
@@ -11,8 +11,8 @@ public abstract class atg extends Block implements avs {
       return -1;
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
-      super.b(var1, var2, var3);
+   public void remove(World var1, Location var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
       var1.t(var2);
    }
 

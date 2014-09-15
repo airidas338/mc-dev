@@ -21,7 +21,7 @@ public class anh extends Item {
          Block var10 = var9.c();
          boolean var11 = var10.f(var3, var4);
          if(!var11) {
-            if(!var3.getData(var4).c().r().a()) {
+            if(!var3.getData(var4).c().getMaterial().a()) {
                return false;
             }
 
@@ -30,7 +30,7 @@ public class anh extends Item {
 
          if(!var2.a(var4, var5, var1)) {
             return false;
-         } else if(!Blocks.SKULL.c(var3, var4)) {
+         } else if(!Blocks.SKULL.canPlace(var3, var4)) {
             return false;
          } else {
             if(!var3.isStatic) {
@@ -41,8 +41,8 @@ public class anh extends Item {
                }
 
                TileEntity var13 = var3.s(var4);
-               if(var13 instanceof bdm) {
-                  bdm var14 = (bdm)var13;
+               if(var13 instanceof TileEntitySkull) {
+                  TileEntitySkull var14 = (TileEntitySkull)var13;
                   if(var1.i() == 3) {
                      GameProfile var15 = null;
                      if(var1.n()) {
@@ -105,7 +105,7 @@ public class anh extends Item {
       super.a(var1);
       if(var1.hasKeyOfType("SkullOwner", 8) && var1.getString("SkullOwner").length() > 0) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
-         var2 = bdm.b(var2);
+         var2 = TileEntitySkull.b(var2);
          var1.set("SkullOwner", (NBTBase)GameProfileSerializer.serialize(new NBTTagCompound(), var2));
          return true;
       } else {

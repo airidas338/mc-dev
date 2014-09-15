@@ -15,7 +15,7 @@ public class WorldGenBonusChest extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
       Block var4;
-      while(((var4 = var1.getData(var3).c()).r() == Material.AIR || var4.r() == Material.LEAVES) && var3.o() > 1) {
+      while(((var4 = var1.getData(var3).c()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.o() > 1) {
          var3 = var3.b();
       }
 
@@ -29,8 +29,8 @@ public class WorldGenBonusChest extends WorldGenerator {
             if(var1.isEmpty(var6) && World.a((IBlockAccess)var1, var6.b())) {
                var1.a(var6, Blocks.CHEST.P(), 2);
                TileEntity var7 = var1.s(var6);
-               if(var7 instanceof bcr) {
-                  StructurePieceTreaasure.a(var2, this.a, (IInventory)((bcr)var7), this.b);
+               if(var7 instanceof TileEntityChest) {
+                  StructurePieceTreaasure.a(var2, this.a, (IInventory)((TileEntityChest)var7), this.b);
                }
 
                Location var8 = var6.f();

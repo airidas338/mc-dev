@@ -28,7 +28,7 @@ public class BlockWaterLily extends BlockPlant {
    public boolean f(World var1, Location var2, IBlockData var3) {
       if(var2.o() >= 0 && var2.o() < 256) {
          IBlockData var4 = var1.getData(var2.b());
-         return var4.c().r() == Material.WATER && ((Integer)var4.b(axl.b)).intValue() == 0;
+         return var4.c().getMaterial() == Material.WATER && ((Integer)var4.b(BlockFluids.b)).intValue() == 0;
       } else {
          return false;
       }

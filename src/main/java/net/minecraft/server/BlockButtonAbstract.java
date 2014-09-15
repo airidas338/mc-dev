@@ -2,14 +2,14 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public abstract class aud extends Block {
+public abstract class BlockButtonAbstract extends Block {
 
    public static final beu a = beu.a("facing");
    public static final bet b = bet.a("powered");
    private final boolean M;
 
 
-   protected aud(boolean var1) {
+   protected BlockButtonAbstract(boolean var1) {
       super(Material.ORIENTABLE);
       this.j(this.L.b().a(a, EnumFacing.NORTH).a(b, Boolean.valueOf(false)));
       this.a(true);
@@ -33,11 +33,11 @@ public abstract class aud extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       return var1.getData(var2.a(var3.d())).c().t();
    }
 
-   public boolean c(World var1, Location var2) {
+   public boolean canPlace(World var1, Location var2) {
       EnumFacing[] var3 = EnumFacing.values();
       int var4 = var3.length;
 
@@ -51,7 +51,7 @@ public abstract class aud extends Block {
       return false;
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return var1.getData(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, EnumFacing.DOWN).a(b, Boolean.valueOf(false));
    }
 
@@ -67,7 +67,7 @@ public abstract class aud extends Block {
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
-      if(!this.c(var1, var2)) {
+      if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
          return false;
@@ -110,7 +110,7 @@ public abstract class aud extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          return true;
       } else {
@@ -123,12 +123,12 @@ public abstract class aud extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlockData var3) {
+   public void remove(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          this.b(var1, var2, (EnumFacing)var3.b(a));
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {

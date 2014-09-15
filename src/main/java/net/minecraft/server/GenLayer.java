@@ -127,8 +127,8 @@ public abstract class GenLayer {
       if(var0 == var1) {
          return true;
       } else if(var0 != BiomeBase.MESA_PLATEAU_F.id && var0 != BiomeBase.MESA_PLATEAU.id) {
-         BiomeBase var2 = BiomeBase.e(var0);
-         BiomeBase var3 = BiomeBase.e(var1);
+         BiomeBase var2 = BiomeBase.getBiome(var0);
+         BiomeBase var3 = BiomeBase.getBiome(var1);
 
          try {
             return var2 != null && var3 != null?var2.a(var3):false;

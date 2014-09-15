@@ -110,7 +110,7 @@ public abstract class EntityLiving extends Entity {
          IBlockData var6 = this.o.getData(var5);
          Block var7 = var6.c();
          float var8 = (float)MathHelper.f(this.O - 3.0F);
-         if(var7.r() != Material.AIR) {
+         if(var7.getMaterial() != Material.AIR) {
             double var9 = (double)Math.min(0.2F + var8 / 15.0F, 10.0F);
             if(var9 > 2.5D) {
                var9 = 2.5D;
@@ -754,7 +754,7 @@ public abstract class EntityLiving extends Entity {
          int var7 = MathHelper.floor(this.t - 0.20000000298023224D);
          int var8 = MathHelper.floor(this.u);
          Block var9 = this.o.getData(new Location(var6, var7, var8)).c();
-         if(var9.r() != Material.AIR) {
+         if(var9.getMaterial() != Material.AIR) {
             StepSound var10 = var9.H;
             this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
          }
@@ -965,7 +965,7 @@ public abstract class EntityLiving extends Entity {
                      return;
                   }
 
-                  if(World.a((IBlockAccess)this.o, new Location(var12, (int)this.t - 1, var13)) || this.o.getData(new Location(var12, (int)this.t - 1, var13)).c().r() == Material.WATER) {
+                  if(World.a((IBlockAccess)this.o, new Location(var12, (int)this.t - 1, var13)) || this.o.getData(new Location(var12, (int)this.t - 1, var13)).c().getMaterial() == Material.WATER) {
                      var3 = this.s + (double)var10;
                      var5 = this.t + 1.0D;
                      var7 = this.u + (double)var11;

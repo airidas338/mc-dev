@@ -108,7 +108,7 @@ public class BlockVine extends Block {
       return null;
    }
 
-   public boolean a(World var1, Location var2, EnumFacing var3) {
+   public boolean canPlace(World var1, Location var2, EnumFacing var3) {
       switch(bbw.a[var3.ordinal()]) {
       case 1:
          return this.c(var1.getData(var2.a()).c());
@@ -280,7 +280,7 @@ public class BlockVine extends Block {
       return 1 << var0.b();
    }
 
-   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.P().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
       return var3.k().c()?var9.a(a(var3.d()), Boolean.valueOf(true)):var9;
    }

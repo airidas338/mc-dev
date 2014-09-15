@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 public class ajh extends wa {
 
-   private bda a;
+   private TileEntityEnderChest a;
 
 
    public ajh() {
       super("container.enderchest", false, 27);
    }
 
-   public void a(bda var1) {
+   public void a(TileEntityEnderChest var1) {
       this.a = var1;
    }
 

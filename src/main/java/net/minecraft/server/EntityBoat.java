@@ -337,7 +337,7 @@ public class EntityBoat extends Entity {
 
             this.O = 0.0F;
          }
-      } else if(this.o.getData((new Location(this)).b()).c().r() != Material.WATER && var1 < 0.0D) {
+      } else if(this.o.getData((new Location(this)).b()).c().getMaterial() != Material.WATER && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

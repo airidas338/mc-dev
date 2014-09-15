@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class boc extends Material {
+public class MaterialDecoration extends Material {
 
-   public boc(MaterialMapColor var1) {
+   public MaterialDecoration(MaterialMapColor var1) {
       super(var1);
       this.p();
    }

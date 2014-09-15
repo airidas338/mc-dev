@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class bod extends Material {
+public class MaterialGas extends Material {
 
-   public bod(MaterialMapColor var1) {
+   public MaterialGas(MaterialMapColor var1) {
       super(var1);
       this.i();
    }

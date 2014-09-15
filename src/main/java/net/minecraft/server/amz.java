@@ -16,7 +16,7 @@ public class amz extends Item {
          Block var11 = var3.getData(var10).c();
          if(!var3.a(var11, var10, false, var5, (Entity)null, var1)) {
             return false;
-         } else if(Blocks.REDSTONE_WIRE.c(var3, var10)) {
+         } else if(Blocks.REDSTONE_WIRE.canPlace(var3, var10)) {
             --var1.b;
             var3.a(var10, Blocks.REDSTONE_WIRE.P());
             return true;

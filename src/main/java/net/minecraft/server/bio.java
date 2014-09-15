@@ -28,7 +28,7 @@ public class bio extends WorldGenTreeAbstract {
                for(int var12 = var3.p() - var21; var12 <= var3.p() + var21 && var8; ++var12) {
                   if(var9 >= 0 && var9 < 256) {
                      Block var13 = var1.getData(new Location(var11, var9, var12)).c();
-                     if(var13.r() != Material.AIR && var13.r() != Material.LEAVES) {
+                     if(var13.getMaterial() != Material.AIR && var13.getMaterial() != Material.LEAVES) {
                         var8 = false;
                      }
                   } else {
@@ -83,7 +83,7 @@ public class bio extends WorldGenTreeAbstract {
 
                for(var14 = 0; var14 < var4 - var23; ++var14) {
                   Block var24 = var1.getData(var3.b(var14)).c();
-                  if(var24.r() == Material.AIR || var24.r() == Material.LEAVES) {
+                  if(var24.getMaterial() == Material.AIR || var24.getMaterial() == Material.LEAVES) {
                      this.a(var1, var3.b(var14), Blocks.LOG, ayx.b.a());
                   }
                }

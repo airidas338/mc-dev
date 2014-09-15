@@ -16,7 +16,7 @@ public class BlockOre extends Block {
       return this == Blocks.LAPIS_ORE?4 + var1.nextInt(5):1;
    }
 
-   public int a(int var1, Random var2) {
+   public int getDropCount(int var1, Random var2) {
       if(var1 > 0 && Item.a((Block)this) != this.a((IBlockData)this.O().a().iterator().next(), var2, var1)) {
          int var3 = var2.nextInt(var1 + 2) - 1;
          if(var3 < 0) {
@@ -29,8 +29,8 @@ public class BlockOre extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
+      super.dropNaturally(var1, var2, var3, var4, var5);
       if(this.a(var3, var1.random, var5) != Item.a((Block)this)) {
          int var6 = 0;
          if(this == Blocks.COAL_ORE) {

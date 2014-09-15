@@ -70,14 +70,14 @@ public class BlockSoil extends Block {
          }
 
          var4 = (dy)var3.next();
-      } while(var1.getData(var4).c().r() != Material.WATER);
+      } while(var1.getData(var4).c().getMaterial() != Material.WATER);
 
       return true;
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
-      if(var1.getData(var2.a()).c().r().a()) {
+      if(var1.getData(var2.a()).c().getMaterial().a()) {
          var1.a(var2, Blocks.DIRT.P());
       }
 

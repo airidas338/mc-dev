@@ -1,5 +1,5 @@
 package net.minecraft.server;
 
-public class bdn extends TileEntity {
+public class TileEntityEnderPortal extends TileEntity {
 
 }

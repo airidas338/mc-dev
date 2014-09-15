@@ -46,7 +46,7 @@ public class EntityExperienceOrb extends Entity {
       this.q = this.t;
       this.r = this.u;
       this.w -= 0.029999999329447746D;
-      if(this.o.getData(new Location(this)).c().r() == Material.LAVA) {
+      if(this.o.getData(new Location(this)).c().getMaterial() == Material.LAVA) {
          this.w = 0.20000000298023224D;
          this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
          this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);

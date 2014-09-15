@@ -2,12 +2,12 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public abstract class axl extends Block {
+public abstract class BlockFluids extends Block {
 
    public static final bew b = bew.a("level", 0, 15);
 
 
-   protected axl(Material var1) {
+   protected BlockFluids(Material var1) {
       super(var1);
       this.j(this.L.b().a(b, Integer.valueOf(0)));
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -27,7 +27,7 @@ public abstract class axl extends Block {
    }
 
    protected int e(IBlockAccess var1, Location var2) {
-      return var1.getData(var2).c().r() == this.J?((Integer)var1.getData(var2).b(b)).intValue():-1;
+      return var1.getData(var2).c().getMaterial() == this.J?((Integer)var1.getData(var2).b(b)).intValue():-1;
    }
 
    protected int f(IBlockAccess var1, Location var2) {
@@ -48,7 +48,7 @@ public abstract class axl extends Block {
    }
 
    public boolean b(IBlockAccess var1, Location var2, EnumFacing var3) {
-      Material var4 = var1.getData(var2).c().r();
+      Material var4 = var1.getData(var2).c().getMaterial();
       return var4 == this.J?false:(var3 == EnumFacing.UP?true:(var4 == Material.ICE?false:super.b(var1, var2, var3)));
    }
 
@@ -81,7 +81,7 @@ public abstract class axl extends Block {
          int var8 = this.f(var1, var7);
          int var9;
          if(var8 < 0) {
-            if(!var1.getData(var7).c().r().c()) {
+            if(!var1.getData(var7).c().getMaterial().c()) {
                var8 = this.f(var1, var7.b());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);
@@ -134,7 +134,7 @@ public abstract class axl extends Block {
 
          for(int var7 = 0; var7 < var6; ++var7) {
             EnumFacing var8 = var5[var7];
-            if(var8 != EnumFacing.DOWN && var1.getData(var2.a(var8)).c().r() == Material.WATER) {
+            if(var8 != EnumFacing.DOWN && var1.getData(var2.a(var8)).c().getMaterial() == Material.WATER) {
                var4 = true;
                break;
             }
