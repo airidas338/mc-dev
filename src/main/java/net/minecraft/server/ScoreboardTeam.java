@@ -21,7 +21,7 @@ public class ScoreboardTeam extends ScoreboardTeamBase {
    public ScoreboardTeam(Scoreboard var1, String var2) {
       this.i = bsg.a;
       this.j = bsg.a;
-      this.k = EnumChatFormat.v;
+      this.k = EnumChatFormat.RESET;
       this.a = var1;
       this.b = var2;
       this.d = var2;

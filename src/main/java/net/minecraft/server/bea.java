@@ -5,13 +5,13 @@ import com.google.common.collect.Iterables;
 import java.util.Collection;
 import java.util.Iterator;
 
-public abstract class bea implements IBlock {
+public abstract class bea implements IBlockData {
 
    private static final Joiner a = Joiner.on(',');
    private static final Function b = new beb();
 
 
-   public IBlock a(bex var1) {
+   public IBlockData a(bex var1) {
       return this.a(var1, (Comparable)a(var1.c(), this.b(var1)));
    }
 
@@ -33,7 +33,7 @@ public abstract class bea implements IBlock {
 
    public String toString() {
       StringBuilder var1 = new StringBuilder();
-      var1.append(Block.c.c(this.c()));
+      var1.append(Block.REGISTRY.c(this.c()));
       if(!this.b().isEmpty()) {
          var1.append("[");
          a.appendTo(var1, Iterables.transform(this.b().entrySet(), b));

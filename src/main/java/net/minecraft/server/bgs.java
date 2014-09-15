@@ -63,12 +63,12 @@ public class bgs extends bgt {
             }
 
             if(var6 >= var19 - 16.0D - var29 * 2.0D && var10 >= var21 - 16.0D - var29 * 2.0D && var6 <= var19 + 16.0D + var29 * 2.0D && var10 <= var21 + 16.0D + var29 * 2.0D) {
-               int var55 = MathHelper.c(var6 - var29) - var3 * 16 - 1;
-               int var36 = MathHelper.c(var6 + var29) - var3 * 16 + 1;
-               int var57 = MathHelper.c(var8 - var31) - 1;
-               int var38 = MathHelper.c(var8 + var31) + 1;
-               int var56 = MathHelper.c(var10 - var29) - var4 * 16 - 1;
-               int var40 = MathHelper.c(var10 + var29) - var4 * 16 + 1;
+               int var55 = MathHelper.floor(var6 - var29) - var3 * 16 - 1;
+               int var36 = MathHelper.floor(var6 + var29) - var3 * 16 + 1;
+               int var57 = MathHelper.floor(var8 - var31) - 1;
+               int var38 = MathHelper.floor(var8 + var31) + 1;
+               int var56 = MathHelper.floor(var10 - var29) - var4 * 16 - 1;
+               int var40 = MathHelper.floor(var10 + var29) - var4 * 16 + 1;
                if(var55 < 0) {
                   var55 = 0;
                }
@@ -100,7 +100,7 @@ public class bgs extends bgt {
                   for(int var43 = var56; !var58 && var43 < var40; ++var43) {
                      for(int var44 = var38 + 1; !var58 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
-                           IBlock var45 = var5.a(var42, var44, var43);
+                           IBlockData var45 = var5.a(var42, var44, var43);
                            if(var45.c() == Blocks.WATER || var45.c() == Blocks.STATIONARY_WATER) {
                               var58 = true;
                            }
@@ -124,8 +124,8 @@ public class bgs extends bgt {
                            for(int var49 = var38; var49 > var57; --var49) {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var31;
                               if(var50 > -0.7D && var60 * var60 + var50 * var50 + var46 * var46 < 1.0D) {
-                                 IBlock var52 = var5.a(var42, var49, var59);
-                                 IBlock var53 = (IBlock)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.AIR.P());
+                                 IBlockData var52 = var5.a(var42, var49, var59);
+                                 IBlockData var53 = (IBlockData)Objects.firstNonNull(var5.a(var42, var49 + 1, var59), Blocks.AIR.P());
                                  if(var52.c() == Blocks.GRASS || var52.c() == Blocks.MYCEL) {
                                     var48 = true;
                                  }
@@ -140,7 +140,7 @@ public class bgs extends bgt {
                                        }
 
                                        if(var48 && var5.a(var42, var49 - 1, var59).c() == Blocks.DIRT) {
-                                          var5.a(var42, var49 - 1, var59, this.c.b(new Location(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
+                                          var5.a(var42, var49 - 1, var59, this.c.getBiome(new Location(var42 + var3 * 16, 0, var59 + var4 * 16)).ak.c().P());
                                        }
                                     }
                                  }
@@ -160,7 +160,7 @@ public class bgs extends bgt {
 
    }
 
-   protected boolean a(IBlock var1, IBlock var2) {
+   protected boolean a(IBlockData var1, IBlockData var2) {
       return var1.c() == Blocks.STONE?true:(var1.c() == Blocks.DIRT?true:(var1.c() == Blocks.GRASS?true:(var1.c() == Blocks.HARDENED_CLAY?true:(var1.c() == Blocks.STAINED_HARDENED_CLAY?true:(var1.c() == Blocks.SANDSTONE?true:(var1.c() == Blocks.RED_SANDSTONE?true:(var1.c() == Blocks.MYCEL?true:(var1.c() == Blocks.SNOW?true:(var1.c() == Blocks.SAND || var1.c() == Blocks.GRAVEL) && var2.c().r() != Material.WATER))))))));
    }
 

@@ -15,7 +15,7 @@ public class ll implements Packet {
       this.c = new IChatBaseComponent[]{var3[0], var3[1], var3[2], var3[3]};
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.b = var1.c();
       this.c = new IChatBaseComponent[4];
 
@@ -25,7 +25,7 @@ public class ll implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.b);
 
       for(int var2 = 0; var2 < 4; ++var2) {

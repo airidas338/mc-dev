@@ -28,9 +28,9 @@ public class EntityThrownExpBottle extends EntityProjectile {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.o.b(2002, new Location(this), 0);
-         int var2 = 3 + this.o.s.nextInt(5) + this.o.s.nextInt(5);
+         int var2 = 3 + this.o.random.nextInt(5) + this.o.random.nextInt(5);
 
          while(var2 > 0) {
             int var3 = EntityExperienceOrb.a(var2);

@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandSetBlock extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "setblock";
    }
 
@@ -15,7 +15,7 @@ public class CommandSetBlock extends CommandAbstract {
       return "commands.setblock.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 4) {
          throw new ExceptionUsage("commands.setblock.usage", new Object[0]);
       } else {
@@ -27,8 +27,8 @@ public class CommandSetBlock extends CommandAbstract {
             var5 = a(var2[4], 0, 15);
          }
 
-         World var6 = var1.e();
-         if(!var6.e(var3)) {
+         World var6 = var1.getWorld();
+         if(!var6.isLoaded(var3)) {
             throw new CommandException("commands.setblock.outOfWorld", new Object[0]);
          } else {
             NBTTagCompound var7 = new NBTTagCompound();
@@ -51,7 +51,7 @@ public class CommandSetBlock extends CommandAbstract {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
-               } else if(var2[5].equals("keep") && !var6.d(var3)) {
+               } else if(var2[5].equals("keep") && !var6.isEmpty(var3)) {
                   throw new CommandException("commands.setblock.noChange", new Object[0]);
                }
             }
@@ -65,7 +65,7 @@ public class CommandSetBlock extends CommandAbstract {
                var6.a(var3, Blocks.AIR.P(), var4 == Blocks.AIR?2:4);
             }
 
-            IBlock var10 = var4.a(var5);
+            IBlockData var10 = var4.a(var5);
             if(!var6.a(var3, var10, 2)) {
                throw new CommandException("commands.setblock.noChange", new Object[0]);
             } else {
@@ -87,7 +87,7 @@ public class CommandSetBlock extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.REGISTRY.c()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
    }
 }

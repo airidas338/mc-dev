@@ -83,7 +83,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       return this.ac.c(20);
    }
 
-   public String d_() {
+   public String getName() {
       if(this.k_()) {
          return this.aL();
       } else {
@@ -257,14 +257,14 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    public boolean cB() {
-      int var1 = MathHelper.c(this.s);
-      int var2 = MathHelper.c(this.u);
-      this.o.b(new Location(var1, 0, var2));
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.u);
+      this.o.getBiome(new Location(var1, 0, var2));
       return true;
    }
 
    public void cC() {
-      if(!this.o.D && this.cu()) {
+      if(!this.o.isStatic && this.cu()) {
          this.a(Item.a((Block)Blocks.CHEST), 1);
          this.o(false);
       }
@@ -307,7 +307,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    private void cY() {
       InventoryHorseChest var1 = this.bC;
       this.bC = new InventoryHorseChest("HorseChest", this.cX());
-      this.bC.a(this.d_());
+      this.bC.a(this.getName());
       if(var1 != null) {
          var1.b(this);
          int var2 = Math.min(var1.n_(), this.bC.n_());
@@ -325,7 +325,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    private void cZ() {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.q(this.bC.a(0) != null);
          if(this.cM()) {
             this.e(this.bC.a(1));
@@ -477,14 +477,14 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    public void g(EntityHuman var1) {
-      if(!this.o.D && (this.l == null || this.l == var1) && this.cm()) {
-         this.bC.a(this.d_());
+      if(!this.o.isStatic && (this.l == null || this.l == var1) && this.cm()) {
+         this.bC.a(this.getName());
          var1.a(this, this.bC);
       }
 
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.bJ) {
          return super.a(var1);
@@ -624,7 +624,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       var1.z = this.z;
       this.r(false);
       this.s(false);
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          var1.a((Entity)this);
       }
 
@@ -662,7 +662,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.cV();
       }
 
@@ -674,12 +674,12 @@ public class EntityHorse extends EntityAnimal implements vr {
       }
 
       super.m();
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(this.V.nextInt(900) == 0 && this.av == 0) {
             this.g(1.0F);
          }
 
-         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.t) - 1, MathHelper.c(this.u))).c() == Blocks.GRASS) {
+         if(!this.cw() && this.l == null && this.V.nextInt(300) == 0 && this.o.getData(new Location(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).c() == Blocks.GRASS) {
             this.r(true);
          }
 
@@ -700,7 +700,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void s_() throws IOException {
       super.s_();
-      if(this.o.D && this.ac.a()) {
+      if(this.o.isStatic && this.ac.a()) {
          this.ac.e();
          this.da();
       }
@@ -710,7 +710,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          this.c(128, false);
       }
 
-      if(!this.o.D && this.bB > 0 && ++this.bB > 20) {
+      if(!this.o.isStatic && this.bB > 0 && ++this.bB > 20) {
          this.bB = 0;
          this.s(false);
       }
@@ -770,7 +770,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    private void dd() {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.bA = 1;
          this.c(128, true);
       }
@@ -798,7 +798,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    private void df() {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.bB = 1;
          this.s(true);
       }
@@ -820,7 +820,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    }
 
    private void a(Entity var1, InventoryHorseChest var2) {
-      if(var2 != null && !this.o.D) {
+      if(var2 != null && !this.o.isStatic) {
          for(int var3 = 0; var3 < var2.n_(); ++var3) {
             ItemStack var4 = var2.a(var3);
             if(var4 != null) {
@@ -876,7 +876,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
          this.S = 1.0F;
          this.aK = this.bH() * 0.1F;
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.j((float)this.getAttributeInstance(GenericAttributes.d).getValue());
             super.g(var1, var2);
          }

@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class bif extends WorldGenerator {
 
-   private final IBlock a;
+   private final IBlockData a;
    private final int b;
    private final Predicate c;
 
 
-   public bif(IBlock var1, int var2) {
+   public bif(IBlockData var1, int var2) {
       this(var1, var2, bep.a(Blocks.STONE));
    }
 
-   public bif(IBlock var1, int var2, Predicate var3) {
+   public bif(IBlockData var1, int var2, Predicate var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -36,12 +36,12 @@ public class bif extends WorldGenerator {
          double var25 = var2.nextDouble() * (double)this.b / 16.0D;
          double var27 = (double)(MathHelper.sin(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
          double var29 = (double)(MathHelper.sin(3.1415927F * var18) + 1.0F) * var25 + 1.0D;
-         int var31 = MathHelper.c(var19 - var27 / 2.0D);
-         int var32 = MathHelper.c(var21 - var29 / 2.0D);
-         int var33 = MathHelper.c(var23 - var27 / 2.0D);
-         int var34 = MathHelper.c(var19 + var27 / 2.0D);
-         int var35 = MathHelper.c(var21 + var29 / 2.0D);
-         int var36 = MathHelper.c(var23 + var27 / 2.0D);
+         int var31 = MathHelper.floor(var19 - var27 / 2.0D);
+         int var32 = MathHelper.floor(var21 - var29 / 2.0D);
+         int var33 = MathHelper.floor(var23 - var27 / 2.0D);
+         int var34 = MathHelper.floor(var19 + var27 / 2.0D);
+         int var35 = MathHelper.floor(var21 + var29 / 2.0D);
+         int var36 = MathHelper.floor(var23 + var27 / 2.0D);
 
          for(int var37 = var31; var37 <= var34; ++var37) {
             double var38 = ((double)var37 + 0.5D - var19) / (var27 / 2.0D);

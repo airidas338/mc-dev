@@ -27,7 +27,7 @@ public class BlockEnderChest extends atg {
       return 2;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a(Blocks.OBSIDIAN);
    }
 
@@ -39,21 +39,21 @@ public class BlockEnderChest extends atg {
       return true;
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d());
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2, var3.a(a, var4.aO().d()), 2);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ajh var9 = var4.cn();
       TileEntity var10 = var1.s(var2);
       if(var9 != null && var10 instanceof bda) {
          if(var1.getData(var2.a()).c().t()) {
             return true;
-         } else if(var1.D) {
+         } else if(var1.isStatic) {
             return true;
          } else {
             var9.a((bda)var10);
@@ -69,7 +69,7 @@ public class BlockEnderChest extends atg {
       return new bda();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
          var2 = EnumFacing.NORTH;
@@ -78,7 +78,7 @@ public class BlockEnderChest extends atg {
       return this.P().a(a, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(a)).a();
    }
 

@@ -31,7 +31,7 @@ public class je implements Packet {
       ((PacketPlayOutListener)var1).a(this);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readUnsignedByte();
       this.b = var1.c(32);
       this.c = var1.d();
@@ -42,7 +42,7 @@ public class je implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeByte(this.a);
       var1.a(this.b);
       var1.a(this.c);

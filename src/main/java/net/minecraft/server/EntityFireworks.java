@@ -73,11 +73,11 @@ public class EntityFireworks extends Entity {
       }
 
       ++this.a;
-      if(this.o.D && this.a % 2 < 2) {
+      if(this.o.isStatic && this.a % 2 < 2) {
          this.o.a(ew.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.w * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
       }
 
-      if(!this.o.D && this.a > this.b) {
+      if(!this.o.isStatic && this.a > this.b) {
          this.o.a((Entity)this, (byte)17);
          this.J();
       }

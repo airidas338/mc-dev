@@ -24,7 +24,7 @@ public class PacketDecoder extends ByteToMessageDecoder {
 
    protected void decode(ChannelHandlerContext var1, ByteBuf var2, List var3) throws IOException, InstantiationException, IllegalAccessException {
       if(var2.readableBytes() != 0) {
-         hd var4 = new hd(var2);
+         PacketDataSerializer var4 = new PacketDataSerializer(var2);
          int var5 = var4.e();
          Packet var6 = ((gy)var1.channel().attr(NetworkManager.c).get()).a(this.c, var5);
          if(var6 == null) {

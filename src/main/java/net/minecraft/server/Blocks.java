@@ -203,7 +203,7 @@ public class Blocks {
 
 
    private static Block a(String var0) {
-      return (Block)Block.c.a(new RegistryPrepender(var0));
+      return (Block)Block.REGISTRY.a(new RegistryPrepender(var0));
    }
 
    static {

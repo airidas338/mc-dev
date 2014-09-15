@@ -43,9 +43,9 @@ public class qy {
       this.b = var2;
       this.c = var3;
       this.u = var4;
-      this.d = MathHelper.c(var1.s * 32.0D);
-      this.e = MathHelper.c(var1.t * 32.0D);
-      this.f = MathHelper.c(var1.u * 32.0D);
+      this.d = MathHelper.floor(var1.s * 32.0D);
+      this.e = MathHelper.floor(var1.t * 32.0D);
+      this.f = MathHelper.floor(var1.u * 32.0D);
       this.g = MathHelper.d(var1.y * 256.0F / 360.0F);
       this.h = MathHelper.d(var1.z * 256.0F / 360.0F);
       this.i = MathHelper.d(var1.aD() * 256.0F / 360.0F);
@@ -102,9 +102,9 @@ public class qy {
          int var24;
          if(this.a.m == null) {
             ++this.v;
-            var23 = MathHelper.c(this.a.s * 32.0D);
-            var24 = MathHelper.c(this.a.t * 32.0D);
-            int var25 = MathHelper.c(this.a.u * 32.0D);
+            var23 = MathHelper.floor(this.a.s * 32.0D);
+            var24 = MathHelper.floor(this.a.t * 32.0D);
+            int var25 = MathHelper.floor(this.a.u * 32.0D);
             int var27 = MathHelper.d(this.a.y * 256.0F / 360.0F);
             int var28 = MathHelper.d(this.a.z * 256.0F / 360.0F);
             int var29 = var23 - this.d;
@@ -170,9 +170,9 @@ public class qy {
                this.h = var24;
             }
 
-            this.d = MathHelper.c(this.a.s * 32.0D);
-            this.e = MathHelper.c(this.a.t * 32.0D);
-            this.f = MathHelper.c(this.a.u * 32.0D);
+            this.d = MathHelper.floor(this.a.s * 32.0D);
+            this.e = MathHelper.floor(this.a.t * 32.0D);
+            this.f = MathHelper.floor(this.a.u * 32.0D);
             this.b();
             this.x = true;
          }

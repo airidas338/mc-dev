@@ -19,7 +19,7 @@ public class is implements Packet {
       ((PacketPlayOutListener)var1).a(this);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       int var2 = var1.e();
       this.a = Maps.newHashMap();
 
@@ -33,7 +33,7 @@ public class is implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a.size());
       Iterator var2 = this.a.entrySet().iterator();
 

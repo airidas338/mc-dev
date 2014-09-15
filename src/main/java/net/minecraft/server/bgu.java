@@ -62,12 +62,12 @@ public class bgu extends bgt {
             }
 
             if(var6 >= var19 - 16.0D - var29 * 2.0D && var10 >= var21 - 16.0D - var29 * 2.0D && var6 <= var19 + 16.0D + var29 * 2.0D && var10 <= var21 + 16.0D + var29 * 2.0D) {
-               int var53 = MathHelper.c(var6 - var29) - var3 * 16 - 1;
-               int var36 = MathHelper.c(var6 + var29) - var3 * 16 + 1;
-               int var55 = MathHelper.c(var8 - var31) - 1;
-               int var38 = MathHelper.c(var8 + var31) + 1;
-               int var54 = MathHelper.c(var10 - var29) - var4 * 16 - 1;
-               int var40 = MathHelper.c(var10 + var29) - var4 * 16 + 1;
+               int var53 = MathHelper.floor(var6 - var29) - var3 * 16 - 1;
+               int var36 = MathHelper.floor(var6 + var29) - var3 * 16 + 1;
+               int var55 = MathHelper.floor(var8 - var31) - 1;
+               int var38 = MathHelper.floor(var8 + var31) + 1;
+               int var54 = MathHelper.floor(var10 - var29) - var4 * 16 - 1;
+               int var40 = MathHelper.floor(var10 + var29) - var4 * 16 + 1;
                if(var53 < 0) {
                   var53 = 0;
                }
@@ -99,7 +99,7 @@ public class bgu extends bgt {
                   for(int var43 = var54; !var56 && var43 < var40; ++var43) {
                      for(int var44 = var38 + 1; !var56 && var44 >= var55 - 1; --var44) {
                         if(var44 >= 0 && var44 < 128) {
-                           IBlock var45 = var5.a(var42, var44, var43);
+                           IBlockData var45 = var5.a(var42, var44, var43);
                            if(var45.c() == Blocks.LAVA || var45.c() == Blocks.STATIONARY_LAVA) {
                               var56 = true;
                            }
@@ -122,7 +122,7 @@ public class bgu extends bgt {
                         for(int var48 = var38; var48 > var55; --var48) {
                            double var49 = ((double)(var48 - 1) + 0.5D - var8) / var31;
                            if(var49 > -0.7D && var58 * var58 + var49 * var49 + var46 * var46 < 1.0D) {
-                              IBlock var51 = var5.a(var42, var48, var57);
+                              IBlockData var51 = var5.a(var42, var48, var57);
                               if(var51.c() == Blocks.NETHERRACK || var51.c() == Blocks.DIRT || var51.c() == Blocks.GRASS) {
                                  var5.a(var42, var48, var57, Blocks.AIR.P());
                               }

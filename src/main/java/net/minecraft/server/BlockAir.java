@@ -10,7 +10,7 @@ public class BlockAir extends Block {
       return -1;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -18,9 +18,9 @@ public class BlockAir extends Block {
       return false;
    }
 
-   public boolean a(IBlock var1, boolean var2) {
+   public boolean a(IBlockData var1, boolean var2) {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {}
 }

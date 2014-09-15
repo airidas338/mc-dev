@@ -69,7 +69,7 @@ public class EntityBat extends EntityAmbient {
       super.s_();
       if(this.n()) {
          this.v = this.w = this.x = 0.0D;
-         this.t = (double)MathHelper.c(this.t) + 1.0D - (double)this.K;
+         this.t = (double)MathHelper.floor(this.t) + 1.0D - (double)this.K;
       } else {
          this.w *= 0.6000000238418579D;
       }
@@ -95,7 +95,7 @@ public class EntityBat extends EntityAmbient {
             }
          }
       } else {
-         if(this.a != null && (!this.o.d(this.a) || this.a.o() < 1)) {
+         if(this.a != null && (!this.o.isEmpty(this.a) || this.a.o() < 1)) {
             this.a = null;
          }
 
@@ -136,7 +136,7 @@ public class EntityBat extends EntityAmbient {
       if(this.b(var1)) {
          return false;
       } else {
-         if(!this.o.D && this.n()) {
+         if(!this.o.isStatic && this.n()) {
             this.a(false);
          }
 

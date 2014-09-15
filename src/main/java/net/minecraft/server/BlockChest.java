@@ -46,14 +46,14 @@ public class BlockChest extends atg {
 
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
       Iterator var4 = en.a.iterator();
 
       while(var4.hasNext()) {
          EnumFacing var5 = (EnumFacing)var4.next();
          Location var6 = var2.a(var5);
-         IBlock var7 = var1.getData(var6);
+         IBlockData var7 = var1.getData(var6);
          if(var7.c() == this) {
             this.e(var1, var6, var7);
          }
@@ -61,12 +61,12 @@ public class BlockChest extends atg {
 
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO());
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
-      EnumFacing var6 = EnumFacing.b(MathHelper.c((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      EnumFacing var6 = EnumFacing.b(MathHelper.floor((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).d();
       var3 = var3.a(a, var6);
       Location var7 = var2.c();
       Location var8 = var2.d();
@@ -105,14 +105,14 @@ public class BlockChest extends atg {
 
    }
 
-   public IBlock e(World var1, Location var2, IBlock var3) {
-      if(var1.D) {
+   public IBlockData e(World var1, Location var2, IBlockData var3) {
+      if(var1.isStatic) {
          return var3;
       } else {
-         IBlock var4 = var1.getData(var2.c());
-         IBlock var5 = var1.getData(var2.d());
-         IBlock var6 = var1.getData(var2.e());
-         IBlock var7 = var1.getData(var2.f());
+         IBlockData var4 = var1.getData(var2.c());
+         IBlockData var5 = var1.getData(var2.d());
+         IBlockData var6 = var1.getData(var2.e());
+         IBlockData var7 = var1.getData(var2.f());
          EnumFacing var8 = (EnumFacing)var3.b(a);
          Block var9 = var4.c();
          Block var10 = var5.c();
@@ -123,8 +123,8 @@ public class BlockChest extends atg {
             boolean var23 = var10.m();
             if(var11 == this || var12 == this) {
                Location var22 = var11 == this?var2.e():var2.f();
-               IBlock var25 = var1.getData(var22.c());
-               IBlock var24 = var1.getData(var22.d());
+               IBlockData var25 = var1.getData(var22.c());
+               IBlockData var24 = var1.getData(var22.d());
                var8 = EnumFacing.SOUTH;
                EnumFacing var26;
                if(var11 == this) {
@@ -149,8 +149,8 @@ public class BlockChest extends atg {
             }
          } else {
             Location var13 = var9 == this?var2.c():var2.d();
-            IBlock var14 = var1.getData(var13.e());
-            IBlock var15 = var1.getData(var13.f());
+            IBlockData var14 = var1.getData(var13.e());
+            IBlockData var15 = var1.getData(var13.f());
             var8 = EnumFacing.EAST;
             EnumFacing var16;
             if(var9 == this) {
@@ -180,13 +180,13 @@ public class BlockChest extends atg {
       }
    }
 
-   public IBlock f(World var1, Location var2, IBlock var3) {
+   public IBlockData f(World var1, Location var2, IBlockData var3) {
       EnumFacing var4 = null;
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
          EnumFacing var6 = (EnumFacing)var5.next();
-         IBlock var7 = var1.getData(var2.a(var6));
+         IBlockData var7 = var1.getData(var2.a(var6));
          if(var7.c() == this) {
             return var3;
          }
@@ -281,7 +281,7 @@ public class BlockChest extends atg {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
       TileEntity var5 = var1.s(var2);
       if(var5 instanceof bcr) {
@@ -290,7 +290,7 @@ public class BlockChest extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
       if(var4 instanceof IInventory) {
          vs.a(var1, var2, (IInventory)var4);
@@ -300,8 +300,8 @@ public class BlockChest extends atg {
       super.b(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          vy var9 = this.d(var1, var2);
@@ -357,7 +357,7 @@ public class BlockChest extends atg {
       return this.b == 1;
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       if(!this.g()) {
          return 0;
       } else {
@@ -371,7 +371,7 @@ public class BlockChest extends atg {
       }
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return var4 == EnumFacing.UP?this.a(var1, var2, var3, var4):0;
    }
 
@@ -407,7 +407,7 @@ public class BlockChest extends atg {
       return aib.b((IInventory)this.d(var1, var2));
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
          var2 = EnumFacing.NORTH;
@@ -416,7 +416,7 @@ public class BlockChest extends atg {
       return this.P().a(a, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(a)).a();
    }
 

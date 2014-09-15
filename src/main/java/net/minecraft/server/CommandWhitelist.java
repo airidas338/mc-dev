@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CommandWhitelist extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "whitelist";
    }
 
@@ -17,7 +17,7 @@ public class CommandWhitelist extends CommandAbstract {
       return "commands.whitelist.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.whitelist.usage", new Object[0]);
       } else {
@@ -29,9 +29,9 @@ public class CommandWhitelist extends CommandAbstract {
             var3.an().a(false);
             a(var1, this, "commands.whitelist.disabled", new Object[0]);
          } else if(var2[0].equals("list")) {
-            var1.a(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
+            var1.sendMessage(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.an().m().length), Integer.valueOf(var3.an().r().length)}));
             String[] var4 = var3.an().m();
-            var1.a(new ChatComponentText(a(var4)));
+            var1.sendMessage(new ChatComponentText(a(var4)));
          } else {
             GameProfile var5;
             if(var2[0].equals("add")) {
@@ -67,7 +67,7 @@ public class CommandWhitelist extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"on", "off", "list", "add", "remove", "reload"});
       } else {

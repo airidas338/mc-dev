@@ -24,7 +24,7 @@ public class jv implements Packet {
       var9 = MathHelper.a(var9, 0.0F, 255.0F);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(256);
       this.b = var1.readInt();
       this.c = var1.readInt();
@@ -33,7 +33,7 @@ public class jv implements Packet {
       this.f = var1.readUnsignedByte();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeInt(this.b);
       var1.writeInt(this.c);

@@ -18,7 +18,7 @@ public class gq extends MessageToByteEncoder {
 
    protected void a(ChannelHandlerContext var1, ByteBuf var2, ByteBuf var3) {
       int var4 = var2.readableBytes();
-      hd var5 = new hd(var3);
+      PacketDataSerializer var5 = new PacketDataSerializer(var3);
       if(var4 < this.c) {
          var5.b(0);
          var5.writeBytes(var2);

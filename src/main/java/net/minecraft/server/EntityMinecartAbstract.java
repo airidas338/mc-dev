@@ -82,7 +82,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 	}
 
 	public boolean a(DamageSource var1, float var2) {
-		if (!this.o.D && !this.I) {
+		if (!this.o.isStatic && !this.I) {
 			if (this.b(var1)) {
 				return false;
 			} else {
@@ -142,8 +142,8 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		}
 
 		int var2;
-		if (!this.o.D && this.o instanceof WorldServer) {
-			this.o.B.a("portal");
+		if (!this.o.isStatic && this.o instanceof WorldServer) {
+			this.o.methodProfiler.a("portal");
 			MinecraftServer var1 = ((WorldServer) this.o).r();
 			var2 = this.L();
 			if (this.ak) {
@@ -152,7 +152,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 						this.al = var2;
 						this.aj = this.ar();
 						byte var3;
-						if (this.o.t.q() == -1) {
+						if (this.o.worldProvider.q() == -1) {
 							var3 = 0;
 						} else {
 							var3 = -1;
@@ -177,10 +177,10 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 				--this.aj;
 			}
 
-			this.o.B.b();
+			this.o.methodProfiler.b();
 		}
 
-		if (this.o.D) {
+		if (this.o.isStatic) {
 			if (this.d > 0) {
 				double var15 = this.s + (this.e - this.s) / (double) this.d;
 				double var17 = this.t + (this.f - this.t) / (double) this.d;
@@ -201,15 +201,15 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 			this.q = this.t;
 			this.r = this.u;
 			this.w -= 0.03999999910593033D;
-			int var14 = MathHelper.c(this.s);
-			var2 = MathHelper.c(this.t);
-			int var16 = MathHelper.c(this.u);
+			int var14 = MathHelper.floor(this.s);
+			var2 = MathHelper.floor(this.t);
+			int var16 = MathHelper.floor(this.u);
 			if (ati.d(this.o, new Location(var14, var2 - 1, var16))) {
 				--var2;
 			}
 
 			Location var4 = new Location(var14, var2, var16);
-			IBlock var5 = this.o.getData(var4);
+			IBlockData var5 = this.o.getData(var4);
 			if (ati.d(var5)) {
 				this.a(var4, var5);
 				if (var5.c() == Blocks.ACTIVATOR_RAIL) {
@@ -284,7 +284,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 
 	}
 
-	protected void a(Location var1, IBlock var2) {
+	protected void a(Location var1, IBlockData var2) {
 		this.O = 0.0F;
 		Vec3D var3 = this.k(this.s, this.t, this.u);
 		this.t = (double) var1.o();
@@ -399,9 +399,9 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		var31 = MathHelper.a(var31, -var35, var35);
 		var33 = MathHelper.a(var33, -var35, var35);
 		this.d(var31, 0.0D, var33);
-		if (var10[0][1] != 0 && MathHelper.c(this.s) - var1.n() == var10[0][0] && MathHelper.c(this.u) - var1.p() == var10[0][2]) {
+		if (var10[0][1] != 0 && MathHelper.floor(this.s) - var1.n() == var10[0][0] && MathHelper.floor(this.u) - var1.p() == var10[0][2]) {
 			this.b(this.s, this.t + (double) var10[0][1], this.u);
-		} else if (var10[1][1] != 0 && MathHelper.c(this.s) - var1.n() == var10[1][0] && MathHelper.c(this.u) - var1.p() == var10[1][2]) {
+		} else if (var10[1][1] != 0 && MathHelper.floor(this.s) - var1.n() == var10[1][0] && MathHelper.floor(this.u) - var1.p() == var10[1][2]) {
 			this.b(this.s, this.t + (double) var10[1][1], this.u);
 		}
 
@@ -418,8 +418,8 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 			this.b(this.s, var37.b, this.u);
 		}
 
-		int var44 = MathHelper.c(this.s);
-		int var39 = MathHelper.c(this.u);
+		int var44 = MathHelper.floor(this.s);
+		int var39 = MathHelper.floor(this.u);
 		if (var44 != var1.n() || var39 != var1.p()) {
 			var19 = Math.sqrt(this.v * this.v + this.x * this.x);
 			this.v = var19 * (double) (var44 - var1.n());
@@ -472,14 +472,14 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 	}
 
 	public Vec3D k(double var1, double var3, double var5) {
-		int var7 = MathHelper.c(var1);
-		int var8 = MathHelper.c(var3);
-		int var9 = MathHelper.c(var5);
+		int var7 = MathHelper.floor(var1);
+		int var8 = MathHelper.floor(var3);
+		int var9 = MathHelper.floor(var5);
 		if (ati.d(this.o, new Location(var7, var8 - 1, var9))) {
 			--var8;
 		}
 
-		IBlock var10 = this.o.getData(new Location(var7, var8, var9));
+		IBlockData var10 = this.o.getData(new Location(var7, var8, var9));
 		if (ati.d(var10)) {
 			atl var11 = (atl) var10.b(((ati) var10.c()).l());
 			int[][] var12 = c[var11.a()];
@@ -554,8 +554,8 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 	protected void b(NBTTagCompound var1) {
 		if (this.x()) {
 			var1.setBoolean("CustomDisplayTile", true);
-			IBlock var2 = this.t();
-			RegistryPrepender var3 = (RegistryPrepender) Block.c.c(var2.c());
+			IBlockData var2 = this.t();
+			RegistryPrepender var3 = (RegistryPrepender) Block.REGISTRY.c(var2.c());
 			var1.setString("DisplayTile", var3 == null ? "" : var3.toString());
 			var1.setInt("DisplayData", var2.c().c(var2));
 			var1.setInt("DisplayOffset", this.v());
@@ -568,7 +568,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 	}
 
 	public void i(Entity var1) {
-		if (!this.o.D) {
+		if (!this.o.isStatic) {
 			if (!var1.T && !this.T) {
 				if (var1 != this.l) {
 					if (var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof EntityIronGolem) && this.s() == EnumMinecartType.RIDEABLE
@@ -667,11 +667,11 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 
 	public abstract EnumMinecartType s();
 
-	public IBlock t() {
+	public IBlockData t() {
 		return !this.x() ? this.u() : Block.d(this.H().c(20));
 	}
 
-	public IBlock u() {
+	public IBlockData u() {
 		return Blocks.AIR.P();
 	}
 
@@ -683,7 +683,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		return 6;
 	}
 
-	public void a(IBlock var1) {
+	public void a(IBlockData var1) {
 		this.H().b(20, Integer.valueOf(Block.f(var1)));
 		this.a(true);
 	}
@@ -705,8 +705,8 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		this.b = var1;
 	}
 
-	public String d_() {
-		return this.b != null ? this.b : super.d_();
+	public String getName() {
+		return this.b != null ? this.b : super.getName();
 	}
 
 	public boolean k_() {
@@ -717,16 +717,16 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 		return this.b;
 	}
 
-	public IChatBaseComponent e_() {
+	public IChatBaseComponent getScoreboardDisplayName() {
 		if (this.k_()) {
 			ChatComponentText var2 = new ChatComponentText(this.b);
-			var2.b().a(this.aP());
-			var2.b().a(this.aJ().toString());
+			var2.getChatModifier().a(this.aP());
+			var2.getChatModifier().a(this.aJ().toString());
 			return var2;
 		} else {
-			ChatMessage var1 = new ChatMessage(this.d_(), new Object[0]);
-			var1.b().a(this.aP());
-			var1.b().a(this.aJ().toString());
+			ChatMessage var1 = new ChatMessage(this.getName(), new Object[0]);
+			var1.getChatModifier().a(this.aP());
+			var1.getChatModifier().a(this.aJ().toString());
 			return var1;
 		}
 	}

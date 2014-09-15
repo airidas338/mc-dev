@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandBlockdata extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "blockdata";
    }
 
@@ -15,14 +15,14 @@ public class CommandBlockdata extends CommandAbstract {
       return "commands.blockdata.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 4) {
          throw new ExceptionUsage("commands.blockdata.usage", new Object[0]);
       } else {
          var1.a(ag.b, 0);
          Location var3 = a(var1, var2, 0, false);
-         World var4 = var1.e();
-         if(!var4.e(var3)) {
+         World var4 = var1.getWorld();
+         if(!var4.isLoaded(var3)) {
             throw new CommandException("commands.blockdata.outOfWorld", new Object[0]);
          } else {
             TileEntity var5 = var4.s(var3);
@@ -58,7 +58,7 @@ public class CommandBlockdata extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

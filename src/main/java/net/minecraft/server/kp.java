@@ -21,7 +21,7 @@ public class kp implements Packet {
       ((PacketPlayOutListener)var1).a(this);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readInt();
       this.b = EnumDifficulty.getById(var1.readUnsignedByte());
       this.c = EnumGamemode.getById(var1.readUnsignedByte());
@@ -32,7 +32,7 @@ public class kp implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeInt(this.a);
       var1.writeByte(this.b.a());
       var1.writeByte(this.c.a());

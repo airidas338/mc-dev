@@ -31,7 +31,7 @@ public class BlockBannerWall extends atb {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
       if(!var1.getData(var2.a(var5.d())).c().r().a()) {
          this.b(var1, var2, var3, 0);
@@ -41,7 +41,7 @@ public class BlockBannerWall extends atb {
       super.a(var1, var2, var3, var4);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
          var2 = EnumFacing.NORTH;
@@ -50,7 +50,7 @@ public class BlockBannerWall extends atb {
       return this.P().a(a, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(a)).a();
    }
 

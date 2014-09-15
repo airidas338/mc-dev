@@ -24,9 +24,9 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    public PacketPlayOutSpawnEntityLiving(EntityLiving var1) {
       this.a = var1.F();
       this.b = (byte)EntityTypes.a(var1);
-      this.c = MathHelper.c(var1.s * 32.0D);
-      this.d = MathHelper.c(var1.t * 32.0D);
-      this.e = MathHelper.c(var1.u * 32.0D);
+      this.c = MathHelper.floor(var1.s * 32.0D);
+      this.d = MathHelper.floor(var1.t * 32.0D);
+      this.e = MathHelper.floor(var1.u * 32.0D);
       this.i = (byte)((int)(var1.y * 256.0F / 360.0F));
       this.j = (byte)((int)(var1.z * 256.0F / 360.0F));
       this.k = (byte)((int)(var1.aI * 256.0F / 360.0F));
@@ -64,7 +64,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.l = var1.H();
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.e();
       this.b = var1.readByte() & 255;
       this.c = var1.readInt();
@@ -79,7 +79,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.m = DataWatcher.b(var1);
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.b(this.a);
       var1.writeByte(this.b & 255);
       var1.writeInt(this.c);

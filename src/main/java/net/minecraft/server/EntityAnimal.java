@@ -64,9 +64,9 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    public boolean bQ() {
-      int var1 = MathHelper.c(this.s);
-      int var2 = MathHelper.c(this.aQ().b);
-      int var3 = MathHelper.c(this.u);
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.aQ().b);
+      int var3 = MathHelper.floor(this.u);
       Location var4 = new Location(var1, var2, var3);
       return this.o.getData(var4.b()).c() == this.bl && this.o.k(var4) > 8 && super.bQ();
    }
@@ -80,14 +80,14 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    protected int b(EntityHuman var1) {
-      return 1 + this.o.s.nextInt(3);
+      return 1 + this.o.random.nextInt(3);
    }
 
    public boolean d(ItemStack var1) {
       return var1 == null?false:var1.b() == Items.O;
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null) {
          if(this.d(var2) && this.l() == 0 && this.bk <= 0) {

@@ -18,7 +18,7 @@ public class EntityEnderPearl extends EntityProjectile {
          this.o.a(ew.y, this.s, this.t + this.V.nextDouble() * 2.0D, this.u, this.V.nextGaussian(), 0.0D, this.V.nextGaussian(), new int[0]);
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(var2 instanceof EntityPlayer) {
             EntityPlayer var5 = (EntityPlayer)var2;
             if(var5.a.a().isConnected() && var5.o == this.o && !var5.bI()) {

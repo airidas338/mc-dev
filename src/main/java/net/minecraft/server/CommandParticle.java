@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandParticle extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "particle";
    }
 
@@ -15,7 +15,7 @@ public class CommandParticle extends CommandAbstract {
       return "commands.particle.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 8) {
          throw new ExceptionUsage("commands.particle.usage", new Object[0]);
       } else {
@@ -61,7 +61,7 @@ public class CommandParticle extends CommandAbstract {
                var22 = true;
             }
 
-            World var23 = var1.e();
+            World var23 = var1.getWorld();
             if(var23 instanceof WorldServer) {
                WorldServer var24 = (WorldServer)var23;
                int[] var25 = new int[var4.d()];
@@ -85,7 +85,7 @@ public class CommandParticle extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, ew.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 9?a(var2, new String[]{"normal", "force"}):null));
    }
 }

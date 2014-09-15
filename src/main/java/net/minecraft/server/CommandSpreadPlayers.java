@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class CommandSpreadPlayers extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "spreadplayers";
    }
 
@@ -24,12 +24,12 @@ public class CommandSpreadPlayers extends CommandAbstract {
       return "commands.spreadplayers.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 6) {
          throw new ExceptionUsage("commands.spreadplayers.usage", new Object[0]);
       } else {
          byte var3 = 0;
-         Location var4 = var1.c();
+         Location var4 = var1.getLocation();
          double var10000 = (double)var4.n();
          int var18 = var3 + 1;
          double var5 = b(var10000, var2[var3], true);
@@ -62,7 +62,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
          if(var14.isEmpty()) {
             throw new ExceptionInvalidUUID();
          } else {
-            var1.a(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
+            var1.sendMessage(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
             this.a(var1, var14, new cs(var5, var7), var9, var11, ((Entity)var14.get(0)).o, var13);
          }
       }
@@ -79,7 +79,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
       double var21 = this.a(var2, var8, var19, var9);
       a(var1, this, "commands.spreadplayers.success." + (var9?"teams":"players"), new Object[]{Integer.valueOf(var19.length), Double.valueOf(var3.a), Double.valueOf(var3.b)});
       if(var19.length > 1) {
-         var1.a(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
+         var1.sendMessage(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
       }
 
    }
@@ -188,7 +188,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
             var11 = var3[var7++];
          }
 
-         var10.a((double)((float)MathHelper.c(var11.a) + 0.5F), (double)var11.a(var2), (double)MathHelper.c(var11.b) + 0.5D);
+         var10.a((double)((float)MathHelper.floor(var11.a) + 0.5F), (double)var11.a(var2), (double)MathHelper.floor(var11.b) + 0.5D);
          double var17 = Double.MAX_VALUE;
 
          for(int var14 = 0; var14 < var3.length; ++var14) {

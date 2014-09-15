@@ -21,7 +21,7 @@ public class PacketPlayInAbilities implements Packet {
       this.b(var1.b());
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       byte var2 = var1.readByte();
       this.a((var2 & 1) > 0);
       this.b((var2 & 2) > 0);
@@ -31,7 +31,7 @@ public class PacketPlayInAbilities implements Packet {
       this.b(var1.readFloat());
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       byte var2 = 0;
       if(this.a()) {
          var2 = (byte)(var2 | 1);

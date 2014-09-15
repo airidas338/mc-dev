@@ -20,7 +20,7 @@ public class BlockHopper extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -35,7 +35,7 @@ public class BlockHopper extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       EnumFacing var9 = var3.d();
       if(var9 == EnumFacing.UP) {
          var9 = EnumFacing.DOWN;
@@ -48,7 +48,7 @@ public class BlockHopper extends atg {
       return new bde();
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          TileEntity var6 = var1.s(var2);
@@ -59,12 +59,12 @@ public class BlockHopper extends atg {
 
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
@@ -76,11 +76,11 @@ public class BlockHopper extends atg {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   private void e(World var1, Location var2, IBlock var3) {
+   private void e(World var1, Location var2, IBlockData var3) {
       boolean var4 = !var1.z(var2);
       if(var4 != ((Boolean)var3.b(b)).booleanValue()) {
          var1.a(var2, var3.a(b, Boolean.valueOf(var4)), 4);
@@ -88,7 +88,7 @@ public class BlockHopper extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
       if(var4 instanceof bde) {
          vs.a(var1, var2, (bde)var4);
@@ -126,11 +126,11 @@ public class BlockHopper extends atg {
       return aib.a(var1.s(var2));
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, b(var1)).a(b, Boolean.valueOf(f(var1)));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(!((Boolean)var1.b(b)).booleanValue()) {

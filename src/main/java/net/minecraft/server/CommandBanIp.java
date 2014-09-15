@@ -10,7 +10,7 @@ public class CommandBanIp extends CommandAbstract {
    public static final Pattern a = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
 
 
-   public String c() {
+   public String getCommand() {
       return "ban-ip";
    }
 
@@ -18,15 +18,15 @@ public class CommandBanIp extends CommandAbstract {
       return 3;
    }
 
-   public boolean a(ICommandListener var1) {
-      return MinecraftServer.M().an().j().b() && super.a(var1);
+   public boolean canUse(ICommandListener var1) {
+      return MinecraftServer.M().an().j().b() && super.canUse(var1);
    }
 
    public String c(ICommandListener var1) {
       return "commands.banip.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length >= 1 && var2[0].length() > 1) {
          IChatBaseComponent var3 = var2.length >= 2?a(var1, var2, 1):null;
          Matcher var4 = a.matcher(var2[0]);
@@ -46,19 +46,19 @@ public class CommandBanIp extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 
    protected void a(ICommandListener var1, String var2, String var3) {
-      IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.d_(), (Date)null, var3);
+      IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.getName(), (Date)null, var3);
       MinecraftServer.M().an().j().a((JsonListEntry)var4);
       List var5 = MinecraftServer.M().an().b(var2);
       String[] var6 = new String[var5.size()];
       int var7 = 0;
 
       EntityPlayer var9;
-      for(Iterator var8 = var5.iterator(); var8.hasNext(); var6[var7++] = var9.d_()) {
+      for(Iterator var8 = var5.iterator(); var8.hasNext(); var6[var7++] = var9.getName()) {
          var9 = (EntityPlayer)var8.next();
          var9.a.c("You have been IP banned.");
       }

@@ -19,12 +19,12 @@ public class anl extends Item {
    }
 
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var3.D) {
+      if(var3.isStatic) {
          return true;
       } else if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
-         IBlock var9 = var3.getData(var4);
+         IBlockData var9 = var3.getData(var4);
          if(var9.c() == Blocks.MOB_SPAWNER) {
             TileEntity var10 = var3.s(var4);
             if(var10 instanceof bdg) {
@@ -62,7 +62,7 @@ public class anl extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
-      if(var2.D) {
+      if(var2.isStatic) {
          return var1;
       } else {
          MovingObjectPosition var4 = this.a(var2, var3, true);
@@ -110,7 +110,7 @@ public class anl extends Item {
             var8 = EntityTypes.a(var1, var0);
             if(var8 instanceof EntityLiving) {
                EntityInsentient var10 = (EntityInsentient)var8;
-               var8.setPositionRotation(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
+               var8.setPositionRotation(var2, var4, var6, MathHelper.g(var0.random.nextFloat() * 360.0F), 0.0F);
                var10.aI = var10.y;
                var10.aG = var10.y;
                var10.a(var0.E(new Location(var10)), (xq)null);

@@ -71,14 +71,14 @@ public abstract class PlayerList {
 			var8 = var1.b().toString();
 		}
 
-		h.info(var2.d_() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
+		h.info(var2.getName() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
 		WorldServer var9 = this.j.a(var2.am);
 		WorldData var10 = var9.P();
 		Location var11 = var9.M();
 		this.a(var2, (EntityPlayer) null, var9);
 		PlayerConnection var12 = new PlayerConnection(this.j, var1, var2);
-		var12.sendPacket((Packet) (new jw(var2.F(), var2.c.b(), var10.t(), var9.t.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
-		var12.sendPacket((Packet) (new ji("MC|Brand", (new hd(Unpooled.buffer())).a(this.c().getServerModName()))));
+		var12.sendPacket((Packet) (new jw(var2.F(), var2.c.b(), var10.t(), var9.worldProvider.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
+		var12.sendPacket((Packet) (new ji("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).a(this.c().getServerModName()))));
 		var12.sendPacket((Packet) (new ix(var10.y(), var10.z())));
 		var12.sendPacket((Packet) (new lh(var11)));
 		var12.sendPacket((Packet) (new kd(var2.by)));
@@ -88,13 +88,13 @@ public abstract class PlayerList {
 		this.a((ScoreboardServer) var9.Z(), var2);
 		this.j.aF();
 		ChatMessage var13;
-		if (!var2.d_().equalsIgnoreCase(var6)) {
-			var13 = new ChatMessage("multiplayer.player.joined.renamed", new Object[] { var2.e_(), var6 });
+		if (!var2.getName().equalsIgnoreCase(var6)) {
+			var13 = new ChatMessage("multiplayer.player.joined.renamed", new Object[] { var2.getScoreboardDisplayName(), var6 });
 		} else {
-			var13 = new ChatMessage("multiplayer.player.joined", new Object[] { var2.e_() });
+			var13 = new ChatMessage("multiplayer.player.joined", new Object[] { var2.getScoreboardDisplayName() });
 		}
 
-		var13.b().a(EnumChatFormat.o);
+		var13.getChatModifier().setColor(EnumChatFormat.YELLOW);
 		this.a((IChatBaseComponent) var13);
 		this.c(var2);
 		var12.a(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -171,7 +171,7 @@ public abstract class PlayerList {
 	public NBTTagCompound a(EntityPlayer var1) {
 		NBTTagCompound var2 = this.j.c[0].P().i();
 		NBTTagCompound var3;
-		if (var1.d_().equals(this.j.R()) && var2 != null) {
+		if (var1.getName().equals(this.j.R()) && var2 != null) {
 			var1.f(var2);
 			var3 = var2;
 			h.debug("loading single player");
@@ -364,7 +364,7 @@ public abstract class PlayerList {
 		double var7 = var1.u;
 		double var9 = 8.0D;
 		float var11 = var1.y;
-		var3.B.a("moving");
+		var3.methodProfiler.a("moving");
 		if (var1.am == -1) {
 			var5 = MathHelper.a(var5 / var9, var4.af().b() + 16.0D, var4.af().d() - 16.0D);
 			var7 = MathHelper.a(var7 / var9, var4.af().c() + 16.0D, var4.af().e() - 16.0D);
@@ -396,9 +396,9 @@ public abstract class PlayerList {
 			}
 		}
 
-		var3.B.b();
+		var3.methodProfiler.b();
 		if (var2 != 1) {
-			var3.B.a("placing");
+			var3.methodProfiler.a("placing");
 			var5 = (double) MathHelper.a((int) var5, -29999872, 29999872);
 			var7 = (double) MathHelper.a((int) var7, -29999872, 29999872);
 			if (var1.isAlive()) {
@@ -408,7 +408,7 @@ public abstract class PlayerList {
 				var4.a(var1, false);
 			}
 
-			var3.B.b();
+			var3.methodProfiler.b();
 		}
 
 		var1.a((World) var4);
@@ -449,7 +449,7 @@ public abstract class PlayerList {
 				String var6 = (String) var5.next();
 				EntityPlayer var7 = this.a(var6);
 				if (var7 != null && var7 != var1) {
-					var7.a(var2);
+					var7.sendMessage(var2);
 				}
 			}
 
@@ -464,7 +464,7 @@ public abstract class PlayerList {
 			for (int var4 = 0; var4 < this.e.size(); ++var4) {
 				EntityPlayer var5 = (EntityPlayer) this.e.get(var4);
 				if (var5.bN() != var3) {
-					var5.a(var2);
+					var5.sendMessage(var2);
 				}
 			}
 
@@ -479,7 +479,7 @@ public abstract class PlayerList {
 				var1 = var1 + ", ";
 			}
 
-			var1 = var1 + ((EntityPlayer) this.e.get(var2)).d_();
+			var1 = var1 + ((EntityPlayer) this.e.get(var2)).getName();
 		}
 
 		return var1;
@@ -489,7 +489,7 @@ public abstract class PlayerList {
 		String[] var1 = new String[this.e.size()];
 
 		for (int var2 = 0; var2 < this.e.size(); ++var2) {
-			var1[var2] = ((EntityPlayer) this.e.get(var2)).d_();
+			var1[var2] = ((EntityPlayer) this.e.get(var2)).getName();
 		}
 
 		return var1;
@@ -539,7 +539,7 @@ public abstract class PlayerList {
 			}
 
 			var3 = (EntityPlayer) var2.next();
-		} while (!var3.d_().equalsIgnoreCase(var1));
+		} while (!var3.getName().equalsIgnoreCase(var1));
 
 		return var3;
 	}
@@ -679,7 +679,7 @@ public abstract class PlayerList {
 	}
 
 	public void a(IChatBaseComponent var1, boolean var2) {
-		this.j.a(var1);
+		this.j.sendMessage(var1);
 		int var3 = var2 ? 1 : 0;
 		this.a((Packet) (new PacketPlayOutChat(var1, (byte) var3)));
 	}
@@ -695,7 +695,7 @@ public abstract class PlayerList {
 			File var4 = new File(this.j.a(0).O().b(), "stats");
 			File var5 = new File(var4, var2.toString() + ".json");
 			if (!var5.exists()) {
-				File var6 = new File(var4, var1.d_() + ".json");
+				File var6 = new File(var4, var1.getName() + ".json");
 				if (var6.exists() && var6.isFile()) {
 					var6.renameTo(var5);
 				}

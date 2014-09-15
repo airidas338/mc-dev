@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandTestForBlocks extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "testforblocks";
    }
 
@@ -15,7 +15,7 @@ public class CommandTestForBlocks extends CommandAbstract {
       return "commands.compare.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 9) {
          throw new ExceptionUsage("commands.compare.usage", new Object[0]);
       } else {
@@ -29,7 +29,7 @@ public class CommandTestForBlocks extends CommandAbstract {
          if(var8 > 524288) {
             throw new CommandException("commands.compare.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf(524288)});
          } else if(var6.b >= 0 && var6.e < 256 && var7.b >= 0 && var7.e < 256) {
-            World var9 = var1.e();
+            World var9 = var1.getWorld();
             if(var9.a(var6) && var9.a(var7)) {
                boolean var10 = false;
                if(var2.length > 9 && var2[9].equals("masked")) {
@@ -45,7 +45,7 @@ public class CommandTestForBlocks extends CommandAbstract {
                         Location var15 = new Location(var14, var13, var12);
                         Location var16 = var15.a((fd)var11);
                         boolean var17 = false;
-                        IBlock var18 = var9.getData(var15);
+                        IBlockData var18 = var9.getData(var15);
                         if(!var10 || var18.c() != Blocks.AIR) {
                            if(var18 == var9.getData(var16)) {
                               TileEntity var19 = var9.s(var15);
@@ -91,7 +91,7 @@ public class CommandTestForBlocks extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"masked", "all"}):null)));
    }
 }

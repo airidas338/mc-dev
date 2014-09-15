@@ -8,9 +8,9 @@ public class alb extends Item {
    }
 
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.getData(var4);
+      IBlockData var9 = var3.getData(var4);
       if(var2.a(var4.a(var5), var5, var1) && var9.c() == Blocks.ENDER_PORTAL_FRAME && !((Boolean)var9.b(BlockEnderPortalFrame.b)).booleanValue()) {
-         if(var3.D) {
+         if(var3.isStatic) {
             return true;
          } else {
             var3.a(var4, var9.a(BlockEnderPortalFrame.b, Boolean.valueOf(true)), 2);
@@ -36,7 +36,7 @@ public class alb extends Item {
 
             for(int var16 = -2; var16 <= 2; ++var16) {
                Location var29 = var4.a(var26, var16);
-               IBlock var18 = var3.getData(var29);
+               IBlockData var18 = var3.getData(var29);
                if(var18.c() == Blocks.ENDER_PORTAL_FRAME) {
                   if(!((Boolean)var18.b(BlockEnderPortalFrame.b)).booleanValue()) {
                      var14 = false;
@@ -57,7 +57,7 @@ public class alb extends Item {
                int var28;
                for(var28 = var23; var28 <= var12; ++var28) {
                   Location var32 = var27.a(var26, var28);
-                  IBlock var30 = var3.getData(var32);
+                  IBlockData var30 = var3.getData(var32);
                   if(var30.c() != Blocks.ENDER_PORTAL_FRAME || !((Boolean)var30.b(BlockEnderPortalFrame.b)).booleanValue()) {
                      var14 = false;
                      break;
@@ -71,7 +71,7 @@ public class alb extends Item {
 
                   for(var31 = 1; var31 <= 3; ++var31) {
                      var33 = var27.a(var24, var31);
-                     IBlock var20 = var3.getData(var33);
+                     IBlockData var20 = var3.getData(var33);
                      if(var20.c() != Blocks.ENDER_PORTAL_FRAME || !((Boolean)var20.b(BlockEnderPortalFrame.b)).booleanValue()) {
                         var14 = false;
                         break;
@@ -103,7 +103,7 @@ public class alb extends Item {
       if(var4 != null && var4.a == brv.b && var2.getData(var4.a()).c() == Blocks.ENDER_PORTAL_FRAME) {
          return var1;
       } else {
-         if(!var2.D) {
+         if(!var2.isStatic) {
             Location var5 = var2.a("Stronghold", new Location(var3));
             if(var5 != null) {
                EntityEnderSignal var6 = new EntityEnderSignal(var2, var3.s, var3.t, var3.u);

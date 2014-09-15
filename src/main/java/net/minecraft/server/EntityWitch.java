@@ -57,7 +57,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
    }
 
    public void m() throws IOException {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(this.n()) {
             if(this.bl-- <= 0) {
                this.a(false);

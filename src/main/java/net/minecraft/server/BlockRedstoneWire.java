@@ -24,7 +24,7 @@ public class BlockRedstoneWire extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       var1 = var1.a(N, this.c(var2, var3, EnumFacing.WEST));
       var1 = var1.a(b, this.c(var2, var3, EnumFacing.EAST));
       var1 = var1.a(a, this.c(var2, var3, EnumFacing.NORTH));
@@ -43,7 +43,7 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -59,7 +59,7 @@ public class BlockRedstoneWire extends Block {
       return World.a((IBlockAccess)var1, var2.b()) || var1.getData(var2.b()).c() == Blocks.GLOWSTONE;
    }
 
-   private IBlock e(World var1, Location var2, IBlock var3) {
+   private IBlockData e(World var1, Location var2, IBlockData var3) {
       var3 = this.a(var1, var2, var2, var3);
       ArrayList var4 = Lists.newArrayList(this.Q);
       this.Q.clear();
@@ -73,8 +73,8 @@ public class BlockRedstoneWire extends Block {
       return var3;
    }
 
-   private IBlock a(World var1, Location var2, Location var3, IBlock var4) {
-      IBlock var5 = var4;
+   private IBlockData a(World var1, Location var2, Location var3, IBlockData var4) {
+      IBlockData var5 = var4;
       int var6 = ((Integer)var4.b(O)).intValue();
       byte var7 = 0;
       int var14 = this.a(var1, var3, var7);
@@ -150,8 +150,8 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   public void c(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          this.e(var1, var2, var3);
          Iterator var4 = en.b.iterator();
 
@@ -183,9 +183,9 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       super.b(var1, var2, var3);
-      if(!var1.D) {
+      if(!var1.isStatic) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
 
@@ -227,8 +227,8 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          if(this.c(var1, var2)) {
             this.e(var1, var2, var3);
          } else {
@@ -239,15 +239,15 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.aC;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return !this.P?0:this.a(var1, var2, var3, var4);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       if(!this.P) {
          return 0;
       } else {
@@ -280,7 +280,7 @@ public class BlockRedstoneWire extends Block {
 
    private boolean d(IBlockAccess var1, Location var2, EnumFacing var3) {
       Location var4 = var2.a(var3);
-      IBlock var5 = var1.getData(var4);
+      IBlockData var5 = var1.getData(var4);
       Block var6 = var5.c();
       boolean var7 = var6.t();
       boolean var8 = var1.getData(var2.a()).c().t();
@@ -291,11 +291,11 @@ public class BlockRedstoneWire extends Block {
       return d(var0.getData(var1));
    }
 
-   protected static boolean d(IBlock var0) {
+   protected static boolean d(IBlockData var0) {
       return a(var0, (EnumFacing)null);
    }
 
-   protected static boolean a(IBlock var0, EnumFacing var1) {
+   protected static boolean a(IBlockData var0, EnumFacing var1) {
       Block var2 = var0.c();
       if(var2 == Blocks.REDSTONE_WIRE) {
          return true;
@@ -311,11 +311,11 @@ public class BlockRedstoneWire extends Block {
       return this.P;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(O, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(O)).intValue();
    }
 

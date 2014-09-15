@@ -111,7 +111,7 @@ public class wa implements IInventory {
       return this.b;
    }
 
-   public String d_() {
+   public String getName() {
       return this.a;
    }
 
@@ -124,8 +124,8 @@ public class wa implements IInventory {
       this.a = var1;
    }
 
-   public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
    public int p_() {

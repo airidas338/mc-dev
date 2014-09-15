@@ -158,7 +158,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       var3.setLong("InhabitedTime", var1.w());
       bfm[] var4 = var1.h();
       NBTTagList var5 = new NBTTagList();
-      boolean var6 = !var2.t.o();
+      boolean var6 = !var2.worldProvider.o();
       bfm[] var7 = var4;
       int var8 = var4.length;
 
@@ -246,7 +246,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
          while(var28.hasNext()) {
             NextTickListEntry var29 = (NextTickListEntry)var28.next();
             NBTTagCompound var31 = new NBTTagCompound();
-            RegistryPrepender var30 = (RegistryPrepender)Block.c.c(var29.a());
+            RegistryPrepender var30 = (RegistryPrepender)Block.REGISTRY.c(var29.a());
             var31.setString("i", var30 == null?"":var30.toString());
             var31.setInt("x", var29.a.n());
             var31.setInt("y", var29.a.o());
@@ -272,7 +272,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       NBTTagList var6 = var2.getList("Sections", 10);
       byte var7 = 16;
       bfm[] var8 = new bfm[var7];
-      boolean var9 = !var1.t.o();
+      boolean var9 = !var1.worldProvider.o();
 
       for(int var10 = 0; var10 < var6.c(); ++var10) {
          NBTTagCompound var11 = var6.b(var10);

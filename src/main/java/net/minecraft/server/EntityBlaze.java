@@ -54,7 +54,7 @@ public class EntityBlaze extends EntityMonster {
          this.w *= 0.6D;
       }
 
-      if(this.o.D) {
+      if(this.o.isStatic) {
          if(this.V.nextInt(24) == 0 && !this.R()) {
             this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.fire", 1.0F + this.V.nextFloat(), this.V.nextFloat() * 0.7F + 0.3F, false);
          }

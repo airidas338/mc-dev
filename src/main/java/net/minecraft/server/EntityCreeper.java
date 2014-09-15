@@ -151,12 +151,12 @@ public class EntityCreeper extends EntityMonster {
       this.ac.b(17, Byte.valueOf((byte)1));
    }
 
-   protected boolean a(EntityHuman var1) throws IOException {
+   protected boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.bv();
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.cm();
             var2.a(1, (EntityLiving)var1);
             return true;
@@ -167,7 +167,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    private void cp() {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          boolean var1 = this.o.Q().b("mobGriefing");
          float var2 = this.n()?2.0F:1.0F;
          this.o.a(this, this.s, this.t, this.u, (float)this.bl * var2, var1);

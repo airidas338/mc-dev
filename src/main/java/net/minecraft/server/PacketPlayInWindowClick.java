@@ -16,7 +16,7 @@ public class PacketPlayInWindowClick implements Packet {
       ((PacketPlayInListener)var1).a(this);
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.readByte();
       this.b = var1.readShort();
       this.c = var1.readByte();
@@ -25,7 +25,7 @@ public class PacketPlayInWindowClick implements Packet {
       this.e = var1.i();
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.writeByte(this.a);
       var1.writeShort(this.b);
       var1.writeByte(this.c);

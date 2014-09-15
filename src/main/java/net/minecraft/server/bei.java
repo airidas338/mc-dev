@@ -5,7 +5,7 @@ public class bei {
 
    private final World a;
    private final Location b;
-   private IBlock c;
+   private IBlockData c;
    private TileEntity d;
    private boolean e;
 
@@ -15,8 +15,8 @@ public class bei {
       this.b = var2;
    }
 
-   public IBlock a() {
-      if(this.c == null && this.a.e(this.b)) {
+   public IBlockData a() {
+      if(this.c == null && this.a.isLoaded(this.b)) {
          this.c = this.a.getData(this.b);
       }
 

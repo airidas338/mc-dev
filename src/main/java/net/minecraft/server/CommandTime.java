@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandTime extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "time";
    }
 
@@ -15,7 +15,7 @@ public class CommandTime extends CommandAbstract {
       return "commands.time.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 1) {
          int var3;
          if(var2[0].equals("set")) {
@@ -41,14 +41,14 @@ public class CommandTime extends CommandAbstract {
 
          if(var2[0].equals("query")) {
             if(var2[1].equals("daytime")) {
-               var3 = (int)(var1.e().L() % 2147483647L);
+               var3 = (int)(var1.getWorld().L() % 2147483647L);
                var1.a(ag.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
             }
 
             if(var2[1].equals("gametime")) {
-               var3 = (int)(var1.e().K() % 2147483647L);
+               var3 = (int)(var1.getWorld().K() % 2147483647L);
                var1.a(ag.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
@@ -59,7 +59,7 @@ public class CommandTime extends CommandAbstract {
       throw new ExceptionUsage("commands.time.usage", new Object[0]);
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "add", "query"}):(var2.length == 2 && var2[0].equals("set")?a(var2, new String[]{"day", "night"}):(var2.length == 2 && var2[0].equals("query")?a(var2, new String[]{"daytime", "gametime"}):null));
    }
 

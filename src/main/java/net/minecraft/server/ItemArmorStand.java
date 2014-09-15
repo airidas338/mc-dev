@@ -18,8 +18,8 @@ public class ItemArmorStand extends Item {
             return false;
          } else {
             Location var11 = var10.a();
-            boolean var12 = !var3.d(var10) && !var3.getData(var10).c().f(var3, var10);
-            var12 |= !var3.d(var11) && !var3.getData(var11).c().f(var3, var11);
+            boolean var12 = !var3.isEmpty(var10) && !var3.getData(var10).c().f(var3, var10);
+            var12 |= !var3.isEmpty(var11) && !var3.getData(var11).c().f(var3, var11);
             if(var12) {
                return false;
             } else {
@@ -30,13 +30,13 @@ public class ItemArmorStand extends Item {
                if(var19.size() > 0) {
                   return false;
                } else {
-                  if(!var3.D) {
+                  if(!var3.isStatic) {
                      var3.g(var10);
                      var3.g(var11);
                      EntityArmorStand var20 = new EntityArmorStand(var3, var13 + 0.5D, var15, var17 + 0.5D);
                      float var21 = (float)MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var20.setPositionRotation(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
-                     this.a(var20, var3.s);
+                     this.a(var20, var3.random);
                      NBTTagCompound var22 = var1.o();
                      if(var22 != null && var22.hasKeyOfType("EntityTag", 10)) {
                         NBTTagCompound var23 = new NBTTagCompound();

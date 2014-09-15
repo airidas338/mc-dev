@@ -50,7 +50,7 @@ public abstract class WorldProvider {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new Location(var1, 0, var2)) == Blocks.GRASS;
+      return this.b.getType(new Location(var1, 0, var2)) == Blocks.GRASS;
    }
 
    public float a(long var1, float var3) {

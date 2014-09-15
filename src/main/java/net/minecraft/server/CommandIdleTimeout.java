@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class CommandIdleTimeout extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "setidletimeout";
    }
 
@@ -14,7 +14,7 @@ public class CommandIdleTimeout extends CommandAbstract {
       return "commands.setidletimeout.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length != 1) {
          throw new ExceptionUsage("commands.setidletimeout.usage", new Object[0]);
       } else {

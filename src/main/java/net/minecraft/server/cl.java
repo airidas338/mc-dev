@@ -1,7 +1,7 @@
 package net.minecraft.server;
 import java.util.Iterator;
 
-public class cl extends ab implements y {
+public class cl extends ab implements ICommandDispatcher {
 
    public cl() {
       this.a(new CommandTime());
@@ -67,7 +67,7 @@ public class cl extends ab implements y {
          this.a(new CommandPublish());
       }
 
-      CommandAbstract.a((y)this);
+      CommandAbstract.a((ICommandDispatcher)this);
    }
 
    public void a(ICommandListener var1, ICommand var2, int var3, String var4, Object ... var5) {
@@ -77,31 +77,31 @@ public class cl extends ab implements y {
          var6 = false;
       }
 
-      ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.d_(), new ChatMessage(var4, var5)});
-      var8.b().a(EnumChatFormat.h);
-      var8.b().b(Boolean.valueOf(true));
+      ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.getName(), new ChatMessage(var4, var5)});
+      var8.getChatModifier().setColor(EnumChatFormat.GRAY);
+      var8.getChatModifier().b(Boolean.valueOf(true));
       if(var6) {
          Iterator var9 = var7.an().e.iterator();
 
          while(var9.hasNext()) {
             EntityHuman var10 = (EntityHuman)var9.next();
-            if(var10 != var1 && var7.an().g(var10.cc()) && var2.a(var1)) {
-               var10.a((IChatBaseComponent)var8);
+            if(var10 != var1 && var7.an().g(var10.cc()) && var2.canUse(var1)) {
+               var10.sendMessage((IChatBaseComponent)var8);
             }
          }
       }
 
       if(var1 != var7 && var7.c[0].Q().b("logAdminCommands")) {
-         var7.a((IChatBaseComponent)var8);
+         var7.sendMessage((IChatBaseComponent)var8);
       }
 
       boolean var11 = var7.c[0].Q().b("sendCommandFeedback");
-      if(var1 instanceof aqf) {
-         var11 = ((aqf)var1).m();
+      if(var1 instanceof CommandBlockListenerAbstract) {
+         var11 = ((CommandBlockListenerAbstract)var1).m();
       }
 
       if((var3 & 1) != 1 && var11) {
-         var1.a(new ChatMessage(var4, var5));
+         var1.sendMessage(new ChatMessage(var4, var5));
       }
 
    }

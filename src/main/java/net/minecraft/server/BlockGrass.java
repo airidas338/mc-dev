@@ -13,13 +13,13 @@ public class BlockGrass extends Block implements atz {
       this.a(CreativeModeTab.b);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       Block var4 = var2.getData(var3.a()).c();
       return var1.a(a, Boolean.valueOf(var4 == Blocks.SNOW_BLOCK || var4 == Blocks.SNOW));
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
          if(var1.l(var2.a()) < 4 && var1.getData(var2.a()).c().n() > 2) {
             var1.a(var2, Blocks.DIRT.P());
          } else {
@@ -27,7 +27,7 @@ public class BlockGrass extends Block implements atz {
                for(int var5 = 0; var5 < 4; ++var5) {
                   Location var6 = var2.a(var4.nextInt(3) - 1, var4.nextInt(5) - 3, var4.nextInt(3) - 1);
                   Block var7 = var1.getData(var6.a()).c();
-                  IBlock var8 = var1.getData(var6);
+                  IBlockData var8 = var1.getData(var6);
                   if(var8.c() == Blocks.DIRT && var8.b(BlockDirt.a) == avd.a && var1.l(var6.a()) >= 4 && var7.n() <= 2) {
                      var1.a(var6, Blocks.GRASS.P());
                   }
@@ -38,19 +38,19 @@ public class BlockGrass extends Block implements atz {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Blocks.DIRT.a(Blocks.DIRT.P().a(BlockDirt.a, avd.a), var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       return true;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       Location var5 = var3.a();
       int var6 = 0;
 
@@ -67,14 +67,14 @@ public class BlockGrass extends Block implements atz {
                }
             } else if(var1.getData(var7).c().J == Material.AIR) {
                if(var2.nextInt(8) == 0) {
-                  EnumFlowerType var11 = var1.b(var7).a(var2, var7);
+                  EnumFlowerType var11 = var1.getBiome(var7).a(var2, var7);
                   BlockFlowers var9 = var11.a().a();
-                  IBlock var10 = var9.P().a(var9.l(), var11);
+                  IBlockData var10 = var9.P().a(var9.l(), var11);
                   if(var9.f(var1, var7, var10)) {
                      var1.a(var7, var10, 3);
                   }
                } else {
-                  IBlock var12 = Blocks.LONG_GRASS.P().a(BlockLongGrass.a, EnumFoliage.b);
+                  IBlockData var12 = Blocks.LONG_GRASS.P().a(BlockLongGrass.a, EnumFoliage.b);
                   if(Blocks.LONG_GRASS.f(var1, var7, var12)) {
                      var1.a(var7, var12, 3);
                   }
@@ -88,7 +88,7 @@ public class BlockGrass extends Block implements atz {
 
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return 0;
    }
 

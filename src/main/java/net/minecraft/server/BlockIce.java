@@ -10,7 +10,7 @@ public class BlockIce extends awt {
       this.a(CreativeModeTab.b);
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       var2.b(ty.H[Block.a((Block)this)]);
       var2.a(0.025F);
       if(this.G() && EnchantmentManager.e(var2)) {
@@ -19,7 +19,7 @@ public class BlockIce extends awt {
             a(var1, var3, var8);
          }
       } else {
-         if(var1.t.n()) {
+         if(var1.worldProvider.n()) {
             var1.g(var3);
             return;
          }
@@ -38,9 +38,9 @@ public class BlockIce extends awt {
       return 0;
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11 - this.n()) {
-         if(var1.t.n()) {
+         if(var1.worldProvider.n()) {
             var1.g(var2);
          } else {
             this.b(var1, var2, var1.getData(var2), 0);

@@ -109,7 +109,7 @@ public class EntityArrow extends Entity implements IProjectile {
       }
 
       Location var18 = new Location(this.d, this.e, this.f);
-      IBlock var2 = this.o.getData(var18);
+      IBlockData var2 = this.o.getData(var18);
       Block var3 = var2.c();
       if(var3.r() != Material.AIR) {
          var3.a((IBlockAccess)this.o, var18);
@@ -208,7 +208,7 @@ public class EntityArrow extends Entity implements IProjectile {
                if(var6.d.a(var26, (float)var22)) {
                   if(var6.d instanceof EntityLiving) {
                      EntityLiving var28 = (EntityLiving)var6.d;
-                     if(!this.o.D) {
+                     if(!this.o.isStatic) {
                         var28.o(var28.bu() + 1);
                      }
 
@@ -325,7 +325,7 @@ public class EntityArrow extends Entity implements IProjectile {
       var1.setShort("yTile", (short)this.e);
       var1.setShort("zTile", (short)this.f);
       var1.setShort("life", (short)this.ap);
-      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.g);
+      RegistryPrepender var2 = (RegistryPrepender)Block.REGISTRY.c(this.g);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("inData", (byte)this.h);
       var1.setByte("shake", (byte)this.b);
@@ -361,7 +361,7 @@ public class EntityArrow extends Entity implements IProjectile {
    }
 
    public void d(EntityHuman var1) {
-      if(!this.o.D && this.i && this.b <= 0) {
+      if(!this.o.isStatic && this.i && this.b <= 0) {
          boolean var2 = this.a == 1 || this.a == 2 && var1.by.canInstantlyBuild;
          if(this.a == 1 && !var1.bg.a(new ItemStack(Items.g, 1))) {
             var2 = false;

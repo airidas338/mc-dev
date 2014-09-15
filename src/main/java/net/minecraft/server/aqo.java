@@ -52,14 +52,14 @@ public class aqo {
                   var6 /= var12;
                   var8 /= var12;
                   var10 /= var12;
-                  float var14 = this.i * (0.7F + this.d.s.nextFloat() * 0.6F);
+                  float var14 = this.i * (0.7F + this.d.random.nextFloat() * 0.6F);
                   double var15 = this.e;
                   double var17 = this.f;
                   double var19 = this.g;
 
                   for(float var21 = 0.3F; var14 > 0.0F; var14 -= 0.22500001F) {
                      Location var22 = new Location(var15, var17, var19);
-                     IBlock var23 = this.d.getData(var22);
+                     IBlockData var23 = this.d.getData(var22);
                      if(var23.c().r() != Material.AIR) {
                         float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.c().a((Entity)null);
                         var14 -= (var24 + 0.3F) * 0.3F;
@@ -80,12 +80,12 @@ public class aqo {
 
       this.j.addAll(var1);
       float var30 = this.i * 2.0F;
-      var4 = MathHelper.c(this.e - (double)var30 - 1.0D);
-      var5 = MathHelper.c(this.e + (double)var30 + 1.0D);
-      int var31 = MathHelper.c(this.f - (double)var30 - 1.0D);
-      int var7 = MathHelper.c(this.f + (double)var30 + 1.0D);
-      int var32 = MathHelper.c(this.g - (double)var30 - 1.0D);
-      int var9 = MathHelper.c(this.g + (double)var30 + 1.0D);
+      var4 = MathHelper.floor(this.e - (double)var30 - 1.0D);
+      var5 = MathHelper.floor(this.e + (double)var30 + 1.0D);
+      int var31 = MathHelper.floor(this.f - (double)var30 - 1.0D);
+      int var7 = MathHelper.floor(this.f + (double)var30 + 1.0D);
+      int var32 = MathHelper.floor(this.g - (double)var30 - 1.0D);
+      int var9 = MathHelper.floor(this.g + (double)var30 + 1.0D);
       List var33 = this.d.b(this.h, new AxisAlignedBB((double)var4, (double)var31, (double)var32, (double)var5, (double)var7, (double)var9));
       Vec3D var11 = new Vec3D(this.e, this.f, this.g);
 
@@ -120,7 +120,7 @@ public class aqo {
    }
 
    public void a(boolean var1) {
-      this.d.a(this.e, this.f, this.g, "random.explode", 4.0F, (1.0F + (this.d.s.nextFloat() - this.d.s.nextFloat()) * 0.2F) * 0.7F);
+      this.d.a(this.e, this.f, this.g, "random.explode", 4.0F, (1.0F + (this.d.random.nextFloat() - this.d.random.nextFloat()) * 0.2F) * 0.7F);
       if(this.i >= 2.0F && this.b) {
          this.d.a(ew.c, this.e, this.f, this.g, 1.0D, 0.0D, 0.0D, new int[0]);
       } else {
@@ -136,9 +136,9 @@ public class aqo {
             var3 = (Location)var2.next();
             Block var4 = this.d.getData(var3).c();
             if(var1) {
-               double var5 = (double)((float)var3.n() + this.d.s.nextFloat());
-               double var7 = (double)((float)var3.o() + this.d.s.nextFloat());
-               double var9 = (double)((float)var3.p() + this.d.s.nextFloat());
+               double var5 = (double)((float)var3.n() + this.d.random.nextFloat());
+               double var7 = (double)((float)var3.o() + this.d.random.nextFloat());
+               double var9 = (double)((float)var3.p() + this.d.random.nextFloat());
                double var11 = var5 - this.e;
                double var13 = var7 - this.f;
                double var15 = var9 - this.g;
@@ -147,7 +147,7 @@ public class aqo {
                var13 /= var17;
                var15 /= var17;
                double var19 = 0.5D / (var17 / (double)this.i + 0.1D);
-               var19 *= (double)(this.d.s.nextFloat() * this.d.s.nextFloat() + 0.3F);
+               var19 *= (double)(this.d.random.nextFloat() * this.d.random.nextFloat() + 0.3F);
                var11 *= var19;
                var13 *= var19;
                var15 *= var19;

@@ -43,7 +43,7 @@ public class arj implements IBlockAccess {
       return this.c[var2][var3].a(var1, bfl.a);
    }
 
-   public IBlock getData(Location var1) {
+   public IBlockData getData(Location var1) {
       if(var1.o() >= 0 && var1.o() < 256) {
          int var2 = (var1.n() >> 4) - this.a;
          int var3 = (var1.p() >> 4) - this.b;
@@ -58,12 +58,12 @@ public class arj implements IBlockAccess {
       return Blocks.AIR.P();
    }
 
-   public boolean d(Location var1) {
+   public boolean isEmpty(Location var1) {
       return this.getData(var1).c().r() == Material.AIR;
    }
 
    public int a(Location var1, EnumFacing var2) {
-      IBlock var3 = this.getData(var1);
+      IBlockData var3 = this.getData(var1);
       return var3.c().b((IBlockAccess)this, var1, var3, var2);
    }
 }

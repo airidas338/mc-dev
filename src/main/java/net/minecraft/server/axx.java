@@ -4,7 +4,7 @@ enum axx {
 ;
    axx(String var1, int var2, int var3, String var4, String var5) {}
 
-   public IBlock d() {
+   public IBlockData d() {
       return Blocks.SMOOTH_BRICK.P().a(BlockSmoothBrick.a, bbd.a);
    }
 }

@@ -18,7 +18,7 @@ public class PacketPlayInTabComplete implements Packet {
       this.b = var2;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(32767);
       boolean var2 = var1.readBoolean();
       if(var2) {
@@ -27,7 +27,7 @@ public class PacketPlayInTabComplete implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(StringUtils.substring(this.a, 0, 32767));
       boolean var2 = this.b != null;
       var1.writeBoolean(var2);

@@ -9,19 +9,19 @@ public class BlockSand extends avt {
       this.j(this.L.b().a(a, bac.a));
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((bac)var1.b(a)).a();
    }
 
-   public MaterialMapColor g(IBlock var1) {
+   public MaterialMapColor g(IBlockData var1) {
       return ((bac)var1.b(a)).c();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, bac.a(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((bac)var1.b(a)).a();
    }
 

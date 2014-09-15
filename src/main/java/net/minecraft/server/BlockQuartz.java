@@ -12,7 +12,7 @@ public class BlockQuartz extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var7 == azn.c.a()) {
          switch(azm.a[var3.k().ordinal()]) {
          case 1:
@@ -28,25 +28,25 @@ public class BlockQuartz extends Block {
       }
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       azn var2 = (azn)var1.b(a);
       return var2 != azn.d && var2 != azn.e?var2.a():azn.c.a();
    }
 
-   protected ItemStack i(IBlock var1) {
+   protected ItemStack i(IBlockData var1) {
       azn var2 = (azn)var1.b(a);
       return var2 != azn.d && var2 != azn.e?super.i(var1):new ItemStack(Item.a((Block)this), 1, azn.c.a());
    }
 
-   public MaterialMapColor g(IBlock var1) {
+   public MaterialMapColor g(IBlockData var1) {
       return MaterialMapColor.p;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, azn.a(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((azn)var1.b(a)).a();
    }
 

@@ -29,7 +29,7 @@ public class BlockRedstoneOre extends Block {
       super.a(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.d(var1, var2);
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8);
    }
@@ -42,14 +42,14 @@ public class BlockRedstoneOre extends Block {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(this == Blocks.GLOWING_REDSTONE_ORE) {
          var1.a(var2, Blocks.REDSTONE_ORE.P());
       }
 
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.aC;
    }
 
@@ -61,17 +61,17 @@ public class BlockRedstoneOre extends Block {
       return 4 + var1.nextInt(2);
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
-      if(this.a(var3, var1.s, var5) != Item.a((Block)this)) {
-         int var6 = 1 + var1.s.nextInt(5);
+      if(this.a(var3, var1.random, var5) != Item.a((Block)this)) {
+         int var6 = 1 + var1.random.nextInt(5);
          this.b(var1, var2, var6);
       }
 
    }
 
    private void e(World var1, Location var2) {
-      Random var3 = var1.s;
+      Random var3 = var1.random;
       double var4 = 0.0625D;
 
       for(int var6 = 0; var6 < 6; ++var6) {
@@ -109,7 +109,7 @@ public class BlockRedstoneOre extends Block {
 
    }
 
-   protected ItemStack i(IBlock var1) {
+   protected ItemStack i(IBlockData var1) {
       return new ItemStack(Blocks.REDSTONE_ORE);
    }
 }

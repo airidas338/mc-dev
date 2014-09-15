@@ -43,7 +43,7 @@ public abstract class axl extends Block {
       return false;
    }
 
-   public boolean a(IBlock var1, boolean var2) {
+   public boolean a(IBlockData var1, boolean var2) {
       return var2 && ((Integer)var1.b(b)).intValue() == 0;
    }
 
@@ -52,7 +52,7 @@ public abstract class axl extends Block {
       return var4 == this.J?false:(var3 == EnumFacing.UP?true:(var4 == Material.ICE?false:super.b(var1, var2, var3)));
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -60,7 +60,7 @@ public abstract class axl extends Block {
       return 1;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -115,18 +115,18 @@ public abstract class axl extends Block {
    }
 
    public int a(World var1) {
-      return this.J == Material.WATER?5:(this.J == Material.LAVA?(var1.t.o()?10:30):0);
+      return this.J == Material.WATER?5:(this.J == Material.LAVA?(var1.worldProvider.o()?10:30):0);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   public boolean e(World var1, Location var2, IBlock var3) {
+   public boolean e(World var1, Location var2, IBlockData var3) {
       if(this.J == Material.LAVA) {
          boolean var4 = false;
          EnumFacing[] var5 = EnumFacing.values();
@@ -163,7 +163,7 @@ public abstract class axl extends Block {
       double var3 = (double)var2.n();
       double var5 = (double)var2.o();
       double var7 = (double)var2.p();
-      var1.a(var3 + 0.5D, var5 + 0.5D, var7 + 0.5D, "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
+      var1.a(var3 + 0.5D, var5 + 0.5D, var7 + 0.5D, "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
       for(int var9 = 0; var9 < 8; ++var9) {
          var1.a(ew.m, var3 + Math.random(), var5 + 1.2D, var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
@@ -171,11 +171,11 @@ public abstract class axl extends Block {
 
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(b, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(b)).intValue();
    }
 

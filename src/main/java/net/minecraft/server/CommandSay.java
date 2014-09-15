@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandSay extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "say";
    }
 
@@ -15,16 +15,16 @@ public class CommandSay extends CommandAbstract {
       return "commands.say.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 0 && var2[0].length() > 0) {
          IChatBaseComponent var3 = b(var1, var2, 0, true);
-         MinecraftServer.M().an().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.e_(), var3})));
+         MinecraftServer.M().an().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.getScoreboardDisplayName(), var3})));
       } else {
          throw new ExceptionUsage("commands.say.usage", new Object[0]);
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length >= 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

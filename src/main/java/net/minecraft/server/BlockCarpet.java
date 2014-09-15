@@ -40,11 +40,11 @@ public class BlockCarpet extends Block {
       return super.c(var1, var2) && this.d(var1, var2);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   private boolean e(World var1, Location var2, IBlock var3) {
+   private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.d(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -55,18 +55,18 @@ public class BlockCarpet extends Block {
    }
 
    private boolean d(World var1, Location var2) {
-      return !var1.d(var2.b());
+      return !var1.isEmpty(var2.b());
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, akv.b(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 

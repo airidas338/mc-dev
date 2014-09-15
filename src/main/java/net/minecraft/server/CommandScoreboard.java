@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class CommandScoreboard extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "scoreboard";
    }
 
@@ -25,7 +25,7 @@ public class CommandScoreboard extends CommandAbstract {
       return "commands.scoreboard.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(!this.b(var1, var2)) {
          if(var2.length < 1) {
             throw new ExceptionUsage("commands.scoreboard.usage", new Object[0]);
@@ -180,7 +180,7 @@ public class CommandScoreboard extends CommandAbstract {
       int var3 = -1;
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
-         if(this.b(var2, var4) && "*".equals(var2[var4])) {
+         if(this.isListStart(var2, var4) && "*".equals(var2[var4])) {
             if(var3 >= 0) {
                throw new CommandException("commands.scoreboard.noMultiWildcard", new Object[0]);
             }
@@ -202,12 +202,12 @@ public class CommandScoreboard extends CommandAbstract {
             var2[var3] = var8;
 
             try {
-               this.a(var1, var2);
+               this.execute(var1, var2);
                var6.add(var8);
             } catch (CommandException var11) {
-               ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
-               var10.b().a(EnumChatFormat.m);
-               var1.a(var10);
+               ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.getArgs());
+               var10.getChatModifier().setColor(EnumChatFormat.RED);
+               var1.sendMessage(var10);
             }
          }
 
@@ -337,7 +337,7 @@ public class CommandScoreboard extends CommandAbstract {
 
                var4.a(var7);
                var4.setPrefix(var7.toString());
-               var4.setSuffix(EnumChatFormat.v.toString());
+               var4.setSuffix(EnumChatFormat.RESET.toString());
             } else if(var5.equalsIgnoreCase("friendlyfire")) {
                if(!var6.equalsIgnoreCase("true") && !var6.equalsIgnoreCase("false")) {
                   throw new ExceptionUsage("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(Arrays.asList(new String[]{"true", "false"}))});
@@ -398,9 +398,9 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.getName()});
-         var7.b().a(EnumChatFormat.c);
-         var1.a(var7);
-         var1.a(new ChatComponentText(a(var6.toArray())));
+         var7.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+         var1.sendMessage(var7);
+         var1.sendMessage(new ChatComponentText(a(var6.toArray())));
       } else {
          Collection var9 = var4.getTeams();
          var1.a(ag.e, var9.size());
@@ -409,13 +409,13 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          ChatMessage var10 = new ChatMessage("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
-         var10.b().a(EnumChatFormat.c);
-         var1.a(var10);
+         var10.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+         var1.sendMessage(var10);
          Iterator var11 = var9.iterator();
 
          while(var11.hasNext()) {
             ScoreboardTeam var8 = (ScoreboardTeam)var11.next();
-            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.getName(), var8.getDisplayName(), Integer.valueOf(var8.getPlayerNameSet().size())}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.getName(), var8.getDisplayName(), Integer.valueOf(var8.getPlayerNameSet().size())}));
          }
       }
 
@@ -428,7 +428,7 @@ public class CommandScoreboard extends CommandAbstract {
       HashSet var7 = Sets.newHashSet();
       String var8;
       if(var1 instanceof EntityHuman && var3 == var2.length) {
-         var8 = b(var1).d_();
+         var8 = b(var1).getName();
          if(var4.addPlayerToTeam(var8, var5)) {
             var6.add(var8);
          } else {
@@ -477,7 +477,7 @@ public class CommandScoreboard extends CommandAbstract {
       HashSet var6 = Sets.newHashSet();
       String var7;
       if(var1 instanceof EntityHuman && var3 == var2.length) {
-         var7 = b(var1).d_();
+         var7 = b(var1).getName();
          if(var4.removePlayerFromTeam(var7)) {
             var5.add(var7);
          } else {
@@ -555,13 +555,13 @@ public class CommandScoreboard extends CommandAbstract {
          throw new CommandException("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
          ChatMessage var4 = new ChatMessage("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
-         var4.b().a(EnumChatFormat.c);
-         var1.a(var4);
+         var4.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+         var1.sendMessage(var4);
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
             ScoreboardObjective var6 = (ScoreboardObjective)var5.next();
-            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.getName(), var6.getDisplayName(), var6.getCriteria().getName()}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.getName(), var6.getDisplayName(), var6.getCriteria().getName()}));
          }
 
       }
@@ -600,13 +600,13 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
-         var7.b().a(EnumChatFormat.c);
-         var1.a(var7);
+         var7.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+         var1.sendMessage(var7);
          Iterator var8 = var6.values().iterator();
 
          while(var8.hasNext()) {
             ScoreboardScore var9 = (ScoreboardScore)var8.next();
-            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.getScore()), var9.d().getDisplayName(), var9.d().getName()}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.getScore()), var9.d().getDisplayName(), var9.d().getName()}));
          }
       } else {
          Collection var10 = var4.getPlayers();
@@ -616,9 +616,9 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          ChatMessage var11 = new ChatMessage("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
-         var11.b().a(EnumChatFormat.c);
-         var1.a(var11);
-         var1.a(new ChatComponentText(a(var10.toArray())));
+         var11.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+         var1.sendMessage(var11);
+         var1.sendMessage(new ChatComponentText(a(var10.toArray())));
       }
 
    }
@@ -749,7 +749,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {
@@ -912,7 +912,7 @@ public class CommandScoreboard extends CommandAbstract {
       return var2;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return !var1[0].equalsIgnoreCase("players")?(var1[0].equalsIgnoreCase("teams")?var2 == 2:false):(var1.length > 1 && var1[1].equalsIgnoreCase("operation")?var2 == 2 || var2 == 5:var2 == 2);
    }
 }

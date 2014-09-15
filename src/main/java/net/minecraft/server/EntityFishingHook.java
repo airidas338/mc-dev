@@ -93,7 +93,7 @@ public class EntityFishingHook extends Entity {
          this.b(var28, var29, var30);
          this.b(this.y, this.z);
       } else {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             ItemStack var1 = this.b.bY();
             if(this.b.I || !this.b.isAlive() || var1 == null || var1.b() != Items.aR || this.h(this.b) > 1024.0D) {
                this.J();
@@ -225,7 +225,7 @@ public class EntityFishingHook extends Entity {
                }
             }
 
-            if(!this.o.D && var33 > 0.0D) {
+            if(!this.o.isStatic && var33 > 0.0D) {
                WorldServer var35 = (WorldServer)this.o;
                int var38 = 1;
                Location var37 = (new Location(this)).a();
@@ -254,7 +254,7 @@ public class EntityFishingHook extends Entity {
                      if(this.av <= 0) {
                         this.w -= 0.20000000298023224D;
                         this.a("random.splash", 0.25F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
-                        var16 = (float)MathHelper.c(this.aQ().b);
+                        var16 = (float)MathHelper.floor(this.aQ().b);
                         var35.a(ew.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
                         var35.a(ew.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
                         this.at = MathHelper.a(this.V, 10, 30);
@@ -264,7 +264,7 @@ public class EntityFishingHook extends Entity {
                         var39 = MathHelper.sin(var16);
                         var18 = MathHelper.cos(var16);
                         var19 = this.s + (double)(var39 * (float)this.av * 0.1F);
-                        var40 = (double)((float)MathHelper.c(this.aQ().b) + 1.0F);
+                        var40 = (double)((float)MathHelper.floor(this.aQ().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.av * 0.1F);
                         if(this.V.nextFloat() < 0.15F) {
                            var35.a(ew.e, var19, var40 - 0.10000000149011612D, var23, 1, (double)var39, 0.1D, (double)var18, 0.0D, new int[0]);
@@ -290,7 +290,7 @@ public class EntityFishingHook extends Entity {
                         var39 = MathHelper.a(this.V, 0.0F, 360.0F) * 0.017453292F;
                         var18 = MathHelper.a(this.V, 25.0F, 60.0F);
                         var19 = this.s + (double)(MathHelper.sin(var39) * var18 * 0.1F);
-                        var40 = (double)((float)MathHelper.c(this.aQ().b) + 1.0F);
+                        var40 = (double)((float)MathHelper.floor(this.aQ().b) + 1.0F);
                         var23 = this.u + (double)(MathHelper.cos(var39) * var18 * 0.1F);
                         var35.a(ew.f, var19, var40, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                      }
@@ -329,7 +329,7 @@ public class EntityFishingHook extends Entity {
       var1.setShort("xTile", (short)this.g);
       var1.setShort("yTile", (short)this.h);
       var1.setShort("zTile", (short)this.i);
-      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.ap);
+      RegistryPrepender var2 = (RegistryPrepender)Block.REGISTRY.c(this.ap);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("shake", (byte)this.a);
       var1.setByte("inGround", (byte)(this.aq?1:0));
@@ -350,7 +350,7 @@ public class EntityFishingHook extends Entity {
    }
 
    public int l() {
-      if(this.o.D) {
+      if(this.o.isStatic) {
          return 0;
       } else {
          byte var1 = 0;
@@ -390,7 +390,7 @@ public class EntityFishingHook extends Entity {
    }
 
    private ItemStack m() {
-      float var1 = this.o.s.nextFloat();
+      float var1 = this.o.random.nextFloat();
       int var2 = EnchantmentManager.g(this.b);
       int var3 = EnchantmentManager.h(this.b);
       float var4 = 0.1F - (float)var2 * 0.025F - (float)var3 * 0.01F;

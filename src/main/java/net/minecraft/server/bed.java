@@ -65,8 +65,8 @@ public class bed {
       return var1;
    }
 
-   public IBlock b() {
-      return (IBlock)this.e.get(0);
+   public IBlockData b() {
+      return (IBlockData)this.e.get(0);
    }
 
    public Block c() {
@@ -78,7 +78,7 @@ public class bed {
    }
 
    public String toString() {
-      return Objects.toStringHelper(this).add("block", Block.c.c(this.c)).add("properties", Iterables.transform(this.d, b)).toString();
+      return Objects.toStringHelper(this).add("block", Block.REGISTRY.c(this.c)).add("properties", Iterables.transform(this.d, b)).toString();
    }
 
 }

@@ -14,9 +14,9 @@ public class BlockCactus extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       Location var5 = var2.a();
-      if(var1.d(var5)) {
+      if(var1.isEmpty(var5)) {
          int var6;
          for(var6 = 1; var1.getData(var2.c(var6)).c() == this; ++var6) {
             ;
@@ -26,7 +26,7 @@ public class BlockCactus extends Block {
             int var7 = ((Integer)var3.b(a)).intValue();
             if(var7 == 15) {
                var1.a(var5, this.P());
-               IBlock var8 = var3.a(a, Integer.valueOf(0));
+               IBlockData var8 = var3.a(a, Integer.valueOf(0));
                var1.a(var2, var8, 4);
                this.a(var1, var5, var8, (Block)this);
             } else {
@@ -37,7 +37,7 @@ public class BlockCactus extends Block {
       }
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       float var4 = 0.0625F;
       return new AxisAlignedBB((double)((float)var2.n() + var4), (double)var2.o(), (double)((float)var2.p() + var4), (double)((float)(var2.n() + 1) - var4), (double)((float)(var2.o() + 1) - var4), (double)((float)(var2.p() + 1) - var4));
    }
@@ -54,7 +54,7 @@ public class BlockCactus extends Block {
       return super.c(var1, var2)?this.d(var1, var2):false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.d(var1, var2)) {
          var1.b(var2, true);
       }
@@ -75,15 +75,15 @@ public class BlockCactus extends Block {
       return var5 == Blocks.CACTUS || var5 == Blocks.SAND;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Entity var4) {
+   public void a(World var1, Location var2, IBlockData var3, Entity var4) {
       var4.a(DamageSource.h, 1.0F);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

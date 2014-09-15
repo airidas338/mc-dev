@@ -28,7 +28,7 @@ public class ke implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = (kg)var1.a(kg.class);
       if(this.a == kg.b) {
          this.d = var1.e();
@@ -41,7 +41,7 @@ public class ke implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a((Enum)this.a);
       if(this.a == kg.b) {
          var1.b(this.d);

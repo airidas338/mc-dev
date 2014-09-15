@@ -16,9 +16,9 @@ public class lo implements Packet {
 
    public lo(Entity var1) {
       this.a = var1.F();
-      this.b = MathHelper.c(var1.s * 32.0D);
-      this.c = MathHelper.c(var1.t * 32.0D);
-      this.d = MathHelper.c(var1.u * 32.0D);
+      this.b = MathHelper.floor(var1.s * 32.0D);
+      this.c = MathHelper.floor(var1.t * 32.0D);
+      this.d = MathHelper.floor(var1.u * 32.0D);
       this.e = (byte)((int)(var1.y * 256.0F / 360.0F));
       this.f = (byte)((int)(var1.z * 256.0F / 360.0F));
       this.g = var1.C;
@@ -34,7 +34,7 @@ public class lo implements Packet {
       this.g = var7;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = var1.readInt();
       this.c = var1.readInt();
@@ -44,7 +44,7 @@ public class lo implements Packet {
       this.g = var1.readBoolean();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.writeInt(this.b);
       var1.writeInt(this.c);

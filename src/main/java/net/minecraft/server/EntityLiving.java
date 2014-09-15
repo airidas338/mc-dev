@@ -106,8 +106,8 @@ public abstract class EntityLiving extends Entity {
          this.W();
       }
 
-      if(!this.o.D && this.O > 3.0F && var3) {
-         IBlock var6 = this.o.getData(var5);
+      if(!this.o.isStatic && this.O > 3.0F && var3) {
+         IBlockData var6 = this.o.getData(var5);
          Block var7 = var6.c();
          float var8 = (float)MathHelper.f(this.O - 3.0F);
          if(var7.r() != Material.AIR) {
@@ -131,7 +131,7 @@ public abstract class EntityLiving extends Entity {
    public void K() throws IOException {
       this.aw = this.ax;
       super.K();
-      this.o.B.a("livingEntityBaseTick");
+      this.o.methodProfiler.a("livingEntityBaseTick");
       boolean var1 = this instanceof EntityHuman;
       if(this.isAlive()) {
          if(this.aj()) {
@@ -139,12 +139,12 @@ public abstract class EntityLiving extends Entity {
          } else if(var1 && !this.o.af().a(this.aQ())) {
             double var2 = this.o.af().a((Entity)this) + this.o.af().m();
             if(var2 < 0.0D) {
-               this.a(DamageSource.e, (float)Math.max(1, MathHelper.c(-var2 * this.o.af().n())));
+               this.a(DamageSource.e, (float)Math.max(1, MathHelper.floor(-var2 * this.o.af().n())));
             }
          }
       }
 
-      if(this.T() || this.o.D) {
+      if(this.T() || this.o.isStatic) {
          this.N();
       }
 
@@ -166,7 +166,7 @@ public abstract class EntityLiving extends Entity {
             }
          }
 
-         if(!this.o.D && this.av() && this.m instanceof EntityLiving) {
+         if(!this.o.isStatic && this.av() && this.m instanceof EntityLiving) {
             this.a((Entity)null);
          }
       } else {
@@ -214,7 +214,7 @@ public abstract class EntityLiving extends Entity {
       this.aJ = this.aI;
       this.A = this.y;
       this.B = this.z;
-      this.o.B.b();
+      this.o.methodProfiler.b();
    }
 
    public boolean i_() {
@@ -225,7 +225,7 @@ public abstract class EntityLiving extends Entity {
       ++this.av;
       if(this.av == 20) {
          int var1;
-         if(!this.o.D && (this.aM > 0 || this.ba()) && this.aZ() && this.o.Q().b("doMobLoot")) {
+         if(!this.o.isStatic && (this.aM > 0 || this.ba()) && this.aZ() && this.o.Q().b("doMobLoot")) {
             var1 = this.b(this.aL);
 
             while(var1 > 0) {
@@ -349,7 +349,7 @@ public abstract class EntityLiving extends Entity {
 
    public void a(NBTTagCompound var1) {
       this.l(var1.getFloat("AbsorptionAmount"));
-      if(var1.hasKeyOfType("Attributes", 9) && this.o != null && !this.o.D) {
+      if(var1.hasKeyOfType("Attributes", 9) && this.o != null && !this.o.isStatic) {
          GenericAttributes.a(this.getAttributeMap(), var1.getList("Attributes", 10));
       }
 
@@ -390,7 +390,7 @@ public abstract class EntityLiving extends Entity {
          Integer var2 = (Integer)var1.next();
          MobEffect var3 = (MobEffect)this.g.get(var2);
          if(!var3.a(this)) {
-            if(!this.o.D) {
+            if(!this.o.isStatic) {
                var1.remove();
                this.b(var3);
             }
@@ -400,7 +400,7 @@ public abstract class EntityLiving extends Entity {
       }
 
       if(this.i) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.B();
          }
 
@@ -455,7 +455,7 @@ public abstract class EntityLiving extends Entity {
       while(var1.hasNext()) {
          Integer var2 = (Integer)var1.next();
          MobEffect var3 = (MobEffect)this.g.get(var2);
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             var1.remove();
             this.b(var3);
          }
@@ -517,7 +517,7 @@ public abstract class EntityLiving extends Entity {
 
    protected void a(MobEffect var1) {
       this.i = true;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          MobEffectList.a[var1.getEffectId()].b(this, this.getAttributeMap(), var1.getAmplifier());
       }
 
@@ -525,7 +525,7 @@ public abstract class EntityLiving extends Entity {
 
    protected void a(MobEffect var1, boolean var2) {
       this.i = true;
-      if(var2 && !this.o.D) {
+      if(var2 && !this.o.isStatic) {
          MobEffectList.a[var1.getEffectId()].a(this, this.getAttributeMap(), var1.getAmplifier());
          MobEffectList.a[var1.getEffectId()].b(this, this.getAttributeMap(), var1.getAmplifier());
       }
@@ -534,7 +534,7 @@ public abstract class EntityLiving extends Entity {
 
    protected void b(MobEffect var1) {
       this.i = true;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          MobEffectList.a[var1.getEffectId()].a(this, this.getAttributeMap(), var1.getAmplifier());
       }
 
@@ -559,7 +559,7 @@ public abstract class EntityLiving extends Entity {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.o.D) {
+      } else if(this.o.isStatic) {
          return false;
       } else {
          this.aO = 0;
@@ -651,7 +651,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public void b(ItemStack var1) {
-      this.a("random.break", 0.8F, 0.8F + this.o.s.nextFloat() * 0.4F);
+      this.a("random.break", 0.8F, 0.8F + this.o.random.nextFloat() * 0.4F);
 
       for(int var2 = 0; var2 < 5; ++var2) {
          Vec3D var3 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
@@ -680,7 +680,7 @@ public abstract class EntityLiving extends Entity {
 
       this.aN = true;
       this.br().g();
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          int var4 = 0;
          if(var2 instanceof EntityHuman) {
             var4 = EnchantmentManager.i((EntityLiving)var2);
@@ -731,9 +731,9 @@ public abstract class EntityLiving extends Entity {
    protected void b(boolean var1, int var2) {}
 
    public boolean j_() {
-      int var1 = MathHelper.c(this.s);
-      int var2 = MathHelper.c(this.aQ().b);
-      int var3 = MathHelper.c(this.u);
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.aQ().b);
+      int var3 = MathHelper.floor(this.u);
       Block var4 = this.o.getData(new Location(var1, var2, var3)).c();
       return (var4 == Blocks.LADDER || var4 == Blocks.VINE) && (!(this instanceof EntityHuman) || !((EntityHuman)this).v());
    }
@@ -750,9 +750,9 @@ public abstract class EntityLiving extends Entity {
       if(var5 > 0) {
          this.a(this.n(var5), 1.0F, 1.0F);
          this.a(DamageSource.i, (float)var5);
-         int var6 = MathHelper.c(this.s);
-         int var7 = MathHelper.c(this.t - 0.20000000298023224D);
-         int var8 = MathHelper.c(this.u);
+         int var6 = MathHelper.floor(this.s);
+         int var7 = MathHelper.floor(this.t - 0.20000000298023224D);
+         int var8 = MathHelper.floor(this.u);
          Block var9 = this.o.getData(new Location(var6, var7, var8)).c();
          if(var9.r() != Material.AIR) {
             StepSound var10 = var9.H;
@@ -1052,7 +1052,7 @@ public abstract class EntityLiving extends Entity {
          } else {
             float var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.getData(new Location(MathHelper.floor(this.s), MathHelper.floor(this.aQ().b) - 1, MathHelper.floor(this.u))).c().K * 0.91F;
             }
 
             float var4 = 0.16277136F / (var3 * var3 * var3);
@@ -1065,7 +1065,7 @@ public abstract class EntityLiving extends Entity {
             this.a(var1, var2, var5);
             var3 = 0.91F;
             if(this.C) {
-               var3 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.91F;
+               var3 = this.o.getData(new Location(MathHelper.floor(this.s), MathHelper.floor(this.aQ().b) - 1, MathHelper.floor(this.u))).c().K * 0.91F;
             }
 
             if(this.j_()) {
@@ -1088,7 +1088,7 @@ public abstract class EntityLiving extends Entity {
                this.w = 0.2D;
             }
 
-            if(this.o.D && (!this.o.e(new Location((int)this.s, 0, (int)this.u)) || !this.o.f(new Location((int)this.s, 0, (int)this.u)).o())) {
+            if(this.o.isStatic && (!this.o.isLoaded(new Location((int)this.s, 0, (int)this.u)) || !this.o.f(new Location((int)this.s, 0, (int)this.u)).o())) {
                if(this.t > 0.0D) {
                   this.w = -0.1D;
                } else {
@@ -1135,7 +1135,7 @@ public abstract class EntityLiving extends Entity {
 
    public void s_() throws IOException {
       super.s_();
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          int var1 = this.bu();
          if(var1 > 0) {
             if(this.ar <= 0) {
@@ -1193,10 +1193,10 @@ public abstract class EntityLiving extends Entity {
       }
 
       this.aQ += (var8 - this.aQ) * 0.3F;
-      this.o.B.a("headTurn");
+      this.o.methodProfiler.a("headTurn");
       var7 = this.h(var6, var7);
-      this.o.B.b();
-      this.o.B.a("rangeChecks");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("rangeChecks");
 
       while(this.y - this.A < -180.0F) {
          this.A -= 360.0F;
@@ -1230,7 +1230,7 @@ public abstract class EntityLiving extends Entity {
          this.aJ += 360.0F;
       }
 
-      this.o.B.b();
+      this.o.methodProfiler.b();
       this.aR += var7;
    }
 
@@ -1292,20 +1292,20 @@ public abstract class EntityLiving extends Entity {
          this.x = 0.0D;
       }
 
-      this.o.B.a("ai");
+      this.o.methodProfiler.a("ai");
       if(this.bC()) {
          this.aW = false;
          this.aX = 0.0F;
          this.aY = 0.0F;
          this.aZ = 0.0F;
       } else if(this.bL()) {
-         this.o.B.a("newAi");
+         this.o.methodProfiler.a("newAi");
          this.bJ();
-         this.o.B.b();
+         this.o.methodProfiler.b();
       }
 
-      this.o.B.b();
-      this.o.B.a("jump");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("jump");
       if(this.aW) {
          if(this.V()) {
             this.bF();
@@ -1319,19 +1319,19 @@ public abstract class EntityLiving extends Entity {
          this.bl = 0;
       }
 
-      this.o.B.b();
-      this.o.B.a("travel");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("travel");
       this.aX *= 0.98F;
       this.aY *= 0.98F;
       this.aZ *= 0.9F;
       this.g(this.aX, this.aY);
-      this.o.B.b();
-      this.o.B.a("push");
-      if(!this.o.D) {
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("push");
+      if(!this.o.isStatic) {
          this.bK();
       }
 
-      this.o.B.b();
+      this.o.methodProfiler.b();
    }
 
    protected void bJ() {}
@@ -1355,7 +1355,7 @@ public abstract class EntityLiving extends Entity {
 
    public void a(Entity var1) {
       if(this.m != null && var1 == null) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.q(this.m);
          }
 
@@ -1381,7 +1381,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public void a(Entity var1, int var2) {
-      if(!var1.I && !this.o.D) {
+      if(!var1.I && !this.o.isStatic) {
          EntityTracker var3 = ((WorldServer)this.o).s();
          if(var1 instanceof EntityItem) {
             var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
@@ -1417,7 +1417,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public boolean bL() {
-      return !this.o.D;
+      return !this.o.isStatic;
    }
 
    public boolean ad() {

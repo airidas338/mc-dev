@@ -202,8 +202,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				double var35 = Math.min(Math.abs(var29), Math.abs(this.b.w));
 				double var37 = Math.min(Math.abs(var31), Math.abs(this.b.x));
 				double var39 = var33 * var33 + var35 * var35 + var37 * var37;
-				if (var39 > 100.0D && (!this.d.S() || !this.d.R().equals(this.b.d_()))) {
-					c.warn(this.b.d_() + " moved too quickly! " + var27 + "," + var29 + "," + var31 + " (" + var33 + ", " + var35 + ", " + var37 + ")");
+				if (var39 > 100.0D && (!this.d.S() || !this.d.R().equals(this.b.getName()))) {
+					c.warn(this.b.getName() + " moved too quickly! " + var27 + "," + var29 + "," + var31 + " (" + var33 + ", " + var35 + ", " + var37 + ")");
 					this.a(this.o, this.p, this.q, this.b.y, this.b.z);
 					return;
 				}
@@ -228,7 +228,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				boolean var45 = false;
 				if (var39 > 0.0625D && !this.b.bI() && !this.b.c.d()) {
 					var45 = true;
-					c.warn(this.b.d_() + " moved wrongly!");
+					c.warn(this.b.getName() + " moved wrongly!");
 				}
 
 				this.b.a(var19, var21, var23, var25, var26);
@@ -246,7 +246,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					if (var43 >= -0.03125D) {
 						++this.g;
 						if (this.g > 80) {
-							c.warn(this.b.d_() + " was kicked for floating too long!");
+							c.warn(this.b.getName() + " was kicked for floating too long!");
 							this.c("Flying is not enabled on this server");
 							return;
 						}
@@ -374,7 +374,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			this.b.c.a(this.b, var2, var3);
 		} else if (var5.o() >= this.d.al() - 1 && (var6 == EnumFacing.UP || var5.o() >= this.d.al())) {
 			ChatMessage var7 = new ChatMessage("build.tooHigh", new Object[] { Integer.valueOf(this.d.al()) });
-			var7.b().a(EnumChatFormat.m);
+			var7.getChatModifier().setColor(EnumChatFormat.RED);
 			this.b.a.sendPacket((Packet) (new PacketPlayOutChat(var7)));
 			var4 = true;
 		} else {
@@ -461,14 +461,14 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 	}
 
 	public void a(IChatBaseComponent var1) {
-		c.info(this.b.d_() + " lost connection: " + var1);
+		c.info(this.b.getName() + " lost connection: " + var1);
 		this.d.aF();
-		ChatMessage var2 = new ChatMessage("multiplayer.player.left", new Object[] { this.b.e_() });
-		var2.b().a(EnumChatFormat.o);
+		ChatMessage var2 = new ChatMessage("multiplayer.player.left", new Object[] { this.b.getScoreboardDisplayName() });
+		var2.getChatModifier().setColor(EnumChatFormat.YELLOW);
 		this.d.an().a((IChatBaseComponent) var2);
 		this.b.q();
 		this.d.an().e(this.b);
-		if (this.d.S() && this.b.d_().equals(this.d.R())) {
+		if (this.d.S() && this.b.getName().equals(this.d.R())) {
 			c.info("Stopping singleplayer server as player logged out");
 			this.d.u();
 		}
@@ -504,7 +504,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			this.b.bg.c = var1.a();
 			this.b.z();
 		} else {
-			c.warn(this.b.d_() + " tried to set an invalid carried item");
+			c.warn(this.b.getName() + " tried to set an invalid carried item");
 		}
 	}
 
@@ -512,7 +512,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		ig.a(var1, this, this.b.u());
 		if (this.b.y() == EnumChatVisibility.HIDDEN) {
 			ChatMessage var4 = new ChatMessage("chat.cannotSend", new Object[0]);
-			var4.b().a(EnumChatFormat.m);
+			var4.getChatModifier().setColor(EnumChatFormat.RED);
 			this.sendPacket((Packet) (new PacketPlayOutChat(var4)));
 		} else {
 			this.b.z();
@@ -529,7 +529,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			if (var2.startsWith("/")) {
 				this.d(var2);
 			} else {
-				ChatMessage var5 = new ChatMessage("chat.type.text", new Object[] { this.b.e_(), var2 });
+				ChatMessage var5 = new ChatMessage("chat.type.text", new Object[] { this.b.getScoreboardDisplayName(), var2 });
 				this.d.an().a(var5, false);
 			}
 
@@ -607,7 +607,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				} else if (var1.a() == me.b) {
 					if (var3 instanceof EntityItem || var3 instanceof EntityExperienceOrb || var3 instanceof EntityArrow || var3 == this.b) {
 						this.c("Attempting to attack an invalid entity");
-						this.d.f("Player " + this.b.d_() + " tried to attack an invalid entity");
+						this.d.f("Player " + this.b.getName() + " tried to attack an invalid entity");
 						return;
 					}
 
@@ -627,7 +627,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			if (this.b.i) {
 				this.b = this.d.an().a(this.b, 0, true);
 			} else if (this.b.u().P().t()) {
-				if (this.d.S() && this.b.d_().equals(this.d.R())) {
+				if (this.d.S() && this.b.getName().equals(this.d.R())) {
 					this.b.a.c("You have died. Game over, man, it\'s game over!");
 					this.d.Z();
 				} else {
@@ -761,7 +761,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		this.b.z();
 		WorldServer var2 = this.d.a(this.b.am);
 		Location var3 = var1.a();
-		if (var2.e(var3)) {
+		if (var2.isLoaded(var3)) {
 			TileEntity var4 = var2.s(var3);
 			if (!(var4 instanceof bdj)) {
 				return;
@@ -769,7 +769,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 			bdj var5 = (bdj) var4;
 			if (!var5.b() || var5.c() != this.b) {
-				this.d.f("Player " + this.b.d_() + " just tried to change non-editable sign");
+				this.d.f("Player " + this.b.getName() + " just tried to change non-editable sign");
 				return;
 			}
 
@@ -817,11 +817,11 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 	public void a(PacketPlayInCustomPayload var1) {
 		ig.a(var1, this, this.b.u());
-		hd var2;
+		PacketDataSerializer var2;
 		ItemStack var3;
 		ItemStack var4;
 		if ("MC|BEdit".equals(var1.a())) {
-			var2 = new hd(Unpooled.wrappedBuffer(var1.b()));
+			var2 = new PacketDataSerializer(Unpooled.wrappedBuffer(var1.b()));
 
 			try {
 				var3 = var2.i();
@@ -850,7 +850,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 			return;
 		} else if ("MC|BSign".equals(var1.a())) {
-			var2 = new hd(Unpooled.wrappedBuffer(var1.b()));
+			var2 = new PacketDataSerializer(Unpooled.wrappedBuffer(var1.b()));
 
 			try {
 				var3 = var2.i();
@@ -865,7 +865,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				var4 = this.b.bg.h();
 				if (var4 != null) {
 					if (var3.b() == Items.bN && var4.b() == Items.bM) {
-						var4.a("author", (NBTBase) (new NBTTagString(this.b.d_())));
+						var4.a("author", (NBTBase) (new NBTTagString(this.b.getName())));
 						var4.a("title", (NBTBase) (new NBTTagString(var3.o().getString("title"))));
 						var4.a("pages", (NBTBase) var3.o().getList("pages", 8));
 						var4.a(Items.bN);
@@ -893,13 +893,13 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			}
 		} else if ("MC|AdvCdm".equals(var1.a())) {
 			if (!this.d.aj()) {
-				this.b.a((IChatBaseComponent) (new ChatMessage("advMode.notEnabled", new Object[0])));
+				this.b.sendMessage((IChatBaseComponent) (new ChatMessage("advMode.notEnabled", new Object[0])));
 			} else if (this.b.a(2, "") && this.b.by.canInstantlyBuild) {
 				var2 = var1.b();
 
 				try {
 					byte var43 = var2.readByte();
-					aqf var46 = null;
+					CommandBlockListenerAbstract var46 = null;
 					if (var43 == 0) {
 						TileEntity var5 = this.b.o.s(new Location(var2.readInt(), var2.readInt(), var2.readInt()));
 						if (var5 instanceof bct) {
@@ -908,7 +908,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					} else if (var43 == 1) {
 						Entity var47 = this.b.o.a(var2.readInt());
 						if (var47 instanceof EntityMinecartCommandBlock) {
-							var46 = ((EntityMinecartCommandBlock) var47).j();
+							var46 = ((EntityMinecartCommandBlock) var47).getCommandBlock();
 						}
 					}
 
@@ -922,7 +922,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 						}
 
 						var46.h();
-						this.b.a((IChatBaseComponent) (new ChatMessage("advMode.setCommand.success", new Object[] { var50 })));
+						this.b.sendMessage((IChatBaseComponent) (new ChatMessage("advMode.setCommand.success", new Object[] { var50 })));
 					}
 				} catch (Exception var33) {
 					c.error("Couldn\'t set command block", var33);
@@ -930,7 +930,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					var2.release();
 				}
 			} else {
-				this.b.a((IChatBaseComponent) (new ChatMessage("advMode.notAllowed", new Object[0])));
+				this.b.sendMessage((IChatBaseComponent) (new ChatMessage("advMode.notAllowed", new Object[0])));
 			}
 		} else if ("MC|Beacon".equals(var1.a())) {
 			if (this.b.bi instanceof aig) {

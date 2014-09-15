@@ -14,13 +14,13 @@ public class BlockLadder extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() == this) {
          float var4 = 0.125F;
          switch(axf.a[((EnumFacing)var3.b(a)).ordinal()]) {
@@ -53,7 +53,7 @@ public class BlockLadder extends Block {
       return var1.getData(var2.e()).c().t()?true:(var1.getData(var2.f()).c().t()?true:(var1.getData(var2.c()).c().t()?true:var1.getData(var2.d()).c().t()));
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var3.k().c() && this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {
@@ -72,7 +72,7 @@ public class BlockLadder extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
       if(!this.b(var1, var2, var5)) {
          this.b(var1, var2, var3, 0);
@@ -86,7 +86,7 @@ public class BlockLadder extends Block {
       return var1.getData(var2.a(var3.d())).c().t();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
          var2 = EnumFacing.NORTH;
@@ -95,7 +95,7 @@ public class BlockLadder extends Block {
       return this.P().a(a, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(a)).a();
    }
 

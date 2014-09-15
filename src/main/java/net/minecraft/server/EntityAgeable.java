@@ -18,10 +18,10 @@ public abstract class EntityAgeable extends EntityCreature {
 
    public abstract EntityAgeable a(EntityAgeable var1);
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.bJ) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             Class var3 = EntityTypes.a(var2.i());
             if(var3 != null && this.getClass() == var3) {
                EntityAgeable var4 = this.a(this);
@@ -55,7 +55,7 @@ public abstract class EntityAgeable extends EntityCreature {
    }
 
    public int l() {
-      return this.o.D?this.ac.a(12):this.a;
+      return this.o.isStatic?this.ac.a(12):this.a;
    }
 
    public void a(int var1, boolean var2) {
@@ -108,7 +108,7 @@ public abstract class EntityAgeable extends EntityCreature {
 
    public void m() throws IOException {
       super.m();
-      if(this.o.D) {
+      if(this.o.isStatic) {
          if(this.c > 0) {
             if(this.c % 4 == 0) {
                this.o.a(ew.v, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);

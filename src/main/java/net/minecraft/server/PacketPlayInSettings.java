@@ -9,7 +9,7 @@ public class PacketPlayInSettings implements Packet {
    private int e;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(7);
       this.b = var1.readByte();
       this.c = EnumChatVisibility.a(var1.readByte());
@@ -17,7 +17,7 @@ public class PacketPlayInSettings implements Packet {
       this.e = var1.readUnsignedByte();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeByte(this.b);
       var1.writeByte(this.c.a());

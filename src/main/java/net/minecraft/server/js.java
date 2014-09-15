@@ -16,7 +16,7 @@ public class js implements Packet {
       this.a = new int[var2];
       this.b = new int[var2];
       this.c = new jr[var2];
-      this.d = !((Chunk)var1.get(0)).p().t.o();
+      this.d = !((Chunk)var1.get(0)).p().worldProvider.o();
 
       for(int var3 = 0; var3 < var2; ++var3) {
          Chunk var4 = (Chunk)var1.get(var3);
@@ -28,7 +28,7 @@ public class js implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.d = var1.readBoolean();
       int var2 = var1.e();
       this.a = new int[var2];
@@ -50,7 +50,7 @@ public class js implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeBoolean(this.d);
       var1.b(this.c.length);
 

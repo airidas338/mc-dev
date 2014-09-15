@@ -14,7 +14,7 @@ public class akt extends Item {
       if(var5 != EnumFacing.UP) {
          return false;
       } else {
-         IBlock var9 = var3.getData(var4);
+         IBlockData var9 = var3.getData(var4);
          Block var10 = var9.c();
          if(!var10.f(var3, var4)) {
             var4 = var4.a(var5);
@@ -45,7 +45,7 @@ public class akt extends Item {
       }
 
       Location var11 = var1.a();
-      IBlock var12 = var3.P().a(BlockDoor.a, var2).a(BlockDoor.M, var10?avh.b:avh.a);
+      IBlockData var12 = var3.P().a(BlockDoor.a, var2).a(BlockDoor.M, var10?avh.b:avh.a);
       var0.a(var1, var12.a(BlockDoor.O, avg.b), 2);
       var0.a(var11, var12.a(BlockDoor.O, avg.a), 2);
       var0.c(var1, var3);

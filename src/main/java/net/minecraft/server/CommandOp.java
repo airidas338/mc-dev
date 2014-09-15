@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CommandOp extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "op";
    }
 
@@ -19,7 +19,7 @@ public class CommandOp extends CommandAbstract {
       return "commands.op.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.M();
          GameProfile var4 = var3.aD().a(var2[0]);
@@ -34,7 +34,7 @@ public class CommandOp extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          String var4 = var2[var2.length - 1];
          ArrayList var5 = Lists.newArrayList();

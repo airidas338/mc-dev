@@ -15,7 +15,7 @@ public class CommandDebug extends CommandAbstract {
    private int c;
 
 
-   public String c() {
+   public String getCommand() {
       return "debug";
    }
 
@@ -27,7 +27,7 @@ public class CommandDebug extends CommandAbstract {
       return "commands.debug.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.debug.usage", new Object[0]);
       } else {
@@ -130,7 +130,7 @@ public class CommandDebug extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"start", "stop"}):null;
    }
 

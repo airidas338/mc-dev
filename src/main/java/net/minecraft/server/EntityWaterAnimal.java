@@ -29,7 +29,7 @@ public abstract class EntityWaterAnimal extends EntityInsentient implements wt {
    }
 
    protected int b(EntityHuman var1) {
-      return 1 + this.o.s.nextInt(3);
+      return 1 + this.o.random.nextInt(3);
    }
 
    public void K() throws IOException {

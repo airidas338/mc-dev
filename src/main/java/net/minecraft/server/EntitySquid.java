@@ -82,7 +82,7 @@ public class EntitySquid extends EntityWaterAnimal {
       this.bm = this.bl;
       this.bj += this.bo;
       if((double)this.bj > 6.283185307179586D) {
-         if(this.o.D) {
+         if(this.o.isStatic) {
             this.bj = 6.2831855F;
          } else {
             this.bj = (float)((double)this.bj - 6.283185307179586D);
@@ -111,7 +111,7 @@ public class EntitySquid extends EntityWaterAnimal {
             this.bp *= 0.99F;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.v = (double)(this.bq * this.bn);
             this.w = (double)(this.br * this.bn);
             this.x = (double)(this.bs * this.bn);
@@ -124,7 +124,7 @@ public class EntitySquid extends EntityWaterAnimal {
          this.a += (-((float)Math.atan2((double)var1, this.w)) * 180.0F / 3.1415927F - this.a) * 0.1F;
       } else {
          this.bl = MathHelper.e(MathHelper.sin(this.bj)) * 3.1415927F * 0.25F;
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.v = 0.0D;
             this.w -= 0.08D;
             this.w *= 0.9800000190734863D;

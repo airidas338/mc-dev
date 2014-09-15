@@ -36,19 +36,19 @@ public class bin extends WorldGenerator {
          }
 
          int var5 = 0;
-         if(var1.d(var3.e())) {
+         if(var1.isEmpty(var3.e())) {
             ++var5;
          }
 
-         if(var1.d(var3.f())) {
+         if(var1.isEmpty(var3.f())) {
             ++var5;
          }
 
-         if(var1.d(var3.c())) {
+         if(var1.isEmpty(var3.c())) {
             ++var5;
          }
 
-         if(var1.d(var3.d())) {
+         if(var1.isEmpty(var3.d())) {
             ++var5;
          }
 

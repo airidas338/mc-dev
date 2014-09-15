@@ -12,9 +12,9 @@ public class BlockPortal extends awt {
       this.a(true);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
-      if(var1.t.d() && var1.Q().b("doMobSpawning") && var4.nextInt(2000) < var1.aa().a()) {
+      if(var1.worldProvider.d() && var1.Q().b("doMobSpawning") && var4.nextInt(2000) < var1.aa().a()) {
          int var5 = var2.o();
 
          Location var6;
@@ -32,7 +32,7 @@ public class BlockPortal extends awt {
 
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -75,7 +75,7 @@ public class BlockPortal extends awt {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       el var5 = (el)var3.b(a);
       ayz var6;
       if(var5 == el.a) {
@@ -96,18 +96,18 @@ public class BlockPortal extends awt {
       return 0;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Entity var4) {
+   public void a(World var1, Location var2, IBlockData var3, Entity var4) {
       if(var4.m == null && var4.l == null) {
          var4.aq();
       }
 
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, (var1 & 3) == 2?el.c:el.a);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return a((el)var1.b(a));
    }
 

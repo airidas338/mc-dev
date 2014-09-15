@@ -72,7 +72,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
    public void m() throws IOException {
       float var1;
       float var2;
-      if(this.o.D) {
+      if(this.o.isStatic) {
          var1 = MathHelper.cos(this.bt * 3.1415927F * 2.0F);
          var2 = MathHelper.cos(this.bs * 3.1415927F * 2.0F);
          if(var2 <= -0.3F && var1 >= -0.3F && !this.R()) {
@@ -116,7 +116,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          double var8;
          double var28;
          float var35;
-         if(this.o.D) {
+         if(this.o.isStatic) {
             if(this.ba > 0) {
                var28 = this.s + (this.bb - this.s) / (double)this.ba;
                var4 = this.t + (this.bc - this.t) / (double)this.ba;
@@ -227,7 +227,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          this.bq.setPositionRotation(this.s + (double)(var7 * 4.5F), this.t + 2.0D, this.u + (double)(var30 * 4.5F), 0.0F, 0.0F);
          this.br.s_();
          this.br.setPositionRotation(this.s - (double)(var7 * 4.5F), this.t + 2.0D, this.u - (double)(var30 * 4.5F), 0.0F, 0.0F);
-         if(!this.o.D && this.as == 0) {
+         if(!this.o.isStatic && this.as == 0) {
             this.a(this.o.b((Entity)this, this.bq.aQ().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
             this.a(this.o.b((Entity)this, this.br.aQ().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
             this.b(this.o.b((Entity)this, this.bl.aQ().b(1.0D, 1.0D, 1.0D)));
@@ -264,7 +264,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
             var33.setPositionRotation(this.s - (double)((var30 * var38 + var40 * var41) * var3), this.t + (var37[1] - var31[1]) * 1.0D - (double)((var41 + var38) * var29) + 1.5D, this.u + (double)((var7 * var38 + var39 * var41) * var3), 0.0F, 0.0F);
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.bv = this.b(this.bl.aQ()) | this.b(this.bm.aQ());
          }
 
@@ -274,7 +274,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
    private void n() {
       if(this.bx != null) {
          if(this.bx.I) {
-            if(!this.o.D) {
+            if(!this.o.isStatic) {
                this.a(this.bl, DamageSource.a((aqo)null), 10.0F);
             }
 
@@ -335,7 +335,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
 
    private void cd() {
       this.bu = false;
-      ArrayList var1 = Lists.newArrayList(this.o.j);
+      ArrayList var1 = Lists.newArrayList(this.o.players);
       Iterator var2 = var1.iterator();
 
       while(var2.hasNext()) {
@@ -370,12 +370,12 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
    }
 
    private boolean b(AxisAlignedBB var1) {
-      int var2 = MathHelper.c(var1.a);
-      int var3 = MathHelper.c(var1.b);
-      int var4 = MathHelper.c(var1.c);
-      int var5 = MathHelper.c(var1.d);
-      int var6 = MathHelper.c(var1.e);
-      int var7 = MathHelper.c(var1.f);
+      int var2 = MathHelper.floor(var1.a);
+      int var3 = MathHelper.floor(var1.b);
+      int var4 = MathHelper.floor(var1.c);
+      int var5 = MathHelper.floor(var1.d);
+      int var6 = MathHelper.floor(var1.e);
+      int var7 = MathHelper.floor(var1.f);
       boolean var8 = false;
       boolean var9 = false;
 
@@ -450,7 +450,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
 
       int var4;
       int var5;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(this.bw > 150 && this.bw % 5 == 0 && this.o.Q().b("doMobLoot")) {
             var4 = 1000;
 
@@ -468,7 +468,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
 
       this.d(0.0D, 0.10000000149011612D, 0.0D);
       this.aG = this.y += 20.0F;
-      if(this.bw == 200 && !this.o.D) {
+      if(this.bw == 200 && !this.o.isStatic) {
          var4 = 2000;
 
          while(var4 > 0) {

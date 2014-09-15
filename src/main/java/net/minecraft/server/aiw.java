@@ -36,7 +36,7 @@ public class aiw extends ajk {
 
    protected void c(ItemStack var1) {
       var1.a(this.a.o, this.a, this.b);
-      if(!this.a.o.D) {
+      if(!this.a.o.isStatic) {
          int var2 = this.b;
          float var3 = aok.a().b(var1);
          int var4;

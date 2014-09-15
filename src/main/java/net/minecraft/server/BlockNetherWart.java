@@ -18,11 +18,11 @@ public class BlockNetherWart extends BlockPlant {
       return var1 == Blocks.SOUL_SAND;
    }
 
-   public boolean f(World var1, Location var2, IBlock var3) {
+   public boolean f(World var1, Location var2, IBlockData var3) {
       return this.c(var1.getData(var2.b()).c());
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       int var5 = ((Integer)var3.b(a)).intValue();
       if(var5 < 3 && var4.nextInt(10) == 0) {
          var3 = var3.a(a, Integer.valueOf(var5 + 1));
@@ -32,13 +32,13 @@ public class BlockNetherWart extends BlockPlant {
       super.b(var1, var2, var3, var4);
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+      if(!var1.isStatic) {
          int var6 = 1;
          if(((Integer)var3.b(a)).intValue() >= 3) {
-            var6 = 2 + var1.s.nextInt(3);
+            var6 = 2 + var1.random.nextInt(3);
             if(var5 > 0) {
-               var6 += var1.s.nextInt(var5 + 1);
+               var6 += var1.random.nextInt(var5 + 1);
             }
          }
 
@@ -49,7 +49,7 @@ public class BlockNetherWart extends BlockPlant {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -57,11 +57,11 @@ public class BlockNetherWart extends BlockPlant {
       return 0;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

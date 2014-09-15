@@ -58,11 +58,11 @@ public class bkg extends bmm {
       var5 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       var6 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       if(var3 == var5 && var4 == var6) {
-         if(this.c.v().a(new Location(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.DEEP_OCEAN) {
+         if(this.c.getWorldChunkManager().a(new Location(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.DEEP_OCEAN) {
             return false;
          }
 
-         boolean var8 = this.c.v().a(var3 * 16 + 8, var4 * 16 + 8, 29, d);
+         boolean var8 = this.c.getWorldChunkManager().a(var3 * 16 + 8, var4 * 16 + 8, 29, d);
          if(var8) {
             return true;
          }

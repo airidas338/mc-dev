@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandEffect extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "effect";
    }
 
@@ -15,17 +15,17 @@ public class CommandEffect extends CommandAbstract {
       return "commands.effect.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.effect.usage", new Object[0]);
       } else {
          EntityLiving var3 = (EntityLiving)a(var1, var2[0], EntityLiving.class);
          if(var2[1].equals("clear")) {
             if(var3.bk().isEmpty()) {
-               throw new CommandException("commands.effect.failure.notActive.all", new Object[]{var3.d_()});
+               throw new CommandException("commands.effect.failure.notActive.all", new Object[]{var3.getName()});
             } else {
                var3.bj();
-               a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.d_()});
+               a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.getName()});
             }
          } else {
             int var4;
@@ -68,12 +68,12 @@ public class CommandEffect extends CommandAbstract {
                if(var12 > 0) {
                   MobEffect var10 = new MobEffect(var4, var5, var7, false, var9);
                   var3.c(var10);
-                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var10.g(), new Object[0]), Integer.valueOf(var4), Integer.valueOf(var7), var3.d_(), Integer.valueOf(var12)});
+                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var10.g(), new Object[0]), Integer.valueOf(var4), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var12)});
                } else if(var3.k(var4)) {
                   var3.m(var4);
-                  a(var1, this, "commands.effect.success.removed", new Object[]{new ChatMessage(var8.a(), new Object[0]), var3.d_()});
+                  a(var1, this, "commands.effect.success.removed", new Object[]{new ChatMessage(var8.a(), new Object[0]), var3.getName()});
                } else {
-                  throw new CommandException("commands.effect.failure.notActive", new Object[]{new ChatMessage(var8.a(), new Object[0]), var3.d_()});
+                  throw new CommandException("commands.effect.failure.notActive", new Object[]{new ChatMessage(var8.a(), new Object[0]), var3.getName()});
                }
             } else {
                throw new ExceptionInvalidNumber("commands.effect.notFound", new Object[]{Integer.valueOf(var4)});
@@ -82,7 +82,7 @@ public class CommandEffect extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffectList.c()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
@@ -90,7 +90,7 @@ public class CommandEffect extends CommandAbstract {
       return MinecraftServer.M().I();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

@@ -17,12 +17,12 @@ public class BlockDeadBush extends BlockPlant {
       return true;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
-      if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
+      if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.DEAD_BUSH, 1, 0));
       } else {

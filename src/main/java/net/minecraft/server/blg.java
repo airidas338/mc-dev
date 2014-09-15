@@ -58,7 +58,7 @@ public class blg extends bmm {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         BiomeBase var8 = this.c.v().a(new Location(var3 * 16 + 8, 0, var4 * 16 + 8));
+         BiomeBase var8 = this.c.getWorldChunkManager().a(new Location(var3 * 16 + 8, 0, var4 * 16 + 8));
          if(var8 == null) {
             return false;
          }

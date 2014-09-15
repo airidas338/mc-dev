@@ -164,7 +164,7 @@ public class PlayerInteractManager {
    }
 
    private boolean c(Location var1) {
-      IBlock var2 = this.a.getData(var1);
+      IBlockData var2 = this.a.getData(var1);
       var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
       boolean var3 = this.a.g(var1);
       if(var3) {
@@ -178,7 +178,7 @@ public class PlayerInteractManager {
       if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof ItemSword) {
          return false;
       } else {
-         IBlock var2 = this.a.getData(var1);
+         IBlockData var2 = this.a.getData(var1);
          TileEntity var3 = this.a.s(var1);
          if(this.c.c()) {
             if(this.c == EnumGamemode.SPECTATOR) {
@@ -273,7 +273,7 @@ public class PlayerInteractManager {
          return false;
       } else {
          if(!var1.aw() || var1.bz() == null) {
-            IBlock var9 = var2.getData(var4);
+            IBlockData var9 = var2.getData(var4);
             if(var9.c().a(var2, var4, var9, var1, var5, var6, var7, var8)) {
                return true;
             }

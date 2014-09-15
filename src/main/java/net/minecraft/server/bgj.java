@@ -60,12 +60,12 @@ public class bgj extends bgt {
             }
 
             if(var6 >= var20 - 16.0D - var52 * 2.0D && var10 >= var22 - 16.0D - var52 * 2.0D && var6 <= var20 + 16.0D + var52 * 2.0D && var10 <= var22 + 16.0D + var52 * 2.0D) {
-               int var55 = MathHelper.c(var6 - var52) - var3 * 16 - 1;
-               int var35 = MathHelper.c(var6 + var52) - var3 * 16 + 1;
-               int var54 = MathHelper.c(var8 - var30) - 1;
-               int var37 = MathHelper.c(var8 + var30) + 1;
-               int var56 = MathHelper.c(var10 - var52) - var4 * 16 - 1;
-               int var39 = MathHelper.c(var10 + var52) - var4 * 16 + 1;
+               int var55 = MathHelper.floor(var6 - var52) - var3 * 16 - 1;
+               int var35 = MathHelper.floor(var6 + var52) - var3 * 16 + 1;
+               int var54 = MathHelper.floor(var8 - var30) - 1;
+               int var37 = MathHelper.floor(var8 + var30) + 1;
+               int var56 = MathHelper.floor(var10 - var52) - var4 * 16 - 1;
+               int var39 = MathHelper.floor(var10 + var52) - var4 * 16 + 1;
                if(var55 < 0) {
                   var55 = 0;
                }
@@ -97,7 +97,7 @@ public class bgj extends bgt {
                   for(int var42 = var56; !var57 && var42 < var39; ++var42) {
                      for(int var43 = var37 + 1; !var57 && var43 >= var54 - 1; --var43) {
                         if(var43 >= 0 && var43 < 256) {
-                           IBlock var44 = var5.a(var41, var43, var42);
+                           IBlockData var44 = var5.a(var41, var43, var42);
                            if(var44.c() == Blocks.WATER || var44.c() == Blocks.STATIONARY_WATER) {
                               var57 = true;
                            }
@@ -121,7 +121,7 @@ public class bgj extends bgt {
                            for(int var48 = var37; var48 > var54; --var48) {
                               double var49 = ((double)(var48 - 1) + 0.5D - var8) / var30;
                               if((var58 * var58 + var45 * var45) * (double)this.d[var48 - 1] + var49 * var49 / 6.0D < 1.0D) {
-                                 IBlock var51 = var5.a(var41, var48, var59);
+                                 IBlockData var51 = var5.a(var41, var48, var59);
                                  if(var51.c() == Blocks.GRASS) {
                                     var47 = true;
                                  }
@@ -132,7 +132,7 @@ public class bgj extends bgt {
                                     } else {
                                        var5.a(var41, var48, var59, Blocks.AIR.P());
                                        if(var47 && var5.a(var41, var48 - 1, var59).c() == Blocks.DIRT) {
-                                          var5.a(var41, var48 - 1, var59, this.c.b(new Location(var41 + var3 * 16, 0, var59 + var4 * 16)).ak);
+                                          var5.a(var41, var48 - 1, var59, this.c.getBiome(new Location(var41 + var3 * 16, 0, var59 + var4 * 16)).ak);
                                        }
                                     }
                                  }

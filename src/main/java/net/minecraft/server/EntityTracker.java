@@ -107,7 +107,7 @@ public class EntityTracker {
          qy var5 = new qy(var1, var2, var3, var4);
          this.c.add(var5);
          this.d.a(var1.F(), var5);
-         var5.b(this.b.j);
+         var5.b(this.b.players);
       } catch (Throwable var11) {
          CrashReport var6 = CrashReport.a(var11, "Adding entity to track");
          CrashReportSystemDetails var7 = var6.a("Entity To Track");
@@ -151,7 +151,7 @@ public class EntityTracker {
 
       while(var2.hasNext()) {
          qy var3 = (qy)var2.next();
-         var3.a(this.b.j);
+         var3.a(this.b.players);
          if(var3.n && var3.a instanceof EntityPlayer) {
             var1.add((EntityPlayer)var3.a);
          }
@@ -177,7 +177,7 @@ public class EntityTracker {
       while(var2.hasNext()) {
          qy var3 = (qy)var2.next();
          if(var3.a == var1) {
-            var3.b(this.b.j);
+            var3.b(this.b.players);
          } else {
             var3.b(var1);
          }

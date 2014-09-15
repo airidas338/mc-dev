@@ -28,7 +28,7 @@ public class bkx extends blb {
       }
 
       int var8;
-      IBlock var9;
+      IBlockData var9;
       for(var8 = 1; var8 <= 7; ++var8) {
          var9 = b;
          if(var8 == 2 || var8 == 6) {

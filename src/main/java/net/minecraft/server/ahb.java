@@ -353,7 +353,7 @@ public class ahb implements IInventory {
       return var2[var1];
    }
 
-   public String d_() {
+   public String getName() {
       return "container.inventory";
    }
 
@@ -361,8 +361,8 @@ public class ahb implements IInventory {
       return false;
    }
 
-   public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
    public int p_() {

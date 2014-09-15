@@ -70,7 +70,7 @@ public class BlockCobbleWall extends Block {
       this.a(var7, 0.0F, var9, var8, var11, var10);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       this.F = 1.5D;
       return super.a(var1, var2, var3);
@@ -81,20 +81,20 @@ public class BlockCobbleWall extends Block {
       return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((bby)var1.b(P)).a();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(P, bby.a(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((bby)var1.b(P)).a();
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
-      return var1.a(a, Boolean.valueOf(!var2.d(var3.a()))).a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(M, Boolean.valueOf(this.e(var2, var3.f()))).a(N, Boolean.valueOf(this.e(var2, var3.d()))).a(O, Boolean.valueOf(this.e(var2, var3.e())));
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
+      return var1.a(a, Boolean.valueOf(!var2.isEmpty(var3.a()))).a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(M, Boolean.valueOf(this.e(var2, var3.f()))).a(N, Boolean.valueOf(this.e(var2, var3.d()))).a(O, Boolean.valueOf(this.e(var2, var3.e())));
    }
 
    protected bed e() {

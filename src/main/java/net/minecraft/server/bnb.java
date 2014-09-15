@@ -24,10 +24,10 @@ public class bnb extends bnn {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.setInt("CA", Block.c.b(this.a));
-      var1.setInt("CB", Block.c.b(this.b));
-      var1.setInt("CC", Block.c.b(this.c));
-      var1.setInt("CD", Block.c.b(this.d));
+      var1.setInt("CA", Block.REGISTRY.b(this.a));
+      var1.setInt("CB", Block.REGISTRY.b(this.b));
+      var1.setInt("CC", Block.REGISTRY.b(this.c));
+      var1.setInt("CD", Block.REGISTRY.b(this.d));
    }
 
    protected void b(NBTTagCompound var1) {

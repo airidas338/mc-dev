@@ -29,7 +29,7 @@ public class BlockBrewingStand extends atg {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.4375F, 0.0F, 0.4375F, 0.5625F, 0.875F, 0.5625F);
       super.a(var1, var2, var3, var4, var5, var6);
       this.h();
@@ -40,8 +40,8 @@ public class BlockBrewingStand extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
@@ -53,7 +53,7 @@ public class BlockBrewingStand extends atg {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       if(var5.s()) {
          TileEntity var6 = var1.s(var2);
          if(var6 instanceof bcq) {
@@ -63,7 +63,7 @@ public class BlockBrewingStand extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
       if(var4 instanceof bcq) {
          vs.a(var1, var2, (bcq)var4);
@@ -72,7 +72,7 @@ public class BlockBrewingStand extends atg {
       super.b(var1, var2, var3);
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.bF;
    }
 
@@ -84,8 +84,8 @@ public class BlockBrewingStand extends atg {
       return aib.a(var1.s(var2));
    }
 
-   public IBlock a(int var1) {
-      IBlock var2 = this.P();
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.P();
 
       for(int var3 = 0; var3 < 3; ++var3) {
          var2 = var2.a(a[var3], Boolean.valueOf((var1 & 1 << var3) > 0));
@@ -94,7 +94,7 @@ public class BlockBrewingStand extends atg {
       return var2;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
 
       for(int var3 = 0; var3 < 3; ++var3) {

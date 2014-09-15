@@ -9,8 +9,8 @@ final class DispenserBehaviorPumpkin extends DispenserBehaviorItem {
       World var3 = var1.i();
       Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
       BlockPumpkin var5 = (BlockPumpkin)Blocks.PUMPKIN;
-      if(var3.d(var4) && var5.d(var3, var4)) {
-         if(!var3.D) {
+      if(var3.isEmpty(var4) && var5.d(var3, var4)) {
+         if(!var3.isStatic) {
             var3.a(var4, var5.P(), 3);
          }
 

@@ -3,37 +3,37 @@ public enum axu implements IName {
 
 	a("STONE", 0, 0, "stone") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.STONE.P().a(BlockStone.a, bbb.a);
 		}
 	},
 	b("COBBLESTONE", 1, 1, "cobblestone", "cobble") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.COBBLESTONE.P();
 		}
 	},
 	c("STONEBRICK", 2, 2, "stone_brick", "brick") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.SMOOTH_BRICK.P().a(BlockSmoothBrick.a, bbd.a);
 		}
 	},
 	d("MOSSY_STONEBRICK", 3, 3, "mossy_brick", "mossybrick") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.SMOOTH_BRICK.P().a(BlockSmoothBrick.a, bbd.b);
 		}
 	},
 	e("CRACKED_STONEBRICK", 4, 4, "cracked_brick", "crackedbrick") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.SMOOTH_BRICK.P().a(BlockSmoothBrick.a, bbd.c);
 		}
 	},
 	f("CHISELED_STONEBRICK", 5, 5, "chiseled_brick", "chiseledbrick") {
 		@Override
-		public IBlock d() {
+		public IBlockData d() {
 			return Blocks.SMOOTH_BRICK.P().a(BlockSmoothBrick.a, bbd.d);
 		}
 	};
@@ -78,9 +78,9 @@ public enum axu implements IName {
 		return this.j;
 	}
 
-	public abstract IBlock d();
+	public abstract IBlockData d();
 
-	public static axu a(IBlock var0) {
+	public static axu a(IBlockData var0) {
 		axu[] var1 = values();
 		int var2 = var1.length;
 

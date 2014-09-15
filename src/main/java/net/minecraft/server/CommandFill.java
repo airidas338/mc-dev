@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CommandFill extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "fill";
    }
 
@@ -18,7 +18,7 @@ public class CommandFill extends CommandAbstract {
       return "commands.fill.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 7) {
          throw new ExceptionUsage("commands.fill.usage", new Object[0]);
       } else {
@@ -37,11 +37,11 @@ public class CommandFill extends CommandAbstract {
          if(var9 > '\u8000') {
             throw new CommandException("commands.fill.tooManyBlocks", new Object[]{Integer.valueOf(var9), Integer.valueOf('\u8000')});
          } else if(var7.o() >= 0 && var8.o() < 256) {
-            World var10 = var1.e();
+            World var10 = var1.getWorld();
 
             for(int var11 = var7.p(); var11 < var8.p() + 16; var11 += 16) {
                for(int var12 = var7.n(); var12 < var8.n() + 16; var12 += 16) {
-                  if(!var10.e(new Location(var12, var8.o() - var7.o(), var11))) {
+                  if(!var10.isLoaded(new Location(var12, var8.o() - var7.o(), var11))) {
                      throw new CommandException("commands.fill.outOfWorld", new Object[0]);
                   }
                }
@@ -67,13 +67,13 @@ public class CommandFill extends CommandAbstract {
                for(int var15 = var7.o(); var15 <= var8.o(); ++var15) {
                   for(int var16 = var7.n(); var16 <= var8.n(); ++var16) {
                      Location var17 = new Location(var16, var15, var14);
-                     IBlock var19;
+                     IBlockData var19;
                      if(var2.length >= 9) {
                         if(!var2[8].equals("outline") && !var2[8].equals("hollow")) {
                            if(var2[8].equals("destroy")) {
                               var10.b(var17, true);
                            } else if(var2[8].equals("keep")) {
-                              if(!var10.d(var17)) {
+                              if(!var10.isEmpty(var17)) {
                                  continue;
                               }
                            } else if(var2[8].equals("replace") && !var5.x()) {
@@ -148,7 +148,7 @@ public class CommandFill extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length == 7?a(var2, Block.c.c()):(var2.length == 9?a(var2, new String[]{"replace", "destroy", "keep", "hollow", "outline"}):null)));
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length == 7?a(var2, Block.REGISTRY.c()):(var2.length == 9?a(var2, new String[]{"replace", "destroy", "keep", "hollow", "outline"}):null)));
    }
 }

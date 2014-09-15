@@ -89,19 +89,19 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
                   if(var21.r() == Material.AIR || var21.r() == Material.LEAVES || var21.r() == Material.REPLACAEBLE_PLAN) {
                      this.a(var1, var3.b(var9), Blocks.LOG, this.c);
                      if(this.b && var9 > 0) {
-                        if(var2.nextInt(3) > 0 && var1.d(var3.a(-1, var9, 0))) {
+                        if(var2.nextInt(3) > 0 && var1.isEmpty(var3.a(-1, var9, 0))) {
                            this.a(var1, var3.a(-1, var9, 0), Blocks.VINE, BlockVine.S);
                         }
 
-                        if(var2.nextInt(3) > 0 && var1.d(var3.a(1, var9, 0))) {
+                        if(var2.nextInt(3) > 0 && var1.isEmpty(var3.a(1, var9, 0))) {
                            this.a(var1, var3.a(1, var9, 0), Blocks.VINE, BlockVine.T);
                         }
 
-                        if(var2.nextInt(3) > 0 && var1.d(var3.a(0, var9, -1))) {
+                        if(var2.nextInt(3) > 0 && var1.isEmpty(var3.a(0, var9, -1))) {
                            this.a(var1, var3.a(0, var9, -1), Blocks.VINE, BlockVine.Q);
                         }
 
-                        if(var2.nextInt(3) > 0 && var1.d(var3.a(0, var9, 1))) {
+                        if(var2.nextInt(3) > 0 && var1.isEmpty(var3.a(0, var9, 1))) {
                            this.a(var1, var3.a(0, var9, 1), Blocks.VINE, BlockVine.R);
                         }
                      }

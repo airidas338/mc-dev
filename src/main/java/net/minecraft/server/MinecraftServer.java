@@ -256,7 +256,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				WorldServer var5 = var2[var4];
 				if (var5 != null) {
 					if (!var1) {
-						j.info("Saving chunks for level \'" + var5.P().k() + "\'/" + var5.t.k());
+						j.info("Saving chunks for level \'" + var5.P().k() + "\'/" + var5.worldProvider.k());
 					}
 
 					try {
@@ -491,7 +491,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				this.b.a(var4.P().k());
 				if (this.y % 20 == 0) {
 					this.b.a("timeSync");
-					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.t.q());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.worldProvider.q());
 					this.b.b();
 				}
 
@@ -762,11 +762,11 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		return this.n != null;
 	}
 
-	public String d_() {
+	public String getName() {
 		return "Server";
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 		j.info(var1.c());
 	}
 
@@ -900,14 +900,14 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				if (this.c[var3] != null) {
 					WorldServer var4 = this.c[var3];
 					WorldData var5 = var4.P();
-					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.t.q()));
+					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.worldProvider.q()));
 					var1.a("world[" + var2 + "][mode]", var5.r());
 					var1.a("world[" + var2 + "][difficulty]", var4.aa());
 					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.t()));
 					var1.a("world[" + var2 + "][generator_name]", var5.u().a());
 					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.u().d()));
 					var1.a("world[" + var2 + "][height]", Integer.valueOf(this.F));
-					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.N().g()));
+					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.N().getLoadedChunks()));
 					++var2;
 				}
 			}
@@ -1024,7 +1024,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		this.T = true;
 	}
 
-	public Location c() {
+	public Location getLocation() {
 		return Location.a;
 	}
 
@@ -1032,7 +1032,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		return new Vec3D(0.0D, 0.0D, 0.0D);
 	}
 
-	public World e() {
+	public World getWorld() {
 		return this.c[0];
 	}
 
@@ -1072,8 +1072,8 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		this.G = var1;
 	}
 
-	public IChatBaseComponent e_() {
-		return new ChatComponentText(this.d_());
+	public IChatBaseComponent getScoreboardDisplayName() {
+		return new ChatComponentText(this.getName());
 	}
 
 	public boolean az() {

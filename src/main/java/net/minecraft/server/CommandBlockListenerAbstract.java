@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Callable;
 
-public abstract class aqf implements ICommandListener {
+public abstract class CommandBlockListenerAbstract implements ICommandListener {
 
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
    private int b;
@@ -66,7 +66,7 @@ public abstract class aqf implements ICommandListener {
    }
 
    public void a(World var1) {
-      if(var1.D) {
+      if(var1.isStatic) {
          this.b = 0;
       }
 
@@ -90,20 +90,20 @@ public abstract class aqf implements ICommandListener {
 
    }
 
-   public String d_() {
+   public String getName() {
       return this.f;
    }
 
-   public IChatBaseComponent e_() {
-      return new ChatComponentText(this.d_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return new ChatComponentText(this.getName());
    }
 
    public void b(String var1) {
       this.f = var1;
    }
 
-   public void a(IChatBaseComponent var1) {
-      if(this.c && this.e() != null && !this.e().D) {
+   public void sendMessage(IChatBaseComponent var1) {
+      if(this.c && this.getWorld() != null && !this.getWorld().isStatic) {
          this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).a(var1);
          this.h();
       }
@@ -137,7 +137,7 @@ public abstract class aqf implements ICommandListener {
       if(!var1.by.canInstantlyBuild) {
          return false;
       } else {
-         if(var1.e().D) {
+         if(var1.getWorld().isStatic) {
             var1.a(this);
          }
 

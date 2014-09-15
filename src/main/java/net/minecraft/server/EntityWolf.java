@@ -109,14 +109,14 @@ public class EntityWolf extends EntityTameableAnimal {
 
    public void m() throws IOException {
       super.m();
-      if(!this.o.D && this.bo && !this.bp && !this.cd() && this.C) {
+      if(!this.o.isStatic && this.bo && !this.bp && !this.cd() && this.C) {
          this.bp = true;
          this.bq = 0.0F;
          this.br = 0.0F;
          this.o.a((Entity)this, (byte)8);
       }
 
-      if(!this.o.D && this.u() == null && this.ct()) {
+      if(!this.o.isStatic && this.u() == null && this.ct()) {
          this.o(false);
       }
 
@@ -206,7 +206,7 @@ public class EntityWolf extends EntityTameableAnimal {
       this.getAttributeInstance(GenericAttributes.e).a(4.0D);
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(this.cj()) {
          if(var2 != null) {
@@ -237,7 +237,7 @@ public class EntityWolf extends EntityTameableAnimal {
             }
          }
 
-         if(this.e(var1) && !this.o.D && !this.d(var2)) {
+         if(this.e(var1) && !this.o.isStatic && !this.d(var2)) {
             this.bk.a(!this.cl());
             this.aW = false;
             this.h.n();
@@ -252,7 +252,7 @@ public class EntityWolf extends EntityTameableAnimal {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             if(this.V.nextInt(3) == 0) {
                this.m(true);
                this.h.n();

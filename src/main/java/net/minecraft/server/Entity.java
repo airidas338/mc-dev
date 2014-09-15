@@ -106,7 +106,7 @@ public abstract class Entity implements ICommandListener {
 		this.o = var1;
 		this.b(0.0D, 0.0D, 0.0D);
 		if (var1 != null) {
-			this.am = var1.t.q();
+			this.am = var1.worldProvider.q();
 		}
 
 		this.ac = new DataWatcher(this);
@@ -142,7 +142,7 @@ public abstract class Entity implements ICommandListener {
 			this.J = var1;
 			this.K = var2;
 			this.a(new AxisAlignedBB(this.aQ().a, this.aQ().b, this.aQ().c, this.aQ().a + (double) this.J, this.aQ().b + (double) this.K, this.aQ().c + (double) this.J));
-			if (this.J > var3 && !this.aa && !this.o.D) {
+			if (this.J > var3 && !this.aa && !this.o.isStatic) {
 				this.d((double) (var3 - this.J), 0.0D, (double) (var3 - this.J));
 			}
 		}
@@ -168,7 +168,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void K() throws IOException {
-		this.o.B.a("entityBaseTick");
+		this.o.methodProfiler.a("entityBaseTick");
 		if (this.m != null && this.m.I) {
 			this.m = null;
 		}
@@ -179,8 +179,8 @@ public abstract class Entity implements ICommandListener {
 		this.r = this.u;
 		this.B = this.z;
 		this.A = this.y;
-		if (!this.o.D && this.o instanceof WorldServer) {
-			this.o.B.a("portal");
+		if (!this.o.isStatic && this.o instanceof WorldServer) {
+			this.o.methodProfiler.a("portal");
 			MinecraftServer var1 = ((WorldServer) this.o).r();
 			int var2 = this.L();
 			if (this.ak) {
@@ -189,7 +189,7 @@ public abstract class Entity implements ICommandListener {
 						this.al = var2;
 						this.aj = this.ar();
 						byte var3;
-						if (this.o.t.q() == -1) {
+						if (this.o.worldProvider.q() == -1) {
 							var3 = 0;
 						} else {
 							var3 = -1;
@@ -214,12 +214,12 @@ public abstract class Entity implements ICommandListener {
 				--this.aj;
 			}
 
-			this.o.B.b();
+			this.o.methodProfiler.b();
 		}
 
 		this.Y();
 		this.W();
-		if (this.o.D) {
+		if (this.o.isStatic) {
 			this.i = 0;
 		} else if (this.i > 0) {
 			if (this.ab) {
@@ -245,12 +245,12 @@ public abstract class Entity implements ICommandListener {
 			this.O();
 		}
 
-		if (!this.o.D) {
+		if (!this.o.isStatic) {
 			this.b(0, this.i > 0);
 		}
 
 		this.aa = false;
-		this.o.B.b();
+		this.o.methodProfiler.b();
 	}
 
 	public int L() {
@@ -295,7 +295,7 @@ public abstract class Entity implements ICommandListener {
 			this.a(this.aQ().c(var1, var3, var5));
 			this.m();
 		} else {
-			this.o.B.a("move");
+			this.o.methodProfiler.a("move");
 			double var7 = this.s;
 			double var9 = this.t;
 			double var11 = this.u;
@@ -466,16 +466,16 @@ public abstract class Entity implements ICommandListener {
 				}
 			}
 
-			this.o.B.b();
-			this.o.B.a("rest");
+			this.o.methodProfiler.b();
+			this.o.methodProfiler.a("rest");
 			this.m();
 			this.D = var13 != var1 || var17 != var5;
 			this.E = var15 != var3;
 			this.C = this.E && var15 < 0.0D;
 			this.F = this.D || this.E;
-			int var58 = MathHelper.c(this.s);
-			int var59 = MathHelper.c(this.t - 0.20000000298023224D);
-			int var56 = MathHelper.c(this.u);
+			int var58 = MathHelper.floor(this.s);
+			int var59 = MathHelper.floor(this.t - 0.20000000298023224D);
+			int var56 = MathHelper.floor(this.u);
 			Location var26 = new Location(var58, var59, var56);
 			Block var62 = this.o.getData(var26).c();
 			if (var62.r() == Material.AIR) {
@@ -555,7 +555,7 @@ public abstract class Entity implements ICommandListener {
 				this.i = -this.X;
 			}
 
-			this.o.B.b();
+			this.o.methodProfiler.b();
 		}
 	}
 
@@ -577,7 +577,7 @@ public abstract class Entity implements ICommandListener {
 				for (int var4 = var1.o(); var4 <= var2.o(); ++var4) {
 					for (int var5 = var1.p(); var5 <= var2.p(); ++var5) {
 						Location var6 = new Location(var3, var4, var5);
-						IBlock var7 = this.o.getData(var6);
+						IBlockData var7 = this.o.getData(var6);
 
 						try {
 							var7.c().a(this.o, var6, var7, this);
@@ -694,7 +694,7 @@ public abstract class Entity implements ICommandListener {
 		}
 
 		this.a(this.aa(), var1, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
-		float var2 = (float) MathHelper.c(this.aQ().b);
+		float var2 = (float) MathHelper.floor(this.aQ().b);
 
 		int var3;
 		float var4;
@@ -721,11 +721,11 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	protected void Z() {
-		int var1 = MathHelper.c(this.s);
-		int var2 = MathHelper.c(this.t - 0.20000000298023224D);
-		int var3 = MathHelper.c(this.u);
+		int var1 = MathHelper.floor(this.s);
+		int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
+		int var3 = MathHelper.floor(this.u);
 		Location var4 = new Location(var1, var2, var3);
-		IBlock var5 = this.o.getData(var4);
+		IBlockData var5 = this.o.getData(var4);
 		Block var6 = var5.c();
 		if (var6.b() != -1) {
 			this.o.a(ew.L, this.s + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, this.aQ().b + 0.1D, this.u + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D,
@@ -741,7 +741,7 @@ public abstract class Entity implements ICommandListener {
 	public boolean a(Material var1) {
 		double var2 = this.t + (double) this.aR();
 		Location var4 = new Location(this.s, var2, this.u);
-		IBlock var5 = this.o.getData(var4);
+		IBlockData var5 = this.o.getData(var4);
 		Block var6 = var5.c();
 		if (var6.r() == var1) {
 			float var7 = axl.b(var5.c().c(var5)) - 0.11111111F;
@@ -777,9 +777,9 @@ public abstract class Entity implements ICommandListener {
 
 	public float c(float var1) {
 		Location var2 = new Location(this.s, 0.0D, this.u);
-		if (this.o.e(var2)) {
+		if (this.o.isLoaded(var2)) {
 			double var3 = (this.aQ().e - this.aQ().b) * 0.66D;
-			int var5 = MathHelper.c(this.t + var3);
+			int var5 = MathHelper.floor(this.t + var3);
 			return this.o.o(var2.b(var5));
 		} else {
 			return 0.0F;
@@ -1147,7 +1147,7 @@ public abstract class Entity implements ICommandListener {
 		}
 	}
 
-	public boolean e(EntityHuman var1) throws IOException {
+	public boolean e(EntityHuman var1) {
 		return false;
 	}
 
@@ -1264,7 +1264,7 @@ public abstract class Entity implements ICommandListener {
 		} else {
 			double var1 = this.p - this.s;
 			double var3 = this.r - this.u;
-			if (!this.o.D && !this.ak) {
+			if (!this.o.isStatic && !this.ak) {
 				int var5;
 				if (MathHelper.e((float) var1) > MathHelper.e((float) var3)) {
 					var5 = var1 > 0.0D ? EnumFacing.WEST.b() : EnumFacing.EAST.b();
@@ -1291,7 +1291,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public boolean au() {
-		boolean var1 = this.o != null && this.o.D;
+		boolean var1 = this.o != null && this.o.isStatic;
 		return !this.ab && (this.i > 0 || var1 && this.g(0));
 	}
 
@@ -1427,7 +1427,7 @@ public abstract class Entity implements ICommandListener {
 		this.O = 0.0F;
 	}
 
-	public String d_() {
+	public String getName() {
 		if (this.k_()) {
 			return this.aL();
 		} else {
@@ -1464,7 +1464,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public String toString() {
-		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.d_(), Integer.valueOf(this.c),
+		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c),
 				this.o == null ? "~NULL~" : this.o.P().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) });
 	}
 
@@ -1485,8 +1485,8 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void c(int var1) throws IOException {
-		if (!this.o.D && !this.I) {
-			this.o.B.a("changeDimension");
+		if (!this.o.isStatic && !this.I) {
+			this.o.methodProfiler.a("changeDimension");
 			MinecraftServer var2 = MinecraftServer.M();
 			int var3 = this.am;
 			WorldServer var4 = var2.a(var3);
@@ -1499,9 +1499,9 @@ public abstract class Entity implements ICommandListener {
 
 			this.o.e(this);
 			this.I = false;
-			this.o.B.a("reposition");
+			this.o.methodProfiler.a("reposition");
 			var2.an().a(this, var3, var4, var5);
-			this.o.B.c("reloading");
+			this.o.methodProfiler.c("reloading");
 			Entity var6 = EntityTypes.a(EntityTypes.b(this), (World) var5);
 			if (var6 != null) {
 				var6.n(this);
@@ -1514,18 +1514,18 @@ public abstract class Entity implements ICommandListener {
 			}
 
 			this.I = true;
-			this.o.B.b();
+			this.o.methodProfiler.b();
 			var4.j();
 			var5.j();
-			this.o.B.b();
+			this.o.methodProfiler.b();
 		}
 	}
 
-	public float a(aqo var1, World var2, Location var3, IBlock var4) {
+	public float a(aqo var1, World var2, Location var3, IBlockData var4) {
 		return var4.c().a(this);
 	}
 
-	public boolean a(aqo var1, World var2, Location var3, IBlock var4, float var5) {
+	public boolean a(aqo var1, World var2, Location var3, IBlockData var4, float var5) {
 		return true;
 	}
 
@@ -1546,7 +1546,7 @@ public abstract class Entity implements ICommandListener {
 		var1.a("Entity ID", (Object) Integer.valueOf(this.c));
 		var1.a("Entity Name", (Callable) (new wx(this)));
 		var1.a("Entity\'s Exact location", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) }));
-		var1.a("Entity\'s Block location", (Object) CrashReportSystemDetails.a((double) MathHelper.c(this.s), (double) MathHelper.c(this.t), (double) MathHelper.c(this.u)));
+		var1.a("Entity\'s Block location", (Object) CrashReportSystemDetails.a((double) MathHelper.floor(this.s), (double) MathHelper.floor(this.t), (double) MathHelper.floor(this.u)));
 		var1.a("Entity\'s Momentum", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.v), Double.valueOf(this.w), Double.valueOf(this.x) }));
 		var1.a("Entity\'s Rider", (Callable) (new wy(this)));
 		var1.a("Entity\'s Vehicle", (Callable) (new wz(this)));
@@ -1560,10 +1560,10 @@ public abstract class Entity implements ICommandListener {
 		return true;
 	}
 
-	public IChatBaseComponent e_() {
-		ChatComponentText var1 = new ChatComponentText(this.d_());
-		var1.b().a(this.aP());
-		var1.b().a(this.aJ().toString());
+	public IChatBaseComponent getScoreboardDisplayName() {
+		ChatComponentText var1 = new ChatComponentText(this.getName());
+		var1.getChatModifier().a(this.aP());
+		var1.getChatModifier().a(this.aJ().toString());
 		return var1;
 	}
 
@@ -1595,7 +1595,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public EnumFacing aO() {
-		return EnumFacing.b(MathHelper.c((double) (this.y * 4.0F / 360.0F) + 0.5D) & 3);
+		return EnumFacing.b(MathHelper.floor((double) (this.y * 4.0F / 360.0F) + 0.5D) & 3);
 	}
 
 	protected ChatHoverable aP() {
@@ -1606,7 +1606,7 @@ public abstract class Entity implements ICommandListener {
 			var1.setString("type", var2);
 		}
 
-		var1.setString("name", this.d_());
+		var1.setString("name", this.getName());
 		return new ChatHoverable(EnumHoverAction.SHOW_ENTITY, new ChatComponentText(var1.toString()));
 	}
 
@@ -1638,14 +1638,14 @@ public abstract class Entity implements ICommandListener {
 		return false;
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 	}
 
 	public boolean a(int var1, String var2) {
 		return true;
 	}
 
-	public Location c() {
+	public Location getLocation() {
 		return new Location(this.s, this.t + 0.5D, this.u);
 	}
 
@@ -1653,7 +1653,7 @@ public abstract class Entity implements ICommandListener {
 		return new Vec3D(this.s, this.t, this.u);
 	}
 
-	public World e() {
+	public World getWorld() {
 		return this.o;
 	}
 

@@ -42,7 +42,7 @@ public class ah {
 
          while(var4.hasNext()) {
             Entity var5 = (Entity)var4.next();
-            var3.add(var5.e_());
+            var3.add(var5.getScoreboardDisplayName());
          }
 
          return CommandAbstract.a((List)var3);
@@ -57,7 +57,7 @@ public class ah {
             return Collections.emptyList();
          } else {
             String var5 = var3.group(1);
-            Location var6 = b(var4, var0.c());
+            Location var6 = b(var4, var0.getLocation());
             List var7 = a(var0, var4);
             ArrayList var8 = Lists.newArrayList();
             Iterator var9 = var7.iterator();
@@ -88,7 +88,7 @@ public class ah {
    private static List a(ICommandListener var0, Map var1) {
       ArrayList var2 = Lists.newArrayList();
       if(h(var1)) {
-         var2.add(var0.e());
+         var2.add(var0.getWorld());
       } else {
          Collections.addAll(var2, MinecraftServer.M().c);
       }
@@ -101,8 +101,8 @@ public class ah {
       var2 = var2 != null && var2.startsWith("!")?var2.substring(1):var2;
       if(var2 != null && !EntityTypes.b(var2)) {
          ChatMessage var3 = new ChatMessage("commands.generic.entity.invalidType", new Object[]{var2});
-         var3.b().a(EnumChatFormat.m);
-         var0.a(var3);
+         var3.getChatModifier().setColor(EnumChatFormat.RED);
+         var0.sendMessage(var3);
          return false;
       } else {
          return true;
@@ -236,8 +236,8 @@ public class ah {
       Predicate var14 = Predicates.and(var2);
       Predicate var15 = Predicates.and(EntitySelectors.a, var14);
       if(var5 != null) {
-         int var16 = var4.j.size();
-         int var17 = var4.f.size();
+         int var16 = var4.players.size();
+         int var17 = var4.entityList.size();
          boolean var18 = var16 < var17 / 16;
          AxisAlignedBB var19;
          if(!var0.containsKey("dx") && !var0.containsKey("dy") && !var0.containsKey("dz")) {

@@ -66,7 +66,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
 
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.m:"container.furnace";
    }
 
@@ -139,7 +139,7 @@ public class bdc extends bdf implements IUpdatePlayerListBox, we {
          --this.i;
       }
 
-      if(!this.b.D) {
+      if(!this.b.isStatic) {
          if(!this.m() && (this.h[1] == null || this.h[0] == null)) {
             if(!this.m() && this.k > 0) {
                this.k = MathHelper.a(this.k - 2, 0, this.l);

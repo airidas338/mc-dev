@@ -47,7 +47,7 @@ public class ze extends zn {
       if(this.f()) {
          World var1 = this.c.o;
          Location var2 = this.b.a();
-         IBlock var3 = var1.getData(var2);
+         IBlockData var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(this.f == 0 && var4 instanceof BlockCrops && ((Integer)var3.b(BlockCrops.a)).intValue() == 7) {
             var1.b(var2, true);
@@ -90,7 +90,7 @@ public class ze extends zn {
       Block var3 = var1.getData(var2).c();
       if(var3 == Blocks.FARMLAND) {
          var2 = var2.a();
-         IBlock var4 = var1.getData(var2);
+         IBlockData var4 = var1.getData(var2);
          var3 = var4.c();
          if(var3 instanceof BlockCrops && ((Integer)var4.b(BlockCrops.a)).intValue() == 7 && this.e && (this.f == 0 || this.f < 0)) {
             this.f = 0;

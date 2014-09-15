@@ -31,7 +31,7 @@ public class EntitySpider extends EntityMonster {
 
    public void s_() throws IOException {
       super.s_();
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.a(this.D);
       }
 
@@ -102,7 +102,7 @@ public class EntitySpider extends EntityMonster {
 
    public xq a(vu var1, xq var2) {
       Object var4 = super.a(var1, var2);
-      if(this.o.s.nextInt(100) == 0) {
+      if(this.o.random.nextInt(100) == 0) {
          EntitySkeleton var3 = new EntitySkeleton(this.o);
          var3.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
          var3.a(var1, (xq)null);
@@ -112,8 +112,8 @@ public class EntitySpider extends EntityMonster {
 
       if(var4 == null) {
          var4 = new agg();
-         if(this.o.aa() == EnumDifficulty.HARD && this.o.s.nextFloat() < 0.1F * var1.c()) {
-            ((agg)var4).a(this.o.s);
+         if(this.o.aa() == EnumDifficulty.HARD && this.o.random.nextFloat() < 0.1F * var1.c()) {
+            ((agg)var4).a(this.o.random);
          }
       }
 

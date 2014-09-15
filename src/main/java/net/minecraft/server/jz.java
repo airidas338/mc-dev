@@ -12,7 +12,7 @@ public class jz extends jy {
       this.g = var5;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       super.a(var1);
       this.b = var1.readByte();
       this.c = var1.readByte();
@@ -20,7 +20,7 @@ public class jz extends jy {
       this.g = var1.readBoolean();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       super.b(var1);
       var1.writeByte(this.b);
       var1.writeByte(this.c);

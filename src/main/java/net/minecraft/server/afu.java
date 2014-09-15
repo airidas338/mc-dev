@@ -24,7 +24,7 @@ class afu extends PathfinderGoalRandomStroll {
          if(var1.nextInt(10) == 0) {
             this.b = EnumFacing.a(var1);
             Location var2 = (new Location(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
-            IBlock var3 = this.a.o.getData(var2);
+            IBlockData var3 = this.a.o.getData(var2);
             if(BlockMonsterEggs.d(var3)) {
                this.c = true;
                return true;
@@ -46,7 +46,7 @@ class afu extends PathfinderGoalRandomStroll {
       } else {
          World var1 = this.a.o;
          Location var2 = (new Location(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
-         IBlock var3 = var1.getData(var2);
+         IBlockData var3 = var1.getData(var2);
          if(BlockMonsterEggs.d(var3)) {
             var1.a(var2, Blocks.MONSTER_EGGS.P().a(BlockMonsterEggs.a, axu.a(var3)), 3);
             this.a.y();

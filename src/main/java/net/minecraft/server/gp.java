@@ -22,7 +22,7 @@ public class gp extends ByteToMessageDecoder {
 
    protected void decode(ChannelHandlerContext var1, ByteBuf var2, List var3) throws DataFormatException {
       if(var2.readableBytes() != 0) {
-         hd var4 = new hd(var2);
+         PacketDataSerializer var4 = new PacketDataSerializer(var2);
          int var5 = var4.e();
          if(var5 == 0) {
             var3.add(var4.readBytes(var4.readableBytes()));

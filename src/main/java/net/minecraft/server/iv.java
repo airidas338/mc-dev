@@ -17,14 +17,14 @@ public class iv implements Packet {
       this.d = var2;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c();
       this.b = var1.readUnsignedByte();
       this.c = var1.readUnsignedByte();
       this.d = Block.c(var1.e() & 4095);
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeByte(this.b);
       var1.writeByte(this.c);

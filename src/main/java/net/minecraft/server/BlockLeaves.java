@@ -17,7 +17,7 @@ public abstract class BlockLeaves extends bbo {
       this.a(h);
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       byte var4 = 1;
       int var5 = var4 + 1;
       int var6 = var2.n();
@@ -28,7 +28,7 @@ public abstract class BlockLeaves extends bbo {
             for(int var10 = -var4; var10 <= var4; ++var10) {
                for(int var11 = -var4; var11 <= var4; ++var11) {
                   Location var12 = var2.a(var9, var10, var11);
-                  IBlock var13 = var1.getData(var12);
+                  IBlockData var13 = var1.getData(var12);
                   if(var13.c().r() == Material.LEAVES && !((Boolean)var13.b(b)).booleanValue()) {
                      var1.a(var12, var13.a(b, Boolean.valueOf(true)), 4);
                   }
@@ -39,8 +39,8 @@ public abstract class BlockLeaves extends bbo {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
          if(((Boolean)var3.b(b)).booleanValue() && ((Boolean)var3.b(a)).booleanValue()) {
             byte var5 = 4;
             int var6 = var5 + 1;
@@ -130,12 +130,12 @@ public abstract class BlockLeaves extends bbo {
       return var1.nextInt(20) == 0?1:0;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a(Blocks.SAPLING);
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+      if(!var1.isStatic) {
          int var6 = this.d(var3);
          if(var5 > 0) {
             var6 -= 2 << var5;
@@ -144,8 +144,8 @@ public abstract class BlockLeaves extends bbo {
             }
          }
 
-         if(var1.s.nextInt(var6) == 0) {
-            Item var7 = this.a(var3, var1.s, var5);
+         if(var1.random.nextInt(var6) == 0) {
+            Item var7 = this.a(var3, var1.random, var5);
             a(var1, var2, new ItemStack(var7, 1, this.a(var3)));
          }
 
@@ -162,9 +162,9 @@ public abstract class BlockLeaves extends bbo {
 
    }
 
-   protected void a(World var1, Location var2, IBlock var3, int var4) {}
+   protected void a(World var1, Location var2, IBlockData var3, int var4) {}
 
-   protected int d(IBlock var1) {
+   protected int d(IBlockData var1) {
       return 20;
    }
 

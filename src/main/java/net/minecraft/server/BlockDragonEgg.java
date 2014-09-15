@@ -8,15 +8,15 @@ public class BlockDragonEgg extends Block {
       this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       this.d(var1, var2);
    }
 
@@ -41,7 +41,7 @@ public class BlockDragonEgg extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.e(var1, var2);
       return true;
    }
@@ -51,20 +51,20 @@ public class BlockDragonEgg extends Block {
    }
 
    private void e(World var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() == this) {
          for(int var4 = 0; var4 < 1000; ++var4) {
-            Location var5 = var2.a(var1.s.nextInt(16) - var1.s.nextInt(16), var1.s.nextInt(8) - var1.s.nextInt(8), var1.s.nextInt(16) - var1.s.nextInt(16));
+            Location var5 = var2.a(var1.random.nextInt(16) - var1.random.nextInt(16), var1.random.nextInt(8) - var1.random.nextInt(8), var1.random.nextInt(16) - var1.random.nextInt(16));
             if(var1.getData(var5).c().J == Material.AIR) {
-               if(var1.D) {
+               if(var1.isStatic) {
                   for(int var6 = 0; var6 < 128; ++var6) {
-                     double var7 = var1.s.nextDouble();
-                     float var9 = (var1.s.nextFloat() - 0.5F) * 0.2F;
-                     float var10 = (var1.s.nextFloat() - 0.5F) * 0.2F;
-                     float var11 = (var1.s.nextFloat() - 0.5F) * 0.2F;
-                     double var12 = (double)var5.n() + (double)(var2.n() - var5.n()) * var7 + (var1.s.nextDouble() - 0.5D) * 1.0D + 0.5D;
-                     double var14 = (double)var5.o() + (double)(var2.o() - var5.o()) * var7 + var1.s.nextDouble() * 1.0D - 0.5D;
-                     double var16 = (double)var5.p() + (double)(var2.p() - var5.p()) * var7 + (var1.s.nextDouble() - 0.5D) * 1.0D + 0.5D;
+                     double var7 = var1.random.nextDouble();
+                     float var9 = (var1.random.nextFloat() - 0.5F) * 0.2F;
+                     float var10 = (var1.random.nextFloat() - 0.5F) * 0.2F;
+                     float var11 = (var1.random.nextFloat() - 0.5F) * 0.2F;
+                     double var12 = (double)var5.n() + (double)(var2.n() - var5.n()) * var7 + (var1.random.nextDouble() - 0.5D) * 1.0D + 0.5D;
+                     double var14 = (double)var5.o() + (double)(var2.o() - var5.o()) * var7 + var1.random.nextDouble() * 1.0D - 0.5D;
+                     double var16 = (double)var5.p() + (double)(var2.p() - var5.p()) * var7 + (var1.random.nextDouble() - 0.5D) * 1.0D + 0.5D;
                      var1.a(ew.y, var12, var14, var16, (double)var9, (double)var10, (double)var11, new int[0]);
                   }
                } else {

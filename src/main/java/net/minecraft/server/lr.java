@@ -25,7 +25,7 @@ public class lr implements Packet {
       this.e = (byte)(var2.f()?1:0);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = var1.readByte();
       this.c = var1.readByte();
@@ -33,7 +33,7 @@ public class lr implements Packet {
       this.e = var1.readByte();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.writeByte(this.b);
       var1.writeByte(this.c);

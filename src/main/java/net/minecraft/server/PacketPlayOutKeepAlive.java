@@ -15,11 +15,11 @@ public class PacketPlayOutKeepAlive implements Packet {
       ((PacketPlayOutListener)var1).a(this);
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
    }
 }

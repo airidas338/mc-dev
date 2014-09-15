@@ -24,14 +24,14 @@ public class akw extends Item {
          akv var9 = akv.a(var1.i());
          if(var9 == akv.a) {
             if(a(var1, var3, var4)) {
-               if(!var3.D) {
+               if(!var3.isStatic) {
                   var3.b(2005, var4, 0);
                }
 
                return true;
             }
          } else if(var9 == akv.m) {
-            IBlock var10 = var3.getData(var4);
+            IBlockData var10 = var3.getData(var4);
             Block var11 = var10.c();
             if(var11 == Blocks.LOG && var10.b(BlockWood.a) == ayx.d) {
                if(var5 == EnumFacing.DOWN) {
@@ -43,8 +43,8 @@ public class akw extends Item {
                }
 
                var4 = var4.a(var5);
-               if(var3.d(var4)) {
-                  IBlock var12 = Blocks.COCOA.a(var3, var4, var5, var6, var7, var8, 0, var2);
+               if(var3.isEmpty(var4)) {
+                  IBlockData var12 = Blocks.COCOA.a(var3, var4, var5, var6, var7, var8, 0, var2);
                   var3.a(var4, var12, 2);
                   if(!var2.by.canInstantlyBuild) {
                      --var1.b;
@@ -60,13 +60,13 @@ public class akw extends Item {
    }
 
    public static boolean a(ItemStack var0, World var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() instanceof atz) {
          atz var4 = (atz)var3.c();
-         if(var4.a(var1, var2, var3, var1.D)) {
-            if(!var1.D) {
-               if(var4.a(var1, var1.s, var2, var3)) {
-                  var4.b(var1, var1.s, var2, var3);
+         if(var4.a(var1, var2, var3, var1.isStatic)) {
+            if(!var1.isStatic) {
+               if(var4.a(var1, var1.random, var2, var3)) {
+                  var4.b(var1, var1.random, var2, var3);
                }
 
                --var0.b;

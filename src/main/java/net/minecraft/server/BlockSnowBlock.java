@@ -9,7 +9,7 @@ public class BlockSnowBlock extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.aD;
    }
 
@@ -17,7 +17,7 @@ public class BlockSnowBlock extends Block {
       return 4;
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11) {
          this.b(var1, var2, var1.getData(var2), 0);
          var1.g(var2);

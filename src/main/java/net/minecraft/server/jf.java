@@ -21,7 +21,7 @@ public class jf implements Packet {
 
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.readUnsignedByte();
       short var2 = var1.readShort();
       this.b = new ItemStack[var2];
@@ -32,7 +32,7 @@ public class jf implements Packet {
 
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.writeByte(this.a);
       var1.writeShort(this.b.length);
       ItemStack[] var2 = this.b;

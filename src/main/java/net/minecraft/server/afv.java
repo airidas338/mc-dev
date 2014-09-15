@@ -33,7 +33,7 @@ class afv extends PathfinderGoal {
             for(int var5 = 0; var5 <= 10 && var5 >= -10; var5 = var5 <= 0?1 - var5:0 - var5) {
                for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                   Location var7 = var3.a(var5, var4, var6);
-                  IBlock var8 = var1.getData(var7);
+                  IBlockData var8 = var1.getData(var7);
                   if(var8.c() == Blocks.MONSTER_EGGS) {
                      if(var1.Q().b("mobGriefing")) {
                         var1.b(var7, true);

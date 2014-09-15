@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class CommandSaveOff extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "save-off";
    }
 
@@ -10,7 +10,7 @@ public class CommandSaveOff extends CommandAbstract {
       return "commands.save-off.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       MinecraftServer var3 = MinecraftServer.M();
       boolean var4 = false;
 

@@ -82,7 +82,7 @@ public abstract class TileEntity {
 
    public int u() {
       if(this.h == -1) {
-         IBlock var1 = this.b.getData(this.c);
+         IBlockData var1 = this.b.getData(this.c);
          this.h = var1.c().c(var1);
       }
 
@@ -91,7 +91,7 @@ public abstract class TileEntity {
 
    public void o_() {
       if(this.b != null) {
-         IBlock var1 = this.b.getData(this.c);
+         IBlockData var1 = this.b.getData(this.c);
          this.h = var1.c().c(var1);
          this.b.b(this.c, this);
          if(this.w() != Blocks.AIR) {

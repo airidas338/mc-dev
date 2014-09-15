@@ -65,14 +65,14 @@ public class ServerStatisticsManager extends tz {
       if(var2.d() && var4 == 0 && var3 > 0) {
          this.g = true;
          if(this.c.az()) {
-            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement", new Object[]{var1.e_(), var2.j()})));
+            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement", new Object[]{var1.getScoreboardDisplayName(), var2.j()})));
          }
       }
 
       if(var2.d() && var4 > 0 && var3 == 0) {
          this.g = true;
          if(this.c.az()) {
-            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement.taken", new Object[]{var1.e_(), var2.j()})));
+            this.c.an().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement.taken", new Object[]{var1.getScoreboardDisplayName(), var2.j()})));
          }
       }
 

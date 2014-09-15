@@ -9,7 +9,7 @@ public abstract class ayl extends BlockStepAbstract {
 
    public ayl() {
       super(Material.STONE);
-      IBlock var1 = this.L.b();
+      IBlockData var1 = this.L.b();
       if(this.j()) {
          var1 = var1.a(b, Boolean.valueOf(false));
       } else {
@@ -20,7 +20,7 @@ public abstract class ayl extends BlockStepAbstract {
       this.a(CreativeModeTab.b);
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a((Block)Blocks.STEP2);
    }
 
@@ -36,8 +36,8 @@ public abstract class ayl extends BlockStepAbstract {
       return aym.a(var1.i() & 7);
    }
 
-   public IBlock a(int var1) {
-      IBlock var2 = this.P().a(M, aym.a(var1 & 7));
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.P().a(M, aym.a(var1 & 7));
       if(this.j()) {
          var2 = var2.a(b, Boolean.valueOf((var1 & 8) != 0));
       } else {
@@ -47,7 +47,7 @@ public abstract class ayl extends BlockStepAbstract {
       return var2;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((aym)var1.b(M)).a();
       if(this.j()) {
@@ -65,7 +65,7 @@ public abstract class ayl extends BlockStepAbstract {
       return this.j()?new bed(this, new bex[]{b, M}):new bed(this, new bex[]{a, M});
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((aym)var1.b(M)).a();
    }
 

@@ -12,7 +12,7 @@ class bcp implements Callable {
    }
 
    public String a() {
-      IBlock var1 = this.a.b.getData(this.a.c);
+      IBlockData var1 = this.a.b.getData(this.a.c);
       int var2 = var1.c().c(var1);
       if(var2 < 0) {
          return "Unknown? (Got " + var2 + ")";

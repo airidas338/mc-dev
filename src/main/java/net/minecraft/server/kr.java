@@ -27,7 +27,7 @@ public class kr implements Packet {
       this.h = var1.p();
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = (kt)var1.a(kt.class);
       switch(ks.a[this.a.ordinal()]) {
       case 1:
@@ -61,7 +61,7 @@ public class kr implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a((Enum)this.a);
       switch(ks.a[this.a.ordinal()]) {
       case 1:

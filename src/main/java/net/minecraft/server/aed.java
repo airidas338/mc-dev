@@ -77,7 +77,7 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
       return true;
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.aL():"container.minecart";
    }
 
@@ -130,7 +130,7 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
    }
 
    public boolean e(EntityHuman var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          var1.a((IInventory)this);
       }
 

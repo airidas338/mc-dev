@@ -17,7 +17,7 @@ public class EntityMinecartRideable extends EntityMinecartAbstract {
       } else if(this.l != null && this.l != var1) {
          return false;
       } else {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             var1.a((Entity)this);
          }
 

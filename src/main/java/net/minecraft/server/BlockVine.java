@@ -23,7 +23,7 @@ public class BlockVine extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       return var1.a(a, Boolean.valueOf(var2.getData(var3.a()).c().s()));
    }
 
@@ -104,7 +104,7 @@ public class BlockVine extends Block {
       this.a(var4, var5, var6, var7, var8, var9);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -126,15 +126,15 @@ public class BlockVine extends Block {
       return var1.d() && var1.J.c();
    }
 
-   private boolean e(World var1, Location var2, IBlock var3) {
-      IBlock var4 = var3;
+   private boolean e(World var1, Location var2, IBlockData var3) {
+      IBlockData var4 = var3;
       Iterator var5 = en.a.iterator();
 
       while(var5.hasNext()) {
          EnumFacing var6 = (EnumFacing)var5.next();
          bet var7 = a(var6);
          if(((Boolean)var3.b(var7)).booleanValue() && !this.c(var1.getData(var2.a(var6)).c())) {
-            IBlock var8 = var1.getData(var2.a());
+            IBlockData var8 = var1.getData(var2.a());
             if(var8.c() != this || !((Boolean)var8.b(var7)).booleanValue()) {
                var3 = var3.a(var7, Boolean.valueOf(false));
             }
@@ -152,17 +152,17 @@ public class BlockVine extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D && !this.e(var1, var2, var3)) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic && !this.e(var1, var2, var3)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }
 
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
-         if(var1.s.nextInt(4) == 0) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
+         if(var1.random.nextInt(4) == 0) {
             byte var5 = 4;
             int var6 = 5;
             boolean var7 = false;
@@ -184,9 +184,9 @@ public class BlockVine extends Block {
 
             EnumFacing var17 = EnumFacing.a(var4);
             EnumFacing var21;
-            if(var17 == EnumFacing.UP && var2.o() < 255 && var1.d(var2.a())) {
+            if(var17 == EnumFacing.UP && var2.o() < 255 && var1.isEmpty(var2.a())) {
                if(!var7) {
-                  IBlock var22 = var3;
+                  IBlockData var22 = var3;
                   Iterator var20 = en.a.iterator();
 
                   while(var20.hasNext()) {
@@ -218,9 +218,9 @@ public class BlockVine extends Block {
                            var1.a(var18, this.P().a(a(var21), Boolean.valueOf(true)), 2);
                         } else if(var27 && this.c(var1.getData(var16).c())) {
                            var1.a(var18, this.P().a(a(var25), Boolean.valueOf(true)), 2);
-                        } else if(var24 && var1.d(var26) && this.c(var1.getData(var2.a(var21)).c())) {
+                        } else if(var24 && var1.isEmpty(var26) && this.c(var1.getData(var2.a(var21)).c())) {
                            var1.a(var26, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
-                        } else if(var27 && var1.d(var16) && this.c(var1.getData(var2.a(var25)).c())) {
+                        } else if(var27 && var1.isEmpty(var16) && this.c(var1.getData(var2.a(var25)).c())) {
                            var1.a(var16, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
                         } else if(this.c(var1.getData(var18.a()).c())) {
                            var1.a(var18, this.P(), 2);
@@ -233,9 +233,9 @@ public class BlockVine extends Block {
                } else {
                   if(var2.o() > 1) {
                      var18 = var2.b();
-                     IBlock var23 = var1.getData(var18);
+                     IBlockData var23 = var1.getData(var18);
                      Block var11 = var23.c();
-                     IBlock var12;
+                     IBlockData var12;
                      Iterator var13;
                      EnumFacing var14;
                      if(var11.J == Material.AIR) {
@@ -280,12 +280,12 @@ public class BlockVine extends Block {
       return 1 << var0.b();
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlock var9 = this.P().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = this.P().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
       return var3.k().c()?var9.a(a(var3.d()), Boolean.valueOf(true)):var9;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -293,8 +293,8 @@ public class BlockVine extends Block {
       return 0;
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
-      if(!var1.D && var2.bY() != null && var2.bY().b() == Items.be) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
+      if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
          var2.b(ty.H[Block.a((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.VINE, 1, 0));
       } else {
@@ -303,11 +303,11 @@ public class BlockVine extends Block {
 
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(b, Boolean.valueOf((var1 & R) > 0)).a(M, Boolean.valueOf((var1 & S) > 0)).a(N, Boolean.valueOf((var1 & Q) > 0)).a(O, Boolean.valueOf((var1 & T) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
       if(((Boolean)var1.b(b)).booleanValue()) {
          var2 |= R;
@@ -349,7 +349,7 @@ public class BlockVine extends Block {
       }
    }
 
-   public static int d(IBlock var0) {
+   public static int d(IBlockData var0) {
       int var1 = 0;
       bet[] var2 = P;
       int var3 = var2.length;

@@ -94,7 +94,7 @@ public class EntityZombie extends EntityMonster {
 
    public void l(boolean var1) {
       this.H().b(12, Byte.valueOf((byte)(var1?1:0)));
-      if(this.o != null && !this.o.D) {
+      if(this.o != null && !this.o.isStatic) {
          AttributeInstance var2 = this.getAttributeInstance(GenericAttributes.d);
          var2.c(bk);
          if(var1) {
@@ -114,7 +114,7 @@ public class EntityZombie extends EntityMonster {
    }
 
    public void m() throws IOException {
-      if(this.o.w() && !this.o.D && !this.i_()) {
+      if(this.o.w() && !this.o.isStatic && !this.i_()) {
          float var1 = this.c(1.0F);
          Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
@@ -153,9 +153,9 @@ public class EntityZombie extends EntityMonster {
          }
 
          if(var3 != null && this.o.aa() == EnumDifficulty.HARD && (double)this.V.nextFloat() < this.getAttributeInstance(b).getValue()) {
-            int var4 = MathHelper.c(this.s);
-            int var5 = MathHelper.c(this.t);
-            int var6 = MathHelper.c(this.u);
+            int var4 = MathHelper.floor(this.s);
+            int var5 = MathHelper.floor(this.t);
+            int var6 = MathHelper.floor(this.u);
             EntityZombie var7 = new EntityZombie(this.o);
 
             for(int var8 = 0; var8 < 50; ++var8) {
@@ -183,7 +183,7 @@ public class EntityZombie extends EntityMonster {
    }
 
    public void s_() throws IOException {
-      if(!this.o.D && this.cn()) {
+      if(!this.o.isStatic && this.cn()) {
          int var1 = this.cp();
          this.bm -= var1;
          if(this.bm <= 0) {
@@ -328,7 +328,7 @@ public class EntityZombie extends EntityMonster {
       float var3 = var1.c();
       this.j(this.V.nextFloat() < 0.55F * var3);
       if(var7 == null) {
-         var7 = new agl(this, this.o.s.nextFloat() < 0.05F, this.o.s.nextFloat() < 0.05F, (agk)null);
+         var7 = new agl(this, this.o.random.nextFloat() < 0.05F, this.o.random.nextFloat() < 0.05F, (agk)null);
       }
 
       if(var7 instanceof agl) {
@@ -339,14 +339,14 @@ public class EntityZombie extends EntityMonster {
 
          if(var4.a) {
             this.l(true);
-            if((double)this.o.s.nextFloat() < 0.05D) {
+            if((double)this.o.random.nextFloat() < 0.05D) {
                List var5 = this.o.a(EntityChicken.class, this.aQ().b(5.0D, 3.0D, 5.0D), EntitySelectors.b);
                if(!var5.isEmpty()) {
                   EntityChicken var6 = (EntityChicken)var5.get(0);
                   var6.l(true);
                   this.a((Entity)var6);
                }
-            } else if((double)this.o.s.nextFloat() < 0.05D) {
+            } else if((double)this.o.random.nextFloat() < 0.05D) {
                EntityChicken var10 = new EntityChicken(this.o);
                var10.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
                var10.a(var1, (xq)null);
@@ -394,7 +394,7 @@ public class EntityZombie extends EntityMonster {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.a(this.V.nextInt(2401) + 3600);
          }
 

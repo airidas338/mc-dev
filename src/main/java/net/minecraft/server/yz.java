@@ -66,9 +66,9 @@ public class yz extends PathfinderGoal {
             if(!this.g.a((Entity)this.e, this.f)) {
                if(!this.d.cb()) {
                   if(this.d.h(this.e) >= 144.0D) {
-                     int var1 = MathHelper.c(this.e.s) - 2;
-                     int var2 = MathHelper.c(this.e.u) - 2;
-                     int var3 = MathHelper.c(this.e.aQ().b);
+                     int var1 = MathHelper.floor(this.e.s) - 2;
+                     int var2 = MathHelper.floor(this.e.u) - 2;
+                     int var3 = MathHelper.floor(this.e.aQ().b);
 
                      for(int var4 = 0; var4 <= 4; ++var4) {
                         for(int var5 = 0; var5 <= 4; ++var5) {

@@ -23,7 +23,7 @@ public class BlockEnderPortalFrame extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       if(((Boolean)var1.getData(var2).b(b)).booleanValue()) {
@@ -34,11 +34,11 @@ public class BlockEnderPortalFrame extends Block {
       this.h();
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d()).a(b, Boolean.valueOf(false));
    }
 
@@ -50,11 +50,11 @@ public class BlockEnderPortalFrame extends Block {
       return ((Boolean)var1.getData(var2).b(b)).booleanValue()?15:0;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(b, Boolean.valueOf((var1 & 4) != 0)).a(a, EnumFacing.b(var1 & 3));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {

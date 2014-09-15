@@ -65,13 +65,13 @@ public class aiq extends aib {
          ItemStack var2 = var1.a(0);
          int var3;
          if(var2 != null && var2.v()) {
-            if(!this.i.D) {
+            if(!this.i.isStatic) {
                var3 = 0;
 
                int var4;
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
-                     if((var4 != 0 || var5 != 0) && this.i.d(this.j.a(var5, 0, var4)) && this.i.d(this.j.a(var5, 1, var4))) {
+                     if((var4 != 0 || var5 != 0) && this.i.isEmpty(this.j.a(var5, 0, var4)) && this.i.isEmpty(this.j.a(var5, 1, var4))) {
                         if(this.i.getData(this.j.a(var5 * 2, 0, var4 * 2)).c() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
@@ -140,7 +140,7 @@ public class aiq extends aib {
       if((var4 == null || var4.b < var5) && !var1.by.canInstantlyBuild) {
          return false;
       } else if(this.g[var2] > 0 && var3 != null && (var1.bz >= var5 && var1.bz >= this.g[var2] || var1.by.canInstantlyBuild)) {
-         if(!this.i.D) {
+         if(!this.i.isStatic) {
             List var6 = this.a(var3, var2, this.g[var2]);
             boolean var7 = var3.b() == Items.aL;
             if(var6 != null) {
@@ -189,7 +189,7 @@ public class aiq extends aib {
 
    public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.i.D) {
+      if(!this.i.isStatic) {
          for(int var2 = 0; var2 < this.a.n_(); ++var2) {
             ItemStack var3 = this.a.b(var2);
             if(var3 != null) {

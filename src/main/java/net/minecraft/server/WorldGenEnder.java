@@ -11,7 +11,7 @@ public class WorldGenEnder extends WorldGenerator {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      if(var1.d(var3) && var1.getData(var3.b()).c() == this.a) {
+      if(var1.isEmpty(var3) && var1.getData(var3.b()).c() == this.a) {
          int var4 = var2.nextInt(32) + 6;
          int var5 = var2.nextInt(4) + 1;
 

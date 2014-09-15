@@ -28,7 +28,7 @@ public class PacketEncoder extends MessageToByteEncoder {
       if(var4 == null) {
          throw new IOException("Can\'t serialize unregistered packet");
       } else {
-         hd var5 = new hd(var3);
+         PacketDataSerializer var5 = new PacketDataSerializer(var3);
          var5.b(var4.intValue());
 
          try {

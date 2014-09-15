@@ -84,7 +84,7 @@ public class bia extends bic {
    }
 
    private void b(World var1, Random var2, Location var3, int var4) {
-      if(var2.nextInt(3) > 0 && var1.d(var3)) {
+      if(var2.nextInt(3) > 0 && var1.isEmpty(var3)) {
          this.a(var1, var3, Blocks.VINE, var4);
       }
 

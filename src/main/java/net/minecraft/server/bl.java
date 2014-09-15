@@ -29,23 +29,23 @@ class bl implements ICommandListener {
       this.f = var9;
    }
 
-   public String d_() {
-      return this.a.d_();
+   public String getName() {
+      return this.a.getName();
    }
 
-   public IChatBaseComponent e_() {
-      return this.a.e_();
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return this.a.getScoreboardDisplayName();
    }
 
-   public void a(IChatBaseComponent var1) {
-      this.b.a(var1);
+   public void sendMessage(IChatBaseComponent var1) {
+      this.b.sendMessage(var1);
    }
 
    public boolean a(int var1, String var2) {
       return this.b.a(var1, var2);
    }
 
-   public Location c() {
+   public Location getLocation() {
       return this.c;
    }
 
@@ -53,7 +53,7 @@ class bl implements ICommandListener {
       return new Vec3D(this.d, this.e, this.f);
    }
 
-   public World e() {
+   public World getWorld() {
       return this.a.o;
    }
 

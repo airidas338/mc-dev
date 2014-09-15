@@ -28,7 +28,7 @@ public class ain implements IInventory {
       return var1 >= 0 && var1 < this.b && var2 >= 0 && var2 <= this.c?this.a(var1 + var2 * this.b):null;
    }
 
-   public String d_() {
+   public String getName() {
       return "container.crafting";
    }
 
@@ -36,8 +36,8 @@ public class ain implements IInventory {
       return false;
    }
 
-   public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
    public ItemStack b(int var1) {

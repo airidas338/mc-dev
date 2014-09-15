@@ -17,7 +17,7 @@ public class anh extends Item {
       if(var5 == EnumFacing.DOWN) {
          return false;
       } else {
-         IBlock var9 = var3.getData(var4);
+         IBlockData var9 = var3.getData(var4);
          Block var10 = var9.c();
          boolean var11 = var10.f(var3, var4);
          if(!var11) {
@@ -33,11 +33,11 @@ public class anh extends Item {
          } else if(!Blocks.SKULL.c(var3, var4)) {
             return false;
          } else {
-            if(!var3.D) {
+            if(!var3.isStatic) {
                var3.a(var4, Blocks.SKULL.P().a(BlockSkull.a, var5), 3);
                int var12 = 0;
                if(var5 == EnumFacing.UP) {
-                  var12 = MathHelper.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
+                  var12 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
                TileEntity var13 = var3.s(var4);
@@ -48,7 +48,7 @@ public class anh extends Item {
                      if(var1.n()) {
                         NBTTagCompound var16 = var1.o();
                         if(var16.hasKeyOfType("SkullOwner", 10)) {
-                           var15 = ga.a(var16.getCompound("SkullOwner"));
+                           var15 = GameProfileSerializer.deserialize(var16.getCompound("SkullOwner"));
                         } else if(var16.hasKeyOfType("SkullOwner", 8) && var16.getString("SkullOwner").length() > 0) {
                            var15 = new GameProfile((UUID)null, var16.getString("SkullOwner"));
                         }
@@ -106,7 +106,7 @@ public class anh extends Item {
       if(var1.hasKeyOfType("SkullOwner", 8) && var1.getString("SkullOwner").length() > 0) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = bdm.b(var2);
-         var1.set("SkullOwner", (NBTBase)ga.a(new NBTTagCompound(), var2));
+         var1.set("SkullOwner", (NBTBase)GameProfileSerializer.serialize(new NBTTagCompound(), var2));
          return true;
       } else {
          return false;

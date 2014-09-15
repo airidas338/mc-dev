@@ -9,7 +9,7 @@ public class CommandReplaceItem extends CommandAbstract {
    private static final Map a = Maps.newHashMap();
 
 
-   public String c() {
+   public String getCommand() {
       return "replaceitem";
    }
 
@@ -21,7 +21,7 @@ public class CommandReplaceItem extends CommandAbstract {
       return "commands.replaceitem.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.replaceitem.usage", new Object[0]);
       } else {
@@ -86,7 +86,7 @@ public class CommandReplaceItem extends CommandAbstract {
          if(var3) {
             var1.a(ag.d, 0);
             Location var17 = a(var1, var2, 1, false);
-            World var11 = var1.e();
+            World var11 = var1.getWorld();
             TileEntity var12 = var11.s(var17);
             if(var12 == null || !(var12 instanceof IInventory)) {
                throw new CommandException("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var17.n()), Integer.valueOf(var17.o()), Integer.valueOf(var17.p())});
@@ -125,7 +125,7 @@ public class CommandReplaceItem extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):((var2.length != 3 || !var2[0].equals("entity")) && (var2.length != 5 || !var2[0].equals("block"))?((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, Item.e.c())):a(var2, a.keySet())));
    }
 
@@ -133,7 +133,7 @@ public class CommandReplaceItem extends CommandAbstract {
       return MinecraftServer.M().I();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var1.length > 0 && var1[0].equals("entity") && var2 == 1;
    }
 

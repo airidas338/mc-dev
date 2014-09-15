@@ -13,7 +13,7 @@ final class amq extends DispenserBehaviorItem {
       double var7 = Math.floor(var1.getY()) + (double)var3.h();
       double var9 = var1.getZ() + (double)var3.i() * 1.125D;
       Location var11 = var1.d().a(var3);
-      IBlock var12 = var4.getData(var11);
+      IBlockData var12 = var4.getData(var11);
       atl var13 = var12.c() instanceof ati?(atl)var12.b(((ati)var12.c()).l()):atl.a;
       double var14;
       if(ati.d(var12)) {
@@ -27,7 +27,7 @@ final class amq extends DispenserBehaviorItem {
             return this.b.a(var1, var2);
          }
 
-         IBlock var16 = var4.getData(var11.b());
+         IBlockData var16 = var4.getData(var11.b());
          atl var17 = var16.c() instanceof ati?(atl)var16.b(((ati)var16.c()).l()):atl.a;
          if(var3 != EnumFacing.DOWN && var17.c()) {
             var14 = -0.4D;

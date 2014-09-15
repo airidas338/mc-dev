@@ -15,7 +15,7 @@ public class BlockFence extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       boolean var7 = this.e(var1, var2.c());
       boolean var8 = this.e(var1, var2.d());
       boolean var9 = this.e(var1, var2.e());
@@ -108,15 +108,15 @@ public class BlockFence extends Block {
       return var3 == Blocks.BARRIER?false:((!(var3 instanceof BlockFence) || var3.J != this.J) && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      return var1.D?true:aml.a(var4, var1, var2);
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      return var1.isStatic?true:aml.a(var4, var1, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return 0;
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       return var1.a(a, Boolean.valueOf(this.e(var2, var3.c()))).a(b, Boolean.valueOf(this.e(var2, var3.f()))).a(M, Boolean.valueOf(this.e(var2, var3.d()))).a(N, Boolean.valueOf(this.e(var2, var3.e())));
    }
 

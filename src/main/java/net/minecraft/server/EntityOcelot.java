@@ -108,10 +108,10 @@ public class EntityOcelot extends EntityTameableAnimal {
 
    protected void b(boolean var1, int var2) {}
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(this.cj()) {
-         if(this.e(var1) && !this.o.D && !this.d(var2)) {
+         if(this.e(var1) && !this.o.isStatic && !this.d(var2)) {
             this.bk.a(!this.cl());
          }
       } else if(this.bn.f() && var2 != null && var2.b() == Items.aU && var1.h(this) < 9.0D) {
@@ -123,10 +123,10 @@ public class EntityOcelot extends EntityTameableAnimal {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             if(this.V.nextInt(3) == 0) {
                this.m(true);
-               this.r(1 + this.o.s.nextInt(3));
+               this.r(1 + this.o.random.nextInt(3));
                this.b(var1.aJ().toString());
                this.l(true);
                this.bk.a(true);
@@ -180,7 +180,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public boolean bQ() {
-      return this.o.s.nextInt(3) != 0;
+      return this.o.random.nextInt(3) != 0;
    }
 
    public boolean bR() {
@@ -199,8 +199,8 @@ public class EntityOcelot extends EntityTameableAnimal {
       return false;
    }
 
-   public String d_() {
-      return this.k_()?this.aL():(this.cj()?fi.a("entity.Cat.name"):super.d_());
+   public String getName() {
+      return this.k_()?this.aL():(this.cj()?fi.a("entity.Cat.name"):super.getName());
    }
 
    public void m(boolean var1) {
@@ -221,7 +221,7 @@ public class EntityOcelot extends EntityTameableAnimal {
 
    public xq a(vu var1, xq var2) {
       var2 = super.a(var1, var2);
-      if(this.o.s.nextInt(7) == 0) {
+      if(this.o.random.nextInt(7) == 0) {
          for(int var3 = 0; var3 < 2; ++var3) {
             EntityOcelot var4 = new EntityOcelot(this.o);
             var4.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);

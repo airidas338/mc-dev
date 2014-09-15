@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CommandTestForBlock extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "testforblock";
    }
 
@@ -16,7 +16,7 @@ public class CommandTestForBlock extends CommandAbstract {
       return "commands.testforblock.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 4) {
          throw new ExceptionUsage("commands.testforblock.usage", new Object[0]);
       } else {
@@ -31,8 +31,8 @@ public class CommandTestForBlock extends CommandAbstract {
                var5 = a(var2[4], -1, 15);
             }
 
-            World var6 = var1.e();
-            if(!var6.e(var3)) {
+            World var6 = var1.getWorld();
+            if(!var6.isLoaded(var3)) {
                throw new CommandException("commands.testforblock.outOfWorld", new Object[0]);
             } else {
                NBTTagCompound var7 = new NBTTagCompound();
@@ -48,7 +48,7 @@ public class CommandTestForBlock extends CommandAbstract {
                   }
                }
 
-               IBlock var14 = var6.getData(var3);
+               IBlockData var14 = var6.getData(var3);
                Block var10 = var14.c();
                if(var10 != var4) {
                   throw new CommandException("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.H(), var4.H()});
@@ -146,7 +146,7 @@ public class CommandTestForBlock extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.c.c()):null);
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.REGISTRY.c()):null);
    }
 }

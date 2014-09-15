@@ -31,7 +31,7 @@ public class BlockFlowerPot extends atg {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ItemStack var9 = var4.bg.h();
       if(var9 != null && var9.b() instanceof aju) {
          bdb var10 = this.d(var1, var2);
@@ -72,7 +72,7 @@ public class BlockFlowerPot extends atg {
       return super.c(var1, var2) && World.a((IBlockAccess)var1, var2.b());
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!World.a((IBlockAccess)var1, var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -80,7 +80,7 @@ public class BlockFlowerPot extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       bdb var4 = this.d(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new ItemStack(var4.b(), 1, var4.c()));
@@ -89,7 +89,7 @@ public class BlockFlowerPot extends atg {
       super.b(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
       if(var4.by.canInstantlyBuild) {
          bdb var5 = this.d(var1, var2);
@@ -100,7 +100,7 @@ public class BlockFlowerPot extends atg {
 
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.bQ;
    }
 
@@ -168,11 +168,11 @@ public class BlockFlowerPot extends atg {
       return new bed(this, new bex[]{b, a});
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       awf var4 = awf.a;
       TileEntity var5 = var2.s(var3);
       if(var5 instanceof bdb) {

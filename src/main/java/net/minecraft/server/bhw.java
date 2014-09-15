@@ -13,7 +13,7 @@ public class bhw extends WorldGenerator {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      while(var1.d(var3) && var3.o() > 2) {
+      while(var1.isEmpty(var3) && var3.o() > 2) {
          var3 = var3.b();
       }
 

@@ -159,7 +159,7 @@ public class EntityRabbit extends EntityAnimal {
    public void m() throws IOException {
       super.m();
       if(this.bm != this.bn) {
-         if(this.bm == 0 && !this.o.D) {
+         if(this.bm == 0 && !this.o.isStatic) {
             this.o.a((Entity)this, (byte)1);
          }
 

@@ -15,34 +15,34 @@ public class bor extends GenLayer {
          for(int var8 = 0; var8 < var3; ++var8) {
             this.a((long)(var8 + var1), (long)(var7 + var2));
             int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
-            if(!this.a(var5, var6, var8, var7, var3, var9, BiomeBase.EXTREME_HILLS.az, BiomeBase.SMALL_MOUNTAINS.az) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MESA_PLATEAU_F.az, BiomeBase.MESA.az) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MESA_PLATEAU.az, BiomeBase.MESA.az) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MEGA_TAIGA.az, BiomeBase.TAIGA.az)) {
+            if(!this.a(var5, var6, var8, var7, var3, var9, BiomeBase.EXTREME_HILLS.id, BiomeBase.SMALL_MOUNTAINS.id) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MESA_PLATEAU_F.id, BiomeBase.MESA.id) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MESA_PLATEAU.id, BiomeBase.MESA.id) && !this.b(var5, var6, var8, var7, var3, var9, BiomeBase.MEGA_TAIGA.id, BiomeBase.TAIGA.id)) {
                int var10;
                int var11;
                int var12;
                int var13;
-               if(var9 == BiomeBase.DESERT.az) {
+               if(var9 == BiomeBase.DESERT.id) {
                   var10 = var5[var8 + 1 + (var7 + 1 - 1) * (var3 + 2)];
                   var11 = var5[var8 + 1 + 1 + (var7 + 1) * (var3 + 2)];
                   var12 = var5[var8 + 1 - 1 + (var7 + 1) * (var3 + 2)];
                   var13 = var5[var8 + 1 + (var7 + 1 + 1) * (var3 + 2)];
-                  if(var10 != BiomeBase.ICE_PLAINS.az && var11 != BiomeBase.ICE_PLAINS.az && var12 != BiomeBase.ICE_PLAINS.az && var13 != BiomeBase.ICE_PLAINS.az) {
+                  if(var10 != BiomeBase.ICE_PLAINS.id && var11 != BiomeBase.ICE_PLAINS.id && var12 != BiomeBase.ICE_PLAINS.id && var13 != BiomeBase.ICE_PLAINS.id) {
                      var6[var8 + var7 * var3] = var9;
                   } else {
-                     var6[var8 + var7 * var3] = BiomeBase.EXTREME_HILLS_PLUS.az;
+                     var6[var8 + var7 * var3] = BiomeBase.EXTREME_HILLS_PLUS.id;
                   }
-               } else if(var9 == BiomeBase.SWAMPLAND.az) {
+               } else if(var9 == BiomeBase.SWAMPLAND.id) {
                   var10 = var5[var8 + 1 + (var7 + 1 - 1) * (var3 + 2)];
                   var11 = var5[var8 + 1 + 1 + (var7 + 1) * (var3 + 2)];
                   var12 = var5[var8 + 1 - 1 + (var7 + 1) * (var3 + 2)];
                   var13 = var5[var8 + 1 + (var7 + 1 + 1) * (var3 + 2)];
-                  if(var10 != BiomeBase.DESERT.az && var11 != BiomeBase.DESERT.az && var12 != BiomeBase.DESERT.az && var13 != BiomeBase.DESERT.az && var10 != BiomeBase.COLD_TAIGA.az && var11 != BiomeBase.COLD_TAIGA.az && var12 != BiomeBase.COLD_TAIGA.az && var13 != BiomeBase.COLD_TAIGA.az && var10 != BiomeBase.ICE_PLAINS.az && var11 != BiomeBase.ICE_PLAINS.az && var12 != BiomeBase.ICE_PLAINS.az && var13 != BiomeBase.ICE_PLAINS.az) {
-                     if(var10 != BiomeBase.JUNGLE.az && var13 != BiomeBase.JUNGLE.az && var11 != BiomeBase.JUNGLE.az && var12 != BiomeBase.JUNGLE.az) {
+                  if(var10 != BiomeBase.DESERT.id && var11 != BiomeBase.DESERT.id && var12 != BiomeBase.DESERT.id && var13 != BiomeBase.DESERT.id && var10 != BiomeBase.COLD_TAIGA.id && var11 != BiomeBase.COLD_TAIGA.id && var12 != BiomeBase.COLD_TAIGA.id && var13 != BiomeBase.COLD_TAIGA.id && var10 != BiomeBase.ICE_PLAINS.id && var11 != BiomeBase.ICE_PLAINS.id && var12 != BiomeBase.ICE_PLAINS.id && var13 != BiomeBase.ICE_PLAINS.id) {
+                     if(var10 != BiomeBase.JUNGLE.id && var13 != BiomeBase.JUNGLE.id && var11 != BiomeBase.JUNGLE.id && var12 != BiomeBase.JUNGLE.id) {
                         var6[var8 + var7 * var3] = var9;
                      } else {
-                        var6[var8 + var7 * var3] = BiomeBase.JUNGLE_EDGE.az;
+                        var6[var8 + var7 * var3] = BiomeBase.JUNGLE_EDGE.id;
                      }
                   } else {
-                     var6[var8 + var7 * var3] = BiomeBase.PLAINS.az;
+                     var6[var8 + var7 * var3] = BiomeBase.PLAINS.id;
                   }
                } else {
                   var6[var8 + var7 * var3] = var9;

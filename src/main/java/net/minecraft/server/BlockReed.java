@@ -15,9 +15,9 @@ public class BlockReed extends Block {
       this.a(true);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.getData(var2.b()).c() == Blocks.SUGAR_CANE_BLOCK || this.e(var1, var2, var3)) {
-         if(var1.d(var2.a())) {
+         if(var1.isEmpty(var2.a())) {
             int var5;
             for(var5 = 1; var1.getData(var2.c(var5)).c() == this; ++var5) {
                ;
@@ -59,11 +59,11 @@ public class BlockReed extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   protected final boolean e(World var1, Location var2, IBlock var3) {
+   protected final boolean e(World var1, Location var2, IBlockData var3) {
       if(this.d(var1, var2)) {
          return true;
       } else {
@@ -77,11 +77,11 @@ public class BlockReed extends Block {
       return this.c(var1, var2);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.aJ;
    }
 
@@ -93,11 +93,11 @@ public class BlockReed extends Block {
       return false;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

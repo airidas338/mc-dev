@@ -23,11 +23,11 @@ public class BlockPressurePlateWeighed extends ath {
       }
    }
 
-   protected int e(IBlock var1) {
+   protected int e(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 
-   protected IBlock a(IBlock var1, int var2) {
+   protected IBlockData a(IBlockData var1, int var2) {
       return var1.a(a, Integer.valueOf(var2));
    }
 
@@ -35,11 +35,11 @@ public class BlockPressurePlateWeighed extends ath {
       return 10;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

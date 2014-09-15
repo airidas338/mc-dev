@@ -15,7 +15,7 @@ public class EntityLargeFireball extends EntityFireball {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(var1.d != null) {
             var1.d.a(DamageSource.a((EntityFireball)this, this.a), 6.0F);
             this.a(this.a, var1.d);

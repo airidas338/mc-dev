@@ -11,11 +11,11 @@ public abstract class BlockFlowers extends BlockPlant {
       this.j(this.L.b().a(this.l(), this.j() == awc.b?EnumFlowerType.b:EnumFlowerType.a));
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((EnumFlowerType)var1.b(this.l())).b();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(this.l(), EnumFlowerType.a(this.j(), var1));
    }
 
@@ -29,7 +29,7 @@ public abstract class BlockFlowers extends BlockPlant {
       return this.a;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFlowerType)var1.b(this.l())).b();
    }
 

@@ -29,10 +29,10 @@ public class EntityEnderCrystal extends Entity {
       this.r = this.u;
       ++this.a;
       this.ac.b(8, Integer.valueOf(this.b));
-      int var1 = MathHelper.c(this.s);
-      int var2 = MathHelper.c(this.t);
-      int var3 = MathHelper.c(this.u);
-      if(this.o.t instanceof bgh && this.o.getData(new Location(var1, var2, var3)).c() != Blocks.FIRE) {
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.t);
+      int var3 = MathHelper.floor(this.u);
+      if(this.o.worldProvider instanceof bgh && this.o.getData(new Location(var1, var2, var3)).c() != Blocks.FIRE) {
          this.o.a(new Location(var1, var2, var3), Blocks.FIRE.P());
       }
 
@@ -50,11 +50,11 @@ public class EntityEnderCrystal extends Entity {
       if(this.b(var1)) {
          return false;
       } else {
-         if(!this.I && !this.o.D) {
+         if(!this.I && !this.o.isStatic) {
             this.b = 0;
             if(this.b <= 0) {
                this.J();
-               if(!this.o.D) {
+               if(!this.o.isStatic) {
                   this.o.a((Entity)null, this.s, this.t, this.u, 6.0F, true);
                }
             }

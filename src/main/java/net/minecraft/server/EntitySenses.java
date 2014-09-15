@@ -25,9 +25,9 @@ public class EntitySenses {
       } else if(this.c.contains(var1)) {
          return false;
       } else {
-         this.a.o.B.a("canSee");
+         this.a.o.methodProfiler.a("canSee");
          boolean var2 = this.a.t(var1);
-         this.a.o.B.b();
+         this.a.o.methodProfiler.b();
          if(var2) {
             this.b.add(var1);
          } else {

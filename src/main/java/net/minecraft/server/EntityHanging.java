@@ -72,7 +72,7 @@ public abstract class EntityHanging extends Entity {
       this.p = this.s;
       this.q = this.t;
       this.r = this.u;
-      if(this.c++ == 100 && !this.o.D) {
+      if(this.c++ == 100 && !this.o.isStatic) {
          this.c = 0;
          if(!this.I && !this.j()) {
             this.J();
@@ -133,7 +133,7 @@ public abstract class EntityHanging extends Entity {
       if(this.b(var1)) {
          return false;
       } else {
-         if(!this.I && !this.o.D) {
+         if(!this.I && !this.o.isStatic) {
             this.J();
             this.ac();
             this.b(var1.getEntity());
@@ -144,7 +144,7 @@ public abstract class EntityHanging extends Entity {
    }
 
    public void d(double var1, double var3, double var5) {
-      if(!this.o.D && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.o.isStatic && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
          this.b((Entity)null);
       }
@@ -152,7 +152,7 @@ public abstract class EntityHanging extends Entity {
    }
 
    public void g(double var1, double var3, double var5) {
-      if(!this.o.D && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.o.isStatic && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
          this.b((Entity)null);
       }

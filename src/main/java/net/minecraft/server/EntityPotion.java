@@ -54,7 +54,7 @@ public class EntityPotion extends EntityProjectile {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          List var2 = Items.bz.h(this.c);
          if(var2 != null && !var2.isEmpty()) {
             AxisAlignedBB var3 = this.aQ().b(4.0D, 2.0D, 4.0D);

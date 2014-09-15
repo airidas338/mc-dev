@@ -10,7 +10,7 @@ public class CommandException extends Exception {
       this.a = var2;
    }
 
-   public Object[] a() {
+   public Object[] getArgs() {
       return this.a;
    }
 }

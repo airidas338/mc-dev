@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandXp extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "xp";
    }
 
@@ -15,7 +15,7 @@ public class CommandXp extends CommandAbstract {
       return "commands.xp.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length <= 0) {
          throw new ExceptionUsage("commands.xp.usage", new Object[0]);
       } else {
@@ -36,10 +36,10 @@ public class CommandXp extends CommandAbstract {
             var1.a(ag.e, var7.bz);
             if(var6) {
                var7.a(-var5);
-               a(var1, this, "commands.xp.success.negative.levels", new Object[]{Integer.valueOf(var5), var7.d_()});
+               a(var1, this, "commands.xp.success.negative.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
             } else {
                var7.a(var5);
-               a(var1, this, "commands.xp.success.levels", new Object[]{Integer.valueOf(var5), var7.d_()});
+               a(var1, this, "commands.xp.success.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
             }
          } else {
             var1.a(ag.e, var7.bA);
@@ -48,13 +48,13 @@ public class CommandXp extends CommandAbstract {
             }
 
             var7.u(var5);
-            a(var1, this, "commands.xp.success", new Object[]{Integer.valueOf(var5), var7.d_()});
+            a(var1, this, "commands.xp.success", new Object[]{Integer.valueOf(var5), var7.getName()});
          }
 
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 2?a(var2, this.d()):null;
    }
 
@@ -62,7 +62,7 @@ public class CommandXp extends CommandAbstract {
       return MinecraftServer.M().I();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 1;
    }
 }

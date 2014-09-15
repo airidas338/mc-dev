@@ -16,7 +16,7 @@ public class BlockPumpkin extends BlockDirectional {
       this.a(CreativeModeTab.b);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2);
    }
@@ -41,7 +41,7 @@ public class BlockPumpkin extends BlockDirectional {
          var1.d((Entity)var9);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(ew.G, (double)var10.n() + var1.s.nextDouble(), (double)var10.o() + var1.s.nextDouble() * 2.5D, (double)var10.p() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(ew.G, (double)var10.n() + var1.random.nextDouble(), (double)var10.o() + var1.random.nextDouble() * 2.5D, (double)var10.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.l().b(); ++var6) {
@@ -62,7 +62,7 @@ public class BlockPumpkin extends BlockDirectional {
          var1.d((Entity)var13);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(ew.F, (double)var12.n() + var1.s.nextDouble(), (double)var12.o() + var1.s.nextDouble() * 3.9D, (double)var12.p() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(ew.F, (double)var12.n() + var1.random.nextDouble(), (double)var12.o() + var1.random.nextDouble() * 3.9D, (double)var12.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.T().c(); ++var6) {
@@ -79,15 +79,15 @@ public class BlockPumpkin extends BlockDirectional {
       return var1.getData(var2).c().J.j() && World.a((IBlockAccess)var1, var2.b());
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d());
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(N, EnumFacing.b(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(N)).b();
    }
 

@@ -26,7 +26,7 @@ public abstract class WorldGenerator {
       this.a(var1, var2, var3.a(var4));
    }
 
-   protected void a(World var1, Location var2, IBlock var3) {
+   protected void a(World var1, Location var2, IBlockData var3) {
       if(this.a) {
          var1.a(var2, var3, 3);
       } else {

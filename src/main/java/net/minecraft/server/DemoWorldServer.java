@@ -8,7 +8,7 @@ public class DemoWorldServer extends WorldServer {
 
    public DemoWorldServer(MinecraftServer var1, IDataManager var2, WorldData var3, int var4, MethodProfiler var5) {
       super(var1, var2, var3, var4, var5);
-      this.x.a(a);
+      this.worldData.a(a);
    }
 
 }

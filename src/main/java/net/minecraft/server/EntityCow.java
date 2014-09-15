@@ -68,7 +68,7 @@ public class EntityCow extends EntityAnimal {
 
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.aw && !var1.by.canInstantlyBuild) {
          if(var2.b-- == 1) {

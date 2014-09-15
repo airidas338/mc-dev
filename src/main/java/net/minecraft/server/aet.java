@@ -17,9 +17,9 @@ class aet extends PathfinderGoal {
    public void e() {
       Random var1 = this.a.bb();
       World var2 = this.a.o;
-      int var3 = MathHelper.c(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
-      int var4 = MathHelper.c(this.a.t + var1.nextDouble() * 2.0D);
-      int var5 = MathHelper.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
+      int var3 = MathHelper.floor(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
+      int var4 = MathHelper.floor(this.a.t + var1.nextDouble() * 2.0D);
+      int var5 = MathHelper.floor(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
       Location var6 = new Location(var3, var4, var5);
       Block var7 = var2.getData(var6).c();
       Block var8 = var2.getData(var6.b()).c();

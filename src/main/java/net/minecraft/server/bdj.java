@@ -67,7 +67,7 @@ public class bdj extends TileEntity {
       bdl var2 = new bdl(this, var1);
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
-         ChatModifier var4 = this.a[var3] == null?null:this.a[var3].b();
+         ChatModifier var4 = this.a[var3] == null?null:this.a[var3].getChatModifier();
          if(var4 != null && var4.h() != null) {
             hm var5 = var4.h();
             if(var5.a() == hn.c) {

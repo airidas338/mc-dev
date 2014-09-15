@@ -14,8 +14,8 @@ public class BlockBed extends BlockDirectional {
       this.j();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          if(var3.b(a) != atq.a) {
@@ -26,7 +26,7 @@ public class BlockBed extends BlockDirectional {
             }
          }
 
-         if(var1.t.e() && var1.b(var2) != BiomeBase.HELL) {
+         if(var1.worldProvider.e() && var1.getBiome(var2) != BiomeBase.HELL) {
             if(((Boolean)var3.b(b)).booleanValue()) {
                EntityHuman var10 = this.e(var1, var2);
                if(var10 != null) {
@@ -66,7 +66,7 @@ public class BlockBed extends BlockDirectional {
    }
 
    private EntityHuman e(World var1, Location var2) {
-      Iterator var3 = var1.j.iterator();
+      Iterator var3 = var1.players.iterator();
 
       EntityHuman var4;
       do {
@@ -92,7 +92,7 @@ public class BlockBed extends BlockDirectional {
       this.j();
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(N);
       if(var3.b(a) == atq.a) {
          if(var1.getData(var2.a(var5.d())).c() != this) {
@@ -100,14 +100,14 @@ public class BlockBed extends BlockDirectional {
          }
       } else if(var1.getData(var2.a(var5)).c() != this) {
          var1.g(var2);
-         if(!var1.D) {
+         if(!var1.isStatic) {
             this.b(var1, var2, var3, 0);
          }
       }
 
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return var1.b(a) == atq.a?null:Items.ba;
    }
 
@@ -148,7 +148,7 @@ public class BlockBed extends BlockDirectional {
       return World.a((IBlockAccess)var0, var1.b()) && !var0.getData(var1).c().r().a() && !var0.getData(var1.a()).c().r().a();
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
       if(var3.b(a) == atq.b) {
          super.a(var1, var2, var3, var4, 0);
       }
@@ -159,7 +159,7 @@ public class BlockBed extends BlockDirectional {
       return 1;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.by.canInstantlyBuild && var3.b(a) == atq.a) {
          Location var5 = var2.a(((EnumFacing)var3.b(N)).d());
          if(var1.getData(var5).c() == this) {
@@ -169,14 +169,14 @@ public class BlockBed extends BlockDirectional {
 
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.b(var1);
       return (var1 & 8) > 0?this.P().a(a, atq.a).a(N, var2).a(b, Boolean.valueOf((var1 & 4) > 0)):this.P().a(a, atq.b).a(N, var2);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       if(var1.b(a) == atq.b) {
-         IBlock var4 = var2.getData(var3.a((EnumFacing)var1.b(N)));
+         IBlockData var4 = var2.getData(var3.a((EnumFacing)var1.b(N)));
          if(var4.c() == this) {
             var1 = var1.a(b, var4.b(b));
          }
@@ -185,7 +185,7 @@ public class BlockBed extends BlockDirectional {
       return var1;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       if(var1.b(a) == atq.a) {

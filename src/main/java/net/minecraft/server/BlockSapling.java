@@ -14,8 +14,8 @@ public class BlockSapling extends BlockPlant implements atz {
       this.a(CreativeModeTab.c);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
          super.b(var1, var2, var3, var4);
          if(var1.l(var2.a()) >= 9 && var4.nextInt(7) == 0) {
             this.d(var1, var2, var3, var4);
@@ -24,7 +24,7 @@ public class BlockSapling extends BlockPlant implements atz {
       }
    }
 
-   public void d(World var1, Location var2, IBlock var3, Random var4) {
+   public void d(World var1, Location var2, IBlockData var3, Random var4) {
       if(((Integer)var3.b(b)).intValue() == 0) {
          var1.a(var2, var3.a(b), 4);
       } else {
@@ -33,7 +33,7 @@ public class BlockSapling extends BlockPlant implements atz {
 
    }
 
-   public void e(World var1, Location var2, IBlock var3, Random var4) {
+   public void e(World var1, Location var2, IBlockData var3, Random var4) {
       Object var5 = var4.nextInt(10) == 0?new WorldGenBigTree(true):new WorldGenTrees(true);
       int var6 = 0;
       int var7 = 0;
@@ -99,7 +99,7 @@ public class BlockSapling extends BlockPlant implements atz {
       case 6:
       }
 
-      IBlock var9 = Blocks.AIR.P();
+      IBlockData var9 = Blocks.AIR.P();
       if(var8) {
          var1.a(var2.a(var6, 0, var7), var9, 4);
          var1.a(var2.a(var6 + 1, 0, var7), var9, 4);
@@ -123,31 +123,31 @@ public class BlockSapling extends BlockPlant implements atz {
    }
 
    public boolean a(World var1, Location var2, ayx var3) {
-      IBlock var4 = var1.getData(var2);
+      IBlockData var4 = var1.getData(var2);
       return var4.c() == this && var4.b(a) == var3;
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((ayx)var1.b(a)).a();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       return true;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
-      return (double)var1.s.nextFloat() < 0.45D;
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
+      return (double)var1.random.nextFloat() < 0.45D;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       this.d(var1, var3, var4, var2);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, ayx.a(var1 & 7)).a(b, Integer.valueOf((var1 & 8) >> 3));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((ayx)var1.b(a)).a();
       var3 |= ((Integer)var1.b(b)).intValue() << 3;

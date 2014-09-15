@@ -13,7 +13,7 @@ public class aji implements IInventory {
       return this.a[0];
    }
 
-   public String d_() {
+   public String getName() {
       return "Result";
    }
 
@@ -21,8 +21,8 @@ public class aji implements IInventory {
       return false;
    }
 
-   public IChatBaseComponent e_() {
-      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.d_()):new ChatMessage(this.d_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.k_()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
    public ItemStack a(int var1, int var2) {

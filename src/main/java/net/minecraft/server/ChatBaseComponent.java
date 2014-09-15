@@ -4,14 +4,14 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class hj implements IChatBaseComponent {
+public abstract class ChatBaseComponent implements IChatBaseComponent {
 
    protected List a = Lists.newArrayList();
    private ChatModifier b;
 
 
    public IChatBaseComponent a(IChatBaseComponent var1) {
-      var1.b().a(this.b());
+      var1.getChatModifier().a(this.getChatModifier());
       this.a.add(var1);
       return this;
    }
@@ -24,26 +24,26 @@ public abstract class hj implements IChatBaseComponent {
       return this.a((IChatBaseComponent)(new ChatComponentText(var1)));
    }
 
-   public IChatBaseComponent a(ChatModifier var1) {
+   public IChatBaseComponent setChatModifier(ChatModifier var1) {
       this.b = var1;
       Iterator var2 = this.a.iterator();
 
       while(var2.hasNext()) {
          IChatBaseComponent var3 = (IChatBaseComponent)var2.next();
-         var3.b().a(this.b());
+         var3.getChatModifier().a(this.getChatModifier());
       }
 
       return this;
    }
 
-   public ChatModifier b() {
+   public ChatModifier getChatModifier() {
       if(this.b == null) {
          this.b = new ChatModifier();
          Iterator var1 = this.a.iterator();
 
          while(var1.hasNext()) {
             IChatBaseComponent var2 = (IChatBaseComponent)var1.next();
-            var2.b().a(this.b);
+            var2.getChatModifier().a(this.b);
          }
       }
 
@@ -51,7 +51,7 @@ public abstract class hj implements IChatBaseComponent {
    }
 
    public Iterator iterator() {
-      return Iterators.concat(Iterators.forArray(new hj[]{this}), a((Iterable)this.a));
+      return Iterators.concat(Iterators.forArray(new ChatBaseComponent[]{this}), a((Iterable)this.a));
    }
 
    public final String c() {
@@ -75,11 +75,11 @@ public abstract class hj implements IChatBaseComponent {
    public boolean equals(Object var1) {
       if(this == var1) {
          return true;
-      } else if(!(var1 instanceof hj)) {
+      } else if(!(var1 instanceof ChatBaseComponent)) {
          return false;
       } else {
-         hj var2 = (hj)var1;
-         return this.a.equals(var2.a) && this.b().equals(var2.b());
+         ChatBaseComponent var2 = (ChatBaseComponent)var1;
+         return this.a.equals(var2.a) && this.getChatModifier().equals(var2.getChatModifier());
       }
    }
 

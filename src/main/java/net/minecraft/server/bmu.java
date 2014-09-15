@@ -3,7 +3,7 @@ import java.util.Random;
 
 public abstract class bmu {
 
-   protected IBlock a;
+   protected IBlockData a;
 
 
    protected bmu() {
@@ -12,7 +12,7 @@ public abstract class bmu {
 
    public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);
 
-   public IBlock a() {
+   public IBlockData a() {
       return this.a;
    }
 }

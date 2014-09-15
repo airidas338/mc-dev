@@ -53,7 +53,7 @@ public class EntityChicken extends EntityAnimal {
       }
 
       this.bk += this.bp * 2.0F;
-      if(!this.o.D && !this.i_() && !this.cj() && --this.bq <= 0) {
+      if(!this.o.isStatic && !this.i_() && !this.cj() && --this.bq <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
          this.a(Items.aP, 1);
          this.bq = this.V.nextInt(6000) + 6000;

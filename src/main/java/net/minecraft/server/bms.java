@@ -398,14 +398,14 @@ public abstract class bms {
       return var2;
    }
 
-   protected void a(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
+   protected void a(World var1, IBlockData var2, int var3, int var4, int var5, bjb var6) {
       Location var7 = new Location(this.a(var3, var5), this.d(var4), this.b(var3, var5));
       if(var6.b((fd)var7)) {
          var1.a(var7, var2, 2);
       }
    }
 
-   protected IBlock a(World var1, int var2, int var3, int var4, bjb var5) {
+   protected IBlockData a(World var1, int var2, int var3, int var4, bjb var5) {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
@@ -423,7 +423,7 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, IBlock var10, boolean var11) {
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
@@ -454,7 +454,7 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, IBlock var11, IBlock var12, boolean var13) {
+   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, IBlockData var11, IBlockData var12, boolean var13) {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
@@ -471,14 +471,14 @@ public abstract class bms {
 
    }
 
-   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, IBlock var8) {
+   protected void a(World var1, bjb var2, Random var3, float var4, int var5, int var6, int var7, IBlockData var8) {
       if(var3.nextFloat() < var4) {
          this.a(var1, var8, var5, var6, var7, var2);
       }
 
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, boolean var10) {
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, boolean var10) {
       float var11 = (float)(var6 - var3 + 1);
       float var12 = (float)(var7 - var4 + 1);
       float var13 = (float)(var8 - var5 + 1);
@@ -508,7 +508,7 @@ public abstract class bms {
    protected void b(World var1, int var2, int var3, int var4, bjb var5) {
       Location var6 = new Location(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((fd)var6)) {
-         while(!var1.d(var6) && var6.o() < 255) {
+         while(!var1.isEmpty(var6) && var6.o() < 255) {
             var1.a(var6, Blocks.AIR.P(), 2);
             var6 = var6.a();
          }
@@ -516,12 +516,12 @@ public abstract class bms {
       }
    }
 
-   protected void b(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
+   protected void b(World var1, IBlockData var2, int var3, int var4, int var5, bjb var6) {
       int var7 = this.a(var3, var5);
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
       if(var6.b((fd)(new Location(var7, var8, var9)))) {
-         while((var1.d(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
+         while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().r().d()) && var8 > 1) {
             var1.a(new Location(var7, var8, var9), var2, 2);
             --var8;
          }
@@ -532,7 +532,7 @@ public abstract class bms {
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.CHEST) {
-         IBlock var10 = Blocks.CHEST.P();
+         IBlockData var10 = Blocks.CHEST.P();
          var1.a(var9, Blocks.CHEST.f(var1, var9, var10), 2);
          TileEntity var11 = var1.s(var9);
          if(var11 instanceof bcr) {

@@ -235,7 +235,7 @@ public class aid extends aib {
 
    public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.i.D) {
+      if(!this.i.isStatic) {
          for(int var2 = 0; var2 < this.h.n_(); ++var2) {
             ItemStack var3 = this.h.b(var2);
             if(var3 != null) {

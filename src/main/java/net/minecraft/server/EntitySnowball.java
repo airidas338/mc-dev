@@ -29,7 +29,7 @@ public class EntitySnowball extends EntityProjectile {
          this.o.a(ew.F, this.s, this.t, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.J();
       }
 

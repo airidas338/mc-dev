@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandKick extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "kick";
    }
 
@@ -15,7 +15,7 @@ public class CommandKick extends CommandAbstract {
       return "commands.kick.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length > 0 && var2[0].length() > 1) {
          EntityPlayer var3 = MinecraftServer.M().an().a(var2[0]);
          String var4 = "Kicked by an operator.";
@@ -30,9 +30,9 @@ public class CommandKick extends CommandAbstract {
 
             var3.a.c(var4);
             if(var5) {
-               a(var1, this, "commands.kick.success.reason", new Object[]{var3.d_(), var4});
+               a(var1, this, "commands.kick.success.reason", new Object[]{var3.getName(), var4});
             } else {
-               a(var1, this, "commands.kick.success", new Object[]{var3.d_()});
+               a(var1, this, "commands.kick.success", new Object[]{var3.getName()});
             }
 
          }
@@ -41,7 +41,7 @@ public class CommandKick extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length >= 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

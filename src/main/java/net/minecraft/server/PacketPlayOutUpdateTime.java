@@ -20,12 +20,12 @@ public class PacketPlayOutUpdateTime implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readLong();
       this.b = var1.readLong();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeLong(this.a);
       var1.writeLong(this.b);
    }

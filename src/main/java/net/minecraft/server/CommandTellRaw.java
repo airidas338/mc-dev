@@ -7,7 +7,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public class CommandTellRaw extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "tellraw";
    }
 
@@ -19,7 +19,7 @@ public class CommandTellRaw extends CommandAbstract {
       return "commands.tellraw.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.tellraw.usage", new Object[0]);
       } else {
@@ -28,7 +28,7 @@ public class CommandTellRaw extends CommandAbstract {
 
          try {
             IChatBaseComponent var5 = hp.a(var4);
-            var3.a(hq.a(var1, var5, var3));
+            var3.sendMessage(hq.a(var1, var5, var3));
          } catch (JsonParseException var7) {
             Throwable var6 = ExceptionUtils.getRootCause(var7);
             throw new dl("commands.tellraw.jsonException", new Object[]{var6 == null?"":var6.getMessage()});
@@ -36,11 +36,11 @@ public class CommandTellRaw extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

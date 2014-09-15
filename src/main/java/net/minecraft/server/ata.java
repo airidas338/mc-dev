@@ -11,7 +11,7 @@ public class ata implements vv {
       this.b = var2;
    }
 
-   public String d_() {
+   public String getName() {
       return "anvil";
    }
 
@@ -19,7 +19,7 @@ public class ata implements vv {
       return false;
    }
 
-   public IChatBaseComponent e_() {
+   public IChatBaseComponent getScoreboardDisplayName() {
       return new ChatMessage(Blocks.ANVIL.a() + ".name", new Object[0]);
    }
 

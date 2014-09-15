@@ -4,9 +4,9 @@ import com.mojang.authlib.properties.Property;
 import java.util.Iterator;
 import java.util.UUID;
 
-public final class ga {
+public final class GameProfileSerializer {
 
-   public static GameProfile a(NBTTagCompound var0) {
+   public static GameProfile deserialize(NBTTagCompound var0) {
       String var1 = null;
       String var2 = null;
       if(var0.hasKeyOfType("Name", 8)) {
@@ -52,7 +52,7 @@ public final class ga {
       }
    }
 
-   public static NBTTagCompound a(NBTTagCompound var0, GameProfile var1) {
+   public static NBTTagCompound serialize(NBTTagCompound var0, GameProfile var1) {
       if(!vb.b(var1.getName())) {
          var0.setString("Name", var1.getName());
       }

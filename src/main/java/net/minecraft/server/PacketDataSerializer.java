@@ -21,12 +21,12 @@ import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
 import java.util.UUID;
 
-public class hd extends ByteBuf {
+public class PacketDataSerializer extends ByteBuf {
 
    private final ByteBuf a;
 
 
-   public hd(ByteBuf var1) {
+   public PacketDataSerializer(ByteBuf var1) {
       this.a = var1;
    }
 
@@ -200,7 +200,7 @@ public class hd extends ByteBuf {
       }
    }
 
-   public hd a(String var1) {
+   public PacketDataSerializer a(String var1) {
       byte[] var2 = var1.getBytes(Charsets.UTF_8);
       if(var2.length > 32767) {
          throw new EncoderException("String too big (was " + var1.length() + " bytes encoded, max " + 32767 + ")");

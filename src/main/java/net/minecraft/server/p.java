@@ -4,10 +4,10 @@ import java.util.concurrent.Callable;
 final class p implements Callable {
 
    // $FF: synthetic field
-   final IBlock a;
+   final IBlockData a;
 
 
-   p(IBlock var1) {
+   p(IBlockData var1) {
       this.a = var1;
    }
 

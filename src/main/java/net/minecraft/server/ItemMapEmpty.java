@@ -13,7 +13,7 @@ public class ItemMapEmpty extends ake {
       var2.a(var5, (PersistentBase)var6);
       var6.e = 0;
       var6.a(var3.s, var3.u, var6.e);
-      var6.d = (byte)var2.t.q();
+      var6.d = (byte)var2.worldProvider.q();
       var6.c();
       --var1.b;
       if(var1.b <= 0) {

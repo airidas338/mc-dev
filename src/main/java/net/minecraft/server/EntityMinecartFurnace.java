@@ -55,7 +55,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    }
 
-   protected void a(Location var1, IBlock var2) {
+   protected void a(Location var1, IBlockData var2) {
       super.a(var1, var2);
       double var3 = this.a * this.a + this.b * this.b;
       if(var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
@@ -137,7 +137,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    }
 
-   public IBlock u() {
+   public IBlockData u() {
       return (this.j()?Blocks.BURNING_FURNACE:Blocks.FURNACE).P().a(BlockFurnace.a, EnumFacing.NORTH);
    }
 }

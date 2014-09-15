@@ -14,16 +14,16 @@ public class PacketPlayOutSpawnEntityWeather implements Packet {
 
    public PacketPlayOutSpawnEntityWeather(Entity var1) {
       this.a = var1.F();
-      this.b = MathHelper.c(var1.s * 32.0D);
-      this.c = MathHelper.c(var1.t * 32.0D);
-      this.d = MathHelper.c(var1.u * 32.0D);
+      this.b = MathHelper.floor(var1.s * 32.0D);
+      this.c = MathHelper.floor(var1.t * 32.0D);
+      this.d = MathHelper.floor(var1.u * 32.0D);
       if(var1 instanceof EntityLightning) {
          this.e = 1;
       }
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.e = var1.readByte();
       this.b = var1.readInt();
@@ -31,7 +31,7 @@ public class PacketPlayOutSpawnEntityWeather implements Packet {
       this.d = var1.readInt();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.writeByte(this.e);
       var1.writeInt(this.b);

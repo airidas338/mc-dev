@@ -19,7 +19,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return EnumMinecartType.TNT;
    }
 
-   public IBlock u() {
+   public IBlockData u() {
       return Blocks.TNT.P();
    }
 
@@ -67,7 +67,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    }
 
    protected void b(double var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          double var3 = Math.sqrt(var1);
          if(var3 > 5.0D) {
             var3 = 5.0D;
@@ -97,7 +97,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
 
    public void j() {
       this.a = 80;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.o.a((Entity)this, (byte)10);
          if(!this.R()) {
             this.o.a((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
@@ -110,11 +110,11 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return this.a > -1;
    }
 
-   public float a(aqo var1, World var2, Location var3, IBlock var4) {
+   public float a(aqo var1, World var2, Location var3, IBlockData var4) {
       return this.y() && (ati.d(var4) || ati.d(var2, var3.a()))?0.0F:super.a(var1, var2, var3, var4);
    }
 
-   public boolean a(aqo var1, World var2, Location var3, IBlock var4, float var5) {
+   public boolean a(aqo var1, World var2, Location var3, IBlockData var4, float var5) {
       return this.y() && (ati.d(var4) || ati.d(var2, var3.a()))?false:super.a(var1, var2, var3, var4, var5);
    }
 

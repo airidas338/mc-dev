@@ -11,21 +11,21 @@ class bdk implements ICommandListener {
       this.a = var1;
    }
 
-   public String d_() {
+   public String getName() {
       return "Sign";
    }
 
-   public IChatBaseComponent e_() {
-      return new ChatComponentText(this.d_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return new ChatComponentText(this.getName());
    }
 
-   public void a(IChatBaseComponent var1) {}
+   public void sendMessage(IChatBaseComponent var1) {}
 
    public boolean a(int var1, String var2) {
       return true;
    }
 
-   public Location c() {
+   public Location getLocation() {
       return this.a.c;
    }
 
@@ -33,7 +33,7 @@ class bdk implements ICommandListener {
       return new Vec3D((double)this.a.c.n() + 0.5D, (double)this.a.c.o() + 0.5D, (double)this.a.c.p() + 0.5D);
    }
 
-   public World e() {
+   public World getWorld() {
       return this.a.b;
    }
 

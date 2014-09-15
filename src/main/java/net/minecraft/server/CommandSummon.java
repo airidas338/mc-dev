@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandSummon extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "summon";
    }
 
@@ -15,12 +15,12 @@ public class CommandSummon extends CommandAbstract {
       return "commands.summon.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.summon.usage", new Object[0]);
       } else {
          String var3 = var2[0];
-         Location var4 = var1.c();
+         Location var4 = var1.getLocation();
          Vec3D var5 = var1.d();
          double var6 = var5.a;
          double var8 = var5.b;
@@ -32,8 +32,8 @@ public class CommandSummon extends CommandAbstract {
             var4 = new Location(var6, var8, var10);
          }
 
-         World var12 = var1.e();
-         if(!var12.e(var4)) {
+         World var12 = var1.getWorld();
+         if(!var12.isLoaded(var4)) {
             throw new CommandException("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {
             var12.c((Entity)(new EntityLightning(var12, var6, var8, var10)));
@@ -89,7 +89,7 @@ public class CommandSummon extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

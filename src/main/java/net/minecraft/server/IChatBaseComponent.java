@@ -3,9 +3,9 @@ import java.util.List;
 
 public interface IChatBaseComponent extends Iterable {
 
-   IChatBaseComponent a(ChatModifier var1);
+   IChatBaseComponent setChatModifier(ChatModifier var1);
 
-   ChatModifier b();
+   ChatModifier getChatModifier();
 
    IChatBaseComponent a(String var1);
 

@@ -15,7 +15,7 @@ public class BlockSoil extends Block {
       this.e(255);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return new AxisAlignedBB((double)var2.n(), (double)var2.o(), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 1), (double)(var2.p() + 1));
    }
 
@@ -27,7 +27,7 @@ public class BlockSoil extends Block {
       return false;
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       int var5 = ((Integer)var3.b(a)).intValue();
       if(!this.e(var1, var2) && !var1.C(var2.a())) {
          if(var5 > 0) {
@@ -43,7 +43,7 @@ public class BlockSoil extends Block {
 
    public void a(World var1, Location var2, Entity var3, float var4) {
       if(var3 instanceof EntityLiving) {
-         if(!var1.D && var1.s.nextFloat() < var4 - 0.5F) {
+         if(!var1.isStatic && var1.random.nextFloat() < var4 - 0.5F) {
             if(!(var3 instanceof EntityHuman) && !var1.Q().b("mobGriefing")) {
                return;
             }
@@ -75,7 +75,7 @@ public class BlockSoil extends Block {
       return true;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
       if(var1.getData(var2.a()).c().r().a()) {
          var1.a(var2, Blocks.DIRT.P());
@@ -83,15 +83,15 @@ public class BlockSoil extends Block {
 
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Blocks.DIRT.a(Blocks.DIRT.P().a(BlockDirt.a, avd.a), var2, var3);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1 & 7));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

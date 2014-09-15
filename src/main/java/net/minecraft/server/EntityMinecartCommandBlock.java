@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
 
-   private final aqf a = new aec(this);
+   private final CommandBlockListenerAbstract a = new EntityMinecartCommandBlockListener(this);
    private int b = 0;
 
 
@@ -23,8 +23,8 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
    protected void a(NBTTagCompound var1) {
       super.a(var1);
       this.a.b(var1);
-      this.H().b(23, this.j().l());
-      this.H().b(24, hp.a(this.j().k()));
+      this.H().b(23, this.getCommandBlock().l());
+      this.H().b(24, hp.a(this.getCommandBlock().k()));
    }
 
    protected void b(NBTTagCompound var1) {
@@ -36,17 +36,17 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
       return EnumMinecartType.COMMAND_BLOCK;
    }
 
-   public IBlock u() {
+   public IBlockData u() {
       return Blocks.COMMAND.P();
    }
 
-   public aqf j() {
+   public CommandBlockListenerAbstract getCommandBlock() {
       return this.a;
    }
 
    public void a(int var1, int var2, int var3, boolean var4) {
       if(var4 && this.W - this.b >= 4) {
-         this.j().a(this.o);
+         this.getCommandBlock().a(this.o);
          this.b = this.W;
       }
 

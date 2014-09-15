@@ -22,13 +22,13 @@ public class BlockDaylightDetector extends atg {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return ((Integer)var3.b(a)).intValue();
    }
 
    public void d(World var1, Location var2) {
-      if(!var1.t.o()) {
-         IBlock var3 = var1.getData(var2);
+      if(!var1.worldProvider.o()) {
+         IBlockData var3 = var1.getData(var2);
          int var4 = var1.b(EnumSkyBlock.SKY, var2) - var1.ab();
          float var5 = var1.d(1.0F);
          float var6 = var5 < 3.1415927F?0.0F:6.2831855F;
@@ -46,9 +46,9 @@ public class BlockDaylightDetector extends atg {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var4.cm()) {
-         if(var1.D) {
+         if(var1.isStatic) {
             return true;
          } else {
             if(this.b) {
@@ -66,7 +66,7 @@ public class BlockDaylightDetector extends atg {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a((Block)Blocks.DAYLIGHT_DETECTOR);
    }
 
@@ -90,11 +90,11 @@ public class BlockDaylightDetector extends atg {
       return new bcw();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 
 public class CommandPardonIP extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "pardon-ip";
    }
 
@@ -12,15 +12,15 @@ public class CommandPardonIP extends CommandAbstract {
       return 3;
    }
 
-   public boolean a(ICommandListener var1) {
-      return MinecraftServer.M().an().j().b() && super.a(var1);
+   public boolean canUse(ICommandListener var1) {
+      return MinecraftServer.M().an().j().b() && super.canUse(var1);
    }
 
    public String c(ICommandListener var1) {
       return "commands.unbanip.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length == 1 && var2[0].length() > 1) {
          Matcher var3 = CommandBanIp.a.matcher(var2[0]);
          if(var3.matches()) {
@@ -34,7 +34,7 @@ public class CommandPardonIP extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().an().j().a()):null;
    }
 }

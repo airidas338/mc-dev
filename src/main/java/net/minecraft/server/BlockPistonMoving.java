@@ -17,11 +17,11 @@ public class BlockPistonMoving extends atg {
       return null;
    }
 
-   public static TileEntity a(IBlock var0, EnumFacing var1, boolean var2, boolean var3) {
+   public static TileEntity a(IBlockData var0, EnumFacing var1, boolean var2, boolean var3) {
       return new bdv(var0, var1, var2, var3);
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
       if(var4 instanceof bdv) {
          ((bdv)var4).h();
@@ -39,9 +39,9 @@ public class BlockPistonMoving extends atg {
       return false;
    }
 
-   public void d(World var1, Location var2, IBlock var3) {
+   public void d(World var1, Location var2, IBlockData var3) {
       Location var4 = var2.a(((EnumFacing)var3.b(a)).d());
-      IBlock var5 = var1.getData(var4);
+      IBlockData var5 = var1.getData(var4);
       if(var5.c() instanceof BlockPiston && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
          var1.g(var4);
       }
@@ -56,8 +56,8 @@ public class BlockPistonMoving extends atg {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(!var1.D && var1.s(var2) == null) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(!var1.isStatic && var1.s(var2) == null) {
          var1.g(var2);
          return true;
       } else {
@@ -65,15 +65,15 @@ public class BlockPistonMoving extends atg {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
+      if(!var1.isStatic) {
          bdv var6 = this.e(var1, var2);
          if(var6 != null) {
-            IBlock var7 = var6.b();
+            IBlockData var7 = var6.b();
             var7.c().b(var1, var2, var7, 0);
          }
       }
@@ -83,14 +83,14 @@ public class BlockPistonMoving extends atg {
       return null;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          var1.s(var2);
       }
 
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       bdv var4 = this.e(var1, var2);
       if(var4 == null) {
          return null;
@@ -107,7 +107,7 @@ public class BlockPistonMoving extends atg {
    public void a(IBlockAccess var1, Location var2) {
       bdv var3 = this.e(var1, var2);
       if(var3 != null) {
-         IBlock var4 = var3.b();
+         IBlockData var4 = var3.b();
          Block var5 = var4.c();
          if(var5 == this || var5.r() == Material.AIR) {
             return;
@@ -134,7 +134,7 @@ public class BlockPistonMoving extends atg {
 
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3, float var4, EnumFacing var5) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3, float var4, EnumFacing var5) {
       if(var3.c() != this && var3.c().r() != Material.AIR) {
          AxisAlignedBB var6 = var3.c().a(var1, var2, var3);
          if(var6 == null) {
@@ -176,11 +176,11 @@ public class BlockPistonMoving extends atg {
       return var3 instanceof bdv?(bdv)var3:null;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, BlockPistonExtension.b(var1)).a(b, (var1 & 8) > 0?bdu.b:bdu.a);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(var1.b(b) == bdu.b) {

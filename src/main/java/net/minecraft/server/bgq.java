@@ -10,7 +10,7 @@ public class bgq implements IChunkProvider {
 
    private World a;
    private Random b;
-   private final IBlock[] c = new IBlock[256];
+   private final IBlockData[] c = new IBlockData[256];
    private final biv d;
    private final List e = Lists.newArrayList();
    private final boolean f;
@@ -67,7 +67,7 @@ public class bgq implements IChunkProvider {
          biw var8 = (biw)var12.next();
 
          for(int var9 = var8.d(); var9 < var8.d() + var8.b(); ++var9) {
-            IBlock var10 = var8.c();
+            IBlockData var10 = var8.c();
             if(var10.c() != Blocks.AIR) {
                var11 = false;
                this.c[var9] = var10;
@@ -83,7 +83,7 @@ public class bgq implements IChunkProvider {
 
       int var7;
       for(int var4 = 0; var4 < this.c.length; ++var4) {
-         IBlock var5 = this.c[var4];
+         IBlockData var5 = this.c[var4];
          if(var5 != null) {
             for(int var6 = 0; var6 < 16; ++var6) {
                for(var7 = 0; var7 < 16; ++var7) {
@@ -101,11 +101,11 @@ public class bgq implements IChunkProvider {
       }
 
       Chunk var10 = new Chunk(this.a, var3, var1, var2);
-      BiomeBase[] var11 = this.a.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
+      BiomeBase[] var11 = this.a.getWorldChunkManager().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var12 = var10.k();
 
       for(var7 = 0; var7 < var12.length; ++var7) {
-         var12[var7] = (byte)var11[var7].az;
+         var12[var7] = (byte)var11[var7].id;
       }
 
       var10.b();
@@ -116,11 +116,11 @@ public class bgq implements IChunkProvider {
       return true;
    }
 
-   public void a(IChunkProvider var1, int var2, int var3) {
+   public void getChunkAt(IChunkProvider var1, int var2, int var3) {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
       Location var6 = new Location(var4, 0, var5);
-      BiomeBase var7 = this.a.b(new Location(var4 + 16, 0, var5 + 16));
+      BiomeBase var7 = this.a.getBiome(new Location(var4 + 16, 0, var5 + 16));
       boolean var8 = false;
       this.b.setSeed(this.a.J());
       long var9 = this.b.nextLong() / 2L * 2L + 1L;
@@ -164,30 +164,30 @@ public class bgq implements IChunkProvider {
       return false;
    }
 
-   public boolean a(boolean var1, IProgressUpdate var2) {
+   public boolean saveChunks(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
    public void c() {}
 
-   public boolean d() {
+   public boolean unloadChunks() {
       return false;
    }
 
-   public boolean e() {
+   public boolean canSave() {
       return true;
    }
 
-   public String f() {
+   public String getName() {
       return "FlatLevelSource";
    }
 
-   public List a(EnumCreatureType var1, Location var2) {
-      BiomeBase var3 = this.a.b(var2);
+   public List getMobsFor(EnumCreatureType var1, Location var2) {
+      BiomeBase var3 = this.a.getBiome(var2);
       return var3.a(var1);
    }
 
-   public Location a(World var1, String var2, Location var3) {
+   public Location findNearestMapFeature(World var1, String var2, Location var3) {
       if("Stronghold".equals(var2)) {
          Iterator var4 = this.e.iterator();
 
@@ -202,11 +202,11 @@ public class bgq implements IChunkProvider {
       return null;
    }
 
-   public int g() {
+   public int getLoadedChunks() {
       return 0;
    }
 
-   public void a(Chunk var1, int var2, int var3) {
+   public void recreateStructures(Chunk var1, int var2, int var3) {
       Iterator var4 = this.e.iterator();
 
       while(var4.hasNext()) {
@@ -216,7 +216,7 @@ public class bgq implements IChunkProvider {
 
    }
 
-   public Chunk a(Location var1) {
+   public Chunk getChunkAt(Location var1) {
       return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

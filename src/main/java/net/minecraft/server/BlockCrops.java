@@ -21,7 +21,7 @@ public class BlockCrops extends BlockPlant implements atz {
       return var1 == Blocks.FARMLAND;
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
       if(var1.l(var2.a()) >= 9) {
          int var5 = ((Integer)var3.b(a)).intValue();
@@ -35,8 +35,8 @@ public class BlockCrops extends BlockPlant implements atz {
 
    }
 
-   public void g(World var1, Location var2, IBlock var3) {
-      int var4 = ((Integer)var3.b(a)).intValue() + MathHelper.a(var1.s, 2, 5);
+   public void g(World var1, Location var2, IBlockData var3) {
+      int var4 = ((Integer)var3.b(a)).intValue() + MathHelper.a(var1.random, 2, 5);
       if(var4 > 7) {
          var4 = 7;
       }
@@ -51,7 +51,7 @@ public class BlockCrops extends BlockPlant implements atz {
       for(int var5 = -1; var5 <= 1; ++var5) {
          for(int var6 = -1; var6 <= 1; ++var6) {
             float var7 = 0.0F;
-            IBlock var8 = var1.getData(var4.a(var5, 0, var6));
+            IBlockData var8 = var1.getData(var4.a(var5, 0, var6));
             if(var8.c() == Blocks.FARMLAND) {
                var7 = 1.0F;
                if(((Integer)var8.b(BlockSoil.a)).intValue() > 0) {
@@ -85,7 +85,7 @@ public class BlockCrops extends BlockPlant implements atz {
       return var3;
    }
 
-   public boolean f(World var1, Location var2, IBlock var3) {
+   public boolean f(World var1, Location var2, IBlockData var3) {
       return (var1.k(var2) >= 8 || var1.i(var2)) && this.c(var1.getData(var2.b()).c());
    }
 
@@ -97,15 +97,15 @@ public class BlockCrops extends BlockPlant implements atz {
       return Items.O;
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
       super.a(var1, var2, var3, var4, 0);
-      if(!var1.D) {
+      if(!var1.isStatic) {
          int var6 = ((Integer)var3.b(a)).intValue();
          if(var6 >= 7) {
             int var7 = 3 + var5;
 
             for(int var8 = 0; var8 < var7; ++var8) {
-               if(var1.s.nextInt(15) <= var6) {
+               if(var1.random.nextInt(15) <= var6) {
                   a(var1, var2, new ItemStack(this.j(), 1, 0));
                }
             }
@@ -114,27 +114,27 @@ public class BlockCrops extends BlockPlant implements atz {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return ((Integer)var1.b(a)).intValue() == 7?this.l():this.j();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       return ((Integer)var3.b(a)).intValue() < 7;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       this.g(var1, var3, var4);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

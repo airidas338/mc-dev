@@ -3,12 +3,12 @@ package net.minecraft.server;
 public class jb {
 
    private final short b;
-   private final IBlock c;
+   private final IBlockData c;
    // $FF: synthetic field
    final ja a;
 
 
-   public jb(ja var1, short var2, IBlock var3) {
+   public jb(ja var1, short var2, IBlockData var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -28,7 +28,7 @@ public class jb {
       return this.b;
    }
 
-   public IBlock c() {
+   public IBlockData c() {
       return this.c;
    }
 }

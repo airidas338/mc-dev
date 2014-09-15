@@ -18,7 +18,7 @@ public class bdm extends TileEntity {
       var1.setByte("Rot", (byte)(this.f & 255));
       if(this.g != null) {
          NBTTagCompound var2 = new NBTTagCompound();
-         ga.a(var2, this.g);
+         GameProfileSerializer.serialize(var2, this.g);
          var1.set("Owner", (NBTBase)var2);
       }
 
@@ -30,7 +30,7 @@ public class bdm extends TileEntity {
       this.f = var1.getByte("Rot");
       if(this.a == 3) {
          if(var1.hasKeyOfType("Owner", 10)) {
-            this.g = ga.a(var1.getCompound("Owner"));
+            this.g = GameProfileSerializer.deserialize(var1.getCompound("Owner"));
          } else if(var1.hasKeyOfType("ExtraType", 8)) {
             String var2 = var1.getString("ExtraType");
             if(!vb.b(var2)) {

@@ -8,7 +8,7 @@ public class PacketPlayInSteerVehicle implements Packet {
    private boolean d;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readFloat();
       this.b = var1.readFloat();
       byte var2 = var1.readByte();
@@ -16,7 +16,7 @@ public class PacketPlayInSteerVehicle implements Packet {
       this.d = (var2 & 2) > 0;
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeFloat(this.a);
       var1.writeFloat(this.b);
       byte var2 = 0;

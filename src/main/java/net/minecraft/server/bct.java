@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class bct extends TileEntity {
 
-   private final aqf a = new bcu(this);
+   private final CommandBlockListenerAbstract a = new bcu(this);
 
 
    public void b(NBTTagCompound var1) {
@@ -21,7 +21,7 @@ public class bct extends TileEntity {
       return new iu(this.c, 2, var1);
    }
 
-   public aqf b() {
+   public CommandBlockListenerAbstract b() {
       return this.a;
    }
 

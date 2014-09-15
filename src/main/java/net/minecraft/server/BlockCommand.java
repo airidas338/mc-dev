@@ -15,8 +15,8 @@ public class BlockCommand extends atg {
       return new bct();
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          boolean var5 = var1.z(var2);
          boolean var6 = ((Boolean)var3.b(a)).booleanValue();
          if(var5 && !var6) {
@@ -29,7 +29,7 @@ public class BlockCommand extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       TileEntity var5 = var1.s(var2);
       if(var5 instanceof bct) {
          ((bct)var5).b().a(var1);
@@ -42,7 +42,7 @@ public class BlockCommand extends atg {
       return 1;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       TileEntity var9 = var1.s(var2);
       return var9 instanceof bct?((bct)var9).b().a(var4):false;
    }
@@ -56,15 +56,15 @@ public class BlockCommand extends atg {
       return var3 instanceof bct?((bct)var3).b().j():0;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       TileEntity var6 = var1.s(var2);
       if(var6 instanceof bct) {
-         aqf var7 = ((bct)var6).b();
+         CommandBlockListenerAbstract var7 = ((bct)var6).b();
          if(var5.s()) {
             var7.b(var5.q());
          }
 
-         if(!var1.D) {
+         if(!var1.isStatic) {
             var7.a(var1.Q().b("sendCommandFeedback"));
          }
 
@@ -79,11 +79,11 @@ public class BlockCommand extends atg {
       return 3;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Boolean.valueOf((var1 & 1) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
       if(((Boolean)var1.b(a)).booleanValue()) {
          var2 |= 1;
@@ -96,7 +96,7 @@ public class BlockCommand extends atg {
       return new bed(this, new bex[]{a});
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, Boolean.valueOf(false));
    }
 

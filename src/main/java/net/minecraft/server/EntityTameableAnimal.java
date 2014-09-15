@@ -150,8 +150,8 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
    }
 
    public void a(DamageSource var1) {
-      if(!this.o.D && this.o.Q().b("showDeathMessages") && this.k_() && this.cm() instanceof EntityPlayer) {
-         ((EntityPlayer)this.cm()).a(this.br().b());
+      if(!this.o.isStatic && this.o.Q().b("showDeathMessages") && this.k_() && this.cm() instanceof EntityPlayer) {
+         ((EntityPlayer)this.cm()).sendMessage(this.br().b());
       }
 
       super.a(var1);

@@ -221,7 +221,7 @@ public class bjg extends bms {
          for(var9 = 0; var9 <= 2; ++var9) {
             for(var10 = 0; var10 <= var8; ++var10) {
                byte var17 = -1;
-               IBlock var18 = this.a(var1, var9, var17, var10, var3);
+               IBlockData var18 = this.a(var1, var9, var17, var10, var3);
                if(var18.c().r() == Material.AIR) {
                   byte var19 = -1;
                   this.a(var1, Blocks.WOOD.P(), var9, var19, var10, var3);
@@ -231,7 +231,7 @@ public class bjg extends bms {
 
          if(this.a) {
             for(var9 = 0; var9 <= var8; ++var9) {
-               IBlock var16 = this.a(var1, 1, -1, var9, var3);
+               IBlockData var16 = this.a(var1, 1, -1, var9, var3);
                if(var16.c().r() != Material.AIR && var16.c().m()) {
                   this.a(var1, var3, var2, 0.7F, 1, 0, var9, Blocks.RAILS.a(this.a(Blocks.RAILS, 0)));
                }

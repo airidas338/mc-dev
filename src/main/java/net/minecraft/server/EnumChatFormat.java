@@ -8,28 +8,28 @@ import java.util.regex.Pattern;
 
 public enum EnumChatFormat {
 
-   a("BLACK", 0, "BLACK", '0', 0),
-   b("DARK_BLUE", 1, "DARK_BLUE", '1', 1),
-   c("DARK_GREEN", 2, "DARK_GREEN", '2', 2),
-   d("DARK_AQUA", 3, "DARK_AQUA", '3', 3),
-   e("DARK_RED", 4, "DARK_RED", '4', 4),
-   f("DARK_PURPLE", 5, "DARK_PURPLE", '5', 5),
-   g("GOLD", 6, "GOLD", '6', 6),
-   h("GRAY", 7, "GRAY", '7', 7),
-   i("DARK_GRAY", 8, "DARK_GRAY", '8', 8),
-   j("BLUE", 9, "BLUE", '9', 9),
-   k("GREEN", 10, "GREEN", 'a', 10),
-   l("AQUA", 11, "AQUA", 'b', 11),
-   m("RED", 12, "RED", 'c', 12),
-   n("LIGHT_PURPLE", 13, "LIGHT_PURPLE", 'd', 13),
-   o("YELLOW", 14, "YELLOW", 'e', 14),
-   p("WHITE", 15, "WHITE", 'f', 15),
-   q("OBFUSCATED", 16, "OBFUSCATED", 'k', true),
-   r("BOLD", 17, "BOLD", 'l', true),
-   s("STRIKETHROUGH", 18, "STRIKETHROUGH", 'm', true),
-   t("UNDERLINE", 19, "UNDERLINE", 'n', true),
-   u("ITALIC", 20, "ITALIC", 'o', true),
-   v("RESET", 21, "RESET", 'r', -1);
+   BLACK("BLACK", 0, "BLACK", '0', 0),
+   DARK_BLUE("DARK_BLUE", 1, "DARK_BLUE", '1', 1),
+   DARK_GREEN("DARK_GREEN", 2, "DARK_GREEN", '2', 2),
+   DARK_AQUA("DARK_AQUA", 3, "DARK_AQUA", '3', 3),
+   DARK_RED("DARK_RED", 4, "DARK_RED", '4', 4),
+   DARK_PURPLE("DARK_PURPLE", 5, "DARK_PURPLE", '5', 5),
+   GOLD("GOLD", 6, "GOLD", '6', 6),
+   GRAY("GRAY", 7, "GRAY", '7', 7),
+   DARK_GRAY("DARK_GRAY", 8, "DARK_GRAY", '8', 8),
+   BLUE("BLUE", 9, "BLUE", '9', 9),
+   GREEN("GREEN", 10, "GREEN", 'a', 10),
+   AQUA("AQUA", 11, "AQUA", 'b', 11),
+   RED("RED", 12, "RED", 'c', 12),
+   LIGHT_PURPLE("LIGHT_PURPLE", 13, "LIGHT_PURPLE", 'd', 13),
+   YELLOW("YELLOW", 14, "YELLOW", 'e', 14),
+   WHITE("WHITE", 15, "WHITE", 'f', 15),
+   OBFUSCATED("OBFUSCATED", 16, "OBFUSCATED", 'k', true),
+   BOLD("BOLD", 17, "BOLD", 'l', true),
+   STRIKETHROUGH("STRIKETHROUGH", 18, "STRIKETHROUGH", 'm', true),
+   UNDERLINE("UNDERLINE", 19, "UNDERLINE", 'n', true),
+   ITALIC("ITALIC", 20, "ITALIC", 'o', true),
+   RESET("RESET", 21, "RESET", 'r', -1);
    private static final Map w = Maps.newHashMap();
    private static final Pattern x = Pattern.compile("(?i)" + String.valueOf('\u00a7') + "[0-9A-FK-OR]");
    private final String y;
@@ -38,7 +38,7 @@ public enum EnumChatFormat {
    private final String B;
    private final int C;
    // $FF: synthetic field
-   private static final EnumChatFormat[] D = new EnumChatFormat[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v};
+   private static final EnumChatFormat[] D = new EnumChatFormat[]{BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE, OBFUSCATED, BOLD, STRIKETHROUGH, UNDERLINE, ITALIC, RESET};
 
 
    private static String c(String var0) {
@@ -70,7 +70,7 @@ public enum EnumChatFormat {
    }
 
    public boolean d() {
-      return !this.A && this != v;
+      return !this.A && this != RESET;
    }
 
    public String e() {
@@ -87,7 +87,7 @@ public enum EnumChatFormat {
 
    public static EnumChatFormat a(int var0) {
       if(var0 < 0) {
-         return v;
+         return RESET;
       } else {
          EnumChatFormat[] var1 = values();
          int var2 = var1.length;

@@ -48,12 +48,12 @@ public class BlockSkull extends atg {
 
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO()).a(b, Boolean.valueOf(false));
    }
 
@@ -66,9 +66,9 @@ public class BlockSkull extends atg {
       return var3 instanceof bdm?((bdm)var3).c():super.j(var1, var2);
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {}
 
-   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.by.canInstantlyBuild) {
          var3 = var3.a(b, Boolean.valueOf(true));
          var1.a(var2, var3, 4);
@@ -77,8 +77,8 @@ public class BlockSkull extends atg {
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          if(!((Boolean)var3.b(b)).booleanValue()) {
             TileEntity var4 = var1.s(var2);
             if(var4 instanceof bdm) {
@@ -87,7 +87,7 @@ public class BlockSkull extends atg {
                if(var5.c() == 3 && var5.b() != null) {
                   var6.d(new NBTTagCompound());
                   NBTTagCompound var7 = new NBTTagCompound();
-                  ga.a(var7, var5.b());
+                  GameProfileSerializer.serialize(var7, var5.b());
                   var6.o().set("SkullOwner", (NBTBase)var7);
                }
 
@@ -99,16 +99,16 @@ public class BlockSkull extends atg {
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.bX;
    }
 
    public boolean b(World var1, Location var2, ItemStack var3) {
-      return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.D?this.j().a(var1, var2) != null:false;
+      return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic?this.j().a(var1, var2) != null:false;
    }
 
    public void a(World var1, Location var2, bdm var3) {
-      if(var3.c() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.D) {
+      if(var3.c() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic) {
          bek var4 = this.l();
          bem var5 = var4.a(var1, var2);
          if(var5 != null) {
@@ -142,7 +142,7 @@ public class BlockSkull extends atg {
 
             int var16;
             for(var16 = 0; var16 < 120; ++var16) {
-               var1.a(ew.F, (double)var13.n() + var1.s.nextDouble(), (double)(var13.o() - 2) + var1.s.nextDouble() * 3.9D, (double)var13.p() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+               var1.a(ew.F, (double)var13.n() + var1.random.nextDouble(), (double)(var13.o() - 2) + var1.random.nextDouble() * 3.9D, (double)var13.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
             }
 
             for(var16 = 0; var16 < var4.c(); ++var16) {
@@ -156,11 +156,11 @@ public class BlockSkull extends atg {
       }
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, EnumFacing.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

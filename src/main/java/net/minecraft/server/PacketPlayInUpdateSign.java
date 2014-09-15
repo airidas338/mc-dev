@@ -6,7 +6,7 @@ public class PacketPlayInUpdateSign implements Packet {
    private IChatBaseComponent[] b;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c();
       this.b = new IChatBaseComponent[4];
 
@@ -16,7 +16,7 @@ public class PacketPlayInUpdateSign implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
 
       for(int var2 = 0; var2 < 4; ++var2) {

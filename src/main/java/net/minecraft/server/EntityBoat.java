@@ -62,7 +62,7 @@ public class EntityBoat extends Entity {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(!this.o.D && !this.I) {
+      } else if(!this.o.isStatic && !this.I) {
          if(this.l != null && this.l == var1.getEntity() && var1 instanceof wj) {
             return false;
          } else {
@@ -146,7 +146,7 @@ public class EntityBoat extends Entity {
 
       double var24;
       double var26;
-      if(this.o.D && this.a) {
+      if(this.o.isStatic && this.a) {
          if(this.c > 0) {
             var6 = this.s + (this.d - this.s) / (double)this.c;
             var8 = this.t + (this.e - this.t) / (double)this.c;
@@ -214,11 +214,11 @@ public class EntityBoat extends Entity {
 
          int var22;
          for(var22 = 0; var22 < 4; ++var22) {
-            int var23 = MathHelper.c(this.s + ((double)(var22 % 2) - 0.5D) * 0.8D);
-            var10 = MathHelper.c(this.u + ((double)(var22 / 2) - 0.5D) * 0.8D);
+            int var23 = MathHelper.floor(this.s + ((double)(var22 % 2) - 0.5D) * 0.8D);
+            var10 = MathHelper.floor(this.u + ((double)(var22 / 2) - 0.5D) * 0.8D);
 
             for(int var25 = 0; var25 < 2; ++var25) {
-               int var12 = MathHelper.c(this.t) + var25;
+               int var12 = MathHelper.floor(this.t) + var25;
                Location var27 = new Location(var23, var12, var10);
                Block var14 = this.o.getData(var27).c();
                if(var14 == Blocks.SNOW) {
@@ -239,7 +239,7 @@ public class EntityBoat extends Entity {
 
          this.d(this.v, this.w, this.x);
          if(this.D && var19 > 0.2D) {
-            if(!this.o.D && !this.I) {
+            if(!this.o.isStatic && !this.I) {
                this.J();
 
                for(var22 = 0; var22 < 3; ++var22) {
@@ -275,7 +275,7 @@ public class EntityBoat extends Entity {
 
          this.y = (float)((double)this.y + var28);
          this.b(this.y, this.z);
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             List var16 = this.o.b((Entity)this, this.aQ().b(0.20000000298023224D, 0.0D, 0.20000000298023224D));
             if(var16 != null && !var16.isEmpty()) {
                for(int var29 = 0; var29 < var16.size(); ++var29) {
@@ -310,7 +310,7 @@ public class EntityBoat extends Entity {
       if(this.l != null && this.l instanceof EntityHuman && this.l != var1) {
          return true;
       } else {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             var1.a((Entity)this);
          }
 
@@ -322,7 +322,7 @@ public class EntityBoat extends Entity {
       if(var3) {
          if(this.O > 3.0F) {
             this.e(this.O, 1.0F);
-            if(!this.o.D && !this.I) {
+            if(!this.o.isStatic && !this.I) {
                this.J();
 
                int var6;

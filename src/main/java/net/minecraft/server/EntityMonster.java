@@ -23,7 +23,7 @@ public abstract class EntityMonster extends EntityCreature implements IMonster {
 
 	public void s_() throws IOException {
 		super.s_();
-		if (!this.o.D && this.o.aa() == EnumDifficulty.PEACEFUL) {
+		if (!this.o.isStatic && this.o.aa() == EnumDifficulty.PEACEFUL) {
 			this.J();
 		}
 

@@ -14,7 +14,7 @@ public class BlockFenceGate extends BlockDirectional {
       this.a(CreativeModeTab.d);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       el var4 = ((EnumFacing)var1.b(N)).k();
       if(var4 == el.c && (var2.getData(var3.e()).c() == Blocks.COBBLE_WALL || var2.getData(var3.f()).c() == Blocks.COBBLE_WALL) || var4 == el.a && (var2.getData(var3.c()).c() == Blocks.COBBLE_WALL || var2.getData(var3.d()).c() == Blocks.COBBLE_WALL)) {
          var1 = var1.a(M, Boolean.valueOf(true));
@@ -27,7 +27,7 @@ public class BlockFenceGate extends BlockDirectional {
       return var1.getData(var2.b()).c().r().a()?super.c(var1, var2):false;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          return null;
       } else {
@@ -58,11 +58,11 @@ public class BlockFenceGate extends BlockDirectional {
       return ((Boolean)var1.getData(var2).b(a)).booleanValue();
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false));
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          var3 = var3.a(a, Boolean.valueOf(false));
          var1.a(var2, var3, 2);
@@ -80,8 +80,8 @@ public class BlockFenceGate extends BlockDirectional {
       return true;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          boolean var5 = var1.z(var2);
          if(var5 || var4.g()) {
             if(var5 && !((Boolean)var3.b(a)).booleanValue() && !((Boolean)var3.b(b)).booleanValue()) {
@@ -98,11 +98,11 @@ public class BlockFenceGate extends BlockDirectional {
       }
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(N, EnumFacing.b(var1)).a(a, Boolean.valueOf((var1 & 4) != 0)).a(b, Boolean.valueOf((var1 & 8) != 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {

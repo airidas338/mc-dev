@@ -10,7 +10,7 @@ public class BlockMushroom extends BlockPlant implements atz {
       this.a(true);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var4.nextInt(25) == 0) {
          int var5 = 5;
          boolean var6 = true;
@@ -29,14 +29,14 @@ public class BlockMushroom extends BlockPlant implements atz {
          Location var9 = var2.a(var4.nextInt(3) - 1, var4.nextInt(2) - var4.nextInt(2), var4.nextInt(3) - 1);
 
          for(int var10 = 0; var10 < 4; ++var10) {
-            if(var1.d(var9) && this.f(var1, var9, this.P())) {
+            if(var1.isEmpty(var9) && this.f(var1, var9, this.P())) {
                var2 = var9;
             }
 
             var9 = var2.a(var4.nextInt(3) - 1, var4.nextInt(2) - var4.nextInt(2), var4.nextInt(3) - 1);
          }
 
-         if(var1.d(var9) && this.f(var1, var9, this.P())) {
+         if(var1.isEmpty(var9) && this.f(var1, var9, this.P())) {
             var1.a(var9, this.P(), 2);
          }
       }
@@ -51,16 +51,16 @@ public class BlockMushroom extends BlockPlant implements atz {
       return var1.m();
    }
 
-   public boolean f(World var1, Location var2, IBlock var3) {
+   public boolean f(World var1, Location var2, IBlockData var3) {
       if(var2.o() >= 0 && var2.o() < 256) {
-         IBlock var4 = var1.getData(var2.b());
+         IBlockData var4 = var1.getData(var2.b());
          return var4.c() == Blocks.MYCEL?true:(var4.c() == Blocks.DIRT && var4.b(BlockDirt.a) == avd.c?true:var1.k(var2) < 13 && this.c(var4.c()));
       } else {
          return false;
       }
    }
 
-   public boolean d(World var1, Location var2, IBlock var3, Random var4) {
+   public boolean d(World var1, Location var2, IBlockData var3, Random var4) {
       var1.g(var2);
       bhv var5 = null;
       if(this == Blocks.BROWN_MUSHROOM) {
@@ -77,15 +77,15 @@ public class BlockMushroom extends BlockPlant implements atz {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       return true;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
       return (double)var2.nextFloat() < 0.4D;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       this.d(var1, var3, var4, var2);
    }
 }

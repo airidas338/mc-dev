@@ -43,7 +43,7 @@ public class bie extends WorldGenerator {
                   return false;
                }
 
-               if((var14 == var6 || var14 == var7 || var16 == var11 || var16 == var12) && var15 == 0 && var1.d(var17) && var1.d(var17.a())) {
+               if((var14 == var6 || var14 == var7 || var16 == var11 || var16 == var12) && var15 == 0 && var1.isEmpty(var17) && var1.isEmpty(var17.a())) {
                   ++var13;
                }
             }
@@ -84,7 +84,7 @@ public class bie extends WorldGenerator {
                      int var24 = var3.o();
                      int var26 = var3.p() + var2.nextInt(var10 * 2 + 1) - var10;
                      Location var25 = new Location(var16, var24, var26);
-                     if(var1.d(var25)) {
+                     if(var1.isEmpty(var25)) {
                         int var20 = 0;
                         Iterator var21 = en.a.iterator();
 

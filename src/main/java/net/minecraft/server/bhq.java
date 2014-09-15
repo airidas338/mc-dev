@@ -4,7 +4,7 @@ import java.util.Random;
 public class bhq extends WorldGenerator {
 
    private BlockFlowers a;
-   private IBlock b;
+   private IBlockData b;
 
 
    public bhq(BlockFlowers var1, EnumFlowerType var2) {
@@ -19,7 +19,7 @@ public class bhq extends WorldGenerator {
    public boolean generate(World var1, Random var2, Location var3) {
       for(int var4 = 0; var4 < 64; ++var4) {
          Location var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var5) && (!var1.t.o() || var5.o() < 255) && this.a.f(var1, var5, this.b)) {
+         if(var1.isEmpty(var5) && (!var1.worldProvider.o() || var5.o() < 255) && this.a.f(var1, var5, this.b)) {
             var1.a(var5, this.b, 2);
          }
       }

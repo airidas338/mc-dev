@@ -26,7 +26,7 @@ public abstract class BlockStepAbstract extends Block {
       if(this.j()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       } else {
-         IBlock var3 = var1.getData(var2);
+         IBlockData var3 = var1.getData(var2);
          if(var3.c() == this) {
             if(var3.b(a) == awr.a) {
                this.a(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -47,7 +47,7 @@ public abstract class BlockStepAbstract extends Block {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(var1, var2);
       super.a(var1, var2, var3, var4, var5, var6);
    }
@@ -56,8 +56,8 @@ public abstract class BlockStepAbstract extends Block {
       return this.j();
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlock var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(a, awr.b);
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(a, awr.b);
       return this.j()?var9:(var3 != EnumFacing.DOWN && (var3 == EnumFacing.UP || (double)var5 <= 0.5D)?var9:var9.a(a, awr.a));
    }
 

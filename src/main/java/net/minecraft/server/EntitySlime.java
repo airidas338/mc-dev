@@ -66,7 +66,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    }
 
    public void s_() throws IOException {
-      if(!this.o.D && this.o.aa() == EnumDifficulty.PEACEFUL && this.ck() > 0) {
+      if(!this.o.isStatic && this.o.aa() == EnumDifficulty.PEACEFUL && this.ck() > 0) {
          this.I = true;
       }
 
@@ -129,7 +129,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
 
    public void J() {
       int var1 = this.ck();
-      if(!this.o.D && var1 > 1 && this.bm() <= 0.0F) {
+      if(!this.o.isStatic && var1 > 1 && this.bm() <= 0.0F) {
          int var2 = 2 + this.V.nextInt(3);
 
          for(int var3 = 0; var3 < var2; ++var3) {
@@ -202,12 +202,12 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    }
 
    public boolean bQ() {
-      Chunk var1 = this.o.f(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+      Chunk var1 = this.o.f(new Location(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
       if(this.o.P().u() == WorldType.FLAT && this.V.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.aa() != EnumDifficulty.PEACEFUL) {
-            BiomeBase var2 = this.o.b(new Location(MathHelper.c(this.s), 0, MathHelper.c(this.u)));
+            BiomeBase var2 = this.o.getBiome(new Location(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
             if(var2 == BiomeBase.SWAMPLAND && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new Location(this)) <= this.V.nextInt(8)) {
                return super.bQ();
             }

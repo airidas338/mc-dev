@@ -65,7 +65,7 @@ public class EnchantmentProtection extends Enchantment {
    public static double a(Entity var0, double var1) {
       int var3 = EnchantmentManager.a(Enchantment.PROTECTION_EXPLOSIONS.B, var0.at());
       if(var3 > 0) {
-         var1 -= (double)MathHelper.c(var1 * (double)((float)var3 * 0.15F));
+         var1 -= (double)MathHelper.floor(var1 * (double)((float)var3 * 0.15F));
       }
 
       return var1;

@@ -118,7 +118,7 @@ public class EntityGuardian extends EntityMonster {
    public EntityLiving co() {
       if(!this.cn()) {
          return null;
-      } else if(this.o.D) {
+      } else if(this.o.isStatic) {
          if(this.bn != null) {
             return this.bn;
          } else {
@@ -177,7 +177,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    public void m() throws IOException {
-      if(this.o.D) {
+      if(this.o.isStatic) {
          this.c = this.b;
          if(!this.V()) {
             this.bk = 2.0F;

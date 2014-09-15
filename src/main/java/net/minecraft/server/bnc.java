@@ -20,8 +20,8 @@ public class bnc extends bnn {
 
    protected void a(NBTTagCompound var1) {
       super.a(var1);
-      var1.setInt("CA", Block.c.b(this.a));
-      var1.setInt("CB", Block.c.b(this.b));
+      var1.setInt("CA", Block.REGISTRY.b(this.a));
+      var1.setInt("CB", Block.REGISTRY.b(this.b));
    }
 
    protected void b(NBTTagCompound var1) {

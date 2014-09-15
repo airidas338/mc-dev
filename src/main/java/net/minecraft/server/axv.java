@@ -4,7 +4,7 @@ enum axv {
 ;
    axv(String var1, int var2, int var3, String var4) {}
 
-   public IBlock d() {
+   public IBlockData d() {
       return Blocks.STONE.P().a(BlockStone.a, bbb.a);
    }
 }

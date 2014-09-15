@@ -21,7 +21,7 @@ public class EntityWitherSkull extends EntityFireball {
       return false;
    }
 
-   public float a(aqo var1, World var2, Location var3, IBlock var4) {
+   public float a(aqo var1, World var2, Location var3, IBlockData var4) {
       float var5 = super.a(var1, var2, var3, var4);
       if(this.l() && var4.c() != Blocks.BEDROCK && var4.c() != Blocks.ENDER_PORTAL && var4.c() != Blocks.ENDER_PORTAL_FRAME && var4.c() != Blocks.COMMAND) {
          var5 = Math.min(0.8F, var5);
@@ -31,7 +31,7 @@ public class EntityWitherSkull extends EntityFireball {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(var1.d != null) {
             if(this.a != null) {
                if(var1.d.a(DamageSource.a(this.a), 8.0F)) {

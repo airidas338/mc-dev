@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CommandTp extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "tp";
    }
 
@@ -16,7 +16,7 @@ public class CommandTp extends CommandAbstract {
       return "commands.tp.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.tp.usage", new Object[0]);
       } else {
@@ -92,7 +92,7 @@ public class CommandTp extends CommandAbstract {
                   ((Entity)var4).f(var15);
                }
 
-               a(var1, this, "commands.tp.success.coordinates", new Object[]{((Entity)var4).d_(), Double.valueOf(var6.a()), Double.valueOf(var7.a()), Double.valueOf(var8.a())});
+               a(var1, this, "commands.tp.success.coordinates", new Object[]{((Entity)var4).getName(), Double.valueOf(var6.a()), Double.valueOf(var7.a()), Double.valueOf(var8.a())});
             }
          } else {
             Entity var5 = b(var1, var2[var2.length - 1]);
@@ -106,17 +106,17 @@ public class CommandTp extends CommandAbstract {
                   ((Entity)var4).setPositionRotation(var5.s, var5.t, var5.u, var5.y, var5.z);
                }
 
-               a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).d_(), var5.d_()});
+               a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).getName(), var5.getName()});
             }
          }
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.M().I());
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

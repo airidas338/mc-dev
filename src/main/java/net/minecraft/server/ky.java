@@ -16,13 +16,13 @@ public class ky implements Packet {
       this.c = var3 != null?var3.F():-1;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.b = var1.readInt();
       this.c = var1.readInt();
       this.a = var1.readUnsignedByte();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeInt(this.b);
       var1.writeInt(this.c);
       var1.writeByte(this.a);

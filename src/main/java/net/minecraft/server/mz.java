@@ -8,14 +8,14 @@ public class mz implements Packet {
    private gy d;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = var1.c(255);
       this.c = var1.readUnsignedShort();
       this.d = gy.a(var1.e());
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.a(this.b);
       var1.writeShort(this.c);

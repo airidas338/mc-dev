@@ -67,13 +67,13 @@ public class Chunk {
    public Chunk(World var1, bgk var2, int var3, int var4) {
       this(var1, var3, var4);
       short var5 = 256;
-      boolean var6 = !var1.t.o();
+      boolean var6 = !var1.worldProvider.o();
 
       for(int var7 = 0; var7 < 16; ++var7) {
          for(int var8 = 0; var8 < 16; ++var8) {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
-               IBlock var11 = var2.a(var10);
+               IBlockData var11 = var2.a(var10);
                if(var11.c().r() != Material.AIR) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
@@ -138,7 +138,7 @@ public class Chunk {
                   }
                }
 
-               if(!this.i.t.o()) {
+               if(!this.i.worldProvider.o()) {
                   var4 = 15;
                   int var5 = var1 + 16 - 1;
 
@@ -176,7 +176,7 @@ public class Chunk {
    }
 
    private void h(boolean var1) {
-      this.i.B.a("recheckGaps");
+      this.i.methodProfiler.a("recheckGaps");
       if(this.i.a(new Location(this.a * 16 + 8, 0, this.b * 16 + 8), (int)16)) {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
@@ -202,7 +202,7 @@ public class Chunk {
                   }
 
                   if(var1) {
-                     this.i.B.b();
+                     this.i.methodProfiler.b();
                      return;
                   }
                }
@@ -212,7 +212,7 @@ public class Chunk {
          this.k = false;
       }
 
-      this.i.B.b();
+      this.i.methodProfiler.b();
    }
 
    private void c(int var1, int var2, int var3) {
@@ -254,7 +254,7 @@ public class Chunk {
          int var7 = this.b * 16 + var3;
          int var8;
          int var13;
-         if(!this.i.t.o()) {
+         if(!this.i.worldProvider.o()) {
             bfm var9;
             if(var5 < var4) {
                for(var8 = var5; var8 < var4; ++var8) {
@@ -307,7 +307,7 @@ public class Chunk {
             this.t = var8;
          }
 
-         if(!this.i.t.o()) {
+         if(!this.i.worldProvider.o()) {
             Iterator var11 = en.a.iterator();
 
             while(var11.hasNext()) {
@@ -367,9 +367,9 @@ public class Chunk {
       }
    }
 
-   public IBlock g(Location var1) {
+   public IBlockData g(Location var1) {
       if(this.i.G() == WorldType.DEBUG) {
-         IBlock var7 = null;
+         IBlockData var7 = null;
          if(var1.o() == 60) {
             var7 = Blocks.BARRIER.P();
          }
@@ -414,7 +414,7 @@ public class Chunk {
       return this.g(var1.n() & 15, var1.o(), var1.p() & 15);
    }
 
-   public IBlock a(Location var1, IBlock var2) {
+   public IBlockData a(Location var1, IBlockData var2) {
       int var3 = var1.n() & 15;
       int var4 = var1.o();
       int var5 = var1.p() & 15;
@@ -424,7 +424,7 @@ public class Chunk {
       }
 
       int var7 = this.j[var6];
-      IBlock var8 = this.g(var1);
+      IBlockData var8 = this.g(var1);
       if(var8 == var2) {
          return null;
       } else {
@@ -437,13 +437,13 @@ public class Chunk {
                return null;
             }
 
-            var11 = this.d[var4 >> 4] = new bfm(var4 >> 4 << 4, !this.i.t.o());
+            var11 = this.d[var4 >> 4] = new bfm(var4 >> 4 << 4, !this.i.worldProvider.o());
             var12 = var4 >= var7;
          }
 
          var11.a(var3, var4 & 15, var5, var2);
          if(var10 != var9) {
-            if(!this.i.D) {
+            if(!this.i.isStatic) {
                var10.b(this.i, var1, var8);
             } else if(var10 instanceof avs) {
                this.i.t(var1);
@@ -479,7 +479,7 @@ public class Chunk {
                }
             }
 
-            if(!this.i.D && var10 != var9) {
+            if(!this.i.isStatic && var10 != var9) {
                var9.c(this.i, var1, var2);
             }
 
@@ -506,7 +506,7 @@ public class Chunk {
       int var4 = var2.o();
       int var5 = var2.p() & 15;
       bfm var6 = this.d[var4 >> 4];
-      return var6 == null?(this.d(var2)?var1.c:0):(var1 == EnumSkyBlock.SKY?(this.i.t.o()?0:var6.d(var3, var4 & 15, var5)):(var1 == EnumSkyBlock.BLOCK?var6.e(var3, var4 & 15, var5):var1.c));
+      return var6 == null?(this.d(var2)?var1.c:0):(var1 == EnumSkyBlock.SKY?(this.i.worldProvider.o()?0:var6.d(var3, var4 & 15, var5)):(var1 == EnumSkyBlock.BLOCK?var6.e(var3, var4 & 15, var5):var1.c));
    }
 
    public void a(EnumSkyBlock var1, Location var2, int var3) {
@@ -515,13 +515,13 @@ public class Chunk {
       int var6 = var2.p() & 15;
       bfm var7 = this.d[var5 >> 4];
       if(var7 == null) {
-         var7 = this.d[var5 >> 4] = new bfm(var5 >> 4 << 4, !this.i.t.o());
+         var7 = this.d[var5 >> 4] = new bfm(var5 >> 4 << 4, !this.i.worldProvider.o());
          this.b();
       }
 
       this.q = true;
       if(var1 == EnumSkyBlock.SKY) {
-         if(!this.i.t.o()) {
+         if(!this.i.worldProvider.o()) {
             var7.a(var4, var5 & 15, var6, var3);
          }
       } else if(var1 == EnumSkyBlock.BLOCK) {
@@ -536,9 +536,9 @@ public class Chunk {
       int var5 = var1.p() & 15;
       bfm var6 = this.d[var4 >> 4];
       if(var6 == null) {
-         return !this.i.t.o() && var2 < EnumSkyBlock.SKY.c?EnumSkyBlock.SKY.c - var2:0;
+         return !this.i.worldProvider.o() && var2 < EnumSkyBlock.SKY.c?EnumSkyBlock.SKY.c - var2:0;
       } else {
-         int var7 = this.i.t.o()?0:var6.d(var3, var4 & 15, var5);
+         int var7 = this.i.worldProvider.o()?0:var6.d(var3, var4 & 15, var5);
          var7 -= var2;
          int var8 = var6.e(var3, var4 & 15, var5);
          if(var8 > var7) {
@@ -551,14 +551,14 @@ public class Chunk {
 
    public void a(Entity var1) {
       this.r = true;
-      int var2 = MathHelper.c(var1.s / 16.0D);
-      int var3 = MathHelper.c(var1.u / 16.0D);
+      int var2 = MathHelper.floor(var1.s / 16.0D);
+      int var3 = MathHelper.floor(var1.u / 16.0D);
       if(var2 != this.a || var3 != this.b) {
          c.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + this.a + ", " + this.b + "), " + var1, new Object[]{var1});
          var1.J();
       }
 
-      int var4 = MathHelper.c(var1.t / 16.0D);
+      int var4 = MathHelper.floor(var1.t / 16.0D);
       if(var4 < 0) {
          var4 = 0;
       }
@@ -687,8 +687,8 @@ public class Chunk {
    }
 
    public void a(Entity var1, AxisAlignedBB var2, List var3, Predicate var4) {
-      int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
-      int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
+      int var5 = MathHelper.floor((var2.b - 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.e + 2.0D) / 16.0D);
       var5 = MathHelper.a(var5, 0, this.m.length - 1);
       var6 = MathHelper.a(var6, 0, this.m.length - 1);
 
@@ -715,8 +715,8 @@ public class Chunk {
    }
 
    public void a(Class var1, AxisAlignedBB var2, List var3, Predicate var4) {
-      int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
-      int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
+      int var5 = MathHelper.floor((var2.b - 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.e + 2.0D) / 16.0D);
       var5 = MathHelper.a(var5, 0, this.m.length - 1);
       var6 = MathHelper.a(var6, 0, this.m.length - 1);
 
@@ -764,7 +764,7 @@ public class Chunk {
       boolean var12 = var1.isChunkLoaded(var3 + 1, var4 - 1);
       if(var6 && var7 && var10) {
          if(!this.n) {
-            var1.a(var2, var3, var4);
+            var1.getChunkAt(var2, var3, var4);
          } else {
             var1.a(var2, this, var3, var4);
          }
@@ -774,7 +774,7 @@ public class Chunk {
       if(var8 && var7 && var11) {
          var13 = var1.getOrCreateChunk(var3 - 1, var4);
          if(!var13.n) {
-            var1.a(var2, var3 - 1, var4);
+            var1.getChunkAt(var2, var3 - 1, var4);
          } else {
             var1.a(var2, var13, var3 - 1, var4);
          }
@@ -783,7 +783,7 @@ public class Chunk {
       if(var5 && var6 && var12) {
          var13 = var1.getOrCreateChunk(var3, var4 - 1);
          if(!var13.n) {
-            var1.a(var2, var3, var4 - 1);
+            var1.getChunkAt(var2, var3, var4 - 1);
          } else {
             var1.a(var2, var13, var3, var4 - 1);
          }
@@ -792,7 +792,7 @@ public class Chunk {
       if(var9 && var5 && var8) {
          var13 = var1.getOrCreateChunk(var3 - 1, var4 - 1);
          if(!var13.n) {
-            var1.a(var2, var3 - 1, var4 - 1);
+            var1.getChunkAt(var2, var3 - 1, var4 - 1);
          } else {
             var1.a(var2, var13, var3 - 1, var4 - 1);
          }
@@ -827,8 +827,8 @@ public class Chunk {
    }
 
    public void b(boolean var1) {
-      if(this.k && !this.i.t.o() && !var1) {
-         this.h(this.i.D);
+      if(this.k && !this.i.worldProvider.o() && !var1) {
+         this.h(this.i.isStatic);
       }
 
       this.p = true;
@@ -892,7 +892,7 @@ public class Chunk {
       BiomeBase var6;
       if(var5 == 255) {
          var6 = var2.a(var1, BiomeBase.PLAINS);
-         var5 = var6.az;
+         var5 = var6.id;
          this.e[var4 << 4 | var3] = (byte)(var5 & 255);
       }
 
@@ -958,7 +958,7 @@ public class Chunk {
       this.n = true;
       this.o = true;
       Location var1 = new Location(this.a << 4, 0, this.b << 4);
-      if(!this.i.t.o()) {
+      if(!this.i.worldProvider.o()) {
          if(this.i.a(var1.a(-1, 0, -1), var1.a(16, 63, 16))) {
             label42:
             for(int var2 = 0; var2 < 16; ++var2) {

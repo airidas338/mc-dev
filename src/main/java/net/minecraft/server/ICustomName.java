@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 public interface ICustomName {
 
-   String d_();
+   String getName();
 
    boolean k_();
 
-   IChatBaseComponent e_();
+   IChatBaseComponent getScoreboardDisplayName();
 }

@@ -31,7 +31,7 @@ public class ju implements Packet {
       this.k = var11;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = ew.a(var1.readInt());
       if(this.a == null) {
          this.a = ew.J;
@@ -55,7 +55,7 @@ public class ju implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeInt(this.a.c());
       var1.writeBoolean(this.j);
       var1.writeFloat(this.b);

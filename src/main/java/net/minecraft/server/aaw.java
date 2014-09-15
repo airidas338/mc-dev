@@ -132,8 +132,8 @@ public abstract class aaw extends PathfinderGoal {
          if(var3 == null) {
             return false;
          } else {
-            int var4 = var3.a - MathHelper.c(var1.s);
-            int var5 = var3.c - MathHelper.c(var1.u);
+            int var4 = var3.a - MathHelper.floor(var1.s);
+            int var5 = var3.c - MathHelper.floor(var1.u);
             return (double)(var4 * var4 + var5 * var5) <= 2.25D;
          }
       }

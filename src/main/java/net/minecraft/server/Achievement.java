@@ -63,7 +63,7 @@ public class Achievement extends tq {
 
 	public IChatBaseComponent e() {
 		IChatBaseComponent var1 = super.e();
-		var1.b().a(this.g() ? EnumChatFormat.f : EnumChatFormat.k);
+		var1.getChatModifier().setColor(this.g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
 		return var1;
 	}
 

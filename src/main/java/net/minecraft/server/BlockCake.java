@@ -25,7 +25,7 @@ public class BlockCake extends Block {
       this.a(var1, 0.0F, var1, 1.0F - var1, var2, 1.0F - var1);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       float var4 = 0.0625F;
       float var5 = (float)(1 + ((Integer)var3.b(a)).intValue() * 2) / 16.0F;
       float var6 = 0.5F;
@@ -40,7 +40,7 @@ public class BlockCake extends Block {
       return false;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       this.b(var1, var2, var3, var4);
       return true;
    }
@@ -49,7 +49,7 @@ public class BlockCake extends Block {
       this.b(var1, var2, var1.getData(var2), var3);
    }
 
-   private void b(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   private void b(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.j(false)) {
          var4.ck().a(2, 0.1F);
          int var5 = ((Integer)var3.b(a)).intValue();
@@ -66,7 +66,7 @@ public class BlockCake extends Block {
       return super.c(var1, var2)?this.d(var1, var2):false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.d(var1, var2)) {
          var1.g(var2);
       }
@@ -81,15 +81,15 @@ public class BlockCake extends Block {
       return 0;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

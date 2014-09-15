@@ -29,8 +29,8 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public EntityInsentient(World var1) {
       super(var1);
-      this.goalSelector = new PathfinderGoalSelector(var1 != null && var1.B != null?var1.B:null);
-      this.targetSelector = new PathfinderGoalSelector(var1 != null && var1.B != null?var1.B:null);
+      this.goalSelector = new PathfinderGoalSelector(var1 != null && var1.methodProfiler != null?var1.methodProfiler:null);
+      this.targetSelector = new PathfinderGoalSelector(var1 != null && var1.methodProfiler != null?var1.methodProfiler:null);
       this.a = new ControllerLook(this);
       this.f = new ControllerMove(this);
       this.g = new ControllerJump(this);
@@ -106,13 +106,13 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public void K() throws IOException {
       super.K();
-      this.o.B.a("mobBaseTick");
+      this.o.methodProfiler.a("mobBaseTick");
       if(this.isAlive() && this.V.nextInt(1000) < this.a_++) {
          this.a_ = -this.w();
          this.x();
       }
 
-      this.o.B.b();
+      this.o.methodProfiler.b();
    }
 
    protected int b(EntityHuman var1) {
@@ -133,7 +133,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public void y() {
-      if(this.o.D) {
+      if(this.o.isStatic) {
          for(int var1 = 0; var1 < 20; ++var1) {
             double var2 = this.V.nextGaussian() * 0.02D;
             double var4 = this.V.nextGaussian() * 0.02D;
@@ -149,7 +149,7 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public void s_() throws IOException {
       super.s_();
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.bZ();
       }
 
@@ -273,8 +273,8 @@ public abstract class EntityInsentient extends EntityLiving {
 
    public void m() throws IOException {
       super.m();
-      this.o.B.a("looting");
-      if(!this.o.D && this.bX() && !this.aN && this.o.Q().b("mobGriefing")) {
+      this.o.methodProfiler.a("looting");
+      if(!this.o.isStatic && this.bX() && !this.aN && this.o.Q().b("mobGriefing")) {
          List var1 = this.o.getEntities(EntityItem.class, this.aQ().b(1.0D, 0.0D, 1.0D));
          Iterator var2 = var1.iterator();
 
@@ -286,7 +286,7 @@ public abstract class EntityInsentient extends EntityLiving {
          }
       }
 
-      this.o.B.b();
+      this.o.methodProfiler.b();
    }
 
    protected void a(EntityItem var1) {
@@ -383,33 +383,33 @@ public abstract class EntityInsentient extends EntityLiving {
 
    protected final void bJ() {
       ++this.aO;
-      this.o.B.a("checkDespawn");
+      this.o.methodProfiler.a("checkDespawn");
       this.D();
-      this.o.B.b();
-      this.o.B.a("sensing");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("sensing");
       this.bi.a();
-      this.o.B.b();
-      this.o.B.a("targetSelector");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("targetSelector");
       this.targetSelector.a();
-      this.o.B.b();
-      this.o.B.a("goalSelector");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("goalSelector");
       this.goalSelector.a();
-      this.o.B.b();
-      this.o.B.a("navigation");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("navigation");
       this.h.k();
-      this.o.B.b();
-      this.o.B.a("mob tick");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("mob tick");
       this.E();
-      this.o.B.b();
-      this.o.B.a("controls");
-      this.o.B.a("move");
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.a("controls");
+      this.o.methodProfiler.a("move");
       this.f.c();
-      this.o.B.c("look");
+      this.o.methodProfiler.c("look");
       this.a.a();
-      this.o.B.c("jump");
+      this.o.methodProfiler.c("jump");
       this.g.b();
-      this.o.B.b();
-      this.o.B.b();
+      this.o.methodProfiler.b();
+      this.o.methodProfiler.b();
    }
 
    protected void E() {}
@@ -673,7 +673,7 @@ public abstract class EntityInsentient extends EntityLiving {
       return this.bl;
    }
 
-   public final boolean e(EntityHuman var1) throws IOException {
+   public final boolean e(EntityHuman var1) {
       if(this.cb() && this.cc() == var1) {
          this.a(true, !var1.by.canInstantlyBuild);
          return true;
@@ -697,7 +697,7 @@ public abstract class EntityInsentient extends EntityLiving {
       }
    }
 
-   protected boolean a(EntityHuman var1) throws IOException {
+   protected boolean a(EntityHuman var1) {
       return false;
    }
 
@@ -721,11 +721,11 @@ public abstract class EntityInsentient extends EntityLiving {
       if(this.bm) {
          this.bm = false;
          this.bn = null;
-         if(!this.o.D && var2) {
+         if(!this.o.isStatic && var2) {
             this.a(Items.cn, 1);
          }
 
-         if(!this.o.D && var1 && this.o instanceof WorldServer) {
+         if(!this.o.isStatic && var1 && this.o instanceof WorldServer) {
             ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, (Entity)null)));
          }
       }
@@ -747,7 +747,7 @@ public abstract class EntityInsentient extends EntityLiving {
    public void a(Entity var1, boolean var2) {
       this.bm = true;
       this.bn = var1;
-      if(!this.o.D && var2 && this.o instanceof WorldServer) {
+      if(!this.o.isStatic && var2 && this.o instanceof WorldServer) {
          ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, this.bn)));
       }
 

@@ -12,10 +12,10 @@ public class BlockCocoa extends BlockDirectional implements atz {
       this.a(true);
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
-      } else if(var1.s.nextInt(5) == 0) {
+      } else if(var1.random.nextInt(5) == 0) {
          int var5 = ((Integer)var3.b(a)).intValue();
          if(var5 < 2) {
             var1.a(var2, var3.a(a, Integer.valueOf(var5 + 1)), 2);
@@ -24,9 +24,9 @@ public class BlockCocoa extends BlockDirectional implements atz {
 
    }
 
-   public boolean e(World var1, Location var2, IBlock var3) {
+   public boolean e(World var1, Location var2, IBlockData var3) {
       var2 = var2.a((EnumFacing)var3.b(N));
-      IBlock var4 = var1.getData(var2);
+      IBlockData var4 = var1.getData(var2);
       return var4.c() == Blocks.LOG && var4.b(BlockWood.a) == ayx.d;
    }
 
@@ -38,13 +38,13 @@ public class BlockCocoa extends BlockDirectional implements atz {
       return false;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       EnumFacing var4 = (EnumFacing)var3.b(N);
       int var5 = ((Integer)var3.b(a)).intValue();
       int var6 = 4 + var5 * 2;
@@ -66,12 +66,12 @@ public class BlockCocoa extends BlockDirectional implements atz {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       EnumFacing var6 = EnumFacing.a((double)var4.y);
       var1.a(var2, var3.a(N, var6), 2);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.k().c()) {
          var3 = EnumFacing.NORTH;
       }
@@ -79,19 +79,19 @@ public class BlockCocoa extends BlockDirectional implements atz {
       return this.P().a(N, var3.d()).a(a, Integer.valueOf(0));
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
       }
 
    }
 
-   private void f(World var1, Location var2, IBlock var3) {
+   private void f(World var1, Location var2, IBlockData var3) {
       var1.a(var2, Blocks.AIR.P(), 3);
       this.b(var1, var2, var3, 0);
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {
       int var6 = ((Integer)var3.b(a)).intValue();
       byte var7 = 1;
       if(var6 >= 2) {
@@ -108,23 +108,23 @@ public class BlockCocoa extends BlockDirectional implements atz {
       return akv.m.b();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       return ((Integer)var3.b(a)).intValue() < 2;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       var1.a(var3, var4.a(a, Integer.valueOf(((Integer)var4.b(a)).intValue() + 1)), 2);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(N, EnumFacing.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       var3 |= ((Integer)var1.b(a)).intValue() << 2;

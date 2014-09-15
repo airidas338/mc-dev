@@ -14,11 +14,11 @@ public class no implements Packet {
       this.b = var1;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.b = (ServerPing)a.fromJson(var1.c(32767), ServerPing.class);
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(a.toJson(this.b));
    }
 

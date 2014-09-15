@@ -15,10 +15,10 @@ public class hq {
                throw new ExceptionInvalidUUID();
             }
 
-            var5 = ((Entity)var6.get(0)).d_();
+            var5 = ((Entity)var6.get(0)).getName();
          }
 
-         var3 = var2 != null && var5.equals("*")?new ht(var2.d_(), var4.h()):new ht(var5, var4.h());
+         var3 = var2 != null && var5.equals("*")?new ht(var2.getName(), var4.h()):new ht(var5, var4.h());
          ((ht)var3).b(var4.e());
       } else if(var1 instanceof hu) {
          String var7 = ((hu)var1).g();
@@ -45,9 +45,9 @@ public class hq {
          var3 = new ChatMessage(((ChatMessage)var1).i(), var8);
       }
 
-      ChatModifier var9 = var1.b();
+      ChatModifier var9 = var1.getChatModifier();
       if(var9 != null) {
-         ((IChatBaseComponent)var3).a(var9.m());
+         ((IChatBaseComponent)var3).setChatModifier(var9.m());
       }
 
       Iterator var13 = var1.a().iterator();

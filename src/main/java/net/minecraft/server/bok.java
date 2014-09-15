@@ -40,7 +40,7 @@ public class bok extends GenLayer {
             }
 
             if(var17 == 0 && var18 > 3) {
-               var10[var12 + var11 * var3] = BiomeBase.DEEP_OCEAN.az;
+               var10[var12 + var11 * var3] = BiomeBase.DEEP_OCEAN.id;
             } else {
                var10[var12 + var11 * var3] = var17;
             }

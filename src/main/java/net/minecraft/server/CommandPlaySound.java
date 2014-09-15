@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandPlaySound extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "playsound";
    }
 
@@ -15,7 +15,7 @@ public class CommandPlaySound extends CommandAbstract {
       return "commands.playsound.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage(this.c(var1), new Object[0]);
       } else {
@@ -58,7 +58,7 @@ public class CommandPlaySound extends CommandAbstract {
          double var21 = var5.f(var7, var9, var11);
          if(var21 > var19) {
             if(var17 <= 0.0D) {
-               throw new CommandException("commands.playsound.playerTooFar", new Object[]{var5.d_()});
+               throw new CommandException("commands.playsound.playerTooFar", new Object[]{var5.getName()});
             }
 
             double var23 = var7 - var5.s;
@@ -75,15 +75,15 @@ public class CommandPlaySound extends CommandAbstract {
          }
 
          var5.a.sendPacket((Packet)(new jv(var4, var7, var9, var11, (float)var13, (float)var15)));
-         a(var1, this, "commands.playsound.success", new Object[]{var4, var5.d_()});
+         a(var1, this, "commands.playsound.success", new Object[]{var4, var5.getName()});
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 2?a(var2, MinecraftServer.M().I()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 1;
    }
 }

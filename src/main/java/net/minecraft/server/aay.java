@@ -28,7 +28,7 @@ public class aay extends Navigation {
    private int p() {
       if(this.b.V() && this.h()) {
          int var1 = (int)this.b.aQ().b;
-         Block var2 = this.c.getData(new Location(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
+         Block var2 = this.c.getData(new Location(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).c();
          int var3 = 0;
 
          do {
@@ -37,7 +37,7 @@ public class aay extends Navigation {
             }
 
             ++var1;
-            var2 = this.c.getData(new Location(MathHelper.c(this.b.s), var1, MathHelper.c(this.b.u))).c();
+            var2 = this.c.getData(new Location(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).c();
             ++var3;
          } while(var3 <= 16);
 
@@ -50,7 +50,7 @@ public class aay extends Navigation {
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new Location(MathHelper.c(this.b.s), (int)(this.b.aQ().b + 0.5D), MathHelper.c(this.b.u)))) {
+         if(this.c.i(new Location(MathHelper.floor(this.b.s), (int)(this.b.aQ().b + 0.5D), MathHelper.floor(this.b.u)))) {
             return;
          }
 
@@ -66,8 +66,8 @@ public class aay extends Navigation {
    }
 
    protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
-      int var6 = MathHelper.c(var1.a);
-      int var7 = MathHelper.c(var1.c);
+      int var6 = MathHelper.floor(var1.a);
+      int var7 = MathHelper.floor(var1.c);
       double var8 = var2.a - var1.a;
       double var10 = var2.c - var1.c;
       double var12 = var8 * var8 + var10 * var10;
@@ -100,8 +100,8 @@ public class aay extends Navigation {
             var22 /= var10;
             int var24 = var8 < 0.0D?-1:1;
             int var25 = var10 < 0.0D?-1:1;
-            int var26 = MathHelper.c(var2.a);
-            int var27 = MathHelper.c(var2.c);
+            int var26 = MathHelper.floor(var2.a);
+            int var27 = MathHelper.floor(var2.c);
             int var28 = var26 - var6;
             int var29 = var27 - var7;
 

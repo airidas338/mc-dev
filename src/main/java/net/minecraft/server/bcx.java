@@ -81,7 +81,7 @@ public class bcx extends bdf implements IInventory {
       return -1;
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.a:"container.dispenser";
    }
 

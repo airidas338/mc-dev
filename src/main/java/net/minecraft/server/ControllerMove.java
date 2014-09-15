@@ -39,7 +39,7 @@ public class ControllerMove {
       this.a.m(0.0F);
       if(this.f) {
          this.f = false;
-         int var1 = MathHelper.c(this.a.aQ().b + 0.5D);
+         int var1 = MathHelper.floor(this.a.aQ().b + 0.5D);
          double var2 = this.b - this.a.s;
          double var4 = this.d - this.a.u;
          double var6 = this.c - (double)var1;

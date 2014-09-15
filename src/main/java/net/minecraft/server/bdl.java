@@ -14,21 +14,21 @@ class bdl implements ICommandListener {
       this.a = var2;
    }
 
-   public String d_() {
-      return this.a.d_();
+   public String getName() {
+      return this.a.getName();
    }
 
-   public IChatBaseComponent e_() {
-      return this.a.e_();
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return this.a.getScoreboardDisplayName();
    }
 
-   public void a(IChatBaseComponent var1) {}
+   public void sendMessage(IChatBaseComponent var1) {}
 
    public boolean a(int var1, String var2) {
       return true;
    }
 
-   public Location c() {
+   public Location getLocation() {
       return this.b.c;
    }
 
@@ -36,8 +36,8 @@ class bdl implements ICommandListener {
       return new Vec3D((double)this.b.c.n() + 0.5D, (double)this.b.c.o() + 0.5D, (double)this.b.c.p() + 0.5D);
    }
 
-   public World e() {
-      return this.a.e();
+   public World getWorld() {
+      return this.a.getWorld();
    }
 
    public Entity f() {

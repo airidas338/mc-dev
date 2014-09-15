@@ -122,11 +122,11 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       super.E();
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       boolean var3 = var2 != null && var2.b() == Items.bJ;
       if(!var3 && this.isAlive() && !this.cm() && !this.i_()) {
-         if(!this.o.D && (this.bp == null || this.bp.size() > 0)) {
+         if(!this.o.isStatic && (this.bp == null || this.bp.size() > 0)) {
             this.a_(var1);
             var1.a((aqb)this);
          }
@@ -241,7 +241,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
                var2 = -3;
             }
 
-            this.bk.a(var1.d_(), var2);
+            this.bk.a(var1.getName(), var2);
             if(this.isAlive()) {
                this.o.a((Entity)this, (byte)13);
             }
@@ -255,7 +255,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          Entity var2 = var1.getEntity();
          if(var2 != null) {
             if(var2 instanceof EntityHuman) {
-               this.bk.a(var2.d_(), -2);
+               this.bk.a(var2.getName(), -2);
             } else if(var2 instanceof IMonster) {
                this.bk.h();
             }
@@ -323,7 +323,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          this.br = true;
          this.bs = true;
          if(this.bo != null) {
-            this.bu = this.bo.d_();
+            this.bu = this.bo.getName();
          } else {
             this.bu = null;
          }
@@ -342,7 +342,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    }
 
    public void a_(ItemStack var1) {
-      if(!this.o.D && this.a_ > -this.w() + 20) {
+      if(!this.o.isStatic && this.a_ > -this.w() + 20) {
          this.a_ = -this.w();
          if(var1 != null) {
             this.a("mob.villager.yes", this.bA(), this.bB());
@@ -390,7 +390,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    }
 
-   public IChatBaseComponent e_() {
+   public IChatBaseComponent getScoreboardDisplayName() {
       String var1 = this.aL();
       if(var1 != null && var1.length() > 0) {
          return new ChatComponentText(var1);
@@ -437,11 +437,11 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
          if(var2 != null) {
             ChatMessage var3 = new ChatMessage("entity.Villager." + var2, new Object[0]);
-            var3.b().a(this.aP());
-            var3.b().a(this.aJ().toString());
+            var3.getChatModifier().a(this.aP());
+            var3.getChatModifier().a(this.aJ().toString());
             return var3;
          } else {
-            return super.e_();
+            return super.getScoreboardDisplayName();
          }
       }
    }
@@ -457,7 +457,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    public xq a(vu var1, xq var2) {
       var2 = super.a(var1, var2);
-      this.r(this.o.s.nextInt(5));
+      this.r(this.o.random.nextInt(5));
       this.ct();
       return var2;
    }
@@ -477,7 +477,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    }
 
    public void a(EntityLightning var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          EntityWitch var2 = new EntityWitch(this.o);
          var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
          var2.a(this.o.E(new Location(var2)), (xq)null);

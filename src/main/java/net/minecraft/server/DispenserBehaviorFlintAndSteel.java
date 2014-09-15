@@ -8,9 +8,9 @@ final class DispenserBehaviorFlintAndSteel extends DispenserBehaviorItem {
    protected ItemStack b(ISourceBlock var1, ItemStack var2) {
       World var3 = var1.i();
       Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
-      if(var3.d(var4)) {
+      if(var3.isEmpty(var4)) {
          var3.a(var4, Blocks.FIRE.P());
-         if(var2.a(1, var3.s)) {
+         if(var2.a(1, var3.random)) {
             var2.b = 0;
          }
       } else if(var3.getData(var4).c() == Blocks.TNT) {

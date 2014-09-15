@@ -12,13 +12,13 @@ public class ItemWorldMap extends ake {
    public WorldMap a(ItemStack var1, World var2) {
       String var3 = "map_" + var1.i();
       WorldMap var4 = (WorldMap)var2.a(WorldMap.class, var3);
-      if(var4 == null && !var2.D) {
+      if(var4 == null && !var2.isStatic) {
          var1.b(var2.b("map"));
          var3 = "map_" + var1.i();
          var4 = new WorldMap(var3);
          var4.e = 3;
          var4.a((double)var2.P().c(), (double)var2.P().e(), var4.e);
-         var4.d = (byte)var2.t.q();
+         var4.d = (byte)var2.worldProvider.q();
          var4.c();
          var2.a(var3, (PersistentBase)var4);
       }
@@ -27,14 +27,14 @@ public class ItemWorldMap extends ake {
    }
 
    public void a(World var1, Entity var2, WorldMap var3) {
-      if(var1.t.q() == var3.d && var2 instanceof EntityHuman) {
+      if(var1.worldProvider.q() == var3.d && var2 instanceof EntityHuman) {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
          int var6 = var3.c;
-         int var7 = MathHelper.c(var2.s - (double)var5) / var4 + 64;
-         int var8 = MathHelper.c(var2.u - (double)var6) / var4 + 64;
+         int var7 = MathHelper.floor(var2.s - (double)var5) / var4 + 64;
+         int var8 = MathHelper.floor(var2.u - (double)var6) / var4 + 64;
          int var9 = 128 / var4;
-         if(var1.t.o()) {
+         if(var1.worldProvider.o()) {
             var9 /= 2;
          }
 
@@ -62,7 +62,7 @@ public class ItemWorldMap extends ake {
                         int var25 = 0;
                         double var26 = 0.0D;
                         int var28;
-                        if(var1.t.o()) {
+                        if(var1.worldProvider.o()) {
                            var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
@@ -76,7 +76,7 @@ public class ItemWorldMap extends ake {
                            for(var28 = 0; var28 < var4; ++var28) {
                               for(int var29 = 0; var29 < var4; ++var29) {
                                  int var30 = var22.b(var28 + var23, var29 + var24) + 1;
-                                 IBlock var31 = Blocks.AIR.P();
+                                 IBlockData var31 = Blocks.AIR.P();
                                  if(var30 > 1) {
                                     do {
                                        --var30;
@@ -144,7 +144,7 @@ public class ItemWorldMap extends ake {
    }
 
    public void a(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
-      if(!var2.D) {
+      if(!var2.isStatic) {
          WorldMap var6 = this.a(var1, var2);
          if(var3 instanceof EntityHuman) {
             EntityHuman var7 = (EntityHuman)var3;

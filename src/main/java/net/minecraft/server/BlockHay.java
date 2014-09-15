@@ -9,7 +9,7 @@ public class BlockHay extends baa {
       this.a(CreativeModeTab.b);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       el var2 = el.b;
       int var3 = var1 & 12;
       if(var3 == 4) {
@@ -21,7 +21,7 @@ public class BlockHay extends baa {
       return this.P().a(M, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
       el var3 = (el)var1.b(M);
       if(var3 == el.a) {
@@ -37,11 +37,11 @@ public class BlockHay extends baa {
       return new bed(this, new bex[]{M});
    }
 
-   protected ItemStack i(IBlock var1) {
+   protected ItemStack i(IBlockData var1) {
       return new ItemStack(Item.a((Block)this), 1, 0);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(M, var3.k());
    }
 }

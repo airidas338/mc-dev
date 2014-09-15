@@ -52,9 +52,9 @@ public class yu extends PathfinderGoal {
          this.c = this.b;
       }
 
-      int var4 = MathHelper.c(this.a.s);
-      int var5 = MathHelper.c(this.a.t);
-      int var6 = MathHelper.c(this.a.u);
+      int var4 = MathHelper.floor(this.a.s);
+      int var5 = MathHelper.floor(this.a.t);
+      int var6 = MathHelper.floor(this.a.u);
       float var7 = this.c;
       if(this.d) {
          if(this.e++ > this.f) {
@@ -99,8 +99,8 @@ public class yu extends PathfinderGoal {
          }
       }
 
-      int var17 = MathHelper.c(this.a.s + (double)var15);
-      int var18 = MathHelper.c(this.a.u + (double)var16);
+      int var17 = MathHelper.floor(this.a.s + (double)var15);
+      int var18 = MathHelper.floor(this.a.u + (double)var16);
       int var19 = MathHelper.d(this.a.J + 1.0F);
       int var20 = MathHelper.d(this.a.K + var1.K + 1.0F);
       int var21 = MathHelper.d(this.a.J + 1.0F);

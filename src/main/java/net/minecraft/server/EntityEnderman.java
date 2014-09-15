@@ -46,14 +46,14 @@ public class EntityEnderman extends EntityMonster {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      IBlock var2 = this.ck();
+      IBlockData var2 = this.ck();
       var1.setShort("carried", (short)Block.a(var2.c()));
       var1.setShort("carriedData", (short)var2.c().c(var2));
    }
 
    public void a(NBTTagCompound var1) {
       super.a(var1);
-      IBlock var2;
+      IBlockData var2;
       if(var1.hasKeyOfType("carried", 8)) {
          var2 = Block.b(var1.getString("carried")).a(var1.getShort("carriedData") & '\uffff');
       } else {
@@ -82,7 +82,7 @@ public class EntityEnderman extends EntityMonster {
    }
 
    public void m() throws IOException {
-      if(this.o.D) {
+      if(this.o.isStatic) {
          for(int var1 = 0; var1 < 2; ++var1) {
             this.o.a(ew.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K - 0.25D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
@@ -140,7 +140,7 @@ public class EntityEnderman extends EntityMonster {
       this.u = var5;
       boolean var13 = false;
       Location var14 = new Location(this.s, this.t, this.u);
-      if(this.o.e(var14)) {
+      if(this.o.isLoaded(var14)) {
          boolean var15 = false;
 
          while(!var15 && var14.o() > 0) {
@@ -213,11 +213,11 @@ public class EntityEnderman extends EntityMonster {
 
    }
 
-   public void a(IBlock var1) {
+   public void a(IBlockData var1) {
       this.ac.b(16, Short.valueOf((short)(Block.f(var1) & '\uffff')));
    }
 
-   public IBlock ck() {
+   public IBlockData ck() {
       return Block.d(this.ac.b(16) & '\uffff');
    }
 
@@ -226,7 +226,7 @@ public class EntityEnderman extends EntityMonster {
          return false;
       } else {
          if(var1.getEntity() == null || !(var1.getEntity() instanceof EntityEndermite)) {
-            if(!this.o.D) {
+            if(!this.o.isStatic) {
                this.a(true);
             }
 

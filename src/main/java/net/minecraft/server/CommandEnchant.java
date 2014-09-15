@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandEnchant extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "enchant";
    }
 
@@ -15,7 +15,7 @@ public class CommandEnchant extends CommandAbstract {
       return "commands.enchant.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.enchant.usage", new Object[0]);
       } else {
@@ -72,7 +72,7 @@ public class CommandEnchant extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Enchantment.c()):null);
    }
 
@@ -80,7 +80,7 @@ public class CommandEnchant extends CommandAbstract {
       return MinecraftServer.M().I();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

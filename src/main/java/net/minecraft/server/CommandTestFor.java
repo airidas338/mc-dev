@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandTestFor extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "testfor";
    }
 
@@ -15,7 +15,7 @@ public class CommandTestFor extends CommandAbstract {
       return "commands.testfor.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.testfor.usage", new Object[0]);
       } else {
@@ -33,19 +33,19 @@ public class CommandTestFor extends CommandAbstract {
             NBTTagCompound var5 = new NBTTagCompound();
             var3.e(var5);
             if(!CommandTestForBlock.a(var4, var5, true)) {
-               throw new CommandException("commands.testfor.failure", new Object[]{var3.d_()});
+               throw new CommandException("commands.testfor.failure", new Object[]{var3.getName()});
             }
          }
 
-         a(var1, this, "commands.testfor.success", new Object[]{var3.d_()});
+         a(var1, this, "commands.testfor.success", new Object[]{var3.getName()});
       }
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

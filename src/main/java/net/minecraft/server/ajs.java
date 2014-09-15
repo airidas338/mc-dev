@@ -21,11 +21,11 @@ public class ajs extends aju {
             return false;
          } else if(!Blocks.BANNER_STANDING.c(var3, var4)) {
             return false;
-         } else if(var3.D) {
+         } else if(var3.isStatic) {
             return true;
          } else {
             if(var5 == EnumFacing.UP) {
-               int var9 = MathHelper.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+               int var9 = MathHelper.floor((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
                var3.a(var4, Blocks.BANNER_STANDING.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
                var3.a(var4, Blocks.BANNER_WALL.P().a(BlockWallSign.a, var5), 3);

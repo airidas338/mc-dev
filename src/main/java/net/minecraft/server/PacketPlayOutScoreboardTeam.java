@@ -58,7 +58,7 @@ public class PacketPlayOutScoreboardTeam implements Packet {
       }
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(16);
       this.h = var1.readByte();
       if(this.h == 0 || this.h == 2) {
@@ -80,7 +80,7 @@ public class PacketPlayOutScoreboardTeam implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeByte(this.h);
       if(this.h == 0 || this.h == 2) {

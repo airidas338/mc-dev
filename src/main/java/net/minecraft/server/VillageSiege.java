@@ -17,7 +17,7 @@ public class VillageSiege extends PersistentBase {
    }
 
    public VillageSiege(World var1) {
-      super(a(var1.t));
+      super(a(var1.worldProvider));
       this.b = var1;
       this.c();
    }

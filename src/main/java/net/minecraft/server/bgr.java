@@ -89,7 +89,7 @@ public class bgr implements IChunkProvider {
                      double var46 = (var35 - var33) * var42;
 
                      for(int var48 = 0; var48 < 4; ++var48) {
-                        IBlock var49 = null;
+                        IBlockData var49 = null;
                         if(var11 * 8 + var30 < var5) {
                            var49 = Blocks.STATIONARY_LAVA.P();
                         }
@@ -133,12 +133,12 @@ public class bgr implements IChunkProvider {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            IBlock var13 = Blocks.NETHERRACK.P();
-            IBlock var14 = Blocks.NETHERRACK.P();
+            IBlockData var13 = Blocks.NETHERRACK.P();
+            IBlockData var14 = Blocks.NETHERRACK.P();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
-                  IBlock var16 = var3.a(var8, var15, var7);
+                  IBlockData var16 = var3.a(var8, var15, var7);
                   if(var16.c() != null && var16.c().r() != Material.AIR) {
                      if(var16.c() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
@@ -197,11 +197,11 @@ public class bgr implements IChunkProvider {
       }
 
       Chunk var4 = new Chunk(this.h, var3, var1, var2);
-      BiomeBase[] var5 = this.h.v().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
+      BiomeBase[] var5 = this.h.getWorldChunkManager().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var6 = var4.k();
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
-         var6[var7] = (byte)var5[var7].az;
+         var6[var7] = (byte)var5[var7].id;
       }
 
       var4.l();
@@ -281,7 +281,7 @@ public class bgr implements IChunkProvider {
       return true;
    }
 
-   public void a(IChunkProvider var1, int var2, int var3) {
+   public void getChunkAt(IChunkProvider var1, int var2, int var3) {
       avt.M = true;
       Location var4 = new Location(var2 * 16, 0, var3 * 16);
       aqm var5 = new aqm(var2, var3);
@@ -327,25 +327,25 @@ public class bgr implements IChunkProvider {
       return false;
    }
 
-   public boolean a(boolean var1, IProgressUpdate var2) {
+   public boolean saveChunks(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
    public void c() {}
 
-   public boolean d() {
+   public boolean unloadChunks() {
       return false;
    }
 
-   public boolean e() {
+   public boolean canSave() {
       return true;
    }
 
-   public String f() {
+   public String getName() {
       return "HellRandomLevelSource";
    }
 
-   public List a(EnumCreatureType var1, Location var2) {
+   public List getMobsFor(EnumCreatureType var1, Location var2) {
       if(var1 == EnumCreatureType.MONSTER) {
          if(this.B.b(var2)) {
             return this.B.b();
@@ -356,23 +356,23 @@ public class bgr implements IChunkProvider {
          }
       }
 
-      BiomeBase var3 = this.h.b(var2);
+      BiomeBase var3 = this.h.getBiome(var2);
       return var3.a(var1);
    }
 
-   public Location a(World var1, String var2, Location var3) {
+   public Location findNearestMapFeature(World var1, String var2, Location var3) {
       return null;
    }
 
-   public int g() {
+   public int getLoadedChunks() {
       return 0;
    }
 
-   public void a(Chunk var1, int var2, int var3) {
+   public void recreateStructures(Chunk var1, int var2, int var3) {
       this.B.a(this, this.h, var2, var3, (bgk)null);
    }
 
-   public Chunk a(Location var1) {
+   public Chunk getChunkAt(Location var1) {
       return this.getOrCreateChunk(var1.n() >> 4, var1.p() >> 4);
    }
 }

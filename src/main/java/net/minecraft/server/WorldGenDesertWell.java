@@ -6,9 +6,9 @@ import java.util.Random;
 public class WorldGenDesertWell extends WorldGenerator {
 
    private static final beq a = beq.a((Block)Blocks.SAND).a(BlockSand.a, Predicates.equalTo(bac.a));
-   private final IBlock b;
-   private final IBlock c;
-   private final IBlock d;
+   private final IBlockData b;
+   private final IBlockData c;
+   private final IBlockData d;
 
 
    public WorldGenDesertWell() {
@@ -18,7 +18,7 @@ public class WorldGenDesertWell extends WorldGenerator {
    }
 
    public boolean generate(World var1, Random var2, Location var3) {
-      while(var1.d(var3) && var3.o() > 2) {
+      while(var1.isEmpty(var3) && var3.o() > 2) {
          var3 = var3.b();
       }
 
@@ -29,7 +29,7 @@ public class WorldGenDesertWell extends WorldGenerator {
          int var5;
          for(var4 = -2; var4 <= 2; ++var4) {
             for(var5 = -2; var5 <= 2; ++var5) {
-               if(var1.d(var3.a(var4, -1, var5)) && var1.d(var3.a(var4, -2, var5))) {
+               if(var1.isEmpty(var3.a(var4, -1, var5)) && var1.isEmpty(var3.a(var4, -2, var5))) {
                   return false;
                }
             }

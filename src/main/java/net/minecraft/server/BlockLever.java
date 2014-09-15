@@ -13,7 +13,7 @@ public class BlockLever extends Block {
       this.a(CreativeModeTab.d);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -37,8 +37,8 @@ public class BlockLever extends Block {
       return var1.getData(var2).c().t();
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlock var9 = this.P().a(b, Boolean.valueOf(false));
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = this.P().a(b, Boolean.valueOf(false));
       if(this.d(var1, var2.a(var3.d()))) {
          return var9.a(a, axk.a(var3, var8.aO()));
       } else {
@@ -80,7 +80,7 @@ public class BlockLever extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(this.e(var1, var2) && !this.d(var1, var2.a(((axk)var3.b(a)).c().d()))) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -126,8 +126,8 @@ public class BlockLever extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          var3 = var3.a(b);
@@ -140,7 +140,7 @@ public class BlockLever extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          var1.c(var2, (Block)this);
          EnumFacing var4 = ((axk)var3.b(a)).c();
@@ -150,11 +150,11 @@ public class BlockLever extends Block {
       super.b(var1, var2, var3);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(((axk)var3.b(a)).c() == var4?15:0);
    }
 
@@ -162,11 +162,11 @@ public class BlockLever extends Block {
       return true;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, axk.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((axk)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

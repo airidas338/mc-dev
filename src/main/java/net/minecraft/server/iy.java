@@ -11,7 +11,7 @@ public class iy implements Packet {
       this.a = var1;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = new String[var1.e()];
 
       for(int var2 = 0; var2 < this.a.length; ++var2) {
@@ -20,7 +20,7 @@ public class iy implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a.length);
       String[] var2 = this.a;
       int var3 = var2.length;

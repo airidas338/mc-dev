@@ -78,7 +78,7 @@ public class BiomeTaiga extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      return this.az == BiomeBase.MEGA_TAIGA.az?(new BiomeTaiga(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new BiomeTemperature(this.an, this.ao)):super.d(var1);
+      return this.id == BiomeBase.MEGA_TAIGA.id?(new BiomeTaiga(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new BiomeTemperature(this.an, this.ao)):super.d(var1);
    }
 
 }

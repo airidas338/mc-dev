@@ -11,7 +11,7 @@ public class aml extends Item {
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       Block var9 = var3.getData(var4).c();
       if(var9 instanceof BlockFence) {
-         if(var3.D) {
+         if(var3.isStatic) {
             return true;
          } else {
             a(var2, var3, var4);

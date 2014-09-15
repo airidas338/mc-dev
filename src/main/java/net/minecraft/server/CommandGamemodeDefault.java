@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class CommandGamemodeDefault extends CommandGamemode {
 
-   public String c() {
+   public String getCommand() {
       return "defaultgamemode";
    }
 
@@ -12,7 +12,7 @@ public class CommandGamemodeDefault extends CommandGamemode {
       return "commands.defaultgamemode.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException, IOException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length <= 0) {
          throw new ExceptionUsage("commands.defaultgamemode.usage", new Object[0]);
       } else {
@@ -22,7 +22,7 @@ public class CommandGamemodeDefault extends CommandGamemode {
       }
    }
 
-   protected void a(EnumGamemode var1) throws IOException {
+   protected void a(EnumGamemode var1) {
       MinecraftServer var2 = MinecraftServer.M();
       var2.a(var1);
       EntityPlayer var4;

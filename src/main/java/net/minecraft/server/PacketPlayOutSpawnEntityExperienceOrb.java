@@ -14,13 +14,13 @@ public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
 
    public PacketPlayOutSpawnEntityExperienceOrb(EntityExperienceOrb var1) {
       this.a = var1.F();
-      this.b = MathHelper.c(var1.s * 32.0D);
-      this.c = MathHelper.c(var1.t * 32.0D);
-      this.d = MathHelper.c(var1.u * 32.0D);
+      this.b = MathHelper.floor(var1.s * 32.0D);
+      this.c = MathHelper.floor(var1.t * 32.0D);
+      this.d = MathHelper.floor(var1.u * 32.0D);
       this.e = var1.j();
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = var1.readInt();
       this.c = var1.readInt();
@@ -28,7 +28,7 @@ public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
       this.e = var1.readShort();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.writeInt(this.b);
       var1.writeInt(this.c);

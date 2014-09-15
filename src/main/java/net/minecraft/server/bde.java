@@ -99,7 +99,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
 
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.f:"container.hopper";
    }
 
@@ -128,7 +128,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    public void c() {
-      if(this.b != null && !this.b.D) {
+      if(this.b != null && !this.b.isStatic) {
          --this.g;
          if(!this.n()) {
             this.d(0);
@@ -139,7 +139,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
    }
 
    public boolean m() {
-      if(this.b != null && !this.b.D) {
+      if(this.b != null && !this.b.isStatic) {
          if(!this.n() && BlockHopper.f(this.u())) {
             boolean var1 = false;
             if(!this.p()) {
@@ -416,9 +416,9 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
 
    public static IInventory b(World var0, double var1, double var3, double var5) {
       Object var7 = null;
-      int var8 = MathHelper.c(var1);
-      int var9 = MathHelper.c(var3);
-      int var10 = MathHelper.c(var5);
+      int var8 = MathHelper.floor(var1);
+      int var9 = MathHelper.floor(var3);
+      int var10 = MathHelper.floor(var5);
       Location var11 = new Location(var8, var9, var10);
       TileEntity var12 = var0.s(new Location(var8, var9, var10));
       if(var12 instanceof IInventory) {
@@ -434,7 +434,7 @@ public class bde extends bdf implements bdd, IUpdatePlayerListBox {
       if(var7 == null) {
          List var14 = var0.a((Entity)null, new AxisAlignedBB(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), EntitySelectors.c);
          if(var14.size() > 0) {
-            var7 = (IInventory)var14.get(var0.s.nextInt(var14.size()));
+            var7 = (IInventory)var14.get(var0.random.nextInt(var14.size()));
          }
       }
 

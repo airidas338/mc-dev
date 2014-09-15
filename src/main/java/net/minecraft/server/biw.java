@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class biw {
 
    private final int a;
-   private IBlock b;
+   private IBlockData b;
    private int c;
    private int d;
 
@@ -28,7 +28,7 @@ public class biw {
       return this.c;
    }
 
-   public IBlock c() {
+   public IBlockData c() {
       return this.b;
    }
 
@@ -51,7 +51,7 @@ public class biw {
    public String toString() {
       String var1;
       if(this.a >= 3) {
-         RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.e());
+         RegistryPrepender var2 = (RegistryPrepender)Block.REGISTRY.c(this.e());
          var1 = var2 == null?"null":var2.toString();
          if(this.c > 1) {
             var1 = this.c + "*" + var1;

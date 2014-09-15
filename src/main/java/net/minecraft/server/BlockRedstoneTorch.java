@@ -46,7 +46,7 @@ public class BlockRedstoneTorch extends BlockTorch {
       return 2;
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       if(this.M) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
@@ -59,7 +59,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       if(this.M) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
@@ -72,18 +72,18 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return this.M && var3.b(a) != var4?15:0;
    }
 
-   private boolean g(World var1, Location var2, IBlock var3) {
+   private boolean g(World var1, Location var2, IBlockData var3) {
       EnumFacing var4 = ((EnumFacing)var3.b(a)).d();
       return var1.b(var2.a(var4), var4);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Random var4) {}
+   public void a(World var1, Location var2, IBlockData var3, Random var4) {}
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       boolean var5 = this.g(var1, var2, var3);
       List var6 = (List)b.get(var1);
 
@@ -95,7 +95,7 @@ public class BlockRedstoneTorch extends BlockTorch {
          if(var5) {
             var1.a(var2, Blocks.REDSTONE_TORCH_OFF.P().a(a, var3.b(a)), 3);
             if(this.a(var1, var2, true)) {
-               var1.a((double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
+               var1.a((double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var7 = 0; var7 < 5; ++var7) {
                   double var8 = (double)var2.n() + var4.nextDouble() * 0.6D + 0.2D;
@@ -113,7 +113,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          if(this.M == this.g(var1, var2, var3)) {
             var1.a(var2, (Block)this, this.a(var1));
@@ -122,11 +122,11 @@ public class BlockRedstoneTorch extends BlockTorch {
       }
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return var4 == EnumFacing.DOWN?this.a(var1, var2, var3, var4):0;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a(Blocks.REDSTONE_TORCH_ON);
    }
 

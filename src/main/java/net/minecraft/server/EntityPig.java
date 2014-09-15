@@ -65,10 +65,10 @@ public class EntityPig extends EntityAnimal {
       this.a("mob.pig.step", 0.15F, 1.0F);
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       if(super.a(var1)) {
          return true;
-      } else if(this.cj() && !this.o.D && (this.l == null || this.l == var1)) {
+      } else if(this.cj() && !this.o.isStatic && (this.l == null || this.l == var1)) {
          var1.a((Entity)this);
          return true;
       } else {
@@ -111,7 +111,7 @@ public class EntityPig extends EntityAnimal {
    }
 
    public void a(EntityLightning var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          EntityPigZombie var2 = new EntityPigZombie(this.o);
          var2.c(0, new ItemStack(Items.B));
          var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);

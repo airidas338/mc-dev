@@ -31,7 +31,7 @@ public class PacketPlayOutScoreboardScore implements Packet {
       this.d = EnumScoreAction.REMOVE;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(40);
       this.d = (EnumScoreAction)var1.a(EnumScoreAction.class);
       this.b = var1.c(16);
@@ -41,7 +41,7 @@ public class PacketPlayOutScoreboardScore implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.a((Enum)this.d);
       var1.a(this.b);

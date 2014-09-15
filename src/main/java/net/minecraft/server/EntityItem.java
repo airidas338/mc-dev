@@ -73,14 +73,14 @@ public class EntityItem extends Entity {
                this.a("random.fizz", 0.4F, 2.0F + this.V.nextFloat() * 0.4F);
             }
 
-            if(!this.o.D) {
+            if(!this.o.isStatic) {
                this.w();
             }
          }
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
+            var2 = this.o.getData(new Location(MathHelper.floor(this.s), MathHelper.floor(this.aQ().b) - 1, MathHelper.floor(this.u))).c().K * 0.98F;
          }
 
          this.v *= (double)var2;
@@ -95,7 +95,7 @@ public class EntityItem extends Entity {
          }
 
          this.W();
-         if(!this.o.D && this.c >= 6000) {
+         if(!this.o.isStatic && this.c >= 6000) {
             this.J();
          }
 
@@ -233,10 +233,10 @@ public class EntityItem extends Entity {
    }
 
    public void d(EntityHuman var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          ItemStack var2 = this.l();
          int var3 = var2.b;
-         if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.d_())) && var1.bg.a(var2)) {
+         if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.getName())) && var1.bg.a(var2)) {
             if(var2.b() == Item.a(Blocks.LOG)) {
                var1.b((tq)AchievementList.g);
             }
@@ -277,7 +277,7 @@ public class EntityItem extends Entity {
       }
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.aL():fi.a("item." + this.l().a());
    }
 
@@ -287,7 +287,7 @@ public class EntityItem extends Entity {
 
    public void c(int var1) throws IOException {
       super.c(var1);
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.w();
       }
 

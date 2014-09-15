@@ -18,17 +18,17 @@ public class ja implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = new aqm(var1.readInt(), var1.readInt());
       this.b = new jb[var1.e()];
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         this.b[var2] = new jb(this, var1.readShort(), (IBlock)Block.d.a(var1.e()));
+         this.b[var2] = new jb(this, var1.readShort(), (IBlockData)Block.d.a(var1.e()));
       }
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeInt(this.a.a);
       var1.writeInt(this.a.b);
       var1.b(this.b.length);

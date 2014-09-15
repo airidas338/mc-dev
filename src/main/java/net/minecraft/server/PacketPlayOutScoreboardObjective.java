@@ -17,7 +17,7 @@ public class PacketPlayOutScoreboardObjective implements Packet {
       this.d = var2;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(16);
       this.d = var1.readByte();
       if(this.d == 0 || this.d == 2) {
@@ -27,7 +27,7 @@ public class PacketPlayOutScoreboardObjective implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeByte(this.d);
       if(this.d == 0 || this.d == 2) {

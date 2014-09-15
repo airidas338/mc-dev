@@ -310,7 +310,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
    }
 
    public boolean a(World var1, Location var2, EntityHuman var3) {
-      if(var1.t.q() != 0) {
+      if(var1.worldProvider.q() != 0) {
          return false;
       } else if(this.aN().n().d()) {
          return false;

@@ -12,7 +12,7 @@ public class BlockDirt extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       if(var1.b(a) == avd.c) {
          Block var4 = var2.getData(var3.a()).c();
          var1 = var1.a(b, Boolean.valueOf(var4 == Blocks.SNOW_BLOCK || var4 == Blocks.SNOW));
@@ -22,15 +22,15 @@ public class BlockDirt extends Block {
    }
 
    public int j(World var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       return var3.c() != this?0:((avd)var3.b(a)).a();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, avd.a(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((avd)var1.b(a)).a();
    }
 
@@ -38,7 +38,7 @@ public class BlockDirt extends Block {
       return new bed(this, new bex[]{a, b});
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       avd var2 = (avd)var1.b(a);
       if(var2 == avd.c) {
          var2 = avd.a;

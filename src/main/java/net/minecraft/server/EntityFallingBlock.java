@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class EntityFallingBlock extends Entity {
 
-   private IBlock d;
+   private IBlockData d;
    public int a;
    public boolean b = true;
    private boolean e;
@@ -20,7 +20,7 @@ public class EntityFallingBlock extends Entity {
       super(var1);
    }
 
-   public EntityFallingBlock(World var1, double var2, double var4, double var6, IBlock var8) {
+   public EntityFallingBlock(World var1, double var2, double var4, double var6, IBlockData var8) {
       super(var1);
       this.d = var8;
       this.k = true;
@@ -57,7 +57,7 @@ public class EntityFallingBlock extends Entity {
             var2 = new Location(this);
             if(this.o.getData(var2).c() == var1) {
                this.o.g(var2);
-            } else if(!this.o.D) {
+            } else if(!this.o.isStatic) {
                this.J();
                return;
             }
@@ -68,7 +68,7 @@ public class EntityFallingBlock extends Entity {
          this.v *= 0.9800000190734863D;
          this.w *= 0.9800000190734863D;
          this.x *= 0.9800000190734863D;
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             var2 = new Location(this);
             if(this.C) {
                this.v *= 0.699999988079071D;
@@ -104,7 +104,7 @@ public class EntityFallingBlock extends Entity {
                      this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                   }
                }
-            } else if(this.a > 100 && !this.o.D && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
+            } else if(this.a > 100 && !this.o.isStatic && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
                if(this.b && this.o.Q().b("doTileDrops")) {
                   this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                }
@@ -147,7 +147,7 @@ public class EntityFallingBlock extends Entity {
 
    protected void b(NBTTagCompound var1) {
       Block var2 = this.d != null?this.d.c():Blocks.AIR;
-      RegistryPrepender var3 = (RegistryPrepender)Block.c.c(var2);
+      RegistryPrepender var3 = (RegistryPrepender)Block.REGISTRY.c(var2);
       var1.setString("Block", var3 == null?"":var3.toString());
       var1.setByte("Data", (byte)var2.c(this.d));
       var1.setByte("Time", (byte)this.a);
@@ -209,7 +209,7 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   public IBlock l() {
+   public IBlockData l() {
       return this.d;
    }
 }

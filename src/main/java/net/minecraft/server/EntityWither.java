@@ -69,7 +69,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       double var4;
       double var6;
       double var8;
-      if(!this.o.D && this.s(0) > 0) {
+      if(!this.o.isStatic && this.s(0) > 0) {
          Entity var1 = this.o.a(this.s(0));
          if(var1 != null) {
             if(this.t < var1.t || !this.ck() && this.t < var1.t + 5.0D) {
@@ -135,7 +135,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
          double var5 = this.u(var21);
          double var7 = this.v(var21);
          this.o.a(ew.l, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
-         if(var22 && this.o.s.nextInt(4) == 0) {
+         if(var22 && this.o.random.nextInt(4) == 0) {
             this.o.a(ew.p, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
          }
       }
@@ -225,9 +225,9 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
          if(this.bo > 0) {
             --this.bo;
             if(this.bo == 0 && this.o.Q().b("mobGriefing")) {
-               var1 = MathHelper.c(this.t);
-               var12 = MathHelper.c(this.s);
-               int var15 = MathHelper.c(this.u);
+               var1 = MathHelper.floor(this.t);
+               var12 = MathHelper.floor(this.s);
+               int var15 = MathHelper.floor(this.u);
                boolean var18 = false;
 
                for(int var17 = -1; var17 <= 1; ++var17) {
@@ -373,7 +373,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
          var3.u();
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          Iterator var4 = this.o.getEntities(EntityHuman.class, this.aQ().b(50.0D, 100.0D, 50.0D)).iterator();
 
          while(var4.hasNext()) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class CommandToggleDownfall extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "toggledownfall";
    }
 
@@ -14,7 +14,7 @@ public class CommandToggleDownfall extends CommandAbstract {
       return "commands.downfall.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       this.d();
       a(var1, this, "commands.downfall.success", new Object[0]);
    }

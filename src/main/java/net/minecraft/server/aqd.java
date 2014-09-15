@@ -26,7 +26,7 @@ public class aqd extends ArrayList {
       }
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       var1.writeByte((byte)(this.size() & 255));
 
       for(int var2 = 0; var2 < this.size(); ++var2) {

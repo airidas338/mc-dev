@@ -20,7 +20,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
    }
 
    public avk e(IBlockAccess var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() == this) {
          var3 = this.a(var3, var1, var2);
          return (avk)var3.b(a);
@@ -30,11 +30,11 @@ public class BlockTallPlant extends BlockPlant implements atz {
    }
 
    public boolean c(World var1, Location var2) {
-      return super.c(var1, var2) && var1.d(var2.a());
+      return super.c(var1, var2) && var1.isEmpty(var2.a());
    }
 
    public boolean f(World var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() != this) {
          return true;
       } else {
@@ -43,7 +43,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       }
    }
 
-   protected void e(World var1, Location var2, IBlock var3) {
+   protected void e(World var1, Location var2, IBlockData var3) {
       if(!this.f(var1, var2, var3)) {
          boolean var4 = var3.b(b) == avj.a;
          Location var5 = var4?var2:var2.a();
@@ -64,16 +64,16 @@ public class BlockTallPlant extends BlockPlant implements atz {
       }
    }
 
-   public boolean f(World var1, Location var2, IBlock var3) {
+   public boolean f(World var1, Location var2, IBlockData var3) {
       if(var3.b(b) == avj.a) {
          return var1.getData(var2.b()).c() == this;
       } else {
-         IBlock var4 = var1.getData(var2.a());
+         IBlockData var4 = var1.getData(var2.a());
          return var4.c() == this && super.f(var1, var2, var4);
       }
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       if(var1.b(b) == avj.a) {
          return null;
       } else {
@@ -82,7 +82,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       }
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return var1.b(b) != avj.a && var1.b(a) != avk.c?((avk)var1.b(a)).a():0;
    }
 
@@ -91,25 +91,25 @@ public class BlockTallPlant extends BlockPlant implements atz {
       var1.a(var2.a(), this.P().a(b, avj.a), var4);
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2.a(), this.P().a(b, avj.a), 2);
    }
 
-   public void a(World var1, EntityHuman var2, Location var3, IBlock var4, TileEntity var5) {
-      if(var1.D || var2.bY() == null || var2.bY().b() != Items.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
+   public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
+      if(var1.isStatic || var2.bY() == null || var2.bY().b() != Items.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
          super.a(var1, var2, var3, var4, var5);
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var3.b(b) == avj.a) {
          if(var1.getData(var2.b()).c() == this) {
             if(!var4.by.canInstantlyBuild) {
-               IBlock var5 = var1.getData(var2.b());
+               IBlockData var5 = var1.getData(var2.b());
                avk var6 = (avk)var5.b(a);
                if(var6 != avk.d && var6 != avk.c) {
                   var1.b(var2.b(), true);
-               } else if(!var1.D) {
+               } else if(!var1.isStatic) {
                   if(var4.bY() != null && var4.bY().b() == Items.be) {
                      this.b(var1, var2, var5, var4);
                      var1.g(var2.b());
@@ -130,7 +130,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       super.a(var1, var2, var3, var4);
    }
 
-   private boolean b(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   private boolean b(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       avk var5 = (avk)var3.b(a);
       if(var5 != avk.d && var5 != avk.c) {
          return false;
@@ -146,26 +146,26 @@ public class BlockTallPlant extends BlockPlant implements atz {
       return this.e(var1, var2).a();
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, boolean var4) {
+   public boolean a(World var1, Location var2, IBlockData var3, boolean var4) {
       avk var5 = this.e(var1, var2);
       return var5 != avk.c && var5 != avk.d;
    }
 
-   public boolean a(World var1, Random var2, Location var3, IBlock var4) {
+   public boolean a(World var1, Random var2, Location var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, Location var3, IBlock var4) {
+   public void b(World var1, Random var2, Location var3, IBlockData var4) {
       a(var1, var3, new ItemStack(this, 1, this.e(var1, var3).a()));
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return (var1 & 8) > 0?this.P().a(b, avj.a):this.P().a(b, avj.b).a(a, avk.a(var1 & 7));
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       if(var1.b(b) == avj.a) {
-         IBlock var4 = var2.getData(var3.b());
+         IBlockData var4 = var2.getData(var3.b());
          if(var4.c() == this) {
             var1 = var1.a(a, var4.b(a));
          }
@@ -174,7 +174,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       return var1;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return var1.b(b) == avj.a?8:((avk)var1.b(a)).a();
    }
 

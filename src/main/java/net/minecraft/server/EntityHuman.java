@@ -53,7 +53,7 @@ public abstract class EntityHuman extends EntityLiving {
       super(var1);
       this.ao = a(var2);
       this.bF = var2;
-      this.bh = new ajb(this.bg, !var1.D, this);
+      this.bh = new ajb(this.bg, !var1.isStatic, this);
       this.bi = this.bh;
       Location var3 = var1.M();
       this.setPositionRotation((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
@@ -90,7 +90,7 @@ public abstract class EntityHuman extends EntityLiving {
    public void bU() {
       this.g = null;
       this.h = 0;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.f(false);
       }
 
@@ -113,7 +113,7 @@ public abstract class EntityHuman extends EntityLiving {
                this.b(var1, 5);
             }
 
-            if(--this.h == 0 && !this.o.D) {
+            if(--this.h == 0 && !this.o.isStatic) {
                this.s();
             }
          } else {
@@ -131,7 +131,7 @@ public abstract class EntityHuman extends EntityLiving {
             this.b = 100;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             if(!this.p()) {
                this.a(true, true, false);
             } else if(this.o.w()) {
@@ -146,7 +146,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       super.s_();
-      if(!this.o.D && this.bi != null && !this.bi.a(this)) {
+      if(!this.o.isStatic && this.bi != null && !this.bi.a(this)) {
          this.n();
          this.bi = this.bh;
       }
@@ -193,7 +193,7 @@ public abstract class EntityHuman extends EntityLiving {
          this.e = null;
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.bj.a(this);
          this.b(ty.g);
          if(this.isAlive()) {
@@ -232,7 +232,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    protected void b(ItemStack var1, int var2) {
       if(var1.m() == ano.c) {
-         this.a("random.drink", 0.5F, this.o.s.nextFloat() * 0.1F + 0.9F);
+         this.a("random.drink", 0.5F, this.o.random.nextFloat() * 0.1F + 0.9F);
       }
 
       if(var1.m() == ano.b) {
@@ -283,7 +283,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void ak() throws IOException {
-      if(!this.o.D && this.aw()) {
+      if(!this.o.isStatic && this.aw()) {
          this.a((Entity)null);
          this.c(false);
       } else {
@@ -330,7 +330,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.bl = this.bm;
       super.m();
       AttributeInstance var1 = this.getAttributeInstance(GenericAttributes.d);
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          var1.a((double)this.by.b());
       }
 
@@ -398,7 +398,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.a(0.2F, 0.2F);
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
-      if(this.d_().equals("Notch")) {
+      if(this.getName().equals("Notch")) {
          this.a(new ItemStack(Items.e, 1), true, false);
       }
 
@@ -440,14 +440,14 @@ public abstract class EntityHuman extends EntityLiving {
 
       while(var4.hasNext()) {
          ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
-         ScoreboardScore var6 = this.co().getPlayerScoreForObjective(this.d_(), var5);
+         ScoreboardScore var6 = this.co().getPlayerScoreForObjective(this.getName(), var5);
          var6.a();
       }
 
    }
 
    private Collection e(Entity var1) {
-      ScoreboardTeam var2 = this.co().getPlayerTeam(this.d_());
+      ScoreboardTeam var2 = this.co().getPlayerTeam(this.getName());
       if(var2 != null) {
          int var3 = var2.l().b();
          if(var3 >= 0 && var3 < IScoreboardCriteria.i.length) {
@@ -455,13 +455,13 @@ public abstract class EntityHuman extends EntityLiving {
 
             while(var4.hasNext()) {
                ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
-               ScoreboardScore var6 = this.co().getPlayerScoreForObjective(var1.d_(), var5);
+               ScoreboardScore var6 = this.co().getPlayerScoreForObjective(var1.getName(), var5);
                var6.a();
             }
          }
       }
 
-      ScoreboardTeam var7 = this.co().getPlayerTeam(var1.d_());
+      ScoreboardTeam var7 = this.co().getPlayerTeam(var1.getName());
       if(var7 != null) {
          int var8 = var7.l().b();
          if(var8 >= 0 && var8 < IScoreboardCriteria.h.length) {
@@ -490,7 +490,7 @@ public abstract class EntityHuman extends EntityLiving {
          EntityItem var6 = new EntityItem(this.o, this.s, var4, this.u, var1);
          var6.a(40);
          if(var3) {
-            var6.c(this.d_());
+            var6.c(this.getName());
          }
 
          float var7;
@@ -649,7 +649,7 @@ public abstract class EntityHuman extends EntityLiving {
          if(this.bm() <= 0.0F) {
             return false;
          } else {
-            if(this.bI() && !this.o.D) {
+            if(this.bI() && !this.o.isStatic) {
                this.a(true, true, false);
             }
 
@@ -736,9 +736,9 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(bdj var1) {}
 
-   public void a(aqf var1) {}
+   public void a(CommandBlockListenerAbstract var1) {}
 
-   public void a(aqb var1) throws IOException {}
+   public void a(aqb var1) {}
 
    public void a(IInventory var1) {}
 
@@ -924,12 +924,12 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public ahf a(Location var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(this.bI() || !this.isAlive()) {
             return ahf.e;
          }
 
-         if(!this.o.t.d()) {
+         if(!this.o.worldProvider.d()) {
             return ahf.b;
          }
 
@@ -954,7 +954,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       this.a(0.2F, 0.2F);
-      if(this.o.e(var1)) {
+      if(this.o.isLoaded(var1)) {
          EnumFacing var7 = (EnumFacing)this.o.getData(var1).b(BlockDirectional.N);
          float var3 = 0.5F;
          float var8 = 0.5F;
@@ -982,7 +982,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.b = 0;
       this.bv = var1;
       this.v = this.x = this.w = 0.0D;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.o.d();
       }
 
@@ -1010,7 +1010,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
-      IBlock var4 = this.o.getData(this.bv);
+      IBlockData var4 = this.o.getData(this.bv);
       if(this.bv != null && var4.c() == Blocks.BED) {
          this.o.a(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
          Location var5 = BlockBed.a(this.o, this.bv, 0);
@@ -1022,7 +1022,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       this.bu = false;
-      if(!this.o.D && var2) {
+      if(!this.o.isStatic && var2) {
          this.o.d();
       }
 
@@ -1175,7 +1175,7 @@ public abstract class EntityHuman extends EntityLiving {
                this.a(ty.q, var7);
                if(this.e == null) {
                   this.e = new Location(this);
-               } else if(this.e.c((double)MathHelper.c(this.s), (double)MathHelper.c(this.t), (double)MathHelper.c(this.u)) >= 1000000.0D) {
+               } else if(this.e.c((double)MathHelper.floor(this.s), (double)MathHelper.floor(this.t), (double)MathHelper.floor(this.u)) >= 1000000.0D) {
                   this.b((tq)AchievementList.q);
                }
             } else if(this.m instanceof EntityBoat) {
@@ -1287,7 +1287,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(float var1) {
       if(!this.by.isInvulnerable) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.bj.a(var1);
          }
 
@@ -1310,7 +1310,7 @@ public abstract class EntityHuman extends EntityLiving {
       if(var1 != this.g) {
          this.g = var1;
          this.h = var2;
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.f(true);
          }
 
@@ -1376,7 +1376,7 @@ public abstract class EntityHuman extends EntityLiving {
 
    public void a(EnumGamemode var1) throws IOException {}
 
-   public String d_() {
+   public String getName() {
       return this.bF.getName();
    }
 
@@ -1411,14 +1411,14 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public ScoreboardTeamBase bN() {
-      return this.co().getPlayerTeam(this.d_());
+      return this.co().getPlayerTeam(this.getName());
    }
 
-   public IChatBaseComponent e_() {
-      ChatComponentText var1 = new ChatComponentText(ScoreboardTeam.getPlayerDisplayName(this.bN(), this.d_()));
-      var1.b().a(new hm(hn.e, "/msg " + this.d_() + " "));
-      var1.b().a(this.aP());
-      var1.b().a(this.d_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      ChatComponentText var1 = new ChatComponentText(ScoreboardTeam.getPlayerDisplayName(this.bN(), this.getName()));
+      var1.getChatModifier().a(new hm(hn.e, "/msg " + this.getName() + " "));
+      var1.getChatModifier().a(this.aP());
+      var1.getChatModifier().a(this.getName());
       return var1;
    }
 

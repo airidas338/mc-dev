@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class bcy extends bcx {
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.a:"container.dropper";
    }
 

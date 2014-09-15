@@ -12,15 +12,15 @@ public interface IScoreboardCriteria {
 	IScoreboardCriteria e = new ScoreboardBaseCriteria("playerKillCount");
 	IScoreboardCriteria f = new ScoreboardBaseCriteria("totalKillCount");
 	IScoreboardCriteria g = new ScoreboardHealthCriteria("health");
-	IScoreboardCriteria[] h = new IScoreboardCriteria[] { new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.a), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.b), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.c), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.d),
-			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.e), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.f), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.g), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.h),
-			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.i), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.j), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.k), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.l),
-			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.m), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.n), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.o), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.p) };
-	IScoreboardCriteria[] i = new IScoreboardCriteria[] { new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.a), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.b), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.c),
-			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.d), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.e), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.f), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.g),
-			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.h), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.i), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.j), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.k),
-			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.l), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.m), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.n), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.o),
-			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.p) };
+	IScoreboardCriteria[] h = new IScoreboardCriteria[] { new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.BLACK), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_BLUE), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_GREEN), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_AQUA),
+			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_RED), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_PURPLE), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.GOLD), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.GRAY),
+			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.DARK_GRAY), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.BLUE), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.GREEN), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.AQUA),
+			new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.RED), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.LIGHT_PURPLE), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.YELLOW), new ScoreboardTeamCriteria("teamkill.", EnumChatFormat.WHITE) };
+	IScoreboardCriteria[] i = new IScoreboardCriteria[] { new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.BLACK), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_BLUE), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_GREEN),
+			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_AQUA), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_RED), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_PURPLE), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.GOLD),
+			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.GRAY), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.DARK_GRAY), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.BLUE), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.GREEN),
+			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.AQUA), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.RED), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.LIGHT_PURPLE), new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.YELLOW),
+			new ScoreboardTeamCriteria("killedByTeam.", EnumChatFormat.WHITE) };
 
 	String getName();
 

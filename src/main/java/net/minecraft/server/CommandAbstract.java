@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public abstract class CommandAbstract implements ICommand {
 
-	private static y a;
+	private static ICommandDispatcher a;
 
 	public int a() {
 		return 4;
@@ -24,11 +24,11 @@ public abstract class CommandAbstract implements ICommand {
 		return Collections.emptyList();
 	}
 
-	public boolean a(ICommandListener var1) {
-		return var1.a(this.a(), this.c());
+	public boolean canUse(ICommandListener var1) {
+		return var1.a(this.a(), this.getCommand());
 	}
 
-	public List a(ICommandListener var1, String[] var2, Location var3) {
+	public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
 		return null;
 	}
 
@@ -75,7 +75,7 @@ public abstract class CommandAbstract implements ICommand {
 	}
 
 	public static Location a(ICommandListener var0, String[] var1, int var2, boolean var3) throws ExceptionInvalidNumber {
-		Location var4 = var0.c();
+		Location var4 = var0.getLocation();
 		return new Location(b((double) var4.n(), var1[var2], -30000000, 30000000, var3), b((double) var4.o(), var1[var2 + 1], 0, 256, false), b((double) var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
 
@@ -89,11 +89,7 @@ public abstract class CommandAbstract implements ICommand {
 			}
 		} catch (NumberFormatException var3) {
 			throw new ExceptionInvalidNumber("commands.generic.num.invalid", new Object[] { var0 });
-		} catch (ExceptionInvalidNumber e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		return 0;
 	}
 
 	public static double a(String var0, double var1) throws ExceptionInvalidNumber {
@@ -188,7 +184,7 @@ public abstract class CommandAbstract implements ICommand {
 
 	public static String d(ICommandListener var0, String var1) throws ExceptionPlayerNotFound {
 		try {
-			return a(var0, var1).d_();
+			return a(var0, var1).getName();
 		} catch (ExceptionPlayerNotFound var3) {
 			if (ah.b(var1)) {
 				throw var3;
@@ -200,7 +196,7 @@ public abstract class CommandAbstract implements ICommand {
 
 	public static String e(ICommandListener var0, String var1) throws ExceptionInvalidUUID {
 		try {
-			return a(var0, var1).d_();
+			return a(var0, var1).getName();
 		} catch (ExceptionPlayerNotFound var5) {
 			try {
 				return b(var0, var1).aJ().toString();
@@ -343,10 +339,10 @@ public abstract class CommandAbstract implements ICommand {
 
 	public static Block g(ICommandListener var0, String var1) throws ExceptionInvalidNumber {
 		RegistryPrepender var2 = new RegistryPrepender(var1);
-		if (!Block.c.d(var2)) {
+		if (!Block.REGISTRY.d(var2)) {
 			throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
 		} else {
-			Block var3 = (Block) Block.c.a(var2);
+			Block var3 = (Block) Block.REGISTRY.a(var2);
 			if (var3 == null) {
 				throw new ExceptionInvalidNumber("commands.give.notFound", new Object[] { var2 });
 			} else {
@@ -453,7 +449,7 @@ public abstract class CommandAbstract implements ICommand {
 		return var3;
 	}
 
-	public boolean b(String[] var1, int var2) {
+	public boolean isListStart(String[] var1, int var2) {
 		return false;
 	}
 
@@ -468,12 +464,12 @@ public abstract class CommandAbstract implements ICommand {
 
 	}
 
-	public static void a(y var0) {
+	public static void a(ICommandDispatcher var0) {
 		a = var0;
 	}
 
 	public int a(ICommand var1) {
-		return this.c().compareTo(var1.c());
+		return this.getCommand().compareTo(var1.getCommand());
 	}
 
 	// $FF: synthetic method

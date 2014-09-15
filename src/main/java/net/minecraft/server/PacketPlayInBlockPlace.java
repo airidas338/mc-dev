@@ -28,7 +28,7 @@ public class PacketPlayInBlockPlace implements Packet {
       this.g = var6;
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.b = var1.c();
       this.c = var1.readUnsignedByte();
       this.d = var1.i();
@@ -37,7 +37,7 @@ public class PacketPlayInBlockPlace implements Packet {
       this.g = (float)var1.readUnsignedByte() / 16.0F;
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.a(this.b);
       var1.writeByte(this.c);
       var1.a(this.d);

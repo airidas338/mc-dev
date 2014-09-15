@@ -17,13 +17,13 @@ public class la implements Packet {
       this.c = var3 == null?null:var3.k();
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.e();
       this.b = var1.readShort();
       this.c = var1.i();
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.b(this.a);
       var1.writeShort(this.b);
       var1.a(this.c);

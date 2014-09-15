@@ -7,7 +7,7 @@ public class mi extends PacketPlayInFlying {
       this.h = true;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readDouble();
       this.b = var1.readDouble();
       this.c = var1.readDouble();
@@ -16,7 +16,7 @@ public class mi extends PacketPlayInFlying {
       super.a(var1);
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeDouble(this.a);
       var1.writeDouble(this.b);
       var1.writeDouble(this.c);

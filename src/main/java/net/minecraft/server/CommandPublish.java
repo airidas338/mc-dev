@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class CommandPublish extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "publish";
    }
 
@@ -10,7 +10,7 @@ public class CommandPublish extends CommandAbstract {
       return "commands.publish.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       String var3 = MinecraftServer.M().a(EnumGamemode.SURVIVAL, false);
       if(var3 != null) {
          a(var1, this, "commands.publish.started", new Object[]{var3});

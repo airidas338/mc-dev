@@ -28,7 +28,7 @@ public class akb extends Item {
                   return var1;
                }
 
-               IBlock var7 = var2.getData(var6);
+               IBlockData var7 = var2.getData(var6);
                Material var8 = var7.c().r();
                if(var8 == Material.WATER && ((Integer)var7.b(axl.b)).intValue() == 0) {
                   var2.g(var6);
@@ -82,20 +82,20 @@ public class akb extends Item {
       } else {
          Material var3 = var1.getData(var2).c().r();
          boolean var4 = !var3.a();
-         if(!var1.d(var2) && !var4) {
+         if(!var1.isEmpty(var2) && !var4) {
             return false;
          } else {
-            if(var1.t.n() && this.a == Blocks.WATER) {
+            if(var1.worldProvider.n() && this.a == Blocks.WATER) {
                int var5 = var2.n();
                int var6 = var2.o();
                int var7 = var2.p();
-               var1.a((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
+               var1.a((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var8 = 0; var8 < 8; ++var8) {
                   var1.a(ew.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
                }
             } else {
-               if(!var1.D && var4 && !var3.d()) {
+               if(!var1.isStatic && var4 && !var3.d()) {
                   var1.b(var2, true);
                }
 

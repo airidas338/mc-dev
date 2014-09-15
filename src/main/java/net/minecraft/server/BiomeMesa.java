@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class BiomeMesa extends BiomeBase {
 
-   private IBlock[] aD;
+   private IBlockData[] aD;
    private long aE;
    private NoiseGenerator3 aF;
    private NoiseGenerator3 aG;
@@ -77,8 +77,8 @@ public class BiomeMesa extends BiomeBase {
       var10 = var4 & 15;
       var11 = var5 & 15;
       boolean var23 = true;
-      IBlock var13 = Blocks.STAINED_HARDENED_CLAY.P();
-      IBlock var24 = this.al;
+      IBlockData var13 = Blocks.STAINED_HARDENED_CLAY.P();
+      IBlockData var24 = this.al;
       int var15 = (int)(var6 / 3.0D + 3.0D + var2.nextDouble() * 0.25D);
       boolean var25 = Math.cos(var6 / 3.0D * 3.141592653589793D) > 0.0D;
       int var17 = -1;
@@ -92,11 +92,11 @@ public class BiomeMesa extends BiomeBase {
          if(var19 <= var2.nextInt(5)) {
             var3.a(var11, var19, var10, Blocks.BEDROCK.P());
          } else {
-            IBlock var20 = var3.a(var11, var19, var10);
+            IBlockData var20 = var3.a(var11, var19, var10);
             if(var20.c().r() == Material.AIR) {
                var17 = -1;
             } else if(var20.c() == Blocks.STONE) {
-               IBlock var21;
+               IBlockData var21;
                if(var17 == -1) {
                   var26 = false;
                   if(var15 <= 0) {
@@ -157,7 +157,7 @@ public class BiomeMesa extends BiomeBase {
    }
 
    private void a(long var1) {
-      this.aD = new IBlock[64];
+      this.aD = new IBlockData[64];
       Arrays.fill(this.aD, Blocks.HARDENED_CLAY.P());
       Random var3 = new Random(var1);
       this.aH = new NoiseGenerator3(var3, 1);
@@ -229,13 +229,13 @@ public class BiomeMesa extends BiomeBase {
 
    }
 
-   private IBlock a(int var1, int var2, int var3) {
+   private IBlockData a(int var1, int var2, int var3) {
       int var4 = (int)Math.round(this.aH.a((double)var1 * 1.0D / 512.0D, (double)var1 * 1.0D / 512.0D) * 2.0D);
       return this.aD[(var2 + var4 + 64) % 64];
    }
 
    protected BiomeBase d(int var1) {
-      boolean var2 = this.az == BiomeBase.MESA.az;
+      boolean var2 = this.id == BiomeBase.MESA.id;
       BiomeMesa var3 = new BiomeMesa(var1, var2, this.aJ);
       if(!var2) {
          var3.a(g);

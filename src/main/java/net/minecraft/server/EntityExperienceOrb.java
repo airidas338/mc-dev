@@ -84,7 +84,7 @@ public class EntityExperienceOrb extends Entity {
       this.d(this.v, this.w, this.x);
       float var13 = 0.98F;
       if(this.C) {
-         var13 = this.o.getData(new Location(MathHelper.c(this.s), MathHelper.c(this.aQ().b) - 1, MathHelper.c(this.u))).c().K * 0.98F;
+         var13 = this.o.getData(new Location(MathHelper.floor(this.s), MathHelper.floor(this.aQ().b) - 1, MathHelper.floor(this.u))).c().K * 0.98F;
       }
 
       this.v *= (double)var13;
@@ -137,7 +137,7 @@ public class EntityExperienceOrb extends Entity {
    }
 
    public void d(EntityHuman var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          if(this.c == 0 && var1.bn == 0) {
             var1.bn = 2;
             this.o.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.8F));

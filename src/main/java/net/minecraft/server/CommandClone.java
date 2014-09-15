@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CommandClone extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "clone";
    }
 
@@ -19,7 +19,7 @@ public class CommandClone extends CommandAbstract {
       return "commands.clone.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 9) {
          throw new ExceptionUsage("commands.clone.usage", new Object[0]);
       } else {
@@ -44,7 +44,7 @@ public class CommandClone extends CommandAbstract {
                }
 
                if(var6.b >= 0 && var6.e < 256 && var7.b >= 0 && var7.e < 256) {
-                  World var12 = var1.e();
+                  World var12 = var1.getWorld();
                   if(var12.a(var6) && var12.a(var7)) {
                      boolean var13 = false;
                      if(var2.length >= 10) {
@@ -73,7 +73,7 @@ public class CommandClone extends CommandAbstract {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
                               Location var22 = new Location(var21, var20, var19);
                               Location var23 = var22.a((fd)var18);
-                              IBlock var24 = var12.getData(var22);
+                              IBlockData var24 = var12.getData(var22);
                               if((!var13 || var24.c() != Blocks.AIR) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
                                  TileEntity var25 = var12.s(var22);
                                  if(var25 != null) {
@@ -188,7 +188,7 @@ public class CommandClone extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.c.c()):null)))));
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.REGISTRY.c()):null)))));
    }
 }

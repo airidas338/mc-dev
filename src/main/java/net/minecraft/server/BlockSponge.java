@@ -15,20 +15,20 @@ public class BlockSponge extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((Boolean)var1.b(a)).booleanValue()?1:0;
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
       super.a(var1, var2, var3, var4);
    }
 
-   protected void e(World var1, Location var2, IBlock var3) {
+   protected void e(World var1, Location var2, IBlockData var3) {
       if(!((Boolean)var3.b(a)).booleanValue() && this.d(var1, var2)) {
          var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
          var1.b(2001, var2, Block.a((Block)Blocks.STATIONARY_WATER));
@@ -78,11 +78,11 @@ public class BlockSponge extends Block {
       return var5 > 0;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Boolean.valueOf((var1 & 1) == 1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Boolean)var1.b(a)).booleanValue()?1:0;
    }
 

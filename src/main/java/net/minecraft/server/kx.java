@@ -20,12 +20,12 @@ public class kx implements Packet {
 
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.e();
       this.b = DataWatcher.b(var1);
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.b(this.a);
       DataWatcher.a(this.b, var1);
    }

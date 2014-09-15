@@ -54,7 +54,7 @@ public class EntityTNTPrimed extends Entity {
 
       if(this.a-- <= 0) {
          this.J();
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.l();
          }
       } else {

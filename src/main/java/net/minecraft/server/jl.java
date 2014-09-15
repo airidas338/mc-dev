@@ -15,12 +15,12 @@ public class jl implements Packet {
       this.b = var2;
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.e();
       this.b = var1.h();
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.b(this.a);
       var1.a(this.b);
    }

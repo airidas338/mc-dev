@@ -16,7 +16,7 @@ public class aju extends Item {
    }
 
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
-      IBlock var9 = var3.getData(var4);
+      IBlockData var9 = var3.getData(var4);
       Block var10 = var9.c();
       if(var10 == Blocks.SNOW && ((Integer)var9.b(BlockSnow.a)).intValue() < 1) {
          var5 = EnumFacing.UP;
@@ -32,7 +32,7 @@ public class aju extends Item {
          return false;
       } else if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
          int var11 = this.a(var1.i());
-         IBlock var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
+         IBlockData var12 = this.a.a(var3, var4, var5, var6, var7, var8, var11, var2);
          if(var3.a(var4, var12, 3)) {
             var12 = var3.getData(var4);
             if(var12.c() == this.a) {

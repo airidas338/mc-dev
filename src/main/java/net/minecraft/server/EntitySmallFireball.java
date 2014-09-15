@@ -19,7 +19,7 @@ public class EntitySmallFireball extends EntityFireball {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          boolean var2;
          if(var1.d != null) {
             var2 = var1.d.a(DamageSource.a((EntityFireball)this, this.a), 5.0F);
@@ -37,7 +37,7 @@ public class EntitySmallFireball extends EntityFireball {
 
             if(var2) {
                Location var3 = var1.a().a(var1.b);
-               if(this.o.d(var3)) {
+               if(this.o.isEmpty(var3)) {
                   this.o.a(var3, Blocks.FIRE.P());
                }
             }

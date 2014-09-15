@@ -17,7 +17,7 @@ public class BlockFire extends Block {
    private final Map T = Maps.newIdentityHashMap();
 
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       int var4 = var3.n();
       int var5 = var3.o();
       int var6 = var3.p();
@@ -84,7 +84,7 @@ public class BlockFire extends Block {
       this.T.put(var1, Integer.valueOf(var3));
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -104,7 +104,7 @@ public class BlockFire extends Block {
       return 30;
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.Q().b("doFireTick")) {
          if(!this.c(var1, var2)) {
             var1.g(var2);
@@ -112,7 +112,7 @@ public class BlockFire extends Block {
 
          Block var5 = var1.getData(var2.b()).c();
          boolean var6 = var5 == Blocks.NETHERRACK;
-         if(var1.t instanceof bgh && var5 == Blocks.BEDROCK) {
+         if(var1.worldProvider instanceof bgh && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 
@@ -210,7 +210,7 @@ public class BlockFire extends Block {
    private void a(World var1, Location var2, int var3, Random var4, int var5) {
       int var6 = this.c(var1.getData(var2).c());
       if(var4.nextInt(var3) < var6) {
-         IBlock var7 = var1.getData(var2);
+         IBlockData var7 = var1.getData(var2);
          if(var4.nextInt(var5 + 10) < 5 && !var1.C(var2)) {
             int var8 = var5 + var4.nextInt(5) / 4;
             if(var8 > 15) {
@@ -244,7 +244,7 @@ public class BlockFire extends Block {
    }
 
    private int m(World var1, Location var2) {
-      if(!var1.d(var2)) {
+      if(!var1.isEmpty(var2)) {
          return 0;
       } else {
          int var3 = 0;
@@ -272,32 +272,32 @@ public class BlockFire extends Block {
       return World.a((IBlockAccess)var1, var2.b()) || this.e(var1, var2);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(!World.a((IBlockAccess)var1, var2.b()) && !this.e(var1, var2)) {
          var1.g(var2);
       }
 
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
-      if(var1.t.q() > 0 || !Blocks.PORTAL.d(var1, var2)) {
+   public void c(World var1, Location var2, IBlockData var3) {
+      if(var1.worldProvider.q() > 0 || !Blocks.PORTAL.d(var1, var2)) {
          if(!World.a((IBlockAccess)var1, var2.b()) && !this.e(var1, var2)) {
             var1.g(var2);
          } else {
-            var1.a(var2, (Block)this, this.a(var1) + var1.s.nextInt(10));
+            var1.a(var2, (Block)this, this.a(var1) + var1.random.nextInt(10));
          }
       }
    }
 
-   public MaterialMapColor g(IBlock var1) {
+   public MaterialMapColor g(IBlockData var1) {
       return MaterialMapColor.f;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((Integer)var1.b(a)).intValue();
    }
 

@@ -16,12 +16,12 @@ public class ko implements Packet {
       }
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.c(32767);
       this.b = var1.c(40);
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.a(this.b);
    }

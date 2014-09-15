@@ -13,7 +13,7 @@ public class bmx extends bmv {
    public bmx(World var1, Random var2, int var3, int var4, int var5) {
       super(var3, var4);
       List var6 = bmy.a(var2, var5);
-      bnk var7 = new bnk(var1.v(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
+      bnk var7 = new bnk(var1.getWorldChunkManager(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
       this.a.add(var7);
       var7.a(var7, this.a, var2);
       List var8 = var7.g;

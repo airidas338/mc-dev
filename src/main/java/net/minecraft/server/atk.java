@@ -8,14 +8,14 @@ public class atk {
    private final World b;
    private final Location c;
    private final ati d;
-   private IBlock e;
+   private IBlockData e;
    private final boolean f;
    private final List g;
    // $FF: synthetic field
    final ati a;
 
 
-   public atk(ati var1, World var2, Location var3, IBlock var4) {
+   public atk(ati var1, World var2, Location var3, IBlockData var4) {
       this.a = var1;
       this.g = Lists.newArrayList();
       this.b = var2;
@@ -90,7 +90,7 @@ public class atk {
    }
 
    private atk b(Location var1) {
-      IBlock var3 = this.b.getData(var1);
+      IBlockData var3 = this.b.getData(var1);
       if(ati.d(var3)) {
          return new atk(this.a, this.b, var1, var3);
       } else {
@@ -339,7 +339,7 @@ public class atk {
       return this;
    }
 
-   public IBlock b() {
+   public IBlockData b() {
       return this.e;
    }
 }

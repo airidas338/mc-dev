@@ -17,7 +17,7 @@ public abstract class aud extends Block {
       this.M = var1;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -51,11 +51,11 @@ public abstract class aud extends Block {
       return false;
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return var1.getData(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, EnumFacing.DOWN).a(b, Boolean.valueOf(false));
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(this.e(var1, var2, var3)) {
          EnumFacing var5 = (EnumFacing)var3.b(a);
          if(!var1.getData(var2.a(var5.d())).c().t()) {
@@ -66,7 +66,7 @@ public abstract class aud extends Block {
 
    }
 
-   private boolean e(World var1, Location var2, IBlock var3) {
+   private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.c(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -80,7 +80,7 @@ public abstract class aud extends Block {
       this.d(var1.getData(var2));
    }
 
-   private void d(IBlock var1) {
+   private void d(IBlockData var1) {
       EnumFacing var2 = (EnumFacing)var1.b(a);
       boolean var3 = ((Boolean)var1.b(b)).booleanValue();
       float var4 = 0.25F;
@@ -110,7 +110,7 @@ public abstract class aud extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          return true;
       } else {
@@ -123,7 +123,7 @@ public abstract class aud extends Block {
       }
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
          this.b(var1, var2, (EnumFacing)var3.b(a));
       }
@@ -131,11 +131,11 @@ public abstract class aud extends Block {
       super.b(var1, var2, var3);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(var3.b(a) == var4?15:0);
    }
 
@@ -143,10 +143,10 @@ public abstract class aud extends Block {
       return true;
    }
 
-   public void a(World var1, Location var2, IBlock var3, Random var4) {}
+   public void a(World var1, Location var2, IBlockData var3, Random var4) {}
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
          if(((Boolean)var3.b(b)).booleanValue()) {
             if(this.M) {
                this.f(var1, var2, var3);
@@ -168,8 +168,8 @@ public abstract class aud extends Block {
       this.a(0.5F - var1, 0.5F - var2, 0.5F - var3, 0.5F + var1, 0.5F + var2, 0.5F + var3);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Entity var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Entity var4) {
+      if(!var1.isStatic) {
          if(this.M) {
             if(!((Boolean)var3.b(b)).booleanValue()) {
                this.f(var1, var2, var3);
@@ -178,7 +178,7 @@ public abstract class aud extends Block {
       }
    }
 
-   private void f(World var1, Location var2, IBlock var3) {
+   private void f(World var1, Location var2, IBlockData var3) {
       this.d(var3);
       List var4 = var1.getEntities(EntityArrow.class, new AxisAlignedBB((double)var2.n() + this.B, (double)var2.o() + this.C, (double)var2.p() + this.D, (double)var2.n() + this.E, (double)var2.o() + this.F, (double)var2.p() + this.G));
       boolean var5 = !var4.isEmpty();
@@ -208,7 +208,7 @@ public abstract class aud extends Block {
       var1.c(var2.a(var3.d()), (Block)this);
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2;
       switch(var1 & 7) {
       case 0:
@@ -234,7 +234,7 @@ public abstract class aud extends Block {
       return this.P().a(a, var2).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       int var2;
       switch(aue.a[((EnumFacing)var1.b(a)).ordinal()]) {
       case 1:

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CommandBan extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "ban";
    }
 
@@ -18,11 +18,11 @@ public class CommandBan extends CommandAbstract {
       return "commands.ban.usage";
    }
 
-   public boolean a(ICommandListener var1) {
-      return MinecraftServer.M().an().i().b() && super.a(var1);
+   public boolean canUse(ICommandListener var1) {
+      return MinecraftServer.M().an().i().b() && super.canUse(var1);
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length >= 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.M();
          GameProfile var4 = var3.aD().a(var2[0]);
@@ -34,7 +34,7 @@ public class CommandBan extends CommandAbstract {
                var5 = a(var1, var2, 1).c();
             }
 
-            GameProfileBanEntry var6 = new GameProfileBanEntry(var4, (Date)null, var1.d_(), (Date)null, var5);
+            GameProfileBanEntry var6 = new GameProfileBanEntry(var4, (Date)null, var1.getName(), (Date)null, var5);
             var3.an().i().a((JsonListEntry)var6);
             EntityPlayer var7 = var3.an().a(var2[0]);
             if(var7 != null) {
@@ -48,7 +48,7 @@ public class CommandBan extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length >= 1?a(var2, MinecraftServer.M().I()):null;
    }
 }

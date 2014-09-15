@@ -9,7 +9,7 @@ public abstract class ati extends Block {
       return d(var0.getData(var1));
    }
 
-   public static boolean d(IBlock var0) {
+   public static boolean d(IBlockData var0) {
       Block var1 = var0.c();
       return var1 == Blocks.RAILS || var1 == Blocks.GOLDEN_RAIL || var1 == Blocks.DETECTOR_RAIL || var1 == Blocks.ACTIVATOR_RAIL;
    }
@@ -21,7 +21,7 @@ public abstract class ati extends Block {
       this.a(CreativeModeTab.e);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -35,7 +35,7 @@ public abstract class ati extends Block {
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       atl var4 = var3.c() == this?(atl)var3.b(this.l()):null;
       if(var4 != null && var4.c()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
@@ -53,8 +53,8 @@ public abstract class ati extends Block {
       return World.a((IBlockAccess)var1, var2.b());
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   public void c(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
             this.a(var1, var2, var3, (Block)this);
@@ -63,8 +63,8 @@ public abstract class ati extends Block {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          atl var5 = (atl)var3.b(this.l());
          boolean var6 = false;
          if(!World.a((IBlockAccess)var1, var2.b())) {
@@ -91,17 +91,17 @@ public abstract class ati extends Block {
       }
    }
 
-   protected void b(World var1, Location var2, IBlock var3, Block var4) {}
+   protected void b(World var1, Location var2, IBlockData var3, Block var4) {}
 
-   protected IBlock a(World var1, Location var2, IBlock var3, boolean var4) {
-      return var1.D?var3:(new atk(this, var1, var2, var3)).a(var1.z(var2), var4).b();
+   protected IBlockData a(World var1, Location var2, IBlockData var3, boolean var4) {
+      return var1.isStatic?var3:(new atk(this, var1, var2, var3)).a(var1.z(var2), var4).b();
    }
 
    public int i() {
       return 0;
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       super.b(var1, var2, var3);
       if(((atl)var3.b(this.l())).c()) {
          var1.c(var2.a(), (Block)this);

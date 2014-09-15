@@ -65,7 +65,7 @@ public class blp extends bmm {
             double var8 = (1.25D * (double)var6 + var3.nextDouble()) * this.h * (double)var6;
             int var10 = (int)Math.round(Math.cos(var4) * var8);
             int var11 = (int)Math.round(Math.sin(var4) * var8);
-            Location var12 = this.c.v().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
+            Location var12 = this.c.getWorldChunkManager().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
             if(var12 != null) {
                var10 = var12.n() >> 4;
                var11 = var12.p() >> 4;

@@ -40,7 +40,7 @@ public class aio extends aib {
 
    public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.g.D) {
+      if(!this.g.isStatic) {
          for(int var2 = 0; var2 < 9; ++var2) {
             ItemStack var3 = this.a.b(var2);
             if(var3 != null) {

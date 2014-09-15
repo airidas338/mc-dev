@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandEntityData extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "entitydata";
    }
 
@@ -15,13 +15,13 @@ public class CommandEntityData extends CommandAbstract {
       return "commands.entitydata.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.entitydata.usage", new Object[0]);
       } else {
          Entity var3 = b(var1, var2[0]);
          if(var3 instanceof EntityHuman) {
-            throw new CommandException("commands.entitydata.noPlayers", new Object[]{var3.e_()});
+            throw new CommandException("commands.entitydata.noPlayers", new Object[]{var3.getScoreboardDisplayName()});
          } else {
             NBTTagCompound var4 = new NBTTagCompound();
             var3.e(var4);
@@ -47,11 +47,11 @@ public class CommandEntityData extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().I()):null;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

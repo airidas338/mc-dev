@@ -97,7 +97,7 @@ public class ajf extends aib {
       super.b(var1);
       this.a.a_((EntityHuman)null);
       super.b(var1);
-      if(!this.g.D) {
+      if(!this.g.isStatic) {
          ItemStack var2 = this.f.b(0);
          if(var2 != null) {
             var1.a(var2, false);

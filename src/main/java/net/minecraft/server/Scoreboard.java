@@ -287,7 +287,7 @@ public class Scoreboard {
 		default:
 			if (var0 >= 3 && var0 <= 18) {
 				EnumChatFormat var1 = EnumChatFormat.a(var0 - 3);
-				if (var1 != null && var1 != EnumChatFormat.v) {
+				if (var1 != null && var1 != EnumChatFormat.RESET) {
 					return "sidebar.team." + var1.e();
 				}
 			}

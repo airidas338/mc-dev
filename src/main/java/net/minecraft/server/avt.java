@@ -15,16 +15,16 @@ public class avt extends Block {
       super(var1);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      if(!var1.isStatic) {
          this.e(var1, var2);
       }
 
@@ -34,7 +34,7 @@ public class avt extends Block {
       if(d(var1, var2.b()) && var2.o() >= 0) {
          byte var3 = 32;
          if(!M && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
-            if(!var1.D) {
+            if(!var1.isStatic) {
                EntityFallingBlock var5 = new EntityFallingBlock(var1, (double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, var1.getData(var2));
                this.a(var5);
                var1.d((Entity)var5);

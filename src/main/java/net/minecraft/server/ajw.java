@@ -54,12 +54,12 @@ public class ajw extends Item {
                }
 
                EntityBoat var33 = new EntityBoat(var2, (double)((float)var34.n() + 0.5F), (double)((float)var34.o() + 1.0F), (double)((float)var34.p() + 0.5F));
-               var33.y = (float)(((MathHelper.c((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
+               var33.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
                if(!var2.a((Entity)var33, var33.aQ().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
                   return var1;
                }
 
-               if(!var2.D) {
+               if(!var2.isStatic) {
                   var2.d((Entity)var33);
                }
 

@@ -30,7 +30,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
    }
 
    private void A() {
-      if(this.i && this.j > 0 && !this.b.D && this.k > 0) {
+      if(this.i && this.j > 0 && !this.b.isStatic && this.k > 0) {
          double var1 = (double)(this.j * 10 + 10);
          byte var3 = 0;
          if(this.j >= 4 && this.k == this.l) {
@@ -77,7 +77,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
       int var7;
       for(var7 = var3 + 1; var7 < this.b.V(); ++var7) {
          Location var8 = new Location(var2, var7, var4);
-         IBlock var9 = this.b.getData(var8);
+         IBlockData var9 = this.b.getData(var8);
          float[] var10;
          if(var9.c() == Blocks.STAINED_GLASS) {
             var10 = EntitySheep.a((akv)var9.b(BlockStainedGlass.a));
@@ -139,7 +139,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
          }
       }
 
-      if(!this.b.D && this.j == 4 && var1 < this.j) {
+      if(!this.b.isStatic && this.j == 4 && var1 < this.j) {
          Iterator var15 = this.b.getEntities(EntityHuman.class, (new AxisAlignedBB((double)var2, (double)var3, (double)var4, (double)var2, (double)(var3 - 4), (double)var4)).b(10.0D, 5.0D, 10.0D)).iterator();
 
          while(var15.hasNext()) {
@@ -210,7 +210,7 @@ public class bck extends bdf implements IUpdatePlayerListBox, IInventory {
 
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.n:"container.beacon";
    }
 

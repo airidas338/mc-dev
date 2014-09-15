@@ -73,7 +73,7 @@ abstract class bnn extends bms {
          for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
             Location var7 = new Location(var6, 64, var5);
             if(var2.b((fd)var7)) {
-               var3 += Math.max(var1.r(var7).o(), var1.t.i());
+               var3 += Math.max(var1.r(var7).o(), var1.worldProvider.i());
                ++var4;
             }
          }
@@ -115,7 +115,7 @@ abstract class bnn extends bms {
       return var2;
    }
 
-   protected IBlock a(IBlock var1) {
+   protected IBlockData a(IBlockData var1) {
       if(this.b) {
          if(var1.c() == Blocks.LOG || var1.c() == Blocks.LOG2) {
             return Blocks.SANDSTONE.P();
@@ -145,19 +145,19 @@ abstract class bnn extends bms {
       return var1;
    }
 
-   protected void a(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
-      IBlock var7 = this.a(var2);
+   protected void a(World var1, IBlockData var2, int var3, int var4, int var5, bjb var6) {
+      IBlockData var7 = this.a(var2);
       super.a(var1, var7, var3, var4, var5, var6);
    }
 
-   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlock var9, IBlock var10, boolean var11) {
-      IBlock var12 = this.a(var9);
-      IBlock var13 = this.a(var10);
+   protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
+      IBlockData var12 = this.a(var9);
+      IBlockData var13 = this.a(var10);
       super.a(var1, var2, var3, var4, var5, var6, var7, var8, var12, var13, var11);
    }
 
-   protected void b(World var1, IBlock var2, int var3, int var4, int var5, bjb var6) {
-      IBlock var7 = this.a(var2);
+   protected void b(World var1, IBlockData var2, int var3, int var4, int var5, bjb var6) {
+      IBlockData var7 = this.a(var2);
       super.b(var1, var7, var3, var4, var5, var6);
    }
 

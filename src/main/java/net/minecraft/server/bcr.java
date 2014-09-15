@@ -67,7 +67,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
       this.o_();
    }
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.p:"container.chest";
    }
 
@@ -199,7 +199,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
       int var3 = this.c.p();
       ++this.n;
       float var4;
-      if(!this.b.D && this.l != 0 && (this.n + var1 + var2 + var3) % 200 == 0) {
+      if(!this.b.isStatic && this.l != 0 && (this.n + var1 + var2 + var3) % 200 == 0) {
          this.l = 0;
          var4 = 5.0F;
          List var5 = this.b.getEntities(EntityHuman.class, new AxisAlignedBB((double)((float)var1 - var4), (double)((float)var2 - var4), (double)((float)var3 - var4), (double)((float)(var1 + 1) + var4), (double)((float)(var2 + 1) + var4), (double)((float)(var3 + 1) + var4)));
@@ -230,7 +230,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
             var11 += 0.5D;
          }
 
-         this.b.a(var11, (double)var2 + 0.5D, var14, "random.chestopen", 0.5F, this.b.s.nextFloat() * 0.1F + 0.9F);
+         this.b.a(var11, (double)var2 + 0.5D, var14, "random.chestopen", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
       }
 
       if(this.l == 0 && this.j > 0.0F || this.l > 0 && this.j < 1.0F) {
@@ -257,7 +257,7 @@ public class bcr extends bdf implements IUpdatePlayerListBox, IInventory {
                var14 += 0.5D;
             }
 
-            this.b.a(var14, (double)var2 + 0.5D, var9, "random.chestclosed", 0.5F, this.b.s.nextFloat() * 0.1F + 0.9F);
+            this.b.a(var14, (double)var2 + 0.5D, var9, "random.chestclosed", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
          }
 
          if(this.j < 0.0F) {

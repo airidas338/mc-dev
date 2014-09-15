@@ -25,7 +25,7 @@ public class jw implements Packet {
       this.h = var8;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.readInt();
       short var2 = var1.readUnsignedByte();
       this.b = (var2 & 8) == 8;
@@ -42,7 +42,7 @@ public class jw implements Packet {
       this.h = var1.readBoolean();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeInt(this.a);
       int var2 = this.c.a();
       if(this.b) {

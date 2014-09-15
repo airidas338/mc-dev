@@ -20,13 +20,13 @@ public class bfm {
 
    }
 
-   public IBlock a(int var1, int var2, int var3) {
-      IBlock var4 = (IBlock)Block.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
+   public IBlockData a(int var1, int var2, int var3) {
+      IBlockData var4 = (IBlockData)Block.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
       return var4 != null?var4:Blocks.AIR.P();
    }
 
-   public void a(int var1, int var2, int var3, IBlock var4) {
-      IBlock var5 = this.a(var1, var2, var3);
+   public void a(int var1, int var2, int var3, IBlockData var4) {
+      IBlockData var5 = this.a(var1, var2, var3);
       Block var6 = var5.c();
       Block var7 = var4.c();
       if(var6 != Blocks.AIR) {
@@ -51,7 +51,7 @@ public class bfm {
    }
 
    public int c(int var1, int var2, int var3) {
-      IBlock var4 = this.a(var1, var2, var3);
+      IBlockData var4 = this.a(var1, var2, var3);
       return var4.c().c(var4);
    }
 

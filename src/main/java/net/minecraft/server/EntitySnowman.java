@@ -23,23 +23,23 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
 
    public void m() throws IOException {
       super.m();
-      if(!this.o.D) {
-         int var1 = MathHelper.c(this.s);
-         int var2 = MathHelper.c(this.t);
-         int var3 = MathHelper.c(this.u);
+      if(!this.o.isStatic) {
+         int var1 = MathHelper.floor(this.s);
+         int var2 = MathHelper.floor(this.t);
+         int var3 = MathHelper.floor(this.u);
          if(this.U()) {
             this.a(DamageSource.f, 1.0F);
          }
 
-         if(this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) > 1.0F) {
+         if(this.o.getBiome(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) > 1.0F) {
             this.a(DamageSource.c, 1.0F);
          }
 
          for(int var4 = 0; var4 < 4; ++var4) {
-            var1 = MathHelper.c(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
-            var2 = MathHelper.c(this.t);
-            var3 = MathHelper.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
-            if(this.o.getData(new Location(var1, var2, var3)).c().r() == Material.AIR && this.o.b(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && Blocks.SNOW.c(this.o, new Location(var1, var2, var3))) {
+            var1 = MathHelper.floor(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
+            var2 = MathHelper.floor(this.t);
+            var3 = MathHelper.floor(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
+            if(this.o.getData(new Location(var1, var2, var3)).c().r() == Material.AIR && this.o.getBiome(new Location(var1, 0, var3)).a(new Location(var1, var2, var3)) < 0.8F && Blocks.SNOW.c(this.o, new Location(var1, var2, var3))) {
                this.o.a(new Location(var1, var2, var3), Blocks.SNOW.P());
             }
          }

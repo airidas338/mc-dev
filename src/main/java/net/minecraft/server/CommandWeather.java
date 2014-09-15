@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CommandWeather extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "weather";
    }
 
@@ -16,7 +16,7 @@ public class CommandWeather extends CommandAbstract {
       return "commands.weather.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length >= 1 && var2.length <= 2) {
          int var3 = (300 + (new Random()).nextInt(600)) * 20;
          if(var2.length >= 2) {
@@ -57,7 +57,7 @@ public class CommandWeather extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"clear", "rain", "thunder"}):null;
    }
 }

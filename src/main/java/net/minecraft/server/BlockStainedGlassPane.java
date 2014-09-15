@@ -11,15 +11,15 @@ public class BlockStainedGlassPane extends BlockThin {
       this.a(CreativeModeTab.c);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, akv.b(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 
@@ -27,15 +27,15 @@ public class BlockStainedGlassPane extends BlockThin {
       return new bed(this, new bex[]{b, M, O, N, a});
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   public void c(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          BlockBeacon.d(var1, var2);
       }
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   public void b(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          BlockBeacon.d(var1, var2);
       }
 

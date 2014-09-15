@@ -19,15 +19,15 @@ public class PortalTravelAgent {
    }
 
    public void a(Entity var1, float var2) {
-      if(this.a.t.q() != 1) {
+      if(this.a.worldProvider.q() != 1) {
          if(!this.b(var1, var2)) {
             this.a(var1);
             this.b(var1, var2);
          }
       } else {
-         int var3 = MathHelper.c(var1.s);
-         int var4 = MathHelper.c(var1.t) - 1;
-         int var5 = MathHelper.c(var1.u);
+         int var3 = MathHelper.floor(var1.s);
+         int var4 = MathHelper.floor(var1.t) - 1;
+         int var5 = MathHelper.floor(var1.u);
          byte var6 = 1;
          byte var7 = 0;
 
@@ -51,8 +51,8 @@ public class PortalTravelAgent {
    public boolean b(Entity var1, float var2) {
       boolean var3 = true;
       double var4 = -1.0D;
-      int var6 = MathHelper.c(var1.s);
-      int var7 = MathHelper.c(var1.u);
+      int var6 = MathHelper.floor(var1.s);
+      int var7 = MathHelper.floor(var1.u);
       boolean var8 = true;
       Object var9 = Location.a;
       long var10 = aqm.a(var6, var7);
@@ -177,15 +177,15 @@ public class PortalTravelAgent {
    }
 
    private boolean a(Location var1) {
-      return !this.a.d(var1) || !this.a.d(var1.a());
+      return !this.a.isEmpty(var1) || !this.a.isEmpty(var1.a());
    }
 
    public boolean a(Entity var1) {
       byte var2 = 16;
       double var3 = -1.0D;
-      int var5 = MathHelper.c(var1.s);
-      int var6 = MathHelper.c(var1.t);
-      int var7 = MathHelper.c(var1.u);
+      int var5 = MathHelper.floor(var1.s);
+      int var6 = MathHelper.floor(var1.t);
+      int var7 = MathHelper.floor(var1.u);
       int var8 = var5;
       int var9 = var6;
       int var10 = var7;
@@ -215,8 +215,8 @@ public class PortalTravelAgent {
 
             label271:
             for(var19 = this.a.V() - 1; var19 >= 0; --var19) {
-               if(this.a.d(new Location(var13, var19, var16))) {
-                  while(var19 > 0 && this.a.d(new Location(var13, var19 - 1, var16))) {
+               if(this.a.isEmpty(new Location(var13, var19, var16))) {
+                  while(var19 > 0 && this.a.isEmpty(new Location(var13, var19 - 1, var16))) {
                      --var19;
                   }
 
@@ -234,7 +234,7 @@ public class PortalTravelAgent {
                               var26 = var13 + (var24 - 1) * var21 + var23 * var22;
                               var27 = var19 + var25;
                               int var28 = var16 + (var24 - 1) * var22 - var23 * var21;
-                              if(var25 < 0 && !this.a.getData(new Location(var26, var27, var28)).c().r().a() || var25 >= 0 && !this.a.d(new Location(var26, var27, var28))) {
+                              if(var25 < 0 && !this.a.getData(new Location(var26, var27, var28)).c().r().a() || var25 >= 0 && !this.a.isEmpty(new Location(var26, var27, var28))) {
                                  continue label271;
                               }
                            }
@@ -265,8 +265,8 @@ public class PortalTravelAgent {
 
                label219:
                for(var19 = this.a.V() - 1; var19 >= 0; --var19) {
-                  if(this.a.d(new Location(var13, var19, var16))) {
-                     while(var19 > 0 && this.a.d(new Location(var13, var19 - 1, var16))) {
+                  if(this.a.isEmpty(new Location(var13, var19, var16))) {
+                     while(var19 > 0 && this.a.isEmpty(new Location(var13, var19 - 1, var16))) {
                         --var19;
                      }
 
@@ -279,7 +279,7 @@ public class PortalTravelAgent {
                               var25 = var13 + (var23 - 1) * var21;
                               var26 = var19 + var24;
                               var27 = var16 + (var23 - 1) * var22;
-                              if(var24 < 0 && !this.a.getData(new Location(var25, var26, var27)).c().r().a() || var24 >= 0 && !this.a.d(new Location(var25, var26, var27))) {
+                              if(var24 < 0 && !this.a.getData(new Location(var25, var26, var27)).c().r().a() || var24 >= 0 && !this.a.isEmpty(new Location(var25, var26, var27))) {
                                  continue label219;
                               }
                            }
@@ -328,7 +328,7 @@ public class PortalTravelAgent {
          }
       }
 
-      IBlock var31 = Blocks.PORTAL.P().a(BlockPortal.a, var30 != 0?el.a:el.c);
+      IBlockData var31 = Blocks.PORTAL.P().a(BlockPortal.a, var30 != 0?el.a:el.c);
 
       for(var20 = 0; var20 < 4; ++var20) {
          for(var21 = 0; var21 < 4; ++var21) {

@@ -25,20 +25,20 @@ public class bpy extends bpu {
       if(this.i && var1.V()) {
          var2 = (int)var1.aQ().b;
 
-         for(Block var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c(); var3 == Blocks.WATER || var3 == Blocks.STATIONARY_WATER; var3 = this.a.getData(new Location(MathHelper.c(var1.s), var2, MathHelper.c(var1.u))).c()) {
+         for(Block var3 = this.a.getData(new Location(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u))).c(); var3 == Blocks.WATER || var3 == Blocks.STATIONARY_WATER; var3 = this.a.getData(new Location(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u))).c()) {
             ++var2;
          }
 
          this.h = false;
       } else {
-         var2 = MathHelper.c(var1.aQ().b + 0.5D);
+         var2 = MathHelper.floor(var1.aQ().b + 0.5D);
       }
 
-      return this.a(MathHelper.c(var1.aQ().a), var2, MathHelper.c(var1.aQ().c));
+      return this.a(MathHelper.floor(var1.aQ().a), var2, MathHelper.floor(var1.aQ().c));
    }
 
    public bpt a(Entity var1, double var2, double var4, double var6) {
-      return this.a(MathHelper.c(var2 - (double)(var1.J / 2.0F)), MathHelper.c(var4), MathHelper.c(var6 - (double)(var1.J / 2.0F)));
+      return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
    }
 
    public int a(bpt[] var1, Entity var2, bpt var3, bpt var4, float var5) {

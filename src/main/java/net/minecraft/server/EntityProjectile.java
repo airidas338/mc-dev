@@ -112,7 +112,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
          var2 = new Vec3D(var3.c.a, var3.c.b, var3.c.c);
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          Entity var4 = null;
          List var5 = this.o.b((Entity)this, this.aQ().a(this.v, this.w, this.x).b(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
@@ -199,12 +199,12 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       var1.setShort("xTile", (short)this.c);
       var1.setShort("yTile", (short)this.d);
       var1.setShort("zTile", (short)this.e);
-      RegistryPrepender var2 = (RegistryPrepender)Block.c.c(this.f);
+      RegistryPrepender var2 = (RegistryPrepender)Block.REGISTRY.c(this.f);
       var1.setString("inTile", var2 == null?"":var2.toString());
       var1.setByte("shake", (byte)this.b);
       var1.setByte("inGround", (byte)(this.a?1:0));
       if((this.h == null || this.h.length() == 0) && this.g instanceof EntityHuman) {
-         this.h = this.g.d_();
+         this.h = this.g.getName();
       }
 
       var1.setString("ownerName", this.h == null?"":this.h);

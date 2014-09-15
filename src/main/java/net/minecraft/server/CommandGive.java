@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandGive extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "give";
    }
 
@@ -15,7 +15,7 @@ public class CommandGive extends CommandAbstract {
       return "commands.give.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.give.usage", new Object[0]);
       } else {
@@ -53,15 +53,15 @@ public class CommandGive extends CommandAbstract {
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.q();
-               var9.b(var3.d_());
+               var9.b(var3.getName());
             }
          }
 
-         a(var1, this, "commands.give.success", new Object[]{var7.C(), Integer.valueOf(var5), var3.d_()});
+         a(var1, this, "commands.give.success", new Object[]{var7.C(), Integer.valueOf(var5), var3.getName()});
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.e.c()):null);
    }
 
@@ -69,7 +69,7 @@ public class CommandGive extends CommandAbstract {
       return MinecraftServer.M().I();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

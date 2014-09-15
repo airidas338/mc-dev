@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 
-class aec extends aqf {
+class EntityMinecartCommandBlockListener extends CommandBlockListenerAbstract {
 
    // $FF: synthetic field
    final EntityMinecartCommandBlock a;
 
 
-   aec(EntityMinecartCommandBlock var1) {
+   EntityMinecartCommandBlockListener(EntityMinecartCommandBlock var1) {
       this.a = var1;
    }
 
@@ -16,7 +16,7 @@ class aec extends aqf {
       this.a.H().b(24, hp.a(this.k()));
    }
 
-   public Location c() {
+   public Location getLocation() {
       return new Location(this.a.s, this.a.t + 0.5D, this.a.u);
    }
 
@@ -24,7 +24,7 @@ class aec extends aqf {
       return new Vec3D(this.a.s, this.a.t, this.a.u);
    }
 
-   public World e() {
+   public World getWorld() {
       return this.a.o;
    }
 

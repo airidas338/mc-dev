@@ -16,16 +16,16 @@ public class BlockFurnace extends atg {
       this.b = var1;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Item.a(Blocks.FURNACE);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   private void e(World var1, Location var2, IBlock var3) {
-      if(!var1.D) {
+   private void e(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic) {
          Block var4 = var1.getData(var2.c()).c();
          Block var5 = var1.getData(var2.d()).c();
          Block var6 = var1.getData(var2.e()).c();
@@ -45,8 +45,8 @@ public class BlockFurnace extends atg {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.D) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.isStatic) {
          return true;
       } else {
          TileEntity var9 = var1.s(var2);
@@ -59,7 +59,7 @@ public class BlockFurnace extends atg {
    }
 
    public static void a(boolean var0, World var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       TileEntity var4 = var1.s(var2);
       M = true;
       if(var0) {
@@ -82,11 +82,11 @@ public class BlockFurnace extends atg {
       return new bdc();
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, var8.aO().d());
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2, var3.a(a, var4.aO().d()), 2);
       if(var5.s()) {
          TileEntity var6 = var1.s(var2);
@@ -97,7 +97,7 @@ public class BlockFurnace extends atg {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       if(!M) {
          TileEntity var4 = var1.s(var2);
          if(var4 instanceof bdc) {
@@ -121,7 +121,7 @@ public class BlockFurnace extends atg {
       return 3;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       EnumFacing var2 = EnumFacing.a(var1);
       if(var2.k() == el.b) {
          var2 = EnumFacing.NORTH;
@@ -130,7 +130,7 @@ public class BlockFurnace extends atg {
       return this.P().a(a, var2);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((EnumFacing)var1.b(a)).a();
    }
 

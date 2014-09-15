@@ -31,7 +31,7 @@ public class jm implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = (double)var1.readFloat();
       this.b = (double)var1.readFloat();
       this.c = (double)var1.readFloat();
@@ -54,7 +54,7 @@ public class jm implements Packet {
       this.h = var1.readFloat();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.writeFloat((float)this.a);
       var1.writeFloat((float)this.b);
       var1.writeFloat((float)this.c);

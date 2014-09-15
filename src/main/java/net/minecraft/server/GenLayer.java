@@ -126,7 +126,7 @@ public abstract class GenLayer {
    protected static boolean a(int var0, int var1) {
       if(var0 == var1) {
          return true;
-      } else if(var0 != BiomeBase.MESA_PLATEAU_F.az && var0 != BiomeBase.MESA_PLATEAU.az) {
+      } else if(var0 != BiomeBase.MESA_PLATEAU_F.id && var0 != BiomeBase.MESA_PLATEAU.id) {
          BiomeBase var2 = BiomeBase.e(var0);
          BiomeBase var3 = BiomeBase.e(var1);
 
@@ -142,12 +142,12 @@ public abstract class GenLayer {
             throw new ReportedException(var5);
          }
       } else {
-         return var1 == BiomeBase.MESA_PLATEAU_F.az || var1 == BiomeBase.MESA_PLATEAU.az;
+         return var1 == BiomeBase.MESA_PLATEAU_F.id || var1 == BiomeBase.MESA_PLATEAU.id;
       }
    }
 
    protected static boolean b(int var0) {
-      return var0 == BiomeBase.OCEAN.az || var0 == BiomeBase.DEEP_OCEAN.az || var0 == BiomeBase.FROZEN_OCEAN.az;
+      return var0 == BiomeBase.OCEAN.id || var0 == BiomeBase.DEEP_OCEAN.id || var0 == BiomeBase.FROZEN_OCEAN.id;
    }
 
    protected int a(int ... var1) {

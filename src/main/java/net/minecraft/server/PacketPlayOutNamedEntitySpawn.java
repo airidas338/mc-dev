@@ -22,9 +22,9 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    public PacketPlayOutNamedEntitySpawn(EntityHuman var1) {
       this.a = var1.F();
       this.b = var1.cc().getId();
-      this.c = MathHelper.c(var1.s * 32.0D);
-      this.d = MathHelper.c(var1.t * 32.0D);
-      this.e = MathHelper.c(var1.u * 32.0D);
+      this.c = MathHelper.floor(var1.s * 32.0D);
+      this.d = MathHelper.floor(var1.t * 32.0D);
+      this.e = MathHelper.floor(var1.u * 32.0D);
       this.f = (byte)((int)(var1.y * 256.0F / 360.0F));
       this.g = (byte)((int)(var1.z * 256.0F / 360.0F));
       ItemStack var2 = var1.bg.h();
@@ -32,7 +32,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.i = var1.H();
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.e();
       this.b = var1.g();
       this.c = var1.readInt();
@@ -44,7 +44,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.j = DataWatcher.b(var1);
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.b(this.a);
       var1.a(this.b);
       var1.writeInt(this.c);

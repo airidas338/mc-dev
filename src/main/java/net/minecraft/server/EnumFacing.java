@@ -110,7 +110,7 @@ public enum EnumFacing implements IName {
    }
 
    public static EnumFacing a(double var0) {
-      return b(MathHelper.c(var0 / 90.0D + 0.5D) & 3);
+      return b(MathHelper.floor(var0 / 90.0D + 0.5D) & 3);
    }
 
    public static EnumFacing a(Random var0) {

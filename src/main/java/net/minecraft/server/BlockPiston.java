@@ -21,33 +21,33 @@ public class BlockPiston extends Block {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       var1.a(var2, var3.a(a, a(var1, var2, var4)), 2);
-      if(!var1.D) {
+      if(!var1.isStatic) {
          this.e(var1, var2, var3);
       }
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          this.e(var1, var2, var3);
       }
 
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
-      if(!var1.D && var1.s(var2) == null) {
+   public void c(World var1, Location var2, IBlockData var3) {
+      if(!var1.isStatic && var1.s(var2) == null) {
          this.e(var1, var2, var3);
       }
 
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(a, a(var1, var2, var8)).a(b, Boolean.valueOf(false));
    }
 
-   private void e(World var1, Location var2, IBlock var3) {
+   private void e(World var1, Location var2, IBlockData var3) {
       EnumFacing var4 = (EnumFacing)var3.b(a);
       boolean var5 = this.b(var1, var2, var4);
       if(var5 && !((Boolean)var3.b(b)).booleanValue()) {
@@ -91,9 +91,9 @@ public class BlockPiston extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, int var4, int var5) {
+   public boolean a(World var1, Location var2, IBlockData var3, int var4, int var5) {
       EnumFacing var6 = (EnumFacing)var3.b(a);
-      if(!var1.D) {
+      if(!var1.isStatic) {
          boolean var7 = this.b(var1, var2, var6);
          if(var7 && var4 == 1) {
             var1.a(var2, var3.a(b, Boolean.valueOf(true)), 2);
@@ -111,7 +111,7 @@ public class BlockPiston extends Block {
          }
 
          var1.a(var2, var3.a(b, Boolean.valueOf(true)), 2);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.out", 0.5F, var1.s.nextFloat() * 0.25F + 0.6F);
+         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.out", 0.5F, var1.random.nextFloat() * 0.25F + 0.6F);
       } else if(var4 == 1) {
          TileEntity var13 = var1.s(var2.a(var6));
          if(var13 instanceof bdv) {
@@ -142,14 +142,14 @@ public class BlockPiston extends Block {
             var1.g(var2.a(var6));
          }
 
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.in", 0.5F, var1.s.nextFloat() * 0.15F + 0.6F);
+         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "tile.piston.in", 0.5F, var1.random.nextFloat() * 0.15F + 0.6F);
       }
 
       return true;
    }
 
    public void a(IBlockAccess var1, Location var2) {
-      IBlock var3 = var1.getData(var2);
+      IBlockData var3 = var1.getData(var2);
       if(var3.c() == this && ((Boolean)var3.b(b)).booleanValue()) {
          float var4 = 0.25F;
          EnumFacing var5 = (EnumFacing)var3.b(a);
@@ -184,12 +184,12 @@ public class BlockPiston extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -280,7 +280,7 @@ public class BlockPiston extends Block {
             var9[var8] = var13;
          }
 
-         IBlock var19;
+         IBlockData var19;
          for(var11 = var6.size() - 1; var11 >= 0; --var11) {
             var12 = (Location)var6.get(var11);
             var19 = var1.getData(var12);
@@ -298,7 +298,7 @@ public class BlockPiston extends Block {
          if(var4) {
             bdu var17 = this.M?bdu.b:bdu.a;
             var19 = Blocks.PISTON_EXTENSION.P().a(BlockPistonExtension.a, var3).a(BlockPistonExtension.b, var17);
-            IBlock var20 = Blocks.PISTON_MOVING.P().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a);
+            IBlockData var20 = Blocks.PISTON_MOVING.P().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, this.M?bdu.b:bdu.a);
             var1.a(var16, var20, 4);
             var1.a(var16, BlockPistonMoving.a(var19, var3, true, false));
          }
@@ -321,11 +321,11 @@ public class BlockPiston extends Block {
       }
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, b(var1)).a(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).a();
       if(((Boolean)var1.b(b)).booleanValue()) {

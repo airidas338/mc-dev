@@ -19,15 +19,15 @@ public class RemoteControlCommandListener implements ICommandListener {
       return this.b.toString();
    }
 
-   public String d_() {
+   public String getName() {
       return "Rcon";
    }
 
-   public IChatBaseComponent e_() {
-      return new ChatComponentText(this.d_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return new ChatComponentText(this.getName());
    }
 
-   public void a(IChatBaseComponent var1) {
+   public void sendMessage(IChatBaseComponent var1) {
       this.b.append(var1.c());
    }
 
@@ -35,7 +35,7 @@ public class RemoteControlCommandListener implements ICommandListener {
       return true;
    }
 
-   public Location c() {
+   public Location getLocation() {
       return new Location(0, 0, 0);
    }
 
@@ -43,8 +43,8 @@ public class RemoteControlCommandListener implements ICommandListener {
       return new Vec3D(0.0D, 0.0D, 0.0D);
    }
 
-   public World e() {
-      return MinecraftServer.M().e();
+   public World getWorld() {
+      return MinecraftServer.M().getWorld();
    }
 
    public Entity f() {

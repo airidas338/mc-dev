@@ -12,8 +12,8 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
       EnumFacing var4 = BlockDispenser.b(var1.f());
       Location var5 = var1.d().a(var4);
       BlockSkull var6 = Blocks.SKULL;
-      if(var3.d(var5) && var6.b(var3, var5, var2)) {
-         if(!var3.D) {
+      if(var3.isEmpty(var5) && var6.b(var3, var5, var2)) {
+         if(!var3.isStatic) {
             var3.a(var5, var6.P().a(BlockSkull.a, EnumFacing.UP), 3);
             TileEntity var7 = var3.s(var5);
             if(var7 instanceof bdm) {
@@ -22,7 +22,7 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
                   if(var2.n()) {
                      NBTTagCompound var9 = var2.o();
                      if(var9.hasKeyOfType("SkullOwner", 10)) {
-                        var8 = ga.a(var9.getCompound("SkullOwner"));
+                        var8 = GameProfileSerializer.deserialize(var9.getCompound("SkullOwner"));
                      } else if(var9.hasKeyOfType("SkullOwner", 8)) {
                         var8 = new GameProfile((UUID)null, var9.getString("SkullOwner"));
                      }

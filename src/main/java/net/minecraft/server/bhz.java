@@ -4,7 +4,7 @@ import java.util.Random;
 public class bhz extends WorldGenerator {
 
    public boolean generate(World var1, Random var2, Location var3) {
-      if(!var1.d(var3)) {
+      if(!var1.isEmpty(var3)) {
          return false;
       } else if(var1.getData(var3.a()).c() != Blocks.NETHERRACK) {
          return false;

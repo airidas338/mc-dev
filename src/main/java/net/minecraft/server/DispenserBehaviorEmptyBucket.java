@@ -8,7 +8,7 @@ final class DispenserBehaviorEmptyBucket extends DispenserBehaviorItem {
    public ItemStack b(ISourceBlock var1, ItemStack var2) {
       World var3 = var1.i();
       Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
-      IBlock var5 = var3.getData(var4);
+      IBlockData var5 = var3.getData(var4);
       Block var6 = var5.c();
       Material var7 = var6.r();
       Item var8;

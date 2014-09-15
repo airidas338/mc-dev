@@ -46,10 +46,10 @@ public abstract class aqi {
       if(this.g()) {
          Location var1 = this.b();
          double var6;
-         if(this.a().D) {
-            double var2 = (double)((float)var1.n() + this.a().s.nextFloat());
-            double var4 = (double)((float)var1.o() + this.a().s.nextFloat());
-            var6 = (double)((float)var1.p() + this.a().s.nextFloat());
+         if(this.a().isStatic) {
+            double var2 = (double)((float)var1.n() + this.a().random.nextFloat());
+            double var4 = (double)((float)var1.o() + this.a().random.nextFloat());
+            var6 = (double)((float)var1.p() + this.a().random.nextFloat());
             this.a().a(ew.l, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             this.a().a(ew.A, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.a > 0) {
@@ -82,11 +82,11 @@ public abstract class aqi {
                   return;
                }
 
-               var6 = (double)var1.n() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
-               double var8 = (double)(var1.o() + this.a().s.nextInt(3) - 1);
-               double var10 = (double)var1.p() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
+               var6 = (double)var1.n() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
+               double var8 = (double)(var1.o() + this.a().random.nextInt(3) - 1);
+               double var10 = (double)var1.p() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
                EntityInsentient var12 = var14 instanceof EntityInsentient?(EntityInsentient)var14:null;
-               var14.setPositionRotation(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
+               var14.setPositionRotation(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.bQ() && var12.bR()) {
                   this.a(var14, true);
                   this.a().b(2004, var1, 0);
@@ -162,11 +162,11 @@ public abstract class aqi {
          this.a = this.g;
       } else {
          int var10003 = this.h - this.g;
-         this.a = this.g + this.a().s.nextInt(var10003);
+         this.a = this.g + this.a().random.nextInt(var10003);
       }
 
       if(this.c.size() > 0) {
-         this.a((aqj)WeightedRandom.a(this.a().s, this.c));
+         this.a((aqj)WeightedRandom.a(this.a().random, this.c));
       }
 
       this.a(1);
@@ -243,7 +243,7 @@ public abstract class aqi {
    }
 
    public boolean b(int var1) {
-      if(var1 == 1 && this.a().D) {
+      if(var1 == 1 && this.a().isStatic) {
          this.a = this.g;
          return true;
       } else {

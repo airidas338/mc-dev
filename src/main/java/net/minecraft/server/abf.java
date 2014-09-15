@@ -29,7 +29,7 @@ public class abf {
       float var9 = -99999.0F;
       boolean var10;
       if(var0.ci()) {
-         double var11 = var0.cf().c((double)MathHelper.c(var0.s), (double)MathHelper.c(var0.t), (double)MathHelper.c(var0.u)) + 4.0D;
+         double var11 = var0.cf().c((double)MathHelper.floor(var0.s), (double)MathHelper.floor(var0.t), (double)MathHelper.floor(var0.u)) + 4.0D;
          double var13 = (double)(var0.cg() + (float)var1);
          var10 = var11 < var13 * var13;
       } else {
@@ -57,9 +57,9 @@ public class abf {
                }
             }
 
-            var12 += MathHelper.c(var0.s);
-            var18 += MathHelper.c(var0.t);
-            var14 += MathHelper.c(var0.u);
+            var12 += MathHelper.floor(var0.s);
+            var18 += MathHelper.floor(var0.t);
+            var14 += MathHelper.floor(var0.u);
             var15 = new Location(var12, var18, var14);
             if(!var10 || var0.d(var15)) {
                float var16 = var0.a(var15);

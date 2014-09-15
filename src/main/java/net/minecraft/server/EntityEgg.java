@@ -20,7 +20,7 @@ public class EntityEgg extends EntityProjectile {
          var1.d.a(DamageSource.a((Entity)this, this.n()), 0.0F);
       }
 
-      if(!this.o.D && this.V.nextInt(8) == 0) {
+      if(!this.o.isStatic && this.V.nextInt(8) == 0) {
          byte var2 = 1;
          if(this.V.nextInt(32) == 0) {
             var2 = 4;
@@ -40,7 +40,7 @@ public class EntityEgg extends EntityProjectile {
          this.o.a(ew.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{Item.b(Items.aP)});
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.J();
       }
 

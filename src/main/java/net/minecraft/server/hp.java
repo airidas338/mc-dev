@@ -57,7 +57,7 @@ public class hp implements JsonDeserializer, JsonSerializer {
                   var8[var9] = this.a(var7.get(var9), var2, var3);
                   if(var8[var9] instanceof ChatComponentText) {
                      ChatComponentText var10 = (ChatComponentText)var8[var9];
-                     if(var10.b().g() && var10.a().isEmpty()) {
+                     if(var10.getChatModifier().g() && var10.a().isEmpty()) {
                         var8[var9] = var10.g();
                      }
                   }
@@ -96,7 +96,7 @@ public class hp implements JsonDeserializer, JsonSerializer {
             }
          }
 
-         ((IChatBaseComponent)var5).a((ChatModifier)var3.deserialize(var1, ChatModifier.class));
+         ((IChatBaseComponent)var5).setChatModifier((ChatModifier)var3.deserialize(var1, ChatModifier.class));
          return (IChatBaseComponent)var5;
       }
    }
@@ -116,12 +116,12 @@ public class hp implements JsonDeserializer, JsonSerializer {
    }
 
    public JsonElement a(IChatBaseComponent var1, Type var2, JsonSerializationContext var3) {
-      if(var1 instanceof ChatComponentText && var1.b().g() && var1.a().isEmpty()) {
+      if(var1 instanceof ChatComponentText && var1.getChatModifier().g() && var1.a().isEmpty()) {
          return new JsonPrimitive(((ChatComponentText)var1).g());
       } else {
          JsonObject var4 = new JsonObject();
-         if(!var1.b().g()) {
-            this.a(var1.b(), var4, var3);
+         if(!var1.getChatModifier().g()) {
+            this.a(var1.getChatModifier(), var4, var3);
          }
 
          if(!var1.a().isEmpty()) {

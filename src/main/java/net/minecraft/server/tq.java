@@ -52,15 +52,15 @@ public class tq {
 
    public IChatBaseComponent e() {
       IChatBaseComponent var1 = this.a.f();
-      var1.b().a(EnumChatFormat.h);
-      var1.b().a(new ChatHoverable(EnumHoverAction.SHOW_ACHIEVEMENT, new ChatComponentText(this.e)));
+      var1.getChatModifier().setColor(EnumChatFormat.GRAY);
+      var1.getChatModifier().a(new ChatHoverable(EnumHoverAction.SHOW_ACHIEVEMENT, new ChatComponentText(this.e)));
       return var1;
    }
 
    public IChatBaseComponent j() {
       IChatBaseComponent var1 = this.e();
       IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
-      var2.a(var1.b());
+      var2.setChatModifier(var1.getChatModifier());
       return var2;
    }
 

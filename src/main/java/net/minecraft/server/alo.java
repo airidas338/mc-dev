@@ -17,7 +17,7 @@ public class alo extends Item {
       if(!var2.a(var4.a(var5), var5, var1)) {
          return false;
       } else {
-         IBlock var9 = var3.getData(var4);
+         IBlockData var9 = var3.getData(var4);
          Block var10 = var9.c();
          if(var5 != EnumFacing.DOWN && var3.getData(var4.a()).c().r() == Material.AIR) {
             if(var10 == Blocks.GRASS) {
@@ -38,9 +38,9 @@ public class alo extends Item {
       }
    }
 
-   protected boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, IBlock var5) {
+   protected boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, IBlockData var5) {
       var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), var5.c().H.c(), (var5.c().H.d() + 1.0F) / 2.0F, var5.c().H.e() * 0.8F);
-      if(var3.D) {
+      if(var3.isStatic) {
          return true;
       } else {
          var3.a(var4, var5);

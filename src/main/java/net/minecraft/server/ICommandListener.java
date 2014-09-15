@@ -3,19 +3,19 @@ package net.minecraft.server;
 
 public interface ICommandListener {
 
-   String d_();
+   String getName();
 
-   IChatBaseComponent e_();
+   IChatBaseComponent getScoreboardDisplayName();
 
-   void a(IChatBaseComponent var1);
+   void sendMessage(IChatBaseComponent var1);
 
    boolean a(int var1, String var2);
 
-   Location c();
+   Location getLocation();
 
    Vec3D d();
 
-   World e();
+   World getWorld();
 
    Entity f();
 

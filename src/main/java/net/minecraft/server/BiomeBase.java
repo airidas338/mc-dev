@@ -78,8 +78,8 @@ public abstract class BiomeBase {
    public String ah;
    public int ai;
    public int aj;
-   public IBlock ak;
-   public IBlock al;
+   public IBlockData ak;
+   public IBlockData al;
    public int am;
    public float an;
    public float ao;
@@ -93,7 +93,7 @@ public abstract class BiomeBase {
    protected List aw;
    protected boolean ax;
    protected boolean ay;
-   public final int az;
+   public final int id;
    protected WorldGenTrees aA;
    protected WorldGenBigTree aB;
    protected WorldGenSwampTree aC;
@@ -116,7 +116,7 @@ public abstract class BiomeBase {
       this.aA = new WorldGenTrees(false);
       this.aB = new WorldGenBigTree(false);
       this.aC = new WorldGenSwampTree();
-      this.az = var1;
+      this.id = var1;
       aE[var1] = this;
       this.as = this.a();
       this.au.add(new BiomeMeta(EntitySheep.class, 12, 4, 4));
@@ -266,8 +266,8 @@ public abstract class BiomeBase {
 
    public final void b(World var1, Random var2, bgk var3, int var4, int var5, double var6) {
       boolean var8 = true;
-      IBlock var9 = this.ak;
-      IBlock var10 = this.al;
+      IBlockData var9 = this.ak;
+      IBlockData var10 = this.al;
       int var11 = -1;
       int var12 = (int)(var6 / 3.0D + 3.0D + var2.nextDouble() * 0.25D);
       int var13 = var4 & 15;
@@ -277,7 +277,7 @@ public abstract class BiomeBase {
          if(var15 <= var2.nextInt(5)) {
             var3.a(var14, var15, var13, Blocks.BEDROCK.P());
          } else {
-            IBlock var16 = var3.a(var14, var15, var13);
+            IBlockData var16 = var3.a(var14, var15, var13);
             if(var16.c().r() == Material.AIR) {
                var11 = -1;
             } else if(var16.c() == Blocks.STONE) {
@@ -323,7 +323,7 @@ public abstract class BiomeBase {
    }
 
    protected BiomeBase k() {
-      return this.d(this.az + 128);
+      return this.d(this.id + 128);
    }
 
    protected BiomeBase d(int var1) {
@@ -381,7 +381,7 @@ public abstract class BiomeBase {
       MEGA_TAIGA.k();
       EXTREME_HILLS.k();
       EXTREME_HILLS_PLUS.k();
-      MEGA_TAIGA.d(MEGA_TAIGA_HILLS.az + 128).a("Redwood Taiga Hills M");
+      MEGA_TAIGA.d(MEGA_TAIGA_HILLS.id + 128).a("Redwood Taiga Hills M");
       BiomeBase[] var0 = aE;
       int var1 = var0.length;
 
@@ -389,11 +389,11 @@ public abstract class BiomeBase {
          BiomeBase var3 = var0[var2];
          if(var3 != null) {
             if(o.containsKey(var3.ah)) {
-               throw new Error("Biome \"" + var3.ah + "\" is defined as both ID " + ((BiomeBase)o.get(var3.ah)).az + " and " + var3.az);
+               throw new Error("Biome \"" + var3.ah + "\" is defined as both ID " + ((BiomeBase)o.get(var3.ah)).id + " and " + var3.id);
             }
 
             o.put(var3.ah, var3);
-            if(var3.az < 128) {
+            if(var3.id < 128) {
                n.add(var3);
             }
          }

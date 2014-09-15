@@ -20,11 +20,11 @@ public class BlockTripwireHook extends Block {
       this.a(true);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       return var1.a(N, Boolean.valueOf(!World.a(var2, var3.b())));
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -55,8 +55,8 @@ public class BlockTripwireHook extends Block {
       return true;
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlock var9 = this.P().a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = this.P().a(b, Boolean.valueOf(false)).a(M, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
       if(var3.k().c()) {
          var9 = var9.a(a, var3);
       }
@@ -64,11 +64,11 @@ public class BlockTripwireHook extends Block {
       return var9;
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityLiving var4, ItemStack var5) {
-      this.a(var1, var2, var3, false, false, -1, (IBlock)null);
+   public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      this.a(var1, var2, var3, false, false, -1, (IBlockData)null);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(var4 != this) {
          if(this.e(var1, var2, var3)) {
             EnumFacing var5 = (EnumFacing)var3.b(a);
@@ -81,7 +81,7 @@ public class BlockTripwireHook extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, boolean var4, boolean var5, int var6, IBlock var7) {
+   public void a(World var1, Location var2, IBlockData var3, boolean var4, boolean var5, int var6, IBlockData var7) {
       EnumFacing var8 = (EnumFacing)var3.b(a);
       boolean var9 = ((Boolean)var3.b(M)).booleanValue();
       boolean var10 = ((Boolean)var3.b(b)).booleanValue();
@@ -89,12 +89,12 @@ public class BlockTripwireHook extends Block {
       boolean var12 = !var4;
       boolean var13 = false;
       int var14 = 0;
-      IBlock[] var15 = new IBlock[42];
+      IBlockData[] var15 = new IBlockData[42];
 
       Location var17;
       for(int var16 = 1; var16 < 42; ++var16) {
          var17 = var2.a(var8, var16);
-         IBlock var18 = var1.getData(var17);
+         IBlockData var18 = var1.getData(var17);
          if(var18.c() == Blocks.TRIPWIRE_HOOK) {
             if(var18.b(a) == var8.d()) {
                var14 = var16;
@@ -107,7 +107,7 @@ public class BlockTripwireHook extends Block {
             var12 = false;
          } else {
             if(var16 == var6) {
-               var18 = (IBlock)Objects.firstNonNull(var7, var18);
+               var18 = (IBlockData)Objects.firstNonNull(var7, var18);
             }
 
             boolean var19 = !((Boolean)var18.b(BlockTripwire.N)).booleanValue();
@@ -125,7 +125,7 @@ public class BlockTripwireHook extends Block {
 
       var12 &= var14 > 1;
       var13 &= var12;
-      IBlock var22 = this.P().a(M, Boolean.valueOf(var12)).a(b, Boolean.valueOf(var13));
+      IBlockData var22 = this.P().a(M, Boolean.valueOf(var12)).a(b, Boolean.valueOf(var13));
       if(var14 > 0) {
          var17 = var2.a(var8, var14);
          EnumFacing var26 = var8.d();
@@ -145,7 +145,7 @@ public class BlockTripwireHook extends Block {
       if(var9 != var12) {
          for(int var23 = 1; var23 < var14; ++var23) {
             Location var24 = var2.a(var8, var23);
-            IBlock var25 = var15[var23];
+            IBlockData var25 = var15[var23];
             if(var25 != null && var1.getData(var24).c() != Blocks.AIR) {
                var1.a(var24, var25.a(M, Boolean.valueOf(var12)), 3);
             }
@@ -154,10 +154,10 @@ public class BlockTripwireHook extends Block {
 
    }
 
-   public void a(World var1, Location var2, IBlock var3, Random var4) {}
+   public void a(World var1, Location var2, IBlockData var3, Random var4) {}
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
-      this.a(var1, var2, var3, false, true, -1, (IBlock)null);
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
+      this.a(var1, var2, var3, false, true, -1, (IBlockData)null);
    }
 
    private void a(World var1, Location var2, boolean var3, boolean var4, boolean var5, boolean var6) {
@@ -168,7 +168,7 @@ public class BlockTripwireHook extends Block {
       } else if(var3 && !var5) {
          var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.7F);
       } else if(!var3 && var5) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.bowhit", 0.4F, 1.2F / (var1.s.nextFloat() * 0.2F + 0.9F));
+         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.bowhit", 0.4F, 1.2F / (var1.random.nextFloat() * 0.2F + 0.9F));
       }
 
    }
@@ -178,7 +178,7 @@ public class BlockTripwireHook extends Block {
       var1.c(var2.a(var3.d()), (Block)this);
    }
 
-   private boolean e(World var1, Location var2, IBlock var3) {
+   private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.c(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -206,11 +206,11 @@ public class BlockTripwireHook extends Block {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       boolean var4 = ((Boolean)var3.b(M)).booleanValue();
       boolean var5 = ((Boolean)var3.b(b)).booleanValue();
       if(var4 || var5) {
-         this.a(var1, var2, var3, true, false, -1, (IBlock)null);
+         this.a(var1, var2, var3, true, false, -1, (IBlockData)null);
       }
 
       if(var5) {
@@ -221,11 +221,11 @@ public class BlockTripwireHook extends Block {
       super.b(var1, var2, var3);
    }
 
-   public int a(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return ((Boolean)var3.b(b)).booleanValue()?15:0;
    }
 
-   public int b(IBlockAccess var1, Location var2, IBlock var3, EnumFacing var4) {
+   public int b(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
       return !((Boolean)var3.b(b)).booleanValue()?0:(var3.b(a) == var4?15:0);
    }
 
@@ -233,11 +233,11 @@ public class BlockTripwireHook extends Block {
       return true;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, EnumFacing.b(var1 & 3)).a(b, Boolean.valueOf((var1 & 8) > 0)).a(M, Boolean.valueOf((var1 & 4) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(a)).b();
       if(((Boolean)var1.b(b)).booleanValue()) {

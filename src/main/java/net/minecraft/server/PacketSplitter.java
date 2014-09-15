@@ -20,7 +20,7 @@ public class PacketSplitter extends ByteToMessageDecoder {
 
          var4[var5] = var2.readByte();
          if(var4[var5] >= 0) {
-            hd var6 = new hd(Unpooled.wrappedBuffer(var4));
+            PacketDataSerializer var6 = new PacketDataSerializer(Unpooled.wrappedBuffer(var4));
 
             try {
                int var7 = var6.e();

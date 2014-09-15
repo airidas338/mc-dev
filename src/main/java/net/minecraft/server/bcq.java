@@ -13,7 +13,7 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
    private String k;
 
 
-   public String d_() {
+   public String getName() {
       return this.k_()?this.k:"container.brewing";
    }
 
@@ -47,11 +47,11 @@ public class bcq extends bdf implements IUpdatePlayerListBox, we {
          this.j = this.g[3].b();
       }
 
-      if(!this.b.D) {
+      if(!this.b.isStatic) {
          boolean[] var1 = this.m();
          if(!Arrays.equals(var1, this.i)) {
             this.i = var1;
-            IBlock var2 = this.b.getData(this.v());
+            IBlockData var2 = this.b.getData(this.v());
             if(!(var2.c() instanceof BlockBrewingStand)) {
                return;
             }

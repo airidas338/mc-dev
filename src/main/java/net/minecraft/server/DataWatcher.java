@@ -117,7 +117,7 @@ public class DataWatcher {
       return this.e;
    }
 
-   public static void a(List var0, hd var1) throws IOException {
+   public static void a(List var0, PacketDataSerializer var1) throws IOException {
       if(var0 != null) {
          Iterator var2 = var0.iterator();
 
@@ -155,7 +155,7 @@ public class DataWatcher {
       return var1;
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.f.readLock().lock();
       Iterator var2 = this.d.values().iterator();
 
@@ -184,7 +184,7 @@ public class DataWatcher {
       return var1;
    }
 
-   private static void a(hd var0, xw var1) throws IOException {
+   private static void a(PacketDataSerializer var0, xw var1) throws IOException {
       int var2 = (var1.c() << 5 | var1.a() & 31) & 255;
       var0.writeByte(var2);
       switch(var1.c()) {
@@ -222,7 +222,7 @@ public class DataWatcher {
 
    }
 
-   public static List b(hd var0) throws IOException {
+   public static List b(PacketDataSerializer var0) throws IOException {
       ArrayList var1 = null;
 
       for(byte var2 = var0.readByte(); var2 != 127; var2 = var0.readByte()) {

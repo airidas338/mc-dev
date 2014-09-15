@@ -16,42 +16,42 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       this.A = true;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.ce;
    }
 
-   protected int d(IBlock var1) {
+   protected int d(IBlockData var1) {
       return 2;
    }
 
-   protected IBlock e(IBlock var1) {
+   protected IBlockData e(IBlockData var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.REDSTONE_COMPARATOR_ON.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
-   protected IBlock k(IBlock var1) {
+   protected IBlockData k(IBlockData var1) {
       Boolean var2 = (Boolean)var1.b(a);
       aur var3 = (aur)var1.b(b);
       EnumFacing var4 = (EnumFacing)var1.b(N);
       return Blocks.REDSTONE_COMPARATOR_OFF.P().a(N, var4).a(a, var2).a(b, var3);
    }
 
-   protected boolean l(IBlock var1) {
+   protected boolean l(IBlockData var1) {
       return this.M || ((Boolean)var1.b(a)).booleanValue();
    }
 
-   protected int a(IBlockAccess var1, Location var2, IBlock var3) {
+   protected int a(IBlockAccess var1, Location var2, IBlockData var3) {
       TileEntity var4 = var1.s(var2);
       return var4 instanceof bcv?((bcv)var4).b():0;
    }
 
-   private int j(World var1, Location var2, IBlock var3) {
+   private int j(World var1, Location var2, IBlockData var3) {
       return var3.b(b) == aur.b?Math.max(this.f(var1, var2, var3) - this.c((IBlockAccess)var1, var2, var3), 0):this.f(var1, var2, var3);
    }
 
-   protected boolean e(World var1, Location var2, IBlock var3) {
+   protected boolean e(World var1, Location var2, IBlockData var3) {
       int var4 = this.f(var1, var2, var3);
       if(var4 >= 15) {
          return true;
@@ -63,7 +63,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       }
    }
 
-   protected int f(World var1, Location var2, IBlock var3) {
+   protected int f(World var1, Location var2, IBlockData var3) {
       int var4 = super.f(var1, var2, var3);
       EnumFacing var5 = (EnumFacing)var3.b(N);
       Location var6 = var2.a(var5);
@@ -91,7 +91,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(!var4.by.e) {
          return false;
       } else {
@@ -103,7 +103,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       }
    }
 
-   protected void g(World var1, Location var2, IBlock var3) {
+   protected void g(World var1, Location var2, IBlockData var3) {
       if(!var1.a(var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
          TileEntity var5 = var1.s(var2);
@@ -119,7 +119,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       }
    }
 
-   private void k(World var1, Location var2, IBlock var3) {
+   private void k(World var1, Location var2, IBlockData var3) {
       int var4 = this.j(var1, var2, var3);
       TileEntity var5 = var1.s(var2);
       int var6 = 0;
@@ -143,7 +143,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
 
    }
 
-   public void b(World var1, Location var2, IBlock var3, Random var4) {
+   public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(this.M) {
          var1.a(var2, this.k(var3).a(a, Boolean.valueOf(true)), 4);
       }
@@ -151,18 +151,18 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       this.k(var1, var2, var3);
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       super.c(var1, var2, var3);
       var1.a(var2, this.a(var1, 0));
    }
 
-   public void b(World var1, Location var2, IBlock var3) {
+   public void b(World var1, Location var2, IBlockData var3) {
       super.b(var1, var2, var3);
       var1.t(var2);
       this.h(var1, var2, var3);
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, int var4, int var5) {
+   public boolean a(World var1, Location var2, IBlockData var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       TileEntity var6 = var1.s(var2);
       return var6 == null?false:var6.c(var4, var5);
@@ -172,11 +172,11 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       return new bcv();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(N, EnumFacing.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0?aur.b:aur.a);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((EnumFacing)var1.b(N)).b();
       if(((Boolean)var1.b(a)).booleanValue()) {
@@ -194,7 +194,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements avs {
       return new bed(this, new bex[]{N, b, a});
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.P().a(N, var8.aO().d()).a(a, Boolean.valueOf(false)).a(b, aur.a);
    }
 

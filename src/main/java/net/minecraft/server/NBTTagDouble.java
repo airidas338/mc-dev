@@ -54,15 +54,15 @@ public class NBTTagDouble extends NBTNumber {
 	}
 
 	public int d() {
-		return MathHelper.c(this.b);
+		return MathHelper.floor(this.b);
 	}
 
 	public short e() {
-		return (short) (MathHelper.c(this.b) & '\uffff');
+		return (short) (MathHelper.floor(this.b) & '\uffff');
 	}
 
 	public byte f() {
-		return (byte) (MathHelper.c(this.b) & 255);
+		return (byte) (MathHelper.floor(this.b) & 255);
 	}
 
 	public double g() {

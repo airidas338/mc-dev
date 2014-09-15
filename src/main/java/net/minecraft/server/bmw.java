@@ -57,7 +57,7 @@ public class bmw extends bmm {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         boolean var8 = this.c.v().a(var3 * 16 + 8, var4 * 16 + 8, 0, d);
+         boolean var8 = this.c.getWorldChunkManager().a(var3 * 16 + 8, var4 * 16 + 8, 0, d);
          if(var8) {
             return true;
          }

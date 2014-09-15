@@ -28,7 +28,7 @@ public class BlockDoor extends Block {
       return false;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -81,12 +81,12 @@ public class BlockDoor extends Block {
 
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
          Location var9 = var3.b(O) == avg.b?var2:var2.b();
-         IBlock var10 = var2.equals(var9)?var3:var1.getData(var9);
+         IBlockData var10 = var2.equals(var9)?var3:var1.getData(var9);
          if(var10.c() != this) {
             return false;
          } else {
@@ -100,10 +100,10 @@ public class BlockDoor extends Block {
    }
 
    public void a(World var1, Location var2, boolean var3) {
-      IBlock var4 = var1.getData(var2);
+      IBlockData var4 = var1.getData(var2);
       if(var4.c() == this) {
          Location var5 = var4.b(O) == avg.b?var2:var2.b();
-         IBlock var6 = var2 == var5?var4:var1.getData(var5);
+         IBlockData var6 = var2 == var5?var4:var1.getData(var5);
          if(var6.c() == this && ((Boolean)var6.b(b)).booleanValue() != var3) {
             var1.a(var5, var6.a(b, Boolean.valueOf(var3)), 2);
             var1.b(var5, var2);
@@ -113,10 +113,10 @@ public class BlockDoor extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       if(var3.b(O) == avg.a) {
          Location var5 = var2.b();
-         IBlock var6 = var1.getData(var5);
+         IBlockData var6 = var1.getData(var5);
          if(var6.c() != this) {
             var1.g(var2);
          } else if(var4 != this) {
@@ -125,7 +125,7 @@ public class BlockDoor extends Block {
       } else {
          boolean var9 = false;
          Location var10 = var2.a();
-         IBlock var7 = var1.getData(var10);
+         IBlockData var7 = var1.getData(var10);
          if(var7.c() != this) {
             var1.g(var2);
             var9 = true;
@@ -140,7 +140,7 @@ public class BlockDoor extends Block {
          }
 
          if(var9) {
-            if(!var1.D) {
+            if(!var1.isStatic) {
                this.b(var1, var2, var3, 0);
             }
          } else {
@@ -158,7 +158,7 @@ public class BlockDoor extends Block {
 
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return var1.b(O) == avg.a?null:this.j();
    }
 
@@ -176,13 +176,13 @@ public class BlockDoor extends Block {
    }
 
    public static int e(IBlockAccess var0, Location var1) {
-      IBlock var2 = var0.getData(var1);
+      IBlockData var2 = var0.getData(var1);
       int var3 = var2.c().c(var2);
       boolean var4 = i(var3);
-      IBlock var5 = var0.getData(var1.b());
+      IBlockData var5 = var0.getData(var1.b());
       int var6 = var5.c().c(var5);
       int var7 = var4?var6:var3;
-      IBlock var8 = var0.getData(var1.a());
+      IBlockData var8 = var0.getData(var1.a());
       int var9 = var8.c().c(var8);
       int var10 = var4?var3:var9;
       boolean var11 = (var10 & 1) != 0;
@@ -194,7 +194,7 @@ public class BlockDoor extends Block {
       return this == Blocks.IRON_DOOR_BLOCK?Items.aB:(this == Blocks.SPRUCE_DOOR?Items.ar:(this == Blocks.BIRCH_DOOR?Items.as:(this == Blocks.JUNGLE_DOOR?Items.at:(this == Blocks.ACACIA_DOOR?Items.au:(this == Blocks.DARK_OAK_DOOR?Items.av:Items.aq)))));
    }
 
-   public void a(World var1, Location var2, IBlock var3, EntityHuman var4) {
+   public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       Location var5 = var2.b();
       if(var4.by.canInstantlyBuild && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
          var1.g(var5);
@@ -202,8 +202,8 @@ public class BlockDoor extends Block {
 
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
-      IBlock var4;
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
+      IBlockData var4;
       if(var1.b(O) == avg.b) {
          var4 = var2.getData(var3.a());
          if(var4.c() == this) {
@@ -219,11 +219,11 @@ public class BlockDoor extends Block {
       return var1;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return (var1 & 8) > 0?this.P().a(O, avg.a).a(M, (var1 & 1) > 0?avh.b:avh.a).a(N, Boolean.valueOf((var1 & 2) > 0)):this.P().a(O, avg.b).a(a, EnumFacing.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3;
       if(var1.b(O) == avg.a) {

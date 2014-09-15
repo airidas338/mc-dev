@@ -12,7 +12,7 @@ public class amo extends Item {
          --var1.b;
       }
 
-      if(!var2.D) {
+      if(!var2.isStatic) {
          var3.bj();
       }
 

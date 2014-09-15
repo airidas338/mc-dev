@@ -17,14 +17,14 @@ public class PacketPlayOutSpawnEntityPainting implements Packet {
       this.d = var1.c.B;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.d = var1.c(EnumArt.A);
       this.b = var1.c();
       this.c = EnumFacing.b(var1.readUnsignedByte());
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.a(this.d);
       var1.a(this.b);

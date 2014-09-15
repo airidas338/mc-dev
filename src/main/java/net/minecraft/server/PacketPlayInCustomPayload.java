@@ -5,20 +5,20 @@ import java.io.IOException;
 public class PacketPlayInCustomPayload implements Packet {
 
    private String a;
-   private hd b;
+   private PacketDataSerializer b;
 
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.c(20);
       int var2 = var1.readableBytes();
       if(var2 >= 0 && var2 <= 32767) {
-         this.b = new hd(var1.readBytes(var2));
+         this.b = new PacketDataSerializer(var1.readBytes(var2));
       } else {
          throw new IOException("Payload may not be larger than 32767 bytes");
       }
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a(this.a);
       var1.writeBytes((ByteBuf)this.b);
    }
@@ -31,7 +31,7 @@ public class PacketPlayInCustomPayload implements Packet {
       return this.a;
    }
 
-   public hd b() {
+   public PacketDataSerializer b() {
       return this.b;
    }
 }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class bcu extends aqf {
+class bcu extends CommandBlockListenerAbstract {
 
    // $FF: synthetic field
    final bct a;
@@ -11,7 +11,7 @@ class bcu extends aqf {
       this.a = var1;
    }
 
-   public Location c() {
+   public Location getLocation() {
       return this.a.c;
    }
 
@@ -19,7 +19,7 @@ class bcu extends aqf {
       return new Vec3D((double)this.a.c.n() + 0.5D, (double)this.a.c.o() + 0.5D, (double)this.a.c.p() + 0.5D);
    }
 
-   public World e() {
+   public World getWorld() {
       return this.a.z();
    }
 

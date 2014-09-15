@@ -11,15 +11,15 @@ public class BlockSandStone extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((bae)var1.b(a)).a();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, bae.a(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((bae)var1.b(a)).a();
    }
 

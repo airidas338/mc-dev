@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class CommandHelp extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "help";
    }
 
@@ -23,7 +23,7 @@ public class CommandHelp extends CommandAbstract {
       return Arrays.asList(new String[]{"?"});
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       List var3 = this.d(var1);
       boolean var4 = true;
       int var5 = (var3.size() - 1) / 7;
@@ -48,20 +48,20 @@ public class CommandHelp extends CommandAbstract {
 
       int var7 = Math.min((var13 + 1) * 7, var3.size());
       ChatMessage var14 = new ChatMessage("commands.help.header", new Object[]{Integer.valueOf(var13 + 1), Integer.valueOf(var5 + 1)});
-      var14.b().a(EnumChatFormat.c);
-      var1.a(var14);
+      var14.getChatModifier().setColor(EnumChatFormat.DARK_GREEN);
+      var1.sendMessage(var14);
 
       for(int var15 = var13 * 7; var15 < var7; ++var15) {
          ICommand var10 = (ICommand)var3.get(var15);
          ChatMessage var11 = new ChatMessage(var10.c(var1), new Object[0]);
-         var11.b().a(new hm(hn.e, "/" + var10.c() + " "));
-         var1.a(var11);
+         var11.getChatModifier().a(new hm(hn.e, "/" + var10.getCommand() + " "));
+         var1.sendMessage(var11);
       }
 
       if(var13 == 0 && var1 instanceof EntityHuman) {
          ChatMessage var16 = new ChatMessage("commands.help.footer", new Object[0]);
-         var16.b().a(EnumChatFormat.k);
-         var1.a(var16);
+         var16.getChatModifier().setColor(EnumChatFormat.GREEN);
+         var1.sendMessage(var16);
       }
 
    }
@@ -76,7 +76,7 @@ public class CommandHelp extends CommandAbstract {
       return MinecraftServer.M().O().a();
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Set var4 = this.d().keySet();
          return a(var2, (String[])var4.toArray(new String[var4.size()]));

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CommandDeop extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "deop";
    }
 
@@ -17,7 +17,7 @@ public class CommandDeop extends CommandAbstract {
       return "commands.deop.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.M();
          GameProfile var4 = var3.an().n().a(var2[0]);
@@ -32,7 +32,7 @@ public class CommandDeop extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, MinecraftServer.M().an().o()):null;
    }
 }

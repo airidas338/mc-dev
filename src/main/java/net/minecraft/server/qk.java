@@ -29,7 +29,7 @@ public class qk extends PlayerInteractManager {
 
       if(var1 % 24000L == 500L) {
          if(var3 <= 6L) {
-            this.b.a((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
+            this.b.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
          }
       } else if(var3 == 1L) {
          if(var1 == 100L) {
@@ -40,14 +40,14 @@ public class qk extends PlayerInteractManager {
             this.b.a.sendPacket((Packet)(new jo(5, 103.0F)));
          }
       } else if(var3 == 5L && var1 % 24000L == 22000L) {
-         this.b.a((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
+         this.b.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
       }
 
    }
 
    private void f() {
       if(this.e > 100) {
-         this.b.a((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
+         this.b.sendMessage((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
          this.e = 0;
       }
 

@@ -179,7 +179,7 @@ public class BiomeDecorator {
          while(true) {
             if(var7.o() > 0) {
                Location var12 = var7.b();
-               if(this.a.d(var12)) {
+               if(this.a.isEmpty(var12)) {
                   var7 = var12;
                   continue;
                }

@@ -18,11 +18,11 @@ public class BlockThin extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public IBlock a(IBlock var1, IBlockAccess var2, Location var3) {
+   public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       return var1.a(b, Boolean.valueOf(this.c(var2.getData(var3.c()).c()))).a(N, Boolean.valueOf(this.c(var2.getData(var3.d()).c()))).a(O, Boolean.valueOf(this.c(var2.getData(var3.e()).c()))).a(M, Boolean.valueOf(this.c(var2.getData(var3.f()).c())));
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return !this.a?null:super.a(var1, var2, var3);
    }
 
@@ -34,7 +34,7 @@ public class BlockThin extends Block {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, AxisAlignedBB var4, List var5, Entity var6) {
+   public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       boolean var7 = this.c(var1.getData(var2.c()).c());
       boolean var8 = this.c(var1.getData(var2.d()).c());
       boolean var9 = this.c(var1.getData(var2.e()).c());
@@ -113,7 +113,7 @@ public class BlockThin extends Block {
       return true;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return 0;
    }
 

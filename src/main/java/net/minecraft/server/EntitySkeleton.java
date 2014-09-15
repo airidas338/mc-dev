@@ -21,7 +21,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, false, new Class[0]));
       this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
       this.targetSelector.a(3, new aaq(this, EntityIronGolem.class, true));
-      if(var1 != null && !var1.D) {
+      if(var1 != null && !var1.isStatic) {
          this.n();
       }
 
@@ -70,7 +70,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
    }
 
    public void m() throws IOException {
-      if(this.o.w() && !this.o.D) {
+      if(this.o.w() && !this.o.isStatic) {
          float var1 = this.c(1.0F);
          Location var2 = new Location(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
@@ -94,7 +94,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          }
       }
 
-      if(this.o.D && this.ck() == 1) {
+      if(this.o.isStatic && this.ck() == 1) {
          this.a(0.72F, 2.535F);
       }
 
@@ -169,7 +169,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public xq a(vu var1, xq var2) {
       var2 = super.a(var1, var2);
-      if(this.o.t instanceof bge && this.bb().nextInt(5) > 0) {
+      if(this.o.worldProvider instanceof bge && this.bb().nextInt(5) > 0) {
          this.goalSelector.a(4, this.c);
          this.a(1);
          this.c(0, new ItemStack(Items.q));
@@ -257,7 +257,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void c(int var1, ItemStack var2) {
       super.c(var1, var2);
-      if(!this.o.D && var1 == 0) {
+      if(!this.o.isStatic && var1 == 0) {
          this.n();
       }
 

@@ -12,7 +12,7 @@ class PredicateEntityUnderSun implements Predicate {
    }
 
    public boolean a(EntityLiving var1) {
-      return var1 != null && var1.isAlive() && this.a.i(var1.c());
+      return var1 != null && var1.isAlive() && this.a.i(var1.getLocation());
    }
 
    // $FF: synthetic method

@@ -23,7 +23,7 @@ public class EntityMinecartHopper extends aed implements bdd {
       return EnumMinecartType.HOPPER;
    }
 
-   public IBlock u() {
+   public IBlockData u() {
       return Blocks.HOPPER.P();
    }
 
@@ -36,7 +36,7 @@ public class EntityMinecartHopper extends aed implements bdd {
    }
 
    public boolean e(EntityHuman var1) {
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          var1.a((IInventory)this);
       }
 
@@ -77,7 +77,7 @@ public class EntityMinecartHopper extends aed implements bdd {
 
    public void s_() throws IOException {
       super.s_();
-      if(!this.o.D && this.isAlive() && this.y()) {
+      if(!this.o.isStatic && this.isAlive() && this.y()) {
          Location var1 = new Location(this);
          if(var1.equals(this.c)) {
             --this.b;

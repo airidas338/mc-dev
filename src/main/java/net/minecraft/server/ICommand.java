@@ -4,17 +4,17 @@ import java.util.List;
 
 public interface ICommand extends Comparable {
 
-   String c();
+   String getCommand();
 
    String c(ICommandListener var1);
 
    List b();
 
-   void a(ICommandListener var1, String[] var2) throws CommandException, IOException;
+   void execute(ICommandListener var1, String[] var2) throws CommandException;
 
-   boolean a(ICommandListener var1);
+   boolean canUse(ICommandListener var1);
 
-   List a(ICommandListener var1, String[] var2, Location var3);
+   List tabComplete(ICommandListener var1, String[] var2, Location var3);
 
-   boolean b(String[] var1, int var2);
+   boolean isListStart(String[] var1, int var2);
 }

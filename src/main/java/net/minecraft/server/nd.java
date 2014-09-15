@@ -13,14 +13,14 @@ public class nd implements Packet {
       this.a = var1;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       String var2 = var1.c(36);
       String var3 = var1.c(16);
       UUID var4 = UUID.fromString(var2);
       this.a = new GameProfile(var4, var3);
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       UUID var2 = this.a.getId();
       var1.a(var2 == null?"":var2.toString());
       var1.a(this.a.getName());

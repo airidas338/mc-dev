@@ -28,7 +28,7 @@ public class EntityItemFrame extends EntityHanging {
       if(this.b(var1)) {
          return false;
       } else if(!var1.c() && this.o() != null) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.a(var1.getEntity(), false);
             this.a((ItemStack)null);
          }
@@ -155,13 +155,13 @@ public class EntityItemFrame extends EntityHanging {
    public boolean e(EntityHuman var1) {
       if(this.o() == null) {
          ItemStack var2 = var1.bz();
-         if(var2 != null && !this.o.D) {
+         if(var2 != null && !this.o.isStatic) {
             this.a(var2);
             if(!var1.by.canInstantlyBuild && --var2.b <= 0) {
                var1.bg.a(var1.bg.c, (ItemStack)null);
             }
          }
-      } else if(!this.o.D) {
+      } else if(!this.o.isStatic) {
          this.a(this.p() + 1);
       }
 

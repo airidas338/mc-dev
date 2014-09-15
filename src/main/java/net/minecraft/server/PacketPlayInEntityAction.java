@@ -7,13 +7,13 @@ public class PacketPlayInEntityAction implements Packet {
    private int c;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = (mo)var1.a(mo.class);
       this.c = var1.e();
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.a((Enum)this.b);
       var1.b(this.c);

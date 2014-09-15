@@ -16,11 +16,11 @@ public class BlockSeaLantern extends Block {
       return MathHelper.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 5);
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.cD;
    }
 
-   public MaterialMapColor g(IBlock var1) {
+   public MaterialMapColor g(IBlockData var1) {
       return MaterialMapColor.p;
    }
 

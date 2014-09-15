@@ -233,7 +233,7 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    public boolean a(EntityHuman var1, Vec3D var2) {
-      if(!this.o.D && !var1.v()) {
+      if(!this.o.isStatic && !var1.v()) {
          byte var3 = 0;
          ItemStack var4 = var1.bY();
          boolean var5 = var4 != null;
@@ -326,7 +326,7 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    public boolean a(DamageSource var1, float var2) {
-      if(!this.o.D && !this.h) {
+      if(!this.o.isStatic && !this.h) {
          if(DamageSource.j.equals(var1)) {
             this.J();
             return false;

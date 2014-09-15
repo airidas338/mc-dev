@@ -13,7 +13,7 @@ public class ald extends Item {
       }
 
       var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
-      if(!var2.D) {
+      if(!var2.isStatic) {
          var2.d((Entity)(new EntityThrownExpBottle(var2, var3)));
       }
 

@@ -49,7 +49,7 @@ public class PlayerChunkMap {
 
       this.e.clear();
       if(this.c.isEmpty()) {
-         WorldProvider var5 = this.b.t;
+         WorldProvider var5 = this.b.worldProvider;
          if(!var5.e()) {
             this.b.b.b();
          }

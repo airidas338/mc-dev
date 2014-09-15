@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandWorldborder extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "worldborder";
    }
 
@@ -15,7 +15,7 @@ public class CommandWorldborder extends CommandAbstract {
       return "commands.worldborder.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 1) {
          throw new ExceptionUsage("commands.worldborder.usage", new Object[0]);
       } else {
@@ -66,7 +66,7 @@ public class CommandWorldborder extends CommandAbstract {
                throw new ExceptionUsage("commands.worldborder.center.usage", new Object[0]);
             }
 
-            Location var10 = var1.c();
+            Location var10 = var1.getLocation();
             double var5 = b((double)var10.n() + 0.5D, var2[1], true);
             double var7 = b((double)var10.p() + 0.5D, var2[2], true);
             var3.c(var5, var7);
@@ -121,8 +121,8 @@ public class CommandWorldborder extends CommandAbstract {
             }
          } else if(var2[0].equals("get")) {
             var4 = var3.h();
-            var1.a(ag.e, MathHelper.c(var4 + 0.5D));
-            var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
+            var1.a(ag.e, MathHelper.floor(var4 + 0.5D));
+            var1.sendMessage(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
       }
@@ -132,7 +132,7 @@ public class CommandWorldborder extends CommandAbstract {
       return MinecraftServer.M().c[0].af();
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null));
    }
 }

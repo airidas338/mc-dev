@@ -93,7 +93,7 @@ public class ty {
    }
 
    private static void c() {
-      Iterator var0 = Block.c.iterator();
+      Iterator var0 = Block.REGISTRY.iterator();
 
       while(var0.hasNext()) {
          Block var1 = (Block)var0.next();

@@ -15,7 +15,7 @@ public class BlockTorch extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -57,7 +57,7 @@ public class BlockTorch extends Block {
       return var5 && var1.d(var4, true) || var3.equals(EnumFacing.UP) && this.d(var1, var4);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.b(var1, var2, var3)) {
          return this.P().a(a, var3);
       } else {
@@ -76,15 +76,15 @@ public class BlockTorch extends Block {
       }
    }
 
-   public void c(World var1, Location var2, IBlock var3) {
+   public void c(World var1, Location var2, IBlockData var3) {
       this.f(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   protected boolean e(World var1, Location var2, IBlock var3) {
+   protected boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.f(var1, var2, var3)) {
          return true;
       } else {
@@ -108,7 +108,7 @@ public class BlockTorch extends Block {
       }
    }
 
-   protected boolean f(World var1, Location var2, IBlock var3) {
+   protected boolean f(World var1, Location var2, IBlockData var3) {
       if(var3.c() == this && this.b(var1, var2, (EnumFacing)var3.b(a))) {
          return true;
       } else {
@@ -140,8 +140,8 @@ public class BlockTorch extends Block {
       return super.a(var1, var2, var3, var4);
    }
 
-   public IBlock a(int var1) {
-      IBlock var2 = this.P();
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.P();
       switch(var1) {
       case 1:
          var2 = var2.a(a, EnumFacing.EAST);
@@ -163,7 +163,7 @@ public class BlockTorch extends Block {
       return var2;
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3;
       switch(bbn.a[((EnumFacing)var1.b(a)).ordinal()]) {

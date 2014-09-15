@@ -23,8 +23,8 @@ public class WorldMap extends PersistentBase {
 
    public void a(double var1, double var3, int var5) {
       int var6 = 128 * (1 << var5);
-      int var7 = MathHelper.c((var1 + 64.0D) / (double)var6);
-      int var8 = MathHelper.c((var3 + 64.0D) / (double)var6);
+      int var7 = MathHelper.floor((var1 + 64.0D) / (double)var6);
+      int var8 = MathHelper.floor((var3 + 64.0D) / (double)var6);
       this.b = var7 * var6 + var6 / 2 - 64;
       this.c = var8 * var6 + var6 / 2 - 64;
    }
@@ -78,14 +78,14 @@ public class WorldMap extends PersistentBase {
       }
 
       if(!var1.bg.c(var2)) {
-         this.h.remove(var1.d_());
+         this.h.remove(var1.getName());
       }
 
       for(int var6 = 0; var6 < this.g.size(); ++var6) {
          bqf var4 = (bqf)this.g.get(var6);
          if(!var4.a.I && (var4.a.bg.c(var2) || var2.y())) {
             if(!var2.y() && var4.a.am == this.d) {
-               this.a(0, var4.a.o, var4.a.d_(), var4.a.s, var4.a.u, (double)var4.a.y);
+               this.a(0, var4.a.o, var4.a.getName(), var4.a.s, var4.a.u, (double)var4.a.y);
             }
          } else {
             this.i.remove(var4.a);

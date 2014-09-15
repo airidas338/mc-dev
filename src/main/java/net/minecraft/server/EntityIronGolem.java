@@ -76,10 +76,10 @@ public class EntityIronGolem extends EntityGolem {
       }
 
       if(this.v * this.v + this.x * this.x > 2.500000277905201E-7D && this.V.nextInt(5) == 0) {
-         int var1 = MathHelper.c(this.s);
-         int var2 = MathHelper.c(this.t - 0.20000000298023224D);
-         int var3 = MathHelper.c(this.u);
-         IBlock var4 = this.o.getData(new Location(var1, var2, var3));
+         int var1 = MathHelper.floor(this.s);
+         int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
+         int var3 = MathHelper.floor(this.u);
+         IBlockData var4 = this.o.getData(new Location(var1, var2, var3));
          Block var5 = var4.c();
          if(var5.r() != Material.AIR) {
             this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
@@ -172,7 +172,7 @@ public class EntityIronGolem extends EntityGolem {
 
    public void a(DamageSource var1) {
       if(!this.cl() && this.aL != null && this.a != null) {
-         this.a.a(this.aL.d_(), -5);
+         this.a.a(this.aL.getName(), -5);
       }
 
       super.a(var1);

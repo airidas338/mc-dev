@@ -8,7 +8,7 @@ public class BlockWeb extends Block {
       this.a(CreativeModeTab.c);
    }
 
-   public void a(World var1, Location var2, IBlock var3, Entity var4) {
+   public void a(World var1, Location var2, IBlockData var3, Entity var4) {
       var4.aB();
    }
 
@@ -16,7 +16,7 @@ public class BlockWeb extends Block {
       return false;
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       return null;
    }
 
@@ -24,7 +24,7 @@ public class BlockWeb extends Block {
       return false;
    }
 
-   public Item a(IBlock var1, Random var2, int var3) {
+   public Item a(IBlockData var1, Random var2, int var3) {
       return Items.F;
    }
 

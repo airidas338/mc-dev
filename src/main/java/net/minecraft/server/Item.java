@@ -590,7 +590,7 @@ public class Item {
 	}
 
 	protected static void a(Block var0, Item var1) {
-		a(Block.a(var0), (RegistryPrepender) Block.c.c(var0), var1);
+		a(Block.a(var0), (RegistryPrepender) Block.REGISTRY.c(var0), var1);
 		a.put(var0, var1);
 	}
 

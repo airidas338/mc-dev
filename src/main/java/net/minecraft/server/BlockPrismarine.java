@@ -14,11 +14,11 @@ public class BlockPrismarine extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((azj)var1.b(a)).a();
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((azj)var1.b(a)).a();
    }
 
@@ -26,7 +26,7 @@ public class BlockPrismarine extends Block {
       return new bed(this, new bex[]{a});
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, azj.a(var1));
    }
 

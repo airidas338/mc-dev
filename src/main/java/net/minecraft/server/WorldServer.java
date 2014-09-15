@@ -44,8 +44,8 @@ public class WorldServer extends World implements vn {
       this.I = var1;
       this.J = new EntityTracker(this);
       this.K = new PlayerChunkMap(this);
-      this.t.a(this);
-      this.v = this.k();
+      this.worldProvider.a(this);
+      this.chunkProvider = this.k();
       this.Q = new PortalTravelAgent(this);
       this.B();
       this.C();
@@ -53,35 +53,35 @@ public class WorldServer extends World implements vn {
    }
 
    public World b() {
-      this.worldMaps = new PersistentCollection(this.w);
-      String var1 = VillageSiege.a(this.t);
+      this.worldMaps = new PersistentCollection(this.dataManager);
+      String var1 = VillageSiege.a(this.worldProvider);
       VillageSiege var2 = (VillageSiege)this.worldMaps.get(VillageSiege.class, var1);
       if(var2 == null) {
-         this.A = new VillageSiege(this);
-         this.worldMaps.a(var1, (PersistentBase)this.A);
+         this.siegeManager = new VillageSiege(this);
+         this.worldMaps.a(var1, (PersistentBase)this.siegeManager);
       } else {
-         this.A = var2;
-         this.A.a((World)this);
+         this.siegeManager = var2;
+         this.siegeManager.a((World)this);
       }
 
-      this.C = new ScoreboardServer(this.I);
+      this.scoreboard = new ScoreboardServer(this.I);
       PersistentScoreboard var3 = (PersistentScoreboard)this.worldMaps.get(PersistentScoreboard.class, "scoreboard");
       if(var3 == null) {
          var3 = new PersistentScoreboard();
          this.worldMaps.a("scoreboard", (PersistentBase)var3);
       }
 
-      var3.a(this.C);
-      ((ScoreboardServer)this.C).a(var3);
-      this.af().c(this.x.C(), this.x.D());
-      this.af().c(this.x.I());
-      this.af().b(this.x.H());
-      this.af().c(this.x.J());
-      this.af().b(this.x.K());
-      if(this.x.F() > 0L) {
-         this.af().a(this.x.E(), this.x.G(), this.x.F());
+      var3.a(this.scoreboard);
+      ((ScoreboardServer)this.scoreboard).a(var3);
+      this.af().c(this.worldData.C(), this.worldData.D());
+      this.af().c(this.worldData.I());
+      this.af().b(this.worldData.H());
+      this.af().c(this.worldData.J());
+      this.af().b(this.worldData.K());
+      if(this.worldData.F() > 0L) {
+         this.af().a(this.worldData.E(), this.worldData.G(), this.worldData.F());
       } else {
-         this.af().a(this.x.E());
+         this.af().a(this.worldData.E());
       }
 
       return this;
@@ -93,64 +93,64 @@ public class WorldServer extends World implements vn {
          this.P().a(EnumDifficulty.HARD);
       }
 
-      this.t.m().b();
+      this.worldProvider.m().b();
       if(this.f()) {
          if(this.Q().b("doDaylightCycle")) {
-            long var1 = this.x.getDayTime() + 24000L;
-            this.x.c(var1 - var1 % 24000L);
+            long var1 = this.worldData.getDayTime() + 24000L;
+            this.worldData.c(var1 - var1 % 24000L);
          }
 
          this.e();
       }
 
-      this.B.a("mobSpawner");
-      if(this.Q().b("doMobSpawning") && this.x.u() != WorldType.DEBUG) {
-         this.R.a(this, this.F, this.G, this.x.f() % 400L == 0L);
+      this.methodProfiler.a("mobSpawner");
+      if(this.Q().b("doMobSpawning") && this.worldData.u() != WorldType.DEBUG) {
+         this.R.a(this, this.allowMonsters, this.allowAnimals, this.worldData.f() % 400L == 0L);
       }
 
-      this.B.c("chunkSource");
-      this.v.d();
+      this.methodProfiler.c("chunkSource");
+      this.chunkProvider.unloadChunks();
       int var3 = this.a(1.0F);
       if(var3 != this.ab()) {
          this.b(var3);
       }
 
-      this.x.b(this.x.f() + 1L);
+      this.worldData.b(this.worldData.f() + 1L);
       if(this.Q().b("doDaylightCycle")) {
-         this.x.c(this.x.getDayTime() + 1L);
+         this.worldData.c(this.worldData.getDayTime() + 1L);
       }
 
-      this.B.c("tickPending");
+      this.methodProfiler.c("tickPending");
       this.a(false);
-      this.B.c("tickBlocks");
+      this.methodProfiler.c("tickBlocks");
       this.h();
-      this.B.c("chunkMap");
+      this.methodProfiler.c("chunkMap");
       this.K.b();
-      this.B.c("village");
-      this.A.a();
+      this.methodProfiler.c("village");
+      this.siegeManager.a();
       this.d.a();
-      this.B.c("portalForcer");
+      this.methodProfiler.c("portalForcer");
       this.Q.a(this.K());
-      this.B.b();
+      this.methodProfiler.b();
       this.ak();
    }
 
    public BiomeMeta a(EnumCreatureType var1, Location var2) {
-      List var3 = this.N().a(var1, var2);
-      return var3 != null && !var3.isEmpty()?(BiomeMeta)WeightedRandom.a(this.s, var3):null;
+      List var3 = this.N().getMobsFor(var1, var2);
+      return var3 != null && !var3.isEmpty()?(BiomeMeta)WeightedRandom.a(this.random, var3):null;
    }
 
    public boolean a(EnumCreatureType var1, BiomeMeta var2, Location var3) {
-      List var4 = this.N().a(var1, var3);
+      List var4 = this.N().getMobsFor(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
 
    public void d() {
       this.O = false;
-      if(!this.j.isEmpty()) {
+      if(!this.players.isEmpty()) {
          int var1 = 0;
          int var2 = 0;
-         Iterator var3 = this.j.iterator();
+         Iterator var3 = this.players.iterator();
 
          while(var3.hasNext()) {
             EntityHuman var4 = (EntityHuman)var3.next();
@@ -161,14 +161,14 @@ public class WorldServer extends World implements vn {
             }
          }
 
-         this.O = var2 > 0 && var2 >= this.j.size() - var1;
+         this.O = var2 > 0 && var2 >= this.players.size() - var1;
       }
 
    }
 
    protected void e() {
       this.O = false;
-      Iterator var1 = this.j.iterator();
+      Iterator var1 = this.players.iterator();
 
       while(var1.hasNext()) {
          EntityHuman var2 = (EntityHuman)var1.next();
@@ -181,15 +181,15 @@ public class WorldServer extends World implements vn {
    }
 
    private void ag() {
-      this.x.g(0);
-      this.x.b(false);
-      this.x.f(0);
-      this.x.a(false);
+      this.worldData.g(0);
+      this.worldData.b(false);
+      this.worldData.f(0);
+      this.worldData.a(false);
    }
 
    public boolean f() {
-      if(this.O && !this.D) {
-         Iterator var1 = this.j.iterator();
+      if(this.O && !this.isStatic) {
+         Iterator var1 = this.players.iterator();
 
          EntityHuman var2;
          do {
@@ -208,8 +208,8 @@ public class WorldServer extends World implements vn {
 
    protected void h() {
       super.h();
-      if(this.x.u() == WorldType.DEBUG) {
-         Iterator var21 = this.E.iterator();
+      if(this.worldData.u() == WorldType.DEBUG) {
+         Iterator var21 = this.chunkTickList.iterator();
 
          while(var21.hasNext()) {
             aqm var22 = (aqm)var21.next();
@@ -220,19 +220,19 @@ public class WorldServer extends World implements vn {
          int var1 = 0;
          int var2 = 0;
 
-         for(Iterator var3 = this.E.iterator(); var3.hasNext(); this.B.b()) {
+         for(Iterator var3 = this.chunkTickList.iterator(); var3.hasNext(); this.methodProfiler.b()) {
             aqm var4 = (aqm)var3.next();
             int var5 = var4.a * 16;
             int var6 = var4.b * 16;
-            this.B.a("getChunk");
+            this.methodProfiler.a("getChunk");
             Chunk var7 = this.getChunkAt(var4.a, var4.b);
             this.a(var5, var6, var7);
-            this.B.c("tickChunk");
+            this.methodProfiler.c("tickChunk");
             var7.b(false);
-            this.B.c("thunder");
+            this.methodProfiler.c("thunder");
             int var8;
             Location var9;
-            if(this.s.nextInt(100000) == 0 && this.S() && this.R()) {
+            if(this.random.nextInt(100000) == 0 && this.S() && this.R()) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
                var9 = this.a(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
@@ -241,8 +241,8 @@ public class WorldServer extends World implements vn {
                }
             }
 
-            this.B.c("iceandsnow");
-            if(this.s.nextInt(16) == 0) {
+            this.methodProfiler.c("iceandsnow");
+            if(this.random.nextInt(16) == 0) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
                var9 = this.q(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
@@ -255,12 +255,12 @@ public class WorldServer extends World implements vn {
                   this.a(var9, Blocks.SNOW.P());
                }
 
-               if(this.S() && this.b(var10).e()) {
+               if(this.S() && this.getBiome(var10).e()) {
                   this.getData(var10).c().k(this, var10);
                }
             }
 
-            this.B.c("tickBlocks");
+            this.methodProfiler.c("tickBlocks");
             var8 = this.Q().c("randomTickSpeed");
             if(var8 > 0) {
                bfm[] var23 = var7.h();
@@ -277,11 +277,11 @@ public class WorldServer extends World implements vn {
                         int var17 = var14 >> 16 & 15;
                         ++var2;
                         Location var18 = new Location(var15 + var5, var17 + var12.d(), var16 + var6);
-                        IBlock var19 = var12.a(var15, var17, var16);
+                        IBlockData var19 = var12.a(var15, var17, var16);
                         Block var20 = var19.c();
                         if(var20.w()) {
                            ++var1;
-                           var20.a((World)this, var18, var19, this.s);
+                           var20.a((World)this, var18, var19, this.random);
                         }
                      }
                   }
@@ -296,7 +296,7 @@ public class WorldServer extends World implements vn {
       Location var2 = this.q(var1);
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new Location(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
       List var4 = this.a(EntityLiving.class, var3, new PredicateEntityUnderSun(this));
-      return !var4.isEmpty()?((EntityLiving)var4.get(this.s.nextInt(var4.size()))).c():var2;
+      return !var4.isEmpty()?((EntityLiving)var4.get(this.random.nextInt(var4.size()))).getLocation():var2;
    }
 
    public boolean a(Location var1, Block var2) {
@@ -315,9 +315,9 @@ public class WorldServer extends World implements vn {
          if(var2.M()) {
             var6 = 8;
             if(this.a(var5.a.a(-var6, -var6, -var6), var5.a.a(var6, var6, var6))) {
-               IBlock var7 = this.getData(var5.a);
+               IBlockData var7 = this.getData(var5.a);
                if(var7.c().r() != Material.AIR && var7.c() == var5.a()) {
-                  var7.c().b((World)this, var5.a, var7, this.s);
+                  var7.c().b((World)this, var5.a, var7, this.random);
                }
             }
 
@@ -329,7 +329,7 @@ public class WorldServer extends World implements vn {
 
       if(this.a(var1.a(-var6, -var6, -var6), var1.a(var6, var6, var6))) {
          if(var2.r() != Material.AIR) {
-            var5.a((long)var3 + this.x.f());
+            var5.a((long)var3 + this.worldData.f());
             var5.a(var4);
          }
 
@@ -345,7 +345,7 @@ public class WorldServer extends World implements vn {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       var5.a(var4);
       if(var2.r() != Material.AIR) {
-         var5.a((long)var3 + this.x.f());
+         var5.a((long)var3 + this.worldData.f());
       }
 
       if(!this.L.contains(var5)) {
@@ -356,7 +356,7 @@ public class WorldServer extends World implements vn {
    }
 
    public void i() {
-      if(this.j.isEmpty()) {
+      if(this.players.isEmpty()) {
          if(this.P++ >= 1200) {
             return;
          }
@@ -372,7 +372,7 @@ public class WorldServer extends World implements vn {
    }
 
    public boolean a(boolean var1) {
-      if(this.x.u() == WorldType.DEBUG) {
+      if(this.worldData.u() == WorldType.DEBUG) {
          return false;
       } else {
          int var2 = this.M.size();
@@ -383,12 +383,12 @@ public class WorldServer extends World implements vn {
                var2 = 1000;
             }
 
-            this.B.a("cleaning");
+            this.methodProfiler.a("cleaning");
 
             NextTickListEntry var4;
             for(int var3 = 0; var3 < var2; ++var3) {
                var4 = (NextTickListEntry)this.M.first();
-               if(!var1 && var4.b > this.x.f()) {
+               if(!var1 && var4.b > this.worldData.f()) {
                   break;
                }
 
@@ -397,8 +397,8 @@ public class WorldServer extends World implements vn {
                this.V.add(var4);
             }
 
-            this.B.b();
-            this.B.a("ticking");
+            this.methodProfiler.b();
+            this.methodProfiler.a("ticking");
             Iterator var11 = this.V.iterator();
 
             while(var11.hasNext()) {
@@ -406,10 +406,10 @@ public class WorldServer extends World implements vn {
                var11.remove();
                byte var5 = 0;
                if(this.a(var4.a.a(-var5, -var5, -var5), var4.a.a(var5, var5, var5))) {
-                  IBlock var6 = this.getData(var4.a);
+                  IBlockData var6 = this.getData(var4.a);
                   if(var6.c().r() != Material.AIR && Block.a(var6.c(), var4.a())) {
                      try {
-                        var6.c().b((World)this, var4.a, var6, this.s);
+                        var6.c().b((World)this, var4.a, var6, this.random);
                      } catch (Throwable var10) {
                         CrashReport var8 = CrashReport.a(var10, "Exception while ticking a block");
                         CrashReportSystemDetails var9 = var8.a("Block being ticked");
@@ -422,7 +422,7 @@ public class WorldServer extends World implements vn {
                }
             }
 
-            this.B.b();
+            this.methodProfiler.b();
             this.V.clear();
             return !this.M.isEmpty();
          }
@@ -494,16 +494,16 @@ public class WorldServer extends World implements vn {
    }
 
    protected IChunkProvider k() {
-      IChunkLoader var1 = this.w.a(this.t);
-      this.b = new ChunkProviderServer(this, var1, this.t.c());
+      IChunkLoader var1 = this.dataManager.a(this.worldProvider);
+      this.b = new ChunkProviderServer(this, var1, this.worldProvider.c());
       return this.b;
    }
 
    public List a(int var1, int var2, int var3, int var4, int var5, int var6) {
       ArrayList var7 = Lists.newArrayList();
 
-      for(int var8 = 0; var8 < this.h.size(); ++var8) {
-         TileEntity var9 = (TileEntity)this.h.get(var8);
+      for(int var8 = 0; var8 < this.tileEntityList.size(); ++var8) {
+         TileEntity var9 = (TileEntity)this.tileEntityList.get(var8);
          Location var10 = var9.v();
          if(var10.n() >= var1 && var10.o() >= var2 && var10.p() >= var3 && var10.n() < var4 && var10.o() < var5 && var10.p() < var6) {
             var7.add(var9);
@@ -518,10 +518,10 @@ public class WorldServer extends World implements vn {
    }
 
    public void a(WorldSettings var1) {
-      if(!this.x.w()) {
+      if(!this.worldData.w()) {
          try {
             this.b(var1);
-            if(this.x.u() == WorldType.DEBUG) {
+            if(this.worldData.u() == WorldType.DEBUG) {
                this.aj();
             }
 
@@ -538,38 +538,38 @@ public class WorldServer extends World implements vn {
             throw new ReportedException(var3);
          }
 
-         this.x.d(true);
+         this.worldData.d(true);
       }
 
    }
 
    private void aj() {
-      this.x.f(false);
-      this.x.c(true);
-      this.x.b(false);
-      this.x.a(false);
-      this.x.i(1000000000);
-      this.x.c(6000L);
-      this.x.setGameType(EnumGamemode.SPECTATOR);
-      this.x.g(false);
-      this.x.a(EnumDifficulty.PEACEFUL);
-      this.x.e(true);
+      this.worldData.f(false);
+      this.worldData.c(true);
+      this.worldData.b(false);
+      this.worldData.a(false);
+      this.worldData.i(1000000000);
+      this.worldData.c(6000L);
+      this.worldData.setGameType(EnumGamemode.SPECTATOR);
+      this.worldData.g(false);
+      this.worldData.a(EnumDifficulty.PEACEFUL);
+      this.worldData.e(true);
       this.Q().a("doDaylightCycle", "false");
    }
 
    private void b(WorldSettings var1) {
-      if(!this.t.e()) {
-         this.x.a(Location.a.b(this.t.i()));
-      } else if(this.x.u() == WorldType.DEBUG) {
-         this.x.a(Location.a.a());
+      if(!this.worldProvider.e()) {
+         this.worldData.a(Location.a.b(this.worldProvider.i()));
+      } else if(this.worldData.u() == WorldType.DEBUG) {
+         this.worldData.a(Location.a.a());
       } else {
-         this.y = true;
-         WorldChunkManager var2 = this.t.m();
+         this.isLoading = true;
+         WorldChunkManager var2 = this.worldProvider.m();
          List var3 = var2.a();
          Random var4 = new Random(this.J());
          Location var5 = var2.a(0, 0, 256, var3, var4);
          int var6 = 0;
-         int var7 = this.t.i();
+         int var7 = this.worldProvider.i();
          int var8 = 0;
          if(var5 != null) {
             var6 = var5.n();
@@ -580,7 +580,7 @@ public class WorldServer extends World implements vn {
 
          int var9 = 0;
 
-         while(!this.t.a(var6, var8)) {
+         while(!this.worldProvider.a(var6, var8)) {
             var6 += var4.nextInt(64) - var4.nextInt(64);
             var8 += var4.nextInt(64) - var4.nextInt(64);
             ++var9;
@@ -589,8 +589,8 @@ public class WorldServer extends World implements vn {
             }
          }
 
-         this.x.a(new Location(var6, var7, var8));
-         this.y = false;
+         this.worldData.a(new Location(var6, var7, var8));
+         this.isLoading = false;
          if(var1.c()) {
             this.l();
          }
@@ -602,10 +602,10 @@ public class WorldServer extends World implements vn {
       WorldGenBonusChest var1 = new WorldGenBonusChest(U, 10);
 
       for(int var2 = 0; var2 < 10; ++var2) {
-         int var3 = this.x.c() + this.s.nextInt(6) - this.s.nextInt(6);
-         int var4 = this.x.e() + this.s.nextInt(6) - this.s.nextInt(6);
+         int var3 = this.worldData.c() + this.random.nextInt(6) - this.random.nextInt(6);
+         int var4 = this.worldData.e() + this.random.nextInt(6) - this.random.nextInt(6);
          Location var5 = this.r(new Location(var3, 0, var4)).a();
-         if(var1.generate(this, this.s, var5)) {
+         if(var1.generate(this, this.random, var5)) {
             break;
          }
       }
@@ -613,11 +613,11 @@ public class WorldServer extends World implements vn {
    }
 
    public Location m() {
-      return this.t.h();
+      return this.worldProvider.h();
    }
 
    public void a(boolean var1, IProgressUpdate var2) throws ExceptionWorldConflict {
-      if(this.v.e()) {
+      if(this.chunkProvider.canSave()) {
          if(var2 != null) {
             var2.a("Saving level");
          }
@@ -627,7 +627,7 @@ public class WorldServer extends World implements vn {
             var2.c("Saving chunks");
          }
 
-         this.v.a(var1, var2);
+         this.chunkProvider.saveChunks(var1, var2);
          List var3 = this.b.a();
          Iterator var4 = var3.iterator();
 
@@ -642,23 +642,23 @@ public class WorldServer extends World implements vn {
    }
 
    public void n() {
-      if(this.v.e()) {
-         this.v.c();
+      if(this.chunkProvider.canSave()) {
+         this.chunkProvider.c();
       }
    }
 
    protected void a() throws ExceptionWorldConflict {
       this.I();
-      this.x.a(this.af().h());
-      this.x.d(this.af().f());
-      this.x.c(this.af().g());
-      this.x.e(this.af().m());
-      this.x.f(this.af().n());
-      this.x.j(this.af().q());
-      this.x.k(this.af().p());
-      this.x.b(this.af().j());
-      this.x.e(this.af().i());
-      this.w.a(this.x, this.I.an().u());
+      this.worldData.a(this.af().h());
+      this.worldData.d(this.af().f());
+      this.worldData.c(this.af().g());
+      this.worldData.e(this.af().m());
+      this.worldData.f(this.af().n());
+      this.worldData.j(this.af().q());
+      this.worldData.k(this.af().p());
+      this.worldData.b(this.af().j());
+      this.worldData.e(this.af().i());
+      this.dataManager.a(this.worldData, this.I.an().u());
       this.worldMaps.a();
    }
 
@@ -690,7 +690,7 @@ public class WorldServer extends World implements vn {
 
    public boolean c(Entity var1) {
       if(super.c(var1)) {
-         this.I.an().a(var1.s, var1.t, var1.u, 512.0D, this.t.q(), new PacketPlayOutSpawnEntityWeather(var1));
+         this.I.an().a(var1.s, var1.t, var1.u, 512.0D, this.worldProvider.q(), new PacketPlayOutSpawnEntityWeather(var1));
          return true;
       } else {
          return false;
@@ -709,7 +709,7 @@ public class WorldServer extends World implements vn {
          var11.d();
       }
 
-      Iterator var12 = this.j.iterator();
+      Iterator var12 = this.players.iterator();
 
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
@@ -746,7 +746,7 @@ public class WorldServer extends World implements vn {
          while(var2.hasNext()) {
             aqk var3 = (aqk)var2.next();
             if(this.a(var3)) {
-               this.I.an().a((double)var3.a().n(), (double)var3.a().o(), (double)var3.a().p(), 64.0D, this.t.q(), new iv(var3.a(), var3.d(), var3.b(), var3.c()));
+               this.I.an().a((double)var3.a().n(), (double)var3.a().o(), (double)var3.a().p(), 64.0D, this.worldProvider.q(), new iv(var3.a(), var3.d(), var3.b(), var3.c()));
             }
          }
 
@@ -756,23 +756,23 @@ public class WorldServer extends World implements vn {
    }
 
    private boolean a(aqk var1) {
-      IBlock var2 = this.getData(var1.a());
+      IBlockData var2 = this.getData(var1.a());
       return var2.c() == var1.d()?var2.c().a(this, var1.a(), var2, var1.b(), var1.c()):false;
    }
 
    public void o() {
-      this.w.a();
+      this.dataManager.a();
    }
 
    protected void p() {
       boolean var1 = this.S();
       super.p();
       if(this.o != this.p) {
-         this.I.an().a((Packet)(new jo(7, this.p)), this.t.q());
+         this.I.an().a((Packet)(new jo(7, this.p)), this.worldProvider.q());
       }
 
       if(this.q != this.r) {
-         this.I.an().a((Packet)(new jo(8, this.r)), this.t.q());
+         this.I.an().a((Packet)(new jo(8, this.r)), this.worldProvider.q());
       }
 
       if(var1 != this.S()) {
@@ -815,9 +815,9 @@ public class WorldServer extends World implements vn {
    public void a(ew var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int ... var18) {
       ju var19 = new ju(var1, var2, (float)var3, (float)var5, (float)var7, (float)var10, (float)var12, (float)var14, (float)var16, var9, var18);
 
-      for(int var20 = 0; var20 < this.j.size(); ++var20) {
-         EntityPlayer var21 = (EntityPlayer)this.j.get(var20);
-         Location var22 = var21.c();
+      for(int var20 = 0; var20 < this.players.size(); ++var20) {
+         EntityPlayer var21 = (EntityPlayer)this.players.get(var20);
+         Location var22 = var21.getLocation();
          double var23 = var22.c(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
             var21.a.sendPacket((Packet)var19);

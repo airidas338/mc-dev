@@ -83,7 +83,7 @@ public class EntityEndermite extends EntityMonster {
 
    public void m() throws IOException {
       super.m();
-      if(this.o.D) {
+      if(this.o.isStatic) {
          for(int var1 = 0; var1 < 2; ++var1) {
             this.o.a(ew.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }

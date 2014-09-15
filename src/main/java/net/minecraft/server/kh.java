@@ -36,7 +36,7 @@ public class kh implements Packet {
 
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = (kj)var1.a(kj.class);
       int var2 = var1.e();
 
@@ -89,7 +89,7 @@ public class kh implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a((Enum)this.a);
       var1.b(this.b.size());
       Iterator var2 = this.b.iterator();

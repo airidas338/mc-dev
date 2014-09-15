@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CommandAchievement extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "achievement";
    }
 
@@ -20,7 +20,7 @@ public class CommandAchievement extends CommandAbstract {
       return "commands.achievement.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.achievement.usage", new Object[0]);
       } else {
@@ -43,7 +43,7 @@ public class CommandAchievement extends CommandAbstract {
                         var4.b((tq)var12);
                      }
 
-                     a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.d_()});
+                     a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.getName()});
                   } else if(var6) {
                      var11 = Lists.reverse(AchievementList.e).iterator();
 
@@ -52,7 +52,7 @@ public class CommandAchievement extends CommandAbstract {
                         var4.a((tq)var12);
                      }
 
-                     a(var1, this, "commands.achievement.take.success.all", new Object[]{var4.d_()});
+                     a(var1, this, "commands.achievement.take.success.all", new Object[]{var4.getName()});
                   }
 
                } else {
@@ -63,7 +63,7 @@ public class CommandAchievement extends CommandAbstract {
                      Achievement var10;
                      if(var5) {
                         if(var4.A().a(var7)) {
-                           throw new CommandException("commands.achievement.alreadyHave", new Object[]{var4.d_(), var3.j()});
+                           throw new CommandException("commands.achievement.alreadyHave", new Object[]{var4.getName(), var3.j()});
                         }
 
                         for(var8 = Lists.newArrayList(); var7.c != null && !var4.A().a(var7.c); var7 = var7.c) {
@@ -78,7 +78,7 @@ public class CommandAchievement extends CommandAbstract {
                         }
                      } else if(var6) {
                         if(!var4.A().a(var7)) {
-                           throw new CommandException("commands.achievement.dontHave", new Object[]{var4.d_(), var3.j()});
+                           throw new CommandException("commands.achievement.dontHave", new Object[]{var4.getName(), var3.j()});
                         }
 
                         for(var8 = Lists.newArrayList(Iterators.filter(AchievementList.e.iterator(), new av(this, var4, var3))); var7.c != null && var4.A().a(var7.c); var7 = var7.c) {
@@ -96,10 +96,10 @@ public class CommandAchievement extends CommandAbstract {
 
                   if(var5) {
                      var4.b(var3);
-                     a(var1, this, "commands.achievement.give.success.one", new Object[]{var4.d_(), var3.j()});
+                     a(var1, this, "commands.achievement.give.success.one", new Object[]{var4.getName(), var3.j()});
                   } else if(var6) {
                      var4.a(var3);
-                     a(var1, this, "commands.achievement.take.success.one", new Object[]{var3.j(), var4.d_()});
+                     a(var1, this, "commands.achievement.take.success.one", new Object[]{var3.j(), var4.getName()});
                   }
 
                }
@@ -108,7 +108,7 @@ public class CommandAchievement extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"give", "take"});
       } else if(var2.length != 2) {
@@ -126,7 +126,7 @@ public class CommandAchievement extends CommandAbstract {
       }
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 2;
    }
 }

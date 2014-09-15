@@ -12,12 +12,12 @@ public class PacketPlayInSetCreativeSlot implements Packet {
       ((PacketPlayInListener)var1).a(this);
    }
 
-   public void a(hd var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.a = var1.readShort();
       this.b = var1.i();
    }
 
-   public void b(hd var1) throws IOException {
+   public void b(PacketDataSerializer var1) throws IOException {
       var1.writeShort(this.a);
       var1.a(this.b);
    }

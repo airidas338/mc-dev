@@ -89,7 +89,7 @@ public class PathfinderGoalMoveThroughVillage extends PathfinderGoal {
 
       while(var5.hasNext()) {
          abh var6 = (abh)var5.next();
-         int var7 = var6.b(MathHelper.c(this.a.s), MathHelper.c(this.a.t), MathHelper.c(this.a.u));
+         int var7 = var6.b(MathHelper.floor(this.a.s), MathHelper.floor(this.a.t), MathHelper.floor(this.a.u));
          if(var7 < var3 && !this.a(var6)) {
             var2 = var6;
             var3 = var7;

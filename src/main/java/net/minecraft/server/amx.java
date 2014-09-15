@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public enum amx {
 
-   a("COMMON", 0, EnumChatFormat.p, "Common"),
-   b("UNCOMMON", 1, EnumChatFormat.o, "Uncommon"),
-   c("RARE", 2, EnumChatFormat.l, "Rare"),
-   d("EPIC", 3, EnumChatFormat.n, "Epic");
+   a("COMMON", 0, EnumChatFormat.WHITE, "Common"),
+   b("UNCOMMON", 1, EnumChatFormat.YELLOW, "Uncommon"),
+   c("RARE", 2, EnumChatFormat.AQUA, "Rare"),
+   d("EPIC", 3, EnumChatFormat.LIGHT_PURPLE, "Epic");
    public final EnumChatFormat e;
    public final String f;
    // $FF: synthetic field

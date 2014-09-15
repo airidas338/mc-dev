@@ -29,7 +29,7 @@ public class BlockTrapdoor extends Block {
       return !((Boolean)var1.getData(var2).b(b)).booleanValue();
    }
 
-   public AxisAlignedBB a(World var1, Location var2, IBlock var3) {
+   public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2);
       return super.a(var1, var2, var3);
    }
@@ -43,7 +43,7 @@ public class BlockTrapdoor extends Block {
       this.a(0.0F, 0.40625F, 0.0F, 1.0F, 0.59375F, 1.0F);
    }
 
-   public void d(IBlock var1) {
+   public void d(IBlockData var1) {
       if(var1.c() == this) {
          boolean var2 = var1.b(M) == bbr.a;
          Boolean var3 = (Boolean)var1.b(b);
@@ -76,7 +76,7 @@ public class BlockTrapdoor extends Block {
       }
    }
 
-   public boolean a(World var1, Location var2, IBlock var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
+   public boolean a(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.J == Material.ORE) {
          return true;
       } else {
@@ -87,8 +87,8 @@ public class BlockTrapdoor extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlock var3, Block var4) {
-      if(!var1.D) {
+   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+      if(!var1.isStatic) {
          Location var5 = var2.a(((EnumFacing)var3.b(a)).d());
          if(!c(var1.getData(var5).c())) {
             var1.g(var2);
@@ -112,8 +112,8 @@ public class BlockTrapdoor extends Block {
       return super.a(var1, var2, var3, var4);
    }
 
-   public IBlock a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      IBlock var9 = this.P();
+   public IBlockData a(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      IBlockData var9 = this.P();
       if(var3.k().c()) {
          var9 = var9.a(a, var3).a(b, Boolean.valueOf(false));
          var9 = var9.a(M, var5 > 0.5F?bbr.a:bbr.b);
@@ -158,11 +158,11 @@ public class BlockTrapdoor extends Block {
       return var0.J.k() && var0.d() || var0 == Blocks.GLOWSTONE || var0 instanceof BlockStepAbstract || var0 instanceof BlockStairs;
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, b(var1)).a(b, Boolean.valueOf((var1 & 4) != 0)).a(M, (var1 & 8) == 0?bbr.b:bbr.a);
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | a((EnumFacing)var1.b(a));
       if(((Boolean)var1.b(b)).booleanValue()) {

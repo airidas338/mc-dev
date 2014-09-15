@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class CommandStop extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "stop";
    }
 
@@ -10,7 +10,7 @@ public class CommandStop extends CommandAbstract {
       return "commands.stop.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(MinecraftServer.M().c != null) {
          a(var1, this, "commands.stop.start", new Object[0]);
       }

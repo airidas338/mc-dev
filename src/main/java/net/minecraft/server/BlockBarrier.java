@@ -18,5 +18,5 @@ public class BlockBarrier extends Block {
       return false;
    }
 
-   public void a(World var1, Location var2, IBlock var3, float var4, int var5) {}
+   public void a(World var1, Location var2, IBlockData var3, float var4, int var5) {}
 }

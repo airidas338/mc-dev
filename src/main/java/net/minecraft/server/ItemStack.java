@@ -480,15 +480,15 @@ public final class ItemStack {
    public IChatBaseComponent C() {
       ChatComponentText var1 = new ChatComponentText(this.q());
       if(this.s()) {
-         var1.b().b(Boolean.valueOf(true));
+         var1.getChatModifier().b(Boolean.valueOf(true));
       }
 
       IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
       if(this.d != null) {
          NBTTagCompound var3 = new NBTTagCompound();
          this.b(var3);
-         var2.b().a(new ChatHoverable(EnumHoverAction.SHOW_ITEM, new ChatComponentText(var3.toString())));
-         var2.b().a(this.u().e);
+         var2.getChatModifier().a(new ChatHoverable(EnumHoverAction.SHOW_ITEM, new ChatComponentText(var3.toString())));
+         var2.getChatModifier().setColor(this.u().e);
       }
 
       return var2;

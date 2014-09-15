@@ -37,7 +37,7 @@ public class wf {
    }
 
    public IChatBaseComponent h() {
-      return this.a().getEntity() == null?null:this.a().getEntity().e_();
+      return this.a().getEntity() == null?null:this.a().getEntity().getScoreboardDisplayName();
    }
 
    public float i() {

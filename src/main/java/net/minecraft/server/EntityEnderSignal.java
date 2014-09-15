@@ -75,7 +75,7 @@ public class EntityEnderSignal extends Entity {
 
       this.z = this.B + (this.z - this.B) * 0.2F;
       this.y = this.A + (this.y - this.A) * 0.2F;
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          double var2 = this.a - this.s;
          double var4 = this.c - this.u;
          float var6 = (float)Math.sqrt(var2 * var2 + var4 * var4);
@@ -104,10 +104,10 @@ public class EntityEnderSignal extends Entity {
          this.o.a(ew.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.w * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.w, this.x, new int[0]);
       }
 
-      if(!this.o.D) {
+      if(!this.o.isStatic) {
          this.b(this.s, this.t, this.u);
          ++this.d;
-         if(this.d > 80 && !this.o.D) {
+         if(this.d > 80 && !this.o.isStatic) {
             this.J();
             if(this.e) {
                this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bH))));

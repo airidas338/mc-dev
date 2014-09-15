@@ -42,10 +42,10 @@ public class zr extends zn {
    }
 
    protected boolean a(World var1, Location var2) {
-      if(!var1.d(var2.a())) {
+      if(!var1.isEmpty(var2.a())) {
          return false;
       } else {
-         IBlock var3 = var1.getData(var2);
+         IBlockData var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(var4 == Blocks.CHEST) {
             TileEntity var5 = var1.s(var2);

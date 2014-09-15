@@ -40,7 +40,7 @@ public class EntitySheep extends EntityAnimal {
    }
 
    public void m() throws IOException {
-      if(this.o.D) {
+      if(this.o.isStatic) {
          this.bn = Math.max(0, this.bn - 1);
       }
 
@@ -79,10 +79,10 @@ public class EntitySheep extends EntityAnimal {
       return Item.a(Blocks.WOOL);
    }
 
-   public boolean a(EntityHuman var1) throws IOException {
+   public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
       if(var2 != null && var2.b() == Items.be && !this.ck() && !this.i_()) {
-         if(!this.o.D) {
+         if(!this.o.isStatic) {
             this.l(true);
             int var3 = 1 + this.V.nextInt(3);
 
@@ -174,7 +174,7 @@ public class EntitySheep extends EntityAnimal {
 
    public xq a(vu var1, xq var2) {
       var2 = super.a(var1, var2);
-      this.b(a(this.o.s));
+      this.b(a(this.o.random));
       return var2;
    }
 
@@ -188,7 +188,7 @@ public class EntitySheep extends EntityAnimal {
       if(var5 != null && var5.b() == Items.aW) {
          var6 = var5.i();
       } else {
-         var6 = this.o.s.nextBoolean()?var3:var4;
+         var6 = this.o.random.nextBoolean()?var3:var4;
       }
 
       return akv.a(var6);

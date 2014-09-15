@@ -27,7 +27,7 @@ public class lj implements Packet {
       this.e = var5;
    }
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = (lk)var1.a(lk.class);
       if(this.a == lk.a || this.a == lk.b) {
          this.b = var1.d();
@@ -41,7 +41,7 @@ public class lj implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.a((Enum)this.a);
       if(this.a == lk.a || this.a == lk.b) {
          var1.a(this.b);

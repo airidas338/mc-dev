@@ -36,7 +36,7 @@ public class SourceBlock implements ISourceBlock {
    }
 
    public int f() {
-      IBlock var1 = this.a.getData(this.b);
+      IBlockData var1 = this.a.getData(this.b);
       return var1.c().c(var1);
    }
 

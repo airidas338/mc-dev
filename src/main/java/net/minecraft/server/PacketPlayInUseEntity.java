@@ -9,7 +9,7 @@ public class PacketPlayInUseEntity implements Packet {
    private Vec3D c;
 
 
-   public void a(hd var1) {
+   public void a(PacketDataSerializer var1) {
       this.a = var1.e();
       this.b = (me)var1.a(me.class);
       if(this.b == me.c) {
@@ -18,7 +18,7 @@ public class PacketPlayInUseEntity implements Packet {
 
    }
 
-   public void b(hd var1) {
+   public void b(PacketDataSerializer var1) {
       var1.b(this.a);
       var1.a((Enum)this.b);
       if(this.b == me.c) {

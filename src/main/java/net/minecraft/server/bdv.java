@@ -6,7 +6,7 @@ import java.util.List;
 
 public class bdv extends TileEntity implements IUpdatePlayerListBox {
 
-   private IBlock a;
+   private IBlockData a;
    private EnumFacing f;
    private boolean g;
    private boolean h;
@@ -17,14 +17,14 @@ public class bdv extends TileEntity implements IUpdatePlayerListBox {
 
    public bdv() {}
 
-   public bdv(IBlock var1, EnumFacing var2, boolean var3, boolean var4) {
+   public bdv(IBlockData var1, EnumFacing var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;
       this.h = var4;
    }
 
-   public IBlock b() {
+   public IBlockData b() {
       return this.a;
    }
 

@@ -11,19 +11,19 @@ public class BlockCloth extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlock var1) {
+   public int a(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 
-   public MaterialMapColor g(IBlock var1) {
+   public MaterialMapColor g(IBlockData var1) {
       return ((akv)var1.b(a)).e();
    }
 
-   public IBlock a(int var1) {
+   public IBlockData a(int var1) {
       return this.P().a(a, akv.b(var1));
    }
 
-   public int c(IBlock var1) {
+   public int c(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 

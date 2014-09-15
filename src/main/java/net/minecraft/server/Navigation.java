@@ -33,7 +33,7 @@ public abstract class Navigation {
    }
 
    public final bpv a(double var1, double var3, double var5) {
-      return this.a(new Location(MathHelper.c(var1), (int)var3, MathHelper.c(var5)));
+      return this.a(new Location(MathHelper.floor(var1), (int)var3, MathHelper.floor(var5)));
    }
 
    public bpv a(Location var1) {
@@ -41,18 +41,18 @@ public abstract class Navigation {
          return null;
       } else {
          float var2 = this.i();
-         this.c.B.a("pathfind");
+         this.c.methodProfiler.a("pathfind");
          Location var3 = new Location(this.b);
          int var4 = (int)(var2 + 8.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
          bpv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, var1, var2);
-         this.c.B.b();
+         this.c.methodProfiler.b();
          return var6;
       }
    }
 
    public boolean a(double var1, double var3, double var5, double var7) {
-      bpv var9 = this.a((double)MathHelper.c(var1), (double)((int)var3), (double)MathHelper.c(var5));
+      bpv var9 = this.a((double)MathHelper.floor(var1), (double)((int)var3), (double)MathHelper.floor(var5));
       return this.a(var9, var7);
    }
 
@@ -65,12 +65,12 @@ public abstract class Navigation {
          return null;
       } else {
          float var2 = this.i();
-         this.c.B.a("pathfind");
+         this.c.methodProfiler.a("pathfind");
          Location var3 = (new Location(this.b)).a();
          int var4 = (int)(var2 + 16.0F);
          arj var5 = new arj(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
          bpv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, var1, var2);
-         this.c.B.b();
+         this.c.methodProfiler.b();
          return var6;
       }
    }
@@ -115,7 +115,7 @@ public abstract class Navigation {
          } else if(this.d != null && this.d.e() < this.d.d()) {
             var1 = this.c();
             Vec3D var2 = this.d.a(this.b, this.d.e());
-            if(var1.b > var2.b && !this.b.C && MathHelper.c(var1.a) == MathHelper.c(var2.a) && MathHelper.c(var1.c) == MathHelper.c(var2.c)) {
+            if(var1.b > var2.b && !this.b.C && MathHelper.floor(var1.a) == MathHelper.floor(var2.a) && MathHelper.floor(var1.c) == MathHelper.floor(var2.c)) {
                this.d.c(this.d.e() + 1);
             }
          }

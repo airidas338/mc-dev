@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CommandTrigger extends CommandAbstract {
 
-   public String c() {
+   public String getCommand() {
       return "trigger";
    }
 
@@ -19,7 +19,7 @@ public class CommandTrigger extends CommandAbstract {
       return "commands.trigger.usage";
    }
 
-   public void a(ICommandListener var1, String[] var2) throws CommandException {
+   public void execute(ICommandListener var1, String[] var2) throws CommandException {
       if(var2.length < 3) {
          throw new ExceptionUsage("commands.trigger.usage", new Object[0]);
       } else {
@@ -39,10 +39,10 @@ public class CommandTrigger extends CommandAbstract {
          ScoreboardObjective var5 = var8.getObjective(var2[0]);
          if(var5 != null && var5.getCriteria() == IScoreboardCriteria.c) {
             int var6 = a(var2[2]);
-            if(!var8.b(var3.d_(), var5)) {
+            if(!var8.b(var3.getName(), var5)) {
                throw new CommandException("commands.trigger.invalidObjective", new Object[]{var2[0]});
             } else {
-               ScoreboardScore var7 = var8.getPlayerScoreForObjective(var3.d_(), var5);
+               ScoreboardScore var7 = var8.getPlayerScoreForObjective(var3.getName(), var5);
                if(var7.g()) {
                   throw new CommandException("commands.trigger.disabled", new Object[]{var2[0]});
                } else {
@@ -69,7 +69,7 @@ public class CommandTrigger extends CommandAbstract {
       }
    }
 
-   public List a(ICommandListener var1, String[] var2, Location var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
          Scoreboard var4 = MinecraftServer.M().a(0).Z();
          ArrayList var5 = Lists.newArrayList();
