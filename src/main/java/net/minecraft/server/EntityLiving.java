@@ -339,7 +339,7 @@ public abstract class EntityLiving extends Entity {
 
          while(var7.hasNext()) {
             MobEffect var8 = (MobEffect)var7.next();
-            var6.a((NBTBase)var8.a(new NBTTagCompound()));
+            var6.add((NBTBase)var8.a(new NBTTagCompound()));
          }
 
          var1.set("ActiveEffects", (NBTBase)var6);
@@ -356,8 +356,8 @@ public abstract class EntityLiving extends Entity {
       if(var1.hasKeyOfType("ActiveEffects", 9)) {
          NBTTagList var2 = var1.getList("ActiveEffects", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            NBTTagCompound var4 = var2.b(var3);
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            NBTTagCompound var4 = var2.get(var3);
             MobEffect var5 = MobEffect.b(var4);
             if(var5 != null) {
                this.g.put(Integer.valueOf(var5.getEffectId()), var5);
@@ -368,7 +368,7 @@ public abstract class EntityLiving extends Entity {
       if(var1.hasKeyOfType("HealF", 99)) {
          this.h(var1.getFloat("HealF"));
       } else {
-         NBTBase var6 = var1.a("Health");
+         NBTBase var6 = var1.get("Health");
          if(var6 == null) {
             this.h(this.bt());
          } else if(var6.getTypeId() == 5) {
@@ -873,7 +873,7 @@ public abstract class EntityLiving extends Entity {
          this.aq = -1;
          this.ap = true;
          if(this.o instanceof WorldServer) {
-            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ir(this, 0)));
+            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new PacketPlayOutAnimation(this, 0)));
          }
       }
 
@@ -1152,7 +1152,7 @@ public abstract class EntityLiving extends Entity {
             ItemStack var3 = this.h[var2];
             ItemStack var4 = this.p(var2);
             if(!ItemStack.b(var4, var3)) {
-               ((WorldServer)this.o).s().a((Entity)this, (Packet)(new la(this.F(), var2, var4)));
+               ((WorldServer)this.o).s().a((Entity)this, (Packet)(new PacketPlayOutEntityEquipment(this.F(), var2, var4)));
                if(var3 != null) {
                   this.c.a(var3.B());
                }
@@ -1384,15 +1384,15 @@ public abstract class EntityLiving extends Entity {
       if(!var1.I && !this.o.isStatic) {
          EntityTracker var3 = ((WorldServer)this.o).s();
          if(var1 instanceof EntityItem) {
-            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new PacketPlayOutCollect(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityArrow) {
-            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new PacketPlayOutCollect(var1.F(), this.F())));
          }
 
          if(var1 instanceof EntityExperienceOrb) {
-            var3.a(var1, (Packet)(new ln(var1.F(), this.F())));
+            var3.a(var1, (Packet)(new PacketPlayOutCollect(var1.F(), this.F())));
          }
       }
 

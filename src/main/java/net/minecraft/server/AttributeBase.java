@@ -18,7 +18,7 @@ public abstract class AttributeBase implements IAttribute {
       }
    }
 
-   public String a() {
+   public String getName() {
       return this.b;
    }
 
@@ -44,6 +44,6 @@ public abstract class AttributeBase implements IAttribute {
    }
 
    public boolean equals(Object var1) {
-      return var1 instanceof IAttribute && this.b.equals(((IAttribute)var1).a());
+      return var1 instanceof IAttribute && this.b.equals(((IAttribute)var1).getName());
    }
 }

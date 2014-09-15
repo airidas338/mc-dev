@@ -60,7 +60,7 @@ public abstract class bmv {
 
       while(var5.hasNext()) {
          bms var6 = (bms)var5.next();
-         var4.a((NBTBase)var6.b());
+         var4.add((NBTBase)var6.b());
       }
 
       var3.set("Children", (NBTBase)var4);
@@ -79,8 +79,8 @@ public abstract class bmv {
 
       NBTTagList var3 = var2.getList("Children", 10);
 
-      for(int var4 = 0; var4 < var3.c(); ++var4) {
-         this.a.add(bmq.b(var3.b(var4), var1));
+      for(int var4 = 0; var4 < var3.size(); ++var4) {
+         this.a.add(bmq.b(var3.get(var4), var1));
       }
 
       this.b(var2);

@@ -350,16 +350,16 @@ public class Village {
       this.c = new Location(var1.getInt("ACX"), var1.getInt("ACY"), var1.getInt("ACZ"));
       NBTTagList var2 = var1.getList("Doors", 10);
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         NBTTagCompound var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         NBTTagCompound var4 = var2.get(var3);
          abh var5 = new abh(new Location(var4.getInt("X"), var4.getInt("Y"), var4.getInt("Z")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
          this.b.add(var5);
       }
 
       NBTTagList var6 = var1.getList("Players", 10);
 
-      for(int var7 = 0; var7 < var6.c(); ++var7) {
-         NBTTagCompound var8 = var6.b(var7);
+      for(int var7 = 0; var7 < var6.size(); ++var7) {
+         NBTTagCompound var8 = var6.get(var7);
          this.j.put(var8.getString("Name"), Integer.valueOf(var8.getInt("S")));
       }
 
@@ -390,7 +390,7 @@ public class Village {
          var5.setInt("IDX", var4.f());
          var5.setInt("IDZ", var4.g());
          var5.setInt("TS", var4.h());
-         var2.a((NBTBase)var5);
+         var2.add((NBTBase)var5);
       }
 
       var1.set("Doors", (NBTBase)var2);
@@ -402,7 +402,7 @@ public class Village {
          NBTTagCompound var6 = new NBTTagCompound();
          var6.setString("Name", var9);
          var6.setInt("S", ((Integer)this.j.get(var9)).intValue());
-         var7.a((NBTBase)var6);
+         var7.add((NBTBase)var6);
       }
 
       var1.set("Players", (NBTBase)var7);

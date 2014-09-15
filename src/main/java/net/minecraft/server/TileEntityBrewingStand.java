@@ -75,7 +75,7 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
                 boolean var2 = false;
 
                 for (int var3 = 0; var3 < 3; ++var3) {
-                    if (this.g[var3] != null && this.g[var3].b() == Items.bz) {
+                    if (this.g[var3] != null && this.g[var3].b() == Items.POTION) {
                         int var4 = this.g[var3].i();
                         int var5 = this.c(var4, var1);
                         if (!ItemPotion.f(var4) && ItemPotion.f(var5)) {
@@ -83,8 +83,8 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
                             break;
                         }
 
-                        List var6 = Items.bz.e(var4);
-                        List var7 = Items.bz.e(var5);
+                        List var6 = Items.POTION.e(var4);
+                        List var7 = Items.POTION.e(var5);
                         if ((var4 <= 0 || var6 != var7) && (var6 == null || !var6.equals(var7) && var7 != null) && var4 != var5) {
                             var2 = true;
                             break;
@@ -104,11 +104,11 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
             ItemStack var1 = this.g[3];
 
             for (int var2 = 0; var2 < 3; ++var2) {
-                if (this.g[var2] != null && this.g[var2].b() == Items.bz) {
+                if (this.g[var2] != null && this.g[var2].b() == Items.POTION) {
                     int var3 = this.g[var2].i();
                     int var4 = this.c(var3, var1);
-                    List var5 = Items.bz.e(var3);
-                    List var6 = Items.bz.e(var4);
+                    List var5 = Items.POTION.e(var3);
+                    List var6 = Items.POTION.e(var4);
                     if ((var3 <= 0 || var5 != var6) && (var5 == null || !var5.equals(var6) && var6 != null)) {
                         if (var3 != var4) {
                             this.g[var2].b(var4);
@@ -140,8 +140,8 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
         NBTTagList var2 = var1.getList("Items", 10);
         this.g = new ItemStack[this.n_()];
 
-        for (int var3 = 0; var3 < var2.c(); ++var3) {
-            NBTTagCompound var4 = var2.b(var3);
+        for (int var3 = 0; var3 < var2.size(); ++var3) {
+            NBTTagCompound var4 = var2.get(var3);
             byte var5 = var4.getByte("Slot");
             if (var5 >= 0 && var5 < this.g.length) {
                 this.g[var5] = ItemStack.a(var4);
@@ -165,7 +165,7 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
                 NBTTagCompound var4 = new NBTTagCompound();
                 var4.setByte("Slot", (byte) var3);
                 this.g[var3].b(var4);
-                var2.a((NBTBase) var4);
+                var2.add((NBTBase) var4);
             }
         }
 
@@ -222,7 +222,7 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
     }
 
     public boolean b(int var1, ItemStack var2) {
-        return var1 == 3 ? var2.b().l(var2) : var2.b() == Items.bz || var2.b() == Items.bA;
+        return var1 == 3 ? var2.b().l(var2) : var2.b() == Items.POTION || var2.b() == Items.bA;
     }
 
     public boolean[] m() {

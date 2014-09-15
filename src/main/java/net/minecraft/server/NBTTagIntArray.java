@@ -15,7 +15,7 @@ public class NBTTagIntArray extends NBTBase {
       this.b = var1;
    }
 
-   void a(DataOutput var1) throws IOException {
+   void write(DataOutput var1) throws IOException {
       var1.writeInt(this.b.length);
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
@@ -24,7 +24,7 @@ public class NBTTagIntArray extends NBTBase {
 
    }
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
       int var4 = var1.readInt();
       var3.a((long)(32 * var4));
       this.b = new int[var4];
@@ -52,7 +52,7 @@ public class NBTTagIntArray extends NBTBase {
       return var1 + "]";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       int[] var1 = new int[this.b.length];
       System.arraycopy(this.b, 0, var1, 0, this.b.length);
       return new NBTTagIntArray(var1);

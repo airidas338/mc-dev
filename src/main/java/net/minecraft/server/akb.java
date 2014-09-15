@@ -32,13 +32,13 @@ public class akb extends Item {
                Material var8 = var7.c().getMaterial();
                if(var8 == Material.WATER && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
                   var2.g(var6);
-                  var3.b(ty.J[Item.b((Item)this)]);
+                  var3.b(StatisticList.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ax);
                }
 
                if(var8 == Material.LAVA && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
                   var2.g(var6);
-                  var3.b(ty.J[Item.b((Item)this)]);
+                  var3.b(StatisticList.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ay);
                }
             } else {
@@ -52,7 +52,7 @@ public class akb extends Item {
                }
 
                if(this.a(var2, var9) && !var3.by.canInstantlyBuild) {
-                  var3.b(ty.J[Item.b((Item)this)]);
+                  var3.b(StatisticList.J[Item.b((Item)this)]);
                   return new ItemStack(Items.aw);
                }
             }
@@ -81,7 +81,7 @@ public class akb extends Item {
          return false;
       } else {
          Material var3 = var1.getData(var2).c().getMaterial();
-         boolean var4 = !var3.a();
+         boolean var4 = !var3.isBuildable();
          if(!var1.isEmpty(var2) && !var4) {
             return false;
          } else {
@@ -95,7 +95,7 @@ public class akb extends Item {
                   var1.a(ew.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
                }
             } else {
-               if(!var1.isStatic && var4 && !var3.d()) {
+               if(!var1.isStatic && var4 && !var3.isLiquid()) {
                   var1.b(var2, true);
                }
 

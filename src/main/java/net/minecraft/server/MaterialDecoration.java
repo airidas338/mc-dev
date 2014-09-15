@@ -7,15 +7,15 @@ public class MaterialDecoration extends Material {
       this.p();
    }
 
-   public boolean a() {
+   public boolean isBuildable() {
       return false;
    }
 
-   public boolean b() {
+   public boolean blocksLight() {
       return false;
    }
 
-   public boolean c() {
+   public boolean isSolid() {
       return false;
    }
 }

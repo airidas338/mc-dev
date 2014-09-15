@@ -8,9 +8,9 @@ public abstract class NBTBase {
    public static final String[] a = new String[]{"END", "BYTE", "SHORT", "INT", "LONG", "FLOAT", "DOUBLE", "BYTE[]", "STRING", "LIST", "COMPOUND", "INT[]"};
 
 
-   abstract void a(DataOutput var1) throws IOException;
+   abstract void write(DataOutput var1) throws IOException;
 
-   abstract void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException;
+   abstract void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException;
 
    public abstract String toString();
 
@@ -47,9 +47,9 @@ public abstract class NBTBase {
       }
    }
 
-   public abstract NBTBase b();
+   public abstract NBTBase clone();
 
-   public boolean c_() {
+   public boolean isEmpty() {
       return false;
    }
 

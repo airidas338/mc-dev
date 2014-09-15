@@ -25,11 +25,11 @@ public abstract class AttributeMapBase {
    }
 
    public AttributeInstance load(IAttribute var1) {
-      if(this.b.containsKey(var1.a())) {
+      if(this.b.containsKey(var1.getName())) {
          throw new IllegalArgumentException("Attribute is already registered!");
       } else {
          AttributeInstance var2 = this.c(var1);
-         this.b.put(var1.a(), var2);
+         this.b.put(var1.getName(), var2);
          this.a.put(var1, var2);
 
          for(IAttribute var3 = var1.d(); var3 != null; var3 = var3.d()) {

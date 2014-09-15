@@ -19,8 +19,8 @@ public class ajh extends wa {
          this.a(var2, (ItemStack)null);
       }
 
-      for(var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          int var4 = var3.getByte("Slot") & 255;
          if(var4 >= 0 && var4 < this.n_()) {
             this.a(var4, ItemStack.a(var3));
@@ -38,7 +38,7 @@ public class ajh extends wa {
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var2);
             var3.b(var4);
-            var1.a((NBTBase)var4);
+            var1.add((NBTBase)var4);
          }
       }
 

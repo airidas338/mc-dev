@@ -123,7 +123,7 @@ public class EntityPig extends EntityAnimal {
    public void e(float var1, float var2) {
       super.e(var1, var2);
       if(var1 > 5.0F && this.l instanceof EntityHuman) {
-         ((EntityHuman)this.l).b((tq)AchievementList.u);
+         ((EntityHuman)this.l).b((Statistic)AchievementList.u);
       }
 
    }

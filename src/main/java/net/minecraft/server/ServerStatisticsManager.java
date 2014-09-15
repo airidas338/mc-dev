@@ -58,7 +58,7 @@ public class ServerStatisticsManager extends tz {
 
    }
 
-   public void a(EntityHuman var1, tq var2, int var3) {
+   public void a(EntityHuman var1, Statistic var2, int var3) {
       int var4 = var2.d()?this.a(var2):0;
       super.a(var1, var2, var3);
       this.e.add(var2);
@@ -96,7 +96,7 @@ public class ServerStatisticsManager extends tz {
 
          while(var5.hasNext()) {
             Entry var6 = (Entry)var5.next();
-            tq var7 = ty.a((String)var6.getKey());
+            Statistic var7 = StatisticList.a((String)var6.getKey());
             if(var7 != null) {
                tw var8 = new tw();
                if(((JsonElement)var6.getValue()).isJsonPrimitive() && ((JsonElement)var6.getValue()).getAsJsonPrimitive().isNumber()) {
@@ -142,12 +142,12 @@ public class ServerStatisticsManager extends tz {
             try {
                var4.add("progress", ((tw)var3.getValue()).b().a());
             } catch (Throwable var6) {
-               b.warn("Couldn\'t save statistic " + ((tq)var3.getKey()).e() + ": error serializing progress", var6);
+               b.warn("Couldn\'t save statistic " + ((Statistic)var3.getKey()).e() + ": error serializing progress", var6);
             }
 
-            var1.add(((tq)var3.getKey()).e, var4);
+            var1.add(((Statistic)var3.getKey()).name, var4);
          } else {
-            var1.addProperty(((tq)var3.getKey()).e, Integer.valueOf(((tw)var3.getValue()).a()));
+            var1.addProperty(((Statistic)var3.getKey()).name, Integer.valueOf(((tw)var3.getValue()).a()));
          }
       }
 
@@ -158,7 +158,7 @@ public class ServerStatisticsManager extends tz {
       Iterator var1 = this.a.keySet().iterator();
 
       while(var1.hasNext()) {
-         tq var2 = (tq)var1.next();
+         Statistic var2 = (Statistic)var1.next();
          this.e.add(var2);
       }
 
@@ -172,12 +172,12 @@ public class ServerStatisticsManager extends tz {
          Iterator var4 = this.c().iterator();
 
          while(var4.hasNext()) {
-            tq var5 = (tq)var4.next();
+            Statistic var5 = (Statistic)var4.next();
             var3.put(var5, Integer.valueOf(this.a(var5)));
          }
       }
 
-      var1.a.sendPacket((Packet)(new is(var3)));
+      var1.a.sendPacket((Packet)(new PacketPlayOutStatistic(var3)));
    }
 
    public void b(EntityPlayer var1) {
@@ -187,12 +187,12 @@ public class ServerStatisticsManager extends tz {
       while(var3.hasNext()) {
          Achievement var4 = (Achievement)var3.next();
          if(this.a(var4)) {
-            var2.put(var4, Integer.valueOf(this.a((tq)var4)));
+            var2.put(var4, Integer.valueOf(this.a((Statistic)var4)));
             this.e.remove(var4);
          }
       }
 
-      var1.a.sendPacket((Packet)(new is(var2)));
+      var1.a.sendPacket((Packet)(new PacketPlayOutStatistic(var2)));
    }
 
    public boolean e() {

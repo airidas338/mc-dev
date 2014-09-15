@@ -5,9 +5,9 @@ import java.io.IOException;
 
 public class fr extends NBTBase {
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {}
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {}
 
-   void a(DataOutput var1) {}
+   void write(DataOutput var1) {}
 
    public byte getTypeId() {
       return (byte)0;
@@ -17,7 +17,7 @@ public class fr extends NBTBase {
       return "END";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       return new fr();
    }
 }

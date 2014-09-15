@@ -45,7 +45,7 @@ public class ScoreboardServer extends Scoreboard {
       super.setDisplaySlot(var1, var2);
       if(var3 != var2 && var3 != null) {
          if(this.h(var3) > 0) {
-            this.a.an().a((Packet)(new kw(var1, var2)));
+            this.a.an().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
          } else {
             this.g(var3);
          }
@@ -53,7 +53,7 @@ public class ScoreboardServer extends Scoreboard {
 
       if(var2 != null) {
          if(this.b.contains(var2)) {
-            this.a.an().a((Packet)(new kw(var1, var2)));
+            this.a.an().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
          } else {
             this.e(var2);
          }
@@ -137,7 +137,7 @@ public class ScoreboardServer extends Scoreboard {
 
       for(int var3 = 0; var3 < 19; ++var3) {
          if(this.getObjectiveForSlot(var3) == var1) {
-            var2.add(new kw(var3, var1));
+            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
          }
       }
 
@@ -174,7 +174,7 @@ public class ScoreboardServer extends Scoreboard {
 
       for(int var3 = 0; var3 < 19; ++var3) {
          if(this.getObjectiveForSlot(var3) == var1) {
-            var2.add(new kw(var3, var1));
+            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
          }
       }
 

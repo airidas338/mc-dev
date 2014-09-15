@@ -196,14 +196,14 @@ public abstract class EntityInsentient extends EntityLiving {
             this.bj[var3].b(var4);
          }
 
-         var2.a((NBTBase)var4);
+         var2.add((NBTBase)var4);
       }
 
       var1.set("Equipment", (NBTBase)var2);
       NBTTagList var6 = new NBTTagList();
 
       for(int var7 = 0; var7 < this.bh.length; ++var7) {
-         var6.a((NBTBase)(new NBTTagFloat(this.bh[var7])));
+         var6.add((NBTBase)(new NBTTagFloat(this.bh[var7])));
       }
 
       var1.set("DropChances", (NBTBase)var6);
@@ -242,14 +242,14 @@ public abstract class EntityInsentient extends EntityLiving {
          var2 = var1.getList("Equipment", 10);
 
          for(var3 = 0; var3 < this.bj.length; ++var3) {
-            this.bj[var3] = ItemStack.a(var2.b(var3));
+            this.bj[var3] = ItemStack.a(var2.get(var3));
          }
       }
 
       if(var1.hasKeyOfType("DropChances", 9)) {
          var2 = var1.getList("DropChances", 5);
 
-         for(var3 = 0; var3 < var2.c(); ++var3) {
+         for(var3 = 0; var3 < var2.size(); ++var3) {
             this.bh[var3] = var2.e(var3);
          }
       }
@@ -335,7 +335,7 @@ public abstract class EntityInsentient extends EntityLiving {
             if(var2.b() == Items.i && var1.n() != null) {
                EntityHuman var8 = this.o.a(var1.n());
                if(var8 != null) {
-                  var8.b((tq)AchievementList.x);
+                  var8.b((Statistic)AchievementList.x);
                }
             }
 
@@ -726,7 +726,7 @@ public abstract class EntityInsentient extends EntityLiving {
          }
 
          if(!this.o.isStatic && var1 && this.o instanceof WorldServer) {
-            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, (Entity)null)));
+            ((WorldServer)this.o).s().a((Entity)this, (Packet)(new PacketPlayOutAttachEntity(1, this, (Entity)null)));
          }
       }
 
@@ -748,7 +748,7 @@ public abstract class EntityInsentient extends EntityLiving {
       this.bm = true;
       this.bn = var1;
       if(!this.o.isStatic && var2 && this.o instanceof WorldServer) {
-         ((WorldServer)this.o).s().a((Entity)this, (Packet)(new ky(1, this, this.bn)));
+         ((WorldServer)this.o).s().a((Entity)this, (Packet)(new PacketPlayOutAttachEntity(1, this, this.bn)));
       }
 
    }

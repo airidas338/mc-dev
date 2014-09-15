@@ -55,11 +55,11 @@ public class bhy extends WorldGenerator {
                   var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                   if(var31) {
                      Material var10 = var1.getData(var3.a(var6, var8, var30)).c().getMaterial();
-                     if(var8 >= 4 && var10.d()) {
+                     if(var8 >= 4 && var10.isLiquid()) {
                         return false;
                      }
 
-                     if(var8 < 4 && !var10.a() && var1.getData(var3.a(var6, var8, var30)).c() != this.a) {
+                     if(var8 < 4 && !var10.isBuildable() && var1.getData(var3.a(var6, var8, var30)).c() != this.a) {
                         return false;
                      }
                   }
@@ -100,7 +100,7 @@ public class bhy extends WorldGenerator {
                for(var30 = 0; var30 < 16; ++var30) {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
-                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.getData(var3.a(var6, var8, var30)).c().getMaterial().a()) {
+                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.getData(var3.a(var6, var8, var30)).c().getMaterial().isBuildable()) {
                         var1.a(var3.a(var6, var8, var30), Blocks.STONE.P(), 2);
                      }
                   }

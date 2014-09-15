@@ -45,8 +45,8 @@ public class PersistentScoreboard extends PersistentBase {
    }
 
    protected void a(NBTTagList var1) {
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(int var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          ScoreboardTeam var4 = this.c.createTeam(var3.getString("Name"));
          var4.setDisplayName(var3.getString("DisplayName"));
          if(var3.hasKeyOfType("TeamColor", 8)) {
@@ -84,8 +84,8 @@ public class PersistentScoreboard extends PersistentBase {
    }
 
    protected void a(ScoreboardTeam var1, NBTTagList var2) {
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         this.c.addPlayerToTeam(var2.f(var3), var1.getName());
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         this.c.addPlayerToTeam(var2.getString(var3), var1.getName());
       }
 
    }
@@ -102,8 +102,8 @@ public class PersistentScoreboard extends PersistentBase {
    }
 
    protected void b(NBTTagList var1) {
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(int var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          IScoreboardCriteria var4 = (IScoreboardCriteria)IScoreboardCriteria.criteria.get(var3.getString("CriteriaName"));
          if(var4 != null) {
             ScoreboardObjective var5 = this.c.registerObjective(var3.getString("Name"), var4);
@@ -115,8 +115,8 @@ public class PersistentScoreboard extends PersistentBase {
    }
 
    protected void c(NBTTagList var1) {
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(int var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          ScoreboardObjective var4 = this.c.getObjective(var3.getString("Objective"));
          ScoreboardScore var5 = this.c.getPlayerScoreForObjective(var3.getString("Name"), var4);
          var5.setScore(var3.getInt("Score"));
@@ -163,11 +163,11 @@ public class PersistentScoreboard extends PersistentBase {
 
          while(var7.hasNext()) {
             String var8 = (String)var7.next();
-            var6.a((NBTBase)(new NBTTagString(var8)));
+            var6.add((NBTBase)(new NBTTagString(var8)));
          }
 
          var5.set("Players", (NBTBase)var6);
-         var1.a((NBTBase)var5);
+         var1.add((NBTBase)var5);
       }
 
       return var1;
@@ -204,7 +204,7 @@ public class PersistentScoreboard extends PersistentBase {
             var5.setString("CriteriaName", var4.getCriteria().getName());
             var5.setString("DisplayName", var4.getDisplayName());
             var5.setString("RenderType", var4.e().a());
-            var1.a((NBTBase)var5);
+            var1.add((NBTBase)var5);
          }
       }
 
@@ -224,7 +224,7 @@ public class PersistentScoreboard extends PersistentBase {
             var5.setString("Objective", var4.d().getName());
             var5.setInt("Score", var4.getScore());
             var5.setBoolean("Locked", var4.g());
-            var1.a((NBTBase)var5);
+            var1.add((NBTBase)var5);
          }
       }
 

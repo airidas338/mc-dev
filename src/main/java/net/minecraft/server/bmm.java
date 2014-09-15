@@ -168,7 +168,7 @@ public abstract class bmm extends bgt {
 
             while(var3.hasNext()) {
                String var4 = (String)var3.next();
-               NBTBase var5 = var2.a(var4);
+               NBTBase var5 = var2.get(var4);
                if(var5.getTypeId() == 10) {
                   NBTTagCompound var6 = (NBTTagCompound)var5;
                   if(var6.hasKey("ChunkX") && var6.hasKey("ChunkZ")) {

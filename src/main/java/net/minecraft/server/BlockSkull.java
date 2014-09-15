@@ -135,7 +135,7 @@ public class BlockSkull extends BlockContainer {
 
             while(var9.hasNext()) {
                EntityHuman var10 = (EntityHuman)var9.next();
-               var10.b((tq)AchievementList.I);
+               var10.b((Statistic)AchievementList.I);
             }
 
             var1.d((Entity)var14);

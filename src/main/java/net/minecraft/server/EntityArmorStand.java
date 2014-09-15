@@ -101,7 +101,7 @@ public class EntityArmorStand extends EntityLiving {
             this.g[var3].b(var4);
          }
 
-         var2.a((NBTBase)var4);
+         var2.add((NBTBase)var4);
       }
 
       var1.set("Equipment", (NBTBase)var2);
@@ -124,7 +124,7 @@ public class EntityArmorStand extends EntityLiving {
          NBTTagList var2 = var1.getList("Equipment", 10);
 
          for(int var3 = 0; var3 < this.g.length; ++var3) {
-            this.g[var3] = ItemStack.a(var2.b(var3));
+            this.g[var3] = ItemStack.a(var2.get(var3));
          }
       }
 
@@ -141,42 +141,42 @@ public class EntityArmorStand extends EntityLiving {
 
    private void h(NBTTagCompound var1) {
       NBTTagList var2 = var1.getList("Head", 5);
-      if(var2.c() > 0) {
+      if(var2.size() > 0) {
          this.a(new fa(var2));
       } else {
          this.a(a);
       }
 
       NBTTagList var3 = var1.getList("Body", 5);
-      if(var3.c() > 0) {
+      if(var3.size() > 0) {
          this.b(new fa(var3));
       } else {
          this.b(b);
       }
 
       NBTTagList var4 = var1.getList("LeftArm", 5);
-      if(var4.c() > 0) {
+      if(var4.size() > 0) {
          this.c(new fa(var4));
       } else {
          this.c(c);
       }
 
       NBTTagList var5 = var1.getList("RightArm", 5);
-      if(var5.c() > 0) {
+      if(var5.size() > 0) {
          this.d(new fa(var5));
       } else {
          this.d(d);
       }
 
       NBTTagList var6 = var1.getList("LeftLeg", 5);
-      if(var6.c() > 0) {
+      if(var6.size() > 0) {
          this.e(new fa(var6));
       } else {
          this.e(e);
       }
 
       NBTTagList var7 = var1.getList("RightLeg", 5);
-      if(var7.c() > 0) {
+      if(var7.size() > 0) {
          this.f(new fa(var7));
       } else {
          this.f(f);

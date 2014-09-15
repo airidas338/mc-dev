@@ -16,7 +16,7 @@ public class NBTTagCompound extends NBTBase {
 	private static final Logger b = LogManager.getLogger();
 	private Map map = Maps.newHashMap();
 
-	void a(DataOutput var1) throws IOException {
+	void write(DataOutput var1) throws IOException {
 		Iterator var2 = this.map.keySet().iterator();
 
 		while (var2.hasNext()) {
@@ -28,7 +28,7 @@ public class NBTTagCompound extends NBTBase {
 		var1.writeByte(0);
 	}
 
-	void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException {
+	void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException {
 		if (var2 > 512) {
 			throw new RuntimeException("Tried to read NBT tag with too high complexity, depth > 512");
 		} else {
@@ -97,7 +97,7 @@ public class NBTTagCompound extends NBTBase {
 		this.setByte(var1, (byte) (var2 ? 1 : 0));
 	}
 
-	public NBTBase a(String var1) {
+	public NBTBase get(String var1) {
 		return (NBTBase) this.map.get(var1);
 	}
 
@@ -211,7 +211,7 @@ public class NBTTagCompound extends NBTBase {
 				return new NBTTagList();
 			} else {
 				NBTTagList var3 = (NBTTagList) this.map.get(var1);
-				return var3.c() > 0 && var3.f() != var2 ? new NBTTagList() : var3;
+				return var3.size() > 0 && var3.f() != var2 ? new NBTTagList() : var3;
 			}
 		} catch (ClassCastException var4) {
 			throw new ReportedException(this.a(var1, 9, var4));
@@ -222,7 +222,7 @@ public class NBTTagCompound extends NBTBase {
 		return this.getByte(var1) != 0;
 	}
 
-	public void o(String var1) {
+	public void remove(String var1) {
 		this.map.remove(var1);
 	}
 
@@ -237,7 +237,7 @@ public class NBTTagCompound extends NBTBase {
 		return var1 + "}";
 	}
 
-	public boolean c_() {
+	public boolean isEmpty() {
 		return this.map.isEmpty();
 	}
 
@@ -250,13 +250,13 @@ public class NBTTagCompound extends NBTBase {
 		return var4;
 	}
 
-	public NBTBase b() {
+	public NBTBase clone() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		Iterator var2 = this.map.keySet().iterator();
 
 		while (var2.hasNext()) {
 			String var3 = (String) var2.next();
-			var1.set(var3, ((NBTBase) this.map.get(var3)).b());
+			var1.set(var3, ((NBTBase) this.map.get(var3)).clone());
 		}
 
 		return var1;
@@ -279,7 +279,7 @@ public class NBTTagCompound extends NBTBase {
 		var2.writeByte(var1.getTypeId());
 		if (var1.getTypeId() != 0) {
 			var2.writeUTF(var0);
-			var1.a(var2);
+			var1.write(var2);
 		}
 	}
 
@@ -295,7 +295,7 @@ public class NBTTagCompound extends NBTBase {
 		NBTBase var5 = NBTBase.a(var0);
 
 		try {
-			var5.a(var2, var3, var4);
+			var5.load(var2, var3, var4);
 			return var5;
 		} catch (IOException var9) {
 			CrashReport var7 = CrashReport.a(var9, "Loading NBT data");
@@ -317,10 +317,10 @@ public class NBTTagCompound extends NBTBase {
 					NBTTagCompound var5 = this.getCompound(var3);
 					var5.a((NBTTagCompound) var4);
 				} else {
-					this.set(var3, var4.b());
+					this.set(var3, var4.clone());
 				}
 			} else {
-				this.set(var3, var4.b());
+				this.set(var3, var4.clone());
 			}
 		}
 

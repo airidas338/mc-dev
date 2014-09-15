@@ -21,7 +21,7 @@ public class ItemFishingRod extends Item {
          }
 
          var3.bv();
-         var3.b(ty.J[Item.b((Item)this)]);
+         var3.b(StatisticList.J[Item.b((Item)this)]);
       }
 
       return var1;

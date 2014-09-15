@@ -87,8 +87,8 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
          this.p = var1.getString("CustomName");
       }
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         NBTTagCompound var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         NBTTagCompound var4 = var2.get(var3);
          int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.m.length) {
             this.m[var5] = ItemStack.a(var4);
@@ -106,7 +106,7 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
             this.m[var3].b(var4);
-            var2.a((NBTBase)var4);
+            var2.add((NBTBase)var4);
          }
       }
 

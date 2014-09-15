@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public interface IAttribute {
 
-   String a();
+   String getName();
 
    double a(double var1);
 

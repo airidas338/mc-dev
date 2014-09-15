@@ -52,12 +52,12 @@ public class CommandEnchant extends CommandAbstract {
                if(var13.n()) {
                   NBTTagList var8 = var13.p();
                   if(var8 != null) {
-                     for(int var9 = 0; var9 < var8.c(); ++var9) {
-                        short var10 = var8.b(var9).getShort("id");
+                     for(int var9 = 0; var9 < var8.size(); ++var9) {
+                        short var10 = var8.get(var9).getShort("id");
                         if(Enchantment.c(var10) != null) {
                            Enchantment var11 = Enchantment.c(var10);
                            if(!var11.a(var7)) {
-                              throw new CommandException("commands.enchant.cantCombine", new Object[]{var7.d(var5), var11.d(var8.b(var9).getShort("lvl"))});
+                              throw new CommandException("commands.enchant.cantCombine", new Object[]{var7.d(var5), var11.d(var8.get(var9).getShort("lvl"))});
                            }
                         }
                      }

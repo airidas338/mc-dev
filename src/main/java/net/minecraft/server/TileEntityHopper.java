@@ -18,8 +18,8 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
 
       this.g = var1.getInt("TransferCooldown");
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         NBTTagCompound var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         NBTTagCompound var4 = var2.get(var3);
          byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.a.length) {
             this.a[var5] = ItemStack.a(var4);
@@ -37,7 +37,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
             this.a[var3].b(var4);
-            var2.a((NBTBase)var4);
+            var2.add((NBTBase)var4);
          }
       }
 

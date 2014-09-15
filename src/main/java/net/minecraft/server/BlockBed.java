@@ -145,7 +145,7 @@ public class BlockBed extends BlockDirectional {
    }
 
    protected static boolean d(World var0, Location var1) {
-      return World.a((IBlockAccess)var0, var1.b()) && !var0.getData(var1).c().getMaterial().a() && !var0.getData(var1.a()).c().getMaterial().a();
+      return World.a((IBlockAccess)var0, var1.b()) && !var0.getData(var1).c().getMaterial().isBuildable() && !var0.getData(var1.a()).c().getMaterial().isBuildable();
    }
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {

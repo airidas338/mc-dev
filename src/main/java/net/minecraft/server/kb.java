@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class kb extends jy {
+public class kb extends PacketPlayOutEntity {
 
    public kb() {
       this.h = true;

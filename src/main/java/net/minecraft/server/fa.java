@@ -21,9 +21,9 @@ public class fa {
 
    public NBTTagList a() {
       NBTTagList var1 = new NBTTagList();
-      var1.a((NBTBase)(new NBTTagFloat(this.a)));
-      var1.a((NBTBase)(new NBTTagFloat(this.b)));
-      var1.a((NBTBase)(new NBTTagFloat(this.c)));
+      var1.add((NBTBase)(new NBTTagFloat(this.a)));
+      var1.add((NBTBase)(new NBTTagFloat(this.b)));
+      var1.add((NBTBase)(new NBTTagFloat(this.c)));
       return var1;
    }
 

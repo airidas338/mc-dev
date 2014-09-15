@@ -83,8 +83,8 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
       NBTTagList var2 = var1.getList("Items", 10);
       this.h = new ItemStack[this.n_()];
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         NBTTagCompound var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         NBTTagCompound var4 = var2.get(var3);
          byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.h.length) {
             this.h[var5] = ItemStack.a(var4);
@@ -113,7 +113,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
             this.h[var3].b(var4);
-            var2.a((NBTBase)var4);
+            var2.add((NBTBase)var4);
          }
       }
 

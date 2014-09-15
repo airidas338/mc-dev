@@ -13,7 +13,7 @@ public class ajs extends aju {
    public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var5 == EnumFacing.DOWN) {
          return false;
-      } else if(!var3.getData(var4).c().getMaterial().a()) {
+      } else if(!var3.getData(var4).c().getMaterial().isBuildable()) {
          return false;
       } else {
          var4 = var4.a(var5);

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EntityFishingHook extends Entity {
 
-   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.bz), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
+   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.POTION), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
    private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.WATER_LILY), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
    private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.d.a()), 13)});
    private int g = -1;
@@ -398,16 +398,16 @@ public class EntityFishingHook extends Entity {
       var4 = MathHelper.a(var4, 0.0F, 1.0F);
       var5 = MathHelper.a(var5, 0.0F, 1.0F);
       if(var1 < var4) {
-         this.b.b(ty.D);
+         this.b.b(StatisticList.D);
          return ((PossibleFishingResult)WeightedRandom.a(this.V, d)).a(this.V);
       } else {
          var1 -= var4;
          if(var1 < var5) {
-            this.b.b(ty.E);
+            this.b.b(StatisticList.E);
             return ((PossibleFishingResult)WeightedRandom.a(this.V, e)).a(this.V);
          } else {
             float var10000 = var1 - var5;
-            this.b.b(ty.C);
+            this.b.b(StatisticList.C);
             return ((PossibleFishingResult)WeightedRandom.a(this.V, f)).a(this.V);
          }
       }

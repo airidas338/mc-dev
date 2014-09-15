@@ -24,7 +24,7 @@ public class CommandAchievement extends CommandAbstract {
       if(var2.length < 2) {
          throw new ExceptionUsage("commands.achievement.usage", new Object[0]);
       } else {
-         tq var3 = ty.a(var2[1]);
+         Statistic var3 = StatisticList.a(var2[1]);
          if(var3 == null && !var2[1].equals("*")) {
             throw new CommandException("commands.achievement.unknownAchievement", new Object[]{var2[1]});
          } else {
@@ -40,7 +40,7 @@ public class CommandAchievement extends CommandAbstract {
 
                      while(var11.hasNext()) {
                         var12 = (Achievement)var11.next();
-                        var4.b((tq)var12);
+                        var4.b((Statistic)var12);
                      }
 
                      a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.getName()});
@@ -49,7 +49,7 @@ public class CommandAchievement extends CommandAbstract {
 
                      while(var11.hasNext()) {
                         var12 = (Achievement)var11.next();
-                        var4.a((tq)var12);
+                        var4.a((Statistic)var12);
                      }
 
                      a(var1, this, "commands.achievement.take.success.all", new Object[]{var4.getName()});
@@ -74,7 +74,7 @@ public class CommandAchievement extends CommandAbstract {
 
                         while(var9.hasNext()) {
                            var10 = (Achievement)var9.next();
-                           var4.b((tq)var10);
+                           var4.b((Statistic)var10);
                         }
                      } else if(var6) {
                         if(!var4.A().a(var7)) {
@@ -89,7 +89,7 @@ public class CommandAchievement extends CommandAbstract {
 
                         while(var9.hasNext()) {
                            var10 = (Achievement)var9.next();
-                           var4.a((tq)var10);
+                           var4.a((Statistic)var10);
                         }
                      }
                   }
@@ -115,11 +115,11 @@ public class CommandAchievement extends CommandAbstract {
          return var2.length == 3?a(var2, MinecraftServer.M().I()):null;
       } else {
          ArrayList var4 = Lists.newArrayList();
-         Iterator var5 = ty.b.iterator();
+         Iterator var5 = StatisticList.stats.iterator();
 
          while(var5.hasNext()) {
-            tq var6 = (tq)var5.next();
-            var4.add(var6.e);
+            Statistic var6 = (Statistic)var5.next();
+            var4.add(var6.name);
          }
 
          return a(var2, var4);

@@ -146,7 +146,7 @@ public class EntityEnderman extends EntityMonster {
          while(!var15 && var14.o() > 0) {
             Location var16 = var14.b();
             Block var17 = this.o.getData(var16).c();
-            if(var17.getMaterial().c()) {
+            if(var17.getMaterial().isSolid()) {
                var15 = true;
             } else {
                --this.t;

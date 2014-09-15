@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class jz extends jy {
+public class jz extends PacketPlayOutEntity {
 
    public jz() {}
 

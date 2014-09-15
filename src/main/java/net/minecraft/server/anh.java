@@ -21,7 +21,7 @@ public class anh extends Item {
          Block var10 = var9.c();
          boolean var11 = var10.f(var3, var4);
          if(!var11) {
-            if(!var3.getData(var4).c().getMaterial().a()) {
+            if(!var3.getData(var4).c().getMaterial().isBuildable()) {
                return false;
             }
 

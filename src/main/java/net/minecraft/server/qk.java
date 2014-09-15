@@ -19,7 +19,7 @@ public class qk extends PlayerInteractManager {
       long var3 = var1 / 24000L + 1L;
       if(!this.c && this.f > 20) {
          this.c = true;
-         this.b.a.sendPacket((Packet)(new jo(5, 0.0F)));
+         this.b.a.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 0.0F)));
       }
 
       this.d = var1 > 120500L;
@@ -33,11 +33,11 @@ public class qk extends PlayerInteractManager {
          }
       } else if(var3 == 1L) {
          if(var1 == 100L) {
-            this.b.a.sendPacket((Packet)(new jo(5, 101.0F)));
+            this.b.a.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 101.0F)));
          } else if(var1 == 175L) {
-            this.b.a.sendPacket((Packet)(new jo(5, 102.0F)));
+            this.b.a.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 102.0F)));
          } else if(var1 == 250L) {
-            this.b.a.sendPacket((Packet)(new jo(5, 103.0F)));
+            this.b.a.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 103.0F)));
          }
       } else if(var3 == 5L && var1 % 24000L == 22000L) {
          this.b.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));

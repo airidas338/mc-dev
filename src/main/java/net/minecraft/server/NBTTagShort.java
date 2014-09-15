@@ -14,11 +14,11 @@ public class NBTTagShort extends NBTNumber {
       this.b = var1;
    }
 
-   void a(DataOutput var1) throws IOException {
+   void write(DataOutput var1) throws IOException {
       var1.writeShort(this.b);
    }
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
       var3.a(16L);
       this.b = var1.readShort();
    }
@@ -31,7 +31,7 @@ public class NBTTagShort extends NBTNumber {
       return "" + this.b + "s";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       return new NBTTagShort(this.b);
    }
 

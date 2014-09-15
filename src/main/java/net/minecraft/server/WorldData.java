@@ -277,7 +277,7 @@ public class WorldData {
 
    private void a(NBTTagCompound var1, NBTTagCompound var2) {
       var1.setLong("RandomSeed", this.b);
-      var1.setString("generatorName", this.c.a());
+      var1.setString("generatorName", this.c.name());
       var1.setInt("generatorVersion", this.c.d());
       var1.setString("generatorOptions", this.d);
       var1.setInt("GameType", this.u.a());

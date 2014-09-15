@@ -137,7 +137,7 @@ public class EntityItemFrame extends EntityHanging {
 
    public void a(NBTTagCompound var1) {
       NBTTagCompound var2 = var1.getCompound("Item");
-      if(var2 != null && !var2.c_()) {
+      if(var2 != null && !var2.isEmpty()) {
          this.a(ItemStack.a(var2), false);
          this.a(var1.getByte("ItemRotation"), false);
          if(var1.hasKeyOfType("ItemDropChance", 99)) {

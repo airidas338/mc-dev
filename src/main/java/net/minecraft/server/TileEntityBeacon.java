@@ -144,7 +144,7 @@ public class TileEntityBeacon extends TileEntityLockable implements IUpdatePlaye
 
          while(var15.hasNext()) {
             EntityHuman var13 = (EntityHuman)var15.next();
-            var13.b((tq)AchievementList.K);
+            var13.b((Statistic)AchievementList.K);
          }
       }
 
@@ -153,7 +153,7 @@ public class TileEntityBeacon extends TileEntityLockable implements IUpdatePlaye
    public Packet x_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new iu(this.c, 3, var1);
+      return new PacketPlayOutTileEntityData(this.c, 3, var1);
    }
 
    public void a(NBTTagCompound var1) {

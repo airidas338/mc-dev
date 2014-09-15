@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class bsm extends ScoreboardBaseCriteria {
 
-   private final tq j;
+   private final Statistic j;
 
 
-   public bsm(tq var1) {
-      super(var1.e);
+   public bsm(Statistic var1) {
+      super(var1.name);
       this.j = var1;
    }
 }

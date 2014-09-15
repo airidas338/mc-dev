@@ -18,7 +18,7 @@ public class aky extends Item {
          var2.d((Entity)(new EntityEgg(var2, var3)));
       }
 
-      var3.b(ty.J[Item.b((Item)this)]);
+      var3.b(StatisticList.J[Item.b((Item)this)]);
       return var1;
    }
 }

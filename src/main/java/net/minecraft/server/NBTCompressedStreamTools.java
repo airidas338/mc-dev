@@ -58,7 +58,7 @@ public class NBTCompressedStreamTools {
       var1.writeByte(var0.getTypeId());
       if(var0.getTypeId() != 0) {
          var1.writeUTF("");
-         var0.a(var1);
+         var0.write(var1);
       }
    }
 
@@ -71,7 +71,7 @@ public class NBTCompressedStreamTools {
          NBTBase var4 = NBTBase.a(var3);
 
          try {
-            var4.a(var0, var1, var2);
+            var4.load(var0, var1, var2);
             return var4;
          } catch (IOException var8) {
             CrashReport var6 = CrashReport.a(var8, "Loading NBT data");

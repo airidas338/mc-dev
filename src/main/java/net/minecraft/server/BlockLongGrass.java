@@ -31,7 +31,7 @@ public class BlockLongGrass extends BlockPlant implements atz {
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
-         var2.b(ty.H[Block.a((Block)this)]);
+         var2.b(StatisticList.H[Block.a((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.LONG_GRASS, 1, ((EnumFoliage)var4.b(a)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5);

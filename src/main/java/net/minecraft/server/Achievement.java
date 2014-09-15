@@ -1,10 +1,10 @@
 package net.minecraft.server;
-public class Achievement extends tq {
+public class Achievement extends Statistic {
 
 	public int a;
 	public int b;
 	public final Achievement c;
-	private final String k;
+	public final String name;
 	public final ItemStack d;
 	private boolean m;
 
@@ -19,7 +19,7 @@ public class Achievement extends tq {
 	public Achievement(String var1, String var2, int var3, int var4, ItemStack var5, Achievement var6) {
 		super(var1, new ChatMessage("achievement." + var2, new Object[0]));
 		this.d = var5;
-		this.k = "achievement." + var2 + ".desc";
+		this.name = "achievement." + var2 + ".desc";
 		this.a = var3;
 		this.b = var4;
 		if (var3 < AchievementList.a) {
@@ -76,17 +76,17 @@ public class Achievement extends tq {
 	}
 
 	// $FF: synthetic method
-	public tq b(Class var1) {
+	public Statistic b(Class var1) {
 		return this.a(var1);
 	}
 
 	// $FF: synthetic method
-	public tq h() {
+	public Statistic h() {
 		return this.c();
 	}
 
 	// $FF: synthetic method
-	public tq i() {
+	public Statistic i() {
 		return this.a();
 	}
 }

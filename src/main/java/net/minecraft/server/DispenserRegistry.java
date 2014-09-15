@@ -19,7 +19,7 @@ public class DispenserRegistry {
       BlockDispenser.M.a(Items.aP, new DispenserBehaviorEgg());
       BlockDispenser.M.a(Items.aD, new DispenserBehaviorSnowBall());
       BlockDispenser.M.a(Items.bK, new DispenserBehaviorExpBottle());
-      BlockDispenser.M.a(Items.bz, new DispenserBehaviorPotion());
+      BlockDispenser.M.a(Items.POTION, new DispenserBehaviorPotion());
       BlockDispenser.M.a(Items.bJ, new DispenserBehaviorMonsterEgg());
       BlockDispenser.M.a(Items.cb, new DispenserBehaviorFireworks());
       BlockDispenser.M.a(Items.bL, new DispenserBehaviorFireball());
@@ -46,7 +46,7 @@ public class DispenserRegistry {
          Block.R();
          BlockFire.j();
          Item.t();
-         ty.a();
+         StatisticList.a();
          b();
       }
    }

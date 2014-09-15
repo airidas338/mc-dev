@@ -40,7 +40,7 @@ public class BlockStationary extends BlockFluids {
                         var1.a(var6, Blocks.FIRE.P());
                         return;
                      }
-                  } else if(var8.J.c()) {
+                  } else if(var8.J.isSolid()) {
                      return;
                   }
                }
@@ -72,6 +72,6 @@ public class BlockStationary extends BlockFluids {
    }
 
    private boolean m(World var1, Location var2) {
-      return var1.getData(var2).c().getMaterial().h();
+      return var1.getData(var2).c().getMaterial().isBurnable();
    }
 }

@@ -7,15 +7,15 @@ public class MaterialGas extends Material {
       this.i();
    }
 
-   public boolean a() {
+   public boolean isBuildable() {
       return false;
    }
 
-   public boolean b() {
+   public boolean blocksLight() {
       return false;
    }
 
-   public boolean c() {
+   public boolean isSolid() {
       return false;
    }
 }

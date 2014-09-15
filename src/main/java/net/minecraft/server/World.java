@@ -353,7 +353,7 @@ public abstract class World implements IBlockAccess {
             } else {
                 for (var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
                     Block var3 = this.getData(var2).c();
-                    if (var3.n() > 0 && !var3.getMaterial().d()) {
+                    if (var3.n() > 0 && !var3.getMaterial().isLiquid()) {
                         return false;
                     }
                 }
@@ -900,7 +900,7 @@ public abstract class World implements IBlockAccess {
         for (var3 = new Location(var1.n(), var2.g() + 16, var1.p()); var3.o() >= 0; var3 = var4) {
             var4 = var3.b();
             Material var5 = var2.a(var4).getMaterial();
-            if (var5.c() && var5 != Material.LEAVES) {
+            if (var5.isSolid() && var5 != Material.LEAVES) {
                 break;
             }
         }
@@ -1218,7 +1218,7 @@ public abstract class World implements IBlockAccess {
             for (int var9 = var4; var9 <= var5; ++var9) {
                 for (int var10 = var6; var10 <= var7; ++var10) {
                     Block var11 = this.getData(new Location(var8, var9, var10)).c();
-                    if (var11.getMaterial().d()) {
+                    if (var11.getMaterial().isLiquid()) {
                         return true;
                     }
                 }
@@ -2036,7 +2036,7 @@ public abstract class World implements IBlockAccess {
     public boolean a(Block var1, Location var2, boolean var3, EnumFacing var4, Entity var5, ItemStack var6) {
         Block var7 = this.getData(var2).c();
         AxisAlignedBB var8 = var3 ? null : var1.a(this, var2, var1.P());
-        return var8 != null && !this.a(var8, var5) ? false : (var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.getMaterial().j() && var1.a(this, var2, var4, var6));
+        return var8 != null && !this.a(var8, var5) ? false : (var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.getMaterial().isReplacable() && var1.a(this, var2, var4, var6));
     }
 
     public int a(Location var1, EnumFacing var2) {

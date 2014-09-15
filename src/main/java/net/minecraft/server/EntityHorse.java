@@ -428,7 +428,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          var3 = Blocks.SNOW.H;
       }
 
-      if(!var2.getMaterial().d()) {
+      if(!var2.getMaterial().isLiquid()) {
          int var4 = this.cj();
          if(this.l != null && var4 != 1 && var4 != 2) {
             ++this.bL;
@@ -923,7 +923,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                NBTTagCompound var5 = new NBTTagCompound();
                var5.setByte("Slot", (byte)var3);
                var4.b(var5);
-               var2.a((NBTBase)var5);
+               var2.add((NBTBase)var5);
             }
          }
 
@@ -971,8 +971,8 @@ public class EntityHorse extends EntityAnimal implements vr {
          NBTTagList var4 = var1.getList("Items", 10);
          this.cY();
 
-         for(int var5 = 0; var5 < var4.c(); ++var5) {
-            NBTTagCompound var6 = var4.b(var5);
+         for(int var5 = 0; var5 < var4.size(); ++var5) {
+            NBTTagCompound var6 = var4.get(var5);
             int var7 = var6.getByte("Slot") & 255;
             if(var7 >= 2 && var7 < this.bC.n_()) {
                this.bC.a(var7, ItemStack.a(var6));

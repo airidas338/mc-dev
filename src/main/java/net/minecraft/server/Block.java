@@ -131,7 +131,7 @@ public class Block {
         this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         this.r = this.c();
         this.s = this.c() ? 255 : 0;
-        this.t = !var1.b();
+        this.t = !var1.blocksLight();
         this.L = this.e();
         this.j(this.L.b());
     }
@@ -157,7 +157,7 @@ public class Block {
     }
 
     public boolean s() {
-        return this.J.c() && this.d();
+        return this.J.isSolid() && this.d();
     }
 
     public boolean t() {
@@ -165,7 +165,7 @@ public class Block {
     }
 
     public boolean u() {
-        return this.J.c() && this.d();
+        return this.J.isSolid() && this.d();
     }
 
     public boolean d() {
@@ -173,7 +173,7 @@ public class Block {
     }
 
     public boolean b(IBlockAccess var1, Location var2) {
-        return !this.J.c();
+        return !this.J.isSolid();
     }
 
     public int b() {
@@ -225,7 +225,7 @@ public class Block {
     }
 
     public boolean b(IBlockAccess var1, Location var2, EnumFacing var3) {
-        return var1.getData(var2).c().getMaterial().a();
+        return var1.getData(var2).c().getMaterial().isBuildable();
     }
 
     public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
@@ -454,7 +454,7 @@ public class Block {
     }
 
     public boolean canPlace(World var1, Location var2) {
-        return var1.getData(var2).c().J.j();
+        return var1.getData(var2).c().J.isReplacable();
     }
 
     public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
@@ -521,7 +521,7 @@ public class Block {
     }
 
     public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-        var2.b(ty.H[a(this)]);
+        var2.b(StatisticList.H[a(this)]);
         var2.a(0.025F);
         if (this.G() && EnchantmentManager.e(var2)) {
             ItemStack var7 = this.i(var4);

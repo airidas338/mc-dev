@@ -25,8 +25,8 @@ public class ItemPotion extends Item {
          ArrayList var7 = Lists.newArrayList();
          NBTTagList var3 = var1.o().getList("CustomPotionEffects", 10);
 
-         for(int var4 = 0; var4 < var3.c(); ++var4) {
-            NBTTagCompound var5 = var3.b(var4);
+         for(int var4 = 0; var4 < var3.size(); ++var4) {
+            NBTTagCompound var5 = var3.get(var4);
             MobEffect var6 = MobEffect.b(var5);
             if(var6 != null) {
                var7.add(var6);
@@ -72,7 +72,7 @@ public class ItemPotion extends Item {
          }
       }
 
-      var3.b(ty.J[Item.b((Item)this)]);
+      var3.b(StatisticList.J[Item.b((Item)this)]);
       if(!var3.by.canInstantlyBuild) {
          if(var1.b <= 0) {
             return new ItemStack(Items.bA);
@@ -103,7 +103,7 @@ public class ItemPotion extends Item {
             var2.d((Entity)(new EntityPotion(var2, var3, var1)));
          }
 
-         var3.b(ty.J[Item.b((Item)this)]);
+         var3.b(StatisticList.J[Item.b((Item)this)]);
          return var1;
       } else {
          var3.a(var1, this.d(var1));
@@ -124,7 +124,7 @@ public class ItemPotion extends Item {
             var2 = fi.a("potion.prefix.grenade").trim() + " ";
          }
 
-         List var3 = Items.bz.h(var1);
+         List var3 = Items.POTION.h(var1);
          String var4;
          if(var3 != null && !var3.isEmpty()) {
             var4 = ((MobEffect)var3.get(0)).g();

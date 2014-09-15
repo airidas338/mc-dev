@@ -60,11 +60,11 @@ public class aiw extends ajk {
 
       this.b = 0;
       if(var1.b() == Items.j) {
-         this.a.b((tq)AchievementList.k);
+         this.a.b((Statistic)AchievementList.k);
       }
 
       if(var1.b() == Items.aV) {
-         this.a.b((tq)AchievementList.p);
+         this.a.b((Statistic)AchievementList.p);
       }
 
    }

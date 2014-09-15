@@ -117,7 +117,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          double var3 = var2.s - this.s;
          double var5 = var2.u - this.u;
          if(var3 * var3 + var5 * var5 >= 2500.0D) {
-            var2.b((tq)AchievementList.v);
+            var2.b((Statistic)AchievementList.v);
          }
       } else if(var1.getEntity() instanceof EntityCreeper && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
          ((EntityCreeper)var1.getEntity()).co();
@@ -206,8 +206,8 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void a(EntityLiving var1, float var2) {
       EntityArrow var3 = new EntityArrow(this.o, this, var1, 1.6F, (float)(14 - this.o.aa().a() * 4));
-      int var4 = EnchantmentManager.a(Enchantment.ARROW_DAMAGE.B, this.bz());
-      int var5 = EnchantmentManager.a(Enchantment.ARROW_KNOCKBACK.B, this.bz());
+      int var4 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_DAMAGE.B, this.bz());
+      int var5 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_KNOCKBACK.B, this.bz());
       var3.b((double)(var2 * 2.0F) + this.V.nextGaussian() * 0.25D + (double)((float)this.o.aa().a() * 0.11F));
       if(var4 > 0) {
          var3.b(var3.j() + (double)var4 * 0.5D + 0.5D);
@@ -217,7 +217,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          var3.a(var5);
       }
 
-      if(EnchantmentManager.a(Enchantment.ARROW_FIRE.B, this.bz()) > 0 || this.ck() == 1) {
+      if(EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_FIRE.B, this.bz()) > 0 || this.ck() == 1) {
          var3.e(100);
       }
 

@@ -66,7 +66,7 @@ public class BlockCactus extends Block {
 
       while(var3.hasNext()) {
          EnumFacing var4 = (EnumFacing)var3.next();
-         if(var1.getData(var2.a(var4)).c().getMaterial().a()) {
+         if(var1.getData(var2.a(var4)).c().getMaterial().isBuildable()) {
             return false;
          }
       }

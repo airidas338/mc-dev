@@ -813,7 +813,7 @@ public class Chunk {
          while(var5.o() > 0 && var7 == -1) {
             Block var8 = this.a(var5);
             Material var9 = var8.getMaterial();
-            if(!var9.c() && !var9.d()) {
+            if(!var9.isSolid() && !var9.isLiquid()) {
                var5 = var5.b();
             } else {
                var7 = var5.o() + 1;

@@ -571,18 +571,18 @@ public class Item {
 		a(429, "jungle_door", (new akt(Blocks.JUNGLE_DOOR)).c("doorJungle"));
 		a(430, "acacia_door", (new akt(Blocks.ACACIA_DOOR)).c("doorAcacia"));
 		a(431, "dark_oak_door", (new akt(Blocks.DARK_OAK_DOOR)).c("doorDarkOak"));
-		a(2256, "record_13", (new amy("13")).c("record"));
-		a(2257, "record_cat", (new amy("cat")).c("record"));
-		a(2258, "record_blocks", (new amy("blocks")).c("record"));
-		a(2259, "record_chirp", (new amy("chirp")).c("record"));
-		a(2260, "record_far", (new amy("far")).c("record"));
-		a(2261, "record_mall", (new amy("mall")).c("record"));
-		a(2262, "record_mellohi", (new amy("mellohi")).c("record"));
-		a(2263, "record_stal", (new amy("stal")).c("record"));
-		a(2264, "record_strad", (new amy("strad")).c("record"));
-		a(2265, "record_ward", (new amy("ward")).c("record"));
-		a(2266, "record_11", (new amy("11")).c("record"));
-		a(2267, "record_wait", (new amy("wait")).c("record"));
+		a(2256, "record_13", (new ItemRecord("13")).c("record"));
+		a(2257, "record_cat", (new ItemRecord("cat")).c("record"));
+		a(2258, "record_blocks", (new ItemRecord("blocks")).c("record"));
+		a(2259, "record_chirp", (new ItemRecord("chirp")).c("record"));
+		a(2260, "record_far", (new ItemRecord("far")).c("record"));
+		a(2261, "record_mall", (new ItemRecord("mall")).c("record"));
+		a(2262, "record_mellohi", (new ItemRecord("mellohi")).c("record"));
+		a(2263, "record_stal", (new ItemRecord("stal")).c("record"));
+		a(2264, "record_strad", (new ItemRecord("strad")).c("record"));
+		a(2265, "record_ward", (new ItemRecord("ward")).c("record"));
+		a(2266, "record_11", (new ItemRecord("11")).c("record"));
+		a(2267, "record_wait", (new ItemRecord("wait")).c("record"));
 	}
 
 	private static void c(Block var0) {

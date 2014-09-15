@@ -1,0 +1,54 @@
+package net.minecraft.server;
+
+public class PacketPlayOutMultiBlockChange implements Packet {
+
+   private aqm a;
+   private jb[] b;
+
+
+   public PacketPlayOutMultiBlockChange() {}
+
+   public PacketPlayOutMultiBlockChange(int var1, short[] var2, Chunk var3) {
+      this.a = new aqm(var3.a, var3.b);
+      this.b = new jb[var1];
+
+      for(int var4 = 0; var4 < this.b.length; ++var4) {
+         this.b[var4] = new jb(this, var2[var4], var3);
+      }
+
+   }
+
+   public void a(PacketDataSerializer var1) {
+      this.a = new aqm(var1.readInt(), var1.readInt());
+      this.b = new jb[var1.e()];
+
+      for(int var2 = 0; var2 < this.b.length; ++var2) {
+         this.b[var2] = new jb(this, var1.readShort(), (IBlockData)Block.d.a(var1.e()));
+      }
+
+   }
+
+   public void b(PacketDataSerializer var1) {
+      var1.writeInt(this.a.a);
+      var1.writeInt(this.a.b);
+      var1.b(this.b.length);
+      jb[] var2 = this.b;
+      int var3 = var2.length;
+
+      for(int var4 = 0; var4 < var3; ++var4) {
+         jb var5 = var2[var4];
+         var1.writeShort(var5.b());
+         var1.b(Block.d.b(var5.c()));
+      }
+
+   }
+
+   public void a(PacketListener var1) {
+      ((PacketPlayOutListener)var1).a(this);
+   }
+
+   // $FF: synthetic method
+   static aqm a(PacketPlayOutMultiBlockChange var0) {
+      return var0.a;
+   }
+}

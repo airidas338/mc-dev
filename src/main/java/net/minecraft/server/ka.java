@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ka extends jy {
+public class ka extends PacketPlayOutEntity {
 
    public ka() {
       this.h = true;

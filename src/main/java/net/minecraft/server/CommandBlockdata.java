@@ -31,7 +31,7 @@ public class CommandBlockdata extends CommandAbstract {
             } else {
                NBTTagCompound var6 = new NBTTagCompound();
                var5.b(var6);
-               NBTTagCompound var7 = (NBTTagCompound)var6.b();
+               NBTTagCompound var7 = (NBTTagCompound)var6.clone();
 
                NBTTagCompound var8;
                try {

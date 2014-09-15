@@ -19,14 +19,14 @@ class aik extends ajk {
    }
 
    public void a(EntityHuman var1, ItemStack var2) {
-      if(var2.b() == Items.bz && var2.i() > 0) {
-         this.a.b((tq)AchievementList.B);
+      if(var2.b() == Items.POTION && var2.i() > 0) {
+         this.a.b((Statistic)AchievementList.B);
       }
 
       super.a(var1, var2);
    }
 
    public static boolean b_(ItemStack var0) {
-      return var0 != null && (var0.b() == Items.bz || var0.b() == Items.bA);
+      return var0 != null && (var0.b() == Items.POTION || var0.b() == Items.bA);
    }
 }

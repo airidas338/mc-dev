@@ -378,7 +378,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
 
          while(var4.hasNext()) {
             EntityHuman var5 = (EntityHuman)var4.next();
-            var5.b((tq)AchievementList.J);
+            var5.b((Statistic)AchievementList.J);
          }
       }
 

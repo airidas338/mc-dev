@@ -131,7 +131,7 @@ public class Items {
    public static final Item bw;
    public static final Item bx;
    public static final Item by;
-   public static final ItemPotion bz;
+   public static final ItemPotion POTION;
    public static final Item bA;
    public static final Item bB;
    public static final Item bC;
@@ -328,7 +328,7 @@ public class Items {
          bw = a("ghast_tear");
          bx = a("gold_nugget");
          by = a("nether_wart");
-         bz = (ItemPotion)a("potion");
+         POTION = (ItemPotion)a("potion");
          bA = a("glass_bottle");
          bB = a("spider_eye");
          bC = a("fermented_spider_eye");

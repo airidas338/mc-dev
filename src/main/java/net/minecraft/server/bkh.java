@@ -60,7 +60,7 @@ public class bkh extends bmv {
          NBTTagCompound var5 = new NBTTagCompound();
          var5.setInt("X", var4.a);
          var5.setInt("Z", var4.b);
-         var2.a((NBTBase)var5);
+         var2.add((NBTBase)var5);
       }
 
       var1.set("Processed", (NBTBase)var2);
@@ -71,8 +71,8 @@ public class bkh extends bmv {
       if(var1.hasKeyOfType("Processed", 9)) {
          NBTTagList var2 = var1.getList("Processed", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            NBTTagCompound var4 = var2.b(var3);
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            NBTTagCompound var4 = var2.get(var3);
             this.c.add(new aqm(var4.getInt("X"), var4.getInt("Z")));
          }
       }

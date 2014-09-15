@@ -114,8 +114,8 @@ public abstract class MobSpawnerAbstract {
 
          while(var4.hasNext()) {
             String var5 = (String)var4.next();
-            NBTBase var6 = TileEntityMobSpawnerData.b(this.i()).a(var5);
-            var3.set(var5, var6.b());
+            NBTBase var6 = TileEntityMobSpawnerData.b(this.i()).get(var5);
+            var3.set(var5, var6.clone());
          }
 
          var1.f(var3);
@@ -134,8 +134,8 @@ public abstract class MobSpawnerAbstract {
 
                while(var8.hasNext()) {
                   String var9 = (String)var8.next();
-                  NBTBase var10 = var12.a(var9);
-                  var7.set(var9, var10.b());
+                  NBTBase var10 = var12.get(var9);
+                  var7.set(var9, var10.clone());
                }
 
                var13.f(var7);
@@ -179,8 +179,8 @@ public abstract class MobSpawnerAbstract {
       if(var1.hasKeyOfType("SpawnPotentials", 9)) {
          NBTTagList var2 = var1.getList("SpawnPotentials", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            this.mobs.add(new TileEntityMobSpawnerData(this, var2.b(var3)));
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            this.mobs.add(new TileEntityMobSpawnerData(this, var2.get(var3)));
          }
       }
 
@@ -221,7 +221,7 @@ public abstract class MobSpawnerAbstract {
       var1.setShort("RequiredPlayerRange", (short)this.requirePlayerRange);
       var1.setShort("SpawnRange", (short)this.spawnRange);
       if(this.i() != null) {
-         var1.set("SpawnData", TileEntityMobSpawnerData.b(this.i()).b());
+         var1.set("SpawnData", TileEntityMobSpawnerData.b(this.i()).clone());
       }
 
       if(this.i() != null || this.mobs.size() > 0) {
@@ -231,10 +231,10 @@ public abstract class MobSpawnerAbstract {
 
             while(var3.hasNext()) {
                TileEntityMobSpawnerData var4 = (TileEntityMobSpawnerData)var3.next();
-               var2.a((NBTBase)var4.a());
+               var2.add((NBTBase)var4.a());
             }
          } else {
-            var2.a((NBTBase)this.i().a());
+            var2.add((NBTBase)this.i().a());
          }
 
          var1.set("SpawnPotentials", (NBTBase)var2);

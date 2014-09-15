@@ -33,7 +33,7 @@ public class BlockBannerWall extends BlockBannerAbstract {
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
-      if(!var1.getData(var2.a(var5.d())).c().getMaterial().a()) {
+      if(!var1.getData(var2.a(var5.d())).c().getMaterial().isBuildable()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }

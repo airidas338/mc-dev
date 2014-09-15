@@ -7,10 +7,10 @@ public class lq {
    private final double c;
    private final Collection d;
    // $FF: synthetic field
-   final lp a;
+   final PacketPlayOutUpdateAttributes a;
 
 
-   public lq(lp var1, String var2, double var3, Collection var5) {
+   public lq(PacketPlayOutUpdateAttributes var1, String var2, double var3, Collection var5) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

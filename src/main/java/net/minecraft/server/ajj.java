@@ -37,47 +37,47 @@ public class ajj extends ajk {
 
       this.c = 0;
       if(var1.b() == Item.a(Blocks.CRAFTING_TABLE)) {
-         this.b.b((tq)AchievementList.h);
+         this.b.b((Statistic)AchievementList.h);
       }
 
       if(var1.b() instanceof ItemPickaxe) {
-         this.b.b((tq)AchievementList.i);
+         this.b.b((Statistic)AchievementList.i);
       }
 
       if(var1.b() == Item.a(Blocks.FURNACE)) {
-         this.b.b((tq)AchievementList.j);
+         this.b.b((Statistic)AchievementList.j);
       }
 
       if(var1.b() instanceof alo) {
-         this.b.b((tq)AchievementList.l);
+         this.b.b((Statistic)AchievementList.l);
       }
 
       if(var1.b() == Items.P) {
-         this.b.b((tq)AchievementList.m);
+         this.b.b((Statistic)AchievementList.m);
       }
 
       if(var1.b() == Items.aZ) {
-         this.b.b((tq)AchievementList.n);
+         this.b.b((Statistic)AchievementList.n);
       }
 
       if(var1.b() instanceof ItemPickaxe && ((ItemPickaxe)var1.b()).g() != ami.a) {
-         this.b.b((tq)AchievementList.o);
+         this.b.b((Statistic)AchievementList.o);
       }
 
       if(var1.b() instanceof ItemSword) {
-         this.b.b((tq)AchievementList.r);
+         this.b.b((Statistic)AchievementList.r);
       }
 
       if(var1.b() == Item.a(Blocks.ENCHANTMENT_TABLE)) {
-         this.b.b((tq)AchievementList.E);
+         this.b.b((Statistic)AchievementList.E);
       }
 
       if(var1.b() == Item.a(Blocks.BOOKSHELF)) {
-         this.b.b((tq)AchievementList.G);
+         this.b.b((Statistic)AchievementList.G);
       }
 
       if(var1.b() == Items.ao && var1.i() == 1) {
-         this.b.b((tq)AchievementList.M);
+         this.b.b((Statistic)AchievementList.M);
       }
 
    }

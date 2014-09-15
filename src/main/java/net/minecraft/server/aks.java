@@ -56,7 +56,7 @@ public class aks extends Item {
 
    public Multimap i() {
       Multimap var1 = super.i();
-      var1.put(GenericAttributes.e.a(), new AttributeModifier(f, "Tool modifier", (double)this.d, 0));
+      var1.put(GenericAttributes.e.getName(), new AttributeModifier(f, "Tool modifier", (double)this.d, 0));
       return var1;
    }
 }

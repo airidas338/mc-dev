@@ -202,7 +202,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
                var11.setByteArray("SkyLight", new byte[var10.h().a().length]);
             }
 
-            var5.a((NBTBase)var11);
+            var5.add((NBTBase)var11);
          }
       }
 
@@ -220,7 +220,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
             var11 = new NBTTagCompound();
             if(var25.d(var11)) {
                var1.g(true);
-               var20.a((NBTBase)var11);
+               var20.add((NBTBase)var11);
             }
          }
       }
@@ -233,7 +233,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
          TileEntity var26 = (TileEntity)var22.next();
          var11 = new NBTTagCompound();
          var26.b(var11);
-         var21.a((NBTBase)var11);
+         var21.add((NBTBase)var11);
       }
 
       var3.set("TileEntities", (NBTBase)var21);
@@ -253,7 +253,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
             var31.setInt("z", var29.a.p());
             var31.setInt("t", (int)(var29.b - var23));
             var31.setInt("p", var29.c);
-            var27.a((NBTBase)var31);
+            var27.add((NBTBase)var31);
          }
 
          var3.set("TileTicks", (NBTBase)var27);
@@ -274,8 +274,8 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       bfm[] var8 = new bfm[var7];
       boolean var9 = !var1.worldProvider.o();
 
-      for(int var10 = 0; var10 < var6.c(); ++var10) {
-         NBTTagCompound var11 = var6.b(var10);
+      for(int var10 = 0; var10 < var6.size(); ++var10) {
+         NBTTagCompound var11 = var6.get(var10);
          byte var12 = var11.getByte("Y");
          bfm var13 = new bfm(var12 << 4, var9);
          byte[] var14 = var11.getByteArray("Blocks");
@@ -308,8 +308,8 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
 
       NBTTagList var24 = var2.getList("Entities", 10);
       if(var24 != null) {
-         for(int var23 = 0; var23 < var24.c(); ++var23) {
-            NBTTagCompound var25 = var24.b(var23);
+         for(int var23 = 0; var23 < var24.size(); ++var23) {
+            NBTTagCompound var25 = var24.get(var23);
             Entity var30 = EntityTypes.a(var25, var1);
             var5.g(true);
             if(var30 != null) {
@@ -331,8 +331,8 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
 
       NBTTagList var27 = var2.getList("TileEntities", 10);
       if(var27 != null) {
-         for(int var26 = 0; var26 < var27.c(); ++var26) {
-            NBTTagCompound var28 = var27.b(var26);
+         for(int var26 = 0; var26 < var27.size(); ++var26) {
+            NBTTagCompound var28 = var27.get(var26);
             TileEntity var32 = TileEntity.c(var28);
             if(var32 != null) {
                var5.a(var32);
@@ -343,8 +343,8 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       if(var2.hasKeyOfType("TileTicks", 9)) {
          NBTTagList var31 = var2.getList("TileTicks", 10);
          if(var31 != null) {
-            for(int var29 = 0; var29 < var31.c(); ++var29) {
-               NBTTagCompound var34 = var31.b(var29);
+            for(int var29 = 0; var29 < var31.size(); ++var29) {
+               NBTTagCompound var34 = var31.get(var29);
                Block var37;
                if(var34.hasKeyOfType("i", 8)) {
                   var37 = Block.b(var34.getString("i"));

@@ -8,10 +8,10 @@ public class kk {
    private final GameProfile d;
    private final IChatBaseComponent e;
    // $FF: synthetic field
-   final kh a;
+   final PacketPlayOutPlayerInfo a;
 
 
-   public kk(kh var1, GameProfile var2, int var3, EnumGamemode var4, IChatBaseComponent var5) {
+   public kk(PacketPlayOutPlayerInfo var1, GameProfile var2, int var3, EnumGamemode var4, IChatBaseComponent var5) {
       this.a = var1;
       this.d = var2;
       this.b = var3;

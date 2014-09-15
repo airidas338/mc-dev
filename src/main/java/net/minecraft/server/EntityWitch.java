@@ -63,8 +63,8 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
                this.a(false);
                ItemStack var1 = this.bz();
                this.c(0, (ItemStack)null);
-               if(var1 != null && var1.b() == Items.bz) {
-                  List var2 = Items.bz.h(var1);
+               if(var1 != null && var1.b() == Items.POTION) {
+                  List var2 = Items.POTION.h(var1);
                   if(var2 != null) {
                      Iterator var3 = var2.iterator();
 
@@ -92,7 +92,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
             }
 
             if(var5 > -1) {
-               this.c(0, new ItemStack(Items.bz, 1, var5));
+               this.c(0, new ItemStack(Items.POTION, 1, var5));
                this.bl = this.bz().l();
                this.a(true);
                AttributeInstance var6 = this.getAttributeInstance(GenericAttributes.d);

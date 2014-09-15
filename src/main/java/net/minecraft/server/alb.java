@@ -115,7 +115,7 @@ public class alb extends Item {
                   --var1.b;
                }
 
-               var3.b(ty.J[Item.b((Item)this)]);
+               var3.b(StatisticList.J[Item.b((Item)this)]);
             }
          }
 

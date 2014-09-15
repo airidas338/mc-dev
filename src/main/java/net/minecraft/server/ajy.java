@@ -23,13 +23,13 @@ public class ajy extends Item {
 
             if(var2.getData(var5).c().getMaterial() == Material.WATER) {
                --var1.b;
-               var3.b(ty.J[Item.b((Item)this)]);
+               var3.b(StatisticList.J[Item.b((Item)this)]);
                if(var1.b <= 0) {
-                  return new ItemStack(Items.bz);
+                  return new ItemStack(Items.POTION);
                }
 
-               if(!var3.bg.a(new ItemStack(Items.bz))) {
-                  var3.a(new ItemStack(Items.bz, 1, 0), false);
+               if(!var3.bg.a(new ItemStack(Items.POTION))) {
+                  var3.a(new ItemStack(Items.POTION, 1, 0), false);
                }
             }
          }

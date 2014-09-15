@@ -34,9 +34,9 @@ public class TileEntityFlowerPot extends TileEntity {
    public Packet x_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      var1.o("Item");
+      var1.remove("Item");
       var1.setInt("Item", Item.b(this.a));
-      return new iu(this.c, 5, var1);
+      return new PacketPlayOutTileEntityData(this.c, 5, var1);
    }
 
    public void a(Item var1, int var2) {

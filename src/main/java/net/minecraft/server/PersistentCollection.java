@@ -116,7 +116,7 @@ public class PersistentCollection {
 
             while(var4.hasNext()) {
                String var5 = (String)var4.next();
-               NBTBase var6 = var3.a(var5);
+               NBTBase var6 = var3.get(var5);
                if(var6 instanceof NBTTagShort) {
                   NBTTagShort var7 = (NBTTagShort)var6;
                   short var9 = var7.e();

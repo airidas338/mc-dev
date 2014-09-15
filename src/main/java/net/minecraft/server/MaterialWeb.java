@@ -6,7 +6,7 @@ final class MaterialWeb extends Material {
       super(var1);
    }
 
-   public boolean c() {
+   public boolean isSolid() {
       return false;
    }
 }

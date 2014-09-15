@@ -25,7 +25,7 @@ public class CommandEntityData extends CommandAbstract {
          } else {
             NBTTagCompound var4 = new NBTTagCompound();
             var3.e(var4);
-            NBTTagCompound var5 = (NBTTagCompound)var4.b();
+            NBTTagCompound var5 = (NBTTagCompound)var4.clone();
 
             NBTTagCompound var6;
             try {
@@ -34,8 +34,8 @@ public class CommandEntityData extends CommandAbstract {
                throw new CommandException("commands.entitydata.tagError", new Object[]{var8.getMessage()});
             }
 
-            var6.o("UUIDMost");
-            var6.o("UUIDLeast");
+            var6.remove("UUIDMost");
+            var6.remove("UUIDLeast");
             var4.a(var6);
             if(var4.equals(var5)) {
                throw new CommandException("commands.entitydata.failed", new Object[]{var4.toString()});

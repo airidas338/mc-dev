@@ -6,12 +6,12 @@ class av implements Predicate {
    // $FF: synthetic field
    final EntityPlayer a;
    // $FF: synthetic field
-   final tq b;
+   final Statistic b;
    // $FF: synthetic field
    final CommandAchievement c;
 
 
-   av(CommandAchievement var1, EntityPlayer var2, tq var3) {
+   av(CommandAchievement var1, EntityPlayer var2, Statistic var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;

@@ -49,7 +49,7 @@ public class BlockSnow extends Block {
    public boolean canPlace(World var1, Location var2) {
       IBlockData var3 = var1.getData(var2.b());
       Block var4 = var3.c();
-      return var4 != Blocks.ICE && var4 != Blocks.PACKET_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.b(a)).intValue() == 7?true:var4.c() && var4.J.c())):false;
+      return var4 != Blocks.ICE && var4 != Blocks.PACKET_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.b(a)).intValue() == 7?true:var4.c() && var4.J.isSolid())):false;
    }
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
@@ -69,7 +69,7 @@ public class BlockSnow extends Block {
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       a(var1, var3, new ItemStack(Items.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
       var1.g(var3);
-      var2.b(ty.H[Block.a((Block)this)]);
+      var2.b(StatisticList.H[Block.a((Block)this)]);
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {

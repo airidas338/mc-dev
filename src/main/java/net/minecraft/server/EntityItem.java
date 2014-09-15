@@ -238,29 +238,29 @@ public class EntityItem extends Entity {
          int var3 = var2.b;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.getName())) && var1.bg.a(var2)) {
             if(var2.b() == Item.a(Blocks.LOG)) {
-               var1.b((tq)AchievementList.g);
+               var1.b((Statistic)AchievementList.g);
             }
 
             if(var2.b() == Item.a(Blocks.LOG2)) {
-               var1.b((tq)AchievementList.g);
+               var1.b((Statistic)AchievementList.g);
             }
 
             if(var2.b() == Items.aF) {
-               var1.b((tq)AchievementList.t);
+               var1.b((Statistic)AchievementList.t);
             }
 
             if(var2.b() == Items.i) {
-               var1.b((tq)AchievementList.w);
+               var1.b((Statistic)AchievementList.w);
             }
 
             if(var2.b() == Items.bv) {
-               var1.b((tq)AchievementList.A);
+               var1.b((Statistic)AchievementList.A);
             }
 
             if(var2.b() == Items.i && this.n() != null) {
                EntityHuman var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
-                  var4.b((tq)AchievementList.x);
+                  var4.b((Statistic)AchievementList.x);
                }
             }
 

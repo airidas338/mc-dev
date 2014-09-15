@@ -131,7 +131,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
             var1.a((aqb)this);
          }
 
-         var1.b(ty.F);
+         var1.b(StatisticList.F);
          return true;
       } else {
          return super.a(var1);
@@ -159,7 +159,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
          ItemStack var4 = this.bz.a(var3);
          if(var4 != null) {
-            var2.a((NBTBase)var4.b(new NBTTagCompound()));
+            var2.add((NBTBase)var4.b(new NBTTagCompound()));
          }
       }
 
@@ -180,8 +180,8 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
       NBTTagList var5 = var1.getList("Inventory", 10);
 
-      for(int var3 = 0; var3 < var5.c(); ++var3) {
-         ItemStack var4 = ItemStack.a(var5.b(var3));
+      for(int var3 = 0; var3 < var5.size(); ++var3) {
+         ItemStack var4 = ItemStack.a(var5.get(var3));
          if(var4 != null) {
             this.bz.a(var4);
          }

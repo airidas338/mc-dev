@@ -67,7 +67,7 @@ class aoe implements aoo {
          NBTTagCompound var7 = new NBTTagCompound();
          var7.setString("Pattern", var8.b());
          var7.setInt("Color", var9);
-         var11.a((NBTBase)var7);
+         var11.add((NBTBase)var7);
       }
 
       return var2;

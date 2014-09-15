@@ -39,7 +39,7 @@ class qr {
       if(this.b.contains(var1)) {
          Chunk var2 = PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b);
          if(var2.i()) {
-            var1.a.sendPacket((Packet)(new jq(var2, true, 0)));
+            var1.a.sendPacket((Packet)(new PacketPlayOutMapChunk(var2, true, 0)));
          }
 
          this.b.remove(var1);
@@ -108,7 +108,7 @@ class qr {
             var2 = this.d[0] & 255;
             var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
             Location var4 = new Location(var1, var2, var3);
-            this.a((Packet)(new iw(PlayerChunkMap.a(this.a), var4)));
+            this.a((Packet)(new PacketPlayOutBlockChange(PlayerChunkMap.a(this.a), var4)));
             if(PlayerChunkMap.a(this.a).getData(var4).c().x()) {
                this.a(PlayerChunkMap.a(this.a).s(var4));
             }
@@ -117,7 +117,7 @@ class qr {
             if(this.e == 64) {
                var1 = this.c.a * 16;
                var2 = this.c.b * 16;
-               this.a((Packet)(new jq(PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b), false, this.f)));
+               this.a((Packet)(new PacketPlayOutMapChunk(PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b), false, this.f)));
 
                for(var3 = 0; var3 < 16; ++var3) {
                   if((this.f & 1 << var3) != 0) {
@@ -130,7 +130,7 @@ class qr {
                   }
                }
             } else {
-               this.a((Packet)(new ja(this.e, this.d, PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b))));
+               this.a((Packet)(new PacketPlayOutMultiBlockChange(this.e, this.d, PlayerChunkMap.a(this.a).getChunkAt(this.c.a, this.c.b))));
 
                for(var1 = 0; var1 < this.e; ++var1) {
                   var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;

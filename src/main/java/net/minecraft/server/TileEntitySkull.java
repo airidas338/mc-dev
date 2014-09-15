@@ -49,7 +49,7 @@ public class TileEntitySkull extends TileEntity {
    public Packet x_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new iu(this.c, 4, var1);
+      return new PacketPlayOutTileEntityData(this.c, 4, var1);
    }
 
    public void a(int var1) {

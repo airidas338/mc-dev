@@ -53,14 +53,14 @@ public class CommandTestForBlocks extends CommandAbstract {
                               if(var19 != null && var20 != null) {
                                  NBTTagCompound var21 = new NBTTagCompound();
                                  var19.b(var21);
-                                 var21.o("x");
-                                 var21.o("y");
-                                 var21.o("z");
+                                 var21.remove("x");
+                                 var21.remove("y");
+                                 var21.remove("z");
                                  NBTTagCompound var22 = new NBTTagCompound();
                                  var20.b(var22);
-                                 var22.o("x");
-                                 var22.o("y");
-                                 var22.o("z");
+                                 var22.remove("x");
+                                 var22.remove("y");
+                                 var22.remove("z");
                                  if(!var21.equals(var22)) {
                                     var17 = true;
                                  }

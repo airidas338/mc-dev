@@ -74,7 +74,7 @@ public class BlockCauldron extends Block {
                if(var11 == Items.bA) {
                   if(var10 > 0) {
                      if(!var4.by.canInstantlyBuild) {
-                        var13 = new ItemStack(Items.bz, 1, 0);
+                        var13 = new ItemStack(Items.POTION, 1, 0);
                         if(!var4.bg.a(var13)) {
                            var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {

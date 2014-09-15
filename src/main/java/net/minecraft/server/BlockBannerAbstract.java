@@ -45,10 +45,10 @@ public class BlockBannerAbstract extends BlockContainer {
          ItemStack var7 = new ItemStack(Items.cE, 1, ((TileEntityBanner)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();
          var6.b(var8);
-         var8.o("x");
-         var8.o("y");
-         var8.o("z");
-         var8.o("id");
+         var8.remove("x");
+         var8.remove("y");
+         var8.remove("z");
+         var8.remove("id");
          var7.a("BlockEntityTag", (NBTBase)var8);
          a(var1, var2, var7);
       } else {
@@ -62,10 +62,10 @@ public class BlockBannerAbstract extends BlockContainer {
          ItemStack var6 = new ItemStack(Items.cE, 1, ((TileEntityBanner)var5).b());
          NBTTagCompound var7 = new NBTTagCompound();
          var5.b(var7);
-         var7.o("x");
-         var7.o("y");
-         var7.o("z");
-         var7.o("id");
+         var7.remove("x");
+         var7.remove("y");
+         var7.remove("z");
+         var7.remove("id");
          var6.a("BlockEntityTag", (NBTBase)var7);
          a(var1, var3, var6);
       } else {

@@ -77,7 +77,7 @@ public class BlockSoil extends Block {
 
    public void a(World var1, Location var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
-      if(var1.getData(var2.a()).c().getMaterial().a()) {
+      if(var1.getData(var2.a()).c().getMaterial().isBuildable()) {
          var1.a(var2, Blocks.DIRT.P());
       }
 

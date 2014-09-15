@@ -23,7 +23,7 @@ public class ItemMapEmpty extends ake {
             var3.a(var4, false);
          }
 
-         var3.b(ty.J[Item.b((Item)this)]);
+         var3.b(StatisticList.J[Item.b((Item)this)]);
          return var1;
       }
    }

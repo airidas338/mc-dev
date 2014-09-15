@@ -123,7 +123,7 @@ public class BlockVine extends Block {
    }
 
    private boolean c(Block var1) {
-      return var1.d() && var1.J.c();
+      return var1.d() && var1.J.isSolid();
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
@@ -295,7 +295,7 @@ public class BlockVine extends Block {
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
-         var2.b(ty.H[Block.a((Block)this)]);
+         var2.b(StatisticList.H[Block.a((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.VINE, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);

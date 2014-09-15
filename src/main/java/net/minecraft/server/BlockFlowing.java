@@ -51,7 +51,7 @@ public class BlockFlowing extends BlockFluids {
 
          if(this.a >= 2 && this.J == Material.WATER) {
             IBlockData var16 = var1.getData(var2.b());
-            if(var16.c().getMaterial().a()) {
+            if(var16.c().getMaterial().isBuildable()) {
                var14 = 0;
             } else if(var16.c().getMaterial() == this.J && ((Integer)var16.b(b)).intValue() == 0) {
                var14 = 0;
@@ -188,7 +188,7 @@ public class BlockFlowing extends BlockFluids {
 
    private boolean g(World var1, Location var2, IBlockData var3) {
       Block var4 = var1.getData(var2).c();
-      return !(var4 instanceof BlockDoor) && var4 != Blocks.SIGN_POST && var4 != Blocks.LADDER && var4 != Blocks.SUGAR_CANE_BLOCK?(var4.J == Material.PORTAL?true:var4.J.c()):true;
+      return !(var4 instanceof BlockDoor) && var4 != Blocks.SIGN_POST && var4 != Blocks.LADDER && var4 != Blocks.SUGAR_CANE_BLOCK?(var4.J == Material.PORTAL?true:var4.J.isSolid()):true;
    }
 
    protected int a(World var1, Location var2, int var3) {

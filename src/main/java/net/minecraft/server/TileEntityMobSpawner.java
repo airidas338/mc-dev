@@ -22,8 +22,8 @@ public class TileEntityMobSpawner extends TileEntity implements IUpdatePlayerLis
    public Packet x_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      var1.o("SpawnPotentials");
-      return new iu(this.c, 1, var1);
+      var1.remove("SpawnPotentials");
+      return new PacketPlayOutTileEntityData(this.c, 1, var1);
    }
 
    public boolean c(int var1, int var2) {

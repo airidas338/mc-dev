@@ -73,7 +73,7 @@ public class qy {
 
       if(this.w != this.a.m || this.a.m != null && this.m % 60 == 0) {
          this.w = this.a.m;
-         this.a((Packet)(new ky(0, this.a, this.a.m)));
+         this.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
       }
 
       if(this.a instanceof EntityItemFrame && this.m % 10 == 0) {
@@ -125,7 +125,7 @@ public class qy {
                } else {
                   this.y = this.a.C;
                   this.v = 0;
-                  var10 = new lo(this.a.F(), var23, var24, var25, (byte)var27, (byte)var28, this.a.C);
+                  var10 = new PacketPlayOutEntityTeleport(this.a.F(), var23, var24, var25, (byte)var27, (byte)var28, this.a.C);
                }
             }
 
@@ -139,7 +139,7 @@ public class qy {
                   this.j = this.a.v;
                   this.k = this.a.w;
                   this.l = this.a.x;
-                  this.a((Packet)(new kz(this.a.F(), this.j, this.k, this.l)));
+                  this.a((Packet)(new PacketPlayOutEntityVelocity(this.a.F(), this.j, this.k, this.l)));
                }
             }
 
@@ -179,7 +179,7 @@ public class qy {
 
          var23 = MathHelper.d(this.a.aD() * 256.0F / 360.0F);
          if(Math.abs(var23 - this.i) >= 4) {
-            this.a((Packet)(new kq(this.a, (byte)var23)));
+            this.a((Packet)(new PacketPlayOutEntityHeadRotation(this.a, (byte)var23)));
             this.i = var23;
          }
 
@@ -188,7 +188,7 @@ public class qy {
 
       ++this.m;
       if(this.a.G) {
-         this.b((Packet)(new kz(this.a)));
+         this.b((Packet)(new PacketPlayOutEntityVelocity(this.a)));
          this.a.G = false;
       }
 
@@ -197,14 +197,14 @@ public class qy {
    private void b() {
       DataWatcher var1 = this.a.H();
       if(var1.a()) {
-         this.b((Packet)(new kx(this.a.F(), var1, false)));
+         this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.F(), var1, false)));
       }
 
       if(this.a instanceof EntityLiving) {
          yf var2 = (yf)((EntityLiving)this.a).getAttributeMap();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
-            this.b((Packet)(new lp(this.a.F(), var3)));
+            this.b((Packet)(new PacketPlayOutUpdateAttributes(this.a.F(), var3)));
          }
 
          var3.clear();
@@ -256,7 +256,7 @@ public class qy {
                Packet var2 = this.c();
                var1.a.sendPacket(var2);
                if(!this.a.H().d()) {
-                  var1.a.sendPacket((Packet)(new kx(this.a.F(), this.a.H(), true)));
+                  var1.a.sendPacket((Packet)(new PacketPlayOutEntityMetadata(this.a.F(), this.a.H(), true)));
                }
 
                NBTTagCompound var3 = this.a.aU();
@@ -268,7 +268,7 @@ public class qy {
                   yf var4 = (yf)((EntityLiving)this.a).getAttributeMap();
                   Collection var5 = var4.c();
                   if(!var5.isEmpty()) {
-                     var1.a.sendPacket((Packet)(new lp(this.a.F(), var5)));
+                     var1.a.sendPacket((Packet)(new PacketPlayOutUpdateAttributes(this.a.F(), var5)));
                   }
                }
 
@@ -276,22 +276,22 @@ public class qy {
                this.k = this.a.w;
                this.l = this.a.x;
                if(this.u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
-                  var1.a.sendPacket((Packet)(new kz(this.a.F(), this.a.v, this.a.w, this.a.x)));
+                  var1.a.sendPacket((Packet)(new PacketPlayOutEntityVelocity(this.a.F(), this.a.v, this.a.w, this.a.x)));
                }
 
                if(this.a.m != null) {
-                  var1.a.sendPacket((Packet)(new ky(0, this.a, this.a.m)));
+                  var1.a.sendPacket((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
                }
 
                if(this.a instanceof EntityInsentient && ((EntityInsentient)this.a).cc() != null) {
-                  var1.a.sendPacket((Packet)(new ky(1, this.a, ((EntityInsentient)this.a).cc())));
+                  var1.a.sendPacket((Packet)(new PacketPlayOutAttachEntity(1, this.a, ((EntityInsentient)this.a).cc())));
                }
 
                if(this.a instanceof EntityLiving) {
                   for(int var7 = 0; var7 < 5; ++var7) {
                      ItemStack var8 = ((EntityLiving)this.a).p(var7);
                      if(var8 != null) {
-                        var1.a.sendPacket((Packet)(new la(this.a.F(), var7, var8)));
+                        var1.a.sendPacket((Packet)(new PacketPlayOutEntityEquipment(this.a.F(), var7, var8)));
                      }
                   }
                }
@@ -299,7 +299,7 @@ public class qy {
                if(this.a instanceof EntityHuman) {
                   EntityHuman var10 = (EntityHuman)this.a;
                   if(var10.bI()) {
-                     var1.a.sendPacket((Packet)(new kl(var10, new Location(this.a))));
+                     var1.a.sendPacket((Packet)(new PacketPlayOutBed(var10, new Location(this.a))));
                   }
                }
 
@@ -309,7 +309,7 @@ public class qy {
 
                   while(var11.hasNext()) {
                      MobEffect var6 = (MobEffect)var11.next();
-                     var1.a.sendPacket((Packet)(new lr(this.a.F(), var6)));
+                     var1.a.sendPacket((Packet)(new PacketPlayOutEntityEffect(this.a.F(), var6)));
                   }
                }
             }

@@ -75,9 +75,9 @@ public class yt extends PathfinderGoal {
          }
 
          if(var2 != null) {
-            var2.b(ty.A);
+            var2.b(StatisticList.A);
             if(this.d instanceof EntityCow) {
-               var2.b((tq)AchievementList.H);
+               var2.b((Statistic)AchievementList.H);
             }
          }
 

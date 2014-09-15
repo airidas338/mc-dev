@@ -40,7 +40,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
          return false;
       } else if("fireball".equals(var1.p()) && var1.getEntity() instanceof EntityHuman) {
          super.a(var1, 1000.0F);
-         ((EntityHuman)var1.getEntity()).b((tq)AchievementList.z);
+         ((EntityHuman)var1.getEntity()).b((Statistic)AchievementList.z);
          return true;
       } else {
          return super.a(var1, var2);

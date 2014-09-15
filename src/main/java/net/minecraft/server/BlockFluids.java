@@ -81,7 +81,7 @@ public abstract class BlockFluids extends Block {
          int var8 = this.f(var1, var7);
          int var9;
          if(var8 < 0) {
-            if(!var1.getData(var7).c().getMaterial().c()) {
+            if(!var1.getData(var7).c().getMaterial().isSolid()) {
                var8 = this.f(var1, var7.b());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);

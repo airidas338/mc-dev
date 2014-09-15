@@ -57,7 +57,7 @@ public class ItemArmor extends Item {
          if(var2 != null) {
             NBTTagCompound var3 = var2.getCompound("display");
             if(var3.hasKey("color")) {
-               var3.o("color");
+               var3.remove("color");
             }
 
          }

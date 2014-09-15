@@ -8,7 +8,7 @@ public class anq extends Item {
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       var3.a(var1);
-      var3.b(ty.J[Item.b((Item)this)]);
+      var3.b(StatisticList.J[Item.b((Item)this)]);
       return var1;
    }
 
@@ -20,8 +20,8 @@ public class anq extends Item {
       } else {
          NBTTagList var1 = var0.getList("pages", 8);
 
-         for(int var2 = 0; var2 < var1.c(); ++var2) {
-            String var3 = var1.f(var2);
+         for(int var2 = 0; var2 < var1.size(); ++var2) {
+            String var3 = var1.getString(var2);
             if(var3 == null) {
                return false;
             }

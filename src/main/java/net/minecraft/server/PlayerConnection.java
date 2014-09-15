@@ -137,7 +137,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					if (this.b.m != null) {
 						if (var9 > 4.0D) {
 							Entity var49 = this.b.m;
-							this.b.a.sendPacket((Packet) (new lo(var49)));
+							this.b.a.sendPacket((Packet) (new PacketPlayOutEntityTeleport(var49)));
 							this.a(this.b.s, this.b.t, this.b.u, this.b.y, this.b.z);
 						}
 
@@ -297,7 +297,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		}
 
 		this.b.a(this.o, this.p, this.q, var10, var11);
-		this.b.a.sendPacket((Packet) (new ii(var1, var3, var5, var7, var8, var9)));
+		this.b.a.sendPacket((Packet) (new PacketPlayOutPosition(var1, var3, var5, var7, var8, var9)));
 	}
 
 	public void a(PacketPlayInBlockDig var1) {
@@ -337,7 +337,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					if (!this.d.a((World) var2, var3, (EntityHuman) this.b) && var2.af().a(var3)) {
 						this.b.c.a(var3, var1.b());
 					} else {
-						this.b.a.sendPacket((Packet) (new iw(var2, var3)));
+						this.b.a.sendPacket((Packet) (new PacketPlayOutBlockChange(var2, var3)));
 					}
 				} else {
 					if (var1.c() == mm.c) {
@@ -347,7 +347,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					}
 
 					if (var2.getData(var3).c().getMaterial() != Material.AIR) {
-						this.b.a.sendPacket((Packet) (new iw(var2, var3)));
+						this.b.a.sendPacket((Packet) (new PacketPlayOutBlockChange(var2, var3)));
 					}
 				}
 
@@ -386,8 +386,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		}
 
 		if (var4) {
-			this.b.a.sendPacket((Packet) (new iw(var2, var5)));
-			this.b.a.sendPacket((Packet) (new iw(var2, var5.a(var6))));
+			this.b.a.sendPacket((Packet) (new PacketPlayOutBlockChange(var2, var5)));
+			this.b.a.sendPacket((Packet) (new PacketPlayOutBlockChange(var2, var5.a(var6))));
 		}
 
 		var3 = this.b.bg.h();
@@ -403,7 +403,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			this.b.bi.b();
 			this.b.g = false;
 			if (!ItemStack.b(this.b.bg.h(), var1.c())) {
-				this.sendPacket((Packet) (new jh(this.b.bi.d, var8.e, this.b.bg.h())));
+				this.sendPacket((Packet) (new PacketPlayOutSetSlot(this.b.bi.d, var8.e, this.b.bg.h())));
 			}
 		}
 
@@ -433,7 +433,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					WorldServer var7 = this.b.u();
 					WorldServer var8 = (WorldServer) var2.o;
 					this.b.am = var2.am;
-					this.sendPacket((Packet) (new kp(this.b.am, var7.aa(), var7.P().u(), this.b.c.b())));
+					this.sendPacket((Packet) (new PacketPlayOutRespawn(this.b.am, var7.aa(), var7.P().u(), this.b.c.b())));
 					var7.f(this.b);
 					this.b.I = false;
 					this.b.setPositionRotation(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -647,7 +647,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			this.b.A().a(this.b);
 			break;
 		case 3:
-			this.b.b((tq) AchievementList.f);
+			this.b.b((Statistic) AchievementList.f);
 		}
 
 	}
@@ -672,14 +672,14 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			} else {
 				ItemStack var5 = this.b.bi.a(var1.b(), var1.c(), var1.f(), this.b);
 				if (ItemStack.b(var1.e(), var5)) {
-					this.b.a.sendPacket((Packet) (new jc(var1.a(), var1.d(), true)));
+					this.b.a.sendPacket((Packet) (new PacketPlayOutTransaction(var1.a(), var1.d(), true)));
 					this.b.g = true;
 					this.b.bi.b();
 					this.b.o();
 					this.b.g = false;
 				} else {
 					this.n.a(this.b.bi.d, Short.valueOf(var1.d()));
-					this.b.a.sendPacket((Packet) (new jc(var1.a(), var1.d(), false)));
+					this.b.a.sendPacket((Packet) (new PacketPlayOutTransaction(var1.a(), var1.d(), false)));
 					this.b.bi.a(this.b, false);
 					ArrayList var6 = Lists.newArrayList();
 
@@ -717,9 +717,9 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					if (var6 != null) {
 						NBTTagCompound var7 = new NBTTagCompound();
 						var6.b(var7);
-						var7.o("x");
-						var7.o("y");
-						var7.o("z");
+						var7.remove("x");
+						var7.remove("y");
+						var7.remove("z");
 						var3.a("BlockEntityTag", (NBTBase) var7);
 					}
 				}
@@ -807,7 +807,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			var2.add(var4);
 		}
 
-		this.b.a.sendPacket((Packet) (new iy((String[]) var2.toArray(new String[var2.size()]))));
+		this.b.a.sendPacket((Packet) (new PacketPlayOutTabComplete((String[]) var2.toArray(new String[var2.size()]))));
 	}
 
 	public void a(PacketPlayInSettings var1) {

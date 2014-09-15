@@ -102,8 +102,8 @@ public class WorldMap extends PersistentBase {
       if(var2.n() && var2.o().hasKeyOfType("Decorations", 9)) {
          NBTTagList var8 = var2.o().getList("Decorations", 10);
 
-         for(int var10 = 0; var10 < var8.c(); ++var10) {
-            NBTTagCompound var5 = var8.b(var10);
+         for(int var10 = 0; var10 < var8.size(); ++var10) {
+            NBTTagCompound var5 = var8.get(var10);
             if(!this.h.containsKey(var5.getString("id"))) {
                this.a(var5.getByte("type"), var1.o, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
             }

@@ -104,7 +104,7 @@ public class bji extends bms {
 
       while(var3.hasNext()) {
          bjb var4 = (bjb)var3.next();
-         var2.a((NBTBase)var4.g());
+         var2.add((NBTBase)var4.g());
       }
 
       var1.set("Entrances", (NBTBase)var2);
@@ -113,7 +113,7 @@ public class bji extends bms {
    protected void b(NBTTagCompound var1) {
       NBTTagList var2 = var1.getList("Entrances", 11);
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
          this.a.add(new bjb(var2.c(var3)));
       }
 

@@ -83,7 +83,7 @@ class cs {
          var3 = var1.getData(var2).c().getMaterial();
       } while(var3 == Material.AIR);
 
-      return !var3.d() && var3 != Material.FIRE;
+      return !var3.isLiquid() && var3 != Material.FIRE;
    }
 
    public void a(Random var1, double var2, double var4, double var6, double var8) {

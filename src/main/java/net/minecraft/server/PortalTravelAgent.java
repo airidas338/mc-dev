@@ -234,7 +234,7 @@ public class PortalTravelAgent {
                               var26 = var13 + (var24 - 1) * var21 + var23 * var22;
                               var27 = var19 + var25;
                               int var28 = var16 + (var24 - 1) * var22 - var23 * var21;
-                              if(var25 < 0 && !this.a.getData(new Location(var26, var27, var28)).c().getMaterial().a() || var25 >= 0 && !this.a.isEmpty(new Location(var26, var27, var28))) {
+                              if(var25 < 0 && !this.a.getData(new Location(var26, var27, var28)).c().getMaterial().isBuildable() || var25 >= 0 && !this.a.isEmpty(new Location(var26, var27, var28))) {
                                  continue label271;
                               }
                            }
@@ -279,7 +279,7 @@ public class PortalTravelAgent {
                               var25 = var13 + (var23 - 1) * var21;
                               var26 = var19 + var24;
                               var27 = var16 + (var23 - 1) * var22;
-                              if(var24 < 0 && !this.a.getData(new Location(var25, var26, var27)).c().getMaterial().a() || var24 >= 0 && !this.a.isEmpty(new Location(var25, var26, var27))) {
+                              if(var24 < 0 && !this.a.getData(new Location(var25, var26, var27)).c().getMaterial().isBuildable() || var24 >= 0 && !this.a.isEmpty(new Location(var25, var26, var27))) {
                                  continue label219;
                               }
                            }

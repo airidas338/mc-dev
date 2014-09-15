@@ -139,7 +139,7 @@ public class ahb implements IInventory {
          if(this.a[var4] == null) {
             this.a[var4] = new ItemStack(var2, 0, var1.i());
             if(var1.n()) {
-               this.a[var4].d((NBTTagCompound)var1.o().b());
+               this.a[var4].d((NBTTagCompound)var1.o().clone());
             }
          }
 
@@ -302,7 +302,7 @@ public class ahb implements IInventory {
             var3 = new NBTTagCompound();
             var3.setByte("Slot", (byte)var2);
             this.a[var2].b(var3);
-            var1.a((NBTBase)var3);
+            var1.add((NBTBase)var3);
          }
       }
 
@@ -311,7 +311,7 @@ public class ahb implements IInventory {
             var3 = new NBTTagCompound();
             var3.setByte("Slot", (byte)(var2 + 100));
             this.b[var2].b(var3);
-            var1.a((NBTBase)var3);
+            var1.add((NBTBase)var3);
          }
       }
 
@@ -322,8 +322,8 @@ public class ahb implements IInventory {
       this.a = new ItemStack[36];
       this.b = new ItemStack[4];
 
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(int var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          int var4 = var3.getByte("Slot") & 255;
          ItemStack var5 = ItemStack.a(var3);
          if(var5 != null) {

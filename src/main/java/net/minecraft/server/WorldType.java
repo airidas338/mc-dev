@@ -30,7 +30,7 @@ public class WorldType {
       types[var1] = this;
    }
 
-   public String a() {
+   public String name() {
       return this.j;
    }
 

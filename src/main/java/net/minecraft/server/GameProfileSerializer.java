@@ -36,8 +36,8 @@ public final class GameProfileSerializer {
                String var7 = (String)var6.next();
                NBTTagList var8 = var5.getList(var7, 10);
 
-               for(int var9 = 0; var9 < var8.c(); ++var9) {
-                  NBTTagCompound var10 = var8.b(var9);
+               for(int var9 = 0; var9 < var8.size(); ++var9) {
+                  NBTTagCompound var10 = var8.get(var9);
                   String var11 = var10.getString("Value");
                   if(var10.hasKeyOfType("Signature", 8)) {
                      var4.getProperties().put(var7, new Property(var7, var11, var10.getString("Signature")));
@@ -70,7 +70,7 @@ public final class GameProfileSerializer {
             NBTTagList var5 = new NBTTagList();
 
             NBTTagCompound var8;
-            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.a((NBTBase)var8)) {
+            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.add((NBTBase)var8)) {
                Property var7 = (Property)var6.next();
                var8 = new NBTTagCompound();
                var8.setString("Value", var7.getValue());

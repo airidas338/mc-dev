@@ -61,7 +61,7 @@ public class aoi implements aoo {
                for(int var22 = 0; var22 < var1.n_(); ++var22) {
                   ItemStack var26 = var1.a(var22);
                   if(var26 != null && var26.b() == Items.cc && var26.n() && var26.o().hasKeyOfType("Explosion", 10)) {
-                     var25.a((NBTBase)var26.o().getCompound("Explosion"));
+                     var25.add((NBTBase)var26.o().getCompound("Explosion"));
                   }
                }
 

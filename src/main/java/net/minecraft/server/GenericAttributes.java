@@ -22,7 +22,7 @@ public class GenericAttributes {
 
       while(var2.hasNext()) {
          AttributeInstance var3 = (AttributeInstance)var2.next();
-         var1.a((NBTBase)a(var3));
+         var1.add((NBTBase)a(var3));
       }
 
       return var1;
@@ -31,7 +31,7 @@ public class GenericAttributes {
    private static NBTTagCompound a(AttributeInstance var0) {
       NBTTagCompound var1 = new NBTTagCompound();
       IAttribute var2 = var0.a();
-      var1.setString("Name", var2.a());
+      var1.setString("Name", var2.getName());
       var1.setDouble("Base", var0.b());
       Collection var3 = var0.c();
       if(var3 != null && !var3.isEmpty()) {
@@ -41,7 +41,7 @@ public class GenericAttributes {
          while(var5.hasNext()) {
             AttributeModifier var6 = (AttributeModifier)var5.next();
             if(var6.e()) {
-               var4.a((NBTBase)a(var6));
+               var4.add((NBTBase)a(var6));
             }
          }
 
@@ -62,8 +62,8 @@ public class GenericAttributes {
    }
 
    public static void a(AttributeMapBase var0, NBTTagList var1) {
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         NBTTagCompound var3 = var1.b(var2);
+      for(int var2 = 0; var2 < var1.size(); ++var2) {
+         NBTTagCompound var3 = var1.get(var2);
          AttributeInstance var4 = var0.a(var3.getString("Name"));
          if(var4 != null) {
             a(var4, var3);
@@ -79,8 +79,8 @@ public class GenericAttributes {
       if(var1.hasKeyOfType("Modifiers", 9)) {
          NBTTagList var2 = var1.getList("Modifiers", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            AttributeModifier var4 = a(var2.b(var3));
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            AttributeModifier var4 = a(var2.get(var3));
             if(var4 != null) {
                AttributeModifier var5 = var0.a(var4.a());
                if(var5 != null) {

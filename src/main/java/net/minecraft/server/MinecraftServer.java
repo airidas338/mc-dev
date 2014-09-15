@@ -904,7 +904,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 					var1.a("world[" + var2 + "][mode]", var5.r());
 					var1.a("world[" + var2 + "][difficulty]", var4.aa());
 					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.t()));
-					var1.a("world[" + var2 + "][generator_name]", var5.u().a());
+					var1.a("world[" + var2 + "][generator_name]", var5.u().name());
 					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.u().d()));
 					var1.a("world[" + var2 + "][height]", Integer.valueOf(this.F));
 					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.N().getLoadedChunks()));

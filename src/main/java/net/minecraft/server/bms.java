@@ -84,11 +84,11 @@ public abstract class bms {
       int var10;
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var5; var10 <= var8; ++var10) {
-            if(var1.getData(new Location(var9, var4, var10)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var9, var4, var10)).c().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.getData(new Location(var9, var7, var10)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var9, var7, var10)).c().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -96,11 +96,11 @@ public abstract class bms {
 
       for(var9 = var3; var9 <= var6; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.getData(new Location(var9, var10, var5)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var9, var10, var5)).c().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.getData(new Location(var9, var10, var8)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var9, var10, var8)).c().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -108,11 +108,11 @@ public abstract class bms {
 
       for(var9 = var5; var9 <= var8; ++var9) {
          for(var10 = var4; var10 <= var7; ++var10) {
-            if(var1.getData(new Location(var3, var10, var9)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var3, var10, var9)).c().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.getData(new Location(var6, var10, var9)).c().getMaterial().d()) {
+            if(var1.getData(new Location(var6, var10, var9)).c().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -521,7 +521,7 @@ public abstract class bms {
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
       if(var6.b((fd)(new Location(var7, var8, var9)))) {
-         while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().getMaterial().d()) && var8 > 1) {
+         while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().getMaterial().isLiquid()) && var8 > 1) {
             var1.a(new Location(var7, var8, var9), var2, 2);
             --var8;
          }

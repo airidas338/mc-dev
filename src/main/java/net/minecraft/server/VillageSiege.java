@@ -219,8 +219,8 @@ public class VillageSiege extends PersistentBase {
       this.f = var1.getInt("Tick");
       NBTTagList var2 = var1.getList("Villages", 10);
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         NBTTagCompound var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.size(); ++var3) {
+         NBTTagCompound var4 = var2.get(var3);
          Village var5 = new Village();
          var5.a(var4);
          this.e.add(var5);
@@ -237,7 +237,7 @@ public class VillageSiege extends PersistentBase {
          Village var4 = (Village)var3.next();
          NBTTagCompound var5 = new NBTTagCompound();
          var4.b(var5);
-         var2.a((NBTBase)var5);
+         var2.add((NBTBase)var5);
       }
 
       var1.set("Villages", (NBTBase)var2);

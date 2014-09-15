@@ -599,7 +599,7 @@ public abstract class Entity implements ICommandListener {
 		if (this.o.getData(var1.a()).c() == Blocks.SNOW) {
 			var3 = Blocks.SNOW.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
-		} else if (!var2.getMaterial().d()) {
+		} else if (!var2.getMaterial().isLiquid()) {
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		}
 
@@ -1088,7 +1088,7 @@ public abstract class Entity implements ICommandListener {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			double var6 = var3[var5];
-			var2.a((NBTBase) (new NBTTagDouble(var6)));
+			var2.add((NBTBase) (new NBTTagDouble(var6)));
 		}
 
 		return var2;
@@ -1101,7 +1101,7 @@ public abstract class Entity implements ICommandListener {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			float var6 = var3[var5];
-			var2.a((NBTBase) (new NBTTagFloat(var6)));
+			var2.add((NBTBase) (new NBTTagFloat(var6)));
 		}
 
 		return var2;

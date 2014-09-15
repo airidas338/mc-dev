@@ -18,7 +18,7 @@ public class TileEntityCommand extends TileEntity {
    public Packet x_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new iu(this.c, 2, var1);
+      return new PacketPlayOutTileEntityData(this.c, 2, var1);
    }
 
    public CommandBlockListenerAbstract getCommandBlock() {

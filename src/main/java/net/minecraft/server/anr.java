@@ -39,7 +39,7 @@ public class anr extends Item {
       }
 
       var3.a(var1);
-      var3.b(ty.J[Item.b((Item)this)]);
+      var3.b(StatisticList.J[Item.b((Item)this)]);
       return var1;
    }
 
@@ -51,8 +51,8 @@ public class anr extends Item {
             if(b(var3)) {
                NBTTagList var4 = var3.getList("pages", 8);
 
-               for(int var5 = 0; var5 < var4.c(); ++var5) {
-                  String var6 = var4.f(var5);
+               for(int var5 = 0; var5 < var4.size(); ++var5) {
+                  String var6 = var4.getString(var5);
 
                   Object var7;
                   try {
@@ -68,7 +68,7 @@ public class anr extends Item {
                var3.set("pages", (NBTBase)var4);
                if(var2 instanceof EntityPlayer && var2.bY() == var1) {
                   ajk var10 = var2.bi.a((IInventory)var2.bg, var2.bg.c);
-                  ((EntityPlayer)var2).a.sendPacket((Packet)(new jh(0, var10.e, var1)));
+                  ((EntityPlayer)var2).a.sendPacket((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
                }
 
             }

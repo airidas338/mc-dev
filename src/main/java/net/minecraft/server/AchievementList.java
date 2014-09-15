@@ -31,7 +31,7 @@ public class AchievementList {
    public static Achievement y = (new Achievement("achievement.portal", "portal", -1, 7, Blocks.OBSIDIAN, w)).c();
    public static Achievement z = (new Achievement("achievement.ghast", "ghast", -4, 8, Items.bw, y)).b().c();
    public static Achievement A = (new Achievement("achievement.blazeRod", "blazeRod", 0, 9, Items.bv, y)).c();
-   public static Achievement B = (new Achievement("achievement.potion", "potion", 2, 8, Items.bz, A)).c();
+   public static Achievement B = (new Achievement("achievement.potion", "potion", 2, 8, Items.POTION, A)).c();
    public static Achievement C = (new Achievement("achievement.theEnd", "theEnd", 3, 10, Items.bH, A)).b().c();
    public static Achievement D = (new Achievement("achievement.theEnd2", "theEnd2", 4, 13, Blocks.DRAGON_EGG, C)).b().c();
    public static Achievement E = (new Achievement("achievement.enchantments", "enchantments", -4, 4, Blocks.ENCHANTMENT_TABLE, w)).c();

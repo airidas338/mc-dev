@@ -14,11 +14,11 @@ public class NBTTagFloat extends NBTNumber {
       this.b = var1;
    }
 
-   void a(DataOutput var1) throws IOException {
+   void write(DataOutput var1) throws IOException {
       var1.writeFloat(this.b);
    }
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
       var3.a(32L);
       this.b = var1.readFloat();
    }
@@ -31,7 +31,7 @@ public class NBTTagFloat extends NBTNumber {
       return "" + this.b + "f";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       return new NBTTagFloat(this.b);
    }
 

@@ -15,12 +15,12 @@ public class NBTTagByteArray extends NBTBase {
       this.b = var1;
    }
 
-   void a(DataOutput var1) throws IOException {
+   void write(DataOutput var1) throws IOException {
       var1.writeInt(this.b.length);
       var1.write(this.b);
    }
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
       int var4 = var1.readInt();
       var3.a((long)(8 * var4));
       this.b = new byte[var4];
@@ -35,7 +35,7 @@ public class NBTTagByteArray extends NBTBase {
       return "[" + this.b.length + " bytes]";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       byte[] var1 = new byte[this.b.length];
       System.arraycopy(this.b, 0, var1, 0, this.b.length);
       return new NBTTagByteArray(var1);

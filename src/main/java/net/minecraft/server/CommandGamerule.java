@@ -52,7 +52,7 @@ public class CommandGamerule extends CommandAbstract {
 
          while(var3.hasNext()) {
             EntityPlayer var4 = (EntityPlayer)var3.next();
-            var4.a.sendPacket((Packet)(new jk(var4, (byte)var2)));
+            var4.a.sendPacket((Packet)(new PacketPlayOutEntityStatus(var4, (byte)var2)));
          }
       }
 

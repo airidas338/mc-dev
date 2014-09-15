@@ -19,11 +19,11 @@ public class NBTTagString extends NBTBase {
       }
    }
 
-   void a(DataOutput var1) throws IOException {
+   void write(DataOutput var1) throws IOException {
       var1.writeUTF(this.b);
    }
 
-   void a(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
+   void load(DataInput var1, int var2, NBTReadLimiter var3) throws IOException  {
       this.b = var1.readUTF();
       var3.a((long)(16 * this.b.length()));
    }
@@ -36,11 +36,11 @@ public class NBTTagString extends NBTBase {
       return "\"" + this.b.replace("\"", "\\\"") + "\"";
    }
 
-   public NBTBase b() {
+   public NBTBase clone() {
       return new NBTTagString(this.b);
    }
 
-   public boolean c_() {
+   public boolean isEmpty() {
       return this.b.isEmpty();
    }
 

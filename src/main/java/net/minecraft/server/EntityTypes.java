@@ -65,7 +65,7 @@ public class EntityTypes {
       Entity var2 = null;
       if("Minecart".equals(var0.getString("id"))) {
          var0.setString("id", EnumMinecartType.a(var0.getInt("Type")).b());
-         var0.o("Type");
+         var0.remove("Type");
       }
 
       try {

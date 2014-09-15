@@ -103,25 +103,25 @@ public class CommandTestForBlock extends CommandAbstract {
             }
 
             var12 = (String)var11.next();
-            var13 = var9.a(var12);
-         } while(a(var13, var10.a(var12), var2));
+            var13 = var9.get(var12);
+         } while(a(var13, var10.get(var12), var2));
 
          return false;
       } else if(var0 instanceof NBTTagList && var2) {
          NBTTagList var3 = (NBTTagList)var0;
          NBTTagList var4 = (NBTTagList)var1;
-         if(var3.c() == 0) {
-            return var4.c() == 0;
+         if(var3.size() == 0) {
+            return var4.size() == 0;
          } else {
             int var5 = 0;
 
-            while(var5 < var3.c()) {
+            while(var5 < var3.size()) {
                NBTBase var6 = var3.g(var5);
                boolean var7 = false;
                int var8 = 0;
 
                while(true) {
-                  if(var8 < var4.c()) {
+                  if(var8 < var4.size()) {
                      if(!a(var6, var4.g(var8), var2)) {
                         ++var8;
                         continue;

@@ -34,7 +34,7 @@ public class bie extends WorldGenerator {
             for(var16 = var11; var16 <= var12; ++var16) {
                var17 = var3.a(var14, var15, var16);
                Material var18 = var1.getData(var17).c().getMaterial();
-               boolean var19 = var18.a();
+               boolean var19 = var18.isBuildable();
                if(var15 == -1 && !var19) {
                   return false;
                }
@@ -59,9 +59,9 @@ public class bie extends WorldGenerator {
                      if(var1.getData(var17).c() != Blocks.CHEST) {
                         var1.g(var17);
                      }
-                  } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().getMaterial().a()) {
+                  } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().getMaterial().isBuildable()) {
                      var1.g(var17);
-                  } else if(var1.getData(var17).c().getMaterial().a() && var1.getData(var17).c() != Blocks.CHEST) {
+                  } else if(var1.getData(var17).c().getMaterial().isBuildable() && var1.getData(var17).c() != Blocks.CHEST) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
                         var1.a(var17, Blocks.MOSSY_COBBLESTONE.P(), 2);
                      } else {
@@ -90,7 +90,7 @@ public class bie extends WorldGenerator {
 
                         while(var21.hasNext()) {
                            EnumFacing var22 = (EnumFacing)var21.next();
-                           if(var1.getData(var25.a(var22)).c().getMaterial().a()) {
+                           if(var1.getData(var25.a(var22)).c().getMaterial().isBuildable()) {
                               ++var20;
                            }
                         }

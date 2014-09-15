@@ -48,7 +48,7 @@ public class TileEntitySign extends TileEntity {
    public Packet x_() {
       IChatBaseComponent[] var1 = new IChatBaseComponent[4];
       System.arraycopy(this.a, 0, var1, 0, 4);
-      return new ll(this.b, this.c, var1);
+      return new PacketPlayOutUpdateSign(this.b, this.c, var1);
    }
 
    public boolean b() {

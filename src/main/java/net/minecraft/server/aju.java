@@ -28,7 +28,7 @@ public class aju extends Item {
          return false;
       } else if(!var2.a(var4, var5, var1)) {
          return false;
-      } else if(var4.o() == 255 && this.a.getMaterial().a()) {
+      } else if(var4.o() == 255 && this.a.getMaterial().isBuildable()) {
          return false;
       } else if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
          int var11 = this.a(var1.i());
@@ -55,9 +55,9 @@ public class aju extends Item {
          TileEntity var3 = var0.s(var1);
          if(var3 != null) {
             NBTTagCompound var4 = new NBTTagCompound();
-            NBTTagCompound var5 = (NBTTagCompound)var4.b();
+            NBTTagCompound var5 = (NBTTagCompound)var4.clone();
             var3.b(var4);
-            NBTTagCompound var6 = (NBTTagCompound)var2.o().a("BlockEntityTag");
+            NBTTagCompound var6 = (NBTTagCompound)var2.o().get("BlockEntityTag");
             var4.a(var6);
             var4.setInt("x", var1.n());
             var4.setInt("y", var1.o());

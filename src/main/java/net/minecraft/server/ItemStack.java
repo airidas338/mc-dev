@@ -70,7 +70,7 @@ public final class ItemStack {
    public ItemStack a(int var1) {
       ItemStack var2 = new ItemStack(this.d, var1, this.f);
       if(this.e != null) {
-         var2.e = (NBTTagCompound)this.e.b();
+         var2.e = (NBTTagCompound)this.e.clone();
       }
 
       this.b -= var1;
@@ -84,7 +84,7 @@ public final class ItemStack {
    public boolean a(EntityHuman var1, World var2, Location var3, EnumFacing var4, float var5, float var6, float var7) {
       boolean var8 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7);
       if(var8) {
-         var1.b(ty.J[Item.b(this.d)]);
+         var1.b(StatisticList.J[Item.b(this.d)]);
       }
 
       return var8;
@@ -181,7 +181,7 @@ public final class ItemStack {
          return false;
       } else {
          if(var1 > 0) {
-            int var3 = EnchantmentManager.a(Enchantment.DURABILITY.B, this);
+            int var3 = EnchantmentManager.getEnchantmentLevel(Enchantment.DURABILITY.B, this);
             int var4 = 0;
 
             for(int var5 = 0; var3 > 0 && var5 < var1; ++var5) {
@@ -209,7 +209,7 @@ public final class ItemStack {
                --this.b;
                if(var2 instanceof EntityHuman) {
                   EntityHuman var3 = (EntityHuman)var2;
-                  var3.b(ty.K[Item.b(this.d)]);
+                  var3.b(StatisticList.K[Item.b(this.d)]);
                   if(this.b == 0 && this.b() instanceof ItemBow) {
                      var3.bZ();
                   }
@@ -229,7 +229,7 @@ public final class ItemStack {
    public void a(EntityLiving var1, EntityHuman var2) {
       boolean var3 = this.d.a(this, var1, (EntityLiving)var2);
       if(var3) {
-         var2.b(ty.J[Item.b(this.d)]);
+         var2.b(StatisticList.J[Item.b(this.d)]);
       }
 
    }
@@ -237,7 +237,7 @@ public final class ItemStack {
    public void a(World var1, Block var2, Location var3, EntityHuman var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
-         var4.b(ty.J[Item.b(this.d)]);
+         var4.b(StatisticList.J[Item.b(this.d)]);
       }
 
    }
@@ -253,7 +253,7 @@ public final class ItemStack {
    public ItemStack k() {
       ItemStack var1 = new ItemStack(this.d, this.b, this.f);
       if(this.e != null) {
-         var1.e = (NBTTagCompound)this.e.b();
+         var1.e = (NBTTagCompound)this.e.clone();
       }
 
       return var1;
@@ -300,7 +300,7 @@ public final class ItemStack {
    }
 
    public void a(World var1, EntityHuman var2, int var3) {
-      var2.a(ty.I[Item.b(this.d)], var3);
+      var2.a(StatisticList.I[Item.b(this.d)], var3);
       this.d.d(this, var1, var2);
    }
 
@@ -373,10 +373,10 @@ public final class ItemStack {
       if(this.e != null) {
          if(this.e.hasKeyOfType("display", 10)) {
             NBTTagCompound var1 = this.e.getCompound("display");
-            var1.o("Name");
-            if(var1.c_()) {
-               this.e.o("display");
-               if(this.e.c_()) {
+            var1.remove("Name");
+            if(var1.isEmpty()) {
+               this.e.remove("display");
+               if(this.e.isEmpty()) {
                   this.d((NBTTagCompound)null);
                }
             }
@@ -410,7 +410,7 @@ public final class ItemStack {
       NBTTagCompound var4 = new NBTTagCompound();
       var4.setShort("id", (short)var1.B);
       var4.setShort("lvl", (short)((byte)var2));
-      var3.a((NBTBase)var4);
+      var3.add((NBTBase)var4);
    }
 
    public boolean w() {
@@ -459,8 +459,8 @@ public final class ItemStack {
          var1 = HashMultimap.create();
          NBTTagList var2 = this.e.getList("AttributeModifiers", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            NBTTagCompound var4 = var2.b(var3);
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            NBTTagCompound var4 = var2.get(var3);
             AttributeModifier var5 = GenericAttributes.a(var4);
             if(var5 != null && var5.a().getLeastSignificantBits() != 0L && var5.a().getMostSignificantBits() != 0L) {
                ((Multimap)var1).put(var4.getString("AttributeName"), var5);
@@ -502,8 +502,8 @@ public final class ItemStack {
          if(this.n() && this.e.hasKeyOfType("CanDestroy", 9)) {
             NBTTagList var2 = this.e.getList("CanDestroy", 8);
 
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               Block var4 = Block.b(var2.f(var3));
+            for(int var3 = 0; var3 < var2.size(); ++var3) {
+               Block var4 = Block.b(var2.getString(var3));
                if(var4 == var1) {
                   this.i = true;
                   return true;
@@ -524,8 +524,8 @@ public final class ItemStack {
          if(this.n() && this.e.hasKeyOfType("CanPlaceOn", 9)) {
             NBTTagList var2 = this.e.getList("CanPlaceOn", 8);
 
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               Block var4 = Block.b(var2.f(var3));
+            for(int var3 = 0; var3 < var2.size(); ++var3) {
+               Block var4 = Block.b(var2.getString(var3));
                if(var4 == var1) {
                   this.k = true;
                   return true;

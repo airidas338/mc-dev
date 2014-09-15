@@ -698,7 +698,7 @@ public class WorldServer extends World implements vn {
    }
 
    public void a(Entity var1, byte var2) {
-      this.s().b(var1, new jk(var1, var2));
+      this.s().b(var1, new PacketPlayOutEntityStatus(var1, var2));
    }
 
    public aqo a(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
@@ -714,7 +714,7 @@ public class WorldServer extends World implements vn {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.sendPacket((Packet)(new jm(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
+            ((EntityPlayer)var13).a.sendPacket((Packet)(new PacketPlayOutExplosion(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
          }
       }
 
@@ -746,7 +746,7 @@ public class WorldServer extends World implements vn {
          while(var2.hasNext()) {
             aqk var3 = (aqk)var2.next();
             if(this.a(var3)) {
-               this.I.an().a((double)var3.a().n(), (double)var3.a().o(), (double)var3.a().p(), 64.0D, this.worldProvider.q(), new iv(var3.a(), var3.d(), var3.b(), var3.c()));
+               this.I.an().a((double)var3.a().n(), (double)var3.a().o(), (double)var3.a().p(), 64.0D, this.worldProvider.q(), new PacketPlayOutBlockAction(var3.a(), var3.d(), var3.b(), var3.c()));
             }
          }
 
@@ -768,22 +768,22 @@ public class WorldServer extends World implements vn {
       boolean var1 = this.S();
       super.p();
       if(this.o != this.p) {
-         this.I.an().a((Packet)(new jo(7, this.p)), this.worldProvider.q());
+         this.I.an().a((Packet)(new PacketPlayOutGameStateChange(7, this.p)), this.worldProvider.q());
       }
 
       if(this.q != this.r) {
-         this.I.an().a((Packet)(new jo(8, this.r)), this.worldProvider.q());
+         this.I.an().a((Packet)(new PacketPlayOutGameStateChange(8, this.r)), this.worldProvider.q());
       }
 
       if(var1 != this.S()) {
          if(var1) {
-            this.I.an().a((Packet)(new jo(2, 0.0F)));
+            this.I.an().a((Packet)(new PacketPlayOutGameStateChange(2, 0.0F)));
          } else {
-            this.I.an().a((Packet)(new jo(1, 0.0F)));
+            this.I.an().a((Packet)(new PacketPlayOutGameStateChange(1, 0.0F)));
          }
 
-         this.I.an().a((Packet)(new jo(7, this.p)));
-         this.I.an().a((Packet)(new jo(8, this.r)));
+         this.I.an().a((Packet)(new PacketPlayOutGameStateChange(7, this.p)));
+         this.I.an().a((Packet)(new PacketPlayOutGameStateChange(8, this.r)));
       }
 
    }
@@ -813,7 +813,7 @@ public class WorldServer extends World implements vn {
    }
 
    public void a(ew var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int ... var18) {
-      ju var19 = new ju(var1, var2, (float)var3, (float)var5, (float)var7, (float)var10, (float)var12, (float)var14, (float)var16, var9, var18);
+      PacketPlayOutWorldParticles var19 = new PacketPlayOutWorldParticles(var1, var2, (float)var3, (float)var5, (float)var7, (float)var10, (float)var12, (float)var14, (float)var16, var9, var18);
 
       for(int var20 = 0; var20 < this.players.size(); ++var20) {
          EntityPlayer var21 = (EntityPlayer)this.players.get(var20);

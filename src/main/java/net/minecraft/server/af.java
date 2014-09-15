@@ -72,7 +72,7 @@ public class af {
          }
       }
 
-      if(!var2.c_()) {
+      if(!var2.isEmpty()) {
          var1.set("CommandStats", (NBTBase)var2);
       }
 

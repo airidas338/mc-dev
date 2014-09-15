@@ -13,13 +13,13 @@ import java.util.Random;
 public class EnchantmentManager {
 
    private static final Random a = new Random();
-   private static final apn b = new apn((api)null);
-   private static final apm c = new apm((api)null);
-   private static final apk d = new apk((api)null);
-   private static final apj e = new apj((api)null);
+   private static final EnchantmentModifierProtection b = new EnchantmentModifierProtection((EmptyClass)null);
+   private static final EnchantmentModifierDamage c = new EnchantmentModifierDamage((EmptyClass)null);
+   private static final EnchantmentModifierThorns d = new EnchantmentModifierThorns((EmptyClass)null);
+   private static final EnchantmentModifierArthropods e = new EnchantmentModifierArthropods((EmptyClass)null);
 
 
-   public static int a(int var0, ItemStack var1) {
+   public static int getEnchantmentLevel(int var0, ItemStack var1) {
       if(var1 == null) {
          return 0;
       } else {
@@ -27,9 +27,9 @@ public class EnchantmentManager {
          if(var2 == null) {
             return 0;
          } else {
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               short var4 = var2.b(var3).getShort("id");
-               short var5 = var2.b(var3).getShort("lvl");
+            for(int var3 = 0; var3 < var2.size(); ++var3) {
+               short var4 = var2.get(var3).getShort("id");
+               short var5 = var2.get(var3).getShort("lvl");
                if(var4 == var0) {
                   return var5;
                }
@@ -44,9 +44,9 @@ public class EnchantmentManager {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
       NBTTagList var2 = var0.b() == Items.cd?Items.cd.h(var0):var0.p();
       if(var2 != null) {
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            short var4 = var2.b(var3).getShort("id");
-            short var5 = var2.b(var3).getShort("lvl");
+         for(int var3 = 0; var3 < var2.size(); ++var3) {
+            short var4 = var2.get(var3).getShort("id");
+            short var5 = var2.get(var3).getShort("lvl");
             var1.put(Integer.valueOf(var4), Integer.valueOf(var5));
          }
       }
@@ -65,19 +65,19 @@ public class EnchantmentManager {
             NBTTagCompound var6 = new NBTTagCompound();
             var6.setShort("id", (short)var4);
             var6.setShort("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
-            var2.a((NBTBase)var6);
+            var2.add((NBTBase)var6);
             if(var1.b() == Items.cd) {
                Items.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
             }
          }
       }
 
-      if(var2.c() > 0) {
+      if(var2.size() > 0) {
          if(var1.b() != Items.cd) {
             var1.a("ench", (NBTBase)var2);
          }
       } else if(var1.n()) {
-         var1.o().o("ench");
+         var1.o().remove("ench");
       }
 
    }
@@ -92,7 +92,7 @@ public class EnchantmentManager {
 
          for(int var5 = 0; var5 < var4; ++var5) {
             ItemStack var6 = var3[var5];
-            int var7 = a(var0, var6);
+            int var7 = getEnchantmentLevel(var0, var6);
             if(var7 > var2) {
                var2 = var7;
             }
@@ -106,9 +106,9 @@ public class EnchantmentManager {
       if(var1 != null) {
          NBTTagList var2 = var1.p();
          if(var2 != null) {
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               short var4 = var2.b(var3).getShort("id");
-               short var5 = var2.b(var3).getShort("lvl");
+            for(int var3 = 0; var3 < var2.size(); ++var3) {
+               short var4 = var2.get(var3).getShort("id");
+               short var5 = var2.get(var3).getShort("lvl");
                if(Enchantment.c(var4) != null) {
                   var0.a(Enchantment.c(var4), var5);
                }
@@ -174,11 +174,11 @@ public class EnchantmentManager {
    }
 
    public static int a(EntityLiving var0) {
-      return a(Enchantment.KNOCKBACK.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.KNOCKBACK.B, var0.bz());
    }
 
    public static int getFireAspectEnchantmentLevel(EntityLiving var0) {
-      return a(Enchantment.FIRE_ASPECT.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.FIRE_ASPECT.B, var0.bz());
    }
 
    public static int a(Entity var0) {
@@ -190,27 +190,27 @@ public class EnchantmentManager {
    }
 
    public static int c(EntityLiving var0) {
-      return a(Enchantment.DIG_SPEED.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.DIG_SPEED.B, var0.bz());
    }
 
    public static boolean e(EntityLiving var0) {
-      return a(Enchantment.DURABILITY.B, var0.bz()) > 0;
+      return getEnchantmentLevel(Enchantment.DURABILITY.B, var0.bz()) > 0;
    }
 
    public static int f(EntityLiving var0) {
-      return a(Enchantment.LOOT_BONUS_BLOCKS.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS.B, var0.bz());
    }
 
    public static int g(EntityLiving var0) {
-      return a(Enchantment.LUCK.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LUCK.B, var0.bz());
    }
 
    public static int h(EntityLiving var0) {
-      return a(Enchantment.LURE.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LURE.B, var0.bz());
    }
 
    public static int i(EntityLiving var0) {
-      return a(Enchantment.LOOT_BONUS_MOBS.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS.B, var0.bz());
    }
 
    public static boolean j(EntityLiving var0) {
@@ -223,7 +223,7 @@ public class EnchantmentManager {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          ItemStack var5 = var2[var4];
-         if(var5 != null && a(var0.B, var5) > 0) {
+         if(var5 != null && getEnchantmentLevel(var0.B, var5) > 0) {
             return var5;
          }
       }

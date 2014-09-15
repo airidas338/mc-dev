@@ -76,7 +76,7 @@ public class BlockPumpkin extends BlockDirectional {
    }
 
    public boolean canPlace(World var1, Location var2) {
-      return var1.getData(var2).c().J.j() && World.a((IBlockAccess)var1, var2.b());
+      return var1.getData(var2).c().J.isReplacable() && World.a((IBlockAccess)var1, var2.b());
    }
 
    public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {

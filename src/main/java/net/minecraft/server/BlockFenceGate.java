@@ -24,7 +24,7 @@ public class BlockFenceGate extends BlockDirectional {
    }
 
    public boolean canPlace(World var1, Location var2) {
-      return var1.getData(var2.b()).c().getMaterial().a()?super.canPlace(var1, var2):false;
+      return var1.getData(var2.b()).c().getMaterial().isBuildable()?super.canPlace(var1, var2):false;
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
