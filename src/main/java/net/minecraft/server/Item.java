@@ -131,7 +131,7 @@ public class Item {
 
 	public String k(ItemStack var1) {
 		String var2 = this.e_(var1);
-		return var2 == null ? "" : fi.a(var2);
+		return var2 == null ? "" : LocaleI18n.a(var2);
 	}
 
 	public String a() {
@@ -194,7 +194,7 @@ public class Item {
 	}
 
 	public String a(ItemStack var1) {
-		return ("" + fi.a(this.k(var1) + ".name")).trim();
+		return ("" + LocaleI18n.a(this.k(var1) + ".name")).trim();
 	}
 
 	public amx g(ItemStack var1) {
@@ -590,7 +590,7 @@ public class Item {
 	}
 
 	protected static void a(Block var0, Item var1) {
-		a(Block.a(var0), (RegistryPrepender) Block.REGISTRY.c(var0), var1);
+		a(Block.getId(var0), (RegistryPrepender) Block.REGISTRY.c(var0), var1);
 		a.put(var0, var1);
 	}
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-class or extends oc {
+class or extends DispenserBehaviorProjectile {
 
    // $FF: synthetic field
    final ItemStack b;

@@ -43,7 +43,7 @@ public class akb extends Item {
                }
             } else {
                if(this.a == Blocks.AIR) {
-                  return new ItemStack(Items.aw);
+                  return new ItemStack(Items.BUCKET);
                }
 
                Location var9 = var6.a(var5.b);
@@ -53,7 +53,7 @@ public class akb extends Item {
 
                if(this.a(var2, var9) && !var3.by.canInstantlyBuild) {
                   var3.b(StatisticList.J[Item.b((Item)this)]);
-                  return new ItemStack(Items.aw);
+                  return new ItemStack(Items.BUCKET);
                }
             }
          }

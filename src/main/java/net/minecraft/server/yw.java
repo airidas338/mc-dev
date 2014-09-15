@@ -58,7 +58,7 @@ public class yw extends PathfinderGoal {
             Location var2 = var1.b();
             if(this.d.getData(var2).c() == Blocks.GRASS) {
                if(this.d.Q().b("mobGriefing")) {
-                  this.d.b(2001, var2, Block.a((Block)Blocks.GRASS));
+                  this.d.b(2001, var2, Block.getId((Block)Blocks.GRASS));
                   this.d.a(var2, Blocks.DIRT.P(), 2);
                }
 

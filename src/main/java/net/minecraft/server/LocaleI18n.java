@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class fi {
+public class LocaleI18n {
 
    private static fj a = fj.a();
    private static fj b = new fj();

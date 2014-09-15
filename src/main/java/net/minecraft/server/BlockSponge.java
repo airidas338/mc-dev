@@ -31,7 +31,7 @@ public class BlockSponge extends Block {
    protected void e(World var1, Location var2, IBlockData var3) {
       if(!((Boolean)var3.b(a)).booleanValue() && this.d(var1, var2)) {
          var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
-         var1.b(2001, var2, Block.a((Block)Blocks.STATIONARY_WATER));
+         var1.b(2001, var2, Block.getId((Block)Blocks.STATIONARY_WATER));
       }
 
    }

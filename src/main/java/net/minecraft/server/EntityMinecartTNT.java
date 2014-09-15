@@ -56,11 +56,11 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    public void a(DamageSource var1) {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
-      if(!var1.c()) {
+      if(!var1.isExplosion()) {
          this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
-      if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
+      if(var1.o() || var1.isExplosion() || var2 >= 0.009999999776482582D) {
          this.b(var2);
       }
 

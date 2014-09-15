@@ -116,8 +116,8 @@ public abstract class Enchantment {
    }
 
    public String d(int var1) {
-      String var2 = fi.a(this.a());
-      return var2 + " " + fi.a("enchantment.level." + var1);
+      String var2 = LocaleI18n.a(this.a());
+      return var2 + " " + LocaleI18n.a("enchantment.level." + var1);
    }
 
    public boolean a(ItemStack var1) {

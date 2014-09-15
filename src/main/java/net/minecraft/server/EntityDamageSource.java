@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
 
-public class wi extends DamageSource {
+public class EntityDamageSource extends DamageSource {
 
    protected Entity q;
    private boolean r = false;
 
 
-   public wi(String var1, Entity var2) {
+   public EntityDamageSource(String var1, Entity var2) {
       super(var1);
       this.q = var2;
    }
 
-   public wi v() {
+   public EntityDamageSource v() {
       this.r = true;
       return this;
    }
@@ -27,9 +27,9 @@ public class wi extends DamageSource {
 
    public IChatBaseComponent b(EntityLiving var1) {
       ItemStack var2 = this.q instanceof EntityLiving?((EntityLiving)this.q).bz():null;
-      String var3 = "death.attack." + this.p;
+      String var3 = "death.attack." + this.translationIndex;
       String var4 = var3 + ".item";
-      return var2 != null && var2.s() && fi.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName(), var2.C()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName()});
+      return var2 != null && var2.s() && LocaleI18n.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName(), var2.C()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName()});
    }
 
    public boolean r() {

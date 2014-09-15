@@ -34,7 +34,7 @@ public class aop {
       (new aoc()).a(this);
       this.a(new ItemStack(Items.aK, 3), new Object[]{"###", Character.valueOf('#'), Items.aJ});
       this.b(new ItemStack(Items.aL, 1), new Object[]{Items.aK, Items.aK, Items.aK, Items.aF});
-      this.b(new ItemStack(Items.bM, 1), new Object[]{Items.aL, new ItemStack(Items.aW, 1, akv.p.b()), Items.G});
+      this.b(new ItemStack(Items.BOOK_AND_QUILL, 1), new Object[]{Items.aL, new ItemStack(Items.aW, 1, akv.p.b()), Items.G});
       this.a(new ItemStack(Blocks.FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.y, Character.valueOf('W'), new ItemStack(Blocks.WOOD, 1, ayx.a.a())});
       this.a(new ItemStack(Blocks.BIRCH_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.y, Character.valueOf('W'), new ItemStack(Blocks.WOOD, 1, ayx.c.a())});
       this.a(new ItemStack(Blocks.SPRUCE_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.y, Character.valueOf('W'), new ItemStack(Blocks.WOOD, 1, ayx.b.a())});
@@ -113,7 +113,7 @@ public class aop {
       this.a(new ItemStack(Items.ch, 1), new Object[]{"A", "B", Character.valueOf('A'), Blocks.TNT, Character.valueOf('B'), Items.az});
       this.a(new ItemStack(Items.ci, 1), new Object[]{"A", "B", Character.valueOf('A'), Blocks.HOPPER, Character.valueOf('B'), Items.az});
       this.a(new ItemStack(Items.aE, 1), new Object[]{"# #", "###", Character.valueOf('#'), Blocks.WOOD});
-      this.a(new ItemStack(Items.aw, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.j});
+      this.a(new ItemStack(Items.BUCKET, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.j});
       this.a(new ItemStack(Items.bQ, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.aH});
       this.b(new ItemStack(Items.d, 1), new Object[]{new ItemStack(Items.j, 1), new ItemStack(Items.ak, 1)});
       this.a(new ItemStack(Items.P, 1), new Object[]{"###", Character.valueOf('#'), Items.O});

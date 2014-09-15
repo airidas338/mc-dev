@@ -835,7 +835,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 				var4 = this.b.bg.h();
 				if (var4 != null) {
-					if (var3.b() == Items.bM && var3.b() == var4.b()) {
+					if (var3.b() == Items.BOOK_AND_QUILL && var3.b() == var4.b()) {
 						var4.a("pages", (NBTBase) var3.o().getList("pages", 8));
 					}
 
@@ -864,11 +864,11 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 				var4 = this.b.bg.h();
 				if (var4 != null) {
-					if (var3.b() == Items.bN && var4.b() == Items.bM) {
+					if (var3.b() == Items.WRITTEN_BOOK && var4.b() == Items.BOOK_AND_QUILL) {
 						var4.a("author", (NBTBase) (new NBTTagString(this.b.getName())));
 						var4.a("title", (NBTBase) (new NBTTagString(var3.o().getString("title"))));
 						var4.a("pages", (NBTBase) var3.o().getList("pages", 8));
-						var4.a(Items.bN);
+						var4.a(Items.WRITTEN_BOOK);
 					}
 
 					return;

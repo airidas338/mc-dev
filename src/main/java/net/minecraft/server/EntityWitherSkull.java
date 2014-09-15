@@ -42,7 +42,7 @@ public class EntityWitherSkull extends EntityFireball {
                   }
                }
             } else {
-               var1.d.a(DamageSource.l, 5.0F);
+               var1.d.a(DamageSource.MAGIC, 5.0F);
             }
 
             if(var1.d instanceof EntityLiving) {

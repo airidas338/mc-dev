@@ -87,13 +87,13 @@ public class anh extends Item {
    public String a(ItemStack var1) {
       if(var1.i() == 3 && var1.n()) {
          if(var1.o().hasKeyOfType("SkullOwner", 8)) {
-            return fi.a("item.skull.player.name", new Object[]{var1.o().getString("SkullOwner")});
+            return LocaleI18n.a("item.skull.player.name", new Object[]{var1.o().getString("SkullOwner")});
          }
 
          if(var1.o().hasKeyOfType("SkullOwner", 10)) {
             NBTTagCompound var2 = var1.o().getCompound("SkullOwner");
             if(var2.hasKeyOfType("Name", 8)) {
-               return fi.a("item.skull.player.name", new Object[]{var2.getString("Name")});
+               return LocaleI18n.a("item.skull.player.name", new Object[]{var2.getString("Name")});
             }
          }
       }

@@ -40,7 +40,7 @@ public abstract class EntityWaterAnimal extends EntityInsentient implements wt {
          this.h(var1);
          if(this.aA() == -20) {
             this.h(0);
-            this.a(DamageSource.f, 2.0F);
+            this.a(DamageSource.DROWN, 2.0F);
          }
       } else {
          this.h(300);

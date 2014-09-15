@@ -327,16 +327,16 @@ public class EntityArmorStand extends EntityLiving {
 
    public boolean a(DamageSource var1, float var2) {
       if(!this.o.isStatic && !this.h) {
-         if(DamageSource.j.equals(var1)) {
+         if(DamageSource.OUT_OF_WORLD.equals(var1)) {
             this.J();
             return false;
          } else if(this.b(var1)) {
             return false;
-         } else if(var1.c()) {
+         } else if(var1.isExplosion()) {
             this.C();
             this.J();
             return false;
-         } else if(DamageSource.a.equals(var1)) {
+         } else if(DamageSource.FIRE.equals(var1)) {
             if(!this.au()) {
                this.e(5);
             } else {
@@ -344,7 +344,7 @@ public class EntityArmorStand extends EntityLiving {
             }
 
             return false;
-         } else if(DamageSource.c.equals(var1) && this.bm() > 0.5F) {
+         } else if(DamageSource.BURN.equals(var1) && this.bm() > 0.5F) {
             this.a(4.0F);
             return false;
          } else {

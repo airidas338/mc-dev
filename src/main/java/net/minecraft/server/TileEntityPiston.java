@@ -133,7 +133,7 @@ public class TileEntityPiston extends TileEntity implements IUpdatePlayerListBox
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.setInt("blockId", Block.a(this.a.c()));
+      var1.setInt("blockId", Block.getId(this.a.c()));
       var1.setInt("blockData", this.a.c().c(this.a));
       var1.setInt("facing", this.f.a());
       var1.setFloat("progress", this.j);

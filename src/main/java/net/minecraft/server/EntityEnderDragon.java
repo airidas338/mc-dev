@@ -416,7 +416,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
       this.b = this.t + (double)(this.V.nextFloat() * 3.0F) + 1.0D;
       this.c = this.u - (double)(var6 * 5.0F) + (double)((this.V.nextFloat() - 0.5F) * 2.0F);
       this.by = null;
-      if(var2.getEntity() instanceof EntityHuman || var2.c()) {
+      if(var2.getEntity() instanceof EntityHuman || var2.isExplosion()) {
          this.e(var2, var3);
       }
 
@@ -424,7 +424,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
    }
 
    public boolean a(DamageSource var1, float var2) {
-      if(var1 instanceof wi && ((wi)var1).w()) {
+      if(var1 instanceof EntityDamageSource && ((EntityDamageSource)var1).w()) {
          this.e(var1, var2);
       }
 

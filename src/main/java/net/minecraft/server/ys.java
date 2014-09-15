@@ -64,7 +64,7 @@ public class ys extends yv {
       if(this.g == 240 && this.a.o.aa() == EnumDifficulty.HARD) {
          this.a.o.g(this.b);
          this.a.o.b(1012, this.b, 0);
-         this.a.o.b(2001, this.b, Block.a((Block)this.c));
+         this.a.o.b(2001, this.b, Block.getId((Block)this.c));
       }
 
    }

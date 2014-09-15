@@ -46,7 +46,7 @@ public class ajs extends aju {
       String var2 = "item.banner.";
       akv var3 = this.h(var1);
       var2 = var2 + var3.d() + ".name";
-      return fi.a(var2);
+      return LocaleI18n.a(var2);
    }
 
    private akv h(ItemStack var1) {

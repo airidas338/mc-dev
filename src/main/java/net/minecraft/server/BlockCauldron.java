@@ -62,7 +62,7 @@ public class BlockCauldron extends Block {
             if(var11 == Items.ax) {
                if(var10 < 3) {
                   if(!var4.by.canInstantlyBuild) {
-                     var4.bg.a(var4.bg.c, new ItemStack(Items.aw));
+                     var4.bg.a(var4.bg.c, new ItemStack(Items.BUCKET));
                   }
 
                   this.a(var1, var2, var3, 3);

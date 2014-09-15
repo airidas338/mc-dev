@@ -27,7 +27,7 @@ public class EntityItemFrame extends EntityHanging {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(!var1.c() && this.o() != null) {
+      } else if(!var1.isExplosion() && this.o() != null) {
          if(!this.o.isStatic) {
             this.a(var1.getEntity(), false);
             this.a((ItemStack)null);

@@ -63,7 +63,7 @@ public class EntityBoat extends Entity {
       if(this.b(var1)) {
          return false;
       } else if(!this.o.isStatic && !this.I) {
-         if(this.l != null && this.l == var1.getEntity() && var1 instanceof wj) {
+         if(this.l != null && this.l == var1.getEntity() && var1 instanceof EntityDamageSourceIndirect) {
             return false;
          } else {
             this.b(-this.m());

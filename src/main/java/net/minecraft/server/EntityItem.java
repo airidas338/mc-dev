@@ -172,13 +172,13 @@ public class EntityItem extends Entity {
    }
 
    protected void f(int var1) {
-      this.a(DamageSource.a, (float)var1);
+      this.a(DamageSource.FIRE, (float)var1);
    }
 
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.l() != null && this.l().b() == Items.bZ && var1.c()) {
+      } else if(this.l() != null && this.l().b() == Items.bZ && var1.isExplosion()) {
          return false;
       } else {
          this.ac();
@@ -278,7 +278,7 @@ public class EntityItem extends Entity {
    }
 
    public String getName() {
-      return this.k_()?this.aL():fi.a("item." + this.l().a());
+      return this.k_()?this.aL():LocaleI18n.a("item." + this.l().a());
    }
 
    public boolean aE() {

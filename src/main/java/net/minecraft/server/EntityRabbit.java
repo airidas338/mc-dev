@@ -275,7 +275,7 @@ public class EntityRabbit extends EntityAnimal {
          this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
          this.targetSelector.a(2, new aaq(this, EntityWolf.class, true));
          if(!this.k_()) {
-            this.a(fi.a("entity.KillerBunny.name"));
+            this.a(LocaleI18n.a("entity.KillerBunny.name"));
          }
       }
 

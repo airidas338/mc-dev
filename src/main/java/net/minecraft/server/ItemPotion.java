@@ -117,11 +117,11 @@ public class ItemPotion extends Item {
 
    public String a(ItemStack var1) {
       if(var1.i() == 0) {
-         return fi.a("item.emptyPotion.name").trim();
+         return LocaleI18n.a("item.emptyPotion.name").trim();
       } else {
          String var2 = "";
          if(f(var1.i())) {
-            var2 = fi.a("potion.prefix.grenade").trim() + " ";
+            var2 = LocaleI18n.a("potion.prefix.grenade").trim() + " ";
          }
 
          List var3 = Items.POTION.h(var1);
@@ -129,10 +129,10 @@ public class ItemPotion extends Item {
          if(var3 != null && !var3.isEmpty()) {
             var4 = ((MobEffect)var3.get(0)).g();
             var4 = var4 + ".postfix";
-            return var2 + fi.a(var4).trim();
+            return var2 + LocaleI18n.a(var4).trim();
          } else {
             var4 = PotionBrewer.c(var1.i());
-            return fi.a(var4).trim() + " " + super.a(var1);
+            return LocaleI18n.a(var4).trim() + " " + super.a(var1);
          }
       }
    }

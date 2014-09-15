@@ -35,7 +35,7 @@ public class EntityEnderPearl extends EntityProjectile {
 
                var2.a(this.s, this.t, this.u);
                var2.O = 0.0F;
-               var2.a(DamageSource.i, 5.0F);
+               var2.a(DamageSource.FALL, 5.0F);
             }
          }
 

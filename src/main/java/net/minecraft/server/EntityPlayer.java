@@ -333,11 +333,11 @@ public class EntityPlayer extends EntityHuman implements ail {
         if (this.b(var1)) {
             return false;
         } else {
-            boolean var3 = this.b.ad() && this.cq() && "fall".equals(var1.p);
-            if (!var3 && this.bO > 0 && var1 != DamageSource.j) {
+            boolean var3 = this.b.ad() && this.cq() && "fall".equals(var1.translationIndex);
+            if (!var3 && this.bO > 0 && var1 != DamageSource.OUT_OF_WORLD) {
                 return false;
             } else {
-                if (var1 instanceof wi) {
+                if (var1 instanceof EntityDamageSource) {
                     Entity var4 = var1.getEntity();
                     if (var4 instanceof EntityHuman && !this.a((EntityHuman) var4)) {
                         return false;
@@ -546,7 +546,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
     public void a(ItemStack var1) {
         Item var2 = var1.b();
-        if (var2 == Items.bN) {
+        if (var2 == Items.WRITTEN_BOOK) {
             this.a.sendPacket((Packet) (new PacketPlayOutCustomPayload("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
         }
 

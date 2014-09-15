@@ -43,7 +43,7 @@ public class NextTickListEntry implements Comparable {
    }
 
    public String toString() {
-      return Block.a(this.e) + ": " + this.a + ", " + this.b + ", " + this.c + ", " + this.f;
+      return Block.getId(this.e) + ": " + this.a + ", " + this.b + ", " + this.c + ", " + this.f;
    }
 
    public Block a() {

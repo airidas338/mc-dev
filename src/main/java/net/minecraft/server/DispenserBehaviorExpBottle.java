@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-final class DispenserBehaviorExpBottle extends oc {
+final class DispenserBehaviorExpBottle extends DispenserBehaviorProjectile {
 
    protected IProjectile a(World var1, IPosition var2) {
       return new EntityThrownExpBottle(var1, var2.getX(), var2.getY(), var2.getZ());

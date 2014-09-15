@@ -99,10 +99,10 @@ public class MobEffectList {
          }
       } else if(this.H == u.H) {
          if(var1.bm() > 1.0F) {
-            var1.a(DamageSource.l, 1.0F);
+            var1.a(DamageSource.MAGIC, 1.0F);
          }
       } else if(this.H == v.H) {
-         var1.a(DamageSource.m, 1.0F);
+         var1.a(DamageSource.WITHER, 1.0F);
       } else if(this.H == s.H && var1 instanceof EntityHuman) {
          ((EntityHuman)var1).a(0.025F * (float)(var2 + 1));
       } else if(this.H == y.H && var1 instanceof EntityHuman) {
@@ -111,7 +111,7 @@ public class MobEffectList {
          }
       } else if((this.H != h.H || var1.bl()) && (this.H != i.H || !var1.bl())) {
          if(this.H == i.H && !var1.bl() || this.H == h.H && var1.bl()) {
-            var1.a(DamageSource.l, (float)(6 << var2));
+            var1.a(DamageSource.MAGIC, (float)(6 << var2));
          }
       } else {
          var1.g((float)Math.max(4 << var2, 0));
@@ -125,7 +125,7 @@ public class MobEffectList {
          if(this.H == i.H && !var3.bl() || this.H == h.H && var3.bl()) {
             var7 = (int)(var5 * (double)(6 << var4) + 0.5D);
             if(var1 == null) {
-               var3.a(DamageSource.l, (float)var7);
+               var3.a(DamageSource.MAGIC, (float)var7);
             } else {
                var3.a(DamageSource.b(var1, var2), (float)var7);
             }

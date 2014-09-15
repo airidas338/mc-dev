@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class oc extends DispenserBehaviorItem {
+public abstract class DispenserBehaviorProjectile extends DispenserBehaviorItem {
 
    public ItemStack b(ISourceBlock var1, ItemStack var2) {
       World var3 = var1.i();

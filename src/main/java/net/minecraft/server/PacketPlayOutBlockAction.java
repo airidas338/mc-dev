@@ -28,7 +28,7 @@ public class PacketPlayOutBlockAction implements Packet {
       var1.a(this.a);
       var1.writeByte(this.b);
       var1.writeByte(this.c);
-      var1.b(Block.a(this.d) & 4095);
+      var1.b(Block.getId(this.d) & 4095);
    }
 
    public void a(PacketListener var1) {

@@ -91,15 +91,15 @@ public class EntityHorse extends EntityAnimal implements vr {
          switch(var1) {
          case 0:
          default:
-            return fi.a("entity.horse.name");
+            return LocaleI18n.a("entity.horse.name");
          case 1:
-            return fi.a("entity.donkey.name");
+            return LocaleI18n.a("entity.donkey.name");
          case 2:
-            return fi.a("entity.mule.name");
+            return LocaleI18n.a("entity.mule.name");
          case 3:
-            return fi.a("entity.zombiehorse.name");
+            return LocaleI18n.a("entity.zombiehorse.name");
          case 4:
-            return fi.a("entity.skeletonhorse.name");
+            return LocaleI18n.a("entity.skeletonhorse.name");
          }
       }
    }
@@ -285,9 +285,9 @@ public class EntityHorse extends EntityAnimal implements vr {
 
       int var3 = MathHelper.f((var1 * 0.5F - 3.0F) * var2);
       if(var3 > 0) {
-         this.a(DamageSource.i, (float)var3);
+         this.a(DamageSource.FALL, (float)var3);
          if(this.l != null) {
-            this.l.a(DamageSource.i, (float)var3);
+            this.l.a(DamageSource.FALL, (float)var3);
          }
 
          Block var4 = this.o.getData(new Location(this.s, this.t - 0.2D - (double)this.A, this.u)).c();

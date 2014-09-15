@@ -9,10 +9,10 @@ public class anl extends Item {
    }
 
    public String a(ItemStack var1) {
-      String var2 = ("" + fi.a(this.a() + ".name")).trim();
+      String var2 = ("" + LocaleI18n.a(this.a() + ".name")).trim();
       String var3 = EntityTypes.b(var1.i());
       if(var3 != null) {
-         var2 = var2 + " " + fi.a("entity." + var3 + ".name");
+         var2 = var2 + " " + LocaleI18n.a("entity." + var3 + ".name");
       }
 
       return var2;

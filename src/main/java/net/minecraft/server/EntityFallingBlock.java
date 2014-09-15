@@ -123,7 +123,7 @@ public class EntityFallingBlock extends Entity {
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList(this.o.b((Entity)this, this.aQ()));
             boolean var6 = var3 == Blocks.ANVIL;
-            DamageSource var7 = var6?DamageSource.n:DamageSource.o;
+            DamageSource var7 = var6?DamageSource.ANVIL:DamageSource.FALLING_BLOCK;
             Iterator var8 = var5.iterator();
 
             while(var8.hasNext()) {
@@ -203,7 +203,7 @@ public class EntityFallingBlock extends Entity {
       super.getAttributeInstance(var1);
       if(this.d != null) {
          Block var2 = this.d.c();
-         var1.a("Immitating block ID", (Object)Integer.valueOf(Block.a(var2)));
+         var1.a("Immitating block ID", (Object)Integer.valueOf(Block.getId(var2)));
          var1.a("Immitating block data", (Object)Integer.valueOf(var2.c(this.d)));
       }
 

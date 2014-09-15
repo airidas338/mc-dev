@@ -48,12 +48,12 @@ public class Block {
     private IBlockData M;
     private String N;
 
-    public static int a(Block var0) {
+    public static int getId(Block var0) {
         return REGISTRY.b(var0);
     }
 
     public static int f(IBlockData var0) {
-        return a(var0.c()) + (var0.c().c(var0) << 12);
+        return getId(var0.c()) + (var0.c().c(var0) << 12);
     }
 
     public static Block c(int var0) {
@@ -521,7 +521,7 @@ public class Block {
     }
 
     public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-        var2.b(StatisticList.H[a(this)]);
+        var2.b(StatisticList.H[getId(this)]);
         var2.a(0.025F);
         if (this.G() && EnchantmentManager.e(var2)) {
             ItemStack var7 = this.i(var4);
@@ -562,7 +562,7 @@ public class Block {
     }
 
     public String H() {
-        return fi.a(this.a() + ".name");
+        return LocaleI18n.a(this.a() + ".name");
     }
 
     public String a() {

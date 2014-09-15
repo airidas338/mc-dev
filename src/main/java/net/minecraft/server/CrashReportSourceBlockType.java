@@ -16,9 +16,9 @@ class CrashReportSourceBlockType implements Callable {
 
    public String a() {
       try {
-         return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(Block.a(this.a)), this.a.a(), this.a.getClass().getCanonicalName()});
+         return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(Block.getId(this.a)), this.a.a(), this.a.getClass().getCanonicalName()});
       } catch (Throwable var2) {
-         return "ID #" + Block.a(this.a);
+         return "ID #" + Block.getId(this.a);
       }
    }
 

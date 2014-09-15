@@ -47,7 +47,7 @@ public class EntityEnderman extends EntityMonster {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       IBlockData var2 = this.ck();
-      var1.setShort("carried", (short)Block.a(var2.c()));
+      var1.setShort("carried", (short)Block.getId(var2.c()));
       var1.setShort("carriedData", (short)var2.c().c(var2));
    }
 
@@ -94,7 +94,7 @@ public class EntityEnderman extends EntityMonster {
 
    protected void E() {
       if(this.U()) {
-         this.a(DamageSource.f, 1.0F);
+         this.a(DamageSource.DROWN, 1.0F);
       }
 
       if(this.cm() && !this.bl && this.V.nextInt(100) == 0) {
@@ -230,7 +230,7 @@ public class EntityEnderman extends EntityMonster {
                this.a(true);
             }
 
-            if(var1 instanceof wi && var1.getEntity() instanceof EntityHuman) {
+            if(var1 instanceof EntityDamageSource && var1.getEntity() instanceof EntityHuman) {
                if(var1.getEntity() instanceof EntityPlayer && ((EntityPlayer)var1.getEntity()).c.d()) {
                   this.a(false);
                } else {
@@ -238,7 +238,7 @@ public class EntityEnderman extends EntityMonster {
                }
             }
 
-            if(var1 instanceof wj) {
+            if(var1 instanceof EntityDamageSourceIndirect) {
                this.bl = false;
 
                for(int var4 = 0; var4 < 64; ++var4) {

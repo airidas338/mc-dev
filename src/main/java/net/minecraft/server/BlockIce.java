@@ -11,7 +11,7 @@ public class BlockIce extends BlockHalfTransparent {
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-      var2.b(StatisticList.H[Block.a((Block)this)]);
+      var2.b(StatisticList.H[Block.getId((Block)this)]);
       var2.a(0.025F);
       if(this.G() && EnchantmentManager.e(var2)) {
          ItemStack var8 = this.i(var4);

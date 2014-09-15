@@ -229,7 +229,7 @@ public abstract class Entity implements ICommandListener {
 				}
 			} else {
 				if (this.i % 20 == 0) {
-					this.a(DamageSource.c, 1.0F);
+					this.a(DamageSource.BURN, 1.0F);
 				}
 
 				--this.i;
@@ -259,7 +259,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected void M() {
 		if (!this.ab) {
-			this.a(DamageSource.d, 4.0F);
+			this.a(DamageSource.LAVA, 4.0F);
 			this.e(15);
 		}
 	}
@@ -647,7 +647,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected void f(int var1) {
 		if (!this.ab) {
-			this.a(DamageSource.a, (float) var1);
+			this.a(DamageSource.FIRE, (float) var1);
 		}
 
 	}
@@ -1350,7 +1350,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void a(EntityLightning var1) {
-		this.a(DamageSource.b, 5.0F);
+		this.a(DamageSource.LIGHTNING_BOLT, 5.0F);
 		++this.i;
 		if (this.i == 0) {
 			this.e(8);
@@ -1436,7 +1436,7 @@ public abstract class Entity implements ICommandListener {
 				var1 = "generic";
 			}
 
-			return fi.a("entity." + var1 + ".name");
+			return LocaleI18n.a("entity." + var1 + ".name");
 		}
 	}
 
@@ -1469,7 +1469,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public boolean b(DamageSource var1) {
-		return this.ar && var1 != DamageSource.j && !var1.u();
+		return this.ar && var1 != DamageSource.OUT_OF_WORLD && !var1.u();
 	}
 
 	public void m(Entity var1) {

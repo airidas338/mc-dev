@@ -206,7 +206,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == Item.a(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.aw) {
+         if(this.h[0].b() == Item.a(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.BUCKET) {
             this.h[1] = new ItemStack(Items.ax);
          }
 
@@ -269,7 +269,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
    public boolean b(int var1, ItemStack var2, EnumFacing var3) {
       if(var3 == EnumFacing.DOWN && var1 == 1) {
          Item var4 = var2.b();
-         if(var4 != Items.ax && var4 != Items.aw) {
+         if(var4 != Items.ax && var4 != Items.BUCKET) {
             return false;
          }
       }

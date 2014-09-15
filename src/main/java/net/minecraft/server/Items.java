@@ -76,7 +76,7 @@ public class Items {
    public static final Item at;
    public static final Item au;
    public static final Item av;
-   public static final Item aw;
+   public static final Item BUCKET;
    public static final Item ax;
    public static final Item ay;
    public static final Item az;
@@ -144,8 +144,8 @@ public class Items {
    public static final Item bJ;
    public static final Item bK;
    public static final Item bL;
-   public static final Item bM;
-   public static final Item bN;
+   public static final Item BOOK_AND_QUILL;
+   public static final Item WRITTEN_BOOK;
    public static final Item bO;
    public static final Item bP;
    public static final Item bQ;
@@ -273,7 +273,7 @@ public class Items {
          at = a("jungle_door");
          au = a("acacia_door");
          av = a("dark_oak_door");
-         aw = a("bucket");
+         BUCKET = a("bucket");
          ax = a("water_bucket");
          ay = a("lava_bucket");
          az = a("minecart");
@@ -341,8 +341,8 @@ public class Items {
          bJ = a("spawn_egg");
          bK = a("experience_bottle");
          bL = a("fire_charge");
-         bM = a("writable_book");
-         bN = a("written_book");
+         BOOK_AND_QUILL = a("writable_book");
+         WRITTEN_BOOK = a("written_book");
          bO = a("emerald");
          bP = a("item_frame");
          bQ = a("flower_pot");

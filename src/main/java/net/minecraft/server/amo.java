@@ -17,7 +17,7 @@ public class amo extends Item {
       }
 
       var3.b(StatisticList.J[Item.b((Item)this)]);
-      return var1.b <= 0?new ItemStack(Items.aw):var1;
+      return var1.b <= 0?new ItemStack(Items.BUCKET):var1;
    }
 
    public int d(ItemStack var1) {

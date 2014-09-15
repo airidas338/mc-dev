@@ -70,7 +70,7 @@ public class EntityCow extends EntityAnimal {
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.aw && !var1.by.canInstantlyBuild) {
+      if(var2 != null && var2.b() == Items.BUCKET && !var1.by.canInstantlyBuild) {
          if(var2.b-- == 1) {
             var1.bg.a(var1.bg.c, new ItemStack(Items.aG));
          } else if(!var1.bg.a(new ItemStack(Items.aG))) {

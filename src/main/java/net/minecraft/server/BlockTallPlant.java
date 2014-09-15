@@ -135,7 +135,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       if(var5 != avk.d && var5 != avk.c) {
          return false;
       } else {
-         var4.b(StatisticList.H[Block.a((Block)this)]);
+         var4.b(StatisticList.H[Block.getId((Block)this)]);
          int var6 = (var5 == avk.c?EnumFoliage.b:EnumFoliage.c).a();
          a(var1, var2, new ItemStack(Blocks.LONG_GRASS, 2, var6));
          return true;

@@ -335,8 +335,8 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(var1 != DamageSource.f && !(var1.getEntity() instanceof EntityWither)) {
-         if(this.cj() > 0 && var1 != DamageSource.j) {
+      } else if(var1 != DamageSource.DROWN && !(var1.getEntity() instanceof EntityWither)) {
+         if(this.cj() > 0 && var1 != DamageSource.OUT_OF_WORLD) {
             return false;
          } else {
             Entity var3;

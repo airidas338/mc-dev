@@ -41,7 +41,7 @@ public class ahz {
          ++this.d;
          if(this.d >= 80) {
             if(var1.bm() > 10.0F || var2 == EnumDifficulty.HARD || var1.bm() > 1.0F && var2 == EnumDifficulty.NORMAL) {
-               var1.a(DamageSource.g, 1.0F);
+               var1.a(DamageSource.STARVE, 1.0F);
             }
 
             this.d = 0;

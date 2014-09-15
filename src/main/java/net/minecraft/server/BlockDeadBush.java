@@ -23,7 +23,7 @@ public class BlockDeadBush extends BlockPlant {
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
-         var2.b(StatisticList.H[Block.a((Block)this)]);
+         var2.b(StatisticList.H[Block.getId((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.DEAD_BUSH, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);

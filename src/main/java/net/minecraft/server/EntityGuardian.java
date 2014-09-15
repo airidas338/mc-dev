@@ -329,7 +329,7 @@ public class EntityGuardian extends EntityMonster {
    public boolean a(DamageSource var1, float var2) {
       if(!this.n() && !var1.s() && var1.i() instanceof EntityLiving) {
          EntityLiving var3 = (EntityLiving)var1.i();
-         if(!var1.c()) {
+         if(!var1.isExplosion()) {
             var3.a(DamageSource.a((Entity)this), 2.0F);
             var3.a("damage.thorns", 0.5F, 1.0F);
          }

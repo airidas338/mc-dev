@@ -200,7 +200,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public String getName() {
-      return this.k_()?this.aL():(this.cj()?fi.a("entity.Cat.name"):super.getName());
+      return this.k_()?this.aL():(this.cj()?LocaleI18n.a("entity.Cat.name"):super.getName());
    }
 
    public void m(boolean var1) {
