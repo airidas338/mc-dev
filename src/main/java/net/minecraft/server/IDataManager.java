@@ -5,7 +5,7 @@ public interface IDataManager {
 
    WorldData d();
 
-   void c() throws ExceptionWorldConflict;
+   void checkSession() throws ExceptionWorldConflict;
 
    IChunkLoader a(WorldProvider var1);
 

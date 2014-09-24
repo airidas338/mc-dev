@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class c implements Callable {
+class CrashReportIntCache implements Callable {
 
    // $FF: synthetic field
    final CrashReport a;
 
 
-   c(CrashReport var1) {
+   CrashReportIntCache(CrashReport var1) {
       this.a = var1;
    }
 
    public String a() {
-      return "1.8";
+      return boy.b();
    }
 
    // $FF: synthetic method

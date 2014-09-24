@@ -8,9 +8,9 @@ final class DispenserBehaviorCommand extends DispenserBehaviorItem {
       if(var3.isEmpty(var4)) {
          if(!var3.isStatic) {
             IBlockData var5 = Blocks.COMMAND.P().a(BlockCommand.a, Boolean.valueOf(false));
-            var3.a(var4, var5, 3);
+            var3.setTypeAndData(var4, var5, 3);
             aju.a(var3, var4, var2);
-            var3.c(var1.d(), var1.e());
+            var3.applyPhysics(var1.d(), var1.e());
          }
 
          --var2.b;

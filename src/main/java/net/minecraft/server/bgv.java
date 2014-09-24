@@ -46,7 +46,7 @@ public class bgv implements IChunkProvider {
       this.A = new bkg();
       this.m = var1;
       this.n = var4;
-      this.o = var1.P().u();
+      this.o = var1.getWorldData().getType();
       this.h = new Random(var2);
       this.i = new NoiseGeneratorOctaves(this.h, 16);
       this.j = new NoiseGeneratorOctaves(this.h, 16);
@@ -297,10 +297,10 @@ public class bgv implements IChunkProvider {
       int var5 = var3 * 16;
       Location var6 = new Location(var4, 0, var5);
       BiomeBase var7 = this.m.getBiome(var6.a(16, 0, 16));
-      this.h.setSeed(this.m.J());
+      this.h.setSeed(this.m.getSeed());
       long var8 = this.h.nextLong() / 2L * 2L + 1L;
       long var10 = this.h.nextLong() / 2L * 2L + 1L;
-      this.h.setSeed((long)var2 * var8 + (long)var3 * var10 ^ this.m.J());
+      this.h.setSeed((long)var2 * var8 + (long)var3 * var10 ^ this.m.getSeed());
       boolean var12 = false;
       aqm var13 = new aqm(var2, var3);
       if(this.r.w && this.n) {
@@ -360,11 +360,11 @@ public class bgv implements IChunkProvider {
             Location var19 = this.m.q(var6.a(var14, 0, var15));
             Location var18 = var19.b();
             if(this.m.v(var18)) {
-               this.m.a(var18, Blocks.ICE.P(), 2);
+               this.m.setTypeAndData(var18, Blocks.ICE.P(), 2);
             }
 
             if(this.m.f(var19, true)) {
-               this.m.a(var19, Blocks.SNOW.P(), 2);
+               this.m.setTypeAndData(var19, Blocks.SNOW.P(), 2);
             }
          }
       }

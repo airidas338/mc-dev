@@ -60,7 +60,7 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
                     var2 = var2.a(BlockBrewingStand.a[var3], Boolean.valueOf(var1[var3]));
                 }
 
-                this.b.a(this.c, var2, 2);
+                this.b.setTypeAndData(this.c, var2, 2);
             }
         }
 
@@ -212,7 +212,7 @@ public class TileEntityBrewingStand extends TileEntityLockable implements IUpdat
     }
 
     public boolean a(EntityHuman var1) {
-        return this.b.s(this.c) != this ? false : var1.e((double) this.c.n() + 0.5D, (double) this.c.o() + 0.5D, (double) this.c.p() + 0.5D) <= 64.0D;
+        return this.b.getTileEntity(this.c) != this ? false : var1.e((double) this.c.n() + 0.5D, (double) this.c.o() + 0.5D, (double) this.c.p() + 0.5D) <= 64.0D;
     }
 
     public void b(EntityHuman var1) {

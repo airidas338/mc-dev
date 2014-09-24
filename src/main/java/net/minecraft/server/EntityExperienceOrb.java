@@ -57,7 +57,7 @@ public class EntityExperienceOrb extends Entity {
       double var1 = 8.0D;
       if(this.g < this.a - 20 + this.F() % 100) {
          if(this.f == null || this.f.h(this) > var1 * var1) {
-            this.f = this.o.a(this, var1);
+            this.f = this.o.findNearbyVulnerablePlayer(this, var1);
          }
 
          this.g = this.a;
@@ -140,7 +140,7 @@ public class EntityExperienceOrb extends Entity {
       if(!this.o.isStatic) {
          if(this.c == 0 && var1.bn == 0) {
             var1.bn = 2;
-            this.o.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.8F));
+            this.o.makeSound((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.8F));
             var1.a((Entity)this, 1);
             var1.u(this.e);
             this.J();

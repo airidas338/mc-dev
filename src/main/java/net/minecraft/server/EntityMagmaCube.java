@@ -18,7 +18,7 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    public boolean bR() {
-      return this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ());
+      return this.o.a(this.aQ(), (Entity)this) && this.o.getCubes((Entity)this, this.aQ()).isEmpty() && !this.o.containsLiquid(this.aQ());
    }
 
    public int bq() {
@@ -29,8 +29,8 @@ public class EntityMagmaCube extends EntitySlime {
       return 1.0F;
    }
 
-   protected ew n() {
-      return ew.A;
+   protected EnumParticleEffect n() {
+      return EnumParticleEffect.A;
    }
 
    protected EntitySlime cd() {

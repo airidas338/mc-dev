@@ -60,18 +60,18 @@ public class WorldLoaderServer extends bqn {
       b.info("Total conversion count is " + var9);
       WorldData var10 = this.c(var1);
       Object var11 = null;
-      if(var10.u() == WorldType.FLAT) {
+      if(var10.getType() == WorldType.FLAT) {
          var11 = new asc(BiomeBase.PLAINS, 0.5F);
       } else {
-         var11 = new WorldChunkManager(var10.b(), var10.u(), var10.B());
+         var11 = new WorldChunkManager(var10.getSeed(), var10.getType(), var10.getGeneratorOptions());
       }
 
       this.a(new File(var6, "region"), (Iterable)var3, (WorldChunkManager)var11, 0, var9, var2);
       this.a(new File(var7, "region"), (Iterable)var4, new asc(BiomeBase.HELL, 0.0F), var3.size(), var9, var2);
       this.a(new File(var8, "region"), (Iterable)var5, new asc(BiomeBase.SKY, 0.0F), var3.size() + var4.size(), var9, var2);
       var10.e(19133);
-      if(var10.u() == WorldType.NORMAL_1_1) {
-         var10.a(WorldType.NORMAL);
+      if(var10.getType() == WorldType.NORMAL_1_1) {
+         var10.setType(WorldType.NORMAL);
       }
 
       this.g(var1);
@@ -114,8 +114,8 @@ public class WorldLoaderServer extends bqn {
    private void a(File var1, File var2, WorldChunkManager var3, int var4, int var5, IProgressUpdate var6) {
       try {
          String var7 = var2.getName();
-         bfv var8 = new bfv(var2);
-         bfv var9 = new bfv(new File(var1, var7.substring(0, var7.length() - ".mcr".length()) + ".mca"));
+         RegionFile var8 = new RegionFile(var2);
+         RegionFile var9 = new RegionFile(new File(var1, var7.substring(0, var7.length() - ".mcr".length()) + ".mca"));
 
          for(int var10 = 0; var10 < 32; ++var10) {
             int var11;

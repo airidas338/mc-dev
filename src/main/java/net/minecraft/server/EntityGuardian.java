@@ -122,7 +122,7 @@ public class EntityGuardian extends EntityMonster {
          if(this.bn != null) {
             return this.bn;
          } else {
-            Entity var1 = this.o.a(this.ac.c(17));
+            Entity var1 = this.o.getEntity(this.ac.c(17));
             if(var1 instanceof EntityLiving) {
                this.bn = (EntityLiving)var1;
                return this.bn;
@@ -210,7 +210,7 @@ public class EntityGuardian extends EntityMonster {
             Vec3D var1 = this.d(0.0F);
 
             for(int var2 = 0; var2 < 2; ++var2) {
-               this.o.a(ew.e, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.a * 1.5D, this.t + this.V.nextDouble() * (double)this.K - var1.b * 1.5D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.c * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+               this.o.a(EnumParticleEffect.e, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.a * 1.5D, this.t + this.V.nextDouble() * (double)this.K - var1.b * 1.5D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.c * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
             }
          }
 
@@ -235,7 +235,7 @@ public class EntityGuardian extends EntityMonster {
 
                while(var12 < var10) {
                   var12 += 1.8D - var15 + this.V.nextDouble() * (1.7D - var15);
-                  this.o.a(ew.e, this.s + var4 * var12, this.t + var6 * var12 + (double)this.aR(), this.u + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
+                  this.o.a(EnumParticleEffect.e, this.s + var4 * var12, this.t + var6 * var12 + (double)this.aR(), this.u + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
                }
             }
          }
@@ -319,7 +319,7 @@ public class EntityGuardian extends EntityMonster {
    }
 
    public boolean bR() {
-      return this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty();
+      return this.o.a(this.aQ(), (Entity)this) && this.o.getCubes((Entity)this, this.aQ()).isEmpty();
    }
 
    public boolean bQ() {

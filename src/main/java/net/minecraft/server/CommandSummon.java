@@ -36,7 +36,7 @@ public class CommandSummon extends CommandAbstract {
          if(!var12.isLoaded(var4)) {
             throw new CommandException("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {
-            var12.c((Entity)(new EntityLightning(var12, var6, var8, var10)));
+            var12.strikeLightning((Entity)(new EntityLightning(var12, var6, var8, var10)));
             a(var1, this, "commands.summon.success", new Object[0]);
          } else {
             NBTTagCompound var13 = new NBTTagCompound();
@@ -69,14 +69,14 @@ public class CommandSummon extends CommandAbstract {
                   ((EntityInsentient)var21).a(var12.E(new Location(var21)), (xq)null);
                }
 
-               var12.d(var21);
+               var12.addEntity(var21);
                Entity var16 = var21;
 
                for(NBTTagCompound var17 = var13; var16 != null && var17.hasKeyOfType("Riding", 10); var17 = var17.getCompound("Riding")) {
                   Entity var18 = EntityTypes.a(var17.getCompound("Riding"), var12);
                   if(var18 != null) {
                      var18.setPositionRotation(var6, var8, var10, var18.y, var18.z);
-                     var12.d(var18);
+                     var12.addEntity(var18);
                      var16.a(var18);
                   }
 

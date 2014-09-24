@@ -22,7 +22,7 @@ public class BlockPistonMoving extends BlockContainer {
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof TileEntityPiston) {
          ((TileEntityPiston)var4).h();
       } else {
@@ -43,7 +43,7 @@ public class BlockPistonMoving extends BlockContainer {
       Location var4 = var2.a(((EnumFacing)var3.b(a)).d());
       IBlockData var5 = var1.getData(var4);
       if(var5.c() instanceof BlockPiston && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
-         var1.g(var4);
+         var1.setAir(var4);
       }
 
    }
@@ -57,8 +57,8 @@ public class BlockPistonMoving extends BlockContainer {
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(!var1.isStatic && var1.s(var2) == null) {
-         var1.g(var2);
+      if(!var1.isStatic && var1.getTileEntity(var2) == null) {
+         var1.setAir(var2);
          return true;
       } else {
          return false;
@@ -83,9 +83,9 @@ public class BlockPistonMoving extends BlockContainer {
       return null;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
-         var1.s(var2);
+         var1.getTileEntity(var2);
       }
 
    }
@@ -172,7 +172,7 @@ public class BlockPistonMoving extends BlockContainer {
    }
 
    private TileEntityPiston e(IBlockAccess var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       return var3 instanceof TileEntityPiston?(TileEntityPiston)var3:null;
    }
 

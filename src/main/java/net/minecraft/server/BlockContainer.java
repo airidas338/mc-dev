@@ -18,7 +18,7 @@ public abstract class BlockContainer extends Block implements IContainer {
 
    public boolean a(World var1, Location var2, IBlockData var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
-      TileEntity var6 = var1.s(var2);
+      TileEntity var6 = var1.getTileEntity(var2);
       return var6 == null?false:var6.c(var4, var5);
    }
 }

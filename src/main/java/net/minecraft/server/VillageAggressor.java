@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-class abj {
+class VillageAggressor {
 
    public EntityLiving a;
    public int b;
@@ -9,7 +9,7 @@ class abj {
    final Village c;
 
 
-   abj(Village var1, EntityLiving var2, int var3) {
+   VillageAggressor(Village var1, EntityLiving var2, int var3) {
       this.c = var1;
       this.a = var2;
       this.b = var3;

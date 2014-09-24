@@ -44,12 +44,12 @@ public class BlockEnderChest extends BlockContainer {
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      var1.a(var2, var3.a(a, var4.aO().d()), 2);
+      var1.setTypeAndData(var2, var3.a(a, var4.aO().d()), 2);
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ajh var9 = var4.cn();
-      TileEntity var10 = var1.s(var2);
+      TileEntity var10 = var1.getTileEntity(var2);
       if(var9 != null && var10 instanceof TileEntityEnderChest) {
          if(var1.getData(var2.a()).c().t()) {
             return true;

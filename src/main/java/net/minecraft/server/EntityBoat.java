@@ -135,11 +135,11 @@ public class EntityBoat extends Entity {
             if(this.V.nextBoolean()) {
                var15 = this.s - var6 * var11 * 0.8D + var8 * var13;
                var17 = this.u - var8 * var11 * 0.8D - var6 * var13;
-               this.o.a(ew.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
+               this.o.a(EnumParticleEffect.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
             } else {
                var15 = this.s + var6 + var8 * var11 * 0.7D;
                var17 = this.u + var8 - var6 * var11 * 0.7D;
-               this.o.a(ew.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
+               this.o.a(EnumParticleEffect.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
             }
          }
       }
@@ -222,10 +222,10 @@ public class EntityBoat extends Entity {
                Location var27 = new Location(var23, var12, var10);
                Block var14 = this.o.getData(var27).c();
                if(var14 == Blocks.SNOW) {
-                  this.o.g(var27);
+                  this.o.setAir(var27);
                   this.D = false;
                } else if(var14 == Blocks.WATER_LILY) {
-                  this.o.b(var27, true);
+                  this.o.setAir(var27, true);
                   this.D = false;
                }
             }

@@ -28,7 +28,7 @@ public class WorldGenSand extends WorldGenerator {
                      Location var11 = new Location(var6, var10, var7);
                      Block var12 = var1.getData(var11).c();
                      if(var12 == Blocks.DIRT || var12 == Blocks.GRASS) {
-                        var1.a(var11, this.a.P(), 2);
+                        var1.setTypeAndData(var11, this.a.P(), 2);
                      }
                   }
                }

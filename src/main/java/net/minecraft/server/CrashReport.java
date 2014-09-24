@@ -33,13 +33,13 @@ public class CrashReport {
    }
 
    private void h() {
-      this.d.a("Minecraft Version", (Callable)(new c(this)));
-      this.d.a("Operating System", (Callable)(new d(this)));
-      this.d.a("Java Version", (Callable)(new e(this)));
-      this.d.a("Java VM Version", (Callable)(new f(this)));
-      this.d.a("Memory", (Callable)(new g(this)));
-      this.d.a("JVM Flags", (Callable)(new h(this)));
-      this.d.a("IntCache", (Callable)(new i(this)));
+      this.d.a("Minecraft Version", (Callable)(new CrashReportVersion(this)));
+      this.d.a("Operating System", (Callable)(new CrashReportOperatingSystem(this)));
+      this.d.a("Java Version", (Callable)(new CrashReportJavaVersion(this)));
+      this.d.a("Java VM Version", (Callable)(new CrashReportJavaVMVersion(this)));
+      this.d.a("Memory", (Callable)(new CrashReportMemory(this)));
+      this.d.a("JVM Flags", (Callable)(new CrashReportJVMFlags(this)));
+      this.d.a("IntCache", (Callable)(new CrashReportIntCache(this)));
    }
 
    public String a() {

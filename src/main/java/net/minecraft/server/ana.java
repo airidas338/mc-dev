@@ -13,7 +13,7 @@ public class ana extends Item {
          EntityPig var4 = (EntityPig)var3;
          if(!var4.cj() && !var4.i_()) {
             var4.l(true);
-            var4.o.a((Entity)var4, "mob.horse.leather", 0.5F, 1.0F);
+            var4.o.makeSound((Entity)var4, "mob.horse.leather", 0.5F, 1.0F);
             --var1.b;
          }
 

@@ -90,7 +90,7 @@ public class EntitySquid extends EntityWaterAnimal {
                this.bo = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
             }
 
-            this.o.a((Entity)this, (byte)19);
+            this.o.broadcastEntityEffect((Entity)this, (byte)19);
          }
       }
 

@@ -85,7 +85,7 @@ public class EntityEndermite extends EntityMonster {
       super.m();
       if(this.o.isStatic) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(ew.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.o.a(EnumParticleEffect.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       } else {
          if(!this.bY()) {
@@ -105,7 +105,7 @@ public class EntityEndermite extends EntityMonster {
 
    public boolean bQ() {
       if(super.bQ()) {
-         EntityHuman var1 = this.o.a(this, 5.0D);
+         EntityHuman var1 = this.o.findNearbyVulnerablePlayer(this, 5.0D);
          return var1 == null;
       } else {
          return false;

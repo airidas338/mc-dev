@@ -46,7 +46,7 @@ public class bhg extends WorldGenerator {
             while(var10.hasNext()) {
                Location var11 = (Location)var10.next();
                if(var11.i(var3) <= (double)(var9 * var9)) {
-                  var1.a(var11, this.a.P(), 4);
+                  var1.setTypeAndData(var11, this.a.P(), 4);
                }
             }
 

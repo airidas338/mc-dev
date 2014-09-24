@@ -20,12 +20,12 @@ public class CommandParticle extends CommandAbstract {
          throw new ExceptionUsage("commands.particle.usage", new Object[0]);
       } else {
          boolean var3 = false;
-         ew var4 = null;
-         ew[] var5 = ew.values();
+         EnumParticleEffect var4 = null;
+         EnumParticleEffect[] var5 = EnumParticleEffect.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            ew var8 = var5[var7];
+            EnumParticleEffect var8 = var5[var7];
             if(var8.f()) {
                if(var2[0].startsWith(var8.b())) {
                   var3 = true;
@@ -86,6 +86,6 @@ public class CommandParticle extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
-      return var2.length == 1?a(var2, ew.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 9?a(var2, new String[]{"normal", "force"}):null));
+      return var2.length == 1?a(var2, EnumParticleEffect.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 9?a(var2, new String[]{"normal", "force"}):null));
    }
 }

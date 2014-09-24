@@ -15,25 +15,25 @@ public class BlockCommand extends BlockContainer {
       return new TileEntityCommand();
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
-         boolean var5 = var1.z(var2);
+         boolean var5 = var1.isBlockIndirectlyPowered(var2);
          boolean var6 = ((Boolean)var3.b(a)).booleanValue();
          if(var5 && !var6) {
-            var1.a(var2, var3.a(a, Boolean.valueOf(true)), 4);
+            var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)), 4);
             var1.a(var2, (Block)this, this.a(var1));
          } else if(!var5 && var6) {
-            var1.a(var2, var3.a(a, Boolean.valueOf(false)), 4);
+            var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(false)), 4);
          }
       }
 
    }
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
-      TileEntity var5 = var1.s(var2);
+      TileEntity var5 = var1.getTileEntity(var2);
       if(var5 instanceof TileEntityCommand) {
          ((TileEntityCommand)var5).getCommandBlock().a(var1);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
    }
@@ -43,7 +43,7 @@ public class BlockCommand extends BlockContainer {
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      TileEntity var9 = var1.s(var2);
+      TileEntity var9 = var1.getTileEntity(var2);
       return var9 instanceof TileEntityCommand?((TileEntityCommand)var9).getCommandBlock().a(var4):false;
    }
 
@@ -52,12 +52,12 @@ public class BlockCommand extends BlockContainer {
    }
 
    public int getDropData(World var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       return var3 instanceof TileEntityCommand?((TileEntityCommand)var3).getCommandBlock().j():0;
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      TileEntity var6 = var1.s(var2);
+      TileEntity var6 = var1.getTileEntity(var2);
       if(var6 instanceof TileEntityCommand) {
          CommandBlockListenerAbstract var7 = ((TileEntityCommand)var6).getCommandBlock();
          if(var5.s()) {
@@ -65,7 +65,7 @@ public class BlockCommand extends BlockContainer {
          }
 
          if(!var1.isStatic) {
-            var7.a(var1.Q().b("sendCommandFeedback"));
+            var7.a(var1.getGameRules().getBoolean("sendCommandFeedback"));
          }
 
       }

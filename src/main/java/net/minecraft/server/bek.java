@@ -83,9 +83,9 @@ public class bek {
 
    protected static Location a(Location var0, EnumFacing var1, EnumFacing var2, int var3, int var4, int var5) {
       if(var1 != var2 && var1 != var2.d()) {
-         fd var6 = new fd(var1.g(), var1.h(), var1.i());
-         fd var7 = new fd(var2.g(), var2.h(), var2.i());
-         fd var8 = var6.d(var7);
+         ChunkCoordinates var6 = new ChunkCoordinates(var1.g(), var1.h(), var1.i());
+         ChunkCoordinates var7 = new ChunkCoordinates(var2.g(), var2.h(), var2.i());
+         ChunkCoordinates var8 = var6.d(var7);
          return var0.a(var7.n() * -var4 + var8.n() * var3 + var6.n() * var5, var7.o() * -var4 + var8.o() * var3 + var6.o() * var5, var7.p() * -var4 + var8.p() * var3 + var6.p() * var5);
       } else {
          throw new IllegalArgumentException("Invalid forwards & up combination");

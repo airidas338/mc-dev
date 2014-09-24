@@ -91,11 +91,11 @@ public class cl extends ab implements ICommandDispatcher {
          }
       }
 
-      if(var1 != var7 && var7.c[0].Q().b("logAdminCommands")) {
+      if(var1 != var7 && var7.c[0].getGameRules().getBoolean("logAdminCommands")) {
          var7.sendMessage((IChatBaseComponent)var8);
       }
 
-      boolean var11 = var7.c[0].Q().b("sendCommandFeedback");
+      boolean var11 = var7.c[0].getGameRules().getBoolean("sendCommandFeedback");
       if(var1 instanceof CommandBlockListenerAbstract) {
          var11 = ((CommandBlockListenerAbstract)var1).m();
       }

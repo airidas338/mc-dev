@@ -29,7 +29,7 @@ class TileEntityCommandListener extends CommandBlockListenerAbstract {
    }
 
    public void h() {
-      this.a.z().h(this.a.c);
+      this.a.z().notify(this.a.c);
    }
 
    public Entity f() {

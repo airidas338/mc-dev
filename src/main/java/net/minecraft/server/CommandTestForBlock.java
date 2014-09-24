@@ -61,7 +61,7 @@ public class CommandTestForBlock extends CommandAbstract {
                   }
 
                   if(var8) {
-                     TileEntity var15 = var6.s(var3);
+                     TileEntity var15 = var6.getTileEntity(var3);
                      if(var15 == null) {
                         throw new CommandException("commands.testforblock.failed.tileEntity", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
                      }

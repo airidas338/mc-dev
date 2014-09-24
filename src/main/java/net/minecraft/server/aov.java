@@ -7,7 +7,7 @@ public class aov {
 
 
    public aov() {
-      this.b = new Object[][]{{Blocks.WOOD, Blocks.COBBLESTONE, Items.j, Items.i, Items.k}, {Items.o, Items.s, Items.b, Items.w, Items.D}, {Items.n, Items.r, Items.a, Items.v, Items.C}, {Items.p, Items.t, Items.c, Items.x, Items.E}, {Items.I, Items.J, Items.K, Items.L, Items.M}};
+      this.b = new Object[][]{{Blocks.WOOD, Blocks.COBBLESTONE, Items.j, Items.i, Items.k}, {Items.o, Items.s, Items.IRON_PICKAXE, Items.w, Items.D}, {Items.n, Items.r, Items.IRON_SPADE, Items.v, Items.C}, {Items.p, Items.t, Items.IRON_AXE, Items.x, Items.E}, {Items.I, Items.J, Items.K, Items.L, Items.M}};
    }
 
    public void a(aop var1) {

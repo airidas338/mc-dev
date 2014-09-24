@@ -26,12 +26,12 @@ public class anl extends Item {
       } else {
          IBlockData var9 = var3.getData(var4);
          if(var9.c() == Blocks.MOB_SPAWNER) {
-            TileEntity var10 = var3.s(var4);
+            TileEntity var10 = var3.getTileEntity(var4);
             if(var10 instanceof TileEntityMobSpawner) {
                MobSpawnerAbstract var11 = ((TileEntityMobSpawner)var10).getSpawner();
                var11.a(EntityTypes.b(var1.i()));
                var10.o_();
-               var3.h(var4);
+               var3.notify(var4);
                if(!var2.by.canInstantlyBuild) {
                   --var1.b;
                }
@@ -114,7 +114,7 @@ public class anl extends Item {
                var10.aI = var10.y;
                var10.aG = var10.y;
                var10.a(var0.E(new Location(var10)), (xq)null);
-               var0.d(var8);
+               var0.addEntity(var8);
                var10.x();
             }
          }

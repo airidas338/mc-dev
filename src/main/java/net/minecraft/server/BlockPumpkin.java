@@ -32,26 +32,26 @@ public class BlockPumpkin extends BlockDirectional {
       if((var3 = this.l().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.l().b(); ++var4) {
             bei var5 = var3.a(0, var4, 0);
-            var1.a(var5.d(), Blocks.AIR.P(), 2);
+            var1.setTypeAndData(var5.d(), Blocks.AIR.P(), 2);
          }
 
          EntitySnowman var9 = new EntitySnowman(var1);
          Location var10 = var3.a(0, 2, 0).d();
          var9.setPositionRotation((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
-         var1.d((Entity)var9);
+         var1.addEntity((Entity)var9);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(ew.G, (double)var10.n() + var1.random.nextDouble(), (double)var10.o() + var1.random.nextDouble() * 2.5D, (double)var10.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(EnumParticleEffect.G, (double)var10.n() + var1.random.nextDouble(), (double)var10.o() + var1.random.nextDouble() * 2.5D, (double)var10.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.l().b(); ++var6) {
             bei var7 = var3.a(0, var6, 0);
-            var1.b(var7.d(), Blocks.AIR);
+            var1.update(var7.d(), Blocks.AIR);
          }
       } else if((var3 = this.T().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.T().c(); ++var4) {
             for(int var11 = 0; var11 < this.T().b(); ++var11) {
-               var1.a(var3.a(var4, var11, 0).d(), Blocks.AIR.P(), 2);
+               var1.setTypeAndData(var3.a(var4, var11, 0).d(), Blocks.AIR.P(), 2);
             }
          }
 
@@ -59,16 +59,16 @@ public class BlockPumpkin extends BlockDirectional {
          EntityIronGolem var13 = new EntityIronGolem(var1);
          var13.l(true);
          var13.setPositionRotation((double)var12.n() + 0.5D, (double)var12.o() + 0.05D, (double)var12.p() + 0.5D, 0.0F, 0.0F);
-         var1.d((Entity)var13);
+         var1.addEntity((Entity)var13);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(ew.F, (double)var12.n() + var1.random.nextDouble(), (double)var12.o() + var1.random.nextDouble() * 3.9D, (double)var12.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(EnumParticleEffect.F, (double)var12.n() + var1.random.nextDouble(), (double)var12.o() + var1.random.nextDouble() * 3.9D, (double)var12.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.T().c(); ++var6) {
             for(int var14 = 0; var14 < this.T().b(); ++var14) {
                bei var8 = var3.a(var6, var14, 0);
-               var1.b(var8.d(), Blocks.AIR);
+               var1.update(var8.d(), Blocks.AIR);
             }
          }
       }

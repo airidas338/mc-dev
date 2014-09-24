@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class f implements Callable {
+class CrashReportJavaVersion implements Callable {
 
    // $FF: synthetic field
    final CrashReport a;
 
 
-   f(CrashReport var1) {
+   CrashReportJavaVersion(CrashReport var1) {
       this.a = var1;
    }
 
    public String a() {
-      return System.getProperty("java.vm.name") + " (" + System.getProperty("java.vm.info") + "), " + System.getProperty("java.vm.vendor");
+      return System.getProperty("java.version") + ", " + System.getProperty("java.vendor");
    }
 
    // $FF: synthetic method

@@ -43,7 +43,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
    }
 
    protected int a(IBlockAccess var1, Location var2, IBlockData var3) {
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       return var4 instanceof TileEntityComparator?((TileEntityComparator)var4).b():0;
    }
 
@@ -87,7 +87,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
    }
 
    private EntityItemFrame a(World var1, EnumFacing var2, Location var3) {
-      List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
+      List var4 = var1.getEntities(EntityItemFrame.class, new AxisAlignedBB((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), (Predicate)(new auq(this, var2)));
       return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
@@ -96,8 +96,8 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
          return false;
       } else {
          var3 = var3.a(b);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, var3.b(b) == aur.b?0.55F:0.5F);
-         var1.a(var2, var3, 2);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, var3.b(b) == aur.b?0.55F:0.5F);
+         var1.setTypeAndData(var2, var3, 2);
          this.k(var1, var2, var3);
          return true;
       }
@@ -106,7 +106,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
    protected void g(World var1, Location var2, IBlockData var3) {
       if(!var1.a(var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
-         TileEntity var5 = var1.s(var2);
+         TileEntity var5 = var1.getTileEntity(var2);
          int var6 = var5 instanceof TileEntityComparator?((TileEntityComparator)var5).b():0;
          if(var4 != var6 || this.l(var3) != this.e(var1, var2, var3)) {
             if(this.i(var1, var2, var3)) {
@@ -121,7 +121,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
 
    private void k(World var1, Location var2, IBlockData var3) {
       int var4 = this.j(var1, var2, var3);
-      TileEntity var5 = var1.s(var2);
+      TileEntity var5 = var1.getTileEntity(var2);
       int var6 = 0;
       if(var5 instanceof TileEntityComparator) {
          TileEntityComparator var7 = (TileEntityComparator)var5;
@@ -133,9 +133,9 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
          boolean var9 = this.e(var1, var2, var3);
          boolean var8 = this.l(var3);
          if(var8 && !var9) {
-            var1.a(var2, var3.a(a, Boolean.valueOf(false)), 2);
+            var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(false)), 2);
          } else if(!var8 && var9) {
-            var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
+            var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)), 2);
          }
 
          this.h(var1, var2, var3);
@@ -145,7 +145,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(this.M) {
-         var1.a(var2, this.k(var3).a(a, Boolean.valueOf(true)), 4);
+         var1.setTypeAndData(var2, this.k(var3).a(a, Boolean.valueOf(true)), 4);
       }
 
       this.k(var1, var2, var3);
@@ -153,7 +153,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
 
    public void c(World var1, Location var2, IBlockData var3) {
       super.c(var1, var2, var3);
-      var1.a(var2, this.a(var1, 0));
+      var1.setTileEntity(var2, this.a(var1, 0));
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
@@ -164,7 +164,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
 
    public boolean a(World var1, Location var2, IBlockData var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
-      TileEntity var6 = var1.s(var2);
+      TileEntity var6 = var1.getTileEntity(var2);
       return var6 == null?false:var6.c(var4, var5);
    }
 

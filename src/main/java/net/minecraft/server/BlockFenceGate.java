@@ -65,7 +65,7 @@ public class BlockFenceGate extends BlockDirectional {
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(((Boolean)var3.b(a)).booleanValue()) {
          var3 = var3.a(a, Boolean.valueOf(false));
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
       } else {
          EnumFacing var9 = EnumFacing.a((double)var4.y);
          if(var3.b(N) == var9.d()) {
@@ -73,25 +73,25 @@ public class BlockFenceGate extends BlockDirectional {
          }
 
          var3 = var3.a(a, Boolean.valueOf(true));
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
       }
 
       var1.a(var4, ((Boolean)var3.b(a)).booleanValue()?1003:1006, var2, 0);
       return true;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
-         boolean var5 = var1.z(var2);
+         boolean var5 = var1.isBlockIndirectlyPowered(var2);
          if(var5 || var4.g()) {
             if(var5 && !((Boolean)var3.b(a)).booleanValue() && !((Boolean)var3.b(b)).booleanValue()) {
-               var1.a(var2, var3.a(a, Boolean.valueOf(true)).a(b, Boolean.valueOf(true)), 2);
+               var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)).a(b, Boolean.valueOf(true)), 2);
                var1.a((EntityHuman)null, 1003, var2, 0);
             } else if(!var5 && ((Boolean)var3.b(a)).booleanValue() && ((Boolean)var3.b(b)).booleanValue()) {
-               var1.a(var2, var3.a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)), 2);
+               var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)), 2);
                var1.a((EntityHuman)null, 1006, var2, 0);
             } else if(var5 != ((Boolean)var3.b(b)).booleanValue()) {
-               var1.a(var2, var3.a(b, Boolean.valueOf(var5)), 2);
+               var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var5)), 2);
             }
          }
 

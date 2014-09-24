@@ -91,7 +91,7 @@ public class BlockDoor extends Block {
             return false;
          } else {
             var3 = var10.a(b);
-            var1.a(var9, var3, 2);
+            var1.setTypeAndData(var9, var3, 2);
             var1.b(var9, var2);
             var1.a(var4, ((Boolean)var3.b(b)).booleanValue()?1003:1006, var2, 0);
             return true;
@@ -105,7 +105,7 @@ public class BlockDoor extends Block {
          Location var5 = var4.b(O) == avg.b?var2:var2.b();
          IBlockData var6 = var2 == var5?var4:var1.getData(var5);
          if(var6.c() == this && ((Boolean)var6.b(b)).booleanValue() != var3) {
-            var1.a(var5, var6.a(b, Boolean.valueOf(var3)), 2);
+            var1.setTypeAndData(var5, var6.a(b, Boolean.valueOf(var3)), 2);
             var1.b(var5, var2);
             var1.a((EntityHuman)null, var3?1003:1006, var2, 0);
          }
@@ -113,29 +113,29 @@ public class BlockDoor extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(var3.b(O) == avg.a) {
          Location var5 = var2.b();
          IBlockData var6 = var1.getData(var5);
          if(var6.c() != this) {
-            var1.g(var2);
+            var1.setAir(var2);
          } else if(var4 != this) {
-            this.a(var1, var5, var6, var4);
+            this.doPhysics(var1, var5, var6, var4);
          }
       } else {
          boolean var9 = false;
          Location var10 = var2.a();
          IBlockData var7 = var1.getData(var10);
          if(var7.c() != this) {
-            var1.g(var2);
+            var1.setAir(var2);
             var9 = true;
          }
 
          if(!World.a((IBlockAccess)var1, var2.b())) {
-            var1.g(var2);
+            var1.setAir(var2);
             var9 = true;
             if(var7.c() == this) {
-               var1.g(var10);
+               var1.setAir(var10);
             }
          }
 
@@ -144,11 +144,11 @@ public class BlockDoor extends Block {
                this.b(var1, var2, var3, 0);
             }
          } else {
-            boolean var8 = var1.z(var2) || var1.z(var10);
+            boolean var8 = var1.isBlockIndirectlyPowered(var2) || var1.isBlockIndirectlyPowered(var10);
             if((var8 || var4.g()) && var4 != this && var8 != ((Boolean)var7.b(N)).booleanValue()) {
-               var1.a(var10, var7.a(N, Boolean.valueOf(var8)), 2);
+               var1.setTypeAndData(var10, var7.a(N, Boolean.valueOf(var8)), 2);
                if(var8 != ((Boolean)var3.b(b)).booleanValue()) {
-                  var1.a(var2, var3.a(b, Boolean.valueOf(var8)), 2);
+                  var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var8)), 2);
                   var1.b(var2, var2);
                   var1.a((EntityHuman)null, var8?1003:1006, var2, 0);
                }
@@ -197,7 +197,7 @@ public class BlockDoor extends Block {
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       Location var5 = var2.b();
       if(var4.by.canInstantlyBuild && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
-         var1.g(var5);
+         var1.setAir(var5);
       }
 
    }

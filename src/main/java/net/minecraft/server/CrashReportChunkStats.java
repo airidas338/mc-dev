@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class aqx implements Callable {
+class CrashReportChunkStats implements Callable {
 
    // $FF: synthetic field
    final World a;
 
 
-   aqx(World var1) {
+   CrashReportChunkStats(World var1) {
       this.a = var1;
    }
 
    public String a() {
-      return this.a.players.size() + " total; " + this.a.players.toString();
+      return this.a.chunkProvider.getName();
    }
 
    // $FF: synthetic method

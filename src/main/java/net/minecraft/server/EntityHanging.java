@@ -83,7 +83,7 @@ public abstract class EntityHanging extends Entity {
    }
 
    public boolean j() {
-      if(!this.o.a((Entity)this, this.aQ()).isEmpty()) {
+      if(!this.o.getCubes((Entity)this, this.aQ()).isEmpty()) {
          return false;
       } else {
          int var1 = Math.max(1, this.l() / 16);

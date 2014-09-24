@@ -36,7 +36,7 @@ public class CommandGive extends CommandAbstract {
 
          boolean var11 = var3.bg.a(var7);
          if(var11) {
-            var3.o.a((Entity)var3, "random.pop", 0.2F, ((var3.bb().nextFloat() - var3.bb().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+            var3.o.makeSound((Entity)var3, "random.pop", 0.2F, ((var3.bb().nextFloat() - var3.bb().nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var3.bh.b();
          }
 

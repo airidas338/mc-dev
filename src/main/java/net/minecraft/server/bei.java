@@ -25,7 +25,7 @@ public class bei {
 
    public TileEntity b() {
       if(this.d == null && !this.e) {
-         this.d = this.a.s(this.b);
+         this.d = this.a.getTileEntity(this.b);
          this.e = true;
       }
 

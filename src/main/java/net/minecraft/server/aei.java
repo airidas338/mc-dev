@@ -12,7 +12,7 @@ class aei extends MobSpawnerAbstract {
    }
 
    public void a(int var1) {
-      this.a.o.a((Entity)this.a, (byte)var1);
+      this.a.o.broadcastEntityEffect((Entity)this.a, (byte)var1);
    }
 
    public World a() {

@@ -31,8 +31,8 @@ public class ItemArmorStand extends Item {
                   return false;
                } else {
                   if(!var3.isStatic) {
-                     var3.g(var10);
-                     var3.g(var11);
+                     var3.setAir(var10);
+                     var3.setAir(var11);
                      EntityArmorStand var20 = new EntityArmorStand(var3, var13 + 0.5D, var15, var17 + 0.5D);
                      float var21 = (float)MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var20.setPositionRotation(var13 + 0.5D, var15, var17 + 0.5D, var21, 0.0F);
@@ -45,7 +45,7 @@ public class ItemArmorStand extends Item {
                         var20.f(var23);
                      }
 
-                     var3.d((Entity)var20);
+                     var3.addEntity((Entity)var20);
                   }
 
                   --var1.b;

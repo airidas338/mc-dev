@@ -67,7 +67,7 @@ public class BlockRedstoneWire extends Block {
 
       while(var5.hasNext()) {
          Location var6 = (Location)var5.next();
-         var1.c(var6, (Block)this);
+         var1.applyPhysics(var6, (Block)this);
       }
 
       return var3;
@@ -79,7 +79,7 @@ public class BlockRedstoneWire extends Block {
       byte var7 = 0;
       int var14 = this.a(var1, var3, var7);
       this.P = false;
-      int var8 = var1.A(var2);
+      int var8 = var1.getHighestNeighborSignal(var2);
       this.P = true;
       if(var8 > 0 && var8 > var14 - 1) {
          var14 = var8;
@@ -120,7 +120,7 @@ public class BlockRedstoneWire extends Block {
       if(var6 != var14) {
          var4 = var4.a(O, Integer.valueOf(var14));
          if(var1.getData(var2) == var5) {
-            var1.a(var2, var4, 2);
+            var1.setTypeAndData(var2, var4, 2);
          }
 
          this.Q.add(var2);
@@ -138,13 +138,13 @@ public class BlockRedstoneWire extends Block {
 
    private void d(World var1, Location var2) {
       if(var1.getData(var2).c() == this) {
-         var1.c(var2, (Block)this);
+         var1.applyPhysics(var2, (Block)this);
          EnumFacing[] var3 = EnumFacing.values();
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
             EnumFacing var6 = var3[var5];
-            var1.c(var2.a(var6), (Block)this);
+            var1.applyPhysics(var2.a(var6), (Block)this);
          }
 
       }
@@ -158,7 +158,7 @@ public class BlockRedstoneWire extends Block {
          EnumFacing var5;
          while(var4.hasNext()) {
             var5 = (EnumFacing)var4.next();
-            var1.c(var2.a(var5), (Block)this);
+            var1.applyPhysics(var2.a(var5), (Block)this);
          }
 
          var4 = en.a.iterator();
@@ -191,7 +191,7 @@ public class BlockRedstoneWire extends Block {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumFacing var7 = var4[var6];
-            var1.c(var2.a(var7), (Block)this);
+            var1.applyPhysics(var2.a(var7), (Block)this);
          }
 
          this.e(var1, var2, var3);
@@ -227,13 +227,13 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
          if(this.canPlace(var1, var2)) {
             this.e(var1, var2, var3);
          } else {
             this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            var1.setAir(var2);
          }
 
       }

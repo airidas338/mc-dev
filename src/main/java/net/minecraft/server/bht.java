@@ -9,7 +9,7 @@ public class bht extends WorldGenerator {
       } else if(var1.getData(var3.a()).c() != Blocks.NETHERRACK) {
          return false;
       } else {
-         var1.a(var3, Blocks.GLOWSTONE.P(), 2);
+         var1.setTypeAndData(var3, Blocks.GLOWSTONE.P(), 2);
 
          for(int var4 = 0; var4 < 1500; ++var4) {
             Location var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
@@ -30,7 +30,7 @@ public class bht extends WorldGenerator {
                }
 
                if(var6 == 1) {
-                  var1.a(var5, Blocks.GLOWSTONE.P(), 2);
+                  var1.setTypeAndData(var5, Blocks.GLOWSTONE.P(), 2);
                }
             }
          }

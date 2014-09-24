@@ -152,7 +152,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 
 			var9 = new WorldData(var8, var2);
 		} else {
-			var9.a(var2);
+			var9.setName(var2);
 			var8 = new WorldSettings(var9);
 		}
 
@@ -178,9 +178,9 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				this.c[var10] = (WorldServer) (new SecondaryWorldServer(this, var7, var11, this.c[0], this.b)).b();
 			}
 
-			this.c[var10].a((IWorldAccess) (new WorldManager(this, this.c[var10])));
+			this.c[var10].addIWorldAccess((IWorldAccess) (new WorldManager(this, this.c[var10])));
 			if (!this.S()) {
-				this.c[var10].P().setGameType(this.m());
+				this.c[var10].getWorldData().setGameType(this.m());
 			}
 		}
 
@@ -199,7 +199,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		byte var6 = 0;
 		j.info("Preparing start region for level " + var6);
 		WorldServer var7 = this.c[var6];
-		Location var8 = var7.M();
+		Location var8 = var7.getSpawn();
 		long var9 = ax();
 
 		for (int var11 = -192; var11 <= 192 && this.t(); var11 += 16) {
@@ -256,7 +256,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				WorldServer var5 = var2[var4];
 				if (var5 != null) {
 					if (!var1) {
-						j.info("Saving chunks for level \'" + var5.P().k() + "\'/" + var5.worldProvider.k());
+						j.info("Saving chunks for level \'" + var5.getWorldData().getName() + "\'/" + var5.worldProvider.k());
 					}
 
 					try {
@@ -488,10 +488,10 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 			long var2 = System.nanoTime();
 			if (var11 == 0 || this.A()) {
 				WorldServer var4 = this.c[var11];
-				this.b.a(var4.P().k());
+				this.b.a(var4.getWorldData().getName());
 				if (this.y % 20 == 0) {
 					this.b.a("timeSync");
-					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.K(), var4.L(), var4.Q().b("doDaylightCycle"))), var4.worldProvider.q());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.getTime(), var4.getDayTime(), var4.getGameRules().getBoolean("doDaylightCycle"))), var4.worldProvider.q());
 					this.b.b();
 				}
 
@@ -499,7 +499,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 
 				CrashReport var6;
 				try {
-					var4.c();
+					var4.doTick();
 				} catch (Throwable var8) {
 					var6 = CrashReport.a(var8, "Exception ticking world");
 					var4.a(var6);
@@ -507,7 +507,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 				}
 
 				try {
-					var4.i();
+					var4.tickEntities();
 				} catch (Throwable var7) {
 					var6 = CrashReport.a(var7, "Exception ticking world entities");
 					var4.a(var6);
@@ -818,15 +818,15 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 		for (int var2 = 0; var2 < this.c.length; ++var2) {
 			WorldServer var3 = this.c[var2];
 			if (var3 != null) {
-				if (var3.P().t()) {
-					var3.P().a(EnumDifficulty.HARD);
-					var3.a(true, true);
+				if (var3.getWorldData().isHardcore()) {
+					var3.getWorldData().a(EnumDifficulty.HARD);
+					var3.setSpawnFlags(true, true);
 				} else if (this.S()) {
-					var3.P().a(var1);
-					var3.a(var3.aa() != EnumDifficulty.PEACEFUL, true);
+					var3.getWorldData().a(var1);
+					var3.setSpawnFlags(var3.aa() != EnumDifficulty.PEACEFUL, true);
 				} else {
-					var3.P().a(var1);
-					var3.a(this.V(), this.A);
+					var3.getWorldData().a(var1);
+					var3.setSpawnFlags(this.V(), this.A);
 				}
 			}
 		}
@@ -864,7 +864,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 			}
 		}
 
-		this.X().isConvertable(this.c[0].O().g());
+		this.X().isConvertable(this.c[0].getDataManager().g());
 		this.u();
 	}
 
@@ -899,13 +899,13 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 			for (int var3 = 0; var3 < this.c.length; ++var3) {
 				if (this.c[var3] != null) {
 					WorldServer var4 = this.c[var3];
-					WorldData var5 = var4.P();
+					WorldData var5 = var4.getWorldData();
 					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.worldProvider.q()));
-					var1.a("world[" + var2 + "][mode]", var5.r());
+					var1.a("world[" + var2 + "][mode]", var5.getGameType());
 					var1.a("world[" + var2 + "][difficulty]", var4.aa());
-					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.t()));
-					var1.a("world[" + var2 + "][generator_name]", var5.u().name());
-					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.u().d()));
+					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.isHardcore()));
+					var1.a("world[" + var2 + "][generator_name]", var5.getType().name());
+					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.getType().d()));
 					var1.a("world[" + var2 + "][height]", Integer.valueOf(this.F));
 					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.N().getLoadedChunks()));
 					++var2;
@@ -1001,7 +1001,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 
 	public void a(EnumGamemode var1) {
 		for (int var2 = 0; var2 < this.c.length; ++var2) {
-			M().c[var2].P().setGameType(var1);
+			M().c[var2].getWorldData().setGameType(var1);
 		}
 
 	}
@@ -1118,7 +1118,7 @@ public abstract class MinecraftServer implements ICommandListener, Runnable, vn,
 	}
 
 	public boolean t_() {
-		return M().c[0].Q().b("sendCommandFeedback");
+		return M().c[0].getGameRules().getBoolean("sendCommandFeedback");
 	}
 
 	public void a(ag var1, int var2) {

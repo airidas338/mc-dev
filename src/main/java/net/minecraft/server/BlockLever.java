@@ -80,10 +80,10 @@ public class BlockLever extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(this.e(var1, var2) && !this.d(var1, var2.a(((axk)var3.b(a)).c().d()))) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -93,7 +93,7 @@ public class BlockLever extends Block {
          return true;
       } else {
          this.b(var1, var2, var1.getData(var2), 0);
-         var1.g(var2);
+         var1.setAir(var2);
          return false;
       }
    }
@@ -131,20 +131,20 @@ public class BlockLever extends Block {
          return true;
       } else {
          var3 = var3.a(b);
-         var1.a(var2, var3, 3);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, ((Boolean)var3.b(b)).booleanValue()?0.6F:0.5F);
-         var1.c(var2, (Block)this);
+         var1.setTypeAndData(var2, var3, 3);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, ((Boolean)var3.b(b)).booleanValue()?0.6F:0.5F);
+         var1.applyPhysics(var2, (Block)this);
          EnumFacing var9 = ((axk)var3.b(a)).c();
-         var1.c(var2.a(var9.d()), (Block)this);
+         var1.applyPhysics(var2.a(var9.d()), (Block)this);
          return true;
       }
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
       if(((Boolean)var3.b(b)).booleanValue()) {
-         var1.c(var2, (Block)this);
+         var1.applyPhysics(var2, (Block)this);
          EnumFacing var4 = ((axk)var3.b(a)).c();
-         var1.c(var2.a(var4.d()), (Block)this);
+         var1.applyPhysics(var2.a(var4.d()), (Block)this);
       }
 
       super.remove(var1, var2, var3);

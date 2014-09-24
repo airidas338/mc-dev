@@ -43,7 +43,7 @@ public class BlockDispenser extends BlockContainer {
 				}
 			}
 
-			var1.a(var2, var3.a(a, var4).a(b, Boolean.valueOf(false)), 2);
+			var1.setTypeAndData(var2, var3.a(a, var4).a(b, Boolean.valueOf(false)), 2);
 		}
 	}
 
@@ -51,7 +51,7 @@ public class BlockDispenser extends BlockContainer {
 		if (var1.isStatic) {
 			return true;
 		} else {
-			TileEntity var9 = var1.s(var2);
+			TileEntity var9 = var1.getTileEntity(var2);
 			if (var9 instanceof TileEntityDispenser) {
 				var4.a((IInventory) ((TileEntityDispenser) var9));
 			}
@@ -66,7 +66,7 @@ public class BlockDispenser extends BlockContainer {
 		if (var4 != null) {
 			int var5 = var4.m();
 			if (var5 < 0) {
-				var1.b(1001, var2, 0);
+				var1.triggerEffect(1001, var2, 0);
 			} else {
 				ItemStack var6 = var4.a(var5);
 				IDispenseBehavior var7 = this.a(var6);
@@ -83,14 +83,14 @@ public class BlockDispenser extends BlockContainer {
 		return (IDispenseBehavior) M.a(var1 == null ? null : var1.b());
 	}
 
-	public void a(World var1, Location var2, IBlockData var3, Block var4) {
-		boolean var5 = var1.z(var2) || var1.z(var2.a());
+	public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
+		boolean var5 = var1.isBlockIndirectlyPowered(var2) || var1.isBlockIndirectlyPowered(var2.a());
 		boolean var6 = ((Boolean) var3.b(b)).booleanValue();
 		if (var5 && !var6) {
 			var1.a(var2, (Block) this, this.a(var1));
-			var1.a(var2, var3.a(b, Boolean.valueOf(true)), 4);
+			var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(true)), 4);
 		} else if (!var5 && var6) {
-			var1.a(var2, var3.a(b, Boolean.valueOf(false)), 4);
+			var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(false)), 4);
 		}
 
 	}
@@ -111,9 +111,9 @@ public class BlockDispenser extends BlockContainer {
 	}
 
 	public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-		var1.a(var2, var3.a(a, BlockPiston.a(var1, var2, var4)), 2);
+		var1.setTypeAndData(var2, var3.a(a, BlockPiston.a(var1, var2, var4)), 2);
 		if (var5.s()) {
-			TileEntity var6 = var1.s(var2);
+			TileEntity var6 = var1.getTileEntity(var2);
 			if (var6 instanceof TileEntityDispenser) {
 				((TileEntityDispenser) var6).a(var5.q());
 			}
@@ -122,10 +122,10 @@ public class BlockDispenser extends BlockContainer {
 	}
 
 	public void remove(World var1, Location var2, IBlockData var3) {
-		TileEntity var4 = var1.s(var2);
+		TileEntity var4 = var1.getTileEntity(var2);
 		if (var4 instanceof TileEntityDispenser) {
 			vs.a(var1, var2, (TileEntityDispenser) var4);
-			var1.e(var2, this);
+			var1.updateAdjacentComparators(var2, this);
 		}
 
 		super.remove(var1, var2, var3);
@@ -148,7 +148,7 @@ public class BlockDispenser extends BlockContainer {
 	}
 
 	public int getDropData(World var1, Location var2) {
-		return aib.a(var1.s(var2));
+		return aib.a(var1.getTileEntity(var2));
 	}
 
 	public int b() {

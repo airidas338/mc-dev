@@ -39,7 +39,7 @@ public class alo extends Item {
    }
 
    protected boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, IBlockData var5) {
-      var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), var5.c().H.c(), (var5.c().H.d() + 1.0F) / 2.0F, var5.c().H.e() * 0.8F);
+      var3.makeSound((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), var5.c().H.c(), (var5.c().H.d() + 1.0F) / 2.0F, var5.c().H.e() * 0.8F);
       if(var3.isStatic) {
          return true;
       } else {

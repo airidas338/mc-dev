@@ -37,7 +37,7 @@ public class BlockMushroom extends BlockPlant implements atz {
          }
 
          if(var1.isEmpty(var9) && this.f(var1, var9, this.P())) {
-            var1.a(var9, this.P(), 2);
+            var1.setTypeAndData(var9, this.P(), 2);
          }
       }
 
@@ -61,7 +61,7 @@ public class BlockMushroom extends BlockPlant implements atz {
    }
 
    public boolean d(World var1, Location var2, IBlockData var3, Random var4) {
-      var1.g(var2);
+      var1.setAir(var2);
       bhv var5 = null;
       if(this == Blocks.BROWN_MUSHROOM) {
          var5 = new bhv(0);
@@ -72,7 +72,7 @@ public class BlockMushroom extends BlockPlant implements atz {
       if(var5 != null && var5.generate(var1, var4, var2)) {
          return true;
       } else {
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
          return false;
       }
    }

@@ -51,11 +51,11 @@ public class BlockTallPlant extends BlockPlant implements atz {
          Object var7 = var4?this:var1.getData(var5).c();
          Object var8 = var4?var1.getData(var6).c():this;
          if(var7 == this) {
-            var1.a(var5, Blocks.AIR.P(), 3);
+            var1.setTypeAndData(var5, Blocks.AIR.P(), 3);
          }
 
          if(var8 == this) {
-            var1.a(var6, Blocks.AIR.P(), 3);
+            var1.setTypeAndData(var6, Blocks.AIR.P(), 3);
             if(!var4) {
                this.b(var1, var6, var3, 0);
             }
@@ -87,12 +87,12 @@ public class BlockTallPlant extends BlockPlant implements atz {
    }
 
    public void a(World var1, Location var2, avk var3, int var4) {
-      var1.a(var2, this.P().a(b, avj.b).a(a, var3), var4);
-      var1.a(var2.a(), this.P().a(b, avj.a), var4);
+      var1.setTypeAndData(var2, this.P().a(b, avj.b).a(a, var3), var4);
+      var1.setTypeAndData(var2.a(), this.P().a(b, avj.a), var4);
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      var1.a(var2.a(), this.P().a(b, avj.a), 2);
+      var1.setTypeAndData(var2.a(), this.P().a(b, avj.a), 2);
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
@@ -108,23 +108,23 @@ public class BlockTallPlant extends BlockPlant implements atz {
                IBlockData var5 = var1.getData(var2.b());
                avk var6 = (avk)var5.b(a);
                if(var6 != avk.d && var6 != avk.c) {
-                  var1.b(var2.b(), true);
+                  var1.setAir(var2.b(), true);
                } else if(!var1.isStatic) {
                   if(var4.bY() != null && var4.bY().b() == Items.be) {
                      this.b(var1, var2, var5, var4);
-                     var1.g(var2.b());
+                     var1.setAir(var2.b());
                   } else {
-                     var1.b(var2.b(), true);
+                     var1.setAir(var2.b(), true);
                   }
                } else {
-                  var1.g(var2.b());
+                  var1.setAir(var2.b());
                }
             } else {
-               var1.g(var2.b());
+               var1.setAir(var2.b());
             }
          }
       } else if(var4.by.canInstantlyBuild && var1.getData(var2.a()).c() == this) {
-         var1.a(var2.a(), Blocks.AIR.P(), 2);
+         var1.setTypeAndData(var2.a(), Blocks.AIR.P(), 2);
       }
 
       super.a(var1, var2, var3, var4);

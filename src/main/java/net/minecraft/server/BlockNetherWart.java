@@ -26,7 +26,7 @@ public class BlockNetherWart extends BlockPlant {
       int var5 = ((Integer)var3.b(a)).intValue();
       if(var5 < 3 && var4.nextInt(10) == 0) {
          var3 = var3.a(a, Integer.valueOf(var5 + 1));
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
       }
 
       super.b(var1, var2, var3, var4);

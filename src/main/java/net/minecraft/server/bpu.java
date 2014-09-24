@@ -20,20 +20,20 @@ public abstract class bpu {
 
    public void a() {}
 
-   protected bpt a(int var1, int var2, int var3) {
-      int var4 = bpt.a(var1, var2, var3);
-      bpt var5 = (bpt)this.b.a(var4);
+   protected PathPoint a(int var1, int var2, int var3) {
+      int var4 = PathPoint.a(var1, var2, var3);
+      PathPoint var5 = (PathPoint)this.b.a(var4);
       if(var5 == null) {
-         var5 = new bpt(var1, var2, var3);
+         var5 = new PathPoint(var1, var2, var3);
          this.b.a(var4, var5);
       }
 
       return var5;
    }
 
-   public abstract bpt a(Entity var1);
+   public abstract PathPoint a(Entity var1);
 
-   public abstract bpt a(Entity var1, double var2, double var4, double var6);
+   public abstract PathPoint a(Entity var1, double var2, double var4, double var6);
 
-   public abstract int a(bpt[] var1, Entity var2, bpt var3, bpt var4, float var5);
+   public abstract int a(PathPoint[] var1, Entity var2, PathPoint var3, PathPoint var4, float var5);
 }

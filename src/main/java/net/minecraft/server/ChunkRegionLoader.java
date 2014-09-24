@@ -151,7 +151,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       var3.setByte("V", (byte)1);
       var3.setInt("xPos", var1.a);
       var3.setInt("zPos", var1.b);
-      var3.setLong("LastUpdate", var2.K());
+      var3.setLong("LastUpdate", var2.getTime());
       var3.setIntArray("HeightMap", var1.q());
       var3.setBoolean("TerrainPopulated", var1.t());
       var3.setBoolean("LightPopulated", var1.u());
@@ -239,7 +239,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
       var3.set("TileEntities", (NBTBase)var21);
       List var24 = var2.a(var1, false);
       if(var24 != null) {
-         long var23 = var2.K();
+         long var23 = var2.getTime();
          NBTTagList var27 = new NBTTagList();
          Iterator var28 = var24.iterator();
 

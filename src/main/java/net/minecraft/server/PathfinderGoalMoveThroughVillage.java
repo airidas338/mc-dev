@@ -10,7 +10,7 @@ public class PathfinderGoalMoveThroughVillage extends PathfinderGoal {
    private EntityCreature a;
    private double b;
    private bpv c;
-   private abh d;
+   private VillageDoor d;
    private boolean e;
    private List f = Lists.newArrayList();
 
@@ -81,14 +81,14 @@ public class PathfinderGoalMoveThroughVillage extends PathfinderGoal {
 
    }
 
-   private abh a(Village var1) {
-      abh var2 = null;
+   private VillageDoor a(Village var1) {
+      VillageDoor var2 = null;
       int var3 = Integer.MAX_VALUE;
       List var4 = var1.f();
       Iterator var5 = var4.iterator();
 
       while(var5.hasNext()) {
-         abh var6 = (abh)var5.next();
+         VillageDoor var6 = (VillageDoor)var5.next();
          int var7 = var6.b(MathHelper.floor(this.a.s), MathHelper.floor(this.a.t), MathHelper.floor(this.a.u));
          if(var7 < var3 && !this.a(var6)) {
             var2 = var6;
@@ -99,16 +99,16 @@ public class PathfinderGoalMoveThroughVillage extends PathfinderGoal {
       return var2;
    }
 
-   private boolean a(abh var1) {
+   private boolean a(VillageDoor var1) {
       Iterator var2 = this.f.iterator();
 
-      abh var3;
+      VillageDoor var3;
       do {
          if(!var2.hasNext()) {
             return false;
          }
 
-         var3 = (abh)var2.next();
+         var3 = (VillageDoor)var2.next();
       } while(!var1.d().equals(var3.d()));
 
       return true;

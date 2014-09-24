@@ -17,8 +17,8 @@ public class bql extends WorldData {
       return this.b.a(var1);
    }
 
-   public long b() {
-      return this.b.b();
+   public long getSeed() {
+      return this.b.getSeed();
    }
 
    public int c() {
@@ -33,8 +33,8 @@ public class bql extends WorldData {
       return this.b.e();
    }
 
-   public long f() {
-      return this.b.f();
+   public long getTime() {
+      return this.b.getTime();
    }
 
    public long getDayTime() {
@@ -45,80 +45,80 @@ public class bql extends WorldData {
       return this.b.i();
    }
 
-   public String k() {
-      return this.b.k();
+   public String getName() {
+      return this.b.getName();
    }
 
    public int l() {
       return this.b.l();
    }
 
-   public boolean n() {
-      return this.b.n();
+   public boolean isThundering() {
+      return this.b.isThundering();
    }
 
-   public int o() {
-      return this.b.o();
+   public int getThunderDuration() {
+      return this.b.getThunderDuration();
    }
 
-   public boolean p() {
-      return this.b.p();
+   public boolean hasStorm() {
+      return this.b.hasStorm();
    }
 
-   public int q() {
-      return this.b.q();
+   public int getWeatherDuration() {
+      return this.b.getWeatherDuration();
    }
 
-   public EnumGamemode r() {
-      return this.b.r();
+   public EnumGamemode getGameType() {
+      return this.b.getGameType();
    }
 
    public void b(long var1) {}
 
-   public void c(long var1) {}
+   public void setDayTime(long var1) {}
 
-   public void a(Location var1) {}
+   public void setSpawn(Location var1) {}
 
-   public void a(String var1) {}
+   public void setName(String var1) {}
 
    public void e(int var1) {}
 
-   public void a(boolean var1) {}
+   public void setThundering(boolean var1) {}
 
-   public void f(int var1) {}
+   public void setThunderDuration(int var1) {}
 
-   public void b(boolean var1) {}
+   public void setStorm(boolean var1) {}
 
-   public void g(int var1) {}
+   public void setWeatherDuration(int var1) {}
 
-   public boolean s() {
-      return this.b.s();
+   public boolean shouldGenerateMapFeatures() {
+      return this.b.shouldGenerateMapFeatures();
    }
 
-   public boolean t() {
-      return this.b.t();
+   public boolean isHardcore() {
+      return this.b.isHardcore();
    }
 
-   public WorldType u() {
-      return this.b.u();
+   public WorldType getType() {
+      return this.b.getType();
    }
 
-   public void a(WorldType var1) {}
+   public void setType(WorldType var1) {}
 
-   public boolean v() {
-      return this.b.v();
+   public boolean allowCommands() {
+      return this.b.allowCommands();
    }
 
    public void c(boolean var1) {}
 
-   public boolean w() {
-      return this.b.w();
+   public boolean isInitialized() {
+      return this.b.isInitialized();
    }
 
    public void d(boolean var1) {}
 
-   public aqq x() {
-      return this.b.x();
+   public GameRules getGameRules() {
+      return this.b.getGameRules();
    }
 
    public EnumDifficulty y() {

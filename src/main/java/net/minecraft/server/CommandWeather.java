@@ -24,20 +24,20 @@ public class CommandWeather extends CommandAbstract {
          }
 
          WorldServer var4 = MinecraftServer.M().c[0];
-         WorldData var5 = var4.P();
+         WorldData var5 = var4.getWorldData();
          if("clear".equalsIgnoreCase(var2[0])) {
             var5.i(var3);
-            var5.g(0);
-            var5.f(0);
-            var5.b(false);
-            var5.a(false);
+            var5.setWeatherDuration(0);
+            var5.setThunderDuration(0);
+            var5.setStorm(false);
+            var5.setThundering(false);
             a(var1, this, "commands.weather.clear", new Object[0]);
          } else if("rain".equalsIgnoreCase(var2[0])) {
             var5.i(0);
-            var5.g(var3);
-            var5.f(var3);
-            var5.b(true);
-            var5.a(false);
+            var5.setWeatherDuration(var3);
+            var5.setThunderDuration(var3);
+            var5.setStorm(true);
+            var5.setThundering(false);
             a(var1, this, "commands.weather.rain", new Object[0]);
          } else {
             if(!"thunder".equalsIgnoreCase(var2[0])) {
@@ -45,10 +45,10 @@ public class CommandWeather extends CommandAbstract {
             }
 
             var5.i(0);
-            var5.g(var3);
-            var5.f(var3);
-            var5.b(true);
-            var5.a(true);
+            var5.setWeatherDuration(var3);
+            var5.setThunderDuration(var3);
+            var5.setStorm(true);
+            var5.setThundering(true);
             a(var1, this, "commands.weather.thunder", new Object[0]);
          }
 

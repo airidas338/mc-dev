@@ -54,7 +54,7 @@ public class aiw extends ajk {
          while(var2 > 0) {
             var4 = EntityExperienceOrb.a(var2);
             var2 -= var4;
-            this.a.o.d((Entity)(new EntityExperienceOrb(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
+            this.a.o.addEntity((Entity)(new EntityExperienceOrb(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
          }
       }
 

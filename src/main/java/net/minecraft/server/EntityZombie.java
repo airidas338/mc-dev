@@ -162,10 +162,10 @@ public class EntityZombie extends EntityMonster {
                int var9 = var4 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var10 = var5 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
                int var11 = var6 + MathHelper.a(this.V, 7, 40) * MathHelper.a(this.V, -1, 1);
-               if(World.a((IBlockAccess)this.o, new Location(var9, var10 - 1, var11)) && this.o.l(new Location(var9, var10, var11)) < 10) {
+               if(World.a((IBlockAccess)this.o, new Location(var9, var10 - 1, var11)) && this.o.getLightLevel(new Location(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
-                  if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a(var7.aQ(), (Entity)var7) && this.o.a((Entity)var7, var7.aQ()).isEmpty() && !this.o.d(var7.aQ())) {
-                     this.o.d((Entity)var7);
+                  if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a(var7.aQ(), (Entity)var7) && this.o.getCubes((Entity)var7, var7.aQ()).isEmpty() && !this.o.containsLiquid(var7.aQ())) {
+                     this.o.addEntity((Entity)var7);
                      var7.d(var3);
                      var7.a(this.o.E(new Location(var7)), (xq)null);
                      this.getAttributeInstance(b).b(new AttributeModifier("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
@@ -251,7 +251,7 @@ public class EntityZombie extends EntityMonster {
          if(var2 == 0) {
             this.c(0, new ItemStack(Items.l));
          } else {
-            this.c(0, new ItemStack(Items.a));
+            this.c(0, new ItemStack(Items.IRON_SPADE));
          }
       }
 
@@ -297,14 +297,14 @@ public class EntityZombie extends EntityMonster {
 
          EntityZombie var2 = new EntityZombie(this.o);
          var2.m(var1);
-         this.o.e((Entity)var1);
+         this.o.kill((Entity)var1);
          var2.a(this.o.E(new Location(var2)), (xq)null);
          var2.m(true);
          if(var1.i_()) {
             var2.l(true);
          }
 
-         this.o.d((Entity)var2);
+         this.o.addEntity((Entity)var2);
          this.o.a((EntityHuman)null, 1016, new Location((int)this.s, (int)this.t, (int)this.u), 0);
       }
 
@@ -340,7 +340,7 @@ public class EntityZombie extends EntityMonster {
          if(var4.a) {
             this.l(true);
             if((double)this.o.random.nextFloat() < 0.05D) {
-               List var5 = this.o.a(EntityChicken.class, this.aQ().b(5.0D, 3.0D, 5.0D), EntitySelectors.b);
+               List var5 = this.o.getEntities(EntityChicken.class, this.aQ().b(5.0D, 3.0D, 5.0D), EntitySelectors.b);
                if(!var5.isEmpty()) {
                   EntityChicken var6 = (EntityChicken)var5.get(0);
                   var6.l(true);
@@ -351,7 +351,7 @@ public class EntityZombie extends EntityMonster {
                var10.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
                var10.a(var1, (xq)null);
                var10.l(true);
-               this.o.d((Entity)var10);
+               this.o.addEntity((Entity)var10);
                this.a((Entity)var10);
             }
          }
@@ -409,7 +409,7 @@ public class EntityZombie extends EntityMonster {
       this.H().b(14, Byte.valueOf((byte)1));
       this.m(MobEffectList.t.H);
       this.c(new MobEffect(MobEffectList.g.H, var1, Math.min(this.o.aa().a() - 1, 0)));
-      this.o.a((Entity)this, (byte)16);
+      this.o.broadcastEntityEffect((Entity)this, (byte)16);
    }
 
    protected boolean C() {
@@ -429,8 +429,8 @@ public class EntityZombie extends EntityMonster {
          var1.b(-24000);
       }
 
-      this.o.e((Entity)this);
-      this.o.d((Entity)var1);
+      this.o.kill((Entity)this);
+      this.o.addEntity((Entity)var1);
       var1.c(new MobEffect(MobEffectList.k.H, 200, 0));
       this.o.a((EntityHuman)null, 1017, new Location((int)this.s, (int)this.t, (int)this.u), 0);
    }

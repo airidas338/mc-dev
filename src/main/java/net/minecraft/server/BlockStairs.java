@@ -413,7 +413,7 @@ public class BlockStairs extends Block {
    }
 
    public void c(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2, this.P, Blocks.AIR);
+      this.doPhysics(var1, var2, this.P, Blocks.AIR);
       this.O.c(var1, var2, this.P);
    }
 
@@ -433,7 +433,7 @@ public class BlockStairs extends Block {
       return this.O.interact(var1, var2, this.P, var4, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
    }
 
-   public void a(World var1, Location var2, aqo var3) {
+   public void a(World var1, Location var2, Explosion var3) {
       this.O.a(var1, var2, var3);
    }
 

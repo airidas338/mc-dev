@@ -23,7 +23,7 @@ public abstract class BlockLogAbstract extends BlockRotatable {
             Location var7 = (Location)var6.next();
             IBlockData var8 = var1.getData(var7);
             if(var8.c().getMaterial() == Material.LEAVES && !((Boolean)var8.b(BlockLeaves.b)).booleanValue()) {
-               var1.a(var7, var8.a(BlockLeaves.b, Boolean.valueOf(true)), 4);
+               var1.setTypeAndData(var7, var8.a(BlockLeaves.b, Boolean.valueOf(true)), 4);
             }
          }
 

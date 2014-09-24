@@ -27,7 +27,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       super.s_();
       if(this.a > 0) {
          --this.a;
-         this.o.a(ew.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       } else if(this.a == 0) {
          this.b(this.v * this.v + this.x * this.x);
       }
@@ -73,7 +73,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
             var3 = 5.0D;
          }
 
-         this.o.a(this, this.s, this.t, this.u, (float)(4.0D + this.V.nextDouble() * 1.5D * var3), true);
+         this.o.explode(this, this.s, this.t, this.u, (float)(4.0D + this.V.nextDouble() * 1.5D * var3), true);
          this.J();
       }
 
@@ -98,9 +98,9 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    public void j() {
       this.a = 80;
       if(!this.o.isStatic) {
-         this.o.a((Entity)this, (byte)10);
+         this.o.broadcastEntityEffect((Entity)this, (byte)10);
          if(!this.R()) {
-            this.o.a((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
+            this.o.makeSound((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
          }
       }
 
@@ -110,11 +110,11 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       return this.a > -1;
    }
 
-   public float a(aqo var1, World var2, Location var3, IBlockData var4) {
+   public float a(Explosion var1, World var2, Location var3, IBlockData var4) {
       return this.y() && (BlockMinecartTrackAbstract.d(var4) || BlockMinecartTrackAbstract.d(var2, var3.a()))?0.0F:super.a(var1, var2, var3, var4);
    }
 
-   public boolean a(aqo var1, World var2, Location var3, IBlockData var4, float var5) {
+   public boolean a(Explosion var1, World var2, Location var3, IBlockData var4, float var5) {
       return this.y() && (BlockMinecartTrackAbstract.d(var4) || BlockMinecartTrackAbstract.d(var2, var3.a()))?false:super.a(var1, var2, var3, var4, var5);
    }
 

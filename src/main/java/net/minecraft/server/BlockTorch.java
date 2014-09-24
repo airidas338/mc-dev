@@ -80,7 +80,7 @@ public class BlockTorch extends Block {
       this.f(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
@@ -100,7 +100,7 @@ public class BlockTorch extends Block {
 
          if(var7) {
             this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            var1.setAir(var2);
             return true;
          } else {
             return false;
@@ -114,7 +114,7 @@ public class BlockTorch extends Block {
       } else {
          if(var1.getData(var2).c() == this) {
             this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            var1.setAir(var2);
          }
 
          return false;

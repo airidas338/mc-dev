@@ -21,7 +21,7 @@ public class ScoreboardServer extends Scoreboard {
 
    public void handleScoreChanged(ScoreboardScore var1) {
       super.handleScoreChanged(var1);
-      if(this.b.contains(var1.d())) {
+      if(this.b.contains(var1.getObjective())) {
          this.a.an().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
       }
 
@@ -34,8 +34,8 @@ public class ScoreboardServer extends Scoreboard {
       this.b();
    }
 
-   public void a(String var1, ScoreboardObjective var2) {
-      super.a(var1, var2);
+   public void handleScoreRemoved(String var1, ScoreboardObjective var2) {
+      super.handleScoreRemoved(var1, var2);
       this.a.an().a((Packet)(new PacketPlayOutScoreboardScore(var1, var2)));
       this.b();
    }
@@ -79,8 +79,8 @@ public class ScoreboardServer extends Scoreboard {
       this.b();
    }
 
-   public void a(ScoreboardObjective var1) {
-      super.a(var1);
+   public void handleObjectiveAdded(ScoreboardObjective var1) {
+      super.handleObjectiveAdded(var1);
       this.b();
    }
 
@@ -93,8 +93,8 @@ public class ScoreboardServer extends Scoreboard {
       this.b();
    }
 
-   public void c(ScoreboardObjective var1) {
-      super.c(var1);
+   public void handleObjectiveRemoved(ScoreboardObjective var1) {
+      super.handleObjectiveRemoved(var1);
       if(this.b.contains(var1)) {
          this.g(var1);
       }
@@ -102,8 +102,8 @@ public class ScoreboardServer extends Scoreboard {
       this.b();
    }
 
-   public void a(ScoreboardTeam var1) {
-      super.a(var1);
+   public void handleTeamAdded(ScoreboardTeam var1) {
+      super.handleTeamAdded(var1);
       this.a.an().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 0)));
       this.b();
    }
@@ -131,7 +131,7 @@ public class ScoreboardServer extends Scoreboard {
 
    }
 
-   public List d(ScoreboardObjective var1) {
+   public List getScoreboardScorePacketsForObjective(ScoreboardObjective var1) {
       ArrayList var2 = Lists.newArrayList();
       var2.add(new PacketPlayOutScoreboardObjective(var1, 0));
 
@@ -141,7 +141,7 @@ public class ScoreboardServer extends Scoreboard {
          }
       }
 
-      Iterator var5 = this.i(var1).iterator();
+      Iterator var5 = this.getScoresForObjective(var1).iterator();
 
       while(var5.hasNext()) {
          ScoreboardScore var4 = (ScoreboardScore)var5.next();
@@ -152,7 +152,7 @@ public class ScoreboardServer extends Scoreboard {
    }
 
    public void e(ScoreboardObjective var1) {
-      List var2 = this.d(var1);
+      List var2 = this.getScoreboardScorePacketsForObjective(var1);
       Iterator var3 = this.a.an().e.iterator();
 
       while(var3.hasNext()) {

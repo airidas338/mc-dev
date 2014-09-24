@@ -70,7 +70,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       double var6;
       double var8;
       if(!this.o.isStatic && this.s(0) > 0) {
-         Entity var1 = this.o.a(this.s(0));
+         Entity var1 = this.o.getEntity(this.s(0));
          if(var1 != null) {
             if(this.t < var1.t || !this.ck() && this.t < var1.t + 5.0D) {
                if(this.w < 0.0D) {
@@ -108,7 +108,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
          var21 = this.s(var20 + 1);
          Entity var3 = null;
          if(var21 > 0) {
-            var3 = this.o.a(var21);
+            var3 = this.o.getEntity(var21);
          }
 
          if(var3 != null) {
@@ -134,15 +134,15 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
          double var23 = this.t(var21);
          double var5 = this.u(var21);
          double var7 = this.v(var21);
-         this.o.a(ew.l, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.l, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
          if(var22 && this.o.random.nextInt(4) == 0) {
-            this.o.a(ew.p, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
+            this.o.a(EnumParticleEffect.p, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
          }
       }
 
       if(this.cj() > 0) {
          for(var21 = 0; var21 < 3; ++var21) {
-            this.o.a(ew.p, this.s + this.V.nextGaussian() * 1.0D, this.t + (double)(this.V.nextFloat() * 3.3F), this.u + this.V.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
+            this.o.a(EnumParticleEffect.p, this.s + this.V.nextGaussian() * 1.0D, this.t + (double)(this.V.nextFloat() * 3.3F), this.u + this.V.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
          }
       }
 
@@ -153,7 +153,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       if(this.cj() > 0) {
          var1 = this.cj() - 1;
          if(var1 <= 0) {
-            this.o.a(this, this.s, this.t + (double)this.aR(), this.u, 7.0F, false, this.o.Q().b("mobGriefing"));
+            this.o.createExplosion(this, this.s, this.t + (double)this.aR(), this.u, 7.0F, false, this.o.getGameRules().getBoolean("mobGriefing"));
             this.o.a(1013, new Location(this), 0);
          }
 
@@ -186,7 +186,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
 
                var12 = this.s(var1);
                if(var12 > 0) {
-                  Entity var14 = this.o.a(var12);
+                  Entity var14 = this.o.getEntity(var12);
                   if(var14 != null && var14.isAlive() && this.h(var14) <= 900.0D && this.t(var14)) {
                      this.a(var1 + 1, (EntityLiving)var14);
                      this.bm[var1 - 1] = this.W + 40 + this.V.nextInt(20);
@@ -195,7 +195,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                      this.b(var1, 0);
                   }
                } else {
-                  List var13 = this.o.a(EntityLiving.class, this.aQ().b(20.0D, 8.0D, 20.0D), Predicates.and(bp, EntitySelectors.d));
+                  List var13 = this.o.getEntities(EntityLiving.class, this.aQ().b(20.0D, 8.0D, 20.0D), Predicates.and(bp, EntitySelectors.d));
 
                   for(int var16 = 0; var16 < 10 && !var13.isEmpty(); ++var16) {
                      EntityLiving var5 = (EntityLiving)var13.get(this.V.nextInt(var13.size()));
@@ -224,7 +224,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
 
          if(this.bo > 0) {
             --this.bo;
-            if(this.bo == 0 && this.o.Q().b("mobGriefing")) {
+            if(this.bo == 0 && this.o.getGameRules().getBoolean("mobGriefing")) {
                var1 = MathHelper.floor(this.t);
                var12 = MathHelper.floor(this.s);
                int var15 = MathHelper.floor(this.u);
@@ -238,7 +238,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                         int var10 = var15 + var19;
                         Block var11 = this.o.getData(new Location(var20, var9, var10)).c();
                         if(var11.getMaterial() != Material.AIR && var11 != Blocks.BEDROCK && var11 != Blocks.ENDER_PORTAL && var11 != Blocks.ENDER_PORTAL_FRAME && var11 != Blocks.COMMAND && var11 != Blocks.BARRIER) {
-                           var18 = this.o.b(new Location(var20, var9, var10), true) || var18;
+                           var18 = this.o.setAir(new Location(var20, var9, var10), true) || var18;
                         }
                      }
                   }
@@ -325,7 +325,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
       var21.t = var11;
       var21.s = var9;
       var21.u = var13;
-      this.o.d((Entity)var21);
+      this.o.addEntity((Entity)var21);
    }
 
    public void a(EntityLiving var1, float var2) {

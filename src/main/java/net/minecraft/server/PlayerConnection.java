@@ -150,14 +150,14 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 						this.q = this.b.u;
 					}
 
-					var2.g(this.b);
+					var2.playerJoinedWorld(this.b);
 					return;
 				}
 
 				if (this.b.bI()) {
 					this.b.l();
 					this.b.a(this.o, this.p, this.q, this.b.y, this.b.z);
-					var2.g(this.b);
+					var2.playerJoinedWorld(this.b);
 					return;
 				}
 
@@ -209,7 +209,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				}
 
 				float var41 = 0.0625F;
-				boolean var42 = var2.a((Entity) this.b, this.b.aQ().d((double) var41, (double) var41, (double) var41)).isEmpty();
+				boolean var42 = var2.getCubes((Entity) this.b, this.b.aQ().d((double) var41, (double) var41, (double) var41)).isEmpty();
 				if (this.b.C && !var1.f() && var29 > 0.0D) {
 					this.b.bE();
 				}
@@ -234,7 +234,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				this.b.a(var19, var21, var23, var25, var26);
 				this.b.k(this.b.s - var3, this.b.t - var5, this.b.u - var7);
 				if (!this.b.T) {
-					boolean var46 = var2.a((Entity) this.b, this.b.aQ().d((double) var41, (double) var41, (double) var41)).isEmpty();
+					boolean var46 = var2.getCubes((Entity) this.b, this.b.aQ().d((double) var41, (double) var41, (double) var41)).isEmpty();
 					if (var42 && (var45 || !var46) && !this.b.bI()) {
 						this.a(this.o, this.p, this.q, var25, var26);
 						return;
@@ -433,14 +433,14 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					WorldServer var7 = this.b.u();
 					WorldServer var8 = (WorldServer) var2.o;
 					this.b.am = var2.am;
-					this.sendPacket((Packet) (new PacketPlayOutRespawn(this.b.am, var7.aa(), var7.P().u(), this.b.c.b())));
-					var7.f(this.b);
+					this.sendPacket((Packet) (new PacketPlayOutRespawn(this.b.am, var7.aa(), var7.getWorldData().getType(), this.b.c.b())));
+					var7.removeEntity(this.b);
 					this.b.I = false;
 					this.b.setPositionRotation(var2.s, var2.t, var2.u, var2.y, var2.z);
 					if (this.b.isAlive()) {
-						var7.a((Entity) this.b, false);
-						var8.d(this.b);
-						var8.a((Entity) this.b, false);
+						var7.entityJoinedWorld((Entity) this.b, false);
+						var8.addEntity(this.b);
+						var8.entityJoinedWorld((Entity) this.b, false);
 					}
 
 					this.b.a((World) var8);
@@ -626,7 +626,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		case 1:
 			if (this.b.i) {
 				this.b = this.d.an().a(this.b, 0, true);
-			} else if (this.b.u().P().t()) {
+			} else if (this.b.u().getWorldData().isHardcore()) {
 				if (this.d.S() && this.b.getName().equals(this.d.R())) {
 					this.b.a.c("You have died. Game over, man, it\'s game over!");
 					this.d.Z();
@@ -713,7 +713,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				NBTTagCompound var4 = var3.o().getCompound("BlockEntityTag");
 				if (var4.hasKey("x") && var4.hasKey("y") && var4.hasKey("z")) {
 					Location var5 = new Location(var4.getInt("x"), var4.getInt("y"), var4.getInt("z"));
-					TileEntity var6 = this.b.o.s(var5);
+					TileEntity var6 = this.b.o.getTileEntity(var5);
 					if (var6 != null) {
 						NBTTagCompound var7 = new NBTTagCompound();
 						var6.b(var7);
@@ -762,7 +762,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		WorldServer var2 = this.d.a(this.b.am);
 		Location var3 = var1.a();
 		if (var2.isLoaded(var3)) {
-			TileEntity var4 = var2.s(var3);
+			TileEntity var4 = var2.getTileEntity(var3);
 			if (!(var4 instanceof TileEntitySign)) {
 				return;
 			}
@@ -775,7 +775,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 			System.arraycopy(var1.b(), 0, var5.a, 0, 4);
 			var5.o_();
-			var2.h(var3);
+			var2.notify(var3);
 		}
 
 	}
@@ -901,12 +901,12 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					byte var43 = var2.readByte();
 					CommandBlockListenerAbstract var46 = null;
 					if (var43 == 0) {
-						TileEntity var5 = this.b.o.s(new Location(var2.readInt(), var2.readInt(), var2.readInt()));
+						TileEntity var5 = this.b.o.getTileEntity(new Location(var2.readInt(), var2.readInt(), var2.readInt()));
 						if (var5 instanceof TileEntityCommand) {
 							var46 = ((TileEntityCommand) var5).getCommandBlock();
 						}
 					} else if (var43 == 1) {
-						Entity var47 = this.b.o.a(var2.readInt());
+						Entity var47 = this.b.o.getEntity(var2.readInt());
 						if (var47 instanceof EntityMinecartCommandBlock) {
 							var46 = ((EntityMinecartCommandBlock) var47).getCommandBlock();
 						}

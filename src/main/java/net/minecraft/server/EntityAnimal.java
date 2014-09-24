@@ -34,7 +34,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
             double var1 = this.V.nextGaussian() * 0.02D;
             double var3 = this.V.nextGaussian() * 0.02D;
             double var5 = this.V.nextGaussian() * 0.02D;
-            this.o.a(ew.I, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var1, var3, var5, new int[0]);
+            this.o.a(EnumParticleEffect.I, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var1, var3, var5, new int[0]);
          }
       }
 
@@ -119,7 +119,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    public void c(EntityHuman var1) {
       this.bk = 600;
       this.bm = var1;
-      this.o.a((Entity)this, (byte)18);
+      this.o.broadcastEntityEffect((Entity)this, (byte)18);
    }
 
    public EntityHuman co() {

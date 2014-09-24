@@ -15,7 +15,7 @@ public class PortalTravelAgent {
 
    public PortalTravelAgent(WorldServer var1) {
       this.a = var1;
-      this.b = new Random(var1.J());
+      this.b = new Random(var1.getSeed());
    }
 
    public void a(Entity var1, float var2) {
@@ -60,7 +60,7 @@ public class PortalTravelAgent {
          ari var12 = (ari)this.c.a(var10);
          var4 = 0.0D;
          var9 = var12;
-         var12.b = this.a.K();
+         var12.b = this.a.getTime();
          var8 = false;
       } else {
          Location var34 = new Location(var1);
@@ -88,7 +88,7 @@ public class PortalTravelAgent {
 
       if(var4 >= 0.0D) {
          if(var8) {
-            this.c.a(var10, new ari(this, (Location)var9, this.a.K()));
+            this.c.a(var10, new ari(this, (Location)var9, this.a.getTime()));
             this.d.add(Long.valueOf(var10));
          }
 
@@ -337,7 +337,7 @@ public class PortalTravelAgent {
                var24 = var15 + var22;
                var25 = var16 + (var21 - 1) * var18;
                boolean var35 = var21 == 0 || var21 == 3 || var22 == -1 || var22 == 3;
-               this.a.a(new Location(var23, var24, var25), var35?Blocks.OBSIDIAN.P():var31, 2);
+               this.a.setTypeAndData(new Location(var23, var24, var25), var35?Blocks.OBSIDIAN.P():var31, 2);
             }
          }
 
@@ -346,7 +346,7 @@ public class PortalTravelAgent {
                var23 = var29 + (var21 - 1) * var30;
                var24 = var15 + var22;
                var25 = var16 + (var21 - 1) * var18;
-               this.a.c(new Location(var23, var24, var25), this.a.getData(new Location(var23, var24, var25)).c());
+               this.a.applyPhysics(new Location(var23, var24, var25), this.a.getData(new Location(var23, var24, var25)).c());
             }
          }
       }

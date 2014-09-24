@@ -12,7 +12,7 @@ class bqp implements Callable {
    }
 
    public String a() {
-      return String.valueOf(this.a.b());
+      return String.valueOf(this.a.getSeed());
    }
 
    // $FF: synthetic method

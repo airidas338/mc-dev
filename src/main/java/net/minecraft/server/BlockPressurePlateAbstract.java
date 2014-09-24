@@ -48,10 +48,10 @@ public abstract class BlockPressurePlateAbstract extends Block {
       return this.m(var1, var2.b());
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.m(var1, var2.b())) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -88,15 +88,15 @@ public abstract class BlockPressurePlateAbstract extends Block {
       boolean var7 = var5 > 0;
       if(var4 != var5) {
          var3 = this.a(var3, var5);
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
          this.d(var1, var2);
          var1.b(var2, var2);
       }
 
       if(!var7 && var6) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
       } else if(var7 && !var6) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
       }
 
       if(var7) {
@@ -119,8 +119,8 @@ public abstract class BlockPressurePlateAbstract extends Block {
    }
 
    protected void d(World var1, Location var2) {
-      var1.c(var2, (Block)this);
-      var1.c(var2.b(), (Block)this);
+      var1.applyPhysics(var2, (Block)this);
+      var1.applyPhysics(var2.b(), (Block)this);
    }
 
    public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {

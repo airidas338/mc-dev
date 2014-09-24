@@ -11,7 +11,7 @@ final class DispenserBehaviorBonemeal extends DispenserBehaviorItem {
          Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
          if(akw.a(var2, var3, var4)) {
             if(!var3.isStatic) {
-               var3.b(2005, var4, 0);
+               var3.triggerEffect(2005, var4, 0);
             }
          } else {
             this.b = false;
@@ -25,9 +25,9 @@ final class DispenserBehaviorBonemeal extends DispenserBehaviorItem {
 
    protected void a(ISourceBlock var1) {
       if(this.b) {
-         var1.i().b(1000, var1.d(), 0);
+         var1.i().triggerEffect(1000, var1.d(), 0);
       } else {
-         var1.i().b(1001, var1.d(), 0);
+         var1.i().triggerEffect(1001, var1.d(), 0);
       }
 
    }

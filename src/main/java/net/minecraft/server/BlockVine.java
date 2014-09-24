@@ -145,17 +145,17 @@ public class BlockVine extends Block {
          return false;
       } else {
          if(var4 != var3) {
-            var1.a(var2, var3, 2);
+            var1.setTypeAndData(var2, var3, 2);
          }
 
          return true;
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic && !this.e(var1, var2, var3)) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -197,7 +197,7 @@ public class BlockVine extends Block {
                   }
 
                   if(((Boolean)var22.b(b)).booleanValue() || ((Boolean)var22.b(M)).booleanValue() || ((Boolean)var22.b(N)).booleanValue() || ((Boolean)var22.b(O)).booleanValue()) {
-                     var1.a(var2.a(), var22, 2);
+                     var1.setTypeAndData(var2.a(), var22, 2);
                   }
 
                }
@@ -215,18 +215,18 @@ public class BlockVine extends Block {
                         Location var26 = var18.a(var21);
                         Location var16 = var18.a(var25);
                         if(var24 && this.c(var1.getData(var26).c())) {
-                           var1.a(var18, this.P().a(a(var21), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData(var18, this.P().a(a(var21), Boolean.valueOf(true)), 2);
                         } else if(var27 && this.c(var1.getData(var16).c())) {
-                           var1.a(var18, this.P().a(a(var25), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData(var18, this.P().a(a(var25), Boolean.valueOf(true)), 2);
                         } else if(var24 && var1.isEmpty(var26) && this.c(var1.getData(var2.a(var21)).c())) {
-                           var1.a(var26, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData(var26, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
                         } else if(var27 && var1.isEmpty(var16) && this.c(var1.getData(var2.a(var25)).c())) {
-                           var1.a(var16, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData(var16, this.P().a(a(var17.d()), Boolean.valueOf(true)), 2);
                         } else if(this.c(var1.getData(var18.a()).c())) {
-                           var1.a(var18, this.P(), 2);
+                           var1.setTypeAndData(var18, this.P(), 2);
                         }
                      } else if(var19.J.k() && var19.d()) {
-                        var1.a(var2, var3.a(a(var17), Boolean.valueOf(true)), 2);
+                        var1.setTypeAndData(var2, var3.a(a(var17), Boolean.valueOf(true)), 2);
                      }
 
                   }
@@ -250,7 +250,7 @@ public class BlockVine extends Block {
                         }
 
                         if(((Boolean)var12.b(b)).booleanValue() || ((Boolean)var12.b(M)).booleanValue() || ((Boolean)var12.b(N)).booleanValue() || ((Boolean)var12.b(O)).booleanValue()) {
-                           var1.a(var18, var12, 2);
+                           var1.setTypeAndData(var18, var12, 2);
                         }
                      } else if(var11 == this) {
                         var12 = var23;
@@ -265,7 +265,7 @@ public class BlockVine extends Block {
                         }
 
                         if(((Boolean)var12.b(b)).booleanValue() || ((Boolean)var12.b(M)).booleanValue() || ((Boolean)var12.b(N)).booleanValue() || ((Boolean)var12.b(O)).booleanValue()) {
-                           var1.a(var18, var12, 2);
+                           var1.setTypeAndData(var18, var12, 2);
                         }
                      }
                   }

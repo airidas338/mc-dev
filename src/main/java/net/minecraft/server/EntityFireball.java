@@ -142,7 +142,7 @@ public abstract class EntityFireball extends Entity {
          if(this.V()) {
             for(int var18 = 0; var18 < 4; ++var18) {
                float var17 = 0.25F;
-               this.o.a(ew.e, this.s - this.v * (double)var17, this.t - this.w * (double)var17, this.u - this.x * (double)var17, this.v, this.w, this.x, new int[0]);
+               this.o.a(EnumParticleEffect.e, this.s - this.v * (double)var17, this.t - this.w * (double)var17, this.u - this.x * (double)var17, this.v, this.w, this.x, new int[0]);
             }
 
             var16 = 0.8F;
@@ -154,7 +154,7 @@ public abstract class EntityFireball extends Entity {
          this.v *= (double)var16;
          this.w *= (double)var16;
          this.x *= (double)var16;
-         this.o.a(ew.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          this.b(this.s, this.t, this.u);
       }
    }

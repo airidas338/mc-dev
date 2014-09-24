@@ -400,8 +400,8 @@ public abstract class bms {
 
    protected void a(World var1, IBlockData var2, int var3, int var4, int var5, bjb var6) {
       Location var7 = new Location(this.a(var3, var5), this.d(var4), this.b(var3, var5));
-      if(var6.b((fd)var7)) {
-         var1.a(var7, var2, 2);
+      if(var6.b((ChunkCoordinates)var7)) {
+         var1.setTypeAndData(var7, var2, 2);
       }
    }
 
@@ -409,7 +409,7 @@ public abstract class bms {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      return !var5.b((fd)(new Location(var6, var7, var8)))?Blocks.AIR.P():var1.getData(new Location(var6, var7, var8));
+      return !var5.b((ChunkCoordinates)(new Location(var6, var7, var8)))?Blocks.AIR.P():var1.getData(new Location(var6, var7, var8));
    }
 
    protected void a(World var1, bjb var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -507,9 +507,9 @@ public abstract class bms {
 
    protected void b(World var1, int var2, int var3, int var4, bjb var5) {
       Location var6 = new Location(this.a(var2, var4), this.d(var3), this.b(var2, var4));
-      if(var5.b((fd)var6)) {
+      if(var5.b((ChunkCoordinates)var6)) {
          while(!var1.isEmpty(var6) && var6.o() < 255) {
-            var1.a(var6, Blocks.AIR.P(), 2);
+            var1.setTypeAndData(var6, Blocks.AIR.P(), 2);
             var6 = var6.a();
          }
 
@@ -520,9 +520,9 @@ public abstract class bms {
       int var7 = this.a(var3, var5);
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
-      if(var6.b((fd)(new Location(var7, var8, var9)))) {
+      if(var6.b((ChunkCoordinates)(new Location(var7, var8, var9)))) {
          while((var1.isEmpty(new Location(var7, var8, var9)) || var1.getData(new Location(var7, var8, var9)).c().getMaterial().isLiquid()) && var8 > 1) {
-            var1.a(new Location(var7, var8, var9), var2, 2);
+            var1.setTypeAndData(new Location(var7, var8, var9), var2, 2);
             --var8;
          }
 
@@ -531,10 +531,10 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var9) && var1.getData(var9).c() != Blocks.CHEST) {
+      if(var2.b((ChunkCoordinates)var9) && var1.getData(var9).c() != Blocks.CHEST) {
          IBlockData var10 = Blocks.CHEST.P();
-         var1.a(var9, Blocks.CHEST.f(var1, var9, var10), 2);
-         TileEntity var11 = var1.s(var9);
+         var1.setTypeAndData(var9, Blocks.CHEST.f(var1, var9, var10), 2);
+         TileEntity var11 = var1.getTileEntity(var9);
          if(var11 instanceof TileEntityChest) {
             StructurePieceTreaasure.a(var3, var7, (IInventory)((TileEntityChest)var11), var8);
          }
@@ -547,9 +547,9 @@ public abstract class bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, int var7, List var8, int var9) {
       Location var10 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var10) && var1.getData(var10).c() != Blocks.DISPENSER) {
-         var1.a(var10, Blocks.DISPENSER.a(this.a(Blocks.DISPENSER, var7)), 2);
-         TileEntity var11 = var1.s(var10);
+      if(var2.b((ChunkCoordinates)var10) && var1.getData(var10).c() != Blocks.DISPENSER) {
+         var1.setTypeAndData(var10, Blocks.DISPENSER.a(this.a(Blocks.DISPENSER, var7)), 2);
+         TileEntity var11 = var1.getTileEntity(var10);
          if(var11 instanceof TileEntityDispenser) {
             StructurePieceTreaasure.a(var3, var8, (TileEntityDispenser)var11, var9);
          }
@@ -562,7 +562,7 @@ public abstract class bms {
 
    protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, EnumFacing var7) {
       Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var8)) {
+      if(var2.b((ChunkCoordinates)var8)) {
          akt.a(var1, var8, var7.f(), Blocks.WOODEN_DOOR);
       }
 

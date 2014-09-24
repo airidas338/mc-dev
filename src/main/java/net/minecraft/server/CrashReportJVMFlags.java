@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-class h implements Callable {
+class CrashReportJVMFlags implements Callable {
 
    // $FF: synthetic field
    final CrashReport a;
 
 
-   h(CrashReport var1) {
+   CrashReportJVMFlags(CrashReport var1) {
       this.a = var1;
    }
 

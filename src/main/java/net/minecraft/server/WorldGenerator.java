@@ -28,9 +28,9 @@ public abstract class WorldGenerator {
 
    protected void a(World var1, Location var2, IBlockData var3) {
       if(this.a) {
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
       } else {
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
       }
 
    }

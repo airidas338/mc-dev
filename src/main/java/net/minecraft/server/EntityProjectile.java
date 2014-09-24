@@ -176,7 +176,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       if(this.V()) {
          for(int var7 = 0; var7 < 4; ++var7) {
             float var19 = 0.25F;
-            this.o.a(ew.e, this.s - this.v * (double)var19, this.t - this.w * (double)var19, this.u - this.x * (double)var19, this.v, this.w, this.x, new int[0]);
+            this.o.a(EnumParticleEffect.e, this.s - this.v * (double)var19, this.t - this.w * (double)var19, this.u - this.x * (double)var19, this.v, this.w, this.x, new int[0]);
          }
 
          var17 = 0.8F;

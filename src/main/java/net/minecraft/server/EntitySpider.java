@@ -106,7 +106,7 @@ public class EntitySpider extends EntityMonster {
          EntitySkeleton var3 = new EntitySkeleton(this.o);
          var3.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
          var3.a(var1, (xq)null);
-         this.o.d((Entity)var3);
+         this.o.addEntity((Entity)var3);
          var3.a((Entity)this);
       }
 

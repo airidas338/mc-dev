@@ -3,12 +3,12 @@ package net.minecraft.server;
 
 public class bpv {
 
-   private final bpt[] a;
+   private final PathPoint[] a;
    private int b;
    private int c;
 
 
-   public bpv(bpt[] var1) {
+   public bpv(PathPoint[] var1) {
       this.a = var1;
       this.c = var1.length;
    }
@@ -21,11 +21,11 @@ public class bpv {
       return this.b >= this.c;
    }
 
-   public bpt c() {
+   public PathPoint c() {
       return this.c > 0?this.a[this.c - 1]:null;
    }
 
-   public bpt a(int var1) {
+   public PathPoint a(int var1) {
       return this.a[var1];
    }
 
@@ -73,7 +73,7 @@ public class bpv {
    }
 
    public boolean b(Vec3D var1) {
-      bpt var2 = this.c();
+      PathPoint var2 = this.c();
       return var2 == null?false:var2.a == (int)var1.a && var2.c == (int)var1.c;
    }
 }

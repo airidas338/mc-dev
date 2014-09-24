@@ -46,7 +46,7 @@ public class BlockFlowerPot extends BlockContainer {
             } else {
                var10.a(var9.b(), var9.i());
                var10.o_();
-               var1.h(var2);
+               var1.notify(var2);
                if(!var4.by.canInstantlyBuild && --var9.b <= 0) {
                   var4.bg.a(var4.bg.c, (ItemStack)null);
                }
@@ -72,10 +72,10 @@ public class BlockFlowerPot extends BlockContainer {
       return super.canPlace(var1, var2) && World.a((IBlockAccess)var1, var2.b());
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!World.a((IBlockAccess)var1, var2.b())) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -105,7 +105,7 @@ public class BlockFlowerPot extends BlockContainer {
    }
 
    private TileEntityFlowerPot d(World var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       return var3 instanceof TileEntityFlowerPot?(TileEntityFlowerPot)var3:null;
    }
 
@@ -174,7 +174,7 @@ public class BlockFlowerPot extends BlockContainer {
 
    public IBlockData a(IBlockData var1, IBlockAccess var2, Location var3) {
       awf var4 = awf.a;
-      TileEntity var5 = var2.s(var3);
+      TileEntity var5 = var2.getTileEntity(var3);
       if(var5 instanceof TileEntityFlowerPot) {
          TileEntityFlowerPot var6 = (TileEntityFlowerPot)var5;
          Item var7 = var6.b();

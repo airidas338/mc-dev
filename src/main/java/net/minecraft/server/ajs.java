@@ -26,13 +26,13 @@ public class ajs extends aju {
          } else {
             if(var5 == EnumFacing.UP) {
                int var9 = MathHelper.floor((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.a(var4, Blocks.BANNER_STANDING.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
+               var3.setTypeAndData(var4, Blocks.BANNER_STANDING.P().a(BlockStandingSign.a, Integer.valueOf(var9)), 3);
             } else {
-               var3.a(var4, Blocks.BANNER_WALL.P().a(BlockWallSign.a, var5), 3);
+               var3.setTypeAndData(var4, Blocks.BANNER_WALL.P().a(BlockWallSign.a, var5), 3);
             }
 
             --var1.b;
-            TileEntity var10 = var3.s(var4);
+            TileEntity var10 = var3.getTileEntity(var4);
             if(var10 instanceof TileEntityBanner) {
                ((TileEntityBanner)var10).a(var1);
             }

@@ -4,7 +4,7 @@ package net.minecraft.server;
 public class aaa extends PathfinderGoal {
 
    private EntityCreature a;
-   private abh b;
+   private VillageDoor b;
 
 
    public aaa(EntityCreature var1) {

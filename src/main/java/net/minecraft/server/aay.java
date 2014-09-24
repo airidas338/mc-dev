@@ -55,7 +55,7 @@ public class aay extends Navigation {
          }
 
          for(int var1 = 0; var1 < this.d.d(); ++var1) {
-            bpt var2 = this.d.a(var1);
+            PathPoint var2 = this.d.a(var1);
             if(this.c.i(new Location(var2.a, var2.b, var2.c))) {
                this.d.b(var1 - 1);
                return;

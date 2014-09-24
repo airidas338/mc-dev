@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 public class Items {
 
-   public static final Item a;
-   public static final Item b;
-   public static final Item c;
-   public static final Item d;
-   public static final Item e;
-   public static final ItemBow f;
+   public static final Item IRON_SPADE;
+   public static final Item IRON_PICKAXE;
+   public static final Item IRON_AXE;
+   public static final Item FLINT_AND_STEEL;
+   public static final Item APPLE;
+   public static final ItemBow BOW;
    public static final Item g;
    public static final Item h;
    public static final Item i;
@@ -199,12 +199,12 @@ public class Items {
       if(!DispenserRegistry.a()) {
          throw new RuntimeException("Accessed Items before Bootstrap!");
       } else {
-         a = a("iron_shovel");
-         b = a("iron_pickaxe");
-         c = a("iron_axe");
-         d = a("flint_and_steel");
-         e = a("apple");
-         f = (ItemBow)a("bow");
+         IRON_SPADE = a("iron_shovel");
+         IRON_PICKAXE = a("iron_pickaxe");
+         IRON_AXE = a("iron_axe");
+         FLINT_AND_STEEL = a("flint_and_steel");
+         APPLE = a("apple");
+         BOW = (ItemBow)a("bow");
          g = a("arrow");
          h = a("coal");
          i = a("diamond");

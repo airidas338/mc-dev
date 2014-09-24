@@ -77,27 +77,27 @@ public class BlockChest extends BlockContainer {
       boolean var13 = this == var1.getData(var9).c();
       boolean var14 = this == var1.getData(var10).c();
       if(!var11 && !var12 && !var13 && !var14) {
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
       } else if(var6.k() == el.a && (var11 || var12)) {
          if(var11) {
-            var1.a(var7, var3, 3);
+            var1.setTypeAndData(var7, var3, 3);
          } else {
-            var1.a(var8, var3, 3);
+            var1.setTypeAndData(var8, var3, 3);
          }
 
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
       } else if(var6.k() == el.c && (var13 || var14)) {
          if(var13) {
-            var1.a(var9, var3, 3);
+            var1.setTypeAndData(var9, var3, 3);
          } else {
-            var1.a(var10, var3, 3);
+            var1.setTypeAndData(var10, var3, 3);
          }
 
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
       }
 
       if(var5.s()) {
-         TileEntity var15 = var1.s(var2);
+         TileEntity var15 = var1.getTileEntity(var2);
          if(var15 instanceof TileEntityChest) {
             ((TileEntityChest)var15).a(var5.q());
          }
@@ -175,7 +175,7 @@ public class BlockChest extends BlockContainer {
          }
 
          var3 = var3.a(a, var8);
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
          return var3;
       }
    }
@@ -281,9 +281,9 @@ public class BlockChest extends BlockContainer {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
-      super.a(var1, var2, var3, var4);
-      TileEntity var5 = var1.s(var2);
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
+      super.doPhysics(var1, var2, var3, var4);
+      TileEntity var5 = var1.getTileEntity(var2);
       if(var5 instanceof TileEntityChest) {
          var5.E();
       }
@@ -291,10 +291,10 @@ public class BlockChest extends BlockContainer {
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof IInventory) {
          vs.a(var1, var2, (IInventory)var4);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
       super.remove(var1, var2, var3);
@@ -314,7 +314,7 @@ public class BlockChest extends BlockContainer {
    }
 
    public vy d(World var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       if(!(var3 instanceof TileEntityChest)) {
          return null;
       } else {
@@ -333,7 +333,7 @@ public class BlockChest extends BlockContainer {
                      return null;
                   }
 
-                  TileEntity var9 = var1.s(var7);
+                  TileEntity var9 = var1.getTileEntity(var7);
                   if(var9 instanceof TileEntityChest) {
                      if(var6 != EnumFacing.WEST && var6 != EnumFacing.NORTH) {
                         var4 = new vp("container.chestDouble", (vy)var4, (TileEntityChest)var9);
@@ -362,7 +362,7 @@ public class BlockChest extends BlockContainer {
          return 0;
       } else {
          int var5 = 0;
-         TileEntity var6 = var1.s(var2);
+         TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityChest) {
             var5 = ((TileEntityChest)var6).l;
          }

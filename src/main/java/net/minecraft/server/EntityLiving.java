@@ -117,7 +117,7 @@ public abstract class EntityLiving extends Entity {
             }
 
             int var11 = (int)(150.0D * var9);
-            ((WorldServer)this.o).a(ew.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.f(var6)});
+            ((WorldServer)this.o).a(EnumParticleEffect.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.f(var6)});
          }
       }
 
@@ -159,7 +159,7 @@ public abstract class EntityLiving extends Entity {
                   float var4 = this.V.nextFloat() - this.V.nextFloat();
                   float var5 = this.V.nextFloat() - this.V.nextFloat();
                   float var6 = this.V.nextFloat() - this.V.nextFloat();
-                  this.o.a(ew.e, this.s + (double)var4, this.t + (double)var5, this.u + (double)var6, this.v, this.w, this.x, new int[0]);
+                  this.o.a(EnumParticleEffect.e, this.s + (double)var4, this.t + (double)var5, this.u + (double)var6, this.v, this.w, this.x, new int[0]);
                }
 
                this.a(DamageSource.DROWN, 2.0F);
@@ -225,13 +225,13 @@ public abstract class EntityLiving extends Entity {
       ++this.av;
       if(this.av == 20) {
          int var1;
-         if(!this.o.isStatic && (this.aM > 0 || this.ba()) && this.aZ() && this.o.Q().b("doMobLoot")) {
+         if(!this.o.isStatic && (this.aM > 0 || this.ba()) && this.aZ() && this.o.getGameRules().getBoolean("doMobLoot")) {
             var1 = this.b(this.aL);
 
             while(var1 > 0) {
                int var2 = EntityExperienceOrb.a(var1);
                var1 -= var2;
-               this.o.d((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var2)));
+               this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var2)));
             }
          }
 
@@ -241,7 +241,7 @@ public abstract class EntityLiving extends Entity {
             double var8 = this.V.nextGaussian() * 0.02D;
             double var4 = this.V.nextGaussian() * 0.02D;
             double var6 = this.V.nextGaussian() * 0.02D;
-            this.o.a(ew.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var8, var4, var6, new int[0]);
+            this.o.a(EnumParticleEffect.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var8, var4, var6, new int[0]);
          }
       }
 
@@ -425,7 +425,7 @@ public abstract class EntityLiving extends Entity {
             double var5 = (double)(var11 >> 16 & 255) / 255.0D;
             double var7 = (double)(var11 >> 8 & 255) / 255.0D;
             double var9 = (double)(var11 >> 0 & 255) / 255.0D;
-            this.o.a(var12?ew.q:ew.p, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, var5, var7, var9, new int[0]);
+            this.o.a(var12?EnumParticleEffect.q:EnumParticleEffect.p, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, var5, var7, var9, new int[0]);
          }
       }
 
@@ -610,7 +610,7 @@ public abstract class EntityLiving extends Entity {
             }
 
             if(var3) {
-               this.o.a((Entity)this, (byte)2);
+               this.o.broadcastEntityEffect((Entity)this, (byte)2);
                if(var1 != DamageSource.DROWN) {
                   this.ac();
                }
@@ -662,7 +662,7 @@ public abstract class EntityLiving extends Entity {
          var6 = var6.a(-this.z * 3.1415927F / 180.0F);
          var6 = var6.b(-this.y * 3.1415927F / 180.0F);
          var6 = var6.b(this.s, this.t + (double)this.aR(), this.u);
-         this.o.a(ew.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.b(var1.b())});
+         this.o.a(EnumParticleEffect.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.b(var1.b())});
       }
 
    }
@@ -686,7 +686,7 @@ public abstract class EntityLiving extends Entity {
             var4 = EnchantmentManager.i((EntityLiving)var2);
          }
 
-         if(this.aZ() && this.o.Q().b("doMobLoot")) {
+         if(this.aZ() && this.o.getGameRules().getBoolean("doMobLoot")) {
             this.b(this.aM > 0, var4);
             this.a(this.aM > 0, var4);
             if(this.aM > 0 && this.V.nextFloat() < 0.025F + (float)var4 * 0.01F) {
@@ -695,7 +695,7 @@ public abstract class EntityLiving extends Entity {
          }
       }
 
-      this.o.a((Entity)this, (byte)3);
+      this.o.broadcastEntityEffect((Entity)this, (byte)3);
    }
 
    protected void a(boolean var1, int var2) {}
@@ -1088,7 +1088,7 @@ public abstract class EntityLiving extends Entity {
                this.w = 0.2D;
             }
 
-            if(this.o.isStatic && (!this.o.isLoaded(new Location((int)this.s, 0, (int)this.u)) || !this.o.f(new Location((int)this.s, 0, (int)this.u)).o())) {
+            if(this.o.isStatic && (!this.o.isLoaded(new Location((int)this.s, 0, (int)this.u)) || !this.o.getChunkAtWorldCoords(new Location((int)this.s, 0, (int)this.u)).o())) {
                if(this.t > 0.0D) {
                   this.w = -0.1D;
                } else {
@@ -1453,7 +1453,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public ScoreboardTeamBase bN() {
-      return this.o.Z().getPlayerTeam(this.aJ().toString());
+      return this.o.getScoreboard().getPlayerTeam(this.aJ().toString());
    }
 
    public boolean c(EntityLiving var1) {

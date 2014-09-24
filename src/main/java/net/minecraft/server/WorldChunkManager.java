@@ -34,7 +34,7 @@ public class WorldChunkManager {
    }
 
    public WorldChunkManager(World var1) {
-      this(var1.J(), var1.P().u(), var1.P().B());
+      this(var1.getSeed(), var1.getWorldData().getType(), var1.getWorldData().getGeneratorOptions());
    }
 
    public List a() {

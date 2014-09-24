@@ -77,7 +77,7 @@ public class bfg extends Chunk {
    }
 
    public Random a(long var1) {
-      return new Random(this.p().J() + (long)(this.a * this.a * 4987142) + (long)(this.a * 5947611) + (long)(this.b * this.b) * 4392871L + (long)(this.b * 389711) ^ var1);
+      return new Random(this.p().getSeed() + (long)(this.a * this.a * 4987142) + (long)(this.a * 5947611) + (long)(this.b * this.b) * 4392871L + (long)(this.b * 389711) ^ var1);
    }
 
    public boolean f() {

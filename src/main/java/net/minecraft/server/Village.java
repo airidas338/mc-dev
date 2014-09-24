@@ -58,7 +58,7 @@ public class Village {
          if(var3 != null) {
             EntityIronGolem var4 = new EntityIronGolem(this.a);
             var4.b(var3.a, var3.b, var3.c);
-            this.a.d((Entity)var4);
+            this.a.addEntity((Entity)var4);
             ++this.l;
          }
       }
@@ -139,13 +139,13 @@ public class Village {
       return this.b;
    }
 
-   public abh b(Location var1) {
-      abh var2 = null;
+   public VillageDoor b(Location var1) {
+      VillageDoor var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
 
       while(var4.hasNext()) {
-         abh var5 = (abh)var4.next();
+         VillageDoor var5 = (VillageDoor)var4.next();
          int var6 = var5.a(var1);
          if(var6 < var3) {
             var2 = var5;
@@ -156,13 +156,13 @@ public class Village {
       return var2;
    }
 
-   public abh c(Location var1) {
-      abh var2 = null;
+   public VillageDoor c(Location var1) {
+      VillageDoor var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
 
       while(var4.hasNext()) {
-         abh var5 = (abh)var4.next();
+         VillageDoor var5 = (VillageDoor)var4.next();
          int var6 = var5.a(var1);
          if(var6 > 256) {
             var6 *= 1000;
@@ -179,28 +179,28 @@ public class Village {
       return var2;
    }
 
-   public abh e(Location var1) {
+   public VillageDoor e(Location var1) {
       if(this.d.i(var1) > (double)(this.e * this.e)) {
          return null;
       } else {
          Iterator var2 = this.b.iterator();
 
-         abh var3;
+         VillageDoor var3;
          do {
             if(!var2.hasNext()) {
                return null;
             }
 
-            var3 = (abh)var2.next();
+            var3 = (VillageDoor)var2.next();
          } while(var3.d().n() != var1.n() || var3.d().p() != var1.p() || Math.abs(var3.d().o() - var1.o()) > 1);
 
          return var3;
       }
    }
 
-   public void a(abh var1) {
+   public void a(VillageDoor var1) {
       this.b.add(var1);
-      this.c = this.c.a((fd)var1.d());
+      this.c = this.c.a((ChunkCoordinates)var1.d());
       this.n();
       this.f = var1.h();
    }
@@ -212,14 +212,14 @@ public class Village {
    public void a(EntityLiving var1) {
       Iterator var2 = this.k.iterator();
 
-      abj var3;
+      VillageAggressor var3;
       do {
          if(!var2.hasNext()) {
-            this.k.add(new abj(this, var1, this.g));
+            this.k.add(new VillageAggressor(this, var1, this.g));
             return;
          }
 
-         var3 = (abj)var2.next();
+         var3 = (VillageAggressor)var2.next();
       } while(var3.a != var1);
 
       var3.b = this.g;
@@ -227,10 +227,10 @@ public class Village {
 
    public EntityLiving b(EntityLiving var1) {
       double var2 = Double.MAX_VALUE;
-      abj var4 = null;
+      VillageAggressor var4 = null;
 
       for(int var5 = 0; var5 < this.k.size(); ++var5) {
-         abj var6 = (abj)this.k.get(var5);
+         VillageAggressor var6 = (VillageAggressor)this.k.get(var5);
          double var7 = var6.a.h(var1);
          if(var7 <= var2) {
             var4 = var6;
@@ -267,7 +267,7 @@ public class Village {
       Iterator var1 = this.k.iterator();
 
       while(var1.hasNext()) {
-         abj var2 = (abj)var1.next();
+         VillageAggressor var2 = (VillageAggressor)var1.next();
          if(!var2.a.isAlive() || Math.abs(this.g - var2.b) > 300) {
             var1.remove();
          }
@@ -281,13 +281,13 @@ public class Village {
       Iterator var3 = this.b.iterator();
 
       while(var3.hasNext()) {
-         abh var4 = (abh)var3.next();
+         VillageDoor var4 = (VillageDoor)var3.next();
          if(var2) {
             var4.a();
          }
 
          if(!this.f(var4.d()) || Math.abs(this.g - var4.h()) > 1200) {
-            this.c = this.c.a((fd)var4.d().a(-1));
+            this.c = this.c.a((ChunkCoordinates)var4.d().a(-1));
             var1 = true;
             var4.a(true);
             var3.remove();
@@ -314,9 +314,9 @@ public class Village {
          this.d = new Location(this.c.n() / var1, this.c.o() / var1, this.c.p() / var1);
          int var2 = 0;
 
-         abh var4;
+         VillageDoor var4;
          for(Iterator var3 = this.b.iterator(); var3.hasNext(); var2 = Math.max(var4.a(this.d), var2)) {
-            var4 = (abh)var3.next();
+            var4 = (VillageDoor)var3.next();
          }
 
          this.e = Math.max(32, (int)Math.sqrt((double)var2) + 1);
@@ -352,7 +352,7 @@ public class Village {
 
       for(int var3 = 0; var3 < var2.size(); ++var3) {
          NBTTagCompound var4 = var2.get(var3);
-         abh var5 = new abh(new Location(var4.getInt("X"), var4.getInt("Y"), var4.getInt("Z")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
+         VillageDoor var5 = new VillageDoor(new Location(var4.getInt("X"), var4.getInt("Y"), var4.getInt("Z")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
          this.b.add(var5);
       }
 
@@ -382,7 +382,7 @@ public class Village {
       Iterator var3 = this.b.iterator();
 
       while(var3.hasNext()) {
-         abh var4 = (abh)var3.next();
+         VillageDoor var4 = (VillageDoor)var3.next();
          NBTTagCompound var5 = new NBTTagCompound();
          var5.setInt("X", var4.d().n());
          var5.setInt("Y", var4.d().o());

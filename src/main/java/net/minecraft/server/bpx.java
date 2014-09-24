@@ -11,22 +11,22 @@ public class bpx extends bpu {
       super.a();
    }
 
-   public bpt a(Entity var1) {
+   public PathPoint a(Entity var1) {
       return this.a(MathHelper.floor(var1.aQ().a), MathHelper.floor(var1.aQ().b + 0.5D), MathHelper.floor(var1.aQ().c));
    }
 
-   public bpt a(Entity var1, double var2, double var4, double var6) {
+   public PathPoint a(Entity var1, double var2, double var4, double var6) {
       return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4 + 0.5D), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
    }
 
-   public int a(bpt[] var1, Entity var2, bpt var3, bpt var4, float var5) {
+   public int a(PathPoint[] var1, Entity var2, PathPoint var3, PathPoint var4, float var5) {
       int var6 = 0;
       EnumFacing[] var7 = EnumFacing.values();
       int var8 = var7.length;
 
       for(int var9 = 0; var9 < var8; ++var9) {
          EnumFacing var10 = var7[var9];
-         bpt var11 = this.a(var2, var3.a + var10.g(), var3.b + var10.h(), var3.c + var10.i());
+         PathPoint var11 = this.a(var2, var3.a + var10.g(), var3.b + var10.h(), var3.c + var10.i());
          if(var11 != null && !var11.i && var11.a(var4) < var5) {
             var1[var6++] = var11;
          }
@@ -35,7 +35,7 @@ public class bpx extends bpu {
       return var6;
    }
 
-   private bpt a(Entity var1, int var2, int var3, int var4) {
+   private PathPoint a(Entity var1, int var2, int var3, int var4) {
       int var5 = this.b(var1, var2, var3, var4);
       return var5 == -1?this.a(var2, var3, var4):null;
    }

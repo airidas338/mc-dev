@@ -84,7 +84,7 @@ public class CommandStats extends CommandAbstract {
             TileEntity var10;
             if(var3) {
                var9 = a(var1, var2, 1, false);
-               var10 = var7.s(var9);
+               var10 = var7.getTileEntity(var9);
                if(var10 == null) {
                   throw new CommandException("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.n()), Integer.valueOf(var9.o()), Integer.valueOf(var9.p())});
                }
@@ -119,7 +119,7 @@ public class CommandStats extends CommandAbstract {
 
             if(var3) {
                var9 = a(var1, var2, 1, false);
-               var10 = var7.s(var9);
+               var10 = var7.getTileEntity(var9);
                var10.o_();
             }
 
@@ -136,7 +136,7 @@ public class CommandStats extends CommandAbstract {
    }
 
    protected List e() {
-      Collection var1 = MinecraftServer.M().a(0).Z().getObjectives();
+      Collection var1 = MinecraftServer.M().a(0).getScoreboard().getObjectives();
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = var1.iterator();
 

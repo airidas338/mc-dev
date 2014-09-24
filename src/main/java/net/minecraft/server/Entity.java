@@ -16,7 +16,7 @@ public abstract class Entity implements ICommandListener {
 	public boolean k;
 	public Entity l;
 	public Entity m;
-	public boolean n;
+	public boolean attachedToPlayer;
 	public World o;
 	public double p;
 	public double q;
@@ -287,7 +287,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	private boolean b(AxisAlignedBB var1) {
-		return this.o.a(this, var1).isEmpty() && !this.o.d(var1);
+		return this.o.getCubes(this, var1).isEmpty() && !this.o.containsLiquid(var1);
 	}
 
 	public void d(double var1, double var3, double var5) {
@@ -315,7 +315,7 @@ public abstract class Entity implements ICommandListener {
 			boolean var19 = this.C && this.aw() && this instanceof EntityHuman;
 			if (var19) {
 				double var20;
-				for (var20 = 0.05D; var1 != 0.0D && this.o.a(this, this.aQ().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
+				for (var20 = 0.05D; var1 != 0.0D && this.o.getCubes(this, this.aQ().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -325,7 +325,7 @@ public abstract class Entity implements ICommandListener {
 					}
 				}
 
-				for (; var5 != 0.0D && this.o.a(this, this.aQ().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var5 != 0.0D && this.o.getCubes(this, this.aQ().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var5 < var20 && var5 >= -var20) {
 						var5 = 0.0D;
 					} else if (var5 > 0.0D) {
@@ -335,7 +335,7 @@ public abstract class Entity implements ICommandListener {
 					}
 				}
 
-				for (; var1 != 0.0D && var5 != 0.0D && this.o.a(this, this.aQ().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var1 != 0.0D && var5 != 0.0D && this.o.getCubes(this, this.aQ().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -355,7 +355,7 @@ public abstract class Entity implements ICommandListener {
 				}
 			}
 
-			List var53 = this.o.a(this, this.aQ().a(var1, var3, var5));
+			List var53 = this.o.getCubes(this, this.aQ().a(var1, var3, var5));
 			AxisAlignedBB var21 = this.aQ();
 
 			AxisAlignedBB var23;
@@ -386,7 +386,7 @@ public abstract class Entity implements ICommandListener {
 				AxisAlignedBB var29 = this.aQ();
 				this.a(var21);
 				var3 = (double) this.S;
-				List var30 = this.o.a(this, this.aQ().a(var13, var3, var17));
+				List var30 = this.o.getCubes(this, this.aQ().a(var13, var3, var17));
 				AxisAlignedBB var31 = this.aQ();
 				AxisAlignedBB var32 = var31.a(var13, 0.0D, var17);
 				double var33 = var3;
@@ -607,7 +607,7 @@ public abstract class Entity implements ICommandListener {
 
 	public void a(String var1, float var2, float var3) {
 		if (!this.R()) {
-			this.o.a(this, var1, var2, var3);
+			this.o.makeSound(this, var1, var2, var3);
 		}
 
 	}
@@ -664,7 +664,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public boolean U() {
-		return this.Y || this.o.C(new Location(this.s, this.t, this.u)) || this.o.C(new Location(this.s, this.t + (double) this.K, this.u));
+		return this.Y || this.o.isRainingAt(new Location(this.s, this.t, this.u)) || this.o.isRainingAt(new Location(this.s, this.t + (double) this.K, this.u));
 	}
 
 	public boolean V() {
@@ -702,13 +702,13 @@ public abstract class Entity implements ICommandListener {
 		for (var3 = 0; (float) var3 < 1.0F + this.J * 20.0F; ++var3) {
 			var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
 			var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
-			this.o.a(ew.e, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.w - (double) (this.V.nextFloat() * 0.2F), this.x, new int[0]);
+			this.o.a(EnumParticleEffect.e, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.w - (double) (this.V.nextFloat() * 0.2F), this.x, new int[0]);
 		}
 
 		for (var3 = 0; (float) var3 < 1.0F + this.J * 20.0F; ++var3) {
 			var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
 			var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
-			this.o.a(ew.f, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.w, this.x, new int[0]);
+			this.o.a(EnumParticleEffect.f, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.w, this.x, new int[0]);
 		}
 
 	}
@@ -728,7 +728,7 @@ public abstract class Entity implements ICommandListener {
 		IBlockData var5 = this.o.getData(var4);
 		Block var6 = var5.c();
 		if (var6.b() != -1) {
-			this.o.a(ew.L, this.s + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, this.aQ().b + 0.1D, this.u + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D,
+			this.o.a(EnumParticleEffect.L, this.s + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, this.aQ().b + 0.1D, this.u + ((double) this.V.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D,
 					-this.x * 4.0D, new int[] { Block.f(var5) });
 		}
 
@@ -1119,7 +1119,7 @@ public abstract class Entity implements ICommandListener {
 		if (var1.b != 0 && var1.b() != null) {
 			EntityItem var3 = new EntityItem(this.o, this.s, this.t + (double) var2, this.u, var1);
 			var3.p();
-			this.o.d((Entity) var3);
+			this.o.addEntity((Entity) var3);
 			return var3;
 		} else {
 			return null;
@@ -1465,7 +1465,7 @@ public abstract class Entity implements ICommandListener {
 
 	public String toString() {
 		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c),
-				this.o == null ? "~NULL~" : this.o.P().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) });
+				this.o == null ? "~NULL~" : this.o.getWorldData().getName(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) });
 	}
 
 	public boolean b(DamageSource var1) {
@@ -1497,7 +1497,7 @@ public abstract class Entity implements ICommandListener {
 				this.am = 0;
 			}
 
-			this.o.e(this);
+			this.o.kill(this);
 			this.I = false;
 			this.o.methodProfiler.a("reposition");
 			var2.an().a(this, var3, var4, var5);
@@ -1506,11 +1506,11 @@ public abstract class Entity implements ICommandListener {
 			if (var6 != null) {
 				var6.n(this);
 				if (var3 == 1 && var1 == 1) {
-					Location var7 = this.o.r(var5.M());
+					Location var7 = this.o.r(var5.getSpawn());
 					var6.a(var7, var6.y, var6.z);
 				}
 
-				var5.d(var6);
+				var5.addEntity(var6);
 			}
 
 			this.I = true;
@@ -1521,11 +1521,11 @@ public abstract class Entity implements ICommandListener {
 		}
 	}
 
-	public float a(aqo var1, World var2, Location var3, IBlockData var4) {
+	public float a(Explosion var1, World var2, Location var3, IBlockData var4) {
 		return var4.c().a(this);
 	}
 
-	public boolean a(aqo var1, World var2, Location var3, IBlockData var4, float var5) {
+	public boolean a(Explosion var1, World var2, Location var3, IBlockData var4, float var5) {
 		return true;
 	}
 

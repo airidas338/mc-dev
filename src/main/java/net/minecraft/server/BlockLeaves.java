@@ -30,7 +30,7 @@ public abstract class BlockLeaves extends BlockTransparent {
                   Location var12 = var2.a(var9, var10, var11);
                   IBlockData var13 = var1.getData(var12);
                   if(var13.c().getMaterial() == Material.LEAVES && !((Boolean)var13.b(b)).booleanValue()) {
-                     var1.a(var12, var13.a(b, Boolean.valueOf(true)), 4);
+                     var1.setTypeAndData(var12, var13.a(b, Boolean.valueOf(true)), 4);
                   }
                }
             }
@@ -112,7 +112,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 
             var13 = this.M[var12 * var11 + var12 * var10 + var12];
             if(var13 >= 0) {
-               var1.a(var2, var3.a(b, Boolean.valueOf(false)), 4);
+               var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(false)), 4);
             } else {
                this.d(var1, var2);
             }
@@ -123,7 +123,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 
    private void d(World var1, Location var2) {
       this.b(var1, var2, var1.getData(var2), 0);
-      var1.g(var2);
+      var1.setAir(var2);
    }
 
    public int a(Random var1) {

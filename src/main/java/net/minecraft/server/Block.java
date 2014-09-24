@@ -262,7 +262,7 @@ public class Block {
     public void d(World var1, Location var2, IBlockData var3) {
     }
 
-    public void a(World var1, Location var2, IBlockData var3, Block var4) {
+    public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
     }
 
     public int a(World var1) {
@@ -309,14 +309,14 @@ public class Block {
     }
 
     public static void a(World var0, Location var1, ItemStack var2) {
-        if (!var0.isStatic && var0.Q().b("doTileDrops")) {
+        if (!var0.isStatic && var0.getGameRules().getBoolean("doTileDrops")) {
             float var3 = 0.5F;
             double var4 = (double) (var0.random.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
             double var6 = (double) (var0.random.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
             double var8 = (double) (var0.random.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
             EntityItem var10 = new EntityItem(var0, (double) var1.n() + var4, (double) var1.o() + var6, (double) var1.p() + var8, var2);
             var10.p();
-            var0.d((Entity) var10);
+            var0.addEntity((Entity) var10);
         }
     }
 
@@ -325,7 +325,7 @@ public class Block {
             while (var3 > 0) {
                 int var4 = EntityExperienceOrb.a(var3);
                 var3 -= var4;
-                var1.d((Entity) (new EntityExperienceOrb(var1, (double) var2.n() + 0.5D, (double) var2.o() + 0.5D, (double) var2.p() + 0.5D, var4)));
+                var1.addEntity((Entity) (new EntityExperienceOrb(var1, (double) var2.n() + 0.5D, (double) var2.o() + 0.5D, (double) var2.p() + 0.5D, var4)));
             }
         }
 
@@ -442,7 +442,7 @@ public class Block {
         return var1 == null ? false : var1.a >= this.B && var1.a <= this.E && var1.b >= this.C && var1.b <= this.F;
     }
 
-    public void a(World var1, Location var2, aqo var3) {
+    public void a(World var1, Location var2, Explosion var3) {
     }
 
     public boolean a(World var1, Location var2, EnumFacing var3, ItemStack var4) {
@@ -613,7 +613,7 @@ public class Block {
         return true;
     }
 
-    public boolean a(aqo var1) {
+    public boolean a(Explosion var1) {
         return true;
     }
 

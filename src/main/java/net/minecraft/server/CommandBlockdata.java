@@ -25,7 +25,7 @@ public class CommandBlockdata extends CommandAbstract {
          if(!var4.isLoaded(var3)) {
             throw new CommandException("commands.blockdata.outOfWorld", new Object[0]);
          } else {
-            TileEntity var5 = var4.s(var3);
+            TileEntity var5 = var4.getTileEntity(var3);
             if(var5 == null) {
                throw new CommandException("commands.blockdata.notValid", new Object[0]);
             } else {
@@ -49,7 +49,7 @@ public class CommandBlockdata extends CommandAbstract {
                } else {
                   var5.a(var6);
                   var5.o_();
-                  var4.h(var3);
+                  var4.notify(var3);
                   var1.a(ag.b, 1);
                   a(var1, this, "commands.blockdata.success", new Object[]{var6.toString()});
                }

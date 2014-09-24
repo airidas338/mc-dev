@@ -28,7 +28,7 @@ public class ht extends ChatBaseComponent {
    public String e() {
       MinecraftServer var1 = MinecraftServer.M();
       if(var1 != null && var1.N() && vb.b(this.d)) {
-         Scoreboard var2 = var1.a(0).Z();
+         Scoreboard var2 = var1.a(0).getScoreboard();
          ScoreboardObjective var3 = var2.getObjective(this.c);
          if(var2.b(this.b, var3)) {
             ScoreboardScore var4 = var2.getPlayerScoreForObjective(this.b, var3);

@@ -61,7 +61,7 @@ class aen extends PathfinderGoal {
                for(int var11 = 0; var11 < 1; ++var11) {
                   EntitySmallFireball var12 = new EntitySmallFireball(this.a.o, this.a, var4 + this.a.bb().nextGaussian() * (double)var10, var6, var8 + this.a.bb().nextGaussian() * (double)var10);
                   var12.t = this.a.t + (double)(this.a.K / 2.0F) + 0.5D;
-                  this.a.o.d((Entity)var12);
+                  this.a.o.addEntity((Entity)var12);
                }
             }
          }

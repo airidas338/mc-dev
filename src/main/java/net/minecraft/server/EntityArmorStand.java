@@ -364,7 +364,7 @@ public class EntityArmorStand extends EntityLiving {
                   this.J();
                   return false;
                } else {
-                  long var5 = this.o.K();
+                  long var5 = this.o.getTime();
                   if(var5 - this.i > 5L && !var3) {
                      this.i = var5;
                   } else {
@@ -384,7 +384,7 @@ public class EntityArmorStand extends EntityLiving {
 
    private void z() {
       if(this.o instanceof WorldServer) {
-         ((WorldServer)this.o).a(ew.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(Blocks.WOOD.P())});
+         ((WorldServer)this.o).a(EnumParticleEffect.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(Blocks.WOOD.P())});
       }
 
    }

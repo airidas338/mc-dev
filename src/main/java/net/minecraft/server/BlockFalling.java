@@ -19,7 +19,7 @@ public class BlockFalling extends Block {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
@@ -37,10 +37,10 @@ public class BlockFalling extends Block {
             if(!var1.isStatic) {
                EntityFallingBlock var5 = new EntityFallingBlock(var1, (double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, var1.getData(var2));
                this.a(var5);
-               var1.d((Entity)var5);
+               var1.addEntity((Entity)var5);
             }
          } else {
-            var1.g(var2);
+            var1.setAir(var2);
 
             Location var4;
             for(var4 = var2.b(); d(var1, var4) && var4.o() > 0; var4 = var4.b()) {

@@ -11,7 +11,7 @@ final class DispenserBehaviorPumpkin extends DispenserBehaviorItem {
       BlockPumpkin var5 = (BlockPumpkin)Blocks.PUMPKIN;
       if(var3.isEmpty(var4) && var5.d(var3, var4)) {
          if(!var3.isStatic) {
-            var3.a(var4, var5.P(), 3);
+            var3.setTypeAndData(var4, var5.P(), 3);
          }
 
          --var2.b;
@@ -24,9 +24,9 @@ final class DispenserBehaviorPumpkin extends DispenserBehaviorItem {
 
    protected void a(ISourceBlock var1) {
       if(this.b) {
-         var1.i().b(1000, var1.d(), 0);
+         var1.i().triggerEffect(1000, var1.d(), 0);
       } else {
-         var1.i().b(1001, var1.d(), 0);
+         var1.i().triggerEffect(1001, var1.d(), 0);
       }
 
    }

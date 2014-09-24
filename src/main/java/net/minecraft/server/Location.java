@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class Location extends fd {
+public class Location extends ChunkCoordinates {
 
    public static final Location a = new Location(0, 0, 0);
    private static final int b = 1 + MathHelper.c(MathHelper.b(30000000));
@@ -30,7 +30,7 @@ public class Location extends fd {
       this(var1.a, var1.b, var1.c);
    }
 
-   public Location(fd var1) {
+   public Location(ChunkCoordinates var1) {
       this(var1.n(), var1.o(), var1.p());
    }
 
@@ -42,7 +42,7 @@ public class Location extends fd {
       return new Location(this.n() + var1, this.o() + var2, this.p() + var3);
    }
 
-   public Location a(fd var1) {
+   public Location a(ChunkCoordinates var1) {
       return new Location(this.n() + var1.n(), this.o() + var1.o(), this.p() + var1.p());
    }
 
@@ -106,7 +106,7 @@ public class Location extends fd {
       return new Location(this.n() + var1.g() * var2, this.o() + var1.h() * var2, this.p() + var1.i() * var2);
    }
 
-   public Location c(fd var1) {
+   public Location c(ChunkCoordinates var1) {
       return new Location(this.o() * var1.p() - this.p() * var1.o(), this.p() * var1.n() - this.n() * var1.p(), this.n() * var1.o() - this.o() * var1.n());
    }
 
@@ -134,7 +134,7 @@ public class Location extends fd {
    }
 
    // $FF: synthetic method
-   public fd d(fd var1) {
+   public ChunkCoordinates d(ChunkCoordinates var1) {
       return this.c(var1);
    }
 

@@ -20,7 +20,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    private boolean bx;
    private boolean by;
    private wa bz;
-   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.O, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.P, new agx(-4, -2))}, {new agr(Item.a(Blocks.PUMPKIN), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.a(Blocks.MELON), new agx(7, 12)), new agv(Items.e, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.F, new agx(15, 20)), new agr(Items.h, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.a(Blocks.WOOL), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 0), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 1), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 2), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 3), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 4), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 5), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 6), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 7), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 8), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 9), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 10), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 11), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 12), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 13), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 14), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 15), new agx(1, 2))}}, {{new agr(Items.F, new agx(15, 20)), new agv(Items.g, new agx(-12, -8))}, {new agv(Items.f, new agx(2, 3)), new agu(Item.a(Blocks.GRAVEL), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.a(Blocks.BOOKSHELF), new agx(3, 4))}, {new agr(Items.WRITTEN_BOOK, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.a(Blocks.GLASS), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.k, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new ItemStack(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.a(Blocks.GLOWSTONE), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.h, new agx(16, 24)), new agv(Items.Y, new agx(4, 6))}, {new agr(Items.j, new agx(7, 9)), new agv(Items.Z, new agx(10, 14))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.ad, new agx(16, 19))}, {new agv(Items.X, new agx(5, 7)), new agv(Items.W, new agx(9, 11)), new agv(Items.U, new agx(5, 7)), new agv(Items.V, new agx(11, 15))}}, {{new agr(Items.h, new agx(16, 24)), new agv(Items.c, new agx(6, 8))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.l, new agx(9, 10))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.u, new agx(12, 15)), new agt(Items.x, new agx(9, 12))}}, {{new agr(Items.h, new agx(16, 24)), new agt(Items.a, new agx(5, 7))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.b, new agx(9, 11))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.w, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.h, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.S, new agx(2, 4))}, {new agt(Items.R, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
+   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.O, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.P, new agx(-4, -2))}, {new agr(Item.a(Blocks.PUMPKIN), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.a(Blocks.MELON), new agx(7, 12)), new agv(Items.APPLE, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.F, new agx(15, 20)), new agr(Items.h, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.a(Blocks.WOOL), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 0), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 1), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 2), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 3), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 4), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 5), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 6), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 7), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 8), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 9), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 10), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 11), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 12), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 13), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 14), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 15), new agx(1, 2))}}, {{new agr(Items.F, new agx(15, 20)), new agv(Items.g, new agx(-12, -8))}, {new agv(Items.BOW, new agx(2, 3)), new agu(Item.a(Blocks.GRAVEL), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.a(Blocks.BOOKSHELF), new agx(3, 4))}, {new agr(Items.WRITTEN_BOOK, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.a(Blocks.GLASS), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.k, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new ItemStack(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.a(Blocks.GLOWSTONE), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.h, new agx(16, 24)), new agv(Items.Y, new agx(4, 6))}, {new agr(Items.j, new agx(7, 9)), new agv(Items.Z, new agx(10, 14))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.ad, new agx(16, 19))}, {new agv(Items.X, new agx(5, 7)), new agv(Items.W, new agx(9, 11)), new agv(Items.U, new agx(5, 7)), new agv(Items.V, new agx(11, 15))}}, {{new agr(Items.h, new agx(16, 24)), new agv(Items.IRON_AXE, new agx(6, 8))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.l, new agx(9, 10))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.u, new agx(12, 15)), new agt(Items.x, new agx(9, 12))}}, {{new agr(Items.h, new agx(16, 24)), new agt(Items.IRON_SPADE, new agx(5, 7))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.IRON_PICKAXE, new agx(9, 11))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.w, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.h, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.S, new agx(2, 4))}, {new agt(Items.R, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
 
 
    public EntityVillager(World var1) {
@@ -110,7 +110,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
                this.cu();
                this.br = false;
                if(this.bk != null && this.bu != null) {
-                  this.o.a((Entity)this, (byte)14);
+                  this.o.broadcastEntityEffect((Entity)this, (byte)14);
                   this.bk.a(this.bu, 1);
                }
             }
@@ -243,7 +243,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
             this.bk.a(var1.getName(), var2);
             if(this.isAlive()) {
-               this.o.a((Entity)this, (byte)13);
+               this.o.broadcastEntityEffect((Entity)this, (byte)13);
             }
          }
       }
@@ -260,7 +260,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
                this.bk.h();
             }
          } else {
-            EntityHuman var3 = this.o.a(this, 16.0D);
+            EntityHuman var3 = this.o.findNearbyVulnerablePlayer(this, 16.0D);
             if(var3 != null) {
                this.bk.h();
             }
@@ -299,7 +299,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
             }
 
             if(var2) {
-               this.o.a((Entity)this, (byte)18);
+               this.o.broadcastEntityEffect((Entity)this, (byte)18);
                this.bs = true;
                break;
             }
@@ -336,7 +336,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       }
 
       if(var1.j()) {
-         this.o.d((Entity)(new EntityExperienceOrb(this.o, this.s, this.t + 0.5D, this.u, var2)));
+         this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t + 0.5D, this.u, var2)));
       }
 
    }
@@ -481,7 +481,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          EntityWitch var2 = new EntityWitch(this.o);
          var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
          var2.a(this.o.E(new Location(var2)), (xq)null);
-         this.o.d((Entity)var2);
+         this.o.addEntity((Entity)var2);
          this.J();
       }
    }

@@ -36,15 +36,15 @@ public class DispenserBehaviorItem implements IDispenseBehavior {
       var11.v += var0.random.nextGaussian() * 0.007499999832361937D * (double)var2;
       var11.w += var0.random.nextGaussian() * 0.007499999832361937D * (double)var2;
       var11.x += var0.random.nextGaussian() * 0.007499999832361937D * (double)var2;
-      var0.d((Entity)var11);
+      var0.addEntity((Entity)var11);
    }
 
    protected void a(ISourceBlock var1) {
-      var1.i().b(1000, var1.d(), 0);
+      var1.i().triggerEffect(1000, var1.d(), 0);
    }
 
    protected void a(ISourceBlock var1, EnumFacing var2) {
-      var1.i().b(2000, var1.d(), this.a(var2));
+      var1.i().triggerEffect(2000, var1.d(), this.a(var2));
    }
 
    private int a(EnumFacing var1) {

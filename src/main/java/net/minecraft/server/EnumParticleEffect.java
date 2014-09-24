@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import java.util.ArrayList;
 import java.util.Map;
 
-public enum ew {
+public enum EnumParticleEffect {
 
    a("EXPLOSION_NORMAL", 0, "explode", 0, true),
    b("EXPLOSION_LARGE", 1, "largeexplode", 1, true),
@@ -55,17 +55,17 @@ public enum ew {
    private static final Map U = Maps.newHashMap();
    private static final String[] V;
    // $FF: synthetic field
-   private static final ew[] W = new ew[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P};
+   private static final EnumParticleEffect[] W = new EnumParticleEffect[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P};
 
 
-   private ew(String var1, int var2, String var3, int var4, boolean var5, int var6) {
+   private EnumParticleEffect(String var1, int var2, String var3, int var4, boolean var5, int var6) {
       this.Q = var3;
       this.R = var4;
       this.S = var5;
       this.T = var6;
    }
 
-   private ew(String var1, int var2, String var3, int var4, boolean var5) {
+   private EnumParticleEffect(String var1, int var2, String var3, int var4, boolean var5) {
       this(var1, var2, var3, var4, var5, 0);
    }
 
@@ -93,17 +93,17 @@ public enum ew {
       return this.T > 0;
    }
 
-   public static ew a(int var0) {
-      return (ew)U.get(Integer.valueOf(var0));
+   public static EnumParticleEffect a(int var0) {
+      return (EnumParticleEffect)U.get(Integer.valueOf(var0));
    }
 
    static {
       ArrayList var0 = Lists.newArrayList();
-      ew[] var1 = values();
+      EnumParticleEffect[] var1 = values();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         ew var4 = var1[var3];
+         EnumParticleEffect var4 = var1[var3];
          U.put(Integer.valueOf(var4.c()), var4);
          if(!var4.b().endsWith("_")) {
             var0.add(var4.b());

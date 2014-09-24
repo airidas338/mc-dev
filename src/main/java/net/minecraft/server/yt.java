@@ -87,18 +87,18 @@ public class yt extends PathfinderGoal {
          this.e.cq();
          var1.b(-24000);
          var1.setPositionRotation(this.d.s, this.d.t, this.d.u, 0.0F, 0.0F);
-         this.a.d((Entity)var1);
+         this.a.addEntity((Entity)var1);
          Random var3 = this.d.bb();
 
          for(int var4 = 0; var4 < 7; ++var4) {
             double var5 = var3.nextGaussian() * 0.02D;
             double var7 = var3.nextGaussian() * 0.02D;
             double var9 = var3.nextGaussian() * 0.02D;
-            this.a.a(ew.I, this.d.s + (double)(var3.nextFloat() * this.d.J * 2.0F) - (double)this.d.J, this.d.t + 0.5D + (double)(var3.nextFloat() * this.d.K), this.d.u + (double)(var3.nextFloat() * this.d.J * 2.0F) - (double)this.d.J, var5, var7, var9, new int[0]);
+            this.a.a(EnumParticleEffect.I, this.d.s + (double)(var3.nextFloat() * this.d.J * 2.0F) - (double)this.d.J, this.d.t + 0.5D + (double)(var3.nextFloat() * this.d.K), this.d.u + (double)(var3.nextFloat() * this.d.J * 2.0F) - (double)this.d.J, var5, var7, var9, new int[0]);
          }
 
-         if(this.a.Q().b("doMobLoot")) {
-            this.a.d((Entity)(new EntityExperienceOrb(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
+         if(this.a.getGameRules().getBoolean("doMobLoot")) {
+            this.a.addEntity((Entity)(new EntityExperienceOrb(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
          }
 
       }

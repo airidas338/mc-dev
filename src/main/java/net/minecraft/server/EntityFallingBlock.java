@@ -56,7 +56,7 @@ public class EntityFallingBlock extends Entity {
          if(this.a++ == 0) {
             var2 = new Location(this);
             if(this.o.getData(var2).c() == var1) {
-               this.o.g(var2);
+               this.o.setAir(var2);
             } else if(!this.o.isStatic) {
                this.J();
                return;
@@ -76,13 +76,13 @@ public class EntityFallingBlock extends Entity {
                this.w *= -0.5D;
                if(this.o.getData(var2).c() != Blocks.PISTON_MOVING) {
                   this.J();
-                  if(!this.e && this.o.a(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !BlockFalling.d(this.o, var2.b()) && this.o.a(var2, this.d, 3)) {
+                  if(!this.e && this.o.mayPlace(var1, var2, true, EnumFacing.UP, (Entity)null, (ItemStack)null) && !BlockFalling.d(this.o, var2.b()) && this.o.setTypeAndData(var2, this.d, 3)) {
                      if(var1 instanceof BlockFalling) {
                         ((BlockFalling)var1).a_(this.o, var2);
                      }
 
                      if(this.c != null && var1 instanceof IContainer) {
-                        TileEntity var3 = this.o.s(var2);
+                        TileEntity var3 = this.o.getTileEntity(var2);
                         if(var3 != null) {
                            NBTTagCompound var4 = new NBTTagCompound();
                            var3.b(var4);
@@ -100,12 +100,12 @@ public class EntityFallingBlock extends Entity {
                            var3.o_();
                         }
                      }
-                  } else if(this.b && !this.e && this.o.Q().b("doTileDrops")) {
+                  } else if(this.b && !this.e && this.o.getGameRules().getBoolean("doTileDrops")) {
                      this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                   }
                }
             } else if(this.a > 100 && !this.o.isStatic && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
-               if(this.b && this.o.Q().b("doTileDrops")) {
+               if(this.b && this.o.getGameRules().getBoolean("doTileDrops")) {
                   this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
                }
 

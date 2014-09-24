@@ -164,7 +164,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    protected void a(vu var1) {
       super.a(var1);
-      this.c(0, new ItemStack(Items.f));
+      this.c(0, new ItemStack(Items.BOW));
    }
 
    public xq a(vu var1, xq var2) {
@@ -196,7 +196,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       this.goalSelector.a((PathfinderGoal)this.c);
       this.goalSelector.a((PathfinderGoal)this.b);
       ItemStack var1 = this.bz();
-      if(var1 != null && var1.b() == Items.f) {
+      if(var1 != null && var1.b() == Items.BOW) {
          this.goalSelector.a(4, this.b);
       } else {
          this.goalSelector.a(4, this.c);
@@ -222,7 +222,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       }
 
       this.a("random.bow", 1.0F, 1.0F / (this.bb().nextFloat() * 0.4F + 0.8F));
-      this.o.d((Entity)var3);
+      this.o.addEntity((Entity)var3);
    }
 
    public int ck() {

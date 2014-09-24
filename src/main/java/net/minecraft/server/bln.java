@@ -52,7 +52,7 @@ abstract class bln extends bms {
          for(int var6 = this.l.c; var6 <= this.l.f; ++var6) {
             for(int var7 = this.l.a; var7 <= this.l.d; ++var7) {
                Location var8 = new Location(var7, 64, var6);
-               if(var2.b((fd)var8)) {
+               if(var2.b((ChunkCoordinates)var8)) {
                   var4 += Math.max(var1.r(var8).o(), var1.worldProvider.i());
                   ++var5;
                }

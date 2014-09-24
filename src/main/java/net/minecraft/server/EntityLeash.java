@@ -91,8 +91,8 @@ public class EntityLeash extends EntityHanging {
 
    public static EntityLeash a(World var0, Location var1) {
       EntityLeash var2 = new EntityLeash(var0, var1);
-      var2.n = true;
-      var0.d((Entity)var2);
+      var2.attachedToPlayer = true;
+      var0.addEntity((Entity)var2);
       return var2;
    }
 

@@ -57,16 +57,16 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
       }
 
       if(var5 && !var4) {
-         var1.a(var2, var3.a(M, Boolean.valueOf(true)), 3);
-         var1.c(var2, (Block)this);
-         var1.c(var2.b(), (Block)this);
+         var1.setTypeAndData(var2, var3.a(M, Boolean.valueOf(true)), 3);
+         var1.applyPhysics(var2, (Block)this);
+         var1.applyPhysics(var2.b(), (Block)this);
          var1.b(var2, var2);
       }
 
       if(!var5 && var4) {
-         var1.a(var2, var3.a(M, Boolean.valueOf(false)), 3);
-         var1.c(var2, (Block)this);
-         var1.c(var2.b(), (Block)this);
+         var1.setTypeAndData(var2, var3.a(M, Boolean.valueOf(false)), 3);
+         var1.applyPhysics(var2, (Block)this);
+         var1.applyPhysics(var2.b(), (Block)this);
          var1.b(var2, var2);
       }
 
@@ -74,7 +74,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
          var1.a(var2, (Block)this, this.a(var1));
       }
 
-      var1.e(var2, this);
+      var1.updateAdjacentComparators(var2, this);
    }
 
    public void c(World var1, Location var2, IBlockData var3) {
@@ -108,7 +108,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 
    protected List a(World var1, Location var2, Class var3, Predicate ... var4) {
       AxisAlignedBB var5 = this.a(var2);
-      return var4.length != 1?var1.getEntities(var3, var5):var1.a(var3, var5, var4[0]);
+      return var4.length != 1?var1.getEntities(var3, var5):var1.getEntities(var3, var5, var4[0]);
    }
 
    private AxisAlignedBB a(Location var1) {

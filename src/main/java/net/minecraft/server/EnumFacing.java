@@ -5,19 +5,19 @@ import java.util.Random;
 
 public enum EnumFacing implements IName {
 
-   DOWN("DOWN", 0, 0, 1, -1, "down", em.b, el.b, new fd(0, -1, 0)),
-   UP("UP", 1, 1, 0, -1, "up", em.a, el.b, new fd(0, 1, 0)),
-   NORTH("NORTH", 2, 2, 3, 2, "north", em.b, el.c, new fd(0, 0, -1)),
-   SOUTH("SOUTH", 3, 3, 2, 0, "south", em.a, el.c, new fd(0, 0, 1)),
-   WEST("WEST", 4, 4, 5, 1, "west", em.b, el.a, new fd(-1, 0, 0)),
-   EAST("EAST", 5, 5, 4, 3, "east", em.a, el.a, new fd(1, 0, 0));
+   DOWN("DOWN", 0, 0, 1, -1, "down", em.b, el.b, new ChunkCoordinates(0, -1, 0)),
+   UP("UP", 1, 1, 0, -1, "up", em.a, el.b, new ChunkCoordinates(0, 1, 0)),
+   NORTH("NORTH", 2, 2, 3, 2, "north", em.b, el.c, new ChunkCoordinates(0, 0, -1)),
+   SOUTH("SOUTH", 3, 3, 2, 0, "south", em.a, el.c, new ChunkCoordinates(0, 0, 1)),
+   WEST("WEST", 4, 4, 5, 1, "west", em.b, el.a, new ChunkCoordinates(-1, 0, 0)),
+   EAST("EAST", 5, 5, 4, 3, "east", em.a, el.a, new ChunkCoordinates(1, 0, 0));
    private final int g;
    private final int h;
    private final int i;
    private final String j;
    private final el k;
    private final em l;
-   private final fd m;
+   private final ChunkCoordinates m;
    private static final EnumFacing[] n = new EnumFacing[6];
    private static final EnumFacing[] o = new EnumFacing[4];
    private static final Map p = Maps.newHashMap();
@@ -25,7 +25,7 @@ public enum EnumFacing implements IName {
    private static final EnumFacing[] q = new EnumFacing[]{DOWN, UP, NORTH, SOUTH, WEST, EAST};
 
 
-   private EnumFacing(String var1, int var2, int var3, int var4, int var5, String var6, em var7, el var8, fd var9) {
+   private EnumFacing(String var1, int var2, int var3, int var4, int var5, String var6, em var7, el var8, ChunkCoordinates var9) {
       this.g = var3;
       this.i = var5;
       this.h = var4;

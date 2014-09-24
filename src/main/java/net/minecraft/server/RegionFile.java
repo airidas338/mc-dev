@@ -13,7 +13,7 @@ import java.util.zip.DeflaterOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
-public class bfv {
+public class RegionFile {
 
    private static final byte[] a = new byte[4096];
    private final File b;
@@ -25,7 +25,7 @@ public class bfv {
    private long h;
 
 
-   public bfv(File var1) {
+   public RegionFile(File var1) {
       this.b = var1;
       this.g = 0;
 
@@ -131,7 +131,7 @@ public class bfv {
    }
 
    public DataOutputStream b(int var1, int var2) {
-      return this.d(var1, var2)?null:new DataOutputStream(new DeflaterOutputStream(new bfw(this, var1, var2)));
+      return this.d(var1, var2)?null:new DataOutputStream(new DeflaterOutputStream(new ChunkBuffer(this, var1, var2)));
    }
 
    protected synchronized void a(int var1, int var2, byte[] var3, int var4) {

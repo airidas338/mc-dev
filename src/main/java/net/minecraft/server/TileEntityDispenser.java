@@ -137,7 +137,7 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
    }
 
    public boolean a(EntityHuman var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.getTileEntity(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
    public void b(EntityHuman var1) {}

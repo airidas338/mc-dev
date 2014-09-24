@@ -17,7 +17,7 @@ public class ze extends zn {
 
    public boolean a() {
       if(this.a <= 0) {
-         if(!this.c.o.Q().b("mobGriefing")) {
+         if(!this.c.o.getGameRules().getBoolean("mobGriefing")) {
             return false;
          }
 
@@ -50,7 +50,7 @@ public class ze extends zn {
          IBlockData var3 = var1.getData(var2);
          Block var4 = var3.c();
          if(this.f == 0 && var4 instanceof BlockCrops && ((Integer)var3.b(BlockCrops.a)).intValue() == 7) {
-            var1.b(var2, true);
+            var1.setAir(var2, true);
          } else if(this.f == 1 && var4 == Blocks.AIR) {
             wa var5 = this.c.co();
 
@@ -59,13 +59,13 @@ public class ze extends zn {
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.b() == Items.N) {
-                     var1.a(var2, Blocks.WHEAT.P(), 3);
+                     var1.setTypeAndData(var2, Blocks.WHEAT.P(), 3);
                      var8 = true;
                   } else if(var7.b() == Items.bS) {
-                     var1.a(var2, Blocks.POTATOES.P(), 3);
+                     var1.setTypeAndData(var2, Blocks.POTATOES.P(), 3);
                      var8 = true;
                   } else if(var7.b() == Items.bR) {
-                     var1.a(var2, Blocks.CARROTS.P(), 3);
+                     var1.setTypeAndData(var2, Blocks.CARROTS.P(), 3);
                      var8 = true;
                   }
                }

@@ -20,7 +20,7 @@ public class BlockRepeater extends BlockDiodeAbstract {
       if(!var4.by.e) {
          return false;
       } else {
-         var1.a(var2, var3.a(b), 3);
+         var1.setTypeAndData(var2, var3.a(b), 3);
          return true;
       }
    }

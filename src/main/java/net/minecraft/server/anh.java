@@ -34,13 +34,13 @@ public class anh extends Item {
             return false;
          } else {
             if(!var3.isStatic) {
-               var3.a(var4, Blocks.SKULL.P().a(BlockSkull.a, var5), 3);
+               var3.setTypeAndData(var4, Blocks.SKULL.P().a(BlockSkull.a, var5), 3);
                int var12 = 0;
                if(var5 == EnumFacing.UP) {
                   var12 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
-               TileEntity var13 = var3.s(var4);
+               TileEntity var13 = var3.getTileEntity(var4);
                if(var13 instanceof TileEntitySkull) {
                   TileEntitySkull var14 = (TileEntitySkull)var13;
                   if(var1.i() == 3) {

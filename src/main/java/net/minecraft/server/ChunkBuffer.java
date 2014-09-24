@@ -1,15 +1,15 @@
 package net.minecraft.server;
 import java.io.ByteArrayOutputStream;
 
-class bfw extends ByteArrayOutputStream {
+class ChunkBuffer extends ByteArrayOutputStream {
 
    private int b;
    private int c;
    // $FF: synthetic field
-   final bfv a;
+   final RegionFile a;
 
 
-   public bfw(bfv var1, int var2, int var3) {
+   public ChunkBuffer(RegionFile var1, int var2, int var3) {
       super(8096);
       this.a = var1;
       this.b = var2;

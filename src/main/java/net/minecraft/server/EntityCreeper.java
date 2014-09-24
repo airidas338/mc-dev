@@ -153,8 +153,8 @@ public class EntityCreeper extends EntityMonster {
 
    protected boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.d) {
-         this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
+      if(var2 != null && var2.b() == Items.FLINT_AND_STEEL) {
+         this.o.makeSound(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.bv();
          if(!this.o.isStatic) {
             this.cm();
@@ -168,9 +168,9 @@ public class EntityCreeper extends EntityMonster {
 
    private void cp() {
       if(!this.o.isStatic) {
-         boolean var1 = this.o.Q().b("mobGriefing");
+         boolean var1 = this.o.getGameRules().getBoolean("mobGriefing");
          float var2 = this.n()?2.0F:1.0F;
-         this.o.a(this, this.s, this.t, this.u, (float)this.bl * var2, var1);
+         this.o.explode(this, this.s, this.t, this.u, (float)this.bl * var2, var1);
          this.J();
       }
 
@@ -185,7 +185,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    public boolean cn() {
-      return this.bm < 1 && this.o.Q().b("doMobLoot");
+      return this.bm < 1 && this.o.getGameRules().getBoolean("doMobLoot");
    }
 
    public void co() {

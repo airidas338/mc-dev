@@ -92,7 +92,7 @@ public class TileEntityPiston extends TileEntity implements IUpdatePlayerListBox
          this.b.t(this.c);
          this.y();
          if(this.b.getData(this.c).c() == Blocks.PISTON_MOVING) {
-            this.b.a(this.c, this.a, 3);
+            this.b.setTypeAndData(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
       }
@@ -106,7 +106,7 @@ public class TileEntityPiston extends TileEntity implements IUpdatePlayerListBox
          this.b.t(this.c);
          this.y();
          if(this.b.getData(this.c).c() == Blocks.PISTON_MOVING) {
-            this.b.a(this.c, this.a, 3);
+            this.b.setTypeAndData(this.c, this.a, 3);
             this.b.d(this.c, this.a.c());
          }
 

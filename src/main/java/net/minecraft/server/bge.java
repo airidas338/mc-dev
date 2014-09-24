@@ -20,7 +20,7 @@ public class bge extends WorldProvider {
    }
 
    public IChunkProvider c() {
-      return new bgr(this.b, this.b.P().s(), this.b.J());
+      return new bgr(this.b, this.b.getWorldData().shouldGenerateMapFeatures(), this.b.getSeed());
    }
 
    public boolean d() {

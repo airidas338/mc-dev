@@ -109,13 +109,13 @@ public abstract class blb extends bms {
       int var6 = this.a(var3, var5);
       int var7 = this.d(var4);
       int var8 = this.b(var3, var5);
-      if(var2.b((fd)(new Location(var6, var7, var8)))) {
+      if(var2.b((ChunkCoordinates)(new Location(var6, var7, var8)))) {
          EntityGuardian var9 = new EntityGuardian(var1);
          var9.a(true);
          var9.g(var9.bt());
          var9.setPositionRotation((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
          var9.a(var1.E(new Location(var9)), (xq)null);
-         var1.d((Entity)var9);
+         var1.addEntity((Entity)var9);
          return true;
       } else {
          return false;

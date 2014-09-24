@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
-class aqr {
+class GameRuleValue {
 
    private String a;
    private boolean b;
    private int c;
    private double d;
-   private final aqs e;
+   private final GameRuleInputType e;
 
 
-   public aqr(String var1, aqs var2) {
+   public GameRuleValue(String var1, GameRuleInputType var2) {
       this.e = var2;
       this.a(var1);
    }
@@ -45,7 +45,7 @@ class aqr {
       return this.c;
    }
 
-   public aqs e() {
+   public GameRuleInputType e() {
       return this.e;
    }
 }

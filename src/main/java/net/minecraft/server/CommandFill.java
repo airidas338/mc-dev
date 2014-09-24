@@ -71,7 +71,7 @@ public class CommandFill extends CommandAbstract {
                      if(var2.length >= 9) {
                         if(!var2[8].equals("outline") && !var2[8].equals("hollow")) {
                            if(var2[8].equals("destroy")) {
-                              var10.b(var17, true);
+                              var10.setAir(var17, true);
                            } else if(var2[8].equals("keep")) {
                               if(!var10.isEmpty(var17)) {
                                  continue;
@@ -94,28 +94,28 @@ public class CommandFill extends CommandAbstract {
                            }
                         } else if(var16 != var7.n() && var16 != var8.n() && var15 != var7.o() && var15 != var8.o() && var14 != var7.p() && var14 != var8.p()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a(var17, Blocks.AIR.P(), 2);
+                              var10.setTypeAndData(var17, Blocks.AIR.P(), 2);
                               var24.add(var17);
                            }
                            continue;
                         }
                      }
 
-                     TileEntity var28 = var10.s(var17);
+                     TileEntity var28 = var10.getTileEntity(var17);
                      if(var28 != null) {
                         if(var28 instanceof IInventory) {
                            ((IInventory)var28).l();
                         }
 
-                        var10.a(var17, Blocks.BARRIER.P(), var5 == Blocks.BARRIER?2:4);
+                        var10.setTypeAndData(var17, Blocks.BARRIER.P(), var5 == Blocks.BARRIER?2:4);
                      }
 
                      var19 = var5.a(var6);
-                     if(var10.a(var17, var19, 2)) {
+                     if(var10.setTypeAndData(var17, var19, 2)) {
                         var24.add(var17);
                         ++var9;
                         if(var22) {
-                           TileEntity var20 = var10.s(var17);
+                           TileEntity var20 = var10.getTileEntity(var17);
                            if(var20 != null) {
                               var23.setInt("x", var17.n());
                               var23.setInt("y", var17.o());
@@ -133,7 +133,7 @@ public class CommandFill extends CommandAbstract {
             while(var25.hasNext()) {
                Location var27 = (Location)var25.next();
                Block var26 = var10.getData(var27).c();
-               var10.b(var27, var26);
+               var10.update(var27, var26);
             }
 
             if(var9 <= 0) {

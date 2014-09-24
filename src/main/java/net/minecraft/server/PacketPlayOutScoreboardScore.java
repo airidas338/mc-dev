@@ -11,8 +11,8 @@ public class PacketPlayOutScoreboardScore implements Packet {
    public PacketPlayOutScoreboardScore() {}
 
    public PacketPlayOutScoreboardScore(ScoreboardScore var1) {
-      this.a = var1.e();
-      this.b = var1.d().getName();
+      this.a = var1.getPlayerName();
+      this.b = var1.getObjective().getName();
       this.c = var1.getScore();
       this.d = EnumScoreAction.CHANGE;
    }

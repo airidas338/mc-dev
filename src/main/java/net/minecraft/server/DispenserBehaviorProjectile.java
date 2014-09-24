@@ -9,13 +9,13 @@ public abstract class DispenserBehaviorProjectile extends DispenserBehaviorItem 
       EnumFacing var5 = BlockDispenser.b(var1.f());
       IProjectile var6 = this.a(var3, var4);
       var6.shoot((double)var5.g(), (double)((float)var5.h() + 0.1F), (double)var5.i(), this.b(), this.a());
-      var3.d((Entity)var6);
+      var3.addEntity((Entity)var6);
       var2.a(1);
       return var2;
    }
 
    protected void a(ISourceBlock var1) {
-      var1.i().b(1002, var1.d(), 0);
+      var1.i().triggerEffect(1002, var1.d(), 0);
    }
 
    protected abstract IProjectile a(World var1, IPosition var2);

@@ -15,18 +15,18 @@ public class EntityEnderPearl extends EntityProjectile {
       }
 
       for(int var3 = 0; var3 < 32; ++var3) {
-         this.o.a(ew.y, this.s, this.t + this.V.nextDouble() * 2.0D, this.u, this.V.nextGaussian(), 0.0D, this.V.nextGaussian(), new int[0]);
+         this.o.a(EnumParticleEffect.y, this.s, this.t + this.V.nextDouble() * 2.0D, this.u, this.V.nextGaussian(), 0.0D, this.V.nextGaussian(), new int[0]);
       }
 
       if(!this.o.isStatic) {
          if(var2 instanceof EntityPlayer) {
             EntityPlayer var5 = (EntityPlayer)var2;
             if(var5.a.a().isConnected() && var5.o == this.o && !var5.bI()) {
-               if(this.V.nextFloat() < 0.05F && this.o.Q().b("doMobSpawning")) {
+               if(this.V.nextFloat() < 0.05F && this.o.getGameRules().getBoolean("doMobSpawning")) {
                   EntityEndermite var4 = new EntityEndermite(this.o);
                   var4.a(true);
                   var4.setPositionRotation(var2.s, var2.t, var2.u, var2.y, var2.z);
-                  this.o.d((Entity)var4);
+                  this.o.addEntity((Entity)var4);
                }
 
                if(var2.av()) {

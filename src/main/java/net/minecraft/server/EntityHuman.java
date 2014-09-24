@@ -15,7 +15,7 @@ public abstract class EntityHuman extends EntityLiving {
    private ajh a = new ajh();
    public aib bh;
    public aib bi;
-   protected ahz bj = new ahz();
+   protected FoodMetaData bj = new FoodMetaData();
    protected int bk;
    public float bl;
    public float bm;
@@ -55,7 +55,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.bF = var2;
       this.bh = new ajb(this.bg, !var1.isStatic, this);
       this.bi = this.bh;
-      Location var3 = var1.M();
+      Location var3 = var1.getSpawn();
       this.setPositionRotation((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
       this.aT = 180.0F;
       this.X = 20;
@@ -97,7 +97,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean bV() {
-      return this.bR() && this.g.b().e(this.g) == ano.d;
+      return this.bR() && this.g.b().e(this.g) == EnumAnimation.BLOCK;
    }
 
    public void s_() throws IOException {
@@ -231,11 +231,11 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    protected void b(ItemStack var1, int var2) {
-      if(var1.m() == ano.c) {
+      if(var1.m() == EnumAnimation.DRINK) {
          this.a("random.drink", 0.5F, this.o.random.nextFloat() * 0.1F + 0.9F);
       }
 
-      if(var1.m() == ano.b) {
+      if(var1.m() == EnumAnimation.EAT) {
          for(int var3 = 0; var3 < var2; ++var3) {
             Vec3D var4 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
             var4 = var4.a(-this.z * 3.1415927F / 180.0F);
@@ -246,9 +246,9 @@ public abstract class EntityHuman extends EntityLiving {
             var7 = var7.b(-this.y * 3.1415927F / 180.0F);
             var7 = var7.b(this.s, this.t + (double)this.aR(), this.u);
             if(var1.f()) {
-               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b()), var1.i()});
+               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b()), var1.i()});
             } else {
-               this.o.a(ew.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b())});
+               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b())});
             }
          }
 
@@ -316,13 +316,13 @@ public abstract class EntityHuman extends EntityLiving {
          --this.bk;
       }
 
-      if(this.o.aa() == EnumDifficulty.PEACEFUL && this.o.Q().b("naturalRegeneration")) {
+      if(this.o.aa() == EnumDifficulty.PEACEFUL && this.o.getGameRules().getBoolean("naturalRegeneration")) {
          if(this.bm() < this.bt() && this.W % 20 == 0) {
             this.g(1.0F);
          }
 
          if(this.bj.c() && this.W % 10 == 0) {
-            this.bj.a(this.bj.a() + 1);
+            this.bj.a(this.bj.getFoodLevel() + 1);
          }
       }
 
@@ -399,10 +399,10 @@ public abstract class EntityHuman extends EntityLiving {
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
       if(this.getName().equals("Notch")) {
-         this.a(new ItemStack(Items.e, 1), true, false);
+         this.a(new ItemStack(Items.APPLE, 1), true, false);
       }
 
-      if(!this.o.Q().b("keepInventory")) {
+      if(!this.o.getGameRules().getBoolean("keepInventory")) {
          this.bg.n();
       }
 
@@ -441,7 +441,7 @@ public abstract class EntityHuman extends EntityLiving {
       while(var4.hasNext()) {
          ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
          ScoreboardScore var6 = this.co().getPlayerScoreForObjective(this.getName(), var5);
-         var6.a();
+         var6.incrementScore();
       }
 
    }
@@ -456,7 +456,7 @@ public abstract class EntityHuman extends EntityLiving {
             while(var4.hasNext()) {
                ScoreboardObjective var5 = (ScoreboardObjective)var4.next();
                ScoreboardScore var6 = this.co().getPlayerScoreForObjective(var1.getName(), var5);
-               var6.a();
+               var6.incrementScore();
             }
          }
       }
@@ -523,7 +523,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    protected void a(EntityItem var1) {
-      this.o.d((Entity)var1);
+      this.o.addEntity((Entity)var1);
    }
 
    public float a(Block var1) {
@@ -983,7 +983,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.bv = var1;
       this.v = this.x = this.w = 0.0D;
       if(!this.o.isStatic) {
-         this.o.d();
+         this.o.everyoneSleeping();
       }
 
       return ahf.a;
@@ -1012,7 +1012,7 @@ public abstract class EntityHuman extends EntityLiving {
       this.a(0.6F, 1.8F);
       IBlockData var4 = this.o.getData(this.bv);
       if(this.bv != null && var4.c() == Blocks.BED) {
-         this.o.a(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
+         this.o.setTypeAndData(this.bv, var4.a(BlockBed.b, Boolean.valueOf(false)), 4);
          Location var5 = BlockBed.a(this.o, this.bv, 0);
          if(var5 == null) {
             var5 = this.bv.a();
@@ -1023,7 +1023,7 @@ public abstract class EntityHuman extends EntityLiving {
 
       this.bu = false;
       if(!this.o.isStatic && var2) {
-         this.o.d();
+         this.o.everyoneSleeping();
       }
 
       this.b = var1?0:100;
@@ -1275,7 +1275,7 @@ public abstract class EntityHuman extends EntityLiving {
 
       if(var1 > 0 && this.bz % 5 == 0 && (float)this.i < (float)this.W - 100.0F) {
          float var2 = this.bz > 30?1.0F:(float)this.bz / 30.0F;
-         this.o.a((Entity)this, "random.levelup", var2 * 0.75F, 1.0F);
+         this.o.makeSound((Entity)this, "random.levelup", var2 * 0.75F, 1.0F);
          this.i = this.W;
       }
 
@@ -1294,7 +1294,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
    }
 
-   public ahz ck() {
+   public FoodMetaData ck() {
       return this.bj;
    }
 
@@ -1334,7 +1334,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    protected int b(EntityHuman var1) {
-      if(this.o.Q().b("keepInventory")) {
+      if(this.o.getGameRules().getBoolean("keepInventory")) {
          return 0;
       } else {
          int var2 = this.bz * 7;
@@ -1356,7 +1356,7 @@ public abstract class EntityHuman extends EntityLiving {
          this.bB = var1.bB;
          this.r(var1.bW());
          this.an = var1.an;
-      } else if(this.o.Q().b("keepInventory")) {
+      } else if(this.o.getGameRules().getBoolean("keepInventory")) {
          this.bg.b(var1.bg);
          this.bz = var1.bz;
          this.bA = var1.bA;
@@ -1407,7 +1407,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public Scoreboard co() {
-      return this.o.Z();
+      return this.o.getScoreboard();
    }
 
    public ScoreboardTeamBase bN() {
@@ -1470,7 +1470,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean t_() {
-      return MinecraftServer.M().c[0].Q().b("sendCommandFeedback");
+      return MinecraftServer.M().c[0].getGameRules().getBoolean("sendCommandFeedback");
    }
 
    public boolean d(int var1, ItemStack var2) {

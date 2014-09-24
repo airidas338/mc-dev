@@ -72,10 +72,10 @@ public class CommandClone extends CommandAbstract {
                         for(int var20 = var6.b; var20 <= var6.e; ++var20) {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
                               Location var22 = new Location(var21, var20, var19);
-                              Location var23 = var22.a((fd)var18);
+                              Location var23 = var22.a((ChunkCoordinates)var18);
                               IBlockData var24 = var12.getData(var22);
                               if((!var13 || var24.c() != Blocks.AIR) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
-                                 TileEntity var25 = var12.s(var22);
+                                 TileEntity var25 = var12.getTileEntity(var22);
                                  if(var25 != null) {
                                     NBTTagCompound var26 = new NBTTagCompound();
                                     var25.b(var26);
@@ -96,9 +96,9 @@ public class CommandClone extends CommandAbstract {
                      if(var9) {
                         Location var27;
                         Iterator var29;
-                        for(var29 = var17.iterator(); var29.hasNext(); var12.a(var27, Blocks.BARRIER.P(), 2)) {
+                        for(var29 = var17.iterator(); var29.hasNext(); var12.setTypeAndData(var27, Blocks.BARRIER.P(), 2)) {
                            var27 = (Location)var29.next();
-                           TileEntity var34 = var12.s(var27);
+                           TileEntity var34 = var12.getTileEntity(var27);
                            if(var34 instanceof IInventory) {
                               ((IInventory)var34).l();
                            }
@@ -108,7 +108,7 @@ public class CommandClone extends CommandAbstract {
 
                         while(var29.hasNext()) {
                            var27 = (Location)var29.next();
-                           var12.a(var27, Blocks.AIR.P(), 3);
+                           var12.setTypeAndData(var27, Blocks.AIR.P(), 3);
                         }
                      }
 
@@ -121,9 +121,9 @@ public class CommandClone extends CommandAbstract {
                      TileEntity var31;
                      bb var30;
                      Iterator var35;
-                     for(var35 = var33.iterator(); var35.hasNext(); var12.a(var30.a, Blocks.BARRIER.P(), 2)) {
+                     for(var35 = var33.iterator(); var35.hasNext(); var12.setTypeAndData(var30.a, Blocks.BARRIER.P(), 2)) {
                         var30 = (bb)var35.next();
-                        var31 = var12.s(var30.a);
+                        var31 = var12.getTileEntity(var30.a);
                         if(var31 instanceof IInventory) {
                            ((IInventory)var31).l();
                         }
@@ -134,14 +134,14 @@ public class CommandClone extends CommandAbstract {
 
                      while(var35.hasNext()) {
                         var30 = (bb)var35.next();
-                        if(var12.a(var30.a, var30.b, 2)) {
+                        if(var12.setTypeAndData(var30.a, var30.b, 2)) {
                            ++var8;
                         }
                      }
 
-                     for(var35 = var15.iterator(); var35.hasNext(); var12.a(var30.a, var30.b, 2)) {
+                     for(var35 = var15.iterator(); var35.hasNext(); var12.setTypeAndData(var30.a, var30.b, 2)) {
                         var30 = (bb)var35.next();
-                        var31 = var12.s(var30.a);
+                        var31 = var12.getTileEntity(var30.a);
                         if(var30.c != null && var31 != null) {
                            var30.c.setInt("x", var30.a.n());
                            var30.c.setInt("y", var30.a.o());
@@ -155,7 +155,7 @@ public class CommandClone extends CommandAbstract {
 
                      while(var35.hasNext()) {
                         var30 = (bb)var35.next();
-                        var12.b(var30.a, var30.b.c());
+                        var12.update(var30.a, var30.b.c());
                      }
 
                      List var32 = var12.a(var6, false);
@@ -164,9 +164,9 @@ public class CommandClone extends CommandAbstract {
 
                         while(var36.hasNext()) {
                            NextTickListEntry var37 = (NextTickListEntry)var36.next();
-                           if(var6.b((fd)var37.a)) {
-                              Location var38 = var37.a.a((fd)var18);
-                              var12.b(var38, var37.a(), (int)(var37.b - var12.P().f()), var37.c);
+                           if(var6.b((ChunkCoordinates)var37.a)) {
+                              Location var38 = var37.a.a((ChunkCoordinates)var18);
+                              var12.b(var38, var37.a(), (int)(var37.b - var12.getWorldData().getTime()), var37.c);
                            }
                         }
                      }

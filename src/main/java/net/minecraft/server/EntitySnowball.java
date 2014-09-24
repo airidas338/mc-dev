@@ -26,7 +26,7 @@ public class EntitySnowball extends EntityProjectile {
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {
-         this.o.a(ew.F, this.s, this.t, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.F, this.s, this.t, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
       if(!this.o.isStatic) {

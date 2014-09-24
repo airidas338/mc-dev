@@ -28,7 +28,7 @@ public abstract class EntityAgeable extends EntityCreature {
                if(var4 != null) {
                   var4.b(-24000);
                   var4.setPositionRotation(this.s, this.t, this.u, 0.0F, 0.0F);
-                  this.o.d((Entity)var4);
+                  this.o.addEntity((Entity)var4);
                   if(var2.s()) {
                      var4.a(var2.q());
                   }
@@ -111,7 +111,7 @@ public abstract class EntityAgeable extends EntityCreature {
       if(this.o.isStatic) {
          if(this.c > 0) {
             if(this.c % 4 == 0) {
-               this.o.a(ew.v, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
+               this.o.a(EnumParticleEffect.v, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
             }
 
             --this.c;

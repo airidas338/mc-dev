@@ -95,7 +95,7 @@ public abstract class TileEntity {
          this.h = var1.c().c(var1);
          this.b.b(this.c, this);
          if(this.w() != Blocks.AIR) {
-            this.b.e(this.c, this.w());
+            this.b.updateAdjacentComparators(this.c, this.w());
          }
       }
 

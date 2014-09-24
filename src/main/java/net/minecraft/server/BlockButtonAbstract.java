@@ -55,12 +55,12 @@ public abstract class BlockButtonAbstract extends Block {
       return var1.getData(var2.a(var3.d())).c().t()?this.P().a(a, var3).a(b, Boolean.valueOf(false)):this.P().a(a, EnumFacing.DOWN).a(b, Boolean.valueOf(false));
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(this.e(var1, var2, var3)) {
          EnumFacing var5 = (EnumFacing)var3.b(a);
          if(!var1.getData(var2.a(var5.d())).c().t()) {
             this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            var1.setAir(var2);
          }
       }
 
@@ -69,7 +69,7 @@ public abstract class BlockButtonAbstract extends Block {
    private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
          return false;
       } else {
          return true;
@@ -114,9 +114,9 @@ public abstract class BlockButtonAbstract extends Block {
       if(((Boolean)var3.b(b)).booleanValue()) {
          return true;
       } else {
-         var1.a(var2, var3.a(b, Boolean.valueOf(true)), 3);
+         var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(true)), 3);
          var1.b(var2, var2);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
          this.b(var1, var2, (EnumFacing)var3.b(a));
          var1.a(var2, (Block)this, this.a(var1));
          return true;
@@ -153,7 +153,7 @@ public abstract class BlockButtonAbstract extends Block {
             } else {
                var1.a(var2, var3.a(b, Boolean.valueOf(false)));
                this.b(var1, var2, (EnumFacing)var3.b(a));
-               var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
+               var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
                var1.b(var2, var2);
             }
 
@@ -187,14 +187,14 @@ public abstract class BlockButtonAbstract extends Block {
          var1.a(var2, var3.a(b, Boolean.valueOf(true)));
          this.b(var1, var2, (EnumFacing)var3.b(a));
          var1.b(var2, var2);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.6F);
       }
 
       if(!var5 && var6) {
          var1.a(var2, var3.a(b, Boolean.valueOf(false)));
          this.b(var1, var2, (EnumFacing)var3.b(a));
          var1.b(var2, var2);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, 0.5F);
       }
 
       if(var5) {
@@ -204,8 +204,8 @@ public abstract class BlockButtonAbstract extends Block {
    }
 
    private void b(World var1, Location var2, EnumFacing var3) {
-      var1.c(var2, (Block)this);
-      var1.c(var2.a(var3.d()), (Block)this);
+      var1.applyPhysics(var2, (Block)this);
+      var1.applyPhysics(var2.a(var3.d()), (Block)this);
    }
 
    public IBlockData a(int var1) {

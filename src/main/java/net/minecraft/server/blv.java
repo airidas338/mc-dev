@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class blv extends bmk {
 
-   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.bu, 0, 1, 1, 10), new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.aC, 0, 4, 9, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ao, 0, 1, 1, 1), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 1), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.bu, 0, 1, 1, 10), new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.aC, 0, 4, 9, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.APPLE, 0, 1, 3, 15), new StructurePieceTreaasure(Items.IRON_PICKAXE, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ao, 0, 1, 1, 1), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 1), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
    private boolean b;
 
 
@@ -54,7 +54,7 @@ public class blv extends bmk {
             this.a(var1, Blocks.STEP1.a(bbg.f.a()), 2, 1, var4, var3);
          }
 
-         if(!this.b && var3.b((fd)(new Location(this.a(3, 3), this.d(2), this.b(3, 3))))) {
+         if(!this.b && var3.b((ChunkCoordinates)(new Location(this.a(3, 3), this.d(2), this.b(3, 3))))) {
             this.b = true;
             this.a(var1, var3, var2, 3, 2, 3, StructurePieceTreaasure.a(a, new StructurePieceTreaasure[]{Items.cd.b(var2)}), 2 + var2.nextInt(2));
          }

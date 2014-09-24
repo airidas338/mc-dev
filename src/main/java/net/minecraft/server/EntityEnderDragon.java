@@ -86,7 +86,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          var1 = (this.V.nextFloat() - 0.5F) * 8.0F;
          var2 = (this.V.nextFloat() - 0.5F) * 4.0F;
          var3 = (this.V.nextFloat() - 0.5F) * 8.0F;
-         this.o.a(ew.b, this.s + (double)var1, this.t + 2.0D + (double)var2, this.u + (double)var3, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.b, this.s + (double)var1, this.t + 2.0D + (double)var2, this.u + (double)var3, 0.0D, 0.0D, 0.0D, new int[0]);
       } else {
          this.n();
          var1 = 0.2F / (MathHelper.sqrt(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
@@ -275,7 +275,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
       if(this.bx != null) {
          if(this.bx.I) {
             if(!this.o.isStatic) {
-               this.a(this.bl, DamageSource.a((aqo)null), 10.0F);
+               this.a(this.bl, DamageSource.a((Explosion)null), 10.0F);
             }
 
             this.bx = null;
@@ -384,8 +384,8 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
             for(int var12 = var4; var12 <= var7; ++var12) {
                Block var13 = this.o.getData(new Location(var10, var11, var12)).c();
                if(var13.getMaterial() != Material.AIR) {
-                  if(var13 != Blocks.BARRIER && var13 != Blocks.OBSIDIAN && var13 != Blocks.WHITESTONE && var13 != Blocks.BEDROCK && var13 != Blocks.COMMAND && this.o.Q().b("mobGriefing")) {
-                     var9 = this.o.g(new Location(var10, var11, var12)) || var9;
+                  if(var13 != Blocks.BARRIER && var13 != Blocks.OBSIDIAN && var13 != Blocks.WHITESTONE && var13 != Blocks.BEDROCK && var13 != Blocks.COMMAND && this.o.getGameRules().getBoolean("mobGriefing")) {
+                     var9 = this.o.setAir(new Location(var10, var11, var12)) || var9;
                   } else {
                      var8 = true;
                   }
@@ -398,7 +398,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          double var16 = var1.a + (var1.d - var1.a) * (double)this.V.nextFloat();
          double var17 = var1.b + (var1.e - var1.b) * (double)this.V.nextFloat();
          double var14 = var1.c + (var1.f - var1.c) * (double)this.V.nextFloat();
-         this.o.a(ew.b, var16, var17, var14, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.b, var16, var17, var14, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
       return var8;
@@ -445,19 +445,19 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          float var1 = (this.V.nextFloat() - 0.5F) * 8.0F;
          float var2 = (this.V.nextFloat() - 0.5F) * 4.0F;
          float var3 = (this.V.nextFloat() - 0.5F) * 8.0F;
-         this.o.a(ew.c, this.s + (double)var1, this.t + 2.0D + (double)var2, this.u + (double)var3, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.c, this.s + (double)var1, this.t + 2.0D + (double)var2, this.u + (double)var3, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
       int var4;
       int var5;
       if(!this.o.isStatic) {
-         if(this.bw > 150 && this.bw % 5 == 0 && this.o.Q().b("doMobLoot")) {
+         if(this.bw > 150 && this.bw % 5 == 0 && this.o.getGameRules().getBoolean("doMobLoot")) {
             var4 = 1000;
 
             while(var4 > 0) {
                var5 = EntityExperienceOrb.a(var4);
                var4 -= var5;
-               this.o.d((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var5)));
+               this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var5)));
             }
          }
 
@@ -474,7 +474,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplexPart,
          while(var4 > 0) {
             var5 = EntityExperienceOrb.a(var4);
             var4 -= var5;
-            this.o.d((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var5)));
+            this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var5)));
          }
 
          this.a(new Location(this.s, 64.0D, this.u));

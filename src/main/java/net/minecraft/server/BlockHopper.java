@@ -51,7 +51,7 @@ public class BlockHopper extends BlockContainer {
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
-         TileEntity var6 = var1.s(var2);
+         TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityHopper) {
             ((TileEntityHopper)var6).a(var5.q());
          }
@@ -67,7 +67,7 @@ public class BlockHopper extends BlockContainer {
       if(var1.isStatic) {
          return true;
       } else {
-         TileEntity var9 = var1.s(var2);
+         TileEntity var9 = var1.getTileEntity(var2);
          if(var9 instanceof TileEntityHopper) {
             var4.a((IInventory)((TileEntityHopper)var9));
          }
@@ -76,23 +76,23 @@ public class BlockHopper extends BlockContainer {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
    private void e(World var1, Location var2, IBlockData var3) {
-      boolean var4 = !var1.z(var2);
+      boolean var4 = !var1.isBlockIndirectlyPowered(var2);
       if(var4 != ((Boolean)var3.b(b)).booleanValue()) {
-         var1.a(var2, var3.a(b, Boolean.valueOf(var4)), 4);
+         var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var4)), 4);
       }
 
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof TileEntityHopper) {
          vs.a(var1, var2, (TileEntityHopper)var4);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
       super.remove(var1, var2, var3);
@@ -123,7 +123,7 @@ public class BlockHopper extends BlockContainer {
    }
 
    public int getDropData(World var1, Location var2) {
-      return aib.a(var1.s(var2));
+      return aib.a(var1.getTileEntity(var2));
    }
 
    public IBlockData a(int var1) {

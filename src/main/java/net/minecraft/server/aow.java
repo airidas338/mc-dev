@@ -20,7 +20,7 @@ public class aow {
          }
       }
 
-      var1.a(new ItemStack(Items.f, 1), new Object[]{" #X", "# X", " #X", Character.valueOf('X'), Items.F, Character.valueOf('#'), Items.y});
+      var1.a(new ItemStack(Items.BOW, 1), new Object[]{" #X", "# X", " #X", Character.valueOf('X'), Items.F, Character.valueOf('#'), Items.y});
       var1.a(new ItemStack(Items.g, 4), new Object[]{"X", "#", "Y", Character.valueOf('Y'), Items.G, Character.valueOf('X'), Items.ak, Character.valueOf('#'), Items.y});
    }
 }

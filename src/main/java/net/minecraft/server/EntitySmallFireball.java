@@ -32,7 +32,7 @@ public class EntitySmallFireball extends EntityFireball {
          } else {
             var2 = true;
             if(this.a != null && this.a instanceof EntityInsentient) {
-               var2 = this.o.Q().b("mobGriefing");
+               var2 = this.o.getGameRules().getBoolean("mobGriefing");
             }
 
             if(var2) {

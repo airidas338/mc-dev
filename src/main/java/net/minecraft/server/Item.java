@@ -169,8 +169,8 @@ public class Item {
 		return false;
 	}
 
-	public ano e(ItemStack var1) {
-		return ano.a;
+	public EnumAnimation e(ItemStack var1) {
+		return EnumAnimation.NONE;
 	}
 
 	public int d(ItemStack var1) {
@@ -220,7 +220,7 @@ public class Item {
 		float var19 = var13 * var15;
 		double var20 = 5.0D;
 		Vec3D var22 = var12.b((double) var17 * var20, (double) var16 * var20, (double) var19 * var20);
-		return var1.a(var12, var22, var3, !var3, false);
+		return var1.rayTrace(var12, var22, var3, !var3, false);
 	}
 
 	public int b() {

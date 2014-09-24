@@ -319,7 +319,7 @@ public class DedicatedServer extends MinecraftServer implements pj {
       } else if(this.au() <= 0) {
          return false;
       } else {
-         Location var4 = var1.M();
+         Location var4 = var1.getSpawn();
          int var5 = MathHelper.a(var2.n() - var4.n());
          int var6 = MathHelper.a(var2.p() - var4.p());
          int var7 = Math.max(var5, var6);

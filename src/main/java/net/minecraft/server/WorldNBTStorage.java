@@ -56,7 +56,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
       return this.b;
    }
 
-   public void c() throws ExceptionWorldConflict {
+   public void checkSession() throws ExceptionWorldConflict {
       try {
          File var1 = new File(this.b, "session.lock");
          DataInputStream var2 = new DataInputStream(new FileInputStream(var1));

@@ -189,7 +189,7 @@ public class Chunk {
 
                   Iterator var8;
                   EnumFacing var9;
-                  for(var8 = en.a.iterator(); var8.hasNext(); var7 = Math.min(var7, this.i.b(var5 + var9.g(), var6 + var9.i()))) {
+                  for(var8 = en.a.iterator(); var8.hasNext(); var7 = Math.min(var7, this.i.getHighestBlockYAt(var5 + var9.g(), var6 + var9.i()))) {
                      var9 = (EnumFacing)var8.next();
                   }
 
@@ -487,7 +487,7 @@ public class Chunk {
                var15 = this.a(var1, bfl.c);
                if(var15 == null) {
                   var15 = ((IContainer)var9).a(this.i, var9.c(var2));
-                  this.i.a(var1, var15);
+                  this.i.setTileEntity(var1, var15);
                }
 
                if(var15 != null) {
@@ -607,7 +607,7 @@ public class Chunk {
       if(var3 == null) {
          if(var2 == bfl.a) {
             var3 = this.i(var1);
-            this.i.a(var1, var3);
+            this.i.setTileEntity(var1, var3);
          } else if(var2 == bfl.b) {
             this.w.add(var1);
          }
@@ -735,10 +735,10 @@ public class Chunk {
 
    public boolean a(boolean var1) {
       if(var1) {
-         if(this.r && this.i.K() != this.s || this.q) {
+         if(this.r && this.i.getTime() != this.s || this.q) {
             return true;
          }
-      } else if(this.r && this.i.K() >= this.s + 600L) {
+      } else if(this.r && this.i.getTime() >= this.s + 600L) {
          return true;
       }
 
@@ -746,7 +746,7 @@ public class Chunk {
    }
 
    public Random a(long var1) {
-      return new Random(this.i.J() + (long)(this.a * this.a * 4987142) + (long)(this.a * 5947611) + (long)(this.b * this.b) * 4392871L + (long)(this.b * 389711) ^ var1);
+      return new Random(this.i.getSeed() + (long)(this.a * this.a * 4987142) + (long)(this.a * 5947611) + (long)(this.b * this.b) * 4392871L + (long)(this.b * 389711) ^ var1);
    }
 
    public boolean f() {
@@ -840,7 +840,7 @@ public class Chunk {
          Location var2 = (Location)this.w.poll();
          if(this.a(var2, bfl.c) == null && this.a(var2).x()) {
             TileEntity var3 = this.i(var2);
-            this.i.a(var2, var3);
+            this.i.setTileEntity(var2, var3);
             this.i.b(var2, var2);
          }
       }
@@ -976,7 +976,7 @@ public class Chunk {
                while(var5.hasNext()) {
                   EnumFacing var6 = (EnumFacing)var5.next();
                   int var4 = var6.c() == em.a?16:1;
-                  this.i.f(var1.a(var6, var4)).a(var6.d());
+                  this.i.getChunkAtWorldCoords(var1.a(var6, var4)).a(var6.d());
                }
 
                this.y();

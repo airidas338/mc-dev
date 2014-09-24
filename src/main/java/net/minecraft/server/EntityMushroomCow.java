@@ -26,7 +26,7 @@ public class EntityMushroomCow extends EntityCow {
 
       if(var2 != null && var2.b() == Items.be && this.l() >= 0) {
          this.J();
-         this.o.a(ew.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.isStatic) {
             EntityCow var3 = new EntityCow(this.o);
             var3.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
@@ -36,10 +36,10 @@ public class EntityMushroomCow extends EntityCow {
                var3.a(this.aL());
             }
 
-            this.o.d((Entity)var3);
+            this.o.addEntity((Entity)var3);
 
             for(int var4 = 0; var4 < 5; ++var4) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
             }
 
             var2.a(1, (EntityLiving)var1);

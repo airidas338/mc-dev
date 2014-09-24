@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class PacketPlayOutWorldParticles implements Packet {
 
-   private ew a;
+   private EnumParticleEffect a;
    private float b;
    private float c;
    private float d;
@@ -17,7 +17,7 @@ public class PacketPlayOutWorldParticles implements Packet {
 
    public PacketPlayOutWorldParticles() {}
 
-   public PacketPlayOutWorldParticles(ew var1, boolean var2, float var3, float var4, float var5, float var6, float var7, float var8, float var9, int var10, int ... var11) {
+   public PacketPlayOutWorldParticles(EnumParticleEffect var1, boolean var2, float var3, float var4, float var5, float var6, float var7, float var8, float var9, int var10, int ... var11) {
       this.a = var1;
       this.j = var2;
       this.b = var3;
@@ -32,9 +32,9 @@ public class PacketPlayOutWorldParticles implements Packet {
    }
 
    public void a(PacketDataSerializer var1) {
-      this.a = ew.a(var1.readInt());
+      this.a = EnumParticleEffect.a(var1.readInt());
       if(this.a == null) {
-         this.a = ew.J;
+         this.a = EnumParticleEffect.J;
       }
 
       this.j = var1.readBoolean();

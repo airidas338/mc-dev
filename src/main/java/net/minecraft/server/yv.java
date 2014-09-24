@@ -28,7 +28,7 @@ public abstract class yv extends PathfinderGoal {
          bpv var2 = var1.j();
          if(var2 != null && !var2.b() && var1.g()) {
             for(int var3 = 0; var3 < Math.min(var2.e() + 2, var2.d()); ++var3) {
-               bpt var4 = var2.a(var3);
+               PathPoint var4 = var2.a(var3);
                this.b = new Location(var4.a, var4.b + 1, var4.c);
                if(this.a.e((double)this.b.n(), this.a.t, (double)this.b.p()) <= 2.25D) {
                   this.c = this.a(this.b);

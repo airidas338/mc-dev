@@ -21,8 +21,8 @@ public class EntityLargeFireball extends EntityFireball {
             this.a(this.a, var1.d);
          }
 
-         boolean var2 = this.o.Q().b("mobGriefing");
-         this.o.a((Entity)null, this.s, this.t, this.u, (float)this.e, var2, var2);
+         boolean var2 = this.o.getGameRules().getBoolean("mobGriefing");
+         this.o.createExplosion((Entity)null, this.s, this.t, this.u, (float)this.e, var2, var2);
          this.J();
       }
 

@@ -308,7 +308,7 @@ public final class ItemStack {
       return this.b().d(this);
    }
 
-   public ano m() {
+   public EnumAnimation m() {
       return this.b().e(this);
    }
 

@@ -6,13 +6,13 @@ public class BlockBannerStanding extends BlockBannerAbstract {
       this.j(this.L.b().a(b, Integer.valueOf(0)));
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.getData(var2.b()).c().getMaterial().isBuildable()) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
-      super.a(var1, var2, var3, var4);
+      super.doPhysics(var1, var2, var3, var4);
    }
 
    public IBlockData a(int var1) {

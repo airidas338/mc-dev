@@ -37,7 +37,7 @@ public class arj implements IBlockAccess {
 
    }
 
-   public TileEntity s(Location var1) {
+   public TileEntity getTileEntity(Location var1) {
       int var2 = (var1.n() >> 4) - this.a;
       int var3 = (var1.p() >> 4) - this.b;
       return this.c[var2][var3].a(var1, bfl.a);

@@ -6,7 +6,7 @@ import java.util.List;
 public class EntityFishingHook extends Entity {
 
    private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.POTION), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
-   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.WATER_LILY), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.f), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
+   private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.WATER_LILY), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.BOW), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
    private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.d.a()), 13)});
    private int g = -1;
    private int h = -1;
@@ -229,7 +229,7 @@ public class EntityFishingHook extends Entity {
                WorldServer var35 = (WorldServer)this.o;
                int var38 = 1;
                Location var37 = (new Location(this)).a();
-               if(this.V.nextFloat() < 0.25F && this.o.C(var37)) {
+               if(this.V.nextFloat() < 0.25F && this.o.isRainingAt(var37)) {
                   var38 = 2;
                }
 
@@ -255,8 +255,8 @@ public class EntityFishingHook extends Entity {
                         this.w -= 0.20000000298023224D;
                         this.a("random.splash", 0.25F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
                         var16 = (float)MathHelper.floor(this.aQ().b);
-                        var35.a(ew.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
-                        var35.a(ew.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
+                        var35.a(EnumParticleEffect.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
+                        var35.a(EnumParticleEffect.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
                         this.at = MathHelper.a(this.V, 10, 30);
                      } else {
                         this.aw = (float)((double)this.aw + this.V.nextGaussian() * 4.0D);
@@ -267,13 +267,13 @@ public class EntityFishingHook extends Entity {
                         var40 = (double)((float)MathHelper.floor(this.aQ().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.av * 0.1F);
                         if(this.V.nextFloat() < 0.15F) {
-                           var35.a(ew.e, var19, var40 - 0.10000000149011612D, var23, 1, (double)var39, 0.1D, (double)var18, 0.0D, new int[0]);
+                           var35.a(EnumParticleEffect.e, var19, var40 - 0.10000000149011612D, var23, 1, (double)var39, 0.1D, (double)var18, 0.0D, new int[0]);
                         }
 
                         float var25 = var39 * 0.04F;
                         float var26 = var18 * 0.04F;
-                        var35.a(ew.g, var19, var40, var23, 0, (double)var26, 0.01D, (double)(-var25), 1.0D, new int[0]);
-                        var35.a(ew.g, var19, var40, var23, 0, (double)(-var26), 0.01D, (double)var25, 1.0D, new int[0]);
+                        var35.a(EnumParticleEffect.g, var19, var40, var23, 0, (double)var26, 0.01D, (double)(-var25), 1.0D, new int[0]);
+                        var35.a(EnumParticleEffect.g, var19, var40, var23, 0, (double)(-var26), 0.01D, (double)var25, 1.0D, new int[0]);
                      }
                   } else if(this.au > 0) {
                      this.au -= var38;
@@ -292,7 +292,7 @@ public class EntityFishingHook extends Entity {
                         var19 = this.s + (double)(MathHelper.sin(var39) * var18 * 0.1F);
                         var40 = (double)((float)MathHelper.floor(this.aQ().b) + 1.0F);
                         var23 = this.u + (double)(MathHelper.cos(var39) * var18 * 0.1F);
-                        var35.a(ew.f, var19, var40, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
+                        var35.a(EnumParticleEffect.f, var19, var40, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                      }
 
                      if(this.au <= 0) {
@@ -374,8 +374,8 @@ public class EntityFishingHook extends Entity {
             var13.v = var3 * var11;
             var13.w = var5 * var11 + (double)MathHelper.sqrt(var9) * 0.08D;
             var13.x = var7 * var11;
-            this.o.d((Entity)var13);
-            this.b.o.d((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
+            this.o.addEntity((Entity)var13);
+            this.b.o.addEntity((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
             var1 = 1;
          }
 

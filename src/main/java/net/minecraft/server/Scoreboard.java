@@ -37,7 +37,7 @@ public class Scoreboard {
 
 			((List) var4).add(var3);
 			this.objectivesByName.put(var1, var3);
-			this.a(var3);
+			this.handleObjectiveAdded(var3);
 			return var3;
 		}
 	}
@@ -73,7 +73,7 @@ public class Scoreboard {
 		return var4;
 	}
 
-	public Collection i(ScoreboardObjective var1) {
+	public Collection getScoresForObjective(ScoreboardObjective var1) {
 		ArrayList var2 = Lists.newArrayList();
 		Iterator var3 = this.playerScores.values().iterator();
 
@@ -114,7 +114,7 @@ public class Scoreboard {
 						this.handlePlayerRemoved(var1);
 					}
 				} else if (var4 != null) {
-					this.a(var1, var2);
+					this.handleScoreRemoved(var1, var2);
 				}
 			}
 		}
@@ -164,7 +164,7 @@ public class Scoreboard {
 			var4.remove(var1);
 		}
 
-		this.c(var1);
+		this.handleObjectiveRemoved(var1);
 	}
 
 	public void setDisplaySlot(int var1, ScoreboardObjective var2) {
@@ -186,7 +186,7 @@ public class Scoreboard {
 		} else {
 			var2 = new ScoreboardTeam(this, var1);
 			this.teamsByName.put(var1, var2);
-			this.a(var2);
+			this.handleTeamAdded(var2);
 			return var2;
 		}
 	}
@@ -249,13 +249,13 @@ public class Scoreboard {
 		return (ScoreboardTeam) this.teamsByPlayer.get(var1);
 	}
 
-	public void a(ScoreboardObjective var1) {
+	public void handleObjectiveAdded(ScoreboardObjective var1) {
 	}
 
 	public void handleObjectiveChanged(ScoreboardObjective var1) {
 	}
 
-	public void c(ScoreboardObjective var1) {
+	public void handleObjectiveRemoved(ScoreboardObjective var1) {
 	}
 
 	public void handleScoreChanged(ScoreboardScore var1) {
@@ -264,10 +264,10 @@ public class Scoreboard {
 	public void handlePlayerRemoved(String var1) {
 	}
 
-	public void a(String var1, ScoreboardObjective var2) {
+	public void handleScoreRemoved(String var1, ScoreboardObjective var2) {
 	}
 
-	public void a(ScoreboardTeam var1) {
+	public void handleTeamAdded(ScoreboardTeam var1) {
 	}
 
 	public void handleTeamChanged(ScoreboardTeam var1) {

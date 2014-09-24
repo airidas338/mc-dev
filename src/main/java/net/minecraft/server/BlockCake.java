@@ -51,12 +51,12 @@ public class BlockCake extends Block {
 
    private void b(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.j(false)) {
-         var4.ck().a(2, 0.1F);
+         var4.ck().eat(2, 0.1F);
          int var5 = ((Integer)var3.b(a)).intValue();
          if(var5 < 6) {
-            var1.a(var2, var3.a(a, Integer.valueOf(var5 + 1)), 3);
+            var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var5 + 1)), 3);
          } else {
-            var1.g(var2);
+            var1.setAir(var2);
          }
 
       }
@@ -66,9 +66,9 @@ public class BlockCake extends Block {
       return super.canPlace(var1, var2)?this.d(var1, var2):false;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.d(var1, var2)) {
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }

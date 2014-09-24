@@ -6,15 +6,15 @@ import io.netty.util.concurrent.Future;
 class rr implements ChannelFutureListener {
 
    // $FF: synthetic field
-   final rq a;
+   final LoginListener a;
 
 
-   rr(rq var1) {
+   rr(LoginListener var1) {
       this.a = var1;
    }
 
    public void a(ChannelFuture var1) {
-      this.a.a.a(rq.a(this.a).aI());
+      this.a.a.a(LoginListener.a(this.a).aI());
    }
 
    // $FF: synthetic method

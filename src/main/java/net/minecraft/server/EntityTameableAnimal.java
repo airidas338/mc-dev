@@ -49,9 +49,9 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
    }
 
    protected void l(boolean var1) {
-      ew var2 = ew.I;
+      EnumParticleEffect var2 = EnumParticleEffect.I;
       if(!var1) {
-         var2 = ew.l;
+         var2 = EnumParticleEffect.l;
       }
 
       for(int var3 = 0; var3 < 7; ++var3) {
@@ -150,7 +150,7 @@ public abstract class EntityTameableAnimal extends EntityAnimal implements xt {
    }
 
    public void a(DamageSource var1) {
-      if(!this.o.isStatic && this.o.Q().b("showDeathMessages") && this.k_() && this.cm() instanceof EntityPlayer) {
+      if(!this.o.isStatic && this.o.getGameRules().getBoolean("showDeathMessages") && this.k_() && this.cm() instanceof EntityPlayer) {
          ((EntityPlayer)this.cm()).sendMessage(this.br().b());
       }
 

@@ -130,10 +130,10 @@ public class EntityOcelot extends EntityTameableAnimal {
                this.b(var1.aJ().toString());
                this.l(true);
                this.bk.a(true);
-               this.o.a((Entity)this, (byte)7);
+               this.o.broadcastEntityEffect((Entity)this, (byte)7);
             } else {
                this.l(false);
-               this.o.a((Entity)this, (byte)6);
+               this.o.broadcastEntityEffect((Entity)this, (byte)6);
             }
          }
 
@@ -184,7 +184,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public boolean bR() {
-      if(this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ())) {
+      if(this.o.a(this.aQ(), (Entity)this) && this.o.getCubes((Entity)this, this.aQ()).isEmpty() && !this.o.containsLiquid(this.aQ())) {
          Location var1 = new Location(this.s, this.aQ().b, this.u);
          if(var1.o() < 63) {
             return false;
@@ -226,7 +226,7 @@ public class EntityOcelot extends EntityTameableAnimal {
             EntityOcelot var4 = new EntityOcelot(this.o);
             var4.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
             var4.b(-24000);
-            this.o.d((Entity)var4);
+            this.o.addEntity((Entity)var4);
          }
       }
 

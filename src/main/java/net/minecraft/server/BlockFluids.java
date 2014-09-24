@@ -122,7 +122,7 @@ public abstract class BlockFluids extends Block {
       this.e(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
@@ -163,10 +163,10 @@ public abstract class BlockFluids extends Block {
       double var3 = (double)var2.n();
       double var5 = (double)var2.o();
       double var7 = (double)var2.p();
-      var1.a(var3 + 0.5D, var5 + 0.5D, var7 + 0.5D, "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
+      var1.makeSound(var3 + 0.5D, var5 + 0.5D, var7 + 0.5D, "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
       for(int var9 = 0; var9 < 8; ++var9) {
-         var1.a(ew.m, var3 + Math.random(), var5 + 1.2D, var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
+         var1.a(EnumParticleEffect.m, var3 + Math.random(), var5 + 1.2D, var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }

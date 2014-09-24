@@ -98,10 +98,10 @@ public class EntityEnderSignal extends Entity {
       float var10 = 0.25F;
       if(this.V()) {
          for(int var3 = 0; var3 < 4; ++var3) {
-            this.o.a(ew.e, this.s - this.v * (double)var10, this.t - this.w * (double)var10, this.u - this.x * (double)var10, this.v, this.w, this.x, new int[0]);
+            this.o.a(EnumParticleEffect.e, this.s - this.v * (double)var10, this.t - this.w * (double)var10, this.u - this.x * (double)var10, this.v, this.w, this.x, new int[0]);
          }
       } else {
-         this.o.a(ew.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.w * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.w, this.x, new int[0]);
+         this.o.a(EnumParticleEffect.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.w * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.w, this.x, new int[0]);
       }
 
       if(!this.o.isStatic) {
@@ -110,9 +110,9 @@ public class EntityEnderSignal extends Entity {
          if(this.d > 80 && !this.o.isStatic) {
             this.J();
             if(this.e) {
-               this.o.d((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bH))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bH))));
             } else {
-               this.o.b(2003, new Location(this), 0);
+               this.o.triggerEffect(2003, new Location(this), 0);
             }
          }
       }

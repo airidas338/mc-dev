@@ -40,13 +40,13 @@ public class BlockStem extends BlockPlant implements atz {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
-      if(var1.l(var2.a()) >= 9) {
+      if(var1.getLightLevel(var2.a()) >= 9) {
          float var5 = BlockCrops.a(this, var1, var2);
          if(var4.nextInt((int)(25.0F / var5) + 1) == 0) {
             int var6 = ((Integer)var3.b(a)).intValue();
             if(var6 < 7) {
                var3 = var3.a(a, Integer.valueOf(var6 + 1));
-               var1.a(var2, var3, 2);
+               var1.setTypeAndData(var2, var3, 2);
             } else {
                Iterator var7 = en.a.iterator();
 
@@ -70,7 +70,7 @@ public class BlockStem extends BlockPlant implements atz {
 
    public void g(World var1, Location var2, IBlockData var3) {
       int var4 = ((Integer)var3.b(a)).intValue() + MathHelper.a(var1.random, 2, 5);
-      var1.a(var2, var3.a(a, Integer.valueOf(Math.min(7, var4))), 2);
+      var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(Math.min(7, var4))), 2);
    }
 
    public void h() {

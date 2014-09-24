@@ -12,7 +12,7 @@ public class bhm extends WorldGenerator {
       for(int var5 = 0; var5 < 4; ++var5) {
          Location var6 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
          if(var1.isEmpty(var6) && Blocks.DEAD_BUSH.f(var1, var6, Blocks.DEAD_BUSH.P())) {
-            var1.a(var6, Blocks.DEAD_BUSH.P(), 2);
+            var1.setTypeAndData(var6, Blocks.DEAD_BUSH.P(), 2);
          }
       }
 

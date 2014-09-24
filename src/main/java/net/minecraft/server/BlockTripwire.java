@@ -42,12 +42,12 @@ public class BlockTripwire extends Block {
       return Items.F;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       boolean var5 = ((Boolean)var3.b(b)).booleanValue();
       boolean var6 = !World.a((IBlockAccess)var1, var2.b());
       if(var5 != var6) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -68,7 +68,7 @@ public class BlockTripwire extends Block {
 
    public void c(World var1, Location var2, IBlockData var3) {
       var3 = var3.a(b, Boolean.valueOf(!World.a((IBlockAccess)var1, var2.b())));
-      var1.a(var2, var3, 3);
+      var1.setTypeAndData(var2, var3, 3);
       this.e(var1, var2, var3);
    }
 
@@ -79,7 +79,7 @@ public class BlockTripwire extends Block {
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(!var1.isStatic) {
          if(var4.bY() != null && var4.bY().b() == Items.be) {
-            var1.a(var2, var3.a(N, Boolean.valueOf(true)), 4);
+            var1.setTypeAndData(var2, var3.a(N, Boolean.valueOf(true)), 4);
          }
 
       }
@@ -152,7 +152,7 @@ public class BlockTripwire extends Block {
 
       if(var5 != var4) {
          var3 = var3.a(a, Boolean.valueOf(var5));
-         var1.a(var2, var3, 3);
+         var1.setTypeAndData(var2, var3, 3);
          this.e(var1, var2, var3);
       }
 

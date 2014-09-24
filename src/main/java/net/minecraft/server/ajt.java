@@ -29,9 +29,9 @@ public class ajt extends Item {
             if(var16 && var17 && World.a((IBlockAccess)var3, var4.b()) && World.a((IBlockAccess)var3, var14.b())) {
                int var18 = var13.b();
                IBlockData var19 = Blocks.BED.P().a(BlockBed.b, Boolean.valueOf(false)).a(BlockBed.N, var13).a(BlockBed.a, atq.b);
-               if(var3.a(var4, var19, 3)) {
+               if(var3.setTypeAndData(var4, var19, 3)) {
                   IBlockData var20 = var19.a(BlockBed.a, atq.a);
-                  var3.a(var14, var20, 3);
+                  var3.setTypeAndData(var14, var20, 3);
                }
 
                --var1.b;

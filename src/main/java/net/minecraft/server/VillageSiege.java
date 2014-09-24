@@ -105,7 +105,7 @@ public class VillageSiege extends PersistentBase {
 
    private void g() {
       for(int var1 = 0; var1 < this.d.size(); ++var1) {
-         abh var2 = (abh)this.d.get(var1);
+         VillageDoor var2 = (VillageDoor)this.d.get(var1);
          Village var3 = this.a(var2.d(), 32);
          if(var3 == null) {
             var3 = new Village(this.b);
@@ -129,7 +129,7 @@ public class VillageSiege extends PersistentBase {
             for(int var7 = -var4; var7 < var4; ++var7) {
                Location var8 = var1.a(var5, var6, var7);
                if(this.f(var8)) {
-                  abh var9 = this.c(var8);
+                  VillageDoor var9 = this.c(var8);
                   if(var9 == null) {
                      this.d(var8);
                   } else {
@@ -142,15 +142,15 @@ public class VillageSiege extends PersistentBase {
 
    }
 
-   private abh c(Location var1) {
+   private VillageDoor c(Location var1) {
       Iterator var2 = this.d.iterator();
 
-      abh var3;
+      VillageDoor var3;
       do {
          if(!var2.hasNext()) {
             var2 = this.e.iterator();
 
-            abh var4;
+            VillageDoor var4;
             do {
                if(!var2.hasNext()) {
                   return null;
@@ -163,7 +163,7 @@ public class VillageSiege extends PersistentBase {
             return var4;
          }
 
-         var3 = (abh)var2.next();
+         var3 = (VillageDoor)var2.next();
       } while(var3.d().n() != var1.n() || var3.d().p() != var1.p() || Math.abs(var3.d().o() - var1.o()) > 1);
 
       return var3;
@@ -175,7 +175,7 @@ public class VillageSiege extends PersistentBase {
       int var4 = this.a(var1, var2, 5);
       int var5 = this.a(var1, var3, var4 + 1);
       if(var4 != var5) {
-         this.d.add(new abh(var1, var4 < var5?var2:var3, this.f));
+         this.d.add(new VillageDoor(var1, var4 < var5?var2:var3, this.f));
       }
 
    }

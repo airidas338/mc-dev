@@ -69,16 +69,16 @@ public class EntityFireworks extends Entity {
       this.z = this.B + (this.z - this.B) * 0.2F;
       this.y = this.A + (this.y - this.A) * 0.2F;
       if(this.a == 0 && !this.R()) {
-         this.o.a((Entity)this, "fireworks.launch", 3.0F, 1.0F);
+         this.o.makeSound((Entity)this, "fireworks.launch", 3.0F, 1.0F);
       }
 
       ++this.a;
       if(this.o.isStatic && this.a % 2 < 2) {
-         this.o.a(ew.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.w * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
+         this.o.a(EnumParticleEffect.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.w * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
       }
 
       if(!this.o.isStatic && this.a > this.b) {
-         this.o.a((Entity)this, (byte)17);
+         this.o.broadcastEntityEffect((Entity)this, (byte)17);
          this.J();
       }
 

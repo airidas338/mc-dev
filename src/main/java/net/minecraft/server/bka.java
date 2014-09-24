@@ -51,10 +51,10 @@ public class bka extends bkb {
       this.a(var1, var3, 2, 8, 8, 4, 8, 8, Blocks.NETHER_FENCE.P(), Blocks.NETHER_FENCE.P(), false);
       if(!this.b) {
          Location var4 = new Location(this.a(3, 5), this.d(5), this.b(3, 5));
-         if(var3.b((fd)var4)) {
+         if(var3.b((ChunkCoordinates)var4)) {
             this.b = true;
-            var1.a(var4, Blocks.MOB_SPAWNER.P(), 2);
-            TileEntity var5 = var1.s(var4);
+            var1.setTypeAndData(var4, Blocks.MOB_SPAWNER.P(), 2);
+            TileEntity var5 = var1.getTileEntity(var4);
             if(var5 instanceof TileEntityMobSpawner) {
                ((TileEntityMobSpawner)var5).getSpawner().a("Blaze");
             }

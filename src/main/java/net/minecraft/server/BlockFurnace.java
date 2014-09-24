@@ -41,7 +41,7 @@ public class BlockFurnace extends BlockContainer {
             var8 = EnumFacing.WEST;
          }
 
-         var1.a(var2, var3.a(a, var8), 2);
+         var1.setTypeAndData(var2, var3.a(a, var8), 2);
       }
    }
 
@@ -49,7 +49,7 @@ public class BlockFurnace extends BlockContainer {
       if(var1.isStatic) {
          return true;
       } else {
-         TileEntity var9 = var1.s(var2);
+         TileEntity var9 = var1.getTileEntity(var2);
          if(var9 instanceof TileEntityFurnace) {
             var4.a((IInventory)((TileEntityFurnace)var9));
          }
@@ -60,20 +60,20 @@ public class BlockFurnace extends BlockContainer {
 
    public static void a(boolean var0, World var1, Location var2) {
       IBlockData var3 = var1.getData(var2);
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       M = true;
       if(var0) {
-         var1.a(var2, Blocks.BURNING_FURNACE.P().a(a, var3.b(a)), 3);
-         var1.a(var2, Blocks.BURNING_FURNACE.P().a(a, var3.b(a)), 3);
+         var1.setTypeAndData(var2, Blocks.BURNING_FURNACE.P().a(a, var3.b(a)), 3);
+         var1.setTypeAndData(var2, Blocks.BURNING_FURNACE.P().a(a, var3.b(a)), 3);
       } else {
-         var1.a(var2, Blocks.FURNACE.P().a(a, var3.b(a)), 3);
-         var1.a(var2, Blocks.FURNACE.P().a(a, var3.b(a)), 3);
+         var1.setTypeAndData(var2, Blocks.FURNACE.P().a(a, var3.b(a)), 3);
+         var1.setTypeAndData(var2, Blocks.FURNACE.P().a(a, var3.b(a)), 3);
       }
 
       M = false;
       if(var4 != null) {
          var4.D();
-         var1.a(var2, var4);
+         var1.setTileEntity(var2, var4);
       }
 
    }
@@ -87,9 +87,9 @@ public class BlockFurnace extends BlockContainer {
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      var1.a(var2, var3.a(a, var4.aO().d()), 2);
+      var1.setTypeAndData(var2, var3.a(a, var4.aO().d()), 2);
       if(var5.s()) {
-         TileEntity var6 = var1.s(var2);
+         TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityFurnace) {
             ((TileEntityFurnace)var6).a(var5.q());
          }
@@ -99,10 +99,10 @@ public class BlockFurnace extends BlockContainer {
 
    public void remove(World var1, Location var2, IBlockData var3) {
       if(!M) {
-         TileEntity var4 = var1.s(var2);
+         TileEntity var4 = var1.getTileEntity(var2);
          if(var4 instanceof TileEntityFurnace) {
             vs.a(var1, var2, (TileEntityFurnace)var4);
-            var1.e(var2, this);
+            var1.updateAdjacentComparators(var2, this);
          }
       }
 
@@ -114,7 +114,7 @@ public class BlockFurnace extends BlockContainer {
    }
 
    public int getDropData(World var1, Location var2) {
-      return aib.a(var1.s(var2));
+      return aib.a(var1.getTileEntity(var2));
    }
 
    public int b() {

@@ -14,8 +14,8 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
       BlockSkull var6 = Blocks.SKULL;
       if(var3.isEmpty(var5) && var6.b(var3, var5, var2)) {
          if(!var3.isStatic) {
-            var3.a(var5, var6.P().a(BlockSkull.a, EnumFacing.UP), 3);
-            TileEntity var7 = var3.s(var5);
+            var3.setTypeAndData(var5, var6.P().a(BlockSkull.a, EnumFacing.UP), 3);
+            TileEntity var7 = var3.getTileEntity(var5);
             if(var7 instanceof TileEntitySkull) {
                if(var2.i() == 3) {
                   GameProfile var8 = null;
@@ -48,9 +48,9 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
 
    protected void a(ISourceBlock var1) {
       if(this.b) {
-         var1.i().b(1000, var1.d(), 0);
+         var1.i().triggerEffect(1000, var1.d(), 0);
       } else {
-         var1.i().b(1001, var1.d(), 0);
+         var1.i().triggerEffect(1001, var1.d(), 0);
       }
 
    }

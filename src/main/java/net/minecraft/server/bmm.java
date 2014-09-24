@@ -68,12 +68,12 @@ public abstract class bmm extends bgt {
 
       while(var2.hasNext()) {
          bmv var3 = (bmv)var2.next();
-         if(var3.d() && var3.a().b((fd)var1)) {
+         if(var3.d() && var3.a().b((ChunkCoordinates)var1)) {
             Iterator var4 = var3.b().iterator();
 
             while(var4.hasNext()) {
                bms var5 = (bms)var4.next();
-               if(var5.c().b((fd)var1)) {
+               if(var5.c().b((ChunkCoordinates)var1)) {
                   return var3;
                }
             }
@@ -94,7 +94,7 @@ public abstract class bmm extends bgt {
          }
 
          var4 = (bmv)var3.next();
-      } while(!var4.d() || !var4.a().b((fd)var2));
+      } while(!var4.d() || !var4.a().b((ChunkCoordinates)var2));
 
       return true;
    }
@@ -102,12 +102,12 @@ public abstract class bmm extends bgt {
    public Location b(World var1, Location var2) {
       this.c = var1;
       this.a(var1);
-      this.b.setSeed(var1.J());
+      this.b.setSeed(var1.getSeed());
       long var3 = this.b.nextLong();
       long var5 = this.b.nextLong();
       long var7 = (long)(var2.n() >> 4) * var3;
       long var9 = (long)(var2.p() >> 4) * var5;
-      this.b.setSeed(var7 ^ var9 ^ var1.J());
+      this.b.setSeed(var7 ^ var9 ^ var1.getSeed());
       this.a(var1, var2.n() >> 4, var2.p() >> 4, 0, 0, (bgk)null);
       double var11 = Double.MAX_VALUE;
       Location var13 = null;

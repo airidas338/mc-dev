@@ -100,7 +100,7 @@ public class EntityMinecartHopper extends aed implements IHopper {
       if(TileEntityHopper.a((IHopper)this)) {
          return true;
       } else {
-         List var1 = this.o.a(EntityItem.class, this.aQ().b(0.25D, 0.0D, 0.25D), EntitySelectors.a);
+         List var1 = this.o.getEntities(EntityItem.class, this.aQ().b(0.25D, 0.0D, 0.25D), EntitySelectors.a);
          if(var1.size() > 0) {
             TileEntityHopper.a((IInventory)this, (EntityItem)var1.get(0));
          }

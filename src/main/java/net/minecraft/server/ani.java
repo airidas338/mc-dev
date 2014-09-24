@@ -36,8 +36,8 @@ public class ani extends aju {
             awr var13 = (awr)var10.b(BlockStepAbstract.a);
             if((var5 == EnumFacing.UP && var13 == awr.b || var5 == EnumFacing.DOWN && var13 == awr.a) && var12 == var9) {
                IBlockData var14 = this.c.P().a(var11, var12);
-               if(var3.b(this.c.a(var3, var4, var14)) && var3.a(var4, var14, 3)) {
-                  var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
+               if(var3.b(this.c.a(var3, var4, var14)) && var3.setTypeAndData(var4, var14, 3)) {
+                  var3.makeSound((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
                   --var1.b;
                }
 
@@ -55,8 +55,8 @@ public class ani extends aju {
          Comparable var6 = var5.b(this.b.l());
          if(var6 == var4) {
             IBlockData var7 = this.c.P().a(this.b.l(), var6);
-            if(var2.b(this.c.a(var2, var3, var7)) && var2.a(var3, var7, 3)) {
-               var2.a((double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
+            if(var2.b(this.c.a(var2, var3, var7)) && var2.setTypeAndData(var3, var7, 3)) {
+               var2.makeSound((double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), this.c.H.b(), (this.c.H.d() + 1.0F) / 2.0F, this.c.H.e() * 0.8F);
                --var1.b;
             }
 

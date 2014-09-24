@@ -96,11 +96,11 @@ public abstract class EntityMonster extends EntityCreature implements IMonster {
 		if (this.o.b(EnumSkyBlock.SKY, var1) > this.V.nextInt(32)) {
 			return false;
 		} else {
-			int var2 = this.o.l(var1);
+			int var2 = this.o.getLightLevel(var1);
 			if (this.o.R()) {
 				int var3 = this.o.ab();
 				this.o.b(10);
-				var2 = this.o.l(var1);
+				var2 = this.o.getLightLevel(var1);
 				this.o.b(var3);
 			}
 

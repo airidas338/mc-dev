@@ -88,8 +88,8 @@ public class ItemPotion extends Item {
       return 32;
    }
 
-   public ano e(ItemStack var1) {
-      return ano.c;
+   public EnumAnimation e(ItemStack var1) {
+      return EnumAnimation.DRINK;
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
@@ -98,9 +98,9 @@ public class ItemPotion extends Item {
             --var1.b;
          }
 
-         var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
+         var2.makeSound((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
          if(!var2.isStatic) {
-            var2.d((Entity)(new EntityPotion(var2, var3, var1)));
+            var2.addEntity((Entity)(new EntityPotion(var2, var3, var1)));
          }
 
          var3.b(StatisticList.J[Item.b((Item)this)]);

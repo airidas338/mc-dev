@@ -37,7 +37,7 @@ public class PathfinderGoalLookAtPlayer extends PathfinderGoal {
          }
 
          if(this.d == EntityHuman.class) {
-            this.b = this.a.o.a(this.a, (double)this.c);
+            this.b = this.a.o.findNearbyVulnerablePlayer(this.a, (double)this.c);
          } else {
             this.b = this.a.o.a(this.d, this.a.aQ().b((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
          }

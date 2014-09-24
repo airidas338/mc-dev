@@ -36,7 +36,7 @@ public class TileEntityEnchantTable extends TileEntity implements IUpdatePlayerL
    public void c() {
       this.k = this.j;
       this.m = this.l;
-      EntityHuman var1 = this.b.a((double)((float)this.c.n() + 0.5F), (double)((float)this.c.o() + 0.5F), (double)((float)this.c.p() + 0.5F), 3.0D);
+      EntityHuman var1 = this.b.findNearbyVulnerablePlayer((double)((float)this.c.n() + 0.5F), (double)((float)this.c.o() + 0.5F), (double)((float)this.c.p() + 0.5F), 3.0D);
       if(var1 != null) {
          double var2 = var1.s - (double)((float)this.c.n() + 0.5F);
          double var4 = var1.u - (double)((float)this.c.p() + 0.5F);

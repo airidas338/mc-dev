@@ -16,8 +16,8 @@ public abstract class WorldProvider {
 
    public final void a(World var1) {
       this.b = var1;
-      this.h = var1.P().u();
-      this.i = var1.P().B();
+      this.h = var1.getWorldData().getType();
+      this.i = var1.getWorldData().getGeneratorOptions();
       this.b();
       this.a();
    }
@@ -33,9 +33,9 @@ public abstract class WorldProvider {
    }
 
    protected void b() {
-      WorldType var1 = this.b.P().u();
+      WorldType var1 = this.b.getWorldData().getType();
       if(var1 == WorldType.FLAT) {
-         biv var2 = biv.a(this.b.P().B());
+         biv var2 = biv.a(this.b.getWorldData().getGeneratorOptions());
          this.c = new asc(BiomeBase.getBiome(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
          this.c = new asc(BiomeBase.PLAINS, 0.0F);
@@ -46,7 +46,7 @@ public abstract class WorldProvider {
    }
 
    public IChunkProvider c() {
-      return (IChunkProvider)(this.h == WorldType.FLAT?new bgq(this.b, this.b.J(), this.b.P().s(), this.i):(this.h == WorldType.DEBUG?new bgp(this.b):(this.h == WorldType.CUSTOMIZED?new bgv(this.b, this.b.J(), this.b.P().s(), this.i):new bgv(this.b, this.b.J(), this.b.P().s(), this.i))));
+      return (IChunkProvider)(this.h == WorldType.FLAT?new bgq(this.b, this.b.getSeed(), this.b.getWorldData().shouldGenerateMapFeatures(), this.i):(this.h == WorldType.DEBUG?new bgp(this.b):(this.h == WorldType.CUSTOMIZED?new bgv(this.b, this.b.getSeed(), this.b.getWorldData().shouldGenerateMapFeatures(), this.i):new bgv(this.b, this.b.getSeed(), this.b.getWorldData().shouldGenerateMapFeatures(), this.i))));
    }
 
    public boolean a(int var1, int var2) {

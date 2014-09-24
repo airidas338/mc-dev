@@ -4,30 +4,30 @@ import java.util.concurrent.Callable;
 public class WorldData {
 
    public static final EnumDifficulty a = EnumDifficulty.NORMAL;
-   private long b;
-   private WorldType c;
-   private String d;
-   private int e;
-   private int f;
-   private int g;
-   private long h;
-   private long i;
-   private long j;
-   private long k;
-   private NBTTagCompound l;
-   private int m;
-   private String n;
-   private int o;
-   private int p;
-   private boolean q;
-   private int r;
-   private boolean s;
-   private int t;
-   private EnumGamemode u;
-   private boolean v;
-   private boolean w;
-   private boolean x;
-   private boolean y;
+   private long seed;
+   private WorldType type;
+   private String generatorOptions;
+   private int spawnX;
+   private int spawnY;
+   private int spawnZ;
+   private long time;
+   private long dayTime;
+   private long lastPlayed;
+   private long sizeOnDisk;
+   private NBTTagCompound playerData;
+   private int dimension;
+   private String name;
+   private int version;
+   private int clearWeatherTime;
+   private boolean isRaining;
+   private int rainTicks;
+   private boolean isThundering;
+   private int thunderTicks;
+   private EnumGamemode gameType;
+   private boolean useMapFeatures;
+   private boolean hardcore;
+   private boolean allowCommands;
+   private boolean initialized;
    private EnumDifficulty z;
    private boolean A;
    private double B;
@@ -39,12 +39,12 @@ public class WorldData {
    private double H;
    private int I;
    private int J;
-   private aqq K;
+   private GameRules gameRules;
 
 
    protected WorldData() {
-      this.c = WorldType.NORMAL;
-      this.d = "";
+      this.type = WorldType.NORMAL;
+      this.generatorOptions = "";
       this.B = 0.0D;
       this.C = 0.0D;
       this.D = 6.0E7D;
@@ -54,12 +54,12 @@ public class WorldData {
       this.H = 0.2D;
       this.I = 5;
       this.J = 15;
-      this.K = new aqq();
+      this.gameRules = new GameRules();
    }
 
    public WorldData(NBTTagCompound var1) {
-      this.c = WorldType.NORMAL;
-      this.d = "";
+      this.type = WorldType.NORMAL;
+      this.generatorOptions = "";
       this.B = 0.0D;
       this.C = 0.0D;
       this.D = 6.0E7D;
@@ -69,73 +69,73 @@ public class WorldData {
       this.H = 0.2D;
       this.I = 5;
       this.J = 15;
-      this.K = new aqq();
-      this.b = var1.getLong("RandomSeed");
+      this.gameRules = new GameRules();
+      this.seed = var1.getLong("RandomSeed");
       if(var1.hasKeyOfType("generatorName", 8)) {
          String var2 = var1.getString("generatorName");
-         this.c = WorldType.getType(var2);
-         if(this.c == null) {
-            this.c = WorldType.NORMAL;
-         } else if(this.c.f()) {
+         this.type = WorldType.getType(var2);
+         if(this.type == null) {
+            this.type = WorldType.NORMAL;
+         } else if(this.type.f()) {
             int var3 = 0;
             if(var1.hasKeyOfType("generatorVersion", 99)) {
                var3 = var1.getInt("generatorVersion");
             }
 
-            this.c = this.c.a(var3);
+            this.type = this.type.a(var3);
          }
 
          if(var1.hasKeyOfType("generatorOptions", 8)) {
-            this.d = var1.getString("generatorOptions");
+            this.generatorOptions = var1.getString("generatorOptions");
          }
       }
 
-      this.u = EnumGamemode.getById(var1.getInt("GameType"));
+      this.gameType = EnumGamemode.getById(var1.getInt("GameType"));
       if(var1.hasKeyOfType("MapFeatures", 99)) {
-         this.v = var1.getBoolean("MapFeatures");
+         this.useMapFeatures = var1.getBoolean("MapFeatures");
       } else {
-         this.v = true;
+         this.useMapFeatures = true;
       }
 
-      this.e = var1.getInt("SpawnX");
-      this.f = var1.getInt("SpawnY");
-      this.g = var1.getInt("SpawnZ");
-      this.h = var1.getLong("Time");
+      this.spawnX = var1.getInt("SpawnX");
+      this.spawnY = var1.getInt("SpawnY");
+      this.spawnZ = var1.getInt("SpawnZ");
+      this.time = var1.getLong("Time");
       if(var1.hasKeyOfType("DayTime", 99)) {
-         this.i = var1.getLong("DayTime");
+         this.dayTime = var1.getLong("DayTime");
       } else {
-         this.i = this.h;
+         this.dayTime = this.time;
       }
 
-      this.j = var1.getLong("LastPlayed");
-      this.k = var1.getLong("SizeOnDisk");
-      this.n = var1.getString("LevelName");
-      this.o = var1.getInt("version");
-      this.p = var1.getInt("clearWeatherTime");
-      this.r = var1.getInt("rainTime");
-      this.q = var1.getBoolean("raining");
-      this.t = var1.getInt("thunderTime");
-      this.s = var1.getBoolean("thundering");
-      this.w = var1.getBoolean("hardcore");
+      this.lastPlayed = var1.getLong("LastPlayed");
+      this.sizeOnDisk = var1.getLong("SizeOnDisk");
+      this.name = var1.getString("LevelName");
+      this.version = var1.getInt("version");
+      this.clearWeatherTime = var1.getInt("clearWeatherTime");
+      this.rainTicks = var1.getInt("rainTime");
+      this.isRaining = var1.getBoolean("raining");
+      this.thunderTicks = var1.getInt("thunderTime");
+      this.isThundering = var1.getBoolean("thundering");
+      this.hardcore = var1.getBoolean("hardcore");
       if(var1.hasKeyOfType("initialized", 99)) {
-         this.y = var1.getBoolean("initialized");
+         this.initialized = var1.getBoolean("initialized");
       } else {
-         this.y = true;
+         this.initialized = true;
       }
 
       if(var1.hasKeyOfType("allowCommands", 99)) {
-         this.x = var1.getBoolean("allowCommands");
+         this.allowCommands = var1.getBoolean("allowCommands");
       } else {
-         this.x = this.u == EnumGamemode.CREATIVE;
+         this.allowCommands = this.gameType == EnumGamemode.CREATIVE;
       }
 
       if(var1.hasKeyOfType("Player", 10)) {
-         this.l = var1.getCompound("Player");
-         this.m = this.l.getInt("Dimension");
+         this.playerData = var1.getCompound("Player");
+         this.dimension = this.playerData.getInt("Dimension");
       }
 
       if(var1.hasKeyOfType("GameRules", 10)) {
-         this.K.a(var1.getCompound("GameRules"));
+         this.gameRules.a(var1.getCompound("GameRules"));
       }
 
       if(var1.hasKeyOfType("Difficulty", 99)) {
@@ -185,8 +185,8 @@ public class WorldData {
    }
 
    public WorldData(WorldSettings var1, String var2) {
-      this.c = WorldType.NORMAL;
-      this.d = "";
+      this.type = WorldType.NORMAL;
+      this.generatorOptions = "";
       this.B = 0.0D;
       this.C = 0.0D;
       this.D = 6.0E7D;
@@ -196,26 +196,26 @@ public class WorldData {
       this.H = 0.2D;
       this.I = 5;
       this.J = 15;
-      this.K = new aqq();
+      this.gameRules = new GameRules();
       this.a(var1);
-      this.n = var2;
+      this.name = var2;
       this.z = a;
-      this.y = false;
+      this.initialized = false;
    }
 
    public void a(WorldSettings var1) {
-      this.b = var1.d();
-      this.u = var1.e();
-      this.v = var1.g();
-      this.w = var1.f();
-      this.c = var1.h();
-      this.d = var1.j();
-      this.x = var1.i();
+      this.seed = var1.d();
+      this.gameType = var1.e();
+      this.useMapFeatures = var1.g();
+      this.hardcore = var1.f();
+      this.type = var1.h();
+      this.generatorOptions = var1.j();
+      this.allowCommands = var1.i();
    }
 
    public WorldData(WorldData var1) {
-      this.c = WorldType.NORMAL;
-      this.d = "";
+      this.type = WorldType.NORMAL;
+      this.generatorOptions = "";
       this.B = 0.0D;
       this.C = 0.0D;
       this.D = 6.0E7D;
@@ -225,31 +225,31 @@ public class WorldData {
       this.H = 0.2D;
       this.I = 5;
       this.J = 15;
-      this.K = new aqq();
-      this.b = var1.b;
-      this.c = var1.c;
-      this.d = var1.d;
-      this.u = var1.u;
-      this.v = var1.v;
-      this.e = var1.e;
-      this.f = var1.f;
-      this.g = var1.g;
-      this.h = var1.h;
-      this.i = var1.i;
-      this.j = var1.j;
-      this.k = var1.k;
-      this.l = var1.l;
-      this.m = var1.m;
-      this.n = var1.n;
-      this.o = var1.o;
-      this.r = var1.r;
-      this.q = var1.q;
-      this.t = var1.t;
-      this.s = var1.s;
-      this.w = var1.w;
-      this.x = var1.x;
-      this.y = var1.y;
-      this.K = var1.K;
+      this.gameRules = new GameRules();
+      this.seed = var1.seed;
+      this.type = var1.type;
+      this.generatorOptions = var1.generatorOptions;
+      this.gameType = var1.gameType;
+      this.useMapFeatures = var1.useMapFeatures;
+      this.spawnX = var1.spawnX;
+      this.spawnY = var1.spawnY;
+      this.spawnZ = var1.spawnZ;
+      this.time = var1.time;
+      this.dayTime = var1.dayTime;
+      this.lastPlayed = var1.lastPlayed;
+      this.sizeOnDisk = var1.sizeOnDisk;
+      this.playerData = var1.playerData;
+      this.dimension = var1.dimension;
+      this.name = var1.name;
+      this.version = var1.version;
+      this.rainTicks = var1.rainTicks;
+      this.isRaining = var1.isRaining;
+      this.thunderTicks = var1.thunderTicks;
+      this.isThundering = var1.isThundering;
+      this.hardcore = var1.hardcore;
+      this.allowCommands = var1.allowCommands;
+      this.initialized = var1.initialized;
+      this.gameRules = var1.gameRules;
       this.z = var1.z;
       this.A = var1.A;
       this.B = var1.B;
@@ -265,7 +265,7 @@ public class WorldData {
 
    public NBTTagCompound a() {
       NBTTagCompound var1 = new NBTTagCompound();
-      this.a(var1, this.l);
+      this.a(var1, this.playerData);
       return var1;
    }
 
@@ -276,29 +276,29 @@ public class WorldData {
    }
 
    private void a(NBTTagCompound var1, NBTTagCompound var2) {
-      var1.setLong("RandomSeed", this.b);
-      var1.setString("generatorName", this.c.name());
-      var1.setInt("generatorVersion", this.c.d());
-      var1.setString("generatorOptions", this.d);
-      var1.setInt("GameType", this.u.a());
-      var1.setBoolean("MapFeatures", this.v);
-      var1.setInt("SpawnX", this.e);
-      var1.setInt("SpawnY", this.f);
-      var1.setInt("SpawnZ", this.g);
-      var1.setLong("Time", this.h);
-      var1.setLong("DayTime", this.i);
-      var1.setLong("SizeOnDisk", this.k);
+      var1.setLong("RandomSeed", this.seed);
+      var1.setString("generatorName", this.type.name());
+      var1.setInt("generatorVersion", this.type.d());
+      var1.setString("generatorOptions", this.generatorOptions);
+      var1.setInt("GameType", this.gameType.a());
+      var1.setBoolean("MapFeatures", this.useMapFeatures);
+      var1.setInt("SpawnX", this.spawnX);
+      var1.setInt("SpawnY", this.spawnY);
+      var1.setInt("SpawnZ", this.spawnZ);
+      var1.setLong("Time", this.time);
+      var1.setLong("DayTime", this.dayTime);
+      var1.setLong("SizeOnDisk", this.sizeOnDisk);
       var1.setLong("LastPlayed", MinecraftServer.ax());
-      var1.setString("LevelName", this.n);
-      var1.setInt("version", this.o);
-      var1.setInt("clearWeatherTime", this.p);
-      var1.setInt("rainTime", this.r);
-      var1.setBoolean("raining", this.q);
-      var1.setInt("thunderTime", this.t);
-      var1.setBoolean("thundering", this.s);
-      var1.setBoolean("hardcore", this.w);
-      var1.setBoolean("allowCommands", this.x);
-      var1.setBoolean("initialized", this.y);
+      var1.setString("LevelName", this.name);
+      var1.setInt("version", this.version);
+      var1.setInt("clearWeatherTime", this.clearWeatherTime);
+      var1.setInt("rainTime", this.rainTicks);
+      var1.setBoolean("raining", this.isRaining);
+      var1.setInt("thunderTime", this.thunderTicks);
+      var1.setBoolean("thundering", this.isThundering);
+      var1.setBoolean("hardcore", this.hardcore);
+      var1.setBoolean("allowCommands", this.allowCommands);
+      var1.setBoolean("initialized", this.initialized);
       var1.setDouble("BorderCenterX", this.B);
       var1.setDouble("BorderCenterZ", this.C);
       var1.setDouble("BorderSize", this.D);
@@ -313,165 +313,165 @@ public class WorldData {
       }
 
       var1.setBoolean("DifficultyLocked", this.A);
-      var1.set("GameRules", (NBTBase)this.K.a());
+      var1.set("GameRules", (NBTBase)this.gameRules.a());
       if(var2 != null) {
          var1.set("Player", (NBTBase)var2);
       }
 
    }
 
-   public long b() {
-      return this.b;
+   public long getSeed() {
+      return this.seed;
    }
 
    public int c() {
-      return this.e;
+      return this.spawnX;
    }
 
    public int d() {
-      return this.f;
+      return this.spawnY;
    }
 
    public int e() {
-      return this.g;
+      return this.spawnZ;
    }
 
-   public long f() {
-      return this.h;
+   public long getTime() {
+      return this.time;
    }
 
    public long getDayTime() {
-      return this.i;
+      return this.dayTime;
    }
 
    public NBTTagCompound i() {
-      return this.l;
+      return this.playerData;
    }
 
    public void b(long var1) {
-      this.h = var1;
+      this.time = var1;
    }
 
-   public void c(long var1) {
-      this.i = var1;
+   public void setDayTime(long var1) {
+      this.dayTime = var1;
    }
 
-   public void a(Location var1) {
-      this.e = var1.n();
-      this.f = var1.o();
-      this.g = var1.p();
+   public void setSpawn(Location var1) {
+      this.spawnX = var1.n();
+      this.spawnY = var1.o();
+      this.spawnZ = var1.p();
    }
 
-   public String k() {
-      return this.n;
+   public String getName() {
+      return this.name;
    }
 
-   public void a(String var1) {
-      this.n = var1;
+   public void setName(String var1) {
+      this.name = var1;
    }
 
    public int l() {
-      return this.o;
+      return this.version;
    }
 
    public void e(int var1) {
-      this.o = var1;
+      this.version = var1;
    }
 
-   public int getThunderDuration() {
-      return this.p;
+   public int getClearWeatherDuration() {
+      return this.clearWeatherTime;
    }
 
    public void i(int var1) {
-      this.p = var1;
+      this.clearWeatherTime = var1;
    }
 
-   public boolean n() {
-      return this.s;
+   public boolean isThundering() {
+      return this.isThundering;
    }
 
-   public void a(boolean var1) {
-      this.s = var1;
+   public void setThundering(boolean var1) {
+      this.isThundering = var1;
    }
 
-   public int o() {
-      return this.t;
+   public int getThunderDuration() {
+      return this.thunderTicks;
    }
 
-   public void f(int var1) {
-      this.t = var1;
+   public void setThunderDuration(int var1) {
+      this.thunderTicks = var1;
    }
 
-   public boolean p() {
-      return this.q;
+   public boolean hasStorm() {
+      return this.isRaining;
    }
 
-   public void b(boolean var1) {
-      this.q = var1;
+   public void setStorm(boolean var1) {
+      this.isRaining = var1;
    }
 
-   public int q() {
-      return this.r;
+   public int getWeatherDuration() {
+      return this.rainTicks;
    }
 
-   public void g(int var1) {
-      this.r = var1;
+   public void setWeatherDuration(int var1) {
+      this.rainTicks = var1;
    }
 
-   public EnumGamemode r() {
-      return this.u;
+   public EnumGamemode getGameType() {
+      return this.gameType;
    }
 
-   public boolean s() {
-      return this.v;
+   public boolean shouldGenerateMapFeatures() {
+      return this.useMapFeatures;
    }
 
    public void f(boolean var1) {
-      this.v = var1;
+      this.useMapFeatures = var1;
    }
 
    public void setGameType(EnumGamemode var1) {
-      this.u = var1;
+      this.gameType = var1;
    }
 
-   public boolean t() {
-      return this.w;
+   public boolean isHardcore() {
+      return this.hardcore;
    }
 
    public void g(boolean var1) {
-      this.w = var1;
+      this.hardcore = var1;
    }
 
-   public WorldType u() {
-      return this.c;
+   public WorldType getType() {
+      return this.type;
    }
 
-   public void a(WorldType var1) {
-      this.c = var1;
+   public void setType(WorldType var1) {
+      this.type = var1;
    }
 
-   public String B() {
-      return this.d;
+   public String getGeneratorOptions() {
+      return this.generatorOptions;
    }
 
-   public boolean v() {
-      return this.x;
+   public boolean allowCommands() {
+      return this.allowCommands;
    }
 
    public void c(boolean var1) {
-      this.x = var1;
+      this.allowCommands = var1;
    }
 
-   public boolean w() {
-      return this.y;
+   public boolean isInitialized() {
+      return this.initialized;
    }
 
    public void d(boolean var1) {
-      this.y = var1;
+      this.initialized = var1;
    }
 
-   public aqq x() {
-      return this.K;
+   public GameRules getGameRules() {
+      return this.gameRules;
    }
 
    public double C() {
@@ -576,87 +576,87 @@ public class WorldData {
 
    // $FF: synthetic method
    static WorldType a(WorldData var0) {
-      return var0.c;
+      return var0.type;
    }
 
    // $FF: synthetic method
    static boolean b(WorldData var0) {
-      return var0.v;
+      return var0.useMapFeatures;
    }
 
    // $FF: synthetic method
    static String c(WorldData var0) {
-      return var0.d;
+      return var0.generatorOptions;
    }
 
    // $FF: synthetic method
    static int d(WorldData var0) {
-      return var0.e;
+      return var0.spawnX;
    }
 
    // $FF: synthetic method
    static int e(WorldData var0) {
-      return var0.f;
+      return var0.spawnY;
    }
 
    // $FF: synthetic method
    static int f(WorldData var0) {
-      return var0.g;
+      return var0.spawnZ;
    }
 
    // $FF: synthetic method
    static long g(WorldData var0) {
-      return var0.h;
+      return var0.time;
    }
 
    // $FF: synthetic method
    static long h(WorldData var0) {
-      return var0.i;
+      return var0.dayTime;
    }
 
    // $FF: synthetic method
    static int i(WorldData var0) {
-      return var0.m;
+      return var0.dimension;
    }
 
    // $FF: synthetic method
    static int j(WorldData var0) {
-      return var0.o;
+      return var0.version;
    }
 
    // $FF: synthetic method
    static int k(WorldData var0) {
-      return var0.r;
+      return var0.rainTicks;
    }
 
    // $FF: synthetic method
    static boolean l(WorldData var0) {
-      return var0.q;
+      return var0.isRaining;
    }
 
    // $FF: synthetic method
    static int m(WorldData var0) {
-      return var0.t;
+      return var0.thunderTicks;
    }
 
    // $FF: synthetic method
    static boolean n(WorldData var0) {
-      return var0.s;
+      return var0.isThundering;
    }
 
    // $FF: synthetic method
    static EnumGamemode o(WorldData var0) {
-      return var0.u;
+      return var0.gameType;
    }
 
    // $FF: synthetic method
    static boolean p(WorldData var0) {
-      return var0.w;
+      return var0.hardcore;
    }
 
    // $FF: synthetic method
    static boolean q(WorldData var0) {
-      return var0.x;
+      return var0.allowCommands;
    }
 
 }

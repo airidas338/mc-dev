@@ -45,7 +45,7 @@ class afd extends PathfinderGoal {
             var14.s = this.b.s + var7.a * var5;
             var14.t = this.b.t + (double)(this.b.K / 2.0F) + 0.5D;
             var14.u = this.b.u + var7.c * var5;
-            var4.d((Entity)var14);
+            var4.addEntity((Entity)var14);
             this.a = -40;
          }
       } else if(this.a > 0) {

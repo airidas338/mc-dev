@@ -12,7 +12,7 @@ public class BlockLeaves2 extends BlockLeaves {
 
    protected void a(World var1, Location var2, IBlockData var3, int var4) {
       if(var3.b(P) == ayx.f && var1.random.nextInt(var4) == 0) {
-         a(var1, var2, new ItemStack(Items.e, 1, 0));
+         a(var1, var2, new ItemStack(Items.APPLE, 1, 0));
       }
 
    }

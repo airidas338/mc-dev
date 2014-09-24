@@ -25,7 +25,7 @@ public class akw extends Item {
          if(var9 == akv.a) {
             if(a(var1, var3, var4)) {
                if(!var3.isStatic) {
-                  var3.b(2005, var4, 0);
+                  var3.triggerEffect(2005, var4, 0);
                }
 
                return true;
@@ -45,7 +45,7 @@ public class akw extends Item {
                var4 = var4.a(var5);
                if(var3.isEmpty(var4)) {
                   IBlockData var12 = Blocks.COCOA.getPlacedData(var3, var4, var5, var6, var7, var8, 0, var2);
-                  var3.a(var4, var12, 2);
+                  var3.setTypeAndData(var4, var12, 2);
                   if(!var2.by.canInstantlyBuild) {
                      --var1.b;
                   }

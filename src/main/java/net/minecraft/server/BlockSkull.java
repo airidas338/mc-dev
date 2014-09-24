@@ -62,7 +62,7 @@ public class BlockSkull extends BlockContainer {
    }
 
    public int j(World var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       return var3 instanceof TileEntitySkull?((TileEntitySkull)var3).c():super.j(var1, var2);
    }
 
@@ -71,7 +71,7 @@ public class BlockSkull extends BlockContainer {
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var4.by.canInstantlyBuild) {
          var3 = var3.a(b, Boolean.valueOf(true));
-         var1.a(var2, var3, 4);
+         var1.setTypeAndData(var2, var3, 4);
       }
 
       super.a(var1, var2, var3, var4);
@@ -80,7 +80,7 @@ public class BlockSkull extends BlockContainer {
    public void remove(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          if(!((Boolean)var3.b(b)).booleanValue()) {
-            TileEntity var4 = var1.s(var2);
+            TileEntity var4 = var1.getTileEntity(var2);
             if(var4 instanceof TileEntitySkull) {
                TileEntitySkull var5 = (TileEntitySkull)var4;
                ItemStack var6 = new ItemStack(Items.bX, 1, this.j(var1, var2));
@@ -115,13 +115,13 @@ public class BlockSkull extends BlockContainer {
             int var6;
             for(var6 = 0; var6 < 3; ++var6) {
                bei var7 = var5.a(var6, 0, 0);
-               var1.a(var7.d(), var7.a().a(b, Boolean.valueOf(true)), 2);
+               var1.setTypeAndData(var7.d(), var7.a().a(b, Boolean.valueOf(true)), 2);
             }
 
             for(var6 = 0; var6 < var4.c(); ++var6) {
                for(int var12 = 0; var12 < var4.b(); ++var12) {
                   bei var8 = var5.a(var6, var12, 0);
-                  var1.a(var8.d(), Blocks.AIR.P(), 2);
+                  var1.setTypeAndData(var8.d(), Blocks.AIR.P(), 2);
                }
             }
 
@@ -138,17 +138,17 @@ public class BlockSkull extends BlockContainer {
                var10.b((Statistic)AchievementList.I);
             }
 
-            var1.d((Entity)var14);
+            var1.addEntity((Entity)var14);
 
             int var16;
             for(var16 = 0; var16 < 120; ++var16) {
-               var1.a(ew.F, (double)var13.n() + var1.random.nextDouble(), (double)(var13.o() - 2) + var1.random.nextDouble() * 3.9D, (double)var13.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+               var1.a(EnumParticleEffect.F, (double)var13.n() + var1.random.nextDouble(), (double)(var13.o() - 2) + var1.random.nextDouble() * 3.9D, (double)var13.p() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
             }
 
             for(var16 = 0; var16 < var4.c(); ++var16) {
                for(int var17 = 0; var17 < var4.b(); ++var17) {
                   bei var11 = var5.a(var16, var17, 0);
-                  var1.b(var11.d(), Blocks.AIR);
+                  var1.update(var11.d(), Blocks.AIR);
                }
             }
 

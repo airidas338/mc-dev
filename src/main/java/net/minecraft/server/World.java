@@ -76,14 +76,14 @@ public abstract class World implements IBlockAccess {
 
     public BiomeBase getBiome(Location var1) {
         if (this.isLoaded(var1)) {
-            Chunk var2 = this.f(var1);
+            Chunk var2 = this.getChunkAtWorldCoords(var1);
 
             try {
-                return var2.getBiome(var1, this.worldProvider.m()); //TODO: Rename to getBiome
+                return var2.getBiome(var1, this.worldProvider.m());
             } catch (Throwable var6) {
                 CrashReport var4 = CrashReport.a(var6, "Getting biome");
                 CrashReportSystemDetails var5 = var4.a("Coordinates of biome request");
-                var5.a("Location", (Callable) (new CrashReportWorldLocation(this, var1))); //TODO: CrashReportWorldLocation
+                var5.a("Location", (Callable) (new CrashReportWorldLocation(this, var1)));
                 throw new ReportedException(var4);
             }
         } else {
@@ -123,7 +123,7 @@ public abstract class World implements IBlockAccess {
     }
 
     public boolean isLoaded(Location var1, boolean var2) {
-        return !this.a(var1) ? false : this.a(var1.n() >> 4, var1.p() >> 4, var2);
+        return !this.a(var1) ? false : this.isChunkLoaded(var1.n() >> 4, var1.p() >> 4, var2);
     }
 
     public boolean a(Location var1, int var2) {
@@ -143,10 +143,10 @@ public abstract class World implements IBlockAccess {
     }
 
     public boolean a(bjb var1) {
-        return this.b(var1, true);
+        return this.areChunksLoaded(var1, true);
     }
 
-    public boolean b(bjb var1, boolean var2) {
+    public boolean areChunksLoaded(bjb var1, boolean var2) {
         return this.a(var1.a, var1.b, var1.c, var1.d, var1.e, var1.f, var2);
     }
 
@@ -159,7 +159,7 @@ public abstract class World implements IBlockAccess {
 
             for (int var8 = var1; var8 <= var4; ++var8) {
                 for (int var9 = var3; var9 <= var6; ++var9) {
-                    if (!this.a(var8, var9, var7)) {
+                    if (!this.isChunkLoaded(var8, var9, var7)) {
                         return false;
                     }
                 }
@@ -171,11 +171,11 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    protected boolean a(int var1, int var2, boolean var3) {
+    protected boolean isChunkLoaded(int var1, int var2, boolean var3) {
         return this.chunkProvider.isChunkLoaded(var1, var2) && (var3 || !this.chunkProvider.getOrCreateChunk(var1, var2).f());
     }
 
-    public Chunk f(Location var1) {
+    public Chunk getChunkAtWorldCoords(Location var1) {
         return this.getChunkAt(var1.n() >> 4, var1.p() >> 4);
     }
 
@@ -183,13 +183,13 @@ public abstract class World implements IBlockAccess {
         return this.chunkProvider.getOrCreateChunk(var1, var2);
     }
 
-    public boolean a(Location var1, IBlockData var2, int var3) {
+    public boolean setTypeAndData(Location var1, IBlockData var2, int var3) {
         if (!this.a(var1)) {
             return false;
-        } else if (!this.isStatic && this.worldData.u() == WorldType.DEBUG) {
+        } else if (!this.isStatic && this.worldData.getType() == WorldType.DEBUG) {
             return false;
         } else {
-            Chunk var4 = this.f(var1);
+            Chunk var4 = this.getChunkAtWorldCoords(var1);
             Block var5 = var2.c();
             IBlockData var6 = var4.a(var1, var2);
             if (var6 == null) {
@@ -203,13 +203,13 @@ public abstract class World implements IBlockAccess {
                 }
 
                 if ((var3 & 2) != 0 && (!this.isStatic || (var3 & 4) == 0) && var4.i()) {
-                    this.h(var1);
+                    this.notify(var1);
                 }
 
                 if (!this.isStatic && (var3 & 1) != 0) {
-                    this.b(var1, var6.c());
+                    this.update(var1, var6.c());
                     if (var5.isComplexRedstone()) {
-                        this.e(var1, var5);
+                        this.updateAdjacentComparators(var1, var5);
                     }
                 }
 
@@ -218,39 +218,39 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    public boolean g(Location var1) {
-        return this.a(var1, Blocks.AIR.P(), 3);
+    public boolean setAir(Location var1) {
+        return this.setTypeAndData(var1, Blocks.AIR.P(), 3);
     }
 
-    public boolean b(Location var1, boolean var2) {
+    public boolean setAir(Location var1, boolean var2) {
         IBlockData var3 = this.getData(var1);
         Block var4 = var3.c();
         if (var4.getMaterial() == Material.AIR) {
             return false;
         } else {
-            this.b(2001, var1, Block.f(var3));
+            this.triggerEffect(2001, var1, Block.f(var3));
             if (var2) {
                 var4.b(this, var1, var3, 0);
             }
 
-            return this.a(var1, Blocks.AIR.P(), 3);
+            return this.setTypeAndData(var1, Blocks.AIR.P(), 3);
         }
     }
 
     public boolean a(Location var1, IBlockData var2) {
-        return this.a(var1, var2, 3);
+        return this.setTypeAndData(var1, var2, 3);
     }
 
-    public void h(Location var1) {
+    public void notify(Location var1) {
         for (int var2 = 0; var2 < this.u.size(); ++var2) {
             ((IWorldAccess) this.u.get(var2)).a(var1);
         }
 
     }
 
-    public void b(Location var1, Block var2) {
-        if (this.worldData.u() != WorldType.DEBUG) {
-            this.c(var1, var2);
+    public void update(Location var1, Block var2) {
+        if (this.worldData.getType() != WorldType.DEBUG) {
+            this.applyPhysics(var1, var2);
         }
 
     }
@@ -283,7 +283,7 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void c(Location var1, Block var2) {
+    public void applyPhysics(Location var1, Block var2) {
         this.d(var1.e(), var2);
         this.d(var1.f(), var2);
         this.d(var1.b(), var2);
@@ -324,7 +324,7 @@ public abstract class World implements IBlockAccess {
             IBlockData var3 = this.getData(var1);
 
             try {
-                var3.c().a(this, var1, var3, var2);
+                var3.c().doPhysics(this, var1, var3, var2);
             } catch (Throwable var7) {
                 CrashReport var5 = CrashReport.a(var7, "Exception while updating neighbours");
                 CrashReportSystemDetails var6 = var5.a("Block being updated");
@@ -340,7 +340,7 @@ public abstract class World implements IBlockAccess {
     }
 
     public boolean i(Location var1) {
-        return this.f(var1).d(var1);
+        return this.getChunkAtWorldCoords(var1).d(var1);
     }
 
     public boolean j(Location var1) {
@@ -371,11 +371,11 @@ public abstract class World implements IBlockAccess {
                 var1 = new Location(var1.n(), 255, var1.p());
             }
 
-            return this.f(var1).a(var1, 0);
+            return this.getChunkAtWorldCoords(var1).a(var1, 0);
         }
     }
 
-    public int l(Location var1) {
+    public int getLightLevel(Location var1) {
         return this.c(var1, true);
     }
 
@@ -411,7 +411,7 @@ public abstract class World implements IBlockAccess {
                     var1 = new Location(var1.n(), 255, var1.p());
                 }
 
-                Chunk var3 = this.f(var1);
+                Chunk var3 = this.getChunkAtWorldCoords(var1);
                 return var3.a(var1, this.d);
             }
         } else {
@@ -422,7 +422,7 @@ public abstract class World implements IBlockAccess {
     public Location m(Location var1) {
         int var2;
         if (var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
-            if (this.a(var1.n() >> 4, var1.p() >> 4, true)) {
+            if (this.isChunkLoaded(var1.n() >> 4, var1.p() >> 4, true)) {
                 var2 = this.getChunkAt(var1.n() >> 4, var1.p() >> 4).b(var1.n() & 15, var1.p() & 15);
             } else {
                 var2 = 0;
@@ -434,9 +434,9 @@ public abstract class World implements IBlockAccess {
         return new Location(var1.n(), var2, var1.p());
     }
 
-    public int b(int var1, int var2) {
+    public int getHighestBlockYAt(int var1, int var2) {
         if (var1 >= -30000000 && var2 >= -30000000 && var1 < 30000000 && var2 < 30000000) {
-            if (!this.a(var1 >> 4, var2 >> 4, true)) {
+            if (!this.isChunkLoaded(var1 >> 4, var2 >> 4, true)) {
                 return 0;
             } else {
                 Chunk var3 = this.getChunkAt(var1 >> 4, var2 >> 4);
@@ -457,7 +457,7 @@ public abstract class World implements IBlockAccess {
         } else if (!this.isLoaded(var2)) {
             return var1.c;
         } else {
-            Chunk var3 = this.f(var2);
+            Chunk var3 = this.getChunkAtWorldCoords(var2);
             return var3.a(var1, var2);
         }
     }
@@ -465,7 +465,7 @@ public abstract class World implements IBlockAccess {
     public void a(EnumSkyBlock var1, Location var2, int var3) {
         if (this.a(var2)) {
             if (this.isLoaded(var2)) {
-                Chunk var4 = this.f(var2);
+                Chunk var4 = this.getChunkAtWorldCoords(var2);
                 var4.a(var1, var2, var3);
                 this.n(var2);
             }
@@ -480,14 +480,14 @@ public abstract class World implements IBlockAccess {
     }
 
     public float o(Location var1) {
-        return this.worldProvider.p()[this.l(var1)];
+        return this.worldProvider.p()[this.getLightLevel(var1)];
     }
 
     public IBlockData getData(Location var1) {
         if (!this.a(var1)) {
             return Blocks.AIR.P();
         } else {
-            Chunk var2 = this.f(var1);
+            Chunk var2 = this.getChunkAtWorldCoords(var1);
             return var2.g(var1);
         }
     }
@@ -497,14 +497,14 @@ public abstract class World implements IBlockAccess {
     }
 
     public MovingObjectPosition a(Vec3D var1, Vec3D var2) {
-        return this.a(var1, var2, false, false, false);
+        return this.rayTrace(var1, var2, false, false, false);
     }
 
-    public MovingObjectPosition a(Vec3D var1, Vec3D var2, boolean var3) {
-        return this.a(var1, var2, var3, false, false);
+    public MovingObjectPosition rayTrace(Vec3D var1, Vec3D var2, boolean var3) {
+        return this.rayTrace(var1, var2, var3, false, false);
     }
 
-    public MovingObjectPosition a(Vec3D var1, Vec3D var2, boolean var3, boolean var4, boolean var5) {
+    public MovingObjectPosition rayTrace(Vec3D var1, Vec3D var2, boolean var3, boolean var4, boolean var5) {
         if (!Double.isNaN(var1.a) && !Double.isNaN(var1.b) && !Double.isNaN(var1.c)) {
             if (!Double.isNaN(var2.a) && !Double.isNaN(var2.b) && !Double.isNaN(var2.c)) {
                 int var6 = MathHelper.floor(var2.a);
@@ -635,7 +635,7 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    public void a(Entity var1, String var2, float var3, float var4) {
+    public void makeSound(Entity var1, String var2, float var3, float var4) {
         for (int var5 = 0; var5 < this.u.size(); ++var5) {
             ((IWorldAccess) this.u.get(var5)).a(var2, var1.s, var1.t, var1.u, var3, var4);
         }
@@ -649,7 +649,7 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void a(double var1, double var3, double var5, String var7, float var8, float var9) {
+    public void makeSound(double var1, double var3, double var5, String var7, float var8, float var9) {
         for (int var10 = 0; var10 < this.u.size(); ++var10) {
             ((IWorldAccess) this.u.get(var10)).a(var7, var1, var3, var5, var8, var9);
         }
@@ -666,37 +666,37 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void a(ew var1, double var2, double var4, double var6, double var8, double var10, double var12, int... var14) {
-        this.a(var1.c(), var1.e(), var2, var4, var6, var8, var10, var12, var14);
+    public void a(EnumParticleEffect var1, double var2, double var4, double var6, double var8, double var10, double var12, int... var14) {
+        this.addParticle(var1.c(), var1.e(), var2, var4, var6, var8, var10, var12, var14);
     }
 
-    private void a(int var1, boolean var2, double var3, double var5, double var7, double var9, double var11, double var13, int... var15) {
+    private void addParticle(int var1, boolean var2, double var3, double var5, double var7, double var9, double var11, double var13, int... var15) {
         for (int var16 = 0; var16 < this.u.size(); ++var16) {
             ((IWorldAccess) this.u.get(var16)).a(var1, var2, var3, var5, var7, var9, var11, var13, var15);
         }
 
     }
 
-    public boolean c(Entity var1) {
+    public boolean strikeLightning(Entity var1) {
         this.k.add(var1);
         return true;
     }
 
-    public boolean d(Entity var1) {
+    public boolean addEntity(Entity var1) {
         int var2 = MathHelper.floor(var1.s / 16.0D);
         int var3 = MathHelper.floor(var1.u / 16.0D);
-        boolean var4 = var1.n;
+        boolean var4 = var1.attachedToPlayer;
         if (var1 instanceof EntityHuman) {
             var4 = true;
         }
 
-        if (!var4 && !this.a(var2, var3, true)) {
+        if (!var4 && !this.isChunkLoaded(var2, var3, true)) {
             return false;
         } else {
             if (var1 instanceof EntityHuman) {
                 EntityHuman var5 = (EntityHuman) var1;
                 this.players.add(var5);
-                this.d();
+                this.everyoneSleeping();
             }
 
             this.getChunkAt(var2, var3).a(var1);
@@ -720,7 +720,7 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void e(Entity var1) {
+    public void kill(Entity var1) {
         if (var1.l != null) {
             var1.l.a((Entity) null);
         }
@@ -732,22 +732,22 @@ public abstract class World implements IBlockAccess {
         var1.J();
         if (var1 instanceof EntityHuman) {
             this.players.remove(var1);
-            this.d();
+            this.everyoneSleeping();
             this.b(var1);
         }
 
     }
 
-    public void f(Entity var1) {
+    public void removeEntity(Entity var1) {
         var1.J();
         if (var1 instanceof EntityHuman) {
             this.players.remove(var1);
-            this.d();
+            this.everyoneSleeping();
         }
 
         int var2 = var1.ae;
         int var3 = var1.ag;
-        if (var1.ad && this.a(var2, var3, true)) {
+        if (var1.ad && this.isChunkLoaded(var2, var3, true)) {
             this.getChunkAt(var2, var3).b(var1);
         }
 
@@ -755,11 +755,11 @@ public abstract class World implements IBlockAccess {
         this.b(var1);
     }
 
-    public void a(IWorldAccess var1) {
+    public void addIWorldAccess(IWorldAccess var1) {
         this.u.add(var1);
     }
 
-    public List a(Entity var1, AxisAlignedBB var2) {
+    public List getCubes(Entity var1, AxisAlignedBB var2) {
         ArrayList var3 = Lists.newArrayList();
         int var4 = MathHelper.floor(var2.a);
         int var5 = MathHelper.floor(var2.d + 1.0D);
@@ -889,11 +889,11 @@ public abstract class World implements IBlockAccess {
     }
 
     public Location q(Location var1) {
-        return this.f(var1).h(var1);
+        return this.getChunkAtWorldCoords(var1).h(var1);
     }
 
     public Location r(Location var1) {
-        Chunk var2 = this.f(var1);
+        Chunk var2 = this.getChunkAtWorldCoords(var1);
 
         Location var3;
         Location var4;
@@ -917,7 +917,7 @@ public abstract class World implements IBlockAccess {
     public void b(Location var1, Block var2, int var3, int var4) {
     }
 
-    public void i() {
+    public void tickEntities() {
         this.methodProfiler.a("entities");
         this.methodProfiler.a("global");
 
@@ -957,7 +957,7 @@ public abstract class World implements IBlockAccess {
             var2 = (Entity) this.g.get(var1);
             var3 = var2.ae;
             var14 = var2.ag;
-            if (var2.ad && this.a(var3, var14, true)) {
+            if (var2.ad && this.isChunkLoaded(var3, var14, true)) {
                 this.getChunkAt(var3, var14).b(var2);
             }
         }
@@ -983,7 +983,7 @@ public abstract class World implements IBlockAccess {
             this.methodProfiler.a("tick");
             if (!var2.I) {
                 try {
-                    this.g(var2);
+                    this.playerJoinedWorld(var2);
                 } catch (Throwable var8) {
                     var4 = CrashReport.a(var8, "Ticking entity");
                     var5 = var4.a("Entity being ticked");
@@ -997,7 +997,7 @@ public abstract class World implements IBlockAccess {
             if (var2.I) {
                 var3 = var2.ae;
                 var14 = var2.ag;
-                if (var2.ad && this.a(var3, var14, true)) {
+                if (var2.ad && this.isChunkLoaded(var3, var14, true)) {
                     this.getChunkAt(var3, var14).b(var2);
                 }
 
@@ -1032,7 +1032,7 @@ public abstract class World implements IBlockAccess {
                 var15.remove();
                 this.tileEntityList.remove(var10);
                 if (this.isLoaded(var10.v())) {
-                    this.f(var10.v()).e(var10.v());
+                    this.getChunkAtWorldCoords(var10.v()).e(var10.v());
                 }
             }
         }
@@ -1054,10 +1054,10 @@ public abstract class World implements IBlockAccess {
                     }
 
                     if (this.isLoaded(var13.v())) {
-                        this.f(var13.v()).a(var13.v(), var13);
+                        this.getChunkAtWorldCoords(var13.v()).a(var13.v(), var13);
                     }
 
-                    this.h(var13.v());
+                    this.notify(var13.v());
                 }
             }
 
@@ -1094,11 +1094,11 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void g(Entity var1) throws IOException {
-        this.a(var1, true);
+    public void playerJoinedWorld(Entity var1) throws IOException {
+        this.entityJoinedWorld(var1, true);
     }
 
-    public void a(Entity var1, boolean var2) throws IOException {
+    public void entityJoinedWorld(Entity var1, boolean var2) throws IOException {
         int var3 = MathHelper.floor(var1.s);
         int var4 = MathHelper.floor(var1.u);
         byte var5 = 32;
@@ -1142,11 +1142,11 @@ public abstract class World implements IBlockAccess {
             int var7 = MathHelper.floor(var1.t / 16.0D);
             int var8 = MathHelper.floor(var1.u / 16.0D);
             if (!var1.ad || var1.ae != var6 || var1.af != var7 || var1.ag != var8) {
-                if (var1.ad && this.a(var1.ae, var1.ag, true)) {
+                if (var1.ad && this.isChunkLoaded(var1.ae, var1.ag, true)) {
                     this.getChunkAt(var1.ae, var1.ag).a(var1, var1.af);
                 }
 
-                if (this.a(var6, var8, true)) {
+                if (this.isChunkLoaded(var6, var8, true)) {
                     var1.ad = true;
                     this.getChunkAt(var6, var8).a(var1);
                 } else {
@@ -1157,7 +1157,7 @@ public abstract class World implements IBlockAccess {
             this.methodProfiler.b();
             if (var2 && var1.ad && var1.l != null) {
                 if (!var1.l.I && var1.l.m == var1) {
-                    this.g(var1.l);
+                    this.playerJoinedWorld(var1.l);
                 } else {
                     var1.l.m = null;
                     var1.l = null;
@@ -1206,7 +1206,7 @@ public abstract class World implements IBlockAccess {
         return false;
     }
 
-    public boolean d(AxisAlignedBB var1) {
+    public boolean containsLiquid(AxisAlignedBB var1) {
         int var2 = MathHelper.floor(var1.a);
         int var3 = MathHelper.floor(var1.d);
         int var4 = MathHelper.floor(var1.b);
@@ -1346,12 +1346,12 @@ public abstract class World implements IBlockAccess {
         return false;
     }
 
-    public aqo a(Entity var1, double var2, double var4, double var6, float var8, boolean var9) {
-        return this.a(var1, var2, var4, var6, var8, false, var9);
+    public Explosion explode(Entity var1, double var2, double var4, double var6, float var8, boolean var9) {
+        return this.createExplosion(var1, var2, var4, var6, var8, false, var9);
     }
 
-    public aqo a(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
-        aqo var11 = new aqo(this, var1, var2, var4, var6, var8, var9, var10);
+    public Explosion createExplosion(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
+        Explosion var11 = new Explosion(this, var1, var2, var4, var6, var8, var9, var10);
         var11.a();
         var11.a(true);
         return var11;
@@ -1386,18 +1386,18 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    public boolean a(EntityHuman var1, Location var2, EnumFacing var3) {
+    public boolean douseFire(EntityHuman var1, Location var2, EnumFacing var3) {
         var2 = var2.a(var3);
         if (this.getData(var2).c() == Blocks.FIRE) {
             this.a(var1, 1004, var2, 0);
-            this.g(var2);
+            this.setAir(var2);
             return true;
         } else {
             return false;
         }
     }
 
-    public TileEntity s(Location var1) {
+    public TileEntity getTileEntity(Location var1) {
         if (!this.a(var1)) {
             return null;
         } else {
@@ -1415,7 +1415,7 @@ public abstract class World implements IBlockAccess {
             }
 
             if (var2 == null) {
-                var2 = this.f(var1).a(var1, bfl.a);
+                var2 = this.getChunkAtWorldCoords(var1).a(var1, bfl.a);
             }
 
             if (var2 == null) {
@@ -1432,7 +1432,7 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    public void a(Location var1, TileEntity var2) {
+    public void setTileEntity(Location var1, TileEntity var2) {
         if (var2 != null && !var2.x()) {
             if (this.L) {
                 var2.a(var1);
@@ -1449,14 +1449,14 @@ public abstract class World implements IBlockAccess {
                 this.a.add(var2);
             } else {
                 this.a(var2);
-                this.f(var1).a(var1, var2);
+                this.getChunkAtWorldCoords(var1).a(var1, var2);
             }
         }
 
     }
 
     public void t(Location var1) {
-        TileEntity var2 = this.s(var1);
+        TileEntity var2 = this.getTileEntity(var1);
         if (var2 != null && this.L) {
             var2.y();
             this.a.remove(var2);
@@ -1467,7 +1467,7 @@ public abstract class World implements IBlockAccess {
                 this.i.remove(var2);
             }
 
-            this.f(var1).e(var1);
+            this.getChunkAtWorldCoords(var1).e(var1);
         }
 
     }
@@ -1511,19 +1511,19 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void a(boolean var1, boolean var2) {
+    public void setSpawnFlags(boolean var1, boolean var2) {
         this.allowMonsters = var1;
         this.allowAnimals = var2;
     }
 
-    public void c() {
+    public void doTick() {
         this.p();
     }
 
     protected void C() {
-        if (this.worldData.p()) {
+        if (this.worldData.hasStorm()) {
             this.p = 1.0F;
-            if (this.worldData.n()) {
+            if (this.worldData.isThundering()) {
                 this.r = 1.0F;
             }
         }
@@ -1533,54 +1533,54 @@ public abstract class World implements IBlockAccess {
     protected void p() {
         if (!this.worldProvider.o()) {
             if (!this.isStatic) {
-                int var1 = this.worldData.getThunderDuration();
+                int var1 = this.worldData.getClearWeatherDuration();
                 if (var1 > 0) {
                     --var1;
                     this.worldData.i(var1);
-                    this.worldData.f(this.worldData.n() ? 1 : 2);
-                    this.worldData.g(this.worldData.p() ? 1 : 2);
+                    this.worldData.setThunderDuration(this.worldData.isThundering() ? 1 : 2);
+                    this.worldData.setWeatherDuration(this.worldData.hasStorm() ? 1 : 2);
                 }
 
-                int var2 = this.worldData.o();
+                int var2 = this.worldData.getThunderDuration();
                 if (var2 <= 0) {
-                    if (this.worldData.n()) {
-                        this.worldData.f(this.random.nextInt(12000) + 3600);
+                    if (this.worldData.isThundering()) {
+                        this.worldData.setThunderDuration(this.random.nextInt(12000) + 3600);
                     } else {
-                        this.worldData.f(this.random.nextInt(168000) + 12000);
+                        this.worldData.setThunderDuration(this.random.nextInt(168000) + 12000);
                     }
                 } else {
                     --var2;
-                    this.worldData.f(var2);
+                    this.worldData.setThunderDuration(var2);
                     if (var2 <= 0) {
-                        this.worldData.a(!this.worldData.n());
+                        this.worldData.setThundering(!this.worldData.isThundering());
                     }
                 }
 
                 this.q = this.r;
-                if (this.worldData.n()) {
+                if (this.worldData.isThundering()) {
                     this.r = (float) ((double) this.r + 0.01D);
                 } else {
                     this.r = (float) ((double) this.r - 0.01D);
                 }
 
                 this.r = MathHelper.a(this.r, 0.0F, 1.0F);
-                int var3 = this.worldData.q();
+                int var3 = this.worldData.getWeatherDuration();
                 if (var3 <= 0) {
-                    if (this.worldData.p()) {
-                        this.worldData.g(this.random.nextInt(12000) + 12000);
+                    if (this.worldData.hasStorm()) {
+                        this.worldData.setWeatherDuration(this.random.nextInt(12000) + 12000);
                     } else {
-                        this.worldData.g(this.random.nextInt(168000) + 12000);
+                        this.worldData.setWeatherDuration(this.random.nextInt(168000) + 12000);
                     }
                 } else {
                     --var3;
-                    this.worldData.g(var3);
+                    this.worldData.setWeatherDuration(var3);
                     if (var3 <= 0) {
-                        this.worldData.b(!this.worldData.p());
+                        this.worldData.setStorm(!this.worldData.hasStorm());
                     }
                 }
 
                 this.o = this.p;
-                if (this.worldData.p()) {
+                if (this.worldData.hasStorm()) {
                     this.p = (float) ((double) this.p + 0.01D);
                 } else {
                     this.p = (float) ((double) this.p - 0.01D);
@@ -1646,9 +1646,9 @@ public abstract class World implements IBlockAccess {
             var5 += var1;
             var6 += var2;
             if (var9.getMaterial() == Material.AIR && this.k(var8) <= this.random.nextInt(8) && this.b(EnumSkyBlock.SKY, var8) <= 0) {
-                EntityHuman var10 = this.a((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, 8.0D);
+                EntityHuman var10 = this.findNearbyVulnerablePlayer((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, 8.0D);
                 if (var10 != null && var10.e((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D) > 4.0D) {
-                    this.a((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.random.nextFloat() * 0.2F);
+                    this.makeSound((double) var5 + 0.5D, (double) var7 + 0.5D, (double) var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.random.nextFloat() * 0.2F);
                     this.K = this.random.nextInt(12000) + 6000;
                 }
             }
@@ -1915,7 +1915,7 @@ public abstract class World implements IBlockAccess {
 
         for (int var9 = var5; var9 <= var6; ++var9) {
             for (int var10 = var7; var10 <= var8; ++var10) {
-                if (this.a(var9, var10, true)) {
+                if (this.isChunkLoaded(var9, var10, true)) {
                     this.getChunkAt(var9, var10).a(var1, var2, var4, var3);
                 }
             }
@@ -1953,10 +1953,10 @@ public abstract class World implements IBlockAccess {
     }
 
     public List getEntities(Class var1, AxisAlignedBB var2) {
-        return this.a(var1, var2, EntitySelectors.d);
+        return this.getEntities(var1, var2, EntitySelectors.d);
     }
 
-    public List a(Class var1, AxisAlignedBB var2, Predicate var3) {
+    public List getEntities(Class var1, AxisAlignedBB var2, Predicate var3) {
         int var4 = MathHelper.floor((var2.a - 2.0D) / 16.0D);
         int var5 = MathHelper.floor((var2.d + 2.0D) / 16.0D);
         int var6 = MathHelper.floor((var2.c - 2.0D) / 16.0D);
@@ -1965,7 +1965,7 @@ public abstract class World implements IBlockAccess {
 
         for (int var9 = var4; var9 <= var5; ++var9) {
             for (int var10 = var6; var10 <= var7; ++var10) {
-                if (this.a(var9, var10, true)) {
+                if (this.isChunkLoaded(var9, var10, true)) {
                     this.getChunkAt(var9, var10).a(var1, var2, var8, var3);
                 }
             }
@@ -1993,13 +1993,13 @@ public abstract class World implements IBlockAccess {
         return var5;
     }
 
-    public Entity a(int var1) {
+    public Entity getEntity(int var1) {
         return (Entity) this.l.a(var1);
     }
 
     public void b(Location var1, TileEntity var2) {
         if (this.isLoaded(var1)) {
-            this.f(var1).e();
+            this.getChunkAtWorldCoords(var1).e();
         }
 
     }
@@ -2033,7 +2033,7 @@ public abstract class World implements IBlockAccess {
         this.g.addAll(var1);
     }
 
-    public boolean a(Block var1, Location var2, boolean var3, EnumFacing var4, Entity var5, ItemStack var6) {
+    public boolean mayPlace(Block var1, Location var2, boolean var3, EnumFacing var4, Entity var5, ItemStack var6) {
         Block var7 = this.getData(var2).c();
         AxisAlignedBB var8 = var3 ? null : var1.a(this, var2, var1.P());
         return var8 != null && !this.a(var8, var5) ? false : (var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL ? true : var7.getMaterial().isReplacable() && var1.a(this, var2, var4, var6));
@@ -2045,10 +2045,10 @@ public abstract class World implements IBlockAccess {
     }
 
     public WorldType G() {
-        return this.worldData.u();
+        return this.worldData.getType();
     }
 
-    public int y(Location var1) {
+    public int getBlockPower(Location var1) {
         byte var2 = 0;
         int var3 = Math.max(var2, this.a(var1.b(), EnumFacing.DOWN));
         if (var3 >= 15) {
@@ -2079,29 +2079,29 @@ public abstract class World implements IBlockAccess {
         }
     }
 
-    public boolean b(Location var1, EnumFacing var2) {
-        return this.c(var1, var2) > 0;
+    public boolean isBlockFacePowered(Location var1, EnumFacing var2) {
+        return this.getBlockFacePower(var1, var2) > 0;
     }
 
-    public int c(Location var1, EnumFacing var2) {
+    public int getBlockFacePower(Location var1, EnumFacing var2) {
         IBlockData var3 = this.getData(var1);
         Block var4 = var3.c();
-        return var4.t() ? this.y(var1) : var4.a((IBlockAccess) this, var1, var3, var2);
+        return var4.t() ? this.getBlockPower(var1) : var4.a((IBlockAccess) this, var1, var3, var2);
     }
 
-    public boolean z(Location var1) {
-        return this.c(var1.b(), EnumFacing.DOWN) > 0 ? true : (this.c(var1.a(), EnumFacing.UP) > 0 ? true : (this.c(var1.c(), EnumFacing.NORTH) > 0 ? true
-                : (this.c(var1.d(), EnumFacing.SOUTH) > 0 ? true : (this.c(var1.e(), EnumFacing.WEST) > 0 ? true : this.c(var1.f(), EnumFacing.EAST) > 0))));
+    public boolean isBlockIndirectlyPowered(Location var1) {
+        return this.getBlockFacePower(var1.b(), EnumFacing.DOWN) > 0 ? true : (this.getBlockFacePower(var1.a(), EnumFacing.UP) > 0 ? true : (this.getBlockFacePower(var1.c(), EnumFacing.NORTH) > 0 ? true
+                : (this.getBlockFacePower(var1.d(), EnumFacing.SOUTH) > 0 ? true : (this.getBlockFacePower(var1.e(), EnumFacing.WEST) > 0 ? true : this.getBlockFacePower(var1.f(), EnumFacing.EAST) > 0))));
     }
 
-    public int A(Location var1) {
+    public int getHighestNeighborSignal(Location var1) {
         int var2 = 0;
         EnumFacing[] var3 = EnumFacing.values();
         int var4 = var3.length;
 
         for (int var5 = 0; var5 < var4; ++var5) {
             EnumFacing var6 = var3[var5];
-            int var7 = this.c(var1.a(var6), var6);
+            int var7 = this.getBlockFacePower(var1.a(var6), var6);
             if (var7 >= 15) {
                 return 15;
             }
@@ -2114,11 +2114,11 @@ public abstract class World implements IBlockAccess {
         return var2;
     }
 
-    public EntityHuman a(Entity var1, double var2) {
-        return this.a(var1.s, var1.t, var1.u, var2);
+    public EntityHuman findNearbyVulnerablePlayer(Entity var1, double var2) {
+        return this.findNearbyVulnerablePlayer(var1.s, var1.t, var1.u, var2);
     }
 
-    public EntityHuman a(double var1, double var3, double var5, double var7) {
+    public EntityHuman findNearbyVulnerablePlayer(double var1, double var3, double var5, double var7) {
         double var9 = -1.0D;
         EntityHuman var11 = null;
 
@@ -2173,26 +2173,26 @@ public abstract class World implements IBlockAccess {
     }
 
     public void I() throws ExceptionWorldConflict {
-        this.dataManager.c();
+        this.dataManager.checkSession();
     }
 
-    public long J() {
-        return this.worldData.b();
+    public long getSeed() {
+        return this.worldData.getSeed();
     }
 
-    public long K() {
-        return this.worldData.f();
+    public long getTime() {
+        return this.worldData.getTime();
     }
 
-    public long L() {
+    public long getDayTime() {
         return this.worldData.getDayTime();
     }
 
-    public void b(long var1) {
-        this.worldData.c(var1);
+    public void setDayTime(long var1) {
+        this.worldData.setDayTime(var1);
     }
 
-    public Location M() {
+    public Location getSpawn() {
         Location var1 = new Location(this.worldData.c(), this.worldData.d(), this.worldData.e());
         if (!this.af().a(var1)) {
             var1 = this.m(new Location(this.af().f(), 0.0D, this.af().g()));
@@ -2202,37 +2202,37 @@ public abstract class World implements IBlockAccess {
     }
 
     public void B(Location var1) {
-        this.worldData.a(var1);
+        this.worldData.setSpawn(var1);
     }
 
     public boolean a(EntityHuman var1, Location var2) {
         return true;
     }
 
-    public void a(Entity var1, byte var2) {
+    public void broadcastEntityEffect(Entity var1, byte var2) {
     }
 
     public IChunkProvider N() {
         return this.chunkProvider;
     }
 
-    public void c(Location var1, Block var2, int var3, int var4) {
+    public void playBlockAction(Location var1, Block var2, int var3, int var4) {
         var2.a(this, var1, this.getData(var1), var3, var4);
     }
 
-    public IDataManager O() {
+    public IDataManager getDataManager() {
         return this.dataManager;
     }
 
-    public WorldData P() {
+    public WorldData getWorldData() {
         return this.worldData;
     }
 
-    public aqq Q() {
-        return this.worldData.x();
+    public GameRules getGameRules() {
+        return this.worldData.getGameRules();
     }
 
-    public void d() {
+    public void everyoneSleeping() {
     }
 
     public float h(float var1) {
@@ -2251,7 +2251,7 @@ public abstract class World implements IBlockAccess {
         return (double) this.j(1.0F) > 0.2D;
     }
 
-    public boolean C(Location var1) {
+    public boolean isRainingAt(Location var1) {
         if (!this.S()) {
             return false;
         } else if (!this.i(var1)) {
@@ -2292,7 +2292,7 @@ public abstract class World implements IBlockAccess {
 
     }
 
-    public void b(int var1, Location var2, int var3) {
+    public void triggerEffect(int var1, Location var2, int var3) {
         this.a((EntityHuman) null, var1, var2, var3);
     }
 
@@ -2322,7 +2322,7 @@ public abstract class World implements IBlockAccess {
     }
 
     public Random a(int var1, int var2, int var3) {
-        long var4 = (long) var1 * 341873128712L + (long) var2 * 132897987541L + this.P().b() + (long) var3;
+        long var4 = (long) var1 * 341873128712L + (long) var2 * 132897987541L + this.getWorldData().getSeed() + (long) var3;
         this.random.setSeed(var4);
         return this.random;
     }
@@ -2333,9 +2333,9 @@ public abstract class World implements IBlockAccess {
 
     public CrashReportSystemDetails a(CrashReport var1) {
         CrashReportSystemDetails var2 = var1.a("Affected level", 1);
-        var2.a("Level name", (Object) (this.worldData == null ? "????" : this.worldData.k()));
-        var2.a("All players", (Callable) (new aqx(this)));
-        var2.a("Chunk stats", (Callable) (new aqy(this)));
+        var2.a("Level name", (Object) (this.worldData == null ? "????" : this.worldData.getName()));
+        var2.a("All players", (Callable) (new CrashReportPlayers(this)));
+        var2.a("Chunk stats", (Callable) (new CrashReportChunkStats(this)));
 
         try {
             this.worldData.a(var2);
@@ -2355,18 +2355,18 @@ public abstract class World implements IBlockAccess {
     }
 
     public Calendar Y() {
-        if (this.K() % 600L == 0L) {
+        if (this.getTime() % 600L == 0L) {
             this.J.setTimeInMillis(MinecraftServer.ax());
         }
 
         return this.J;
     }
 
-    public Scoreboard Z() {
+    public Scoreboard getScoreboard() {
         return this.scoreboard;
     }
 
-    public void e(Location var1, Block var2) {
+    public void updateAdjacentComparators(Location var1, Block var2) {
         Iterator var3 = en.a.iterator();
 
         while (var3.hasNext()) {
@@ -2375,12 +2375,12 @@ public abstract class World implements IBlockAccess {
             if (this.isLoaded(var5)) {
                 IBlockData var6 = this.getData(var5);
                 if (Blocks.REDSTONE_COMPARATOR_OFF.e(var6.c())) {
-                    var6.c().a(this, var5, var6, var2);
+                    var6.c().doPhysics(this, var5, var6, var2);
                 } else if (var6.c().t()) {
                     var5 = var5.a(var4);
                     var6 = this.getData(var5);
                     if (Blocks.REDSTONE_COMPARATOR_OFF.e(var6.c())) {
-                        var6.c().a(this, var5, var6, var2);
+                        var6.c().doPhysics(this, var5, var6, var2);
                     }
                 }
             }
@@ -2393,14 +2393,14 @@ public abstract class World implements IBlockAccess {
         float var4 = 0.0F;
         if (this.isLoaded(var1)) {
             var4 = this.y();
-            var2 = this.f(var1).w();
+            var2 = this.getChunkAtWorldCoords(var1).w();
         }
 
-        return new vu(this.aa(), this.L(), var2, var4);
+        return new vu(this.aa(), this.getDayTime(), var2, var4);
     }
 
     public EnumDifficulty aa() {
-        return this.P().y();
+        return this.getWorldData().y();
     }
 
     public int ab() {
@@ -2428,7 +2428,7 @@ public abstract class World implements IBlockAccess {
     }
 
     public boolean c(int var1, int var2) {
-        Location var3 = this.M();
+        Location var3 = this.getSpawn();
         int var4 = var1 * 16 + 8 - var3.n();
         int var5 = var2 * 16 + 8 - var3.p();
         short var6 = 128;

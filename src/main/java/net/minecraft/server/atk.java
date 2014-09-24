@@ -201,7 +201,7 @@ public class atk {
       }
 
       this.e = this.e.a(this.d.l(), var10);
-      this.b.a(this.c, this.e, 3);
+      this.b.setTypeAndData(this.c, this.e, 3);
    }
 
    private boolean d(Location var1) {
@@ -323,7 +323,7 @@ public class atk {
       this.a(var11);
       this.e = this.e.a(this.d.l(), var11);
       if(var2 || this.b.getData(this.c) != this.e) {
-         this.b.a(this.c, this.e, 3);
+         this.b.setTypeAndData(this.c, this.e, 3);
 
          for(int var12 = 0; var12 < this.g.size(); ++var12) {
             atk var13 = this.b((Location)this.g.get(var12));

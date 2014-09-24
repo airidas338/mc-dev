@@ -76,7 +76,7 @@ public class BlockCauldron extends Block {
                      if(!var4.by.canInstantlyBuild) {
                         var13 = new ItemStack(Items.POTION, 1, 0);
                         if(!var4.bg.a(var13)) {
-                           var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
+                           var1.addEntity((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
@@ -109,7 +109,7 @@ public class BlockCauldron extends Block {
                         var4.bg.a(var4.bg.c, var13);
                      } else {
                         if(!var4.bg.a(var13)) {
-                           var1.d((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
+                           var1.addEntity((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
                         } else if(var4 instanceof EntityPlayer) {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
@@ -134,15 +134,15 @@ public class BlockCauldron extends Block {
    }
 
    public void a(World var1, Location var2, IBlockData var3, int var4) {
-      var1.a(var2, var3.a(a, Integer.valueOf(MathHelper.a(var4, 0, 3))), 2);
-      var1.e(var2, this);
+      var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(MathHelper.a(var4, 0, 3))), 2);
+      var1.updateAdjacentComparators(var2, this);
    }
 
    public void k(World var1, Location var2) {
       if(var1.random.nextInt(20) == 1) {
          IBlockData var3 = var1.getData(var2);
          if(((Integer)var3.b(a)).intValue() < 3) {
-            var1.a(var2, var3.a(a), 2);
+            var1.setTypeAndData(var2, var3.a(a), 2);
          }
 
       }

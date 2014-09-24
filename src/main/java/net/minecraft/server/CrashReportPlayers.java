@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class d implements Callable {
+class CrashReportPlayers implements Callable {
 
    // $FF: synthetic field
-   final CrashReport a;
+   final World a;
 
 
-   d(CrashReport var1) {
+   CrashReportPlayers(World var1) {
       this.a = var1;
    }
 
    public String a() {
-      return System.getProperty("os.name") + " (" + System.getProperty("os.arch") + ") version " + System.getProperty("os.version");
+      return this.a.players.size() + " total; " + this.a.players.toString();
    }
 
    // $FF: synthetic method

@@ -17,7 +17,7 @@ public class BlockBeacon extends BlockContainer {
       if(var1.isStatic) {
          return true;
       } else {
-         TileEntity var9 = var1.s(var2);
+         TileEntity var9 = var1.getTileEntity(var2);
          if(var9 instanceof TileEntityBeacon) {
             var4.a((IInventory)((TileEntityBeacon)var9));
          }
@@ -41,7 +41,7 @@ public class BlockBeacon extends BlockContainer {
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
-         TileEntity var6 = var1.s(var2);
+         TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityBeacon) {
             ((TileEntityBeacon)var6).a(var5.q());
          }
@@ -49,11 +49,11 @@ public class BlockBeacon extends BlockContainer {
 
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
-      TileEntity var5 = var1.s(var2);
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
+      TileEntity var5 = var1.getTileEntity(var2);
       if(var5 instanceof TileEntityBeacon) {
          ((TileEntityBeacon)var5).m();
-         var1.c(var2, this, 1, 0);
+         var1.playBlockAction(var2, this, 1, 0);
       }
 
    }

@@ -16,7 +16,7 @@ public class BlockJukeBox extends BlockContainer {
       if(((Boolean)var3.b(a)).booleanValue()) {
          this.dropRecord(var1, var2, var3);
          var3 = var3.a(a, Boolean.valueOf(false));
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
          return true;
       } else {
          return false;
@@ -25,22 +25,22 @@ public class BlockJukeBox extends BlockContainer {
 
    public void a(World var1, Location var2, IBlockData var3, ItemStack var4) {
       if(!var1.isStatic) {
-         TileEntity var5 = var1.s(var2);
+         TileEntity var5 = var1.getTileEntity(var2);
          if(var5 instanceof TileEntityRecordPlayer) {
             ((TileEntityRecordPlayer)var5).a(new ItemStack(var4.b(), 1, var4.i()));
-            var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
+            var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)), 2);
          }
       }
    }
 
    private void dropRecord(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
-         TileEntity var4 = var1.s(var2);
+         TileEntity var4 = var1.getTileEntity(var2);
          if(var4 instanceof TileEntityRecordPlayer) {
             TileEntityRecordPlayer var5 = (TileEntityRecordPlayer)var4;
             ItemStack var6 = var5.a();
             if(var6 != null) {
-               var1.b(1005, var2, 0);
+               var1.triggerEffect(1005, var2, 0);
                var1.a(var2, (String)null);
                var5.a((ItemStack)null);
                float var7 = 0.7F;
@@ -50,7 +50,7 @@ public class BlockJukeBox extends BlockContainer {
                ItemStack var14 = var6.k();
                EntityItem var15 = new EntityItem(var1, (double)var2.n() + var8, (double)var2.o() + var10, (double)var2.p() + var12, var14);
                var15.p();
-               var1.d((Entity)var15);
+               var1.addEntity((Entity)var15);
             }
          }
       }
@@ -76,7 +76,7 @@ public class BlockJukeBox extends BlockContainer {
    }
 
    public int getDropData(World var1, Location var2) {
-      TileEntity var3 = var1.s(var2);
+      TileEntity var3 = var1.getTileEntity(var2);
       if(var3 instanceof TileEntityRecordPlayer) {
          ItemStack var4 = ((TileEntityRecordPlayer)var3).a();
          if(var4 != null) {

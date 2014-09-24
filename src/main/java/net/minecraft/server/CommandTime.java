@@ -41,14 +41,14 @@ public class CommandTime extends CommandAbstract {
 
          if(var2[0].equals("query")) {
             if(var2[1].equals("daytime")) {
-               var3 = (int)(var1.getWorld().L() % 2147483647L);
+               var3 = (int)(var1.getWorld().getDayTime() % 2147483647L);
                var1.a(ag.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
             }
 
             if(var2[1].equals("gametime")) {
-               var3 = (int)(var1.getWorld().K() % 2147483647L);
+               var3 = (int)(var1.getWorld().getTime() % 2147483647L);
                var1.a(ag.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
@@ -65,7 +65,7 @@ public class CommandTime extends CommandAbstract {
 
    protected void a(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.M().c.length; ++var3) {
-         MinecraftServer.M().c[var3].b((long)var2);
+         MinecraftServer.M().c[var3].setDayTime((long)var2);
       }
 
    }
@@ -73,7 +73,7 @@ public class CommandTime extends CommandAbstract {
    protected void b(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.M().c.length; ++var3) {
          WorldServer var4 = MinecraftServer.M().c[var3];
-         var4.b(var4.L() + (long)var2);
+         var4.setDayTime(var4.getDayTime() + (long)var2);
       }
 
    }

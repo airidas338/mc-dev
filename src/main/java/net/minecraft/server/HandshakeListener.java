@@ -25,7 +25,7 @@ public class HandshakeListener implements na {
             this.b.a((Packet)(new ng(var2)));
             this.b.a((IChatBaseComponent)var2);
          } else {
-            this.b.a((PacketListener)(new rq(this.a, this.b)));
+            this.b.a((PacketListener)(new LoginListener(this.a, this.b)));
          }
          break;
       case 2:

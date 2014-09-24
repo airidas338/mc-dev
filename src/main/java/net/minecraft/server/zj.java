@@ -65,7 +65,7 @@ public class zj extends PathfinderGoal {
       }
 
       if(this.b.bb().nextInt(35) == 0) {
-         this.d.a((Entity)this.b, (byte)12);
+         this.d.broadcastEntityEffect((Entity)this.b, (byte)12);
       }
 
    }
@@ -87,7 +87,7 @@ public class zj extends PathfinderGoal {
       this.b.o(false);
       var1.b(-24000);
       var1.setPositionRotation(this.b.s, this.b.t, this.b.u, 0.0F, 0.0F);
-      this.d.d((Entity)var1);
-      this.d.a((Entity)var1, (byte)12);
+      this.d.addEntity((Entity)var1);
+      this.d.broadcastEntityEffect((Entity)var1, (byte)12);
    }
 }

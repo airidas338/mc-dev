@@ -68,13 +68,13 @@ public class BlockTripwireHook extends Block {
       this.a(var1, var2, var3, false, false, -1, (IBlockData)null);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(var4 != this) {
          if(this.e(var1, var2, var3)) {
             EnumFacing var5 = (EnumFacing)var3.b(a);
             if(!var1.getData(var2.a(var5.d())).c().t()) {
                this.b(var1, var2, var3, 0);
-               var1.g(var2);
+               var1.setAir(var2);
             }
          }
 
@@ -129,14 +129,14 @@ public class BlockTripwireHook extends Block {
       if(var14 > 0) {
          var17 = var2.a(var8, var14);
          EnumFacing var26 = var8.d();
-         var1.a(var17, var22.a(a, var26), 3);
+         var1.setTypeAndData(var17, var22.a(a, var26), 3);
          this.b(var1, var17, var26);
          this.a(var1, var17, var12, var13, var9, var10);
       }
 
       this.a(var1, var2, var12, var13, var9, var10);
       if(!var4) {
-         var1.a(var2, var22.a(a, var8), 3);
+         var1.setTypeAndData(var2, var22.a(a, var8), 3);
          if(var5) {
             this.b(var1, var2, var8);
          }
@@ -147,7 +147,7 @@ public class BlockTripwireHook extends Block {
             Location var24 = var2.a(var8, var23);
             IBlockData var25 = var15[var23];
             if(var25 != null && var1.getData(var24).c() != Blocks.AIR) {
-               var1.a(var24, var25.a(M, Boolean.valueOf(var12)), 3);
+               var1.setTypeAndData(var24, var25.a(M, Boolean.valueOf(var12)), 3);
             }
          }
       }
@@ -162,26 +162,26 @@ public class BlockTripwireHook extends Block {
 
    private void a(World var1, Location var2, boolean var3, boolean var4, boolean var5, boolean var6) {
       if(var4 && !var6) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.6F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.6F);
       } else if(!var4 && var6) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.5F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.5F);
       } else if(var3 && !var5) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.7F);
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.7F);
       } else if(!var3 && var5) {
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.bowhit", 0.4F, 1.2F / (var1.random.nextFloat() * 0.2F + 0.9F));
+         var1.makeSound((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.bowhit", 0.4F, 1.2F / (var1.random.nextFloat() * 0.2F + 0.9F));
       }
 
    }
 
    private void b(World var1, Location var2, EnumFacing var3) {
-      var1.c(var2, (Block)this);
-      var1.c(var2.a(var3.d()), (Block)this);
+      var1.applyPhysics(var2, (Block)this);
+      var1.applyPhysics(var2.a(var3.d()), (Block)this);
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
          return false;
       } else {
          return true;
@@ -214,8 +214,8 @@ public class BlockTripwireHook extends Block {
       }
 
       if(var5) {
-         var1.c(var2, (Block)this);
-         var1.c(var2.a(((EnumFacing)var3.b(a)).d()), (Block)this);
+         var1.applyPhysics(var2, (Block)this);
+         var1.applyPhysics(var2.a(((EnumFacing)var3.b(a)).d()), (Block)this);
       }
 
       super.remove(var1, var2, var3);

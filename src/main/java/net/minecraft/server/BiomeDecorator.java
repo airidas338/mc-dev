@@ -66,7 +66,7 @@ public class BiomeDecorator {
          throw new RuntimeException("Already decorating");
       } else {
          this.a = var1;
-         String var5 = var1.P().B();
+         String var5 = var1.getWorldData().getGeneratorOptions();
          if(var5 != null) {
             this.d = bgn.a(var5).b();
          } else {

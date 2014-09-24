@@ -34,14 +34,14 @@ public class BlockWallSign extends BlockSignAbstract {
 
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
       if(!var1.getData(var2.a(var5.d())).c().getMaterial().isBuildable()) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
-      super.a(var1, var2, var3, var4);
+      super.doPhysics(var1, var2, var3, var4);
    }
 
    public IBlockData a(int var1) {

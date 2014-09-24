@@ -41,7 +41,7 @@ class afc extends ControllerMove {
 
       for(int var16 = 1; (double)var16 < var7; ++var16) {
          var15 = var15.c(var9, var11, var13);
-         if(!this.g.o.a((Entity)this.g, var15).isEmpty()) {
+         if(!this.g.o.getCubes((Entity)this.g, var15).isEmpty()) {
             return false;
          }
       }

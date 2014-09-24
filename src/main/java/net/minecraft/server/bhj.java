@@ -11,7 +11,7 @@ public class bhj extends WorldGenerator {
 
             for(int var7 = 0; var7 < var6; ++var7) {
                if(Blocks.CACTUS.d(var1, var5)) {
-                  var1.a(var5.b(var7), Blocks.CACTUS.P(), 2);
+                  var1.setTypeAndData(var5.b(var7), Blocks.CACTUS.P(), 2);
                }
             }
          }

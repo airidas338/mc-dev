@@ -82,7 +82,7 @@ public class EntityIronGolem extends EntityGolem {
          IBlockData var4 = this.o.getData(new Location(var1, var2, var3));
          Block var5 = var4.c();
          if(var5.getMaterial() != Material.AIR) {
-            this.o.a(ew.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
+            this.o.a(EnumParticleEffect.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aQ().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
          }
       }
 
@@ -104,7 +104,7 @@ public class EntityIronGolem extends EntityGolem {
 
    public boolean r(Entity var1) {
       this.c = 10;
-      this.o.a((Entity)this, (byte)4);
+      this.o.broadcastEntityEffect((Entity)this, (byte)4);
       boolean var2 = var1.a(DamageSource.a((EntityLiving)this), (float)(7 + this.V.nextInt(15)));
       if(var2) {
          var1.w += 0.4000000059604645D;
@@ -121,7 +121,7 @@ public class EntityIronGolem extends EntityGolem {
 
    public void a(boolean var1) {
       this.bk = var1?400:0;
-      this.o.a((Entity)this, (byte)11);
+      this.o.broadcastEntityEffect((Entity)this, (byte)11);
    }
 
    protected String bn() {

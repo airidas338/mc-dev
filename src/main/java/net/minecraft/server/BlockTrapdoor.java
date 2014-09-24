@@ -81,24 +81,24 @@ public class BlockTrapdoor extends Block {
          return true;
       } else {
          var3 = var3.a(b);
-         var1.a(var2, var3, 2);
+         var1.setTypeAndData(var2, var3, 2);
          var1.a(var4, ((Boolean)var3.b(b)).booleanValue()?1003:1006, var2, 0);
          return true;
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
          Location var5 = var2.a(((EnumFacing)var3.b(a)).d());
          if(!c(var1.getData(var5).c())) {
-            var1.g(var2);
+            var1.setAir(var2);
             this.b(var1, var2, var3, 0);
          } else {
-            boolean var6 = var1.z(var2);
+            boolean var6 = var1.isBlockIndirectlyPowered(var2);
             if(var6 || var4.g()) {
                boolean var7 = ((Boolean)var3.b(b)).booleanValue();
                if(var7 != var6) {
-                  var1.a(var2, var3.a(b, Boolean.valueOf(var6)), 2);
+                  var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var6)), 2);
                   var1.a((EntityHuman)null, var6?1003:1006, var2, 0);
                }
             }

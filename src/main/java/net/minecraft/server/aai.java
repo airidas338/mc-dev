@@ -61,7 +61,7 @@ public class aai extends zf {
                   var12.x = (double)(MathHelper.cos(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
                   var12.w = (double)(-MathHelper.sin(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
                   var12.p();
-                  this.f.o.d((Entity)var12);
+                  this.f.o.addEntity((Entity)var12);
                   break;
                }
             }

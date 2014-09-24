@@ -9,7 +9,7 @@ public class bgh extends WorldProvider {
    }
 
    public IChunkProvider c() {
-      return new bgw(this.b, this.b.J());
+      return new bgw(this.b, this.b.getSeed());
    }
 
    public float a(long var1, float var3) {

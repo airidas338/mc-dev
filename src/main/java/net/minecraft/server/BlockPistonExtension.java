@@ -23,7 +23,7 @@ public class BlockPistonExtension extends Block {
             Location var6 = var2.a(var5.d());
             Block var7 = var1.getData(var6).c();
             if(var7 == Blocks.PISTON || var7 == Blocks.PISTON_STICKEY) {
-               var1.g(var6);
+               var1.setAir(var6);
             }
          }
       }
@@ -38,7 +38,7 @@ public class BlockPistonExtension extends Block {
       IBlockData var5 = var1.getData(var2);
       if((var5.c() == Blocks.PISTON || var5.c() == Blocks.PISTON_STICKEY) && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
          var5.c().b(var1, var2, var5, 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }
@@ -130,14 +130,14 @@ public class BlockPistonExtension extends Block {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(a);
       Location var6 = var2.a(var5.d());
       IBlockData var7 = var1.getData(var6);
       if(var7.c() != Blocks.PISTON && var7.c() != Blocks.PISTON_STICKEY) {
-         var1.g(var2);
+         var1.setAir(var2);
       } else {
-         var7.c().a(var1, var6, var7, var4);
+         var7.c().doPhysics(var1, var6, var7, var4);
       }
 
    }

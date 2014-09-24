@@ -11,7 +11,7 @@ class aet extends PathfinderGoal {
    }
 
    public boolean a() {
-      return !this.a.o.Q().b("mobGriefing")?false:(this.a.ck().c().getMaterial() == Material.AIR?false:this.a.bb().nextInt(2000) == 0);
+      return !this.a.o.getGameRules().getBoolean("mobGriefing")?false:(this.a.ck().c().getMaterial() == Material.AIR?false:this.a.bb().nextInt(2000) == 0);
    }
 
    public void e() {
@@ -24,7 +24,7 @@ class aet extends PathfinderGoal {
       Block var7 = var2.getData(var6).c();
       Block var8 = var2.getData(var6.b()).c();
       if(this.a(var2, var6, this.a.ck().c(), var7, var8)) {
-         var2.a(var6, this.a.ck(), 3);
+         var2.setTypeAndData(var6, this.a.ck(), 3);
          this.a.a(Blocks.AIR.P());
       }
 

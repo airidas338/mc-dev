@@ -45,7 +45,7 @@ public final class SpawnerCreature {
          }
 
          int var36 = 0;
-         Location var37 = var1.M();
+         Location var37 = var1.getSpawn();
          EnumCreatureType[] var38 = EnumCreatureType.values();
          var9 = var38.length;
 
@@ -109,7 +109,7 @@ public final class SpawnerCreature {
                                              var28 = var33.a(var1.E(new Location(var33)), var28);
                                              if(var33.bR()) {
                                                 ++var21;
-                                                var1.d(var33);
+                                                var1.addEntity(var33);
                                              }
 
                                              if(var21 >= var33.bU()) {
@@ -196,7 +196,7 @@ public final class SpawnerCreature {
                      }
 
                      var19.setPositionRotation((double)((float)var11 + 0.5F), (double)var18.o(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
-                     var0.d((Entity)var19);
+                     var0.addEntity((Entity)var19);
                      var10 = var19.a(var0.E(new Location(var19)), var10);
                      var16 = true;
                   }

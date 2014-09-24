@@ -122,10 +122,10 @@ public class bgq implements IChunkProvider {
       Location var6 = new Location(var4, 0, var5);
       BiomeBase var7 = this.a.getBiome(new Location(var4 + 16, 0, var5 + 16));
       boolean var8 = false;
-      this.b.setSeed(this.a.J());
+      this.b.setSeed(this.a.getSeed());
       long var9 = this.b.nextLong() / 2L * 2L + 1L;
       long var11 = this.b.nextLong() / 2L * 2L + 1L;
-      this.b.setSeed((long)var2 * var9 + (long)var3 * var11 ^ this.a.J());
+      this.b.setSeed((long)var2 * var9 + (long)var3 * var11 ^ this.a.getSeed());
       aqm var13 = new aqm(var2, var3);
       Iterator var14 = this.e.iterator();
 

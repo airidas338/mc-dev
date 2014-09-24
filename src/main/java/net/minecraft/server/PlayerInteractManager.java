@@ -93,7 +93,7 @@ public class PlayerInteractManager {
 
    public void a(Location var1, EnumFacing var2) {
       if(this.d()) {
-         if(!this.a.a((EntityHuman)null, var1, var2)) {
+         if(!this.a.douseFire((EntityHuman)null, var1, var2)) {
             this.b(var1);
          }
 
@@ -116,7 +116,7 @@ public class PlayerInteractManager {
             }
          }
 
-         this.a.a((EntityHuman)null, var1, var2);
+         this.a.douseFire((EntityHuman)null, var1, var2);
          this.e = this.g;
          float var6 = 1.0F;
          if(var3.getMaterial() != Material.AIR) {
@@ -166,7 +166,7 @@ public class PlayerInteractManager {
    private boolean c(Location var1) {
       IBlockData var2 = this.a.getData(var1);
       var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
-      boolean var3 = this.a.g(var1);
+      boolean var3 = this.a.setAir(var1);
       if(var3) {
          var2.c().d(this.a, var1, var2);
       }
@@ -179,7 +179,7 @@ public class PlayerInteractManager {
          return false;
       } else {
          IBlockData var2 = this.a.getData(var1);
-         TileEntity var3 = this.a.s(var1);
+         TileEntity var3 = this.a.getTileEntity(var1);
          if(this.c.c()) {
             if(this.c == EnumGamemode.SPECTATOR) {
                return false;
@@ -253,7 +253,7 @@ public class PlayerInteractManager {
 
    public boolean a(EntityHuman var1, World var2, ItemStack var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
       if(this.c == EnumGamemode.SPECTATOR) {
-         TileEntity var13 = var2.s(var4);
+         TileEntity var13 = var2.getTileEntity(var4);
          if(var13 instanceof vy) {
             Block var15 = var2.getData(var4).c();
             vy var14 = (vy)var13;

@@ -20,7 +20,7 @@ public class BlockIce extends BlockHalfTransparent {
          }
       } else {
          if(var1.worldProvider.n()) {
-            var1.g(var3);
+            var1.setAir(var3);
             return;
          }
 
@@ -41,7 +41,7 @@ public class BlockIce extends BlockHalfTransparent {
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11 - this.n()) {
          if(var1.worldProvider.n()) {
-            var1.g(var2);
+            var1.setAir(var2);
          } else {
             this.b(var1, var2, var1.getData(var2), 0);
             var1.a(var2, Blocks.STATIONARY_WATER.P());

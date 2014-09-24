@@ -25,7 +25,7 @@ public class AchievementList {
    public static Achievement s = (new Achievement("achievement.killEnemy", "killEnemy", 8, -1, Items.aX, r)).c();
    public static Achievement t = (new Achievement("achievement.killCow", "killCow", 7, -3, Items.aF, r)).c();
    public static Achievement u = (new Achievement("achievement.flyPig", "flyPig", 9, -3, Items.aA, t)).b().c();
-   public static Achievement v = (new Achievement("achievement.snipeSkeleton", "snipeSkeleton", 7, 0, Items.f, s)).b().c();
+   public static Achievement v = (new Achievement("achievement.snipeSkeleton", "snipeSkeleton", 7, 0, Items.BOW, s)).b().c();
    public static Achievement w = (new Achievement("achievement.diamonds", "diamonds", -1, 5, Blocks.DIAMOND_ORE, k)).c();
    public static Achievement x = (new Achievement("achievement.diamondsToYou", "diamondsToYou", -1, 2, Items.i, w)).c();
    public static Achievement y = (new Achievement("achievement.portal", "portal", -1, 7, Blocks.OBSIDIAN, w)).c();

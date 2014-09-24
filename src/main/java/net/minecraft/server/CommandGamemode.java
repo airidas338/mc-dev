@@ -24,7 +24,7 @@ public class CommandGamemode extends CommandAbstract {
          EntityPlayer var4 = var2.length >= 2?a(var1, var2[1]):b(var1);
          var4.a(var3);
          var4.O = 0.0F;
-         if(var1.getWorld().Q().b("sendCommandFeedback")) {
+         if(var1.getWorld().getGameRules().getBoolean("sendCommandFeedback")) {
             var4.sendMessage((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
          }
 

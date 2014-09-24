@@ -67,7 +67,7 @@ public class EntityPainting extends EntityHanging {
    }
 
    public void b(Entity var1) {
-      if(this.o.Q().b("doTileDrops")) {
+      if(this.o.getGameRules().getBoolean("doTileDrops")) {
          if(var1 instanceof EntityHuman) {
             EntityHuman var2 = (EntityHuman)var1;
             if(var2.by.canInstantlyBuild) {
@@ -81,7 +81,7 @@ public class EntityPainting extends EntityHanging {
 
    public void setPositionRotation(double var1, double var3, double var5, float var7, float var8) {
       Location var9 = new Location(var1 - this.s, var3 - this.t, var5 - this.u);
-      Location var10 = this.a.a((fd)var9);
+      Location var10 = this.a.a((ChunkCoordinates)var9);
       this.b((double)var10.n(), (double)var10.o(), (double)var10.p());
    }
 }

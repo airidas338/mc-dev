@@ -46,7 +46,7 @@ public class ItemBow extends Item {
          }
 
          var1.a(1, (EntityLiving)var3);
-         var2.a((Entity)var3, "random.bow", 1.0F, 1.0F / (g.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
+         var2.makeSound((Entity)var3, "random.bow", 1.0F, 1.0F / (g.nextFloat() * 0.4F + 1.2F) + var7 * 0.5F);
          if(var5) {
             var8.a = 2;
          } else {
@@ -55,7 +55,7 @@ public class ItemBow extends Item {
 
          var3.b(StatisticList.J[Item.b((Item)this)]);
          if(!var2.isStatic) {
-            var2.d((Entity)var8);
+            var2.addEntity((Entity)var8);
          }
       }
 
@@ -69,8 +69,8 @@ public class ItemBow extends Item {
       return 72000;
    }
 
-   public ano e(ItemStack var1) {
-      return ano.e;
+   public EnumAnimation e(ItemStack var1) {
+      return EnumAnimation.BOW;
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {

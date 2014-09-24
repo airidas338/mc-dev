@@ -20,15 +20,15 @@ public class BlockGrass extends Block implements atz {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(!var1.isStatic) {
-         if(var1.l(var2.a()) < 4 && var1.getData(var2.a()).c().n() > 2) {
+         if(var1.getLightLevel(var2.a()) < 4 && var1.getData(var2.a()).c().n() > 2) {
             var1.a(var2, Blocks.DIRT.P());
          } else {
-            if(var1.l(var2.a()) >= 9) {
+            if(var1.getLightLevel(var2.a()) >= 9) {
                for(int var5 = 0; var5 < 4; ++var5) {
                   Location var6 = var2.a(var4.nextInt(3) - 1, var4.nextInt(5) - 3, var4.nextInt(3) - 1);
                   Block var7 = var1.getData(var6.a()).c();
                   IBlockData var8 = var1.getData(var6);
-                  if(var8.c() == Blocks.DIRT && var8.b(BlockDirt.a) == avd.a && var1.l(var6.a()) >= 4 && var7.n() <= 2) {
+                  if(var8.c() == Blocks.DIRT && var8.b(BlockDirt.a) == avd.a && var1.getLightLevel(var6.a()) >= 4 && var7.n() <= 2) {
                      var1.a(var6, Blocks.GRASS.P());
                   }
                }
@@ -71,12 +71,12 @@ public class BlockGrass extends Block implements atz {
                   BlockFlowers var9 = var11.a().a();
                   IBlockData var10 = var9.P().a(var9.l(), var11);
                   if(var9.f(var1, var7, var10)) {
-                     var1.a(var7, var10, 3);
+                     var1.setTypeAndData(var7, var10, 3);
                   }
                } else {
                   IBlockData var12 = Blocks.LONG_GRASS.P().a(BlockLongGrass.a, EnumFoliage.b);
                   if(Blocks.LONG_GRASS.f(var1, var7, var12)) {
-                     var1.a(var7, var12, 3);
+                     var1.setTypeAndData(var7, var12, 3);
                   }
                }
             }

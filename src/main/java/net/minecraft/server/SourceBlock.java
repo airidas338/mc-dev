@@ -41,6 +41,6 @@ public class SourceBlock implements ISourceBlock {
    }
 
    public TileEntity h() {
-      return this.a.s(this.b);
+      return this.a.getTileEntity(this.b);
    }
 }

@@ -34,7 +34,7 @@ public class PacketPlayInUseEntity implements Packet {
    }
 
    public Entity a(World var1) {
-      return var1.a(this.a);
+      return var1.getEntity(this.a);
    }
 
    public me a() {

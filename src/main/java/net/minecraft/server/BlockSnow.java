@@ -52,14 +52,14 @@ public class BlockSnow extends Block {
       return var4 != Blocks.ICE && var4 != Blocks.PACKET_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.b(a)).intValue() == 7?true:var4.c() && var4.J.isSolid())):false;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
    private boolean e(World var1, Location var2, IBlockData var3) {
       if(!this.canPlace(var1, var2)) {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
          return false;
       } else {
          return true;
@@ -68,7 +68,7 @@ public class BlockSnow extends Block {
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       a(var1, var3, new ItemStack(Items.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
-      var1.g(var3);
+      var1.setAir(var3);
       var2.b(StatisticList.H[Block.getId((Block)this)]);
    }
 
@@ -83,7 +83,7 @@ public class BlockSnow extends Block {
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11) {
          this.b(var1, var2, var1.getData(var2), 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }

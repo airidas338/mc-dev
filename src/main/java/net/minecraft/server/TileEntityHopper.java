@@ -116,7 +116,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
    }
 
    public boolean a(EntityHuman var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.getTileEntity(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
    public void b(EntityHuman var1) {}
@@ -410,7 +410,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
    }
 
    public static EntityItem a(World var0, double var1, double var3, double var5) {
-      List var7 = var0.a(EntityItem.class, new AxisAlignedBB(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), EntitySelectors.a);
+      List var7 = var0.getEntities(EntityItem.class, new AxisAlignedBB(var1, var3, var5, var1 + 1.0D, var3 + 1.0D, var5 + 1.0D), EntitySelectors.a);
       return var7.size() > 0?(EntityItem)var7.get(0):null;
    }
 
@@ -420,7 +420,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
       int var9 = MathHelper.floor(var3);
       int var10 = MathHelper.floor(var5);
       Location var11 = new Location(var8, var9, var10);
-      TileEntity var12 = var0.s(new Location(var8, var9, var10));
+      TileEntity var12 = var0.getTileEntity(new Location(var8, var9, var10));
       if(var12 instanceof IInventory) {
          var7 = (IInventory)var12;
          if(var7 instanceof TileEntityChest) {

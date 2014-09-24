@@ -30,14 +30,14 @@ public class EntityEgg extends EntityProjectile {
             EntityChicken var4 = new EntityChicken(this.o);
             var4.b(-24000);
             var4.setPositionRotation(this.s, this.t, this.u, this.y, 0.0F);
-            this.o.d((Entity)var4);
+            this.o.addEntity((Entity)var4);
          }
       }
 
       double var5 = 0.08D;
 
       for(int var6 = 0; var6 < 8; ++var6) {
-         this.o.a(ew.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{Item.b(Items.aP)});
+         this.o.a(EnumParticleEffect.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{Item.b(Items.aP)});
       }
 
       if(!this.o.isStatic) {

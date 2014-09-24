@@ -40,7 +40,7 @@ public class BlockBannerAbstract extends BlockContainer {
    }
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
-      TileEntity var6 = var1.s(var2);
+      TileEntity var6 = var1.getTileEntity(var2);
       if(var6 instanceof TileEntityBanner) {
          ItemStack var7 = new ItemStack(Items.cE, 1, ((TileEntityBanner)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();

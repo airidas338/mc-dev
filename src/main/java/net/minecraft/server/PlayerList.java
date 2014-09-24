@@ -73,11 +73,11 @@ public abstract class PlayerList {
 
 		h.info(var2.getName() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
 		WorldServer var9 = this.j.a(var2.am);
-		WorldData var10 = var9.P();
-		Location var11 = var9.M();
+		WorldData var10 = var9.getWorldData();
+		Location var11 = var9.getSpawn();
 		this.a(var2, (EntityPlayer) null, var9);
 		PlayerConnection var12 = new PlayerConnection(this.j, var1, var2);
-		var12.sendPacket((Packet) (new PacketPlayOutLogin(var2.F(), var2.c.b(), var10.t(), var9.worldProvider.q(), var9.aa(), this.q(), var10.u(), var9.Q().b("reducedDebugInfo"))));
+		var12.sendPacket((Packet) (new PacketPlayOutLogin(var2.F(), var2.c.b(), var10.isHardcore(), var9.worldProvider.q(), var9.aa(), this.q(), var10.getType(), var9.getGameRules().getBoolean("reducedDebugInfo"))));
 		var12.sendPacket((Packet) (new PacketPlayOutCustomPayload("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).a(this.c().getServerModName()))));
 		var12.sendPacket((Packet) (new ix(var10.y(), var10.z())));
 		var12.sendPacket((Packet) (new PacketPlayOutSpawnPosition(var11)));
@@ -85,7 +85,7 @@ public abstract class PlayerList {
 		var12.sendPacket((Packet) (new PacketPlayOutHeldItemSlot(var2.bg.c)));
 		var2.A().d();
 		var2.A().b(var2);
-		this.a((ScoreboardServer) var9.Z(), var2);
+		this.a((ScoreboardServer) var9.getScoreboard(), var2);
 		this.j.aF();
 		ChatMessage var13;
 		if (!var2.getName().equalsIgnoreCase(var6)) {
@@ -114,10 +114,10 @@ public abstract class PlayerList {
 		if (var7 != null && var7.hasKeyOfType("Riding", 10)) {
 			Entity var16 = EntityTypes.a(var7.getCompound("Riding"), (World) var9);
 			if (var16 != null) {
-				var16.n = true;
-				var9.d(var16);
+				var16.attachedToPlayer = true;
+				var9.addEntity(var16);
 				var2.a(var16);
-				var16.n = false;
+				var16.attachedToPlayer = false;
 			}
 		}
 
@@ -135,7 +135,7 @@ public abstract class PlayerList {
 		for (int var9 = 0; var9 < 19; ++var9) {
 			ScoreboardObjective var10 = var1.getObjectiveForSlot(var9);
 			if (var10 != null && !var3.contains(var10)) {
-				List var6 = var1.d(var10);
+				List var6 = var1.getScoreboardScorePacketsForObjective(var10);
 				Iterator var7 = var6.iterator();
 
 				while (var7.hasNext()) {
@@ -150,7 +150,7 @@ public abstract class PlayerList {
 	}
 
 	public void a(WorldServer[] var1) {
-		this.p = var1[0].O().e();
+		this.p = var1[0].getDataManager().e();
 		var1[0].af().a((WorldBorderListener) (new so(this)));
 	}
 
@@ -169,7 +169,7 @@ public abstract class PlayerList {
 	}
 
 	public NBTTagCompound a(EntityPlayer var1) {
-		NBTTagCompound var2 = this.j.c[0].P().i();
+		NBTTagCompound var2 = this.j.c[0].getWorldData().i();
 		NBTTagCompound var3;
 		if (var1.getName().equals(this.j.R()) && var2 != null) {
 			var1.f(var2);
@@ -196,7 +196,7 @@ public abstract class PlayerList {
 		this.f.put(var1.aJ(), var1);
 		this.a((Packet) (new PacketPlayOutPlayerInfo(kj.a, new EntityPlayer[] { var1 })));
 		WorldServer var2 = this.j.a(var1.am);
-		var2.d(var1);
+		var2.addEntity(var1);
 		this.a(var1, (WorldServer) null);
 
 		for (int var3 = 0; var3 < this.e.size(); ++var3) {
@@ -215,11 +215,11 @@ public abstract class PlayerList {
 		this.b(var1);
 		WorldServer var2 = var1.u();
 		if (var1.m != null) {
-			var2.f(var1.m);
+			var2.removeEntity(var1.m);
 			h.debug("removing player mount");
 		}
 
-		var2.e(var1);
+		var2.kill(var1);
 		var2.t().c(var1);
 		this.e.remove(var1);
 		this.f.remove(var1.aJ());
@@ -286,7 +286,7 @@ public abstract class PlayerList {
 		var1.u().s().b((Entity) var1);
 		var1.u().t().c(var1);
 		this.e.remove(var1);
-		this.j.a(var1.am).f(var1);
+		this.j.a(var1.am).removeEntity(var1);
 		Location var4 = var1.cg();
 		boolean var5 = var1.ch();
 		var1.am = var2;
@@ -317,18 +317,18 @@ public abstract class PlayerList {
 
 		var8.b.c((int) var7.s >> 4, (int) var7.u >> 4);
 
-		while (!var8.a((Entity) var7, var7.aQ()).isEmpty() && var7.t < 256.0D) {
+		while (!var8.getCubes((Entity) var7, var7.aQ()).isEmpty() && var7.t < 256.0D) {
 			var7.b(var7.s, var7.t + 1.0D, var7.u);
 		}
 
-		var7.a.sendPacket((Packet) (new PacketPlayOutRespawn(var7.am, var7.o.aa(), var7.o.P().u(), var7.c.b())));
-		var9 = var8.M();
+		var7.a.sendPacket((Packet) (new PacketPlayOutRespawn(var7.am, var7.o.aa(), var7.o.getWorldData().getType(), var7.c.b())));
+		var9 = var8.getSpawn();
 		var7.a.a(var7.s, var7.t, var7.u, var7.y, var7.z);
 		var7.a.sendPacket((Packet) (new PacketPlayOutSpawnPosition(var9)));
 		var7.a.sendPacket((Packet) (new PacketPlayOutExperience(var7.bB, var7.bA, var7.bz)));
 		this.b(var7, var8);
 		var8.t().a(var7);
-		var8.d(var7);
+		var8.addEntity(var7);
 		this.e.add(var7);
 		this.f.put(var7.aJ(), var7);
 		var7.f_();
@@ -341,8 +341,8 @@ public abstract class PlayerList {
 		WorldServer var4 = this.j.a(var1.am);
 		var1.am = var2;
 		WorldServer var5 = this.j.a(var1.am);
-		var1.a.sendPacket((Packet) (new PacketPlayOutRespawn(var1.am, var1.o.aa(), var1.o.P().u(), var1.c.b())));
-		var4.f(var1);
+		var1.a.sendPacket((Packet) (new PacketPlayOutRespawn(var1.am, var1.o.aa(), var1.o.getWorldData().getType(), var1.c.b())));
+		var4.removeEntity(var1);
 		var1.I = false;
 		this.a(var1, var3, var4, var5);
 		this.a(var1, var4);
@@ -370,19 +370,19 @@ public abstract class PlayerList {
 			var7 = MathHelper.a(var7 / var9, var4.af().c() + 16.0D, var4.af().e() - 16.0D);
 			var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
 			if (var1.isAlive()) {
-				var3.a(var1, false);
+				var3.entityJoinedWorld(var1, false);
 			}
 		} else if (var1.am == 0) {
 			var5 = MathHelper.a(var5 * var9, var4.af().b() + 16.0D, var4.af().d() - 16.0D);
 			var7 = MathHelper.a(var7 * var9, var4.af().c() + 16.0D, var4.af().e() - 16.0D);
 			var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
 			if (var1.isAlive()) {
-				var3.a(var1, false);
+				var3.entityJoinedWorld(var1, false);
 			}
 		} else {
 			Location var12;
 			if (var2 == 1) {
-				var12 = var4.M();
+				var12 = var4.getSpawn();
 			} else {
 				var12 = var4.m();
 			}
@@ -392,7 +392,7 @@ public abstract class PlayerList {
 			var7 = (double) var12.p();
 			var1.setPositionRotation(var5, var1.t, var7, 90.0F, 0.0F);
 			if (var1.isAlive()) {
-				var3.a(var1, false);
+				var3.entityJoinedWorld(var1, false);
 			}
 		}
 
@@ -404,8 +404,8 @@ public abstract class PlayerList {
 			if (var1.isAlive()) {
 				var1.setPositionRotation(var5, var1.t, var7, var1.y, var1.z);
 				var4.u().a(var1, var11);
-				var4.d(var1);
-				var4.a(var1, false);
+				var4.addEntity(var1);
+				var4.entityJoinedWorld(var1, false);
 			}
 
 			var3.methodProfiler.b();
@@ -526,7 +526,7 @@ public abstract class PlayerList {
 	}
 
 	public boolean g(GameProfile var1) {
-		return this.m.d(var1) || this.j.S() && this.j.c[0].P().v() && this.j.R().equalsIgnoreCase(var1.getName()) || this.t;
+		return this.m.d(var1) || this.j.S() && this.j.c[0].getWorldData().allowCommands() && this.j.R().equalsIgnoreCase(var1.getName()) || this.t;
 	}
 
 	public EntityPlayer a(String var1) {
@@ -600,7 +600,7 @@ public abstract class PlayerList {
 	public void b(EntityPlayer var1, WorldServer var2) {
 		WorldBorder var3 = this.j.c[0].af();
 		var1.a.sendPacket((Packet) (new kr(var3, kt.d)));
-		var1.a.sendPacket((Packet) (new PacketPlayOutUpdateTime(var2.K(), var2.L(), var2.Q().b("doDaylightCycle"))));
+		var1.a.sendPacket((Packet) (new PacketPlayOutUpdateTime(var2.getTime(), var2.getDayTime(), var2.getGameRules().getBoolean("doDaylightCycle"))));
 		if (var2.S()) {
 			var1.a.sendPacket((Packet) (new PacketPlayOutGameStateChange(1, 0.0F)));
 			var1.a.sendPacket((Packet) (new PacketPlayOutGameStateChange(7, var2.j(1.0F))));
@@ -624,7 +624,7 @@ public abstract class PlayerList {
 	}
 
 	public String[] r() {
-		return this.j.c[0].O().e().getSeenPlayers();
+		return this.j.c[0].getDataManager().e().getSeenPlayers();
 	}
 
 	public boolean s() {
@@ -668,7 +668,7 @@ public abstract class PlayerList {
 			var1.c.a(this.s);
 		}
 
-		var1.c.b(var3.P().r());
+		var1.c.b(var3.getWorldData().getGameType());
 	}
 
 	public void v() {
@@ -692,7 +692,7 @@ public abstract class PlayerList {
 		UUID var2 = var1.aJ();
 		ServerStatisticsManager var3 = var2 == null ? null : (ServerStatisticsManager) this.o.get(var2);
 		if (var3 == null) {
-			File var4 = new File(this.j.a(0).O().b(), "stats");
+			File var4 = new File(this.j.a(0).getDataManager().b(), "stats");
 			File var5 = new File(var4, var2.toString() + ".json");
 			if (!var5.exists()) {
 				File var6 = new File(var4, var1.getName() + ".json");

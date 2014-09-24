@@ -35,7 +35,7 @@ public class WorldServer extends World implements vn {
    protected final abk d = new abk(this);
    private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((PredicateEntityUnderSun)null), new BlockActionDataList((PredicateEntityUnderSun)null)};
    private int T;
-   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.WOOD), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.LOG), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.e, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(Blocks.LOG2), 0, 1, 3, 10)});
+   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.WOOD), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.LOG), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.APPLE, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(Blocks.LOG2), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
 
 
@@ -87,25 +87,25 @@ public class WorldServer extends World implements vn {
       return this;
    }
 
-   public void c() {
-      super.c();
-      if(this.P().t() && this.aa() != EnumDifficulty.HARD) {
-         this.P().a(EnumDifficulty.HARD);
+   public void doTick() {
+      super.doTick();
+      if(this.getWorldData().isHardcore() && this.aa() != EnumDifficulty.HARD) {
+         this.getWorldData().a(EnumDifficulty.HARD);
       }
 
       this.worldProvider.m().b();
       if(this.f()) {
-         if(this.Q().b("doDaylightCycle")) {
+         if(this.getGameRules().getBoolean("doDaylightCycle")) {
             long var1 = this.worldData.getDayTime() + 24000L;
-            this.worldData.c(var1 - var1 % 24000L);
+            this.worldData.setDayTime(var1 - var1 % 24000L);
          }
 
          this.e();
       }
 
       this.methodProfiler.a("mobSpawner");
-      if(this.Q().b("doMobSpawning") && this.worldData.u() != WorldType.DEBUG) {
-         this.R.a(this, this.allowMonsters, this.allowAnimals, this.worldData.f() % 400L == 0L);
+      if(this.getGameRules().getBoolean("doMobSpawning") && this.worldData.getType() != WorldType.DEBUG) {
+         this.R.a(this, this.allowMonsters, this.allowAnimals, this.worldData.getTime() % 400L == 0L);
       }
 
       this.methodProfiler.c("chunkSource");
@@ -115,9 +115,9 @@ public class WorldServer extends World implements vn {
          this.b(var3);
       }
 
-      this.worldData.b(this.worldData.f() + 1L);
-      if(this.Q().b("doDaylightCycle")) {
-         this.worldData.c(this.worldData.getDayTime() + 1L);
+      this.worldData.b(this.worldData.getTime() + 1L);
+      if(this.getGameRules().getBoolean("doDaylightCycle")) {
+         this.worldData.setDayTime(this.worldData.getDayTime() + 1L);
       }
 
       this.methodProfiler.c("tickPending");
@@ -130,7 +130,7 @@ public class WorldServer extends World implements vn {
       this.siegeManager.a();
       this.d.a();
       this.methodProfiler.c("portalForcer");
-      this.Q.a(this.K());
+      this.Q.a(this.getTime());
       this.methodProfiler.b();
       this.ak();
    }
@@ -145,7 +145,7 @@ public class WorldServer extends World implements vn {
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
 
-   public void d() {
+   public void everyoneSleeping() {
       this.O = false;
       if(!this.players.isEmpty()) {
          int var1 = 0;
@@ -181,10 +181,10 @@ public class WorldServer extends World implements vn {
    }
 
    private void ag() {
-      this.worldData.g(0);
-      this.worldData.b(false);
-      this.worldData.f(0);
-      this.worldData.a(false);
+      this.worldData.setWeatherDuration(0);
+      this.worldData.setStorm(false);
+      this.worldData.setThunderDuration(0);
+      this.worldData.setThundering(false);
    }
 
    public boolean f() {
@@ -208,7 +208,7 @@ public class WorldServer extends World implements vn {
 
    protected void h() {
       super.h();
-      if(this.worldData.u() == WorldType.DEBUG) {
+      if(this.worldData.getType() == WorldType.DEBUG) {
          Iterator var21 = this.chunkTickList.iterator();
 
          while(var21.hasNext()) {
@@ -236,8 +236,8 @@ public class WorldServer extends World implements vn {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
                var9 = this.a(new Location(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
-               if(this.C(var9)) {
-                  this.c(new EntityLightning(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
+               if(this.isRainingAt(var9)) {
+                  this.strikeLightning(new EntityLightning(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
                }
             }
 
@@ -261,7 +261,7 @@ public class WorldServer extends World implements vn {
             }
 
             this.methodProfiler.c("tickBlocks");
-            var8 = this.Q().c("randomTickSpeed");
+            var8 = this.getGameRules().getInt("randomTickSpeed");
             if(var8 > 0) {
                bfm[] var23 = var7.h();
                int var24 = var23.length;
@@ -295,7 +295,7 @@ public class WorldServer extends World implements vn {
    protected Location a(Location var1) {
       Location var2 = this.q(var1);
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new Location(var2.n(), this.U(), var2.p()))).b(3.0D, 3.0D, 3.0D);
-      List var4 = this.a(EntityLiving.class, var3, new PredicateEntityUnderSun(this));
+      List var4 = this.getEntities(EntityLiving.class, var3, new PredicateEntityUnderSun(this));
       return !var4.isEmpty()?((EntityLiving)var4.get(this.random.nextInt(var4.size()))).getLocation():var2;
    }
 
@@ -329,7 +329,7 @@ public class WorldServer extends World implements vn {
 
       if(this.a(var1.a(-var6, -var6, -var6), var1.a(var6, var6, var6))) {
          if(var2.getMaterial() != Material.AIR) {
-            var5.a((long)var3 + this.worldData.f());
+            var5.a((long)var3 + this.worldData.getTime());
             var5.a(var4);
          }
 
@@ -345,7 +345,7 @@ public class WorldServer extends World implements vn {
       NextTickListEntry var5 = new NextTickListEntry(var1, var2);
       var5.a(var4);
       if(var2.getMaterial() != Material.AIR) {
-         var5.a((long)var3 + this.worldData.f());
+         var5.a((long)var3 + this.worldData.getTime());
       }
 
       if(!this.L.contains(var5)) {
@@ -355,7 +355,7 @@ public class WorldServer extends World implements vn {
 
    }
 
-   public void i() {
+   public void tickEntities() {
       if(this.players.isEmpty()) {
          if(this.P++ >= 1200) {
             return;
@@ -364,7 +364,7 @@ public class WorldServer extends World implements vn {
          this.j();
       }
 
-      super.i();
+      super.tickEntities();
    }
 
    public void j() {
@@ -372,7 +372,7 @@ public class WorldServer extends World implements vn {
    }
 
    public boolean a(boolean var1) {
-      if(this.worldData.u() == WorldType.DEBUG) {
+      if(this.worldData.getType() == WorldType.DEBUG) {
          return false;
       } else {
          int var2 = this.M.size();
@@ -388,7 +388,7 @@ public class WorldServer extends World implements vn {
             NextTickListEntry var4;
             for(int var3 = 0; var3 < var2; ++var3) {
                var4 = (NextTickListEntry)this.M.first();
-               if(!var1 && var4.b > this.worldData.f()) {
+               if(!var1 && var4.b > this.worldData.getTime()) {
                   break;
                }
 
@@ -473,7 +473,7 @@ public class WorldServer extends World implements vn {
       return var3;
    }
 
-   public void a(Entity var1, boolean var2) throws IOException {
+   public void entityJoinedWorld(Entity var1, boolean var2) throws IOException {
       if(!this.ai() && (var1 instanceof EntityAnimal || var1 instanceof EntityWaterAnimal)) {
          var1.J();
       }
@@ -482,7 +482,7 @@ public class WorldServer extends World implements vn {
          var1.J();
       }
 
-      super.a(var1, var2);
+      super.entityJoinedWorld(var1, var2);
    }
 
    private boolean ah() {
@@ -518,10 +518,10 @@ public class WorldServer extends World implements vn {
    }
 
    public void a(WorldSettings var1) {
-      if(!this.worldData.w()) {
+      if(!this.worldData.isInitialized()) {
          try {
             this.b(var1);
-            if(this.worldData.u() == WorldType.DEBUG) {
+            if(this.worldData.getType() == WorldType.DEBUG) {
                this.aj();
             }
 
@@ -546,27 +546,27 @@ public class WorldServer extends World implements vn {
    private void aj() {
       this.worldData.f(false);
       this.worldData.c(true);
-      this.worldData.b(false);
-      this.worldData.a(false);
+      this.worldData.setStorm(false);
+      this.worldData.setThundering(false);
       this.worldData.i(1000000000);
-      this.worldData.c(6000L);
+      this.worldData.setDayTime(6000L);
       this.worldData.setGameType(EnumGamemode.SPECTATOR);
       this.worldData.g(false);
       this.worldData.a(EnumDifficulty.PEACEFUL);
       this.worldData.e(true);
-      this.Q().a("doDaylightCycle", "false");
+      this.getGameRules().set("doDaylightCycle", "false");
    }
 
    private void b(WorldSettings var1) {
       if(!this.worldProvider.e()) {
-         this.worldData.a(Location.a.b(this.worldProvider.i()));
-      } else if(this.worldData.u() == WorldType.DEBUG) {
-         this.worldData.a(Location.a.a());
+         this.worldData.setSpawn(Location.a.b(this.worldProvider.i()));
+      } else if(this.worldData.getType() == WorldType.DEBUG) {
+         this.worldData.setSpawn(Location.a.a());
       } else {
          this.isLoading = true;
          WorldChunkManager var2 = this.worldProvider.m();
          List var3 = var2.a();
-         Random var4 = new Random(this.J());
+         Random var4 = new Random(this.getSeed());
          Location var5 = var2.a(0, 0, 256, var3, var4);
          int var6 = 0;
          int var7 = this.worldProvider.i();
@@ -589,7 +589,7 @@ public class WorldServer extends World implements vn {
             }
          }
 
-         this.worldData.a(new Location(var6, var7, var8));
+         this.worldData.setSpawn(new Location(var6, var7, var8));
          this.isLoading = false;
          if(var1.c()) {
             this.l();
@@ -688,8 +688,8 @@ public class WorldServer extends World implements vn {
 
    }
 
-   public boolean c(Entity var1) {
-      if(super.c(var1)) {
+   public boolean strikeLightning(Entity var1) {
+      if(super.strikeLightning(var1)) {
          this.I.an().a(var1.s, var1.t, var1.u, 512.0D, this.worldProvider.q(), new PacketPlayOutSpawnEntityWeather(var1));
          return true;
       } else {
@@ -697,12 +697,12 @@ public class WorldServer extends World implements vn {
       }
    }
 
-   public void a(Entity var1, byte var2) {
+   public void broadcastEntityEffect(Entity var1, byte var2) {
       this.s().b(var1, new PacketPlayOutEntityStatus(var1, var2));
    }
 
-   public aqo a(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
-      aqo var11 = new aqo(this, var1, var2, var4, var6, var8, var9, var10);
+   public Explosion createExplosion(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
+      Explosion var11 = new Explosion(this, var1, var2, var4, var6, var8, var9, var10);
       var11.a();
       var11.a(false);
       if(!var10) {
@@ -721,7 +721,7 @@ public class WorldServer extends World implements vn {
       return var11;
    }
 
-   public void c(Location var1, Block var2, int var3, int var4) {
+   public void playBlockAction(Location var1, Block var2, int var3, int var4) {
       aqk var5 = new aqk(var1, var2, var3, var4);
       Iterator var6 = this.S[this.T].iterator();
 
@@ -808,11 +808,11 @@ public class WorldServer extends World implements vn {
       return this.Q;
    }
 
-   public void a(ew var1, double var2, double var4, double var6, int var8, double var9, double var11, double var13, double var15, int ... var17) {
+   public void a(EnumParticleEffect var1, double var2, double var4, double var6, int var8, double var9, double var11, double var13, double var15, int ... var17) {
       this.a(var1, false, var2, var4, var6, var8, var9, var11, var13, var15, var17);
    }
 
-   public void a(ew var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int ... var18) {
+   public void a(EnumParticleEffect var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int ... var18) {
       PacketPlayOutWorldParticles var19 = new PacketPlayOutWorldParticles(var1, var2, (float)var3, (float)var5, (float)var7, (float)var10, (float)var12, (float)var14, (float)var16, var9, var18);
 
       for(int var20 = 0; var20 < this.players.size(); ++var20) {

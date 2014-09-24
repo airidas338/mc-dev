@@ -44,7 +44,7 @@ public class BlockBrewingStand extends BlockContainer {
       if(var1.isStatic) {
          return true;
       } else {
-         TileEntity var9 = var1.s(var2);
+         TileEntity var9 = var1.getTileEntity(var2);
          if(var9 instanceof TileEntityBrewingStand) {
             var4.a((IInventory)((TileEntityBrewingStand)var9));
          }
@@ -55,7 +55,7 @@ public class BlockBrewingStand extends BlockContainer {
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       if(var5.s()) {
-         TileEntity var6 = var1.s(var2);
+         TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityBrewingStand) {
             ((TileEntityBrewingStand)var6).a(var5.q());
          }
@@ -64,7 +64,7 @@ public class BlockBrewingStand extends BlockContainer {
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
-      TileEntity var4 = var1.s(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof TileEntityBrewingStand) {
          vs.a(var1, var2, (TileEntityBrewingStand)var4);
       }
@@ -81,7 +81,7 @@ public class BlockBrewingStand extends BlockContainer {
    }
 
    public int getDropData(World var1, Location var2) {
-      return aib.a(var1.s(var2));
+      return aib.a(var1.getTileEntity(var2));
    }
 
    public IBlockData a(int var1) {

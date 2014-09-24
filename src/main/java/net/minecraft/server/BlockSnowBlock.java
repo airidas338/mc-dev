@@ -20,7 +20,7 @@ public class BlockSnowBlock extends Block {
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(var1.b(EnumSkyBlock.BLOCK, var2) > 11) {
          this.b(var1, var2, var1.getData(var2), 0);
-         var1.g(var2);
+         var1.setAir(var2);
       }
 
    }

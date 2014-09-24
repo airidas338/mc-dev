@@ -84,7 +84,7 @@ public class EntityEnderman extends EntityMonster {
    public void m() throws IOException {
       if(this.o.isStatic) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(ew.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K - 0.25D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.o.a(EnumParticleEffect.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K - 0.25D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       }
 
@@ -156,7 +156,7 @@ public class EntityEnderman extends EntityMonster {
 
          if(var15) {
             super.a(this.s, this.t, this.u);
-            if(this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ())) {
+            if(this.o.getCubes((Entity)this, this.aQ()).isEmpty() && !this.o.containsLiquid(this.aQ())) {
                var13 = true;
             }
          }
@@ -176,10 +176,10 @@ public class EntityEnderman extends EntityMonster {
             double var22 = var7 + (this.s - var7) * var30 + (this.V.nextDouble() - 0.5D) * (double)this.J * 2.0D;
             double var24 = var9 + (this.t - var9) * var30 + this.V.nextDouble() * (double)this.K;
             double var26 = var11 + (this.u - var11) * var30 + (this.V.nextDouble() - 0.5D) * (double)this.J * 2.0D;
-            this.o.a(ew.y, var22, var24, var26, (double)var19, (double)var20, (double)var21, new int[0]);
+            this.o.a(EnumParticleEffect.y, var22, var24, var26, (double)var19, (double)var20, (double)var21, new int[0]);
          }
 
-         this.o.a(var7, var9, var11, "mob.endermen.portal", 1.0F, 1.0F);
+         this.o.makeSound(var7, var9, var11, "mob.endermen.portal", 1.0F, 1.0F);
          this.a("mob.endermen.portal", 1.0F, 1.0F);
          return true;
       }

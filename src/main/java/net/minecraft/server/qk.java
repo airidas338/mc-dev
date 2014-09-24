@@ -15,7 +15,7 @@ public class qk extends PlayerInteractManager {
    public void a() {
       super.a();
       ++this.f;
-      long var1 = this.a.K();
+      long var1 = this.a.getTime();
       long var3 = var1 / 24000L + 1L;
       if(!this.c && this.f > 20) {
          this.c = true;

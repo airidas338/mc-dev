@@ -115,7 +115,7 @@ public class aop {
       this.a(new ItemStack(Items.aE, 1), new Object[]{"# #", "###", Character.valueOf('#'), Blocks.WOOD});
       this.a(new ItemStack(Items.BUCKET, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.j});
       this.a(new ItemStack(Items.bQ, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.aH});
-      this.b(new ItemStack(Items.d, 1), new Object[]{new ItemStack(Items.j, 1), new ItemStack(Items.ak, 1)});
+      this.b(new ItemStack(Items.FLINT_AND_STEEL, 1), new Object[]{new ItemStack(Items.j, 1), new ItemStack(Items.ak, 1)});
       this.a(new ItemStack(Items.P, 1), new Object[]{"###", Character.valueOf('#'), Items.O});
       this.a(new ItemStack(Blocks.WOOD_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.WOOD, 1, ayx.a.a())});
       this.a(new ItemStack(Blocks.BIRCH_WOOD_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.WOOD, 1, ayx.c.a())});
@@ -134,8 +134,8 @@ public class aop {
       this.a(new ItemStack(Blocks.QUARTZ_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Blocks.QUARTZ_BLOCK});
       this.a(new ItemStack(Items.an, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.y, Character.valueOf('X'), Blocks.WOOL});
       this.a(new ItemStack(Items.bP, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.y, Character.valueOf('X'), Items.aF});
-      this.a(new ItemStack(Items.ao, 1, 0), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.k, Character.valueOf('X'), Items.e});
-      this.a(new ItemStack(Items.ao, 1, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Blocks.GOLD_BLOCK, Character.valueOf('X'), Items.e});
+      this.a(new ItemStack(Items.ao, 1, 0), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.k, Character.valueOf('X'), Items.APPLE});
+      this.a(new ItemStack(Items.ao, 1, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Blocks.GOLD_BLOCK, Character.valueOf('X'), Items.APPLE});
       this.a(new ItemStack(Items.bW, 1, 0), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.bx, Character.valueOf('X'), Items.bR});
       this.a(new ItemStack(Items.bI, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Items.bx, Character.valueOf('X'), Items.bf});
       this.a(new ItemStack(Blocks.LEVER, 1), new Object[]{"X", "#", Character.valueOf('#'), Blocks.COBBLESTONE, Character.valueOf('X'), Items.y});
@@ -152,7 +152,7 @@ public class aop {
       this.a(new ItemStack(Blocks.WOOD_PLATE, 1), new Object[]{"##", Character.valueOf('#'), Blocks.WOOD});
       this.a(new ItemStack(Blocks.IRON_PLATE, 1), new Object[]{"##", Character.valueOf('#'), Items.j});
       this.a(new ItemStack(Blocks.GOLD_PLATE, 1), new Object[]{"##", Character.valueOf('#'), Items.k});
-      this.a(new ItemStack(Blocks.DISPENSER, 1), new Object[]{"###", "#X#", "#R#", Character.valueOf('#'), Blocks.COBBLESTONE, Character.valueOf('X'), Items.f, Character.valueOf('R'), Items.aC});
+      this.a(new ItemStack(Blocks.DISPENSER, 1), new Object[]{"###", "#X#", "#R#", Character.valueOf('#'), Blocks.COBBLESTONE, Character.valueOf('X'), Items.BOW, Character.valueOf('R'), Items.aC});
       this.a(new ItemStack(Blocks.DROPPER, 1), new Object[]{"###", "# #", "#R#", Character.valueOf('#'), Blocks.COBBLESTONE, Character.valueOf('R'), Items.aC});
       this.a(new ItemStack(Blocks.PISTON, 1), new Object[]{"TTT", "#X#", "#R#", Character.valueOf('#'), Blocks.COBBLESTONE, Character.valueOf('X'), Items.j, Character.valueOf('R'), Items.aC, Character.valueOf('T'), Blocks.WOOD});
       this.a(new ItemStack(Blocks.PISTON_STICKEY, 1), new Object[]{"S", "P", Character.valueOf('S'), Items.aM, Character.valueOf('P'), Blocks.PISTON});

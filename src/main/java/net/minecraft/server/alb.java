@@ -13,8 +13,8 @@ public class alb extends Item {
          if(var3.isStatic) {
             return true;
          } else {
-            var3.a(var4, var9.a(BlockEnderPortalFrame.b, Boolean.valueOf(true)), 2);
-            var3.e(var4, Blocks.ENDER_PORTAL_FRAME);
+            var3.setTypeAndData(var4, var9.a(BlockEnderPortalFrame.b, Boolean.valueOf(true)), 2);
+            var3.updateAdjacentComparators(var4, Blocks.ENDER_PORTAL_FRAME);
             --var1.b;
 
             for(int var10 = 0; var10 < 16; ++var10) {
@@ -24,7 +24,7 @@ public class alb extends Item {
                double var17 = 0.0D;
                double var19 = 0.0D;
                double var21 = 0.0D;
-               var3.a(ew.l, var11, var13, var15, var17, var19, var21, new int[0]);
+               var3.a(EnumParticleEffect.l, var11, var13, var15, var17, var19, var21, new int[0]);
             }
 
             EnumFacing var24 = (EnumFacing)var9.b(BlockEnderPortalFrame.a);
@@ -85,7 +85,7 @@ public class alb extends Item {
 
                      for(var31 = 1; var31 <= 3; ++var31) {
                         var33 = var27.a(var24, var31);
-                        var3.a(var33, Blocks.ENDER_PORTAL.P(), 2);
+                        var3.setTypeAndData(var33, Blocks.ENDER_PORTAL.P(), 2);
                      }
                   }
                }
@@ -108,8 +108,8 @@ public class alb extends Item {
             if(var5 != null) {
                EntityEnderSignal var6 = new EntityEnderSignal(var2, var3.s, var3.t, var3.u);
                var6.a(var5);
-               var2.d((Entity)var6);
-               var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
+               var2.addEntity((Entity)var6);
+               var2.makeSound((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
                var2.a((EntityHuman)null, 1002, new Location(var3), 0);
                if(!var3.by.canInstantlyBuild) {
                   --var1.b;

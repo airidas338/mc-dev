@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
-public class bps {
+public class Path {
 
-   private bpt[] a = new bpt[1024];
+   private PathPoint[] a = new PathPoint[1024];
    private int b;
 
 
-   public bpt a(bpt var1) {
+   public PathPoint a(PathPoint var1) {
       if(var1.d >= 0) {
          throw new IllegalStateException("OW KNOWS!");
       } else {
          if(this.b == this.a.length) {
-            bpt[] var2 = new bpt[this.b << 1];
+            PathPoint[] var2 = new PathPoint[this.b << 1];
             System.arraycopy(this.a, 0, var2, 0, this.b);
             this.a = var2;
          }
@@ -27,8 +27,8 @@ public class bps {
       this.b = 0;
    }
 
-   public bpt c() {
-      bpt var1 = this.a[0];
+   public PathPoint c() {
+      PathPoint var1 = this.a[0];
       this.a[0] = this.a[--this.b];
       this.a[this.b] = null;
       if(this.b > 0) {
@@ -39,7 +39,7 @@ public class bps {
       return var1;
    }
 
-   public void a(bpt var1, float var2) {
+   public void a(PathPoint var1, float var2) {
       float var3 = var1.g;
       var1.g = var2;
       if(var2 < var3) {
@@ -51,12 +51,12 @@ public class bps {
    }
 
    private void a(int var1) {
-      bpt var2 = this.a[var1];
+      PathPoint var2 = this.a[var1];
 
       int var4;
       for(float var3 = var2.g; var1 > 0; var1 = var4) {
          var4 = var1 - 1 >> 1;
-         bpt var5 = this.a[var4];
+         PathPoint var5 = this.a[var4];
          if(var3 >= var5.g) {
             break;
          }
@@ -70,7 +70,7 @@ public class bps {
    }
 
    private void b(int var1) {
-      bpt var2 = this.a[var1];
+      PathPoint var2 = this.a[var1];
       float var3 = var2.g;
 
       while(true) {
@@ -80,9 +80,9 @@ public class bps {
             break;
          }
 
-         bpt var6 = this.a[var4];
+         PathPoint var6 = this.a[var4];
          float var7 = var6.g;
-         bpt var8;
+         PathPoint var8;
          float var9;
          if(var5 >= this.b) {
             var8 = null;

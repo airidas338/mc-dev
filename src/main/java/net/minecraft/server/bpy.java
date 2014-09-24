@@ -20,7 +20,7 @@ public class bpy extends bpu {
       this.h = this.j;
    }
 
-   public bpt a(Entity var1) {
+   public PathPoint a(Entity var1) {
       int var2;
       if(this.i && var1.V()) {
          var2 = (int)var1.aQ().b;
@@ -37,21 +37,21 @@ public class bpy extends bpu {
       return this.a(MathHelper.floor(var1.aQ().a), var2, MathHelper.floor(var1.aQ().c));
    }
 
-   public bpt a(Entity var1, double var2, double var4, double var6) {
+   public PathPoint a(Entity var1, double var2, double var4, double var6) {
       return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
    }
 
-   public int a(bpt[] var1, Entity var2, bpt var3, bpt var4, float var5) {
+   public int a(PathPoint[] var1, Entity var2, PathPoint var3, PathPoint var4, float var5) {
       int var6 = 0;
       byte var7 = 0;
       if(this.a(var2, var3.a, var3.b + 1, var3.c) == 1) {
          var7 = 1;
       }
 
-      bpt var8 = this.a(var2, var3.a, var3.b, var3.c + 1, var7);
-      bpt var9 = this.a(var2, var3.a - 1, var3.b, var3.c, var7);
-      bpt var10 = this.a(var2, var3.a + 1, var3.b, var3.c, var7);
-      bpt var11 = this.a(var2, var3.a, var3.b, var3.c - 1, var7);
+      PathPoint var8 = this.a(var2, var3.a, var3.b, var3.c + 1, var7);
+      PathPoint var9 = this.a(var2, var3.a - 1, var3.b, var3.c, var7);
+      PathPoint var10 = this.a(var2, var3.a + 1, var3.b, var3.c, var7);
+      PathPoint var11 = this.a(var2, var3.a, var3.b, var3.c - 1, var7);
       if(var8 != null && !var8.i && var8.a(var4) < var5) {
          var1[var6++] = var8;
       }
@@ -71,8 +71,8 @@ public class bpy extends bpu {
       return var6;
    }
 
-   private bpt a(Entity var1, int var2, int var3, int var4, int var5) {
-      bpt var6 = null;
+   private PathPoint a(Entity var1, int var2, int var3, int var4, int var5) {
+      PathPoint var6 = null;
       int var7 = this.a(var1, var2, var3, var4);
       if(var7 == 2) {
          return this.a(var2, var3, var4);

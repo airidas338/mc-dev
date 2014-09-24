@@ -251,7 +251,7 @@ public class qy {
    public void b(EntityPlayer var1) {
       if(var1 != this.a) {
          if(this.c(var1)) {
-            if(!this.o.contains(var1) && (this.e(var1) || this.a.n)) {
+            if(!this.o.contains(var1) && (this.e(var1) || this.a.attachedToPlayer)) {
                this.o.add(var1);
                Packet var2 = this.c();
                var1.a.sendPacket(var2);

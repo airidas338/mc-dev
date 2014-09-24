@@ -12,10 +12,10 @@ public class bfx {
    private static final Map a = Maps.newHashMap();
 
 
-   public static synchronized bfv a(File var0, int var1, int var2) {
+   public static synchronized RegionFile a(File var0, int var1, int var2) {
       File var3 = new File(var0, "region");
       File var4 = new File(var3, "r." + (var1 >> 5) + "." + (var2 >> 5) + ".mca");
-      bfv var5 = (bfv)a.get(var4);
+      RegionFile var5 = (RegionFile)a.get(var4);
       if(var5 != null) {
          return var5;
       } else {
@@ -27,7 +27,7 @@ public class bfx {
             a();
          }
 
-         bfv var6 = new bfv(var4);
+         RegionFile var6 = new RegionFile(var4);
          a.put(var4, var6);
          return var6;
       }
@@ -37,7 +37,7 @@ public class bfx {
       Iterator var0 = a.values().iterator();
 
       while(var0.hasNext()) {
-         bfv var1 = (bfv)var0.next();
+         RegionFile var1 = (RegionFile)var0.next();
 
          try {
             if(var1 != null) {
@@ -52,12 +52,12 @@ public class bfx {
    }
 
    public static DataInputStream c(File var0, int var1, int var2) {
-      bfv var3 = a(var0, var1, var2);
+      RegionFile var3 = a(var0, var1, var2);
       return var3.a(var1 & 31, var2 & 31);
    }
 
    public static DataOutputStream d(File var0, int var1, int var2) {
-      bfv var3 = a(var0, var1, var2);
+      RegionFile var3 = a(var0, var1, var2);
       return var3.b(var1 & 31, var2 & 31);
    }
 

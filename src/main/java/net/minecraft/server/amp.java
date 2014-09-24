@@ -29,7 +29,7 @@ public class amp extends Item {
                var13.a(var1.q());
             }
 
-            var3.d((Entity)var13);
+            var3.addEntity((Entity)var13);
          }
 
          --var1.b;

@@ -128,7 +128,7 @@ public abstract class aaw extends PathfinderGoal {
       if(var2 == null) {
          return false;
       } else {
-         bpt var3 = var2.c();
+         PathPoint var3 = var2.c();
          if(var3 == null) {
             return false;
          } else {

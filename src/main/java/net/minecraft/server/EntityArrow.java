@@ -143,7 +143,7 @@ public class EntityArrow extends Entity implements IProjectile {
          ++this.aq;
          Vec3D var19 = new Vec3D(this.s, this.t, this.u);
          Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
-         MovingObjectPosition var6 = this.o.a(var19, var5, false, true, false);
+         MovingObjectPosition var6 = this.o.rayTrace(var19, var5, false, true, false);
          var19 = new Vec3D(this.s, this.t, this.u);
          var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var6 != null) {
@@ -268,7 +268,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
          if(this.l()) {
             for(var11 = 0; var11 < 4; ++var11) {
-               this.o.a(ew.j, this.s + this.v * (double)var11 / 4.0D, this.t + this.w * (double)var11 / 4.0D, this.u + this.x * (double)var11 / 4.0D, -this.v, -this.w + 0.2D, -this.x, new int[0]);
+               this.o.a(EnumParticleEffect.j, this.s + this.v * (double)var11 / 4.0D, this.t + this.w * (double)var11 / 4.0D, this.u + this.x * (double)var11 / 4.0D, -this.v, -this.w + 0.2D, -this.x, new int[0]);
             }
          }
 
@@ -301,7 +301,7 @@ public class EntityArrow extends Entity implements IProjectile {
          if(this.V()) {
             for(int var29 = 0; var29 < 4; ++var29) {
                var27 = 0.25F;
-               this.o.a(ew.e, this.s - this.v * (double)var27, this.t - this.w * (double)var27, this.u - this.x * (double)var27, this.v, this.w, this.x, new int[0]);
+               this.o.a(EnumParticleEffect.e, this.s - this.v * (double)var27, this.t - this.w * (double)var27, this.u - this.x * (double)var27, this.v, this.w, this.x, new int[0]);
             }
 
             var25 = 0.6F;

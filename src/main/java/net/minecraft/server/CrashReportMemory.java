@@ -1,13 +1,13 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class g implements Callable {
+class CrashReportMemory implements Callable {
 
    // $FF: synthetic field
    final CrashReport a;
 
 
-   g(CrashReport var1) {
+   CrashReportMemory(CrashReport var1) {
       this.a = var1;
    }
 

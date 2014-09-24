@@ -20,7 +20,7 @@ public class bhq extends WorldGenerator {
       for(int var4 = 0; var4 < 64; ++var4) {
          Location var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
          if(var1.isEmpty(var5) && (!var1.worldProvider.o() || var5.o() < 255) && this.a.f(var1, var5, this.b)) {
-            var1.a(var5, this.b, 2);
+            var1.setTypeAndData(var5, this.b, 2);
          }
       }
 

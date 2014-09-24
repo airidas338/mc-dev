@@ -34,7 +34,7 @@ public class aag extends PathfinderGoal {
          --this.i;
          return false;
       } else {
-         this.h = this.a.o.a(this.a, 10.0D);
+         this.h = this.a.o.findNearbyVulnerablePlayer(this.a, 10.0D);
          if(this.h == null) {
             return false;
          } else {

@@ -66,7 +66,7 @@ public class bjb {
       this.f = var6;
    }
 
-   public bjb(fd var1, fd var2) {
+   public bjb(ChunkCoordinates var1, ChunkCoordinates var2) {
       this.a = Math.min(var1.n(), var2.n());
       this.b = Math.min(var1.o(), var2.o());
       this.c = Math.min(var1.p(), var2.p());
@@ -110,12 +110,12 @@ public class bjb {
       this.f += var3;
    }
 
-   public boolean b(fd var1) {
+   public boolean b(ChunkCoordinates var1) {
       return var1.n() >= this.a && var1.n() <= this.d && var1.p() >= this.c && var1.p() <= this.f && var1.o() >= this.b && var1.o() <= this.e;
    }
 
-   public fd b() {
-      return new fd(this.d - this.a, this.e - this.b, this.f - this.c);
+   public ChunkCoordinates b() {
+      return new ChunkCoordinates(this.d - this.a, this.e - this.b, this.f - this.c);
    }
 
    public int c() {
@@ -130,7 +130,7 @@ public class bjb {
       return this.f - this.c + 1;
    }
 
-   public fd f() {
+   public ChunkCoordinates f() {
       return new Location(this.a + (this.d - this.a + 1) / 2, this.b + (this.e - this.b + 1) / 2, this.c + (this.f - this.c + 1) / 2);
    }
 

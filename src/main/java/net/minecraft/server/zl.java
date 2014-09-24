@@ -5,7 +5,7 @@ package net.minecraft.server;
 public class zl extends PathfinderGoal {
 
    private EntityCreature a;
-   private abh b;
+   private VillageDoor b;
    private int c = -1;
    private int d = -1;
 

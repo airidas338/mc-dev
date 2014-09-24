@@ -113,7 +113,7 @@ public class EntityWolf extends EntityTameableAnimal {
          this.bp = true;
          this.bq = 0.0F;
          this.br = 0.0F;
-         this.o.a((Entity)this, (byte)8);
+         this.o.broadcastEntityEffect((Entity)this, (byte)8);
       }
 
       if(!this.o.isStatic && this.u() == null && this.ct()) {
@@ -157,7 +157,7 @@ public class EntityWolf extends EntityTameableAnimal {
             for(int var3 = 0; var3 < var2; ++var3) {
                float var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
                float var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
-               this.o.a(ew.f, this.s + (double)var4, (double)(var1 + 0.8F), this.u + (double)var5, this.v, this.w, this.x, new int[0]);
+               this.o.a(EnumParticleEffect.f, this.s + (double)var4, (double)(var1 + 0.8F), this.u + (double)var5, this.v, this.w, this.x, new int[0]);
             }
          }
       }
@@ -261,10 +261,10 @@ public class EntityWolf extends EntityTameableAnimal {
                this.h(20.0F);
                this.b(var1.aJ().toString());
                this.l(true);
-               this.o.a((Entity)this, (byte)7);
+               this.o.broadcastEntityEffect((Entity)this, (byte)7);
             } else {
                this.l(false);
-               this.o.a((Entity)this, (byte)6);
+               this.o.broadcastEntityEffect((Entity)this, (byte)6);
             }
          }
 

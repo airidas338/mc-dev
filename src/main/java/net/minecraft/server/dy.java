@@ -27,7 +27,7 @@ public final class dy extends Location {
    }
 
    // $FF: synthetic method
-   public fd d(fd var1) {
+   public ChunkCoordinates d(ChunkCoordinates var1) {
       return super.c(var1);
    }
 

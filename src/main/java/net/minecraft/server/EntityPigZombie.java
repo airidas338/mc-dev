@@ -71,7 +71,7 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    public boolean bR() {
-      return this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ());
+      return this.o.a(this.aQ(), (Entity)this) && this.o.getCubes((Entity)this, this.aQ()).isEmpty() && !this.o.containsLiquid(this.aQ());
    }
 
    public void b(NBTTagCompound var1) {

@@ -17,7 +17,7 @@ public class ItemWorldMap extends ake {
          var3 = "map_" + var1.i();
          var4 = new WorldMap(var3);
          var4.e = 3;
-         var4.a((double)var2.P().c(), (double)var2.P().e(), var4.e);
+         var4.a((double)var2.getWorldData().c(), (double)var2.getWorldData().e(), var4.e);
          var4.d = (byte)var2.worldProvider.q();
          var4.c();
          var2.a(var3, (PersistentBase)var4);
@@ -55,7 +55,7 @@ public class ItemWorldMap extends ake {
                      int var19 = (var5 / var4 + var12 - 64) * var4;
                      int var20 = (var6 / var4 + var15 - 64) * var4;
                      HashMultiset var21 = HashMultiset.create();
-                     Chunk var22 = var1.f(new Location(var19, 0, var20));
+                     Chunk var22 = var1.getChunkAtWorldCoords(new Location(var19, 0, var20));
                      if(!var22.f()) {
                         int var23 = var19 & 15;
                         int var24 = var20 & 15;

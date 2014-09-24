@@ -28,7 +28,7 @@ public class DispenserRegistry {
       BlockDispenser.M.a(Items.ay, var0);
       BlockDispenser.M.a(Items.ax, var0);
       BlockDispenser.M.a(Items.BUCKET, new DispenserBehaviorEmptyBucket());
-      BlockDispenser.M.a(Items.d, new DispenserBehaviorFlintAndSteel());
+      BlockDispenser.M.a(Items.FLINT_AND_STEEL, new DispenserBehaviorFlintAndSteel());
       BlockDispenser.M.a(Items.aW, new DispenserBehaviorBonemeal());
       BlockDispenser.M.a(Item.a(Blocks.TNT), new DispenserBehaviorTNT());
       BlockDispenser.M.a(Items.bX, new DispenserBehaviorSkull());

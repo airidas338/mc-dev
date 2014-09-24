@@ -41,12 +41,12 @@ final class amq extends DispenserBehaviorItem {
          var18.a(var2.q());
       }
 
-      var4.d((Entity)var18);
+      var4.addEntity((Entity)var18);
       var2.a(1);
       return var2;
    }
 
    protected void a(ISourceBlock var1) {
-      var1.i().b(1000, var1.d(), 0);
+      var1.i().triggerEffect(1000, var1.d(), 0);
    }
 }

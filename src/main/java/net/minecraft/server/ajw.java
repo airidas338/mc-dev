@@ -24,7 +24,7 @@ public class ajw extends Item {
       float var20 = var14 * var16;
       double var21 = 5.0D;
       Vec3D var23 = var13.b((double)var18 * var21, (double)var17 * var21, (double)var20 * var21);
-      MovingObjectPosition var24 = var2.a(var13, var23, true);
+      MovingObjectPosition var24 = var2.rayTrace(var13, var23, true);
       if(var24 == null) {
          return var1;
       } else {
@@ -55,12 +55,12 @@ public class ajw extends Item {
 
                EntityBoat var33 = new EntityBoat(var2, (double)((float)var34.n() + 0.5F), (double)((float)var34.o() + 1.0F), (double)((float)var34.p() + 0.5F));
                var33.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
-               if(!var2.a((Entity)var33, var33.aQ().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
+               if(!var2.getCubes((Entity)var33, var33.aQ().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
                   return var1;
                }
 
                if(!var2.isStatic) {
-                  var2.d((Entity)var33);
+                  var2.addEntity((Entity)var33);
                }
 
                if(!var3.by.canInstantlyBuild) {

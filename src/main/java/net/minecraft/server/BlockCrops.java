@@ -23,12 +23,12 @@ public class BlockCrops extends BlockPlant implements atz {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
-      if(var1.l(var2.a()) >= 9) {
+      if(var1.getLightLevel(var2.a()) >= 9) {
          int var5 = ((Integer)var3.b(a)).intValue();
          if(var5 < 7) {
             float var6 = a(this, var1, var2);
             if(var4.nextInt((int)(25.0F / var6) + 1) == 0) {
-               var1.a(var2, var3.a(a, Integer.valueOf(var5 + 1)), 2);
+               var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var5 + 1)), 2);
             }
          }
       }
@@ -41,7 +41,7 @@ public class BlockCrops extends BlockPlant implements atz {
          var4 = 7;
       }
 
-      var1.a(var2, var3.a(a, Integer.valueOf(var4)), 2);
+      var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var4)), 2);
    }
 
    protected static float a(Block var0, World var1, Location var2) {

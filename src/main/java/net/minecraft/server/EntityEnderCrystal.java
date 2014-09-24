@@ -55,7 +55,7 @@ public class EntityEnderCrystal extends Entity {
             if(this.b <= 0) {
                this.J();
                if(!this.o.isStatic) {
-                  this.o.a((Entity)null, this.s, this.t, this.u, 6.0F, true);
+                  this.o.explode((Entity)null, this.s, this.t, this.u, 6.0F, true);
                }
             }
          }

@@ -11,7 +11,7 @@ class MobSpawner extends MobSpawnerAbstract {
    }
 
    public void a(int var1) {
-      this.a.b.c(this.a.c, Blocks.MOB_SPAWNER, var1, 0);
+      this.a.b.playBlockAction(this.a.c, Blocks.MOB_SPAWNER, var1, 0);
    }
 
    public World a() {
@@ -25,7 +25,7 @@ class MobSpawner extends MobSpawnerAbstract {
    public void a(TileEntityMobSpawnerData var1) {
       super.a(var1);
       if(this.a() != null) {
-         this.a().h(this.a.c);
+         this.a().notify(this.a.c);
       }
 
    }

@@ -40,7 +40,7 @@ public class BlockDaylightDetector extends BlockContainer {
          }
 
          if(((Integer)var3.b(a)).intValue() != var4) {
-            var1.a(var2, var3.a(a, Integer.valueOf(var4)), 3);
+            var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var4)), 3);
          }
 
       }
@@ -52,10 +52,10 @@ public class BlockDaylightDetector extends BlockContainer {
             return true;
          } else {
             if(this.b) {
-               var1.a(var2, Blocks.DAYLIGHT_DETECTOR.P().a(a, var3.b(a)), 4);
+               var1.setTypeAndData(var2, Blocks.DAYLIGHT_DETECTOR.P().a(a, var3.b(a)), 4);
                Blocks.DAYLIGHT_DETECTOR.d(var1, var2);
             } else {
-               var1.a(var2, Blocks.DAYLIGHT_DETECTOR_INVERTED.P().a(a, var3.b(a)), 4);
+               var1.setTypeAndData(var2, Blocks.DAYLIGHT_DETECTOR_INVERTED.P().a(a, var3.b(a)), 4);
                Blocks.DAYLIGHT_DETECTOR_INVERTED.d(var1, var2);
             }
 

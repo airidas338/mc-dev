@@ -35,13 +35,13 @@ public class BlockBed extends BlockDirectional {
                }
 
                var3 = var3.a(b, Boolean.valueOf(false));
-               var1.a(var2, var3, 4);
+               var1.setTypeAndData(var2, var3, 4);
             }
 
             ahf var11 = var4.a(var2);
             if(var11 == ahf.a) {
                var3 = var3.a(b, Boolean.valueOf(true));
-               var1.a(var2, var3, 4);
+               var1.setTypeAndData(var2, var3, 4);
                return true;
             } else {
                if(var11 == ahf.c) {
@@ -53,13 +53,13 @@ public class BlockBed extends BlockDirectional {
                return true;
             }
          } else {
-            var1.g(var2);
+            var1.setAir(var2);
             Location var9 = var2.a(((EnumFacing)var3.b(N)).d());
             if(var1.getData(var9).c() == this) {
-               var1.g(var9);
+               var1.setAir(var9);
             }
 
-            var1.a((Entity)null, (double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, 5.0F, true, true);
+            var1.createExplosion((Entity)null, (double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, 5.0F, true, true);
             return true;
          }
       }
@@ -92,14 +92,14 @@ public class BlockBed extends BlockDirectional {
       this.j();
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       EnumFacing var5 = (EnumFacing)var3.b(N);
       if(var3.b(a) == atq.a) {
          if(var1.getData(var2.a(var5.d())).c() != this) {
-            var1.g(var2);
+            var1.setAir(var2);
          }
       } else if(var1.getData(var2.a(var5)).c() != this) {
-         var1.g(var2);
+         var1.setAir(var2);
          if(!var1.isStatic) {
             this.b(var1, var2, var3, 0);
          }
@@ -163,7 +163,7 @@ public class BlockBed extends BlockDirectional {
       if(var4.by.canInstantlyBuild && var3.b(a) == atq.a) {
          Location var5 = var2.a(((EnumFacing)var3.b(N)).d());
          if(var1.getData(var5).c() == this) {
-            var1.g(var5);
+            var1.setAir(var5);
          }
       }
 

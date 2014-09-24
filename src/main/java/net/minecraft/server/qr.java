@@ -27,7 +27,7 @@ class qr {
          PlayerChunkMap.c().debug("Failed to add player. {} already is in chunk {}, {}", new Object[]{var1, Integer.valueOf(this.c.a), Integer.valueOf(this.c.b)});
       } else {
          if(this.b.isEmpty()) {
-            this.g = PlayerChunkMap.a(this.a).K();
+            this.g = PlayerChunkMap.a(this.a).getTime();
          }
 
          this.b.add(var1);
@@ -64,8 +64,8 @@ class qr {
    }
 
    private void a(Chunk var1) {
-      var1.c(var1.w() + PlayerChunkMap.a(this.a).K() - this.g);
-      this.g = PlayerChunkMap.a(this.a).K();
+      var1.c(var1.w() + PlayerChunkMap.a(this.a).getTime() - this.g);
+      this.g = PlayerChunkMap.a(this.a).getTime();
    }
 
    public void a(int var1, int var2, int var3) {
@@ -110,7 +110,7 @@ class qr {
             Location var4 = new Location(var1, var2, var3);
             this.a((Packet)(new PacketPlayOutBlockChange(PlayerChunkMap.a(this.a), var4)));
             if(PlayerChunkMap.a(this.a).getData(var4).c().x()) {
-               this.a(PlayerChunkMap.a(this.a).s(var4));
+               this.a(PlayerChunkMap.a(this.a).getTileEntity(var4));
             }
          } else {
             int var7;
@@ -138,7 +138,7 @@ class qr {
                   var7 = (this.d[var1] >> 8 & 15) + this.c.b * 16;
                   Location var8 = new Location(var2, var3, var7);
                   if(PlayerChunkMap.a(this.a).getData(var8).c().x()) {
-                     this.a(PlayerChunkMap.a(this.a).s(var8));
+                     this.a(PlayerChunkMap.a(this.a).getTileEntity(var8));
                   }
                }
             }

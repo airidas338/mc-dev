@@ -89,7 +89,7 @@ public class EntityBat extends EntityAmbient {
                this.aI = (float)this.V.nextInt(360);
             }
 
-            if(this.o.a(this, 4.0D) != null) {
+            if(this.o.findNearbyVulnerablePlayer(this, 4.0D) != null) {
                this.a(false);
                this.o.a((EntityHuman)null, 1015, var1, 0);
             }
@@ -159,7 +159,7 @@ public class EntityBat extends EntityAmbient {
       if(var1.o() >= 63) {
          return false;
       } else {
-         int var2 = this.o.l(var1);
+         int var2 = this.o.getLightLevel(var1);
          byte var3 = 4;
          if(this.a(this.o.Y())) {
             var3 = 7;

@@ -22,7 +22,7 @@ public final class WorldSettings {
    }
 
    public WorldSettings(WorldData var1) {
-      this(var1.b(), var1.r(), var1.s(), var1.t(), var1.u());
+      this(var1.getSeed(), var1.getGameType(), var1.shouldGenerateMapFeatures(), var1.isHardcore(), var1.getType());
    }
 
    public WorldSettings a() {

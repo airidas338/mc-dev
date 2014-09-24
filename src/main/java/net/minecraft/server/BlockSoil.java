@@ -29,14 +29,14 @@ public class BlockSoil extends Block {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       int var5 = ((Integer)var3.b(a)).intValue();
-      if(!this.e(var1, var2) && !var1.C(var2.a())) {
+      if(!this.e(var1, var2) && !var1.isRainingAt(var2.a())) {
          if(var5 > 0) {
-            var1.a(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
+            var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
          } else if(!this.d(var1, var2)) {
             var1.a(var2, Blocks.DIRT.P());
          }
       } else if(var5 < 7) {
-         var1.a(var2, var3.a(a, Integer.valueOf(7)), 2);
+         var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(7)), 2);
       }
 
    }
@@ -44,7 +44,7 @@ public class BlockSoil extends Block {
    public void a(World var1, Location var2, Entity var3, float var4) {
       if(var3 instanceof EntityLiving) {
          if(!var1.isStatic && var1.random.nextFloat() < var4 - 0.5F) {
-            if(!(var3 instanceof EntityHuman) && !var1.Q().b("mobGriefing")) {
+            if(!(var3 instanceof EntityHuman) && !var1.getGameRules().getBoolean("mobGriefing")) {
                return;
             }
 
@@ -75,8 +75,8 @@ public class BlockSoil extends Block {
       return true;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
-      super.a(var1, var2, var3, var4);
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
+      super.doPhysics(var1, var2, var3, var4);
       if(var1.getData(var2.a()).c().getMaterial().isBuildable()) {
          var1.a(var2, Blocks.DIRT.P());
       }

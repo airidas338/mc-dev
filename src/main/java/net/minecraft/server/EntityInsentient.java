@@ -139,10 +139,10 @@ public abstract class EntityInsentient extends EntityLiving {
             double var4 = this.V.nextGaussian() * 0.02D;
             double var6 = this.V.nextGaussian() * 0.02D;
             double var8 = 10.0D;
-            this.o.a(ew.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var2 * var8, this.t + (double)(this.V.nextFloat() * this.K) - var4 * var8, this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var6 * var8, var2, var4, var6, new int[0]);
+            this.o.a(EnumParticleEffect.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var2 * var8, this.t + (double)(this.V.nextFloat() * this.K) - var4 * var8, this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var6 * var8, var2, var4, var6, new int[0]);
          }
       } else {
-         this.o.a((Entity)this, (byte)20);
+         this.o.broadcastEntityEffect((Entity)this, (byte)20);
       }
 
    }
@@ -274,7 +274,7 @@ public abstract class EntityInsentient extends EntityLiving {
    public void m() throws IOException {
       super.m();
       this.o.methodProfiler.a("looting");
-      if(!this.o.isStatic && this.bX() && !this.aN && this.o.Q().b("mobGriefing")) {
+      if(!this.o.isStatic && this.bX() && !this.aN && this.o.getGameRules().getBoolean("mobGriefing")) {
          List var1 = this.o.getEntities(EntityItem.class, this.aQ().b(1.0D, 0.0D, 1.0D));
          Iterator var2 = var1.iterator();
 
@@ -361,7 +361,7 @@ public abstract class EntityInsentient extends EntityLiving {
       if(this.bl) {
          this.aO = 0;
       } else {
-         EntityHuman var1 = this.o.a(this, -1.0D);
+         EntityHuman var1 = this.o.findNearbyVulnerablePlayer(this, -1.0D);
          if(var1 != null) {
             double var2 = var1.s - this.s;
             double var4 = var1.t - this.t;
@@ -454,7 +454,7 @@ public abstract class EntityInsentient extends EntityLiving {
    }
 
    public boolean bR() {
-      return this.o.a(this.aQ(), (Entity)this) && this.o.a((Entity)this, this.aQ()).isEmpty() && !this.o.d(this.aQ());
+      return this.o.a(this.aQ(), (Entity)this) && this.o.getCubes((Entity)this, this.aQ()).isEmpty() && !this.o.containsLiquid(this.aQ());
    }
 
    public int bU() {

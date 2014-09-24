@@ -57,8 +57,8 @@ public class EntitySlime extends EntityInsentient implements IMonster {
       this.bi = var1.getBoolean("wasOnGround");
    }
 
-   protected ew n() {
-      return ew.H;
+   protected EnumParticleEffect n() {
+      return EnumParticleEffect.H;
    }
 
    protected String ci() {
@@ -82,7 +82,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
             float var5 = MathHelper.sin(var3) * (float)var1 * 0.5F * var4;
             float var6 = MathHelper.cos(var3) * (float)var1 * 0.5F * var4;
             World var10000 = this.o;
-            ew var10001 = this.n();
+            EnumParticleEffect var10001 = this.n();
             double var10002 = this.s + (double)var5;
             double var10004 = this.u + (double)var6;
             var10000.a(var10001, var10002, this.aQ().b, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
@@ -146,7 +146,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
 
             var6.a(var1 / 2);
             var6.setPositionRotation(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.V.nextFloat() * 360.0F, 0.0F);
-            this.o.d((Entity)var6);
+            this.o.addEntity((Entity)var6);
          }
       }
 
@@ -202,13 +202,13 @@ public class EntitySlime extends EntityInsentient implements IMonster {
    }
 
    public boolean bQ() {
-      Chunk var1 = this.o.f(new Location(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
-      if(this.o.P().u() == WorldType.FLAT && this.V.nextInt(4) != 1) {
+      Chunk var1 = this.o.getChunkAtWorldCoords(new Location(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
+      if(this.o.getWorldData().getType() == WorldType.FLAT && this.V.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.aa() != EnumDifficulty.PEACEFUL) {
             BiomeBase var2 = this.o.getBiome(new Location(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
-            if(var2 == BiomeBase.SWAMPLAND && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.l(new Location(this)) <= this.V.nextInt(8)) {
+            if(var2 == BiomeBase.SWAMPLAND && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.y() && this.o.getLightLevel(new Location(this)) <= this.V.nextInt(8)) {
                return super.bQ();
             }
 

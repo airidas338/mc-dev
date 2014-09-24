@@ -13,7 +13,7 @@ public class bii extends WorldGenerator {
 
                for(int var8 = 0; var8 < var7; ++var8) {
                   if(Blocks.SUGAR_CANE_BLOCK.d(var1, var5)) {
-                     var1.a(var5.b(var8), Blocks.SUGAR_CANE_BLOCK.P(), 2);
+                     var1.setTypeAndData(var5.b(var8), Blocks.SUGAR_CANE_BLOCK.P(), 2);
                   }
                }
             }

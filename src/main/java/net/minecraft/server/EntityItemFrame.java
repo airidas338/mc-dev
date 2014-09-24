@@ -52,7 +52,7 @@ public class EntityItemFrame extends EntityHanging {
    }
 
    public void a(Entity var1, boolean var2) {
-      if(this.o.Q().b("doTileDrops")) {
+      if(this.o.getGameRules().getBoolean("doTileDrops")) {
          ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;
@@ -104,7 +104,7 @@ public class EntityItemFrame extends EntityHanging {
       this.H().b(8, var1);
       this.H().i(8);
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.AIR);
+         this.o.updateAdjacentComparators(this.a, Blocks.AIR);
       }
 
    }
@@ -120,7 +120,7 @@ public class EntityItemFrame extends EntityHanging {
    private void a(int var1, boolean var2) {
       this.H().b(9, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.AIR);
+         this.o.updateAdjacentComparators(this.a, Blocks.AIR);
       }
 
    }

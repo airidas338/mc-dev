@@ -31,13 +31,13 @@ public class akb extends Item {
                IBlockData var7 = var2.getData(var6);
                Material var8 = var7.c().getMaterial();
                if(var8 == Material.WATER && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
-                  var2.g(var6);
+                  var2.setAir(var6);
                   var3.b(StatisticList.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ax);
                }
 
                if(var8 == Material.LAVA && ((Integer)var7.b(BlockFluids.b)).intValue() == 0) {
-                  var2.g(var6);
+                  var2.setAir(var6);
                   var3.b(StatisticList.J[Item.b((Item)this)]);
                   return this.a(var1, var3, Items.ay);
                }
@@ -89,17 +89,17 @@ public class akb extends Item {
                int var5 = var2.n();
                int var6 = var2.o();
                int var7 = var2.p();
-               var1.a((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
+               var1.makeSound((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var8 = 0; var8 < 8; ++var8) {
-                  var1.a(ew.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
+                  var1.a(EnumParticleEffect.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
                }
             } else {
                if(!var1.isStatic && var4 && !var3.isLiquid()) {
-                  var1.b(var2, true);
+                  var1.setAir(var2, true);
                }
 
-               var1.a(var2, this.a.P(), 3);
+               var1.setTypeAndData(var2, this.a.P(), 3);
             }
 
             return true;

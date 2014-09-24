@@ -35,7 +35,7 @@ public class CommandTrigger extends CommandAbstract {
             var3 = (EntityPlayer)var4;
          }
 
-         Scoreboard var8 = MinecraftServer.M().a(0).Z();
+         Scoreboard var8 = MinecraftServer.M().a(0).getScoreboard();
          ScoreboardObjective var5 = var8.getObjective(var2[0]);
          if(var5 != null && var5.getCriteria() == IScoreboardCriteria.c) {
             int var6 = a(var2[2]);
@@ -53,7 +53,7 @@ public class CommandTrigger extends CommandAbstract {
                         throw new CommandException("commands.trigger.invalidMode", new Object[]{var2[1]});
                      }
 
-                     var7.a(var6);
+                     var7.addScore(var6);
                   }
 
                   var7.a(true);
@@ -71,7 +71,7 @@ public class CommandTrigger extends CommandAbstract {
 
    public List tabComplete(ICommandListener var1, String[] var2, Location var3) {
       if(var2.length == 1) {
-         Scoreboard var4 = MinecraftServer.M().a(0).Z();
+         Scoreboard var4 = MinecraftServer.M().a(0).getScoreboard();
          ArrayList var5 = Lists.newArrayList();
          Iterator var6 = var4.getObjectives().iterator();
 

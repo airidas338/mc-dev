@@ -14,7 +14,7 @@ public class BlockFlowing extends BlockFluids {
    }
 
    private void f(World var1, Location var2, IBlockData var3) {
-      var1.a(var2, b(this.J).P().a(b, var3.b(b)), 2);
+      var1.setTypeAndData(var2, b(this.J).P().a(b, var3.b(b)), 2);
    }
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
@@ -67,12 +67,12 @@ public class BlockFlowing extends BlockFluids {
          } else {
             var5 = var14;
             if(var14 < 0) {
-               var1.g(var2);
+               var1.setAir(var2);
             } else {
                var3 = var3.a(b, Integer.valueOf(var14));
-               var1.a(var2, var3, 2);
+               var1.setTypeAndData(var2, var3, 2);
                var1.a(var2, (Block)this, var7);
-               var1.c(var2, (Block)this);
+               var1.applyPhysics(var2, (Block)this);
             }
          }
       } else {
@@ -123,7 +123,7 @@ public class BlockFlowing extends BlockFluids {
             }
          }
 
-         var1.a(var2, this.P().a(b, Integer.valueOf(var4)), 3);
+         var1.setTypeAndData(var2, this.P().a(b, Integer.valueOf(var4)), 3);
       }
 
    }

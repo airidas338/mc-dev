@@ -115,7 +115,7 @@ public class ayz {
          Location var2 = this.f.a(this.c, var1);
 
          for(int var3 = 0; var3 < this.g; ++var3) {
-            this.a.a(var2.b(var3), Blocks.PORTAL.P().a(BlockPortal.a, this.b), 2);
+            this.a.setTypeAndData(var2.b(var3), Blocks.PORTAL.P().a(BlockPortal.a, this.b), 2);
          }
       }
 

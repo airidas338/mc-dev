@@ -17,7 +17,7 @@ public class BlockSapling extends BlockPlant implements atz {
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       if(!var1.isStatic) {
          super.b(var1, var2, var3, var4);
-         if(var1.l(var2.a()) >= 9 && var4.nextInt(7) == 0) {
+         if(var1.getLightLevel(var2.a()) >= 9 && var4.nextInt(7) == 0) {
             this.d(var1, var2, var3, var4);
          }
 
@@ -26,7 +26,7 @@ public class BlockSapling extends BlockPlant implements atz {
 
    public void d(World var1, Location var2, IBlockData var3, Random var4) {
       if(((Integer)var3.b(b)).intValue() == 0) {
-         var1.a(var2, var3.a(b), 4);
+         var1.setTypeAndData(var2, var3.a(b), 4);
       } else {
          this.e(var1, var2, var3, var4);
       }
@@ -101,22 +101,22 @@ public class BlockSapling extends BlockPlant implements atz {
 
       IBlockData var9 = Blocks.AIR.P();
       if(var8) {
-         var1.a(var2.a(var6, 0, var7), var9, 4);
-         var1.a(var2.a(var6 + 1, 0, var7), var9, 4);
-         var1.a(var2.a(var6, 0, var7 + 1), var9, 4);
-         var1.a(var2.a(var6 + 1, 0, var7 + 1), var9, 4);
+         var1.setTypeAndData(var2.a(var6, 0, var7), var9, 4);
+         var1.setTypeAndData(var2.a(var6 + 1, 0, var7), var9, 4);
+         var1.setTypeAndData(var2.a(var6, 0, var7 + 1), var9, 4);
+         var1.setTypeAndData(var2.a(var6 + 1, 0, var7 + 1), var9, 4);
       } else {
-         var1.a(var2, var9, 4);
+         var1.setTypeAndData(var2, var9, 4);
       }
 
       if(!((WorldGenerator)var5).generate(var1, var4, var2.a(var6, 0, var7))) {
          if(var8) {
-            var1.a(var2.a(var6, 0, var7), var3, 4);
-            var1.a(var2.a(var6 + 1, 0, var7), var3, 4);
-            var1.a(var2.a(var6, 0, var7 + 1), var3, 4);
-            var1.a(var2.a(var6 + 1, 0, var7 + 1), var3, 4);
+            var1.setTypeAndData(var2.a(var6, 0, var7), var3, 4);
+            var1.setTypeAndData(var2.a(var6 + 1, 0, var7), var3, 4);
+            var1.setTypeAndData(var2.a(var6, 0, var7 + 1), var3, 4);
+            var1.setTypeAndData(var2.a(var6 + 1, 0, var7 + 1), var3, 4);
          } else {
-            var1.a(var2, var3, 4);
+            var1.setTypeAndData(var2, var3, 4);
          }
       }
 

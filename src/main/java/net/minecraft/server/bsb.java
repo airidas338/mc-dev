@@ -4,7 +4,7 @@ import java.util.Comparator;
 final class bsb implements Comparator {
 
    public int a(ScoreboardScore var1, ScoreboardScore var2) {
-      return var1.getScore() > var2.getScore()?1:(var1.getScore() < var2.getScore()?-1:var2.e().compareToIgnoreCase(var1.e()));
+      return var1.getScore() > var2.getScore()?1:(var1.getScore() < var2.getScore()?-1:var2.getPlayerName().compareToIgnoreCase(var1.getPlayerName()));
    }
 
    // $FF: synthetic method

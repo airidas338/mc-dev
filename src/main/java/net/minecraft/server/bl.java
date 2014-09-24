@@ -63,7 +63,7 @@ class bl implements ICommandListener {
 
    public boolean t_() {
       MinecraftServer var1 = MinecraftServer.M();
-      return var1 == null || var1.c[0].Q().b("commandBlockOutput");
+      return var1 == null || var1.c[0].getGameRules().getBoolean("commandBlockOutput");
    }
 
    public void a(ag var1, int var2) {

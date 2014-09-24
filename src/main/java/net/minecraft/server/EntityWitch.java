@@ -102,7 +102,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
          }
 
          if(this.V.nextFloat() < 7.5E-4F) {
-            this.o.a((Entity)this, (byte)15);
+            this.o.broadcastEntityEffect((Entity)this, (byte)15);
          }
       }
 
@@ -157,7 +157,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
          }
 
          var3.shoot(var6, var8 + (double)(var12 * 0.2F), var10, 0.75F, 8.0F);
-         this.o.d((Entity)var3);
+         this.o.addEntity((Entity)var3);
       }
    }
 

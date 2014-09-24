@@ -13,9 +13,9 @@ public class ank extends Item {
          --var1.b;
       }
 
-      var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
+      var2.makeSound((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
       if(!var2.isStatic) {
-         var2.d((Entity)(new EntitySnowball(var2, var3)));
+         var2.addEntity((Entity)(new EntitySnowball(var2, var3)));
       }
 
       var3.b(StatisticList.J[Item.b((Item)this)]);

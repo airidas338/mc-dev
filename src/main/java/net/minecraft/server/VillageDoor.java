@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
-public class abh {
+public class VillageDoor {
 
    private final Location a;
    private final Location b;
    private final EnumFacing c;
-   private int d;
-   private boolean e;
-   private int f;
+   private int addedTime;
+   private boolean removed;
+   private int bookings;
 
 
-   public abh(Location var1, int var2, int var3, int var4) {
+   public VillageDoor(Location var1, int var2, int var3, int var4) {
       this(var1, a(var2, var3), var4);
    }
 
@@ -18,11 +18,11 @@ public class abh {
       return var0 < 0?EnumFacing.WEST:(var0 > 0?EnumFacing.EAST:(var1 < 0?EnumFacing.NORTH:EnumFacing.SOUTH));
    }
 
-   public abh(Location var1, EnumFacing var2, int var3) {
+   public VillageDoor(Location var1, EnumFacing var2, int var3) {
       this.a = var1;
       this.c = var2;
       this.b = var1.a(var2, 2);
-      this.d = var3;
+      this.addedTime = var3;
    }
 
    public int b(int var1, int var2, int var3) {
@@ -44,15 +44,15 @@ public class abh {
    }
 
    public void a() {
-      this.f = 0;
+      this.bookings = 0;
    }
 
    public void b() {
-      ++this.f;
+      ++this.bookings;
    }
 
    public int c() {
-      return this.f;
+      return this.bookings;
    }
 
    public Location d() {
@@ -72,18 +72,18 @@ public class abh {
    }
 
    public int h() {
-      return this.d;
+      return this.addedTime;
    }
 
    public void a(int var1) {
-      this.d = var1;
+      this.addedTime = var1;
    }
 
    public boolean i() {
-      return this.e;
+      return this.removed;
    }
 
    public void a(boolean var1) {
-      this.e = var1;
+      this.removed = var1;
    }
 }

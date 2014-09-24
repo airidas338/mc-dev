@@ -133,7 +133,7 @@ public class abk {
          }
 
          var2.setPositionRotation(var1.a, var1.b, var1.c, this.a.random.nextFloat() * 360.0F, 0.0F);
-         this.a.d((Entity)var2);
+         this.a.addEntity((Entity)var2);
          Location var3 = this.f.a();
          var2.a(var3, this.f.b());
          return true;

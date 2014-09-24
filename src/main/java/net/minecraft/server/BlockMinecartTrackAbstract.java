@@ -57,13 +57,13 @@ public abstract class BlockMinecartTrackAbstract extends Block {
       if(!var1.isStatic) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
-            this.a(var1, var2, var3, (Block)this);
+            this.doPhysics(var1, var2, var3, (Block)this);
          }
       }
 
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
          atl var5 = (atl)var3.b(this.l());
          boolean var6 = false;
@@ -83,7 +83,7 @@ public abstract class BlockMinecartTrackAbstract extends Block {
 
          if(var6) {
             this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            var1.setAir(var2);
          } else {
             this.b(var1, var2, var3, var4);
          }
@@ -94,7 +94,7 @@ public abstract class BlockMinecartTrackAbstract extends Block {
    protected void b(World var1, Location var2, IBlockData var3, Block var4) {}
 
    protected IBlockData a(World var1, Location var2, IBlockData var3, boolean var4) {
-      return var1.isStatic?var3:(new atk(this, var1, var2, var3)).a(var1.z(var2), var4).b();
+      return var1.isStatic?var3:(new atk(this, var1, var2, var3)).a(var1.isBlockIndirectlyPowered(var2), var4).b();
    }
 
    public int i() {
@@ -104,12 +104,12 @@ public abstract class BlockMinecartTrackAbstract extends Block {
    public void remove(World var1, Location var2, IBlockData var3) {
       super.remove(var1, var2, var3);
       if(((atl)var3.b(this.l())).c()) {
-         var1.c(var2.a(), (Block)this);
+         var1.applyPhysics(var2.a(), (Block)this);
       }
 
       if(this.a) {
-         var1.c(var2, (Block)this);
-         var1.c(var2.b(), (Block)this);
+         var1.applyPhysics(var2, (Block)this);
+         var1.applyPhysics(var2.b(), (Block)this);
       }
 
    }

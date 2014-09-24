@@ -160,7 +160,7 @@ public class EntityRabbit extends EntityAnimal {
       super.m();
       if(this.bm != this.bn) {
          if(this.bm == 0 && !this.o.isStatic) {
-            this.o.a((Entity)this, (byte)1);
+            this.o.broadcastEntityEffect((Entity)this, (byte)1);
          }
 
          ++this.bm;
@@ -310,7 +310,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    protected void cn() {
-      this.o.a(ew.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(Blocks.CARROTS.a(7))});
+      this.o.a(EnumParticleEffect.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(Blocks.CARROTS.a(7))});
       this.bs = 100;
    }
 

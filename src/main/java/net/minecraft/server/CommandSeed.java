@@ -20,6 +20,6 @@ public class CommandSeed extends CommandAbstract {
 
    public void execute(ICommandListener var1, String[] var2) throws CommandException {
       Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).o:MinecraftServer.M().a(0);
-      var1.sendMessage(new ChatMessage("commands.seed.success", new Object[]{Long.valueOf(((World)var3).J())}));
+      var1.sendMessage(new ChatMessage("commands.seed.success", new Object[]{Long.valueOf(((World)var3).getSeed())}));
    }
 }

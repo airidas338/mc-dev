@@ -115,7 +115,7 @@ public class EntityPig extends EntityAnimal {
          EntityPigZombie var2 = new EntityPigZombie(this.o);
          var2.c(0, new ItemStack(Items.B));
          var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
-         this.o.d((Entity)var2);
+         this.o.addEntity((Entity)var2);
          this.J();
       }
    }

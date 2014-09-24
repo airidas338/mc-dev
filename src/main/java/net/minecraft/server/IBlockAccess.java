@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public interface IBlockAccess {
 
-   TileEntity s(Location var1);
+   TileEntity getTileEntity(Location var1);
 
    IBlockData getData(Location var1);
 

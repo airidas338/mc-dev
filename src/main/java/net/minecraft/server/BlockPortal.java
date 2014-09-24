@@ -14,7 +14,7 @@ public class BlockPortal extends BlockHalfTransparent {
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
-      if(var1.worldProvider.d() && var1.Q().b("doMobSpawning") && var4.nextInt(2000) < var1.aa().a()) {
+      if(var1.worldProvider.d() && var1.getGameRules().getBoolean("doMobSpawning") && var4.nextInt(2000) < var1.aa().a()) {
          int var5 = var2.o();
 
          Location var6;
@@ -75,7 +75,7 @@ public class BlockPortal extends BlockHalfTransparent {
       }
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       el var5 = (el)var3.b(a);
       ayz var6;
       if(var5 == el.a) {

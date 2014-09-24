@@ -222,7 +222,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected Scoreboard d() {
-      return MinecraftServer.M().a(0).Z();
+      return MinecraftServer.M().a(0).getScoreboard();
    }
 
    protected ScoreboardObjective a(String var1, boolean var2) throws CommandException {
@@ -606,7 +606,7 @@ public class CommandScoreboard extends CommandAbstract {
 
          while(var8.hasNext()) {
             ScoreboardScore var9 = (ScoreboardScore)var8.next();
-            var1.sendMessage(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.getScore()), var9.d().getDisplayName(), var9.d().getName()}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.getScore()), var9.getObjective().getDisplayName(), var9.getObjective().getName()}));
          }
       } else {
          Collection var10 = var4.getPlayers();
@@ -649,9 +649,9 @@ public class CommandScoreboard extends CommandAbstract {
       if(var4.equalsIgnoreCase("set")) {
          var14.setScore(var8);
       } else if(var4.equalsIgnoreCase("add")) {
-         var14.a(var8);
+         var14.addScore(var8);
       } else {
-         var14.b(var8);
+         var14.removeScore(var8);
       }
 
       a(var1, this, "commands.scoreboard.players.set.success", new Object[]{var7.getName(), var6, Integer.valueOf(var14.getScore())});

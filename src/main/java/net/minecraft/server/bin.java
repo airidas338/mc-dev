@@ -53,7 +53,7 @@ public class bin extends WorldGenerator {
          }
 
          if(var4 == 3 && var5 == 1) {
-            var1.a(var3, this.a.P(), 2);
+            var1.setTypeAndData(var3, this.a.P(), 2);
             var1.a(this.a, var3, var2);
          }
 

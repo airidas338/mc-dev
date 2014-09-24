@@ -99,10 +99,10 @@ public class bnl extends bno {
       for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
          for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
             Location var8 = new Location(var6, 64, var7);
-            if(var3.b((fd)var8)) {
+            if(var3.b((ChunkCoordinates)var8)) {
                var8 = var1.r(var8).b();
-               var1.a(var8, var4, 2);
-               var1.a(var8.b(), var5, 2);
+               var1.setTypeAndData(var8, var4, 2);
+               var1.setTypeAndData(var8.b(), var5, 2);
             }
          }
       }

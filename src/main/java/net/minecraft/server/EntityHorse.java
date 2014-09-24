@@ -273,7 +273,7 @@ public class EntityHorse extends EntityAnimal implements vr {
    private void cW() {
       this.dd();
       if(!this.R()) {
-         this.o.a((Entity)this, "eating", 1.0F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
+         this.o.makeSound((Entity)this, "eating", 1.0F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
       }
 
    }
@@ -293,7 +293,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          Block var4 = this.o.getData(new Location(this.s, this.t - 0.2D - (double)this.A, this.u)).c();
          if(var4.getMaterial() != Material.AIR && !this.R()) {
             StepSound var5 = var4.H;
-            this.o.a((Entity)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
+            this.o.makeSound((Entity)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
 
       }
@@ -534,7 +534,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                } else if(Block.a(var2.b()) == Blocks.HAY_BLOCK) {
                   var7 = 20.0F;
                   var5 = 180;
-               } else if(var2.b() == Items.e) {
+               } else if(var2.b() == Items.APPLE) {
                   var7 = 3.0F;
                   var5 = 60;
                   var6 = 3;

@@ -265,7 +265,7 @@ public class EntityItem extends Entity {
             }
 
             if(!this.R()) {
-               this.o.a((Entity)var1, "random.pop", 0.2F, ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+               this.o.makeSound((Entity)var1, "random.pop", 0.2F, ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             }
 
             var1.a((Entity)this, var3);

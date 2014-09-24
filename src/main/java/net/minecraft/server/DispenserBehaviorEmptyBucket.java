@@ -22,7 +22,7 @@ final class DispenserBehaviorEmptyBucket extends DispenserBehaviorItem {
          var8 = Items.ay;
       }
 
-      var3.g(var4);
+      var3.setAir(var4);
       if(--var2.b == 0) {
          var2.a(var8);
          var2.b = 1;

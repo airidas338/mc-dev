@@ -122,7 +122,7 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
    }
 
    public boolean a(EntityHuman var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.getTileEntity(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
    }
 
    public void E() {
@@ -172,7 +172,7 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
    protected TileEntityChest a(EnumFacing var1) {
       Location var2 = this.c.a(var1);
       if(this.b(var2)) {
-         TileEntity var3 = this.b.s(var2);
+         TileEntity var3 = this.b.getTileEntity(var2);
          if(var3 instanceof TileEntityChest) {
             TileEntityChest var4 = (TileEntityChest)var3;
             var4.a(this, var1.d());
@@ -230,7 +230,7 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
             var11 += 0.5D;
          }
 
-         this.b.a(var11, (double)var2 + 0.5D, var14, "random.chestopen", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
+         this.b.makeSound(var11, (double)var2 + 0.5D, var14, "random.chestopen", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
       }
 
       if(this.l == 0 && this.j > 0.0F || this.l > 0 && this.j < 1.0F) {
@@ -257,7 +257,7 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
                var14 += 0.5D;
             }
 
-            this.b.a(var14, (double)var2 + 0.5D, var9, "random.chestclosed", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
+            this.b.makeSound(var14, (double)var2 + 0.5D, var9, "random.chestclosed", 0.5F, this.b.random.nextFloat() * 0.1F + 0.9F);
          }
 
          if(this.j < 0.0F) {
@@ -283,9 +283,9 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
          }
 
          ++this.l;
-         this.b.c(this.c, this.w(), 1, this.l);
-         this.b.c(this.c, this.w());
-         this.b.c(this.c.b(), this.w());
+         this.b.playBlockAction(this.c, this.w(), 1, this.l);
+         this.b.applyPhysics(this.c, this.w());
+         this.b.applyPhysics(this.c.b(), this.w());
       }
 
    }
@@ -293,9 +293,9 @@ public class TileEntityChest extends TileEntityLockable implements IUpdatePlayer
    public void c(EntityHuman var1) {
       if(!var1.v() && this.w() instanceof BlockChest) {
          --this.l;
-         this.b.c(this.c, this.w(), 1, this.l);
-         this.b.c(this.c, this.w());
-         this.b.c(this.c.b(), this.w());
+         this.b.playBlockAction(this.c, this.w(), 1, this.l);
+         this.b.applyPhysics(this.c, this.w());
+         this.b.applyPhysics(this.c.b(), this.w());
       }
 
    }

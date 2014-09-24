@@ -46,7 +46,7 @@ public class CommandSetBlock extends CommandAbstract {
 
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
-                  var6.b(var3, true);
+                  var6.setAir(var3, true);
                   if(var4 == Blocks.AIR) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
@@ -56,21 +56,21 @@ public class CommandSetBlock extends CommandAbstract {
                }
             }
 
-            TileEntity var13 = var6.s(var3);
+            TileEntity var13 = var6.getTileEntity(var3);
             if(var13 != null) {
                if(var13 instanceof IInventory) {
                   ((IInventory)var13).l();
                }
 
-               var6.a(var3, Blocks.AIR.P(), var4 == Blocks.AIR?2:4);
+               var6.setTypeAndData(var3, Blocks.AIR.P(), var4 == Blocks.AIR?2:4);
             }
 
             IBlockData var10 = var4.a(var5);
-            if(!var6.a(var3, var10, 2)) {
+            if(!var6.setTypeAndData(var3, var10, 2)) {
                throw new CommandException("commands.setblock.noChange", new Object[0]);
             } else {
                if(var8) {
-                  TileEntity var11 = var6.s(var3);
+                  TileEntity var11 = var6.getTileEntity(var3);
                   if(var11 != null) {
                      var7.setInt("x", var3.n());
                      var7.setInt("y", var3.o());
@@ -79,7 +79,7 @@ public class CommandSetBlock extends CommandAbstract {
                   }
                }
 
-               var6.b(var3, var10.c());
+               var6.update(var3, var10.c());
                var1.a(ag.b, 1);
                a(var1, this, "commands.setblock.success", new Object[0]);
             }

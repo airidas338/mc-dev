@@ -90,7 +90,7 @@ public class EntityPotion extends EntityProjectile {
             }
          }
 
-         this.o.b(2002, new Location(this), this.o());
+         this.o.triggerEffect(2002, new Location(this), this.o());
          this.J();
       }
 

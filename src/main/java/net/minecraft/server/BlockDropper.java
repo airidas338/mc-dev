@@ -19,7 +19,7 @@ public class BlockDropper extends BlockDispenser {
       if(var4 != null) {
          int var5 = var4.m();
          if(var5 < 0) {
-            var1.b(1001, var2, 0);
+            var1.triggerEffect(1001, var2, 0);
          } else {
             ItemStack var6 = var4.a(var5);
             if(var6 != null) {

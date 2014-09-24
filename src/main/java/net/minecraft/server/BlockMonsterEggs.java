@@ -40,10 +40,10 @@ public class BlockMonsterEggs extends Block {
    }
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
-      if(!var1.isStatic && var1.Q().b("doTileDrops")) {
+      if(!var1.isStatic && var1.getGameRules().getBoolean("doTileDrops")) {
          EntitySilverfish var6 = new EntitySilverfish(var1);
          var6.setPositionRotation((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
-         var1.d((Entity)var6);
+         var1.addEntity((Entity)var6);
          var6.y();
       }
 

@@ -3,8 +3,8 @@ package net.minecraft.server;
 
 public class bpw {
 
-   private bps a = new bps();
-   private bpt[] b = new bpt[32];
+   private Path a = new Path();
+   private PathPoint[] b = new PathPoint[32];
    private bpu c;
 
 
@@ -23,23 +23,23 @@ public class bpw {
    private bpv a(IBlockAccess var1, Entity var2, double var3, double var5, double var7, float var9) {
       this.a.a();
       this.c.a(var1, var2);
-      bpt var10 = this.c.a(var2);
-      bpt var11 = this.c.a(var2, var3, var5, var7);
+      PathPoint var10 = this.c.a(var2);
+      PathPoint var11 = this.c.a(var2, var3, var5, var7);
       bpv var12 = this.a(var2, var10, var11, var9);
       this.c.a();
       return var12;
    }
 
-   private bpv a(Entity var1, bpt var2, bpt var3, float var4) {
+   private bpv a(Entity var1, PathPoint var2, PathPoint var3, float var4) {
       var2.e = 0.0F;
       var2.f = var2.b(var3);
       var2.g = var2.f;
       this.a.a();
       this.a.a(var2);
-      bpt var5 = var2;
+      PathPoint var5 = var2;
 
       while(!this.a.e()) {
-         bpt var6 = this.a.c();
+         PathPoint var6 = this.a.c();
          if(var6.equals(var3)) {
             return this.a(var2, var3);
          }
@@ -52,7 +52,7 @@ public class bpw {
          int var7 = this.c.a(this.b, var1, var6, var3, var4);
 
          for(int var8 = 0; var8 < var7; ++var8) {
-            bpt var9 = this.b[var8];
+            PathPoint var9 = this.b[var8];
             float var10 = var6.e + var6.b(var9);
             if(var10 < var4 * 2.0F && (!var9.a() || var10 < var9.e)) {
                var9.h = var6;
@@ -75,15 +75,15 @@ public class bpw {
       }
    }
 
-   private bpv a(bpt var1, bpt var2) {
+   private bpv a(PathPoint var1, PathPoint var2) {
       int var3 = 1;
 
-      bpt var4;
+      PathPoint var4;
       for(var4 = var2; var4.h != null; var4 = var4.h) {
          ++var3;
       }
 
-      bpt[] var5 = new bpt[var3];
+      PathPoint[] var5 = new PathPoint[var3];
       var4 = var2;
       --var3;
 

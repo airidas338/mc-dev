@@ -16,7 +16,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class rq implements nh, IUpdatePlayerListBox {
+public class LoginListener implements nh, IUpdatePlayerListBox {
 
    private static final AtomicInteger b = new AtomicInteger(0);
    private static final Logger c = LogManager.getLogger();
@@ -24,15 +24,15 @@ public class rq implements nh, IUpdatePlayerListBox {
    private final byte[] e = new byte[4];
    private final MinecraftServer f;
    public final NetworkManager a;
-   private rt g;
+   private EnumProtocolState g;
    private int h;
    private GameProfile i;
    private String j;
    private SecretKey k;
 
 
-   public rq(MinecraftServer var1, NetworkManager var2) {
-      this.g = rt.a;
+   public LoginListener(MinecraftServer var1, NetworkManager var2) {
+      this.g = EnumProtocolState.HELLO;
       this.j = "";
       this.f = var1;
       this.a = var2;
@@ -40,7 +40,7 @@ public class rq implements nh, IUpdatePlayerListBox {
    }
 
    public void c() {
-      if(this.g == rt.d) {
+      if(this.g == EnumProtocolState.READY_TO_ACCEPT) {
          this.b();
       }
 
@@ -71,7 +71,7 @@ public class rq implements nh, IUpdatePlayerListBox {
       if(var1 != null) {
          this.a(var1);
       } else {
-         this.g = rt.e;
+         this.g = EnumProtocolState.ACCEPTED;
          if(this.f.aI() >= 0 && !this.a.c()) {
             this.a.a(new nf(this.f.aI()), new rr(this), new GenericFutureListener[0]);
          }
@@ -91,27 +91,27 @@ public class rq implements nh, IUpdatePlayerListBox {
    }
 
    public void a(ni var1) {
-      Validate.validState(this.g == rt.a, "Unexpected hello packet", new Object[0]);
+      Validate.validState(this.g == EnumProtocolState.HELLO, "Unexpected hello packet", new Object[0]);
       this.i = var1.a();
       if(this.f.ae() && !this.a.c()) {
-         this.g = rt.b;
+         this.g = EnumProtocolState.KEY;
          this.a.a((Packet)(new ne(this.j, this.f.P().getPublic(), this.e)));
       } else {
-         this.g = rt.d;
+         this.g = EnumProtocolState.READY_TO_ACCEPT;
       }
 
    }
 
    public void a(nj var1) {
-      Validate.validState(this.g == rt.b, "Unexpected key packet", new Object[0]);
+      Validate.validState(this.g == EnumProtocolState.KEY, "Unexpected key packet", new Object[0]);
       PrivateKey var2 = this.f.P().getPrivate();
       if(!Arrays.equals(this.e, var1.b(var2))) {
          throw new IllegalStateException("Invalid nonce!");
       } else {
          this.k = var1.a(var2);
-         this.g = rt.c;
+         this.g = EnumProtocolState.AUTHENTICATING;
          this.a.a(this.k);
-         (new rs(this, "User Authenticator #" + b.incrementAndGet())).start();
+         (new ThreadPlayerLookupUUID(this, "User Authenticator #" + b.incrementAndGet())).start();
       }
    }
 
@@ -121,27 +121,27 @@ public class rq implements nh, IUpdatePlayerListBox {
    }
 
    // $FF: synthetic method
-   static MinecraftServer a(rq var0) {
+   static MinecraftServer a(LoginListener var0) {
       return var0.f;
    }
 
    // $FF: synthetic method
-   static GameProfile b(rq var0) {
+   static GameProfile b(LoginListener var0) {
       return var0.i;
    }
 
    // $FF: synthetic method
-   static String c(rq var0) {
+   static String c(LoginListener var0) {
       return var0.j;
    }
 
    // $FF: synthetic method
-   static SecretKey d(rq var0) {
+   static SecretKey d(LoginListener var0) {
       return var0.k;
    }
 
    // $FF: synthetic method
-   static GameProfile a(rq var0, GameProfile var1) {
+   static GameProfile a(LoginListener var0, GameProfile var1) {
       return var0.i = var1;
    }
 
@@ -151,7 +151,7 @@ public class rq implements nh, IUpdatePlayerListBox {
    }
 
    // $FF: synthetic method
-   static rt a(rq var0, rt var1) {
+   static EnumProtocolState a(LoginListener var0, EnumProtocolState var1) {
       return var0.g = var1;
    }
 

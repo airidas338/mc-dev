@@ -54,7 +54,7 @@ public class bif extends WorldGenerator {
                         if(var38 * var38 + var41 * var41 + var44 * var44 < 1.0D) {
                            Location var46 = new Location(var37, var40, var43);
                            if(this.c.apply(var1.getData(var46))) {
-                              var1.a(var46, this.a, 2);
+                              var1.setTypeAndData(var46, this.a, 2);
                            }
                         }
                      }

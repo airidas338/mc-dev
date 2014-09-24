@@ -57,15 +57,15 @@ public class bie extends WorldGenerator {
                   var17 = var3.a(var14, var15, var16);
                   if(var14 != var6 && var15 != -1 && var16 != var11 && var14 != var7 && var15 != 4 && var16 != var12) {
                      if(var1.getData(var17).c() != Blocks.CHEST) {
-                        var1.g(var17);
+                        var1.setAir(var17);
                      }
                   } else if(var17.o() >= 0 && !var1.getData(var17.b()).c().getMaterial().isBuildable()) {
-                     var1.g(var17);
+                     var1.setAir(var17);
                   } else if(var1.getData(var17).c().getMaterial().isBuildable() && var1.getData(var17).c() != Blocks.CHEST) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
-                        var1.a(var17, Blocks.MOSSY_COBBLESTONE.P(), 2);
+                        var1.setTypeAndData(var17, Blocks.MOSSY_COBBLESTONE.P(), 2);
                      } else {
-                        var1.a(var17, Blocks.COBBLESTONE.P(), 2);
+                        var1.setTypeAndData(var17, Blocks.COBBLESTONE.P(), 2);
                      }
                   }
                }
@@ -96,9 +96,9 @@ public class bie extends WorldGenerator {
                         }
 
                         if(var20 == 1) {
-                           var1.a(var25, Blocks.CHEST.f(var1, var25, Blocks.CHEST.P()), 2);
+                           var1.setTypeAndData(var25, Blocks.CHEST.f(var1, var25, Blocks.CHEST.P()), 2);
                            List var28 = StructurePieceTreaasure.a(c, new StructurePieceTreaasure[]{Items.cd.b(var2)});
-                           TileEntity var27 = var1.s(var25);
+                           TileEntity var27 = var1.getTileEntity(var25);
                            if(var27 instanceof TileEntityChest) {
                               StructurePieceTreaasure.a(var2, var28, (IInventory)((TileEntityChest)var27), 8);
                            }
@@ -116,8 +116,8 @@ public class bie extends WorldGenerator {
             }
          }
 
-         var1.a(var3, Blocks.MOB_SPAWNER.P(), 2);
-         TileEntity var23 = var1.s(var3);
+         var1.setTypeAndData(var3, Blocks.MOB_SPAWNER.P(), 2);
+         TileEntity var23 = var1.getTileEntity(var3);
          if(var23 instanceof TileEntityMobSpawner) {
             ((TileEntityMobSpawner)var23).getSpawner().a(this.a(var2));
          } else {

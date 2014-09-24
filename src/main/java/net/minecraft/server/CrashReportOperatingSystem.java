@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class i implements Callable {
+class CrashReportOperatingSystem implements Callable {
 
    // $FF: synthetic field
    final CrashReport a;
 
 
-   i(CrashReport var1) {
+   CrashReportOperatingSystem(CrashReport var1) {
       this.a = var1;
    }
 
    public String a() {
-      return boy.b();
+      return System.getProperty("os.name") + " (" + System.getProperty("os.arch") + ") version " + System.getProperty("os.version");
    }
 
    // $FF: synthetic method

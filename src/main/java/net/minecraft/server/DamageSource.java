@@ -58,7 +58,7 @@ public class DamageSource {
       return (new EntityDamageSource("thorns", var0)).v().t();
    }
 
-   public static DamageSource a(aqo var0) {
+   public static DamageSource a(Explosion var0) {
       return var0 != null && var0.c() != null?(new EntityDamageSource("explosion.player", var0.c())).q().d():(new DamageSource("explosion")).q().d();
    }
 

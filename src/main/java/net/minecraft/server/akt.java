@@ -46,9 +46,9 @@ public class akt extends Item {
 
       Location var11 = var1.a();
       IBlockData var12 = var3.P().a(BlockDoor.a, var2).a(BlockDoor.M, var10?avh.b:avh.a);
-      var0.a(var1, var12.a(BlockDoor.O, avg.b), 2);
-      var0.a(var11, var12.a(BlockDoor.O, avg.a), 2);
-      var0.c(var1, var3);
-      var0.c(var11, var3);
+      var0.setTypeAndData(var1, var12.a(BlockDoor.O, avg.b), 2);
+      var0.setTypeAndData(var11, var12.a(BlockDoor.O, avg.a), 2);
+      var0.applyPhysics(var1, var3);
+      var0.applyPhysics(var11, var3);
    }
 }

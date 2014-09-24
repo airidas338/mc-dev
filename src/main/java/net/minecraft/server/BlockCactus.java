@@ -27,10 +27,10 @@ public class BlockCactus extends Block {
             if(var7 == 15) {
                var1.a(var5, this.P());
                IBlockData var8 = var3.a(a, Integer.valueOf(0));
-               var1.a(var2, var8, 4);
-               this.a(var1, var5, var8, (Block)this);
+               var1.setTypeAndData(var2, var8, 4);
+               this.doPhysics(var1, var5, var8, (Block)this);
             } else {
-               var1.a(var2, var3.a(a, Integer.valueOf(var7 + 1)), 4);
+               var1.setTypeAndData(var2, var3.a(a, Integer.valueOf(var7 + 1)), 4);
             }
 
          }
@@ -54,9 +54,9 @@ public class BlockCactus extends Block {
       return super.canPlace(var1, var2)?this.d(var1, var2):false;
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!this.d(var1, var2)) {
-         var1.b(var2, true);
+         var1.setAir(var2, true);
       }
 
    }

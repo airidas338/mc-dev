@@ -7,8 +7,8 @@ public class ScoreboardScore {
    public static final Comparator a = new bsb();
    private final Scoreboard b;
    private final ScoreboardObjective c;
-   private final String d;
-   private int e;
+   private final String playerName;
+   private int score;
    private boolean f;
    private boolean g;
 
@@ -16,11 +16,11 @@ public class ScoreboardScore {
    public ScoreboardScore(Scoreboard var1, ScoreboardObjective var2, String var3) {
       this.b = var1;
       this.c = var2;
-      this.d = var3;
+      this.playerName = var3;
       this.g = true;
    }
 
-   public void a(int var1) {
+   public void addScore(int var1) {
       if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
@@ -28,7 +28,7 @@ public class ScoreboardScore {
       }
    }
 
-   public void b(int var1) {
+   public void removeScore(int var1) {
       if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
@@ -36,21 +36,21 @@ public class ScoreboardScore {
       }
    }
 
-   public void a() {
+   public void incrementScore() {
       if(this.c.getCriteria().isReadOnly()) {
          throw new IllegalStateException("Cannot modify read-only score");
       } else {
-         this.a(1);
+         this.addScore(1);
       }
    }
 
    public int getScore() {
-      return this.e;
+      return this.score;
    }
 
    public void setScore(int var1) {
-      int var2 = this.e;
-      this.e = var1;
+      int var2 = this.score;
+      this.score = var1;
       if(var2 != var1 || this.g) {
          this.g = false;
          this.f().handleScoreChanged(this);
@@ -58,12 +58,12 @@ public class ScoreboardScore {
 
    }
 
-   public ScoreboardObjective d() {
+   public ScoreboardObjective getObjective() {
       return this.c;
    }
 
-   public String e() {
-      return this.d;
+   public String getPlayerName() {
+      return this.playerName;
    }
 
    public Scoreboard f() {

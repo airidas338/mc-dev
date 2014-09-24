@@ -48,8 +48,8 @@ public class EntityPlayer extends EntityHuman implements ail {
         super(var2, var3);
         var4.b = this;
         this.c = var4;
-        Location var5 = var2.M();
-        if (!var2.worldProvider.o() && var2.P().r() != EnumGamemode.ADVENTURE) {
+        Location var5 = var2.getSpawn();
+        if (!var2.worldProvider.o() && var2.getWorldData().getGameType() != EnumGamemode.ADVENTURE) {
             int var6 = Math.max(5, var1.au() - 6);
             int var7 = MathHelper.floor(var2.af().b((double) var5.n(), (double) var5.p()));
             if (var7 < var6) {
@@ -68,7 +68,7 @@ public class EntityPlayer extends EntityHuman implements ail {
         this.S = 0.0F;
         this.a(var5, 0.0F, 0.0F);
 
-        while (!var2.a((Entity) this, this.aQ()).isEmpty() && this.t < 255.0D) {
+        while (!var2.getCubes((Entity) this, this.aQ()).isEmpty() && this.t < 255.0D) {
             this.b(this.s, this.t + 1.0D, this.u);
         }
 
@@ -216,11 +216,11 @@ public class EntityPlayer extends EntityHuman implements ail {
                 }
             }
 
-            if (this.bm() != this.bK || this.bL != this.bj.a() || this.bj.e() == 0.0F != this.bM) {
-                this.a.sendPacket((Packet) (new PacketPlayOutUpdateHealth(this.bm(), this.bj.a(), this.bj.e())));
+            if (this.bm() != this.bK || this.bL != this.bj.getFoodLevel() || this.bj.getSaturationLevel() == 0.0F != this.bM) {
+                this.a.sendPacket((Packet) (new PacketPlayOutUpdateHealth(this.bm(), this.bj.getFoodLevel(), this.bj.getSaturationLevel())));
                 this.bK = this.bm();
-                this.bL = this.bj.a();
-                this.bM = this.bj.e() == 0.0F;
+                this.bL = this.bj.getFoodLevel();
+                this.bM = this.bj.getSaturationLevel() == 0.0F;
             }
 
             if (this.bm() + this.bM() != this.bJ) {
@@ -288,7 +288,7 @@ public class EntityPlayer extends EntityHuman implements ail {
     }
 
     public void a(DamageSource var1) {
-        if (this.o.Q().b("showDeathMessages")) {
+        if (this.o.getGameRules().getBoolean("showDeathMessages")) {
             ScoreboardTeamBase var2 = this.bN();
             if (var2 != null && var2.j() != bsg.a) {
                 if (var2.j() == bsg.c) {
@@ -301,17 +301,17 @@ public class EntityPlayer extends EntityHuman implements ail {
             }
         }
 
-        if (!this.o.Q().b("keepInventory")) {
+        if (!this.o.getGameRules().getBoolean("keepInventory")) {
             this.bg.n();
         }
 
-        Collection var6 = this.o.Z().getObjectivesForCriteria(IScoreboardCriteria.d);
+        Collection var6 = this.o.getScoreboard().getObjectivesForCriteria(IScoreboardCriteria.d);
         Iterator var3 = var6.iterator();
 
         while (var3.hasNext()) {
             ScoreboardObjective var4 = (ScoreboardObjective) var3.next();
             ScoreboardScore var5 = this.co().getPlayerScoreForObjective(this.getName(), var4);
-            var5.a();
+            var5.incrementScore();
         }
 
         EntityLiving var7 = this.bs();
@@ -367,7 +367,7 @@ public class EntityPlayer extends EntityHuman implements ail {
     public void c(int var1) throws IOException {
         if (this.am == 1 && var1 == 1) {
             this.b((Statistic) AchievementList.D);
-            this.o.e((Entity) this);
+            this.o.kill((Entity) this);
             this.i = true;
             this.a.sendPacket((Packet) (new PacketPlayOutGameStateChange(4, 0.0F)));
         } else {
@@ -619,7 +619,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
             while (var3.hasNext()) {
                 ScoreboardObjective var4 = (ScoreboardObjective) var3.next();
-                this.co().getPlayerScoreForObjective(this.getName(), var4).a(var2);
+                this.co().getPlayerScoreForObjective(this.getName(), var4).addScore(var2);
             }
 
             if (this.bI.e()) {
@@ -672,7 +672,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
     public void a(ItemStack var1, int var2) {
         super.a(var1, var2);
-        if (var1 != null && var1.b() != null && var1.b().e(var1) == ano.b) {
+        if (var1 != null && var1.b() != null && var1.b().e(var1) == EnumAnimation.EAT) {
             this.u().s().b(this, new PacketPlayOutAnimation(this, 3));
         }
 

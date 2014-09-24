@@ -11,7 +11,7 @@ final class ajo extends DispenserBehaviorItem {
       int var5 = var3.o();
       int var6 = var3.p();
       AxisAlignedBB var7 = new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
-      List var8 = var1.i().a(EntityLiving.class, var7, Predicates.and(EntitySelectors.d, new xj(var2)));
+      List var8 = var1.i().getEntities(EntityLiving.class, var7, Predicates.and(EntitySelectors.d, new xj(var2)));
       if(var8.size() > 0) {
          EntityLiving var9 = (EntityLiving)var8.get(0);
          int var10 = var9 instanceof EntityHuman?1:0;

@@ -103,7 +103,7 @@ public class BlockRedstoneOre extends Block {
          }
 
          if(var7 < (double)var2.n() || var7 > (double)(var2.n() + 1) || var9 < 0.0D || var9 > (double)(var2.o() + 1) || var11 < (double)var2.p() || var11 > (double)(var2.p() + 1)) {
-            var1.a(ew.E, var7, var9, var11, 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(EnumParticleEffect.E, var7, var9, var11, 0.0D, 0.0D, 0.0D, new int[0]);
          }
       }
 

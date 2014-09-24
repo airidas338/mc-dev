@@ -30,9 +30,9 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       if(!this.b((IBlockAccess)var1, var2, var3)) {
          boolean var5 = this.e(var1, var2, var3);
          if(this.M && !var5) {
-            var1.a(var2, this.k(var3), 2);
+            var1.setTypeAndData(var2, this.k(var3), 2);
          } else if(!this.M) {
-            var1.a(var2, this.e(var3), 2);
+            var1.setTypeAndData(var2, this.e(var3), 2);
             if(!var5) {
                var1.a(var2, this.e(var3).c(), this.m(var3), -1);
             }
@@ -53,18 +53,18 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       return !this.l(var3)?0:(var3.b(N) == var4?this.a(var1, var2, var3):0);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(this.d(var1, var2)) {
          this.g(var1, var2, var3);
       } else {
          this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         var1.setAir(var2);
          EnumFacing[] var5 = EnumFacing.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
             EnumFacing var8 = var5[var7];
-            var1.c(var2.a(var8), (Block)this);
+            var1.applyPhysics(var2.a(var8), (Block)this);
          }
 
       }
@@ -98,7 +98,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
    protected int f(World var1, Location var2, IBlockData var3) {
       EnumFacing var4 = (EnumFacing)var3.b(N);
       Location var5 = var2.a(var4);
-      int var6 = var1.c(var5, var4);
+      int var6 = var1.getBlockFacePower(var5, var4);
       if(var6 >= 15) {
          return var6;
       } else {
@@ -153,7 +153,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumFacing var7 = var4[var6];
-            var1.c(var2.a(var7), (Block)this);
+            var1.applyPhysics(var2.a(var7), (Block)this);
          }
       }
 

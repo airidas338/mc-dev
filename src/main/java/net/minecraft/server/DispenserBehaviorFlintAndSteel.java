@@ -15,7 +15,7 @@ final class DispenserBehaviorFlintAndSteel extends DispenserBehaviorItem {
          }
       } else if(var3.getData(var4).c() == Blocks.TNT) {
          Blocks.TNT.d(var3, var4, Blocks.TNT.P().a(BlockTNT.a, Boolean.valueOf(true)));
-         var3.g(var4);
+         var3.setAir(var4);
       } else {
          this.b = false;
       }
@@ -25,9 +25,9 @@ final class DispenserBehaviorFlintAndSteel extends DispenserBehaviorItem {
 
    protected void a(ISourceBlock var1) {
       if(this.b) {
-         var1.i().b(1000, var1.d(), 0);
+         var1.i().triggerEffect(1000, var1.d(), 0);
       } else {
-         var1.i().b(1001, var1.d(), 0);
+         var1.i().triggerEffect(1001, var1.d(), 0);
       }
 
    }

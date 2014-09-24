@@ -15,7 +15,7 @@ public class ys extends yv {
    public boolean a() {
       if(!super.a()) {
          return false;
-      } else if(!this.a.o.Q().b("mobGriefing")) {
+      } else if(!this.a.o.getGameRules().getBoolean("mobGriefing")) {
          return false;
       } else {
          BlockDoor var10000 = this.c;
@@ -51,7 +51,7 @@ public class ys extends yv {
    public void e() {
       super.e();
       if(this.a.bb().nextInt(20) == 0) {
-         this.a.o.b(1010, this.b, 0);
+         this.a.o.triggerEffect(1010, this.b, 0);
       }
 
       ++this.g;
@@ -62,9 +62,9 @@ public class ys extends yv {
       }
 
       if(this.g == 240 && this.a.o.aa() == EnumDifficulty.HARD) {
-         this.a.o.g(this.b);
-         this.a.o.b(1012, this.b, 0);
-         this.a.o.b(2001, this.b, Block.getId((Block)this.c));
+         this.a.o.setAir(this.b);
+         this.a.o.triggerEffect(1012, this.b, 0);
+         this.a.o.triggerEffect(2001, this.b, Block.getId((Block)this.c));
       }
 
    }

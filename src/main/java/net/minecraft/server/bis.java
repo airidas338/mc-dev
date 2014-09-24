@@ -13,7 +13,7 @@ public class bis extends WorldGenerator {
                EnumFacing var7 = var4[var6];
                if(Blocks.VINE.canPlace(var1, var3, var7)) {
                   IBlockData var8 = Blocks.VINE.P().a(BlockVine.b, Boolean.valueOf(var7 == EnumFacing.NORTH)).a(BlockVine.M, Boolean.valueOf(var7 == EnumFacing.EAST)).a(BlockVine.N, Boolean.valueOf(var7 == EnumFacing.SOUTH)).a(BlockVine.O, Boolean.valueOf(var7 == EnumFacing.WEST));
-                  var1.a(var3, var8, 2);
+                  var1.setTypeAndData(var3, var8, 2);
                   break;
                }
             }

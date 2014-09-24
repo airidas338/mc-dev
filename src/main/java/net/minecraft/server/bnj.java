@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class bnj extends bnn {
 
-   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.e, 0, 1, 3, 15), new StructurePieceTreaasure(Items.b, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Item.a(Blocks.OBSIDIAN), 0, 3, 7, 5), new StructurePieceTreaasure(Item.a(Blocks.SAPLING), 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
+   private static final List a = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 1, 3, 5), new StructurePieceTreaasure(Items.P, 0, 1, 3, 15), new StructurePieceTreaasure(Items.APPLE, 0, 1, 3, 15), new StructurePieceTreaasure(Items.IRON_PICKAXE, 0, 1, 1, 5), new StructurePieceTreaasure(Items.l, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Z, 0, 1, 1, 5), new StructurePieceTreaasure(Items.Y, 0, 1, 1, 5), new StructurePieceTreaasure(Items.aa, 0, 1, 1, 5), new StructurePieceTreaasure(Items.ab, 0, 1, 1, 5), new StructurePieceTreaasure(Item.a(Blocks.OBSIDIAN), 0, 3, 7, 5), new StructurePieceTreaasure(Item.a(Blocks.SAPLING), 0, 3, 7, 5), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
    private boolean b;
 
 
@@ -77,7 +77,7 @@ public class bnj extends bnn {
       this.a(var1, Blocks.WOOD.P(), 1, 1, 5, var3);
       this.a(var1, Blocks.WOOD_STAIRS.a(this.a(Blocks.WOOD_STAIRS, 3)), 2, 1, 5, var3);
       this.a(var1, Blocks.WOOD_STAIRS.a(this.a(Blocks.WOOD_STAIRS, 1)), 1, 1, 4, var3);
-      if(!this.b && var3.b((fd)(new Location(this.a(5, 5), this.d(1), this.b(5, 5))))) {
+      if(!this.b && var3.b((ChunkCoordinates)(new Location(this.a(5, 5), this.d(1), this.b(5, 5))))) {
          this.b = true;
          this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
       }

@@ -218,10 +218,10 @@ public class PersistentScoreboard extends PersistentBase {
 
       while(var3.hasNext()) {
          ScoreboardScore var4 = (ScoreboardScore)var3.next();
-         if(var4.d() != null) {
+         if(var4.getObjective() != null) {
             NBTTagCompound var5 = new NBTTagCompound();
-            var5.setString("Name", var4.e());
-            var5.setString("Objective", var4.d().getName());
+            var5.setString("Name", var4.getPlayerName());
+            var5.setString("Objective", var4.getObjective().getName());
             var5.setInt("Score", var4.getScore());
             var5.setBoolean("Locked", var4.g());
             var1.add((NBTBase)var5);

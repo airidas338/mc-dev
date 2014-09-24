@@ -50,8 +50,8 @@ public abstract class MobSpawnerAbstract {
             double var2 = (double)((float)var1.n() + this.a().random.nextFloat());
             double var4 = (double)((float)var1.o() + this.a().random.nextFloat());
             var6 = (double)((float)var1.p() + this.a().random.nextFloat());
-            this.a().a(ew.l, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
-            this.a().a(ew.A, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().a(EnumParticleEffect.l, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().a(EnumParticleEffect.A, var2, var4, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.spawnDelay > 0) {
                --this.spawnDelay;
             }
@@ -89,7 +89,7 @@ public abstract class MobSpawnerAbstract {
                var14.setPositionRotation(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.bQ() && var12.bR()) {
                   this.a(var14, true);
-                  this.a().b(2004, var1, 0);
+                  this.a().triggerEffect(2004, var1, 0);
                   if(var12 != null) {
                      var12.y();
                   }
@@ -120,7 +120,7 @@ public abstract class MobSpawnerAbstract {
 
          var1.f(var3);
          if(var1.o != null && var2) {
-            var1.o.d(var1);
+            var1.o.addEntity(var1);
          }
 
          NBTTagCompound var12;
@@ -141,7 +141,7 @@ public abstract class MobSpawnerAbstract {
                var13.f(var7);
                var13.setPositionRotation(var11.s, var11.t, var11.u, var11.y, var11.z);
                if(var1.o != null && var2) {
-                  var1.o.d(var13);
+                  var1.o.addEntity(var13);
                }
 
                var11.a(var13);
@@ -151,7 +151,7 @@ public abstract class MobSpawnerAbstract {
          }
       } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
          ((EntityInsentient)var1).a(var1.o.E(new Location(var1)), (xq)null);
-         var1.o.d(var1);
+         var1.o.addEntity(var1);
       }
 
       return var1;

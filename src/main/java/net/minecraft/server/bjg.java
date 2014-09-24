@@ -143,12 +143,12 @@ public class bjg extends bms {
 
    protected boolean a(World var1, bjb var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       Location var9 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((fd)var9) && var1.getData(var9).c().getMaterial() == Material.AIR) {
+      if(var2.b((ChunkCoordinates)var9) && var1.getData(var9).c().getMaterial() == Material.AIR) {
          int var10 = var3.nextBoolean()?1:0;
-         var1.a(var9, Blocks.RAILS.a(this.a(Blocks.RAILS, var10)), 2);
+         var1.setTypeAndData(var9, Blocks.RAILS.a(this.a(Blocks.RAILS, var10)), 2);
          EntityMinecartChest var11 = new EntityMinecartChest(var1, (double)((float)var9.n() + 0.5F), (double)((float)var9.o() + 0.5F), (double)((float)var9.p() + 0.5F));
          StructurePieceTreaasure.a(var3, var7, (IInventory)var11, var8);
-         var1.d((Entity)var11);
+         var1.addEntity((Entity)var11);
          return true;
       } else {
          return false;
@@ -207,10 +207,10 @@ public class bjg extends bms {
                int var13 = this.a(1, var12);
                var12 = this.b(1, var12);
                Location var14 = new Location(var13, var11, var12);
-               if(var3.b((fd)var14)) {
+               if(var3.b((ChunkCoordinates)var14)) {
                   this.c = true;
-                  var1.a(var14, Blocks.MOB_SPAWNER.P(), 2);
-                  TileEntity var15 = var1.s(var14);
+                  var1.setTypeAndData(var14, Blocks.MOB_SPAWNER.P(), 2);
+                  TileEntity var15 = var1.getTileEntity(var14);
                   if(var15 instanceof TileEntityMobSpawner) {
                      ((TileEntityMobSpawner)var15).getSpawner().a("CaveSpider");
                   }

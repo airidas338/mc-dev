@@ -113,10 +113,10 @@ public class bmb extends bmk {
       if(!this.a) {
          int var12 = this.d(3);
          Location var10 = new Location(this.a(5, 6), var12, this.b(5, 6));
-         if(var3.b((fd)var10)) {
+         if(var3.b((ChunkCoordinates)var10)) {
             this.a = true;
-            var1.a(var10, Blocks.MOB_SPAWNER.P(), 2);
-            TileEntity var11 = var1.s(var10);
+            var1.setTypeAndData(var10, Blocks.MOB_SPAWNER.P(), 2);
+            TileEntity var11 = var1.getTileEntity(var10);
             if(var11 instanceof TileEntityMobSpawner) {
                ((TileEntityMobSpawner)var11).getSpawner().a("Silverfish");
             }

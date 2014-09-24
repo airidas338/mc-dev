@@ -87,7 +87,7 @@ public class CommandReplaceItem extends CommandAbstract {
             var1.a(ag.d, 0);
             Location var17 = a(var1, var2, 1, false);
             World var11 = var1.getWorld();
-            TileEntity var12 = var11.s(var17);
+            TileEntity var12 = var11.getTileEntity(var17);
             if(var12 == null || !(var12 instanceof IInventory)) {
                throw new CommandException("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var17.n()), Integer.valueOf(var17.o()), Integer.valueOf(var17.p())});
             }

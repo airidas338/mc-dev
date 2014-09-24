@@ -59,14 +59,14 @@ public class EntityTNTPrimed extends Entity {
          }
       } else {
          this.W();
-         this.o.a(ew.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(EnumParticleEffect.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }
 
    private void l() {
       float var1 = 4.0F;
-      this.o.a(this, this.s, this.t + (double)(this.K / 2.0F), this.u, var1, true);
+      this.o.explode(this, this.s, this.t + (double)(this.K / 2.0F), this.u, var1, true);
    }
 
    protected void b(NBTTagCompound var1) {

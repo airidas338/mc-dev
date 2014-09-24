@@ -23,15 +23,15 @@ public class BlockSponge extends Block {
       this.e(var1, var2, var3);
    }
 
-   public void a(World var1, Location var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
-      super.a(var1, var2, var3, var4);
+      super.doPhysics(var1, var2, var3, var4);
    }
 
    protected void e(World var1, Location var2, IBlockData var3) {
       if(!((Boolean)var3.b(a)).booleanValue() && this.d(var1, var2)) {
-         var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
-         var1.b(2001, var2, Block.getId((Block)Blocks.STATIONARY_WATER));
+         var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)), 2);
+         var1.triggerEffect(2001, var2, Block.getId((Block)Blocks.STATIONARY_WATER));
       }
 
    }
@@ -54,7 +54,7 @@ public class BlockSponge extends Block {
             EnumFacing var12 = var9[var11];
             Location var13 = var7.a(var12);
             if(var1.getData(var13).c().getMaterial() == Material.WATER) {
-               var1.a(var13, Blocks.AIR.P(), 2);
+               var1.setTypeAndData(var13, Blocks.AIR.P(), 2);
                var4.add(var13);
                ++var5;
                if(var8 < 6) {
@@ -72,7 +72,7 @@ public class BlockSponge extends Block {
 
       while(var14.hasNext()) {
          var7 = (Location)var14.next();
-         var1.c(var7, Blocks.AIR);
+         var1.applyPhysics(var7, Blocks.AIR);
       }
 
       return var5 > 0;

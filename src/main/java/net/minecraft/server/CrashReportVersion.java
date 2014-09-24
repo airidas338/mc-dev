@@ -1,18 +1,18 @@
 package net.minecraft.server;
 import java.util.concurrent.Callable;
 
-class aqy implements Callable {
+class CrashReportVersion implements Callable {
 
    // $FF: synthetic field
-   final World a;
+   final CrashReport a;
 
 
-   aqy(World var1) {
+   CrashReportVersion(CrashReport var1) {
       this.a = var1;
    }
 
    public String a() {
-      return this.a.chunkProvider.getName();
+      return "1.8";
    }
 
    // $FF: synthetic method

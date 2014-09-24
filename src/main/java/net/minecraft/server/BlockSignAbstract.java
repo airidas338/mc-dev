@@ -38,7 +38,7 @@ public class BlockSignAbstract extends BlockContainer {
       if(var1.isStatic) {
          return true;
       } else {
-         TileEntity var9 = var1.s(var2);
+         TileEntity var9 = var1.getTileEntity(var2);
          return var9 instanceof TileEntitySign?((TileEntitySign)var9).b(var4):false;
       }
    }

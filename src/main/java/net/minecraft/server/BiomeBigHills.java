@@ -43,7 +43,7 @@ public class BiomeBigHills extends BiomeBase {
          int var8 = var2.nextInt(16);
          Location var9 = var3.a(var6, var7, var8);
          if(var1.getData(var9).c() == Blocks.STONE) {
-            var1.a(var9, Blocks.EMERALD_ORE.P(), 2);
+            var1.setTypeAndData(var9, Blocks.EMERALD_ORE.P(), 2);
          }
       }
 

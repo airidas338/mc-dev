@@ -30,17 +30,17 @@ public class aju extends Item {
          return false;
       } else if(var4.o() == 255 && this.a.getMaterial().isBuildable()) {
          return false;
-      } else if(var3.a(this.a, var4, false, var5, (Entity)null, var1)) {
+      } else if(var3.mayPlace(this.a, var4, false, var5, (Entity)null, var1)) {
          int var11 = this.a(var1.i());
          IBlockData var12 = this.a.getPlacedData(var3, var4, var5, var6, var7, var8, var11, var2);
-         if(var3.a(var4, var12, 3)) {
+         if(var3.setTypeAndData(var4, var12, 3)) {
             var12 = var3.getData(var4);
             if(var12.c() == this.a) {
                a(var3, var4, var1);
                this.a.a(var3, var4, var12, (EntityLiving)var2, var1);
             }
 
-            var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.H.b(), (this.a.H.d() + 1.0F) / 2.0F, this.a.H.e() * 0.8F);
+            var3.makeSound((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.H.b(), (this.a.H.d() + 1.0F) / 2.0F, this.a.H.e() * 0.8F);
             --var1.b;
          }
 
@@ -52,7 +52,7 @@ public class aju extends Item {
 
    public static boolean a(World var0, Location var1, ItemStack var2) {
       if(var2.n() && var2.o().hasKeyOfType("BlockEntityTag", 10)) {
-         TileEntity var3 = var0.s(var1);
+         TileEntity var3 = var0.getTileEntity(var1);
          if(var3 != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             NBTTagCompound var5 = (NBTTagCompound)var4.clone();
