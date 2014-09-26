@@ -40,10 +40,10 @@ public class BlockBeacon extends BlockContainer {
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       super.a(var1, var2, var3, var4, var5);
-      if(var5.s()) {
+      if(var5.hasName()) {
          TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityBeacon) {
-            ((TileEntityBeacon)var6).a(var5.q());
+            ((TileEntityBeacon)var6).a(var5.getName());
          }
       }
 

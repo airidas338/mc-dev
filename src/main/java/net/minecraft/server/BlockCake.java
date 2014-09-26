@@ -12,7 +12,7 @@ public class BlockCake extends Block {
       this.a(true);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       float var3 = 0.0625F;
       float var4 = (float)(1 + ((Integer)var1.getData(var2).b(a)).intValue() * 2) / 16.0F;
       float var5 = 0.5F;
@@ -45,7 +45,7 @@ public class BlockCake extends Block {
       return true;
    }
 
-   public void a(World var1, Location var2, EntityHuman var3) {
+   public void attack(World var1, Location var2, EntityHuman var3) {
       this.b(var1, var2, var1.getData(var2), var3);
    }
 

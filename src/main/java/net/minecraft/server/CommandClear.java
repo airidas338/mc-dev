@@ -34,7 +34,7 @@ public class CommandClear extends CommandAbstract {
       } else {
          int var8 = var3.bg.a(var4, var5, var6, var7);
          var3.bh.b();
-         if(!var3.by.canInstantlyBuild) {
+         if(!var3.abilities.canInstantlyBuild) {
             var3.o();
          }
 

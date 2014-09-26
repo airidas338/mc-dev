@@ -160,11 +160,11 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    protected void bp() {
-      this.a(Items.k, 1);
+      this.a(Items.GOLD_INGOT, 1);
    }
 
    protected void a(vu var1) {
-      this.c(0, new ItemStack(Items.B));
+      this.c(0, new ItemStack(Items.GOLD_SWORD));
    }
 
    public xq a(vu var1, xq var2) {

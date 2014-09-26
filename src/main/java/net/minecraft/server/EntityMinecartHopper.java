@@ -111,7 +111,7 @@ public class EntityMinecartHopper extends aed implements IHopper {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      this.a(Item.a((Block)Blocks.HOPPER), 1, 0.0F);
+      this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
    }
 
    protected void b(NBTTagCompound var1) {

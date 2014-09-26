@@ -14,7 +14,7 @@ public class PossibleFishingResult extends vk {
    }
 
    public ItemStack a(Random var1) {
-      ItemStack var2 = this.b.k();
+      ItemStack var2 = this.b.cloneItemStack();
       if(this.c > 0.0F) {
          int var3 = (int)(this.c * (float)this.b.j());
          int var4 = var2.j() - var1.nextInt(var1.nextInt(var3) + 1);
@@ -26,7 +26,7 @@ public class PossibleFishingResult extends vk {
             var4 = 1;
          }
 
-         var2.b(var4);
+         var2.setData(var4);
       }
 
       if(this.d) {

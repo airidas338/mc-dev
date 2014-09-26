@@ -15,7 +15,7 @@ public class BlockRedstoneLamp extends Block {
 
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          if(this.a && !var1.isBlockIndirectlyPowered(var2)) {
             var1.setTypeAndData(var2, Blocks.REDSTONE_LAMP_OFF.P(), 2);
@@ -47,7 +47,7 @@ public class BlockRedstoneLamp extends Block {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(Blocks.REDSTONE_LAMP_OFF);
+      return Item.getItemOf(Blocks.REDSTONE_LAMP_OFF);
    }
 
    protected ItemStack i(IBlockData var1) {

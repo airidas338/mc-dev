@@ -44,6 +44,6 @@ public class yr extends PathfinderGoal {
 
    private boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      return var2 == null?false:(!this.a.cj() && var2.b() == Items.aX?true:this.a.d(var2));
+      return var2 == null?false:(!this.a.cj() && var2.getItem() == Items.aX?true:this.a.d(var2));
    }
 }

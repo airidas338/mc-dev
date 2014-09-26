@@ -16,14 +16,14 @@ final class ajo extends DispenserBehaviorItem {
          EntityLiving var9 = (EntityLiving)var8.get(0);
          int var10 = var9 instanceof EntityHuman?1:0;
          int var11 = EntityInsentient.c(var2);
-         ItemStack var12 = var2.k();
-         var12.b = 1;
+         ItemStack var12 = var2.cloneItemStack();
+         var12.count = 1;
          var9.c(var11 - var10, var12);
          if(var9 instanceof EntityInsentient) {
             ((EntityInsentient)var9).a(var11, 2.0F);
          }
 
-         --var2.b;
+         --var2.count;
          return var2;
       } else {
          return super.b(var1, var2);

@@ -127,7 +127,7 @@ public class BlockSapling extends BlockPlant implements atz {
       return var4.c() == this && var4.b(a) == var3;
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((ayx)var1.b(a)).a();
    }
 

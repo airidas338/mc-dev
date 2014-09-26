@@ -63,8 +63,8 @@ public class Blocks {
    public static final Block DIAMOND_ORE;
    public static final Block DIAMOND_BLOCK;
    public static final Block CRAFTING_TABLE;
-   public static final Block WHEAT;
-   public static final Block FARMLAND;
+   public static final Block CROPS;
+   public static final Block SOIL;
    public static final Block FURNACE;
    public static final Block BURNING_FURNACE;
    public static final Block SIGN_POST;
@@ -106,7 +106,7 @@ public class Blocks {
    public static final Block GLOWSTONE;
    public static final BlockPortal PORTAL;
    public static final Block JACK_O_LANTERN;
-   public static final Block CAKE;
+   public static final Block CAKE_BLOCK; 
    public static final BlockRepeater DIODE_OFF;
    public static final BlockRepeater DIODE_ON;
    public static final Block TRAP_DOOR_WOOD;
@@ -271,8 +271,8 @@ public class Blocks {
          DIAMOND_ORE = a("diamond_ore");
          DIAMOND_BLOCK = a("diamond_block");
          CRAFTING_TABLE = a("crafting_table");
-         WHEAT = a("wheat");
-         FARMLAND = a("farmland");
+         CROPS = a("wheat");
+         SOIL = a("farmland");
          FURNACE = a("furnace");
          BURNING_FURNACE = a("lit_furnace");
          SIGN_POST = a("standing_sign");
@@ -314,7 +314,7 @@ public class Blocks {
          GLOWSTONE = a("glowstone");
          PORTAL = (BlockPortal)a("portal");
          JACK_O_LANTERN = a("lit_pumpkin");
-         CAKE = a("cake");
+         CAKE_BLOCK = a("cake");
          DIODE_OFF = (BlockRepeater)a("unpowered_repeater");
          DIODE_ON = (BlockRepeater)a("powered_repeater");
          TRAP_DOOR_WOOD = a("trapdoor");

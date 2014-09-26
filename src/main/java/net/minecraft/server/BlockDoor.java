@@ -29,11 +29,11 @@ public class BlockDoor extends Block {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.k(e(var1, var2));
    }
 
@@ -145,7 +145,7 @@ public class BlockDoor extends Block {
             }
          } else {
             boolean var8 = var1.isBlockIndirectlyPowered(var2) || var1.isBlockIndirectlyPowered(var10);
-            if((var8 || var4.g()) && var4 != this && var8 != ((Boolean)var7.b(N)).booleanValue()) {
+            if((var8 || var4.isPowerSource()) && var4 != this && var8 != ((Boolean)var7.b(N)).booleanValue()) {
                var1.setTypeAndData(var10, var7.a(N, Boolean.valueOf(var8)), 2);
                if(var8 != ((Boolean)var3.b(b)).booleanValue()) {
                   var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var8)), 2);
@@ -163,7 +163,7 @@ public class BlockDoor extends Block {
    }
 
    public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
@@ -171,7 +171,7 @@ public class BlockDoor extends Block {
       return var2.o() >= 255?false:World.a((IBlockAccess)var1, var2.b()) && super.canPlace(var1, var2) && super.canPlace(var1, var2.a());
    }
 
-   public int i() {
+   public int getDropData() {
       return 1;
    }
 
@@ -196,7 +196,7 @@ public class BlockDoor extends Block {
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       Location var5 = var2.b();
-      if(var4.by.canInstantlyBuild && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
+      if(var4.abilities.canInstantlyBuild && var3.b(O) == avg.a && var1.getData(var5).c() == this) {
          var1.setAir(var5);
       }
 

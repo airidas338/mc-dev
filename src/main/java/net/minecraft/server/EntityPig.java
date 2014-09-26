@@ -31,7 +31,7 @@ public class EntityPig extends EntityAnimal {
 
    public boolean bV() {
       ItemStack var1 = ((EntityHuman)this.l).bz();
-      return var1 != null && var1.b() == Items.bY;
+      return var1 != null && var1.getItem() == Items.bY;
    }
 
    protected void h() {
@@ -113,7 +113,7 @@ public class EntityPig extends EntityAnimal {
    public void a(EntityLightning var1) {
       if(!this.o.isStatic) {
          EntityPigZombie var2 = new EntityPigZombie(this.o);
-         var2.c(0, new ItemStack(Items.B));
+         var2.c(0, new ItemStack(Items.GOLD_SWORD));
          var2.setPositionRotation(this.s, this.t, this.u, this.y, this.z);
          this.o.addEntity((Entity)var2);
          this.J();
@@ -133,7 +133,7 @@ public class EntityPig extends EntityAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 != null && var1.b() == Items.bR;
+      return var1 != null && var1.getItem() == Items.bR;
    }
 
    public yu ck() {

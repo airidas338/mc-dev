@@ -84,7 +84,7 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:var1.b() == Items.O;
+      return var1 == null?false:var1.getItem() == Items.WHEAT;
    }
 
    public boolean a(EntityHuman var1) {
@@ -107,9 +107,9 @@ public abstract class EntityAnimal extends EntityAgeable implements wt {
    }
 
    protected void a(EntityHuman var1, ItemStack var2) {
-      if(!var1.by.canInstantlyBuild) {
-         --var2.b;
-         if(var2.b <= 0) {
+      if(!var1.abilities.canInstantlyBuild) {
+         --var2.count;
+         if(var2.count <= 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
       }

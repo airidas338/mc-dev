@@ -36,7 +36,7 @@ public class BlockPiston extends Block {
 
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic && var1.getTileEntity(var2) == null) {
          this.e(var1, var2, var3);
       }
@@ -135,7 +135,7 @@ public class BlockPiston extends Block {
                }
             }
 
-            if(!var10 && var9.getMaterial() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.i() == 0 || var9 == Blocks.PISTON || var9 == Blocks.PISTON_STICKEY)) {
+            if(!var10 && var9.getMaterial() != Material.AIR && a(var9, var1, var8, var6.d(), false) && (var9.getDropData() == 0 || var9 == Blocks.PISTON || var9 == Blocks.PISTON_STICKEY)) {
                this.a(var1, var2, var6, false);
             }
          } else {
@@ -148,7 +148,7 @@ public class BlockPiston extends Block {
       return true;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       IBlockData var3 = var1.getData(var2);
       if(var3.c() == this && ((Boolean)var3.b(b)).booleanValue()) {
          float var4 = 0.25F;
@@ -190,7 +190,7 @@ public class BlockPiston extends Block {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3);
    }
 
@@ -230,11 +230,11 @@ public class BlockPiston extends Block {
                   return false;
                }
 
-               if(var0.i() == 2) {
+               if(var0.getDropData() == 2) {
                   return false;
                }
 
-               if(var0.i() == 1) {
+               if(var0.getDropData() == 1) {
                   if(!var4) {
                      return false;
                   }

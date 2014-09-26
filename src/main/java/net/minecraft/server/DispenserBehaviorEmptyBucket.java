@@ -23,9 +23,9 @@ final class DispenserBehaviorEmptyBucket extends DispenserBehaviorItem {
       }
 
       var3.setAir(var4);
-      if(--var2.b == 0) {
-         var2.a(var8);
-         var2.b = 1;
+      if(--var2.count == 0) {
+         var2.setItem(var8);
+         var2.count = 1;
       } else if(((TileEntityDispenser)var1.h()).a(new ItemStack(var8)) < 0) {
          this.b.a(var1, new ItemStack(var8));
       }

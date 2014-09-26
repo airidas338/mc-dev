@@ -44,7 +44,7 @@ public class aiy extends aib {
 		ajk var4 = (ajk) this.c.get(var2);
 		if (var4 != null && var4.e()) {
 			ItemStack var5 = var4.d();
-			var3 = var5.k();
+			var3 = var5.cloneItemStack();
 			if (var2 < this.a.n_()) {
 				if (!this.a(var5, this.a.n_(), this.c.size(), true)) {
 					return null;
@@ -61,7 +61,7 @@ public class aiy extends aib {
 				return null;
 			}
 
-			if (var5.b == 0) {
+			if (var5.count == 0) {
 				var4.d((ItemStack) null);
 			} else {
 				var4.f();

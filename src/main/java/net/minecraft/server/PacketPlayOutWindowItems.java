@@ -16,7 +16,7 @@ public class PacketPlayOutWindowItems implements Packet {
 
       for(int var3 = 0; var3 < this.b.length; ++var3) {
          ItemStack var4 = (ItemStack)var2.get(var3);
-         this.b[var3] = var4 == null?null:var4.k();
+         this.b[var3] = var4 == null?null:var4.cloneItemStack();
       }
 
    }

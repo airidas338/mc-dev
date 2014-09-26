@@ -53,14 +53,14 @@ public class ain implements IInventory {
    public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
          ItemStack var3;
-         if(this.a[var1].b <= var2) {
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             this.d.a((IInventory)this);
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 

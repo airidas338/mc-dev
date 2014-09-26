@@ -10,11 +10,11 @@ public class ItemWorldMap extends ake {
    }
 
    public WorldMap a(ItemStack var1, World var2) {
-      String var3 = "map_" + var1.i();
+      String var3 = "map_" + var1.getData();
       WorldMap var4 = (WorldMap)var2.a(WorldMap.class, var3);
       if(var4 == null && !var2.isStatic) {
-         var1.b(var2.b("map"));
-         var3 = "map_" + var1.i();
+         var1.setData(var2.b("map"));
+         var3 = "map_" + var1.getData();
          var4 = new WorldMap(var3);
          var4.e = 3;
          var4.a((double)var2.getWorldData().c(), (double)var2.getWorldData().e(), var4.e);
@@ -163,10 +163,10 @@ public class ItemWorldMap extends ake {
    }
 
    public void d(ItemStack var1, World var2, EntityHuman var3) {
-      if(var1.n() && var1.o().getBoolean("map_is_scaling")) {
+      if(var1.hasTag() && var1.getTag().getBoolean("map_is_scaling")) {
          WorldMap var4 = Items.bd.a(var1, var2);
-         var1.b(var2.b("map"));
-         WorldMap var5 = new WorldMap("map_" + var1.i());
+         var1.setData(var2.b("map"));
+         WorldMap var5 = new WorldMap("map_" + var1.getData());
          var5.e = (byte)(var4.e + 1);
          if(var5.e > 4) {
             var5.e = 4;
@@ -175,7 +175,7 @@ public class ItemWorldMap extends ake {
          var5.a((double)var4.b, (double)var4.c, var5.e);
          var5.d = var4.d;
          var5.c();
-         var2.a("map_" + var1.i(), (PersistentBase)var5);
+         var2.a("map_" + var1.getData(), (PersistentBase)var5);
       }
 
    }

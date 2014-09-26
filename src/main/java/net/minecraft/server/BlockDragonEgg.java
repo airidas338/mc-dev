@@ -8,7 +8,7 @@ public class BlockDragonEgg extends Block {
       this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       var1.a(var2, (Block)this, this.a(var1));
    }
 
@@ -46,7 +46,7 @@ public class BlockDragonEgg extends Block {
       return true;
    }
 
-   public void a(World var1, Location var2, EntityHuman var3) {
+   public void attack(World var1, Location var2, EntityHuman var3) {
       this.e(var1, var2);
    }
 

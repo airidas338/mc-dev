@@ -52,7 +52,7 @@ public class EntityLeash extends EntityHanging {
       List var6;
       Iterator var7;
       EntityInsentient var8;
-      if(var2 != null && var2.b() == Items.cn && !this.o.isStatic) {
+      if(var2 != null && var2.getItem() == Items.cn && !this.o.isStatic) {
          var4 = 7.0D;
          var6 = this.o.getEntities(EntityInsentient.class, new AxisAlignedBB(this.s - var4, this.t - var4, this.u - var4, this.s + var4, this.t + var4, this.u + var4));
          var7 = var6.iterator();
@@ -68,7 +68,7 @@ public class EntityLeash extends EntityHanging {
 
       if(!this.o.isStatic && !var3) {
          this.J();
-         if(var1.by.canInstantlyBuild) {
+         if(var1.abilities.canInstantlyBuild) {
             var4 = 7.0D;
             var6 = this.o.getEntities(EntityInsentient.class, new AxisAlignedBB(this.s - var4, this.t - var4, this.u - var4, this.s + var4, this.t + var4, this.u + var4));
             var7 = var6.iterator();

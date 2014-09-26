@@ -45,7 +45,7 @@ public abstract class aaw extends PathfinderGoal {
                   }
                }
 
-               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).by.isInvulnerable;
+               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).abilities.isInvulnerable;
             }
          }
       }
@@ -89,7 +89,7 @@ public abstract class aaw extends PathfinderGoal {
                if(var1 == ((xt)var0).l_()) {
                   return false;
                }
-            } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).by.isInvulnerable) {
+            } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).abilities.isInvulnerable) {
                return false;
             }
 

@@ -28,14 +28,14 @@ public class BlockQuartz extends Block {
       }
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       azn var2 = (azn)var1.b(a);
       return var2 != azn.d && var2 != azn.e?var2.a():azn.c.a();
    }
 
    protected ItemStack i(IBlockData var1) {
       azn var2 = (azn)var1.b(a);
-      return var2 != azn.d && var2 != azn.e?super.i(var1):new ItemStack(Item.a((Block)this), 1, azn.c.a());
+      return var2 != azn.d && var2 != azn.e?super.i(var1):new ItemStack(Item.getItemOf((Block)this), 1, azn.c.a());
    }
 
    public MaterialMapColor g(IBlockData var1) {

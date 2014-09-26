@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ann extends aju {
+public class ann extends ItemBlock {
 
    private final Block b;
    private String[] c;
@@ -29,7 +29,7 @@ public class ann extends aju {
       if(this.c == null) {
          return super.e_(var1);
       } else {
-         int var2 = var1.i();
+         int var2 = var1.getData();
          return var2 >= 0 && var2 < this.c.length?super.e_(var1) + "." + this.c[var2]:super.e_(var1);
       }
    }

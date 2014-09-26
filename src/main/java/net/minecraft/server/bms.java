@@ -563,7 +563,7 @@ public abstract class bms {
    protected void a(World var1, bjb var2, Random var3, int var4, int var5, int var6, EnumFacing var7) {
       Location var8 = new Location(this.a(var4, var6), this.d(var5), this.b(var4, var6));
       if(var2.b((ChunkCoordinates)var8)) {
-         akt.a(var1, var8, var7.f(), Blocks.WOODEN_DOOR);
+         ItemDoor.a(var1, var8, var7.f(), Blocks.WOODEN_DOOR);
       }
 
    }

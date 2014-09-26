@@ -12,7 +12,7 @@ class aij extends ajk {
    }
 
    public boolean a(ItemStack var1) {
-      return var1 != null?var1.b().l(var1):false;
+      return var1 != null?var1.getItem().l(var1):false;
    }
 
    public int a() {

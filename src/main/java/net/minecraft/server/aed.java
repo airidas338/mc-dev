@@ -28,13 +28,13 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
    public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
          ItemStack var3;
-         if(this.a[var1].b <= var2) {
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 
@@ -57,8 +57,8 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
 
    public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
    }
@@ -106,7 +106,7 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
          if(this.a[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
-            this.a[var3].b(var4);
+            this.a[var3].save(var4);
             var2.add((NBTBase)var4);
          }
       }
@@ -123,7 +123,7 @@ public abstract class aed extends EntityMinecartAbstract implements vy {
          NBTTagCompound var4 = var2.get(var3);
          int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.a.length) {
-            this.a[var5] = ItemStack.a(var4);
+            this.a[var5] = ItemStack.createStack(var4);
          }
       }
 

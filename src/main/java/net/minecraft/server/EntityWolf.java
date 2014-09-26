@@ -210,25 +210,25 @@ public class EntityWolf extends EntityTameableAnimal {
       ItemStack var2 = var1.bg.h();
       if(this.cj()) {
          if(var2 != null) {
-            if(var2.b() instanceof ItemFood) {
-               ItemFood var3 = (ItemFood)var2.b();
+            if(var2.getItem() instanceof ItemFood) {
+               ItemFood var3 = (ItemFood)var2.getItem();
                if(var3.g() && this.ac.d(18) < 20.0F) {
-                  if(!var1.by.canInstantlyBuild) {
-                     --var2.b;
+                  if(!var1.abilities.canInstantlyBuild) {
+                     --var2.count;
                   }
 
                   this.g((float)var3.h(var2));
-                  if(var2.b <= 0) {
+                  if(var2.count <= 0) {
                      var1.bg.a(var1.bg.c, (ItemStack)null);
                   }
 
                   return true;
                }
-            } else if(var2.b() == Items.aW) {
-               akv var4 = akv.a(var2.i());
+            } else if(var2.getItem() == Items.aW) {
+               akv var4 = akv.a(var2.getData());
                if(var4 != this.cu()) {
                   this.a(var4);
-                  if(!var1.by.canInstantlyBuild && --var2.b <= 0) {
+                  if(!var1.abilities.canInstantlyBuild && --var2.count <= 0) {
                      var1.bg.a(var1.bg.c, (ItemStack)null);
                   }
 
@@ -243,12 +243,12 @@ public class EntityWolf extends EntityTameableAnimal {
             this.h.n();
             this.d((EntityLiving)null);
          }
-      } else if(var2 != null && var2.b() == Items.aX && !this.ct()) {
-         if(!var1.by.canInstantlyBuild) {
-            --var2.b;
+      } else if(var2 != null && var2.getItem() == Items.aX && !this.ct()) {
+         if(!var1.abilities.canInstantlyBuild) {
+            --var2.count;
          }
 
-         if(var2.b <= 0) {
+         if(var2.count <= 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
@@ -275,7 +275,7 @@ public class EntityWolf extends EntityTameableAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:(!(var1.b() instanceof ItemFood)?false:((ItemFood)var1.b()).g());
+      return var1 == null?false:(!(var1.getItem() instanceof ItemFood)?false:((ItemFood)var1.getItem()).g());
    }
 
    public int bU() {

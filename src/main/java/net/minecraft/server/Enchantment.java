@@ -36,7 +36,7 @@ public abstract class Enchantment {
    public static final Enchantment ARROW_INFINITE = new EnchantmentInfiniteArrows(51, new RegistryPrepender("infinity"), 1);
    public static final Enchantment LUCK = new EnchantmentLootBonus(61, new RegistryPrepender("luck_of_the_sea"), 2, EnchantmentSlotType.FISHING_ROD);
    public static final Enchantment LURE = new EnchantmentLure(62, new RegistryPrepender("lure"), 2, EnchantmentSlotType.FISHING_ROD);
-   public final int B;
+   public final int id;
    private final int F;
    public EnchantmentSlotType C;
    protected String D;
@@ -47,7 +47,7 @@ public abstract class Enchantment {
    }
 
    protected Enchantment(int var1, RegistryPrepender var2, int var3, EnchantmentSlotType var4) {
-      this.B = var1;
+      this.id = var1;
       this.F = var3;
       this.C = var4;
       if(a[var1] != null) {
@@ -116,12 +116,12 @@ public abstract class Enchantment {
    }
 
    public String d(int var1) {
-      String var2 = LocaleI18n.a(this.a());
-      return var2 + " " + LocaleI18n.a("enchantment.level." + var1);
+      String var2 = LocaleI18n.get(this.a());
+      return var2 + " " + LocaleI18n.get("enchantment.level." + var1);
    }
 
    public boolean a(ItemStack var1) {
-      return this.C.a(var1.b());
+      return this.C.a(var1.getItem());
    }
 
    public void a(EntityLiving var1, Entity var2, int var3) {}

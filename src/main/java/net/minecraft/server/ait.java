@@ -12,6 +12,6 @@ class ait extends ajk {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.b() == Items.aW && akv.a(var1.i()) == akv.l;
+      return var1.getItem() == Items.aW && akv.a(var1.getData()) == akv.l;
    }
 }

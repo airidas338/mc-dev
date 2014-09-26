@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class amv extends aju {
+public class amv extends ItemBlock {
 
    public amv(Block var1) {
       super(var1);

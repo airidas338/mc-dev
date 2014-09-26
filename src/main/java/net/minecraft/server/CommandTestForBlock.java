@@ -37,7 +37,7 @@ public class CommandTestForBlock extends CommandAbstract {
             } else {
                NBTTagCompound var7 = new NBTTagCompound();
                boolean var8 = false;
-               if(var2.length >= 6 && var4.x()) {
+               if(var2.length >= 6 && var4.isTileEntity()) {
                   String var9 = a(var1, var2, 5).c();
 
                   try {
@@ -51,7 +51,7 @@ public class CommandTestForBlock extends CommandAbstract {
                IBlockData var14 = var6.getData(var3);
                Block var10 = var14.c();
                if(var10 != var4) {
-                  throw new CommandException("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.H(), var4.H()});
+                  throw new CommandException("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.getName(), var4.getName()});
                } else {
                   if(var5 > -1) {
                      int var11 = var14.c().c(var14);

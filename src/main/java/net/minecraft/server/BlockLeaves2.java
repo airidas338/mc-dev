@@ -17,7 +17,7 @@ public class BlockLeaves2 extends BlockLeaves {
 
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((ayx)var1.b(P)).a();
    }
 
@@ -27,7 +27,7 @@ public class BlockLeaves2 extends BlockLeaves {
    }
 
    protected ItemStack i(IBlockData var1) {
-      return new ItemStack(Item.a((Block)this), 1, ((ayx)var1.b(P)).a() - 4);
+      return new ItemStack(Item.getItemOf((Block)this), 1, ((ayx)var1.b(P)).a() - 4);
    }
 
    public IBlockData a(int var1) {
@@ -57,9 +57,9 @@ public class BlockLeaves2 extends BlockLeaves {
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-      if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
-         var2.b(StatisticList.H[Block.getId((Block)this)]);
-         a(var1, var3, new ItemStack(Item.a((Block)this), 1, ((ayx)var4.b(P)).a() - 4));
+      if(!var1.isStatic && var2.bY() != null && var2.bY().getItem() == Items.be) {
+         var2.b(StatisticList.MINE_BLOCK_COUNT[Block.getId((Block)this)]);
+         a(var1, var3, new ItemStack(Item.getItemOf((Block)this), 1, ((ayx)var4.b(P)).a() - 4));
       } else {
          super.a(var1, var2, var3, var4, var5);
       }

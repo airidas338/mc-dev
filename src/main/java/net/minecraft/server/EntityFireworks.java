@@ -23,9 +23,9 @@ public class EntityFireworks extends Entity {
       this.a(0.25F, 0.25F);
       this.b(var2, var4, var6);
       int var9 = 1;
-      if(var8 != null && var8.n()) {
+      if(var8 != null && var8.hasTag()) {
          this.ac.b(8, var8);
-         NBTTagCompound var10 = var8.o();
+         NBTTagCompound var10 = var8.getTag();
          NBTTagCompound var11 = var10.getCompound("Fireworks");
          if(var11 != null) {
             var9 += var11.getByte("Flight");
@@ -90,7 +90,7 @@ public class EntityFireworks extends Entity {
       ItemStack var2 = this.ac.f(8);
       if(var2 != null) {
          NBTTagCompound var3 = new NBTTagCompound();
-         var2.b(var3);
+         var2.save(var3);
          var1.set("FireworksItem", (NBTBase)var3);
       }
 
@@ -101,7 +101,7 @@ public class EntityFireworks extends Entity {
       this.b = var1.getInt("LifeTime");
       NBTTagCompound var2 = var1.getCompound("FireworksItem");
       if(var2 != null) {
-         ItemStack var3 = ItemStack.a(var2);
+         ItemStack var3 = ItemStack.createStack(var2);
          if(var3 != null) {
             this.ac.b(8, var3);
          }

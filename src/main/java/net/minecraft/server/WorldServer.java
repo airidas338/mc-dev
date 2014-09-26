@@ -35,7 +35,7 @@ public class WorldServer extends World implements vn {
    protected final abk d = new abk(this);
    private BlockActionDataList[] S = new BlockActionDataList[]{new BlockActionDataList((PredicateEntityUnderSun)null), new BlockActionDataList((PredicateEntityUnderSun)null)};
    private int T;
-   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.y, 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.WOOD), 0, 1, 3, 10), new StructurePieceTreaasure(Item.a(Blocks.LOG), 0, 1, 3, 10), new StructurePieceTreaasure(Items.t, 0, 1, 1, 3), new StructurePieceTreaasure(Items.p, 0, 1, 1, 5), new StructurePieceTreaasure(Items.s, 0, 1, 1, 3), new StructurePieceTreaasure(Items.o, 0, 1, 1, 5), new StructurePieceTreaasure(Items.APPLE, 0, 2, 3, 5), new StructurePieceTreaasure(Items.P, 0, 2, 3, 3), new StructurePieceTreaasure(Item.a(Blocks.LOG2), 0, 1, 3, 10)});
+   private static final List U = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.STICK, 0, 1, 3, 10), new StructurePieceTreaasure(Item.getItemOf(Blocks.WOOD), 0, 1, 3, 10), new StructurePieceTreaasure(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new StructurePieceTreaasure(Items.STONE_AXE, 0, 1, 1, 3), new StructurePieceTreaasure(Items.WOOD_AXE, 0, 1, 1, 5), new StructurePieceTreaasure(Items.STONE_PICKAXE, 0, 1, 1, 3), new StructurePieceTreaasure(Items.WOOD_PICKAXE, 0, 1, 1, 5), new StructurePieceTreaasure(Items.APPLE, 0, 2, 3, 5), new StructurePieceTreaasure(Items.BREAD, 0, 2, 3, 3), new StructurePieceTreaasure(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)});
    private List V = Lists.newArrayList();
 
 
@@ -279,7 +279,7 @@ public class WorldServer extends World implements vn {
                         Location var18 = new Location(var15 + var5, var17 + var12.d(), var16 + var6);
                         IBlockData var19 = var12.a(var15, var17, var16);
                         Block var20 = var19.c();
-                        if(var20.w()) {
+                        if(var20.isTicking()) {
                            ++var1;
                            var20.a((World)this, var18, var19, this.random);
                         }

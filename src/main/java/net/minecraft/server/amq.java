@@ -36,9 +36,9 @@ final class amq extends DispenserBehaviorItem {
          }
       }
 
-      EntityMinecartAbstract var18 = EntityMinecartAbstract.a(var4, var5, var7 + var14, var9, amp.a((amp)var2.b()));
-      if(var2.s()) {
-         var18.a(var2.q());
+      EntityMinecartAbstract var18 = EntityMinecartAbstract.a(var4, var5, var7 + var14, var9, ItemMinecart.a((ItemMinecart)var2.getItem()));
+      if(var2.hasName()) {
+         var18.a(var2.getName());
       }
 
       var4.addEntity((Entity)var18);

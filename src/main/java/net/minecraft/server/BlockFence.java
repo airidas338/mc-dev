@@ -63,7 +63,7 @@ public class BlockFence extends Block {
       this.a(var11, 0.0F, var13, var12, 1.0F, var14);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       boolean var3 = this.e(var1, var2.c());
       boolean var4 = this.e(var1, var2.d());
       boolean var5 = this.e(var1, var2.e());
@@ -109,7 +109,7 @@ public class BlockFence extends Block {
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      return var1.isStatic?true:aml.a(var4, var1, var2);
+      return var1.isStatic?true:ItemLeash.a(var4, var1, var2);
    }
 
    public int c(IBlockData var1) {

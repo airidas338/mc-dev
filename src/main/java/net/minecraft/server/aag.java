@@ -39,7 +39,7 @@ public class aag extends PathfinderGoal {
             return false;
          } else {
             ItemStack var1 = this.h.bY();
-            return var1 == null?false:var1.b() == this.k;
+            return var1 == null?false:var1.getItem() == this.k;
          }
       }
    }

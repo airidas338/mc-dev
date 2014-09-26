@@ -39,7 +39,7 @@ public class BlockPistonMoving extends BlockContainer {
       return false;
    }
 
-   public void d(World var1, Location var2, IBlockData var3) {
+   public void postBreak(World var1, Location var2, IBlockData var3) {
       Location var4 = var2.a(((EnumFacing)var3.b(a)).d());
       IBlockData var5 = var1.getData(var4);
       if(var5.c() instanceof BlockPiston && ((Boolean)var5.b(BlockPiston.b)).booleanValue()) {
@@ -104,7 +104,7 @@ public class BlockPistonMoving extends BlockContainer {
       }
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       TileEntityPiston var3 = this.e(var1, var2);
       if(var3 != null) {
          IBlockData var4 = var3.b();
@@ -118,7 +118,7 @@ public class BlockPistonMoving extends BlockContainer {
             var6 = 1.0F - var6;
          }
 
-         var5.a(var1, var2);
+         var5.updateShape(var1, var2);
          if(var5 == Blocks.PISTON || var5 == Blocks.PISTON_STICKEY) {
             var6 = 0.0F;
          }

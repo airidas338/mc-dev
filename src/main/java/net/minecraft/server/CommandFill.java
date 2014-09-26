@@ -49,7 +49,7 @@ public class CommandFill extends CommandAbstract {
 
             NBTTagCompound var23 = new NBTTagCompound();
             boolean var22 = false;
-            if(var2.length >= 10 && var5.x()) {
+            if(var2.length >= 10 && var5.isTileEntity()) {
                String var13 = a(var1, var2, 9).c();
 
                try {
@@ -76,7 +76,7 @@ public class CommandFill extends CommandAbstract {
                               if(!var10.isEmpty(var17)) {
                                  continue;
                               }
-                           } else if(var2[8].equals("replace") && !var5.x()) {
+                           } else if(var2[8].equals("replace") && !var5.isTileEntity()) {
                               if(var2.length > 9) {
                                  Block var18 = CommandAbstract.g(var1, var2[9]);
                                  if(var10.getData(var17).c() != var18) {

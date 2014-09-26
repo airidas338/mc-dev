@@ -11,7 +11,7 @@ public abstract class BlockFlowers extends BlockPlant {
       this.j(this.L.b().a(this.l(), this.j() == awc.b?EnumFlowerType.b:EnumFlowerType.a));
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((EnumFlowerType)var1.b(this.l())).b();
    }
 

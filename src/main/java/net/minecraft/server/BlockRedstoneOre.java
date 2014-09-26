@@ -19,9 +19,9 @@ public class BlockRedstoneOre extends Block {
       return 30;
    }
 
-   public void a(World var1, Location var2, EntityHuman var3) {
+   public void attack(World var1, Location var2, EntityHuman var3) {
       this.d(var1, var2);
-      super.a(var1, var2, var3);
+      super.attack(var1, var2, var3);
    }
 
    public void a(World var1, Location var2, Entity var3) {
@@ -63,9 +63,9 @@ public class BlockRedstoneOre extends Block {
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       super.dropNaturally(var1, var2, var3, var4, var5);
-      if(this.a(var3, var1.random, var5) != Item.a((Block)this)) {
+      if(this.a(var3, var1.random, var5) != Item.getItemOf((Block)this)) {
          int var6 = 1 + var1.random.nextInt(5);
-         this.b(var1, var2, var6);
+         this.dropExperience(var1, var2, var6);
       }
 
    }

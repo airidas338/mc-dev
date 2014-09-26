@@ -8,6 +8,6 @@ public class BlockGravel extends BlockFalling {
          var3 = 3;
       }
 
-      return var2.nextInt(10 - var3 * 3) == 0?Items.ak:Item.a((Block)this);
+      return var2.nextInt(10 - var3 * 3) == 0?Items.ak:Item.getItemOf((Block)this);
    }
 }

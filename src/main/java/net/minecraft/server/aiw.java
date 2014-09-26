@@ -18,7 +18,7 @@ public class aiw extends ajk {
 
    public ItemStack a(int var1) {
       if(this.e()) {
-         this.b += Math.min(var1, this.d().b);
+         this.b += Math.min(var1, this.d().count);
       }
 
       return super.a(var1);
@@ -38,7 +38,7 @@ public class aiw extends ajk {
       var1.a(this.a.o, this.a, this.b);
       if(!this.a.o.isStatic) {
          int var2 = this.b;
-         float var3 = aok.a().b(var1);
+         float var3 = RecipesFurnace.getInstance().b(var1);
          int var4;
          if(var3 == 0.0F) {
             var2 = 0;
@@ -59,11 +59,11 @@ public class aiw extends ajk {
       }
 
       this.b = 0;
-      if(var1.b() == Items.j) {
+      if(var1.getItem() == Items.IRON_INGOT) {
          this.a.b((Statistic)AchievementList.k);
       }
 
-      if(var1.b() == Items.aV) {
+      if(var1.getItem() == Items.aV) {
          this.a.b((Statistic)AchievementList.p);
       }
 

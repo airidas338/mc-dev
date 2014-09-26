@@ -79,7 +79,7 @@ public class qy {
       if(this.a instanceof EntityItemFrame && this.m % 10 == 0) {
          EntityItemFrame var2 = (EntityItemFrame)this.a;
          ItemStack var3 = var2.o();
-         if(var3 != null && var3.b() instanceof ItemWorldMap) {
+         if(var3 != null && var3.getItem() instanceof ItemWorldMap) {
             WorldMap var4 = Items.bd.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 

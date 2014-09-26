@@ -223,7 +223,7 @@ public class BlockFire extends Block {
          }
 
          if(var7.c() == Blocks.TNT) {
-            Blocks.TNT.d(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
+            Blocks.TNT.postBreak(var1, var2, var7.a(BlockTNT.a, Boolean.valueOf(true)));
          }
       }
 
@@ -279,7 +279,7 @@ public class BlockFire extends Block {
 
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(var1.worldProvider.q() > 0 || !Blocks.PORTAL.d(var1, var2)) {
          if(!World.a((IBlockAccess)var1, var2.b()) && !this.e(var1, var2)) {
             var1.setAir(var2);

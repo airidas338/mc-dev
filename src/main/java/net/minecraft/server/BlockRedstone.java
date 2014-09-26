@@ -7,7 +7,7 @@ public class BlockRedstone extends BlockOreBlock {
       this.a(CreativeModeTab.d);
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 

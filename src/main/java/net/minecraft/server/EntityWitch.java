@@ -8,7 +8,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
 
    private static final UUID b = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
    private static final AttributeModifier c = (new AttributeModifier(b, "Drinking speed penalty", -0.25D, 0)).a(false);
-   private static final Item[] bk = new Item[]{Items.aT, Items.aY, Items.aC, Items.bB, Items.bA, Items.H, Items.y, Items.y};
+   private static final Item[] bk = new Item[]{Items.aT, Items.aY, Items.aC, Items.bB, Items.bA, Items.SULPHUR, Items.STICK, Items.STICK};
    private int bl;
 
 
@@ -63,7 +63,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
                this.a(false);
                ItemStack var1 = this.bz();
                this.c(0, (ItemStack)null);
-               if(var1 != null && var1.b() == Items.POTION) {
+               if(var1 != null && var1.getItem() == Items.POTION) {
                   List var2 = Items.POTION.h(var1);
                   if(var2 != null) {
                      Iterator var3 = var2.iterator();

@@ -20,6 +20,6 @@ public class EnchantmentDigging extends Enchantment {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.b() == Items.be?true:super.a(var1);
+      return var1.getItem() == Items.be?true:super.a(var1);
    }
 }

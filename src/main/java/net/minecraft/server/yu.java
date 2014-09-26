@@ -112,13 +112,13 @@ public class yu extends PathfinderGoal {
          }
       }
 
-      if(!var1.by.canInstantlyBuild && this.c >= this.b * 0.5F && this.a.bb().nextFloat() < 0.006F && !this.d) {
+      if(!var1.abilities.canInstantlyBuild && this.c >= this.b * 0.5F && this.a.bb().nextFloat() < 0.006F && !this.d) {
          ItemStack var24 = var1.bz();
-         if(var24 != null && var24.b() == Items.bY) {
-            var24.a(1, (EntityLiving)var1);
-            if(var24.b == 0) {
+         if(var24 != null && var24.getItem() == Items.bY) {
+            var24.damage(1, (EntityLiving)var1);
+            if(var24.count == 0) {
                ItemStack var25 = new ItemStack(Items.aR);
-               var25.d(var24.o());
+               var25.setTag(var24.getTag());
                var1.bg.a[var1.bg.c] = var25;
             }
          }

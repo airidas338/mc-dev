@@ -33,7 +33,7 @@ public class CommandSetBlock extends CommandAbstract {
          } else {
             NBTTagCompound var7 = new NBTTagCompound();
             boolean var8 = false;
-            if(var2.length >= 7 && var4.x()) {
+            if(var2.length >= 7 && var4.isTileEntity()) {
                String var9 = a(var1, var2, 6).c();
 
                try {

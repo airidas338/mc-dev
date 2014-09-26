@@ -4,12 +4,12 @@ import com.google.common.collect.Multimap;
 public class ItemSword extends Item {
 
    private float a;
-   private final ami b;
+   private final EnumToolMaterial b;
 
 
-   public ItemSword(ami var1) {
+   public ItemSword(EnumToolMaterial var1) {
       this.b = var1;
-      this.h = 1;
+      this.maxStackSize = 1;
       this.d(var1.a());
       this.a(CreativeModeTab.j);
       this.a = 4.0F + var1.c();
@@ -29,13 +29,13 @@ public class ItemSword extends Item {
    }
 
    public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
-      var1.a(1, var3);
+      var1.damage(1, var3);
       return true;
    }
 
    public boolean a(ItemStack var1, World var2, Block var3, Location var4, EntityLiving var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
-         var1.a(2, var5);
+         var1.damage(2, var5);
       }
 
       return true;
@@ -54,7 +54,7 @@ public class ItemSword extends Item {
       return var1;
    }
 
-   public boolean b(Block var1) {
+   public boolean canDestroySpecialBlocks(Block var1) {
       return var1 == Blocks.WEB;
    }
 
@@ -67,7 +67,7 @@ public class ItemSword extends Item {
    }
 
    public boolean a(ItemStack var1, ItemStack var2) {
-      return this.b.f() == var2.b()?true:super.a(var1, var2);
+      return this.b.f() == var2.getItem()?true:super.a(var1, var2);
    }
 
    public Multimap i() {

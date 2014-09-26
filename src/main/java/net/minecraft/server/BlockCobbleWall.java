@@ -31,7 +31,7 @@ public class BlockCobbleWall extends Block {
       return false;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       boolean var3 = this.e(var1, var2.c());
       boolean var4 = this.e(var1, var2.d());
       boolean var5 = this.e(var1, var2.e());
@@ -71,7 +71,7 @@ public class BlockCobbleWall extends Block {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       this.F = 1.5D;
       return super.a(var1, var2, var3);
    }
@@ -81,7 +81,7 @@ public class BlockCobbleWall extends Block {
       return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof BlockFenceGate)?(var3.J.k() && var3.d()?var3.J != Material.PUMPKIN:false):true);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((bby)var1.b(P)).a();
    }
 

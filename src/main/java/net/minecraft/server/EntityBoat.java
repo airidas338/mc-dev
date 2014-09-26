@@ -70,7 +70,7 @@ public class EntityBoat extends Entity {
             this.a(10);
             this.a(this.j() + var2 * 10.0F);
             this.ac();
-            boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman)var1.getEntity()).by.canInstantlyBuild;
+            boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman)var1.getEntity()).abilities.canInstantlyBuild;
             if(var3 || this.j() > 40.0F) {
                if(this.l != null) {
                   this.l.a((Entity)this);
@@ -243,11 +243,11 @@ public class EntityBoat extends Entity {
                this.J();
 
                for(var22 = 0; var22 < 3; ++var22) {
-                  this.a(Item.a(Blocks.WOOD), 1, 0.0F);
+                  this.a(Item.getItemOf(Blocks.WOOD), 1, 0.0F);
                }
 
                for(var22 = 0; var22 < 2; ++var22) {
-                  this.a(Items.y, 1, 0.0F);
+                  this.a(Items.STICK, 1, 0.0F);
                }
             }
          } else {
@@ -327,11 +327,11 @@ public class EntityBoat extends Entity {
 
                int var6;
                for(var6 = 0; var6 < 3; ++var6) {
-                  this.a(Item.a(Blocks.WOOD), 1, 0.0F);
+                  this.a(Item.getItemOf(Blocks.WOOD), 1, 0.0F);
                }
 
                for(var6 = 0; var6 < 2; ++var6) {
-                  this.a(Items.y, 1, 0.0F);
+                  this.a(Items.STICK, 1, 0.0F);
                }
             }
 

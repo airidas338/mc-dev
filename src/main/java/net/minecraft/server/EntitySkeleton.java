@@ -78,7 +78,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
             ItemStack var4 = this.p(4);
             if(var4 != null) {
                if(var4.e()) {
-                  var4.b(var4.h() + this.V.nextInt(2));
+                  var4.setData(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
                      this.c(4, (ItemStack)null);
@@ -127,7 +127,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
    }
 
    protected Item A() {
-      return Items.g;
+      return Items.ARROW;
    }
 
    protected void b(boolean var1, int var2) {
@@ -137,13 +137,13 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          var3 = this.V.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.h, 1);
+            this.a(Items.COAL, 1);
          }
       } else {
          var3 = this.V.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.g, 1);
+            this.a(Items.ARROW, 1);
          }
       }
 
@@ -172,7 +172,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       if(this.o.worldProvider instanceof bge && this.bb().nextInt(5) > 0) {
          this.goalSelector.a(4, this.c);
          this.a(1);
-         this.c(0, new ItemStack(Items.q));
+         this.c(0, new ItemStack(Items.STONE_SWORD));
          this.getAttributeInstance(GenericAttributes.e).a(4.0D);
       } else {
          this.goalSelector.a(4, this.b);
@@ -196,7 +196,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
       this.goalSelector.a((PathfinderGoal)this.c);
       this.goalSelector.a((PathfinderGoal)this.b);
       ItemStack var1 = this.bz();
-      if(var1 != null && var1.b() == Items.BOW) {
+      if(var1 != null && var1.getItem() == Items.BOW) {
          this.goalSelector.a(4, this.b);
       } else {
          this.goalSelector.a(4, this.c);
@@ -206,8 +206,8 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
    public void a(EntityLiving var1, float var2) {
       EntityArrow var3 = new EntityArrow(this.o, this, var1, 1.6F, (float)(14 - this.o.aa().a() * 4));
-      int var4 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_DAMAGE.B, this.bz());
-      int var5 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_KNOCKBACK.B, this.bz());
+      int var4 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_DAMAGE.id, this.bz());
+      int var5 = EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_KNOCKBACK.id, this.bz());
       var3.b((double)(var2 * 2.0F) + this.V.nextGaussian() * 0.25D + (double)((float)this.o.aa().a() * 0.11F));
       if(var4 > 0) {
          var3.b(var3.j() + (double)var4 * 0.5D + 0.5D);
@@ -217,7 +217,7 @@ public class EntitySkeleton extends EntityMonster implements IRangedEntity {
          var3.a(var5);
       }
 
-      if(EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_FIRE.B, this.bz()) > 0 || this.ck() == 1) {
+      if(EnchantmentManager.getEnchantmentLevel(Enchantment.ARROW_FIRE.id, this.bz()) > 0 || this.ck() == 1) {
          var3.e(100);
       }
 

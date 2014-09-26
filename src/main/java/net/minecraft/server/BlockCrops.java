@@ -18,7 +18,7 @@ public class BlockCrops extends BlockPlant implements atz {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.FARMLAND;
+      return var1 == Blocks.SOIL;
    }
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
@@ -52,7 +52,7 @@ public class BlockCrops extends BlockPlant implements atz {
          for(int var6 = -1; var6 <= 1; ++var6) {
             float var7 = 0.0F;
             IBlockData var8 = var1.getData(var4.a(var5, 0, var6));
-            if(var8.c() == Blocks.FARMLAND) {
+            if(var8.c() == Blocks.SOIL) {
                var7 = 1.0F;
                if(((Integer)var8.b(BlockSoil.a)).intValue() > 0) {
                   var7 = 3.0F;
@@ -90,11 +90,11 @@ public class BlockCrops extends BlockPlant implements atz {
    }
 
    protected Item j() {
-      return Items.N;
+      return Items.SEEDS;
    }
 
    protected Item l() {
-      return Items.O;
+      return Items.WHEAT;
    }
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {

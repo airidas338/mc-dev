@@ -25,7 +25,7 @@ public class BlockWeb extends Block {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Items.F;
+      return Items.STRING;
    }
 
    protected boolean G() {

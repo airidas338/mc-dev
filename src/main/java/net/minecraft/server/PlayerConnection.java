@@ -242,7 +242,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				}
 
 				AxisAlignedBB var47 = this.b.aQ().b((double) var41, (double) var41, (double) var41).a(0.0D, -0.55D, 0.0D);
-				if (!this.d.ai() && !this.b.by.canFly && !var2.c(var47)) {
+				if (!this.d.ai() && !this.b.abilities.canFly && !var2.c(var47)) {
 					if (var43 >= -0.03125D) {
 						++this.g;
 						if (this.g > 80) {
@@ -391,7 +391,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		}
 
 		var3 = this.b.bg.h();
-		if (var3 != null && var3.b == 0) {
+		if (var3 != null && var3.count == 0) {
 			this.b.bg.a[this.b.bg.c] = null;
 			var3 = null;
 		}
@@ -402,7 +402,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			ajk var8 = this.b.bi.a((IInventory) this.b.bg, this.b.bg.c);
 			this.b.bi.b();
 			this.b.g = false;
-			if (!ItemStack.b(this.b.bg.h(), var1.c())) {
+			if (!ItemStack.matches(this.b.bg.h(), var1.c())) {
 				this.sendPacket((Packet) (new PacketPlayOutSetSlot(this.b.bi.d, var8.e, this.b.bg.h())));
 			}
 		}
@@ -671,7 +671,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 				this.b.a(this.b.bi, (List) var2);
 			} else {
 				ItemStack var5 = this.b.bi.a(var1.b(), var1.c(), var1.f(), this.b);
-				if (ItemStack.b(var1.e(), var5)) {
+				if (ItemStack.matches(var1.e(), var5)) {
 					this.b.a.sendPacket((Packet) (new PacketPlayOutTransaction(var1.a(), var1.d(), true)));
 					this.b.g = true;
 					this.b.bi.b();
@@ -709,8 +709,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		if (this.b.c.d()) {
 			boolean var2 = var1.a() < 0;
 			ItemStack var3 = var1.b();
-			if (var3 != null && var3.n() && var3.o().hasKeyOfType("BlockEntityTag", 10)) {
-				NBTTagCompound var4 = var3.o().getCompound("BlockEntityTag");
+			if (var3 != null && var3.hasTag() && var3.getTag().hasKeyOfType("BlockEntityTag", 10)) {
+				NBTTagCompound var4 = var3.getTag().getCompound("BlockEntityTag");
 				if (var4.hasKey("x") && var4.hasKey("y") && var4.hasKey("z")) {
 					Location var5 = new Location(var4.getInt("x"), var4.getInt("y"), var4.getInt("z"));
 					TileEntity var6 = this.b.o.getTileEntity(var5);
@@ -726,8 +726,8 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 			}
 
 			boolean var8 = var1.a() >= 1 && var1.a() < 36 + ahb.i();
-			boolean var9 = var3 == null || var3.b() != null;
-			boolean var10 = var3 == null || var3.i() >= 0 && var3.b <= 64 && var3.b > 0;
+			boolean var9 = var3 == null || var3.getItem() != null;
+			boolean var10 = var3 == null || var3.getData() >= 0 && var3.count <= 64 && var3.count > 0;
 			if (var8 && var9 && var10) {
 				if (var3 == null) {
 					this.b.bh.a(var1.a(), (ItemStack) null);
@@ -794,7 +794,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 
 	public void a(PacketPlayInAbilities var1) {
 		ig.a(var1, this, this.b.u());
-		this.b.by.isFlying = var1.b() && this.b.by.canFly;
+		this.b.abilities.isFlying = var1.b() && this.b.abilities.canFly;
 	}
 
 	public void a(PacketPlayInTabComplete var1) {
@@ -829,14 +829,14 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					return;
 				}
 
-				if (!anq.b(var3.o())) {
+				if (!ItemBookAndQuill.b(var3.getTag())) {
 					throw new IOException("Invalid book tag!");
 				}
 
 				var4 = this.b.bg.h();
 				if (var4 != null) {
-					if (var3.b() == Items.BOOK_AND_QUILL && var3.b() == var4.b()) {
-						var4.a("pages", (NBTBase) var3.o().getList("pages", 8));
+					if (var3.getItem() == Items.BOOK_AND_QUILL && var3.getItem() == var4.getItem()) {
+						var4.a("pages", (NBTBase) var3.getTag().getList("pages", 8));
 					}
 
 					return;
@@ -858,17 +858,17 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 					return;
 				}
 
-				if (!anr.b(var3.o())) {
+				if (!ItemWrittenBook.b(var3.getTag())) {
 					throw new IOException("Invalid book tag!");
 				}
 
 				var4 = this.b.bg.h();
 				if (var4 != null) {
-					if (var3.b() == Items.WRITTEN_BOOK && var4.b() == Items.BOOK_AND_QUILL) {
+					if (var3.getItem() == Items.WRITTEN_BOOK && var4.getItem() == Items.BOOK_AND_QUILL) {
 						var4.a("author", (NBTBase) (new NBTTagString(this.b.getName())));
-						var4.a("title", (NBTBase) (new NBTTagString(var3.o().getString("title"))));
-						var4.a("pages", (NBTBase) var3.o().getList("pages", 8));
-						var4.a(Items.WRITTEN_BOOK);
+						var4.a("title", (NBTBase) (new NBTTagString(var3.getTag().getString("title"))));
+						var4.a("pages", (NBTBase) var3.getTag().getList("pages", 8));
+						var4.setItem(Items.WRITTEN_BOOK);
 					}
 
 					return;
@@ -894,7 +894,7 @@ public class PlayerConnection implements PacketPlayInListener, IUpdatePlayerList
 		} else if ("MC|AdvCdm".equals(var1.a())) {
 			if (!this.d.aj()) {
 				this.b.sendMessage((IChatBaseComponent) (new ChatMessage("advMode.notEnabled", new Object[0])));
-			} else if (this.b.a(2, "") && this.b.by.canInstantlyBuild) {
+			} else if (this.b.a(2, "") && this.b.abilities.canInstantlyBuild) {
 				var2 = var1.b();
 
 				try {

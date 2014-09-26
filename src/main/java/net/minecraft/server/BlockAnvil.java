@@ -35,11 +35,11 @@ public class BlockAnvil extends BlockFalling {
       return true;
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((Integer)var1.b(b)).intValue();
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       EnumFacing var3 = (EnumFacing)var1.getData(var2).b(a);
       if(var3.k() == el.a) {
          this.a(0.0F, 0.0F, 0.125F, 1.0F, 1.0F, 0.875F);

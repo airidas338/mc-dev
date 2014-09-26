@@ -15,7 +15,7 @@ class ahc implements Callable {
    }
 
    public String a() {
-      return this.a.q();
+      return this.a.getName();
    }
 
    // $FF: synthetic method

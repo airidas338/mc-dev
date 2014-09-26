@@ -13,11 +13,11 @@ public class aqd extends ArrayList {
    public aqc a(ItemStack var1, ItemStack var2, int var3) {
       if(var3 > 0 && var3 < this.size()) {
          aqc var6 = (aqc)this.get(var3);
-         return ItemStack.c(var1, var6.a()) && (var2 == null && !var6.c() || var6.c() && ItemStack.c(var2, var6.b())) && var1.b >= var6.a().b && (!var6.c() || var2.b >= var6.b().b)?var6:null;
+         return ItemStack.doMaterialsMatch(var1, var6.a()) && (var2 == null && !var6.c() || var6.c() && ItemStack.doMaterialsMatch(var2, var6.b())) && var1.count >= var6.a().count && (!var6.c() || var2.count >= var6.b().count)?var6:null;
       } else {
          for(int var4 = 0; var4 < this.size(); ++var4) {
             aqc var5 = (aqc)this.get(var4);
-            if(ItemStack.c(var1, var5.a()) && var1.b >= var5.a().b && (!var5.c() && var2 == null || var5.c() && ItemStack.c(var2, var5.b()) && var2.b >= var5.b().b)) {
+            if(ItemStack.doMaterialsMatch(var1, var5.a()) && var1.count >= var5.a().count && (!var5.c() && var2 == null || var5.c() && ItemStack.doMaterialsMatch(var2, var5.b()) && var2.count >= var5.b().count)) {
                return var5;
             }
          }

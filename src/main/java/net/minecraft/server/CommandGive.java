@@ -28,7 +28,7 @@ public class CommandGive extends CommandAbstract {
             String var8 = a(var1, var2, 4).c();
 
             try {
-               var7.d(gg.a(var8));
+               var7.setTag(gg.a(var8));
             } catch (gf var10) {
                throw new CommandException("commands.give.tagError", new Object[]{var10.getMessage()});
             }
@@ -41,15 +41,15 @@ public class CommandGive extends CommandAbstract {
          }
 
          EntityItem var9;
-         if(var11 && var7.b <= 0) {
-            var7.b = 1;
+         if(var11 && var7.count <= 0) {
+            var7.count = 1;
             var1.a(ag.d, var5);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.v();
             }
          } else {
-            var1.a(ag.d, var5 - var7.b);
+            var1.a(ag.d, var5 - var7.count);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.q();

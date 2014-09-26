@@ -14,7 +14,7 @@ public class BlockPrismarine extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((azj)var1.b(a)).a();
    }
 

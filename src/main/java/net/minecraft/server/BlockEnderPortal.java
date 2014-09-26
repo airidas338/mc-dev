@@ -14,7 +14,7 @@ public class BlockEnderPortal extends BlockContainer {
       return new TileEntityEnderPortal();
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       float var3 = 0.0625F;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }

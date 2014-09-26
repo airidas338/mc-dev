@@ -18,7 +18,7 @@ public class BlockDaylightDetector extends BlockContainer {
       this.c("daylightDetector");
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
    }
 
@@ -67,7 +67,7 @@ public class BlockDaylightDetector extends BlockContainer {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a((Block)Blocks.DAYLIGHT_DETECTOR);
+      return Item.getItemOf((Block)Blocks.DAYLIGHT_DETECTOR);
    }
 
    public boolean d() {
@@ -82,7 +82,7 @@ public class BlockDaylightDetector extends BlockContainer {
       return 3;
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 

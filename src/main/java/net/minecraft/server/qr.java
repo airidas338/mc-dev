@@ -109,7 +109,7 @@ class qr {
             var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
             Location var4 = new Location(var1, var2, var3);
             this.a((Packet)(new PacketPlayOutBlockChange(PlayerChunkMap.a(this.a), var4)));
-            if(PlayerChunkMap.a(this.a).getData(var4).c().x()) {
+            if(PlayerChunkMap.a(this.a).getData(var4).c().isTileEntity()) {
                this.a(PlayerChunkMap.a(this.a).getTileEntity(var4));
             }
          } else {
@@ -137,7 +137,7 @@ class qr {
                   var3 = this.d[var1] & 255;
                   var7 = (this.d[var1] >> 8 & 15) + this.c.b * 16;
                   Location var8 = new Location(var2, var3, var7);
-                  if(PlayerChunkMap.a(this.a).getData(var8).c().x()) {
+                  if(PlayerChunkMap.a(this.a).getData(var8).c().isTileEntity()) {
                      this.a(PlayerChunkMap.a(this.a).getTileEntity(var8));
                   }
                }

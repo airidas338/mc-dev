@@ -480,7 +480,7 @@ public class Chunk {
             }
 
             if(!this.i.isStatic && var10 != var9) {
-               var9.c(this.i, var1, var2);
+               var9.onPlace(this.i, var1, var2);
             }
 
             if(var9 instanceof IContainer) {
@@ -599,7 +599,7 @@ public class Chunk {
 
    private TileEntity i(Location var1) {
       Block var2 = this.a(var1);
-      return !var2.x()?null:((IContainer)var2).a(this.i, this.c(var1));
+      return !var2.isTileEntity()?null:((IContainer)var2).a(this.i, this.c(var1));
    }
 
    public TileEntity a(Location var1, bfl var2) {
@@ -838,7 +838,7 @@ public class Chunk {
 
       while(!this.w.isEmpty()) {
          Location var2 = (Location)this.w.poll();
-         if(this.a(var2, bfl.c) == null && this.a(var2).x()) {
+         if(this.a(var2, bfl.c) == null && this.a(var2).isTileEntity()) {
             TileEntity var3 = this.i(var2);
             this.i.setTileEntity(var2, var3);
             this.i.b(var2, var2);

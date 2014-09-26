@@ -90,7 +90,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 				this.j(10);
 				this.ac();
 				this.a(this.p() + var2 * 10.0F);
-				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).by.canInstantlyBuild;
+				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).abilities.canInstantlyBuild;
 				if (var3 || this.p() > 40.0F) {
 					if (this.l != null) {
 						this.l.a((Entity) null);
@@ -534,7 +534,7 @@ public abstract class EntityMinecartAbstract extends Entity implements ICustomNa
 					this.a(var3.a(var2));
 				}
 			} else {
-				var3 = Block.c(var1.getInt("DisplayTile"));
+				var3 = Block.getById(var1.getInt("DisplayTile"));
 				if (var3 == null) {
 					this.a(Blocks.AIR.P());
 				} else {

@@ -54,7 +54,7 @@ public class WorldGenTrees extends WorldGenTreeAbstract {
             return false;
          } else {
             Block var19 = var1.getData(var3.b()).c();
-            if((var19 == Blocks.GRASS || var19 == Blocks.DIRT || var19 == Blocks.FARMLAND) && var3.o() < 256 - var4 - 1) {
+            if((var19 == Blocks.GRASS || var19 == Blocks.DIRT || var19 == Blocks.SOIL) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var7 = 3;
                byte var20 = 0;

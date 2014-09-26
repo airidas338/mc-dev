@@ -15,7 +15,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       this.c("doublePlant");
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
@@ -78,11 +78,11 @@ public class BlockTallPlant extends BlockPlant implements atz {
          return null;
       } else {
          avk var4 = (avk)var1.b(a);
-         return var4 == avk.d?null:(var4 == avk.c?(var2.nextInt(8) == 0?Items.N:null):Item.a((Block)this));
+         return var4 == avk.d?null:(var4 == avk.c?(var2.nextInt(8) == 0?Items.SEEDS:null):Item.getItemOf((Block)this));
       }
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return var1.b(b) != avj.a && var1.b(a) != avk.c?((avk)var1.b(a)).a():0;
    }
 
@@ -96,7 +96,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-      if(var1.isStatic || var2.bY() == null || var2.bY().b() != Items.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
+      if(var1.isStatic || var2.bY() == null || var2.bY().getItem() != Items.be || var4.b(b) != avj.b || !this.b(var1, var3, var4, var2)) {
          super.a(var1, var2, var3, var4, var5);
       }
    }
@@ -104,13 +104,13 @@ public class BlockTallPlant extends BlockPlant implements atz {
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       if(var3.b(b) == avj.a) {
          if(var1.getData(var2.b()).c() == this) {
-            if(!var4.by.canInstantlyBuild) {
+            if(!var4.abilities.canInstantlyBuild) {
                IBlockData var5 = var1.getData(var2.b());
                avk var6 = (avk)var5.b(a);
                if(var6 != avk.d && var6 != avk.c) {
                   var1.setAir(var2.b(), true);
                } else if(!var1.isStatic) {
-                  if(var4.bY() != null && var4.bY().b() == Items.be) {
+                  if(var4.bY() != null && var4.bY().getItem() == Items.be) {
                      this.b(var1, var2, var5, var4);
                      var1.setAir(var2.b());
                   } else {
@@ -123,7 +123,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
                var1.setAir(var2.b());
             }
          }
-      } else if(var4.by.canInstantlyBuild && var1.getData(var2.a()).c() == this) {
+      } else if(var4.abilities.canInstantlyBuild && var1.getData(var2.a()).c() == this) {
          var1.setTypeAndData(var2.a(), Blocks.AIR.P(), 2);
       }
 
@@ -135,7 +135,7 @@ public class BlockTallPlant extends BlockPlant implements atz {
       if(var5 != avk.d && var5 != avk.c) {
          return false;
       } else {
-         var4.b(StatisticList.H[Block.getId((Block)this)]);
+         var4.b(StatisticList.MINE_BLOCK_COUNT[Block.getId((Block)this)]);
          int var6 = (var5 == avk.c?EnumFoliage.b:EnumFoliage.c).a();
          a(var1, var2, new ItemStack(Blocks.LONG_GRASS, 2, var6));
          return true;

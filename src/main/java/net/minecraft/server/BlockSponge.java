@@ -15,11 +15,11 @@ public class BlockSponge extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((Boolean)var1.b(a)).booleanValue()?1:0;
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class amm extends aju {
+public class amm extends ItemBlock {
 
    private final BlockLeaves b;
 
@@ -17,6 +17,6 @@ public class amm extends aju {
    }
 
    public String e_(ItemStack var1) {
-      return super.a() + "." + this.b.b(var1.i()).c();
+      return super.a() + "." + this.b.b(var1.getData()).c();
    }
 }

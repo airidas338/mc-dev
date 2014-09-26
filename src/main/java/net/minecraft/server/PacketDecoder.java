@@ -26,7 +26,7 @@ public class PacketDecoder extends ByteToMessageDecoder {
       if(var2.readableBytes() != 0) {
          PacketDataSerializer var4 = new PacketDataSerializer(var2);
          int var5 = var4.e();
-         Packet var6 = ((gy)var1.channel().attr(NetworkManager.c).get()).a(this.c, var5);
+         Packet var6 = (var1.channel().attr(NetworkManager.c).get()).a(this.c, var5);
          if(var6 == null) {
             throw new IOException("Bad packet id " + var5);
          } else {

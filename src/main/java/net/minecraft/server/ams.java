@@ -12,7 +12,7 @@ class ams implements Function {
    }
 
    public String a(ItemStack var1) {
-      int var2 = var1.i();
+      int var2 = var1.getData();
       if(var2 < 0 || var2 >= this.a.length) {
          var2 = 0;
       }

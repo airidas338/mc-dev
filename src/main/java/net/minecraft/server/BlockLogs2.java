@@ -51,10 +51,10 @@ public class BlockLogs2 extends BlockLogAbstract {
    }
 
    protected ItemStack i(IBlockData var1) {
-      return new ItemStack(Item.a((Block)this), 1, ((ayx)var1.b(b)).a() - 4);
+      return new ItemStack(Item.getItemOf((Block)this), 1, ((ayx)var1.b(b)).a() - 4);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((ayx)var1.b(b)).a() - 4;
    }
 

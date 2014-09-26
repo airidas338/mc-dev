@@ -122,7 +122,7 @@ public class EntityZombie extends EntityMonster {
             ItemStack var4 = this.p(4);
             if(var4 != null) {
                if(var4.e()) {
-                  var4.b(var4.h() + this.V.nextInt(2));
+                  var4.setData(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
                      this.c(4, (ItemStack)null);
@@ -233,7 +233,7 @@ public class EntityZombie extends EntityMonster {
    protected void bp() {
       switch(this.V.nextInt(3)) {
       case 0:
-         this.a(Items.j, 1);
+         this.a(Items.IRON_INGOT, 1);
          break;
       case 1:
          this.a(Items.bR, 1);
@@ -249,7 +249,7 @@ public class EntityZombie extends EntityMonster {
       if(this.V.nextFloat() < (this.o.aa() == EnumDifficulty.HARD?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.c(0, new ItemStack(Items.l));
+            this.c(0, new ItemStack(Items.IRON_SWORD));
          } else {
             this.c(0, new ItemStack(Items.IRON_SPADE));
          }
@@ -320,7 +320,7 @@ public class EntityZombie extends EntityMonster {
    }
 
    protected boolean a(ItemStack var1) {
-      return var1.b() == Items.aP && this.i_() && this.av()?false:super.a(var1);
+      return var1.getItem() == Items.aP && this.i_() && this.av()?false:super.a(var1);
    }
 
    public xq a(vu var1, xq var2) {
@@ -385,12 +385,12 @@ public class EntityZombie extends EntityMonster {
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bY();
-      if(var2 != null && var2.b() == Items.ao && var2.i() == 0 && this.cm() && this.a(MobEffectList.t)) {
-         if(!var1.by.canInstantlyBuild) {
-            --var2.b;
+      if(var2 != null && var2.getItem() == Items.ao && var2.getData() == 0 && this.cm() && this.a(MobEffectList.t)) {
+         if(!var1.abilities.canInstantlyBuild) {
+            --var2.count;
          }
 
-         if(var2.b <= 0) {
+         if(var2.count <= 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 

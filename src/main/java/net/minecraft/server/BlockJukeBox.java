@@ -27,7 +27,7 @@ public class BlockJukeBox extends BlockContainer {
       if(!var1.isStatic) {
          TileEntity var5 = var1.getTileEntity(var2);
          if(var5 instanceof TileEntityRecordPlayer) {
-            ((TileEntityRecordPlayer)var5).a(new ItemStack(var4.b(), 1, var4.i()));
+            ((TileEntityRecordPlayer)var5).a(new ItemStack(var4.getItem(), 1, var4.getData()));
             var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)), 2);
          }
       }
@@ -47,7 +47,7 @@ public class BlockJukeBox extends BlockContainer {
                double var8 = (double)(var1.random.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
                double var10 = (double)(var1.random.nextFloat() * var7) + (double)(1.0F - var7) * 0.2D + 0.6D;
                double var12 = (double)(var1.random.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
-               ItemStack var14 = var6.k();
+               ItemStack var14 = var6.cloneItemStack();
                EntityItem var15 = new EntityItem(var1, (double)var2.n() + var8, (double)var2.o() + var10, (double)var2.p() + var12, var14);
                var15.p();
                var1.addEntity((Entity)var15);
@@ -80,7 +80,7 @@ public class BlockJukeBox extends BlockContainer {
       if(var3 instanceof TileEntityRecordPlayer) {
          ItemStack var4 = ((TileEntityRecordPlayer)var3).a();
          if(var4 != null) {
-            return Item.b(var4.b()) + 1 - Item.b(Items.cq);
+            return Item.getId(var4.getItem()) + 1 - Item.getId(Items.cq);
          }
       }
 

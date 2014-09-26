@@ -58,21 +58,21 @@ public class ze extends zn {
                ItemStack var7 = var5.a(var6);
                boolean var8 = false;
                if(var7 != null) {
-                  if(var7.b() == Items.N) {
-                     var1.setTypeAndData(var2, Blocks.WHEAT.P(), 3);
+                  if(var7.getItem() == Items.SEEDS) {
+                     var1.setTypeAndData(var2, Blocks.CROPS.P(), 3);
                      var8 = true;
-                  } else if(var7.b() == Items.bS) {
+                  } else if(var7.getItem() == Items.bS) {
                      var1.setTypeAndData(var2, Blocks.POTATOES.P(), 3);
                      var8 = true;
-                  } else if(var7.b() == Items.bR) {
+                  } else if(var7.getItem() == Items.bR) {
                      var1.setTypeAndData(var2, Blocks.CARROTS.P(), 3);
                      var8 = true;
                   }
                }
 
                if(var8) {
-                  --var7.b;
-                  if(var7.b <= 0) {
+                  --var7.count;
+                  if(var7.count <= 0) {
                      var5.a(var6, (ItemStack)null);
                   }
                   break;
@@ -88,7 +88,7 @@ public class ze extends zn {
 
    protected boolean a(World var1, Location var2) {
       Block var3 = var1.getData(var2).c();
-      if(var3 == Blocks.FARMLAND) {
+      if(var3 == Blocks.SOIL) {
          var2 = var2.a();
          IBlockData var4 = var1.getData(var2);
          var3 = var4.c();

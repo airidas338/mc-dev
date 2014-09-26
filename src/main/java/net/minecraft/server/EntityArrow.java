@@ -112,7 +112,7 @@ public class EntityArrow extends Entity implements IProjectile {
       IBlockData var2 = this.o.getData(var18);
       Block var3 = var2.c();
       if(var3.getMaterial() != Material.AIR) {
-         var3.a((IBlockAccess)this.o, var18);
+         var3.updateShape((IBlockAccess)this.o, var18);
          AxisAlignedBB var4 = var3.a(this.o, var18, var2);
          if(var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
             this.i = true;
@@ -163,7 +163,7 @@ public class EntityArrow extends Entity implements IProjectile {
                AxisAlignedBB var14 = var12.aQ().b((double)var13, (double)var13, (double)var13);
                MovingObjectPosition var15 = var14.a(var19, var5);
                if(var15 != null) {
-                  double var16 = var19.f(var15.c);
+                  double var16 = var19.distanceSquared(var15.c);
                   if(var16 < var9 || var9 == 0.0D) {
                      var7 = var12;
                      var9 = var16;
@@ -178,7 +178,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
          if(var6 != null && var6.d != null && var6.d instanceof EntityHuman) {
             EntityHuman var23 = (EntityHuman)var6.d;
-            if(var23.by.isInvulnerable || this.c instanceof EntityHuman && !((EntityHuman)this.c).a(var23)) {
+            if(var23.abilities.isInvulnerable || this.c instanceof EntityHuman && !((EntityHuman)this.c).a(var23)) {
                var6 = null;
             }
          }
@@ -342,7 +342,7 @@ public class EntityArrow extends Entity implements IProjectile {
       if(var1.hasKeyOfType("inTile", 8)) {
          this.g = Block.b(var1.getString("inTile"));
       } else {
-         this.g = Block.c(var1.getByte("inTile") & 255);
+         this.g = Block.getById(var1.getByte("inTile") & 255);
       }
 
       this.h = var1.getByte("inData") & 255;
@@ -362,8 +362,8 @@ public class EntityArrow extends Entity implements IProjectile {
 
    public void d(EntityHuman var1) {
       if(!this.o.isStatic && this.i && this.b <= 0) {
-         boolean var2 = this.a == 1 || this.a == 2 && var1.by.canInstantlyBuild;
-         if(this.a == 1 && !var1.bg.a(new ItemStack(Items.g, 1))) {
+         boolean var2 = this.a == 1 || this.a == 2 && var1.abilities.canInstantlyBuild;
+         if(this.a == 1 && !var1.bg.a(new ItemStack(Items.ARROW, 1))) {
             var2 = false;
          }
 

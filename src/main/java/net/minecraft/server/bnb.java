@@ -32,10 +32,10 @@ public class bnb extends bnn {
 
    protected void b(NBTTagCompound var1) {
       super.b(var1);
-      this.a = Block.c(var1.getInt("CA"));
-      this.b = Block.c(var1.getInt("CB"));
-      this.c = Block.c(var1.getInt("CC"));
-      this.d = Block.c(var1.getInt("CD"));
+      this.a = Block.getById(var1.getInt("CA"));
+      this.b = Block.getById(var1.getInt("CB"));
+      this.c = Block.getById(var1.getInt("CC"));
+      this.d = Block.getById(var1.getInt("CD"));
    }
 
    private Block a(Random var1) {
@@ -45,7 +45,7 @@ public class bnb extends bnn {
       case 1:
          return Blocks.POTATOES;
       default:
-         return Blocks.WHEAT;
+         return Blocks.CROPS;
       }
    }
 
@@ -65,10 +65,10 @@ public class bnb extends bnn {
       }
 
       this.a(var1, var3, 0, 1, 0, 12, 4, 8, Blocks.AIR.P(), Blocks.AIR.P(), false);
-      this.a(var1, var3, 1, 0, 1, 2, 0, 7, Blocks.FARMLAND.P(), Blocks.FARMLAND.P(), false);
-      this.a(var1, var3, 4, 0, 1, 5, 0, 7, Blocks.FARMLAND.P(), Blocks.FARMLAND.P(), false);
-      this.a(var1, var3, 7, 0, 1, 8, 0, 7, Blocks.FARMLAND.P(), Blocks.FARMLAND.P(), false);
-      this.a(var1, var3, 10, 0, 1, 11, 0, 7, Blocks.FARMLAND.P(), Blocks.FARMLAND.P(), false);
+      this.a(var1, var3, 1, 0, 1, 2, 0, 7, Blocks.SOIL.P(), Blocks.SOIL.P(), false);
+      this.a(var1, var3, 4, 0, 1, 5, 0, 7, Blocks.SOIL.P(), Blocks.SOIL.P(), false);
+      this.a(var1, var3, 7, 0, 1, 8, 0, 7, Blocks.SOIL.P(), Blocks.SOIL.P(), false);
+      this.a(var1, var3, 10, 0, 1, 11, 0, 7, Blocks.SOIL.P(), Blocks.SOIL.P(), false);
       this.a(var1, var3, 0, 0, 0, 0, 0, 8, Blocks.LOG.P(), Blocks.LOG.P(), false);
       this.a(var1, var3, 6, 0, 0, 6, 0, 8, Blocks.LOG.P(), Blocks.LOG.P(), false);
       this.a(var1, var3, 12, 0, 0, 12, 0, 8, Blocks.LOG.P(), Blocks.LOG.P(), false);

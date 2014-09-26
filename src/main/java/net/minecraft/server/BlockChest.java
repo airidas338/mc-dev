@@ -31,7 +31,7 @@ public class BlockChest extends BlockContainer {
       return 2;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       if(var1.getData(var2.c()).c() == this) {
          this.a(0.0625F, 0.0F, 0.0F, 0.9375F, 0.875F, 0.9375F);
       } else if(var1.getData(var2.d()).c() == this) {
@@ -46,7 +46,7 @@ public class BlockChest extends BlockContainer {
 
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
       Iterator var4 = en.a.iterator();
 
@@ -96,10 +96,10 @@ public class BlockChest extends BlockContainer {
          var1.setTypeAndData(var2, var3, 3);
       }
 
-      if(var5.s()) {
+      if(var5.hasName()) {
          TileEntity var15 = var1.getTileEntity(var2);
          if(var15 instanceof TileEntityChest) {
-            ((TileEntityChest)var15).a(var5.q());
+            ((TileEntityChest)var15).a(var5.getName());
          }
       }
 
@@ -353,12 +353,12 @@ public class BlockChest extends BlockContainer {
       return new TileEntityChest();
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return this.b == 1;
    }
 
    public int a(IBlockAccess var1, Location var2, IBlockData var3, EnumFacing var4) {
-      if(!this.g()) {
+      if(!this.isPowerSource()) {
          return 0;
       } else {
          int var5 = 0;

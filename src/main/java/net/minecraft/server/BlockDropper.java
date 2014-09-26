@@ -29,18 +29,18 @@ public class BlockDropper extends BlockDispenser {
                ItemStack var10;
                if(var9 == null) {
                   var10 = this.O.a(var3, var6);
-                  if(var10 != null && var10.b == 0) {
+                  if(var10 != null && var10.count == 0) {
                      var10 = null;
                   }
                } else {
-                  var10 = TileEntityHopper.a(var9, var6.k().a(1), var7.d());
+                  var10 = TileEntityHopper.a(var9, var6.cloneItemStack().a(1), var7.d());
                   if(var10 == null) {
-                     var10 = var6.k();
-                     if(--var10.b == 0) {
+                     var10 = var6.cloneItemStack();
+                     if(--var10.count == 0) {
                         var10 = null;
                      }
                   } else {
-                     var10 = var6.k();
+                     var10 = var6.cloneItemStack();
                   }
                }
 

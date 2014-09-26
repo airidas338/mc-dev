@@ -208,8 +208,8 @@ public class EntityPlayer extends EntityHuman implements ail {
 
             for (int var1 = 0; var1 < this.bg.n_(); ++var1) {
                 ItemStack var6 = this.bg.a(var1);
-                if (var6 != null && var6.b().f()) {
-                    Packet var8 = ((ake) var6.b()).c(var6, this.o, this);
+                if (var6 != null && var6.getItem().f()) {
+                    Packet var8 = ((ake) var6.getItem()).c(var6, this.o, this);
                     if (var8 != null) {
                         this.a.sendPacket(var8);
                     }
@@ -545,7 +545,7 @@ public class EntityPlayer extends EntityHuman implements ail {
     }
 
     public void a(ItemStack var1) {
-        Item var2 = var1.b();
+        Item var2 = var1.getItem();
         if (var2 == Items.WRITTEN_BOOK) {
             this.a.sendPacket((Packet) (new PacketPlayOutCustomPayload("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
         }
@@ -672,7 +672,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
     public void a(ItemStack var1, int var2) {
         super.a(var1, var2);
-        if (var1 != null && var1.b() != null && var1.b().e(var1) == EnumAnimation.EAT) {
+        if (var1 != null && var1.getItem() != null && var1.getItem().e(var1) == EnumAnimation.EAT) {
             this.u().s().b(this, new PacketPlayOutAnimation(this, 3));
         }
 
@@ -715,7 +715,7 @@ public class EntityPlayer extends EntityHuman implements ail {
 
     public void t() {
         if (this.a != null) {
-            this.a.sendPacket((Packet) (new PacketPlayOutAbilities(this.by)));
+            this.a.sendPacket((Packet) (new PacketPlayOutAbilities(this.abilities)));
             this.B();
         }
     }

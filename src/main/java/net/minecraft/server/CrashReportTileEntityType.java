@@ -15,7 +15,7 @@ class CrashReportTileEntityType implements Callable {
       int var1 = Block.getId(this.a.b.getData(this.a.c).c());
 
       try {
-         return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.c(var1).a(), Block.c(var1).getClass().getCanonicalName()});
+         return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.getById(var1).a(), Block.getById(var1).getClass().getCanonicalName()});
       } catch (Throwable var3) {
          return "ID #" + var1;
       }

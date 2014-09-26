@@ -37,14 +37,14 @@ public class wa implements IInventory {
    public ItemStack a(int var1, int var2) {
       if(this.c[var1] != null) {
          ItemStack var3;
-         if(this.c[var1].b <= var2) {
+         if(this.c[var1].count <= var2) {
             var3 = this.c[var1];
             this.c[var1] = null;
             this.o_();
             return var3;
          } else {
             var3 = this.c[var1].a(var2);
-            if(this.c[var1].b == 0) {
+            if(this.c[var1].count == 0) {
                this.c[var1] = null;
             }
 
@@ -57,7 +57,7 @@ public class wa implements IInventory {
    }
 
    public ItemStack a(ItemStack var1) {
-      ItemStack var2 = var1.k();
+      ItemStack var2 = var1.cloneItemStack();
 
       for(int var3 = 0; var3 < this.b; ++var3) {
          ItemStack var4 = this.a(var3);
@@ -67,13 +67,13 @@ public class wa implements IInventory {
             return null;
          }
 
-         if(ItemStack.c(var4, var2)) {
-            int var5 = Math.min(this.p_(), var4.c());
-            int var6 = Math.min(var2.b, var5 - var4.b);
+         if(ItemStack.doMaterialsMatch(var4, var2)) {
+            int var5 = Math.min(this.p_(), var4.getMaxStackSize());
+            int var6 = Math.min(var2.count, var5 - var4.count);
             if(var6 > 0) {
-               var4.b += var6;
-               var2.b -= var6;
-               if(var2.b <= 0) {
+               var4.count += var6;
+               var2.count -= var6;
+               if(var2.count <= 0) {
                   this.o_();
                   return null;
                }
@@ -81,7 +81,7 @@ public class wa implements IInventory {
          }
       }
 
-      if(var2.b != var1.b) {
+      if(var2.count != var1.count) {
          this.o_();
       }
 
@@ -100,8 +100,8 @@ public class wa implements IInventory {
 
    public void a(int var1, ItemStack var2) {
       this.c[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
       this.o_();

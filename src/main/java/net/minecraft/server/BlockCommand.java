@@ -60,8 +60,8 @@ public class BlockCommand extends BlockContainer {
       TileEntity var6 = var1.getTileEntity(var2);
       if(var6 instanceof TileEntityCommand) {
          CommandBlockListenerAbstract var7 = ((TileEntityCommand)var6).getCommandBlock();
-         if(var5.s()) {
-            var7.b(var5.q());
+         if(var5.hasName()) {
+            var7.b(var5.getName());
          }
 
          if(!var1.isStatic) {

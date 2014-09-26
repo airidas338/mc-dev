@@ -29,7 +29,7 @@ public class BlockStairs extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       if(this.Q) {
          this.a(0.5F * (float)(this.R % 2), 0.5F * (float)(this.R / 4 % 2), 0.5F * (float)(this.R / 2 % 2), 0.5F + 0.5F * (float)(this.R % 2), 0.5F + 0.5F * (float)(this.R / 4 % 2), 0.5F + 0.5F * (float)(this.R / 2 % 2));
       } else {
@@ -380,12 +380,12 @@ public class BlockStairs extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, Location var2, EntityHuman var3) {
-      this.O.a(var1, var2, var3);
+   public void attack(World var1, Location var2, EntityHuman var3) {
+      this.O.attack(var1, var2, var3);
    }
 
-   public void d(World var1, Location var2, IBlockData var3) {
-      this.O.d(var1, var2, var3);
+   public void postBreak(World var1, Location var2, IBlockData var3) {
+      this.O.postBreak(var1, var2, var3);
    }
 
    public float a(Entity var1) {
@@ -412,9 +412,9 @@ public class BlockStairs extends Block {
       return this.O.canPlace(var1, var2);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.doPhysics(var1, var2, this.P, Blocks.AIR);
-      this.O.c(var1, var2, this.P);
+      this.O.onPlace(var1, var2, this.P);
    }
 
    public void remove(World var1, Location var2, IBlockData var3) {
@@ -433,8 +433,8 @@ public class BlockStairs extends Block {
       return this.O.interact(var1, var2, this.P, var4, EnumFacing.DOWN, 0.0F, 0.0F, 0.0F);
    }
 
-   public void a(World var1, Location var2, Explosion var3) {
-      this.O.a(var1, var2, var3);
+   public void wasExploded(World var1, Location var2, Explosion var3) {
+      this.O.wasExploded(var1, var2, var3);
    }
 
    public MaterialMapColor g(IBlockData var1) {

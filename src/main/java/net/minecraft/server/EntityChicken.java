@@ -20,7 +20,7 @@ public class EntityChicken extends EntityAnimal {
       this.goalSelector.a(0, new yy(this));
       this.goalSelector.a(1, new zu(this, 1.4D));
       this.goalSelector.a(2, new yt(this, 1.0D));
-      this.goalSelector.a(3, new aag(this, 1.0D, Items.N, false));
+      this.goalSelector.a(3, new aag(this, 1.0D, Items.SEEDS, false));
       this.goalSelector.a(4, new za(this, 1.1D));
       this.goalSelector.a(5, new PathfinderGoalRandomStroll(this, 1.0D));
       this.goalSelector.a(6, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 6.0F));
@@ -80,14 +80,14 @@ public class EntityChicken extends EntityAnimal {
    }
 
    protected Item A() {
-      return Items.G;
+      return Items.FEATHER;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.G, 1);
+         this.a(Items.FEATHER, 1);
       }
 
       if(this.au()) {
@@ -103,7 +103,7 @@ public class EntityChicken extends EntityAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 != null && var1.b() == Items.N;
+      return var1 != null && var1.getItem() == Items.SEEDS;
    }
 
    public void a(NBTTagCompound var1) {

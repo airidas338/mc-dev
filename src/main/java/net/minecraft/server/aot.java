@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class aot implements aoo {
+public class aot implements IRecipe {
 
    private final ItemStack a;
    private final List b;
@@ -24,8 +24,8 @@ public class aot implements aoo {
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
          ItemStack var4 = var1.a(var3);
-         if(var4 != null && var4.b().r()) {
-            var2[var3] = new ItemStack(var4.b().q());
+         if(var4 != null && var4.getItem().r()) {
+            var2[var3] = new ItemStack(var4.getItem().q());
          }
       }
 
@@ -44,7 +44,7 @@ public class aot implements aoo {
 
                while(var8.hasNext()) {
                   ItemStack var9 = (ItemStack)var8.next();
-                  if(var6.b() == var9.b() && (var9.i() == 32767 || var6.i() == var9.i())) {
+                  if(var6.getItem() == var9.getItem() && (var9.getData() == 32767 || var6.getData() == var9.getData())) {
                      var7 = true;
                      var3.remove(var9);
                      break;
@@ -62,7 +62,7 @@ public class aot implements aoo {
    }
 
    public ItemStack a(ain var1) {
-      return this.a.k();
+      return this.a.cloneItemStack();
    }
 
    public int a() {

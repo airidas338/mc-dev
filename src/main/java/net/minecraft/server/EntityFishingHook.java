@@ -5,9 +5,9 @@ import java.util.List;
 
 public class EntityFishingHook extends Entity {
 
-   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.T), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.POTION), 10), new PossibleFishingResult(new ItemStack(Items.F), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.z), 10), new PossibleFishingResult(new ItemStack(Items.y), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
+   private static final List d = Arrays.asList(new PossibleFishingResult[]{(new PossibleFishingResult(new ItemStack(Items.LEATHER_BOOTS), 10)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.aF), 10), new PossibleFishingResult(new ItemStack(Items.aX), 10), new PossibleFishingResult(new ItemStack(Items.POTION), 10), new PossibleFishingResult(new ItemStack(Items.STRING), 5), (new PossibleFishingResult(new ItemStack(Items.aR), 2)).a(0.9F), new PossibleFishingResult(new ItemStack(Items.BOWL), 10), new PossibleFishingResult(new ItemStack(Items.STICK), 5), new PossibleFishingResult(new ItemStack(Items.aW, 10, akv.p.b()), 1), new PossibleFishingResult(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new PossibleFishingResult(new ItemStack(Items.bt), 10)});
    private static final List e = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Blocks.WATER_LILY), 1), new PossibleFishingResult(new ItemStack(Items.co), 1), new PossibleFishingResult(new ItemStack(Items.aA), 1), (new PossibleFishingResult(new ItemStack(Items.BOW), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aR), 1)).a(0.25F).a(), (new PossibleFishingResult(new ItemStack(Items.aL), 1)).a()});
-   private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.a.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.b.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.c.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, ali.d.a()), 13)});
+   private static final List f = Arrays.asList(new PossibleFishingResult[]{new PossibleFishingResult(new ItemStack(Items.aU, 1, EnumFish.COD.a()), 60), new PossibleFishingResult(new ItemStack(Items.aU, 1, EnumFish.SALMON.a()), 25), new PossibleFishingResult(new ItemStack(Items.aU, 1, EnumFish.CLOWNFISH.a()), 2), new PossibleFishingResult(new ItemStack(Items.aU, 1, EnumFish.PUFFERFISH.a()), 13)});
    private int g = -1;
    private int h = -1;
    private int i = -1;
@@ -95,7 +95,7 @@ public class EntityFishingHook extends Entity {
       } else {
          if(!this.o.isStatic) {
             ItemStack var1 = this.b.bY();
-            if(this.b.I || !this.b.isAlive() || var1 == null || var1.b() != Items.aR || this.h(this.b) > 1024.0D) {
+            if(this.b.I || !this.b.isAlive() || var1 == null || var1.getItem() != Items.aR || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bE = null;
                return;
@@ -159,7 +159,7 @@ public class EntityFishingHook extends Entity {
                AxisAlignedBB var11 = var9.aQ().b((double)var10, (double)var10, (double)var10);
                MovingObjectPosition var12 = var11.a(var27, var2);
                if(var12 != null) {
-                  var13 = var27.f(var12.c);
+                  var13 = var27.distanceSquared(var12.c);
                   if(var13 < var6 || var6 == 0.0D) {
                      var4 = var9;
                      var6 = var13;
@@ -342,7 +342,7 @@ public class EntityFishingHook extends Entity {
       if(var1.hasKeyOfType("inTile", 8)) {
          this.ap = Block.b(var1.getString("inTile"));
       } else {
-         this.ap = Block.c(var1.getByte("inTile") & 255);
+         this.ap = Block.getById(var1.getByte("inTile") & 255);
       }
 
       this.a = var1.getByte("shake") & 255;

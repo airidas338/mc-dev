@@ -30,14 +30,14 @@ public class StructurePieceTreaasure extends vk {
       for(int var4 = 0; var4 < var3; ++var4) {
          StructurePieceTreaasure var5 = (StructurePieceTreaasure)WeightedRandom.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
-         if(var5.b.c() >= var6) {
-            ItemStack var7 = var5.b.k();
-            var7.b = var6;
+         if(var5.b.getMaxStackSize() >= var6) {
+            ItemStack var7 = var5.b.cloneItemStack();
+            var7.count = var6;
             var2.a(var0.nextInt(var2.n_()), var7);
          } else {
             for(int var9 = 0; var9 < var6; ++var9) {
-               ItemStack var8 = var5.b.k();
-               var8.b = 1;
+               ItemStack var8 = var5.b.cloneItemStack();
+               var8.count = 1;
                var2.a(var0.nextInt(var2.n_()), var8);
             }
          }
@@ -49,14 +49,14 @@ public class StructurePieceTreaasure extends vk {
       for(int var4 = 0; var4 < var3; ++var4) {
          StructurePieceTreaasure var5 = (StructurePieceTreaasure)WeightedRandom.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
-         if(var5.b.c() >= var6) {
-            ItemStack var7 = var5.b.k();
-            var7.b = var6;
+         if(var5.b.getMaxStackSize() >= var6) {
+            ItemStack var7 = var5.b.cloneItemStack();
+            var7.count = var6;
             var2.a(var0.nextInt(var2.n_()), var7);
          } else {
             for(int var9 = 0; var9 < var6; ++var9) {
-               ItemStack var8 = var5.b.k();
-               var8.b = 1;
+               ItemStack var8 = var5.b.cloneItemStack();
+               var8.count = 1;
                var2.a(var0.nextInt(var2.n_()), var8);
             }
          }

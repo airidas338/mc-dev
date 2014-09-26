@@ -31,7 +31,7 @@ public class CommandEnchant extends CommandAbstract {
                throw var12;
             }
 
-            var4 = var6.B;
+            var4 = var6.id;
          }
 
          int var5 = 1;
@@ -49,8 +49,8 @@ public class CommandEnchant extends CommandAbstract {
                   var5 = a(var2[2], var7.e(), var7.b());
                }
 
-               if(var13.n()) {
-                  NBTTagList var8 = var13.p();
+               if(var13.hasTag()) {
+                  NBTTagList var8 = var13.getEnchantments();
                   if(var8 != null) {
                      for(int var9 = 0; var9 < var8.size(); ++var9) {
                         short var10 = var8.get(var9).getShort("id");
@@ -64,7 +64,7 @@ public class CommandEnchant extends CommandAbstract {
                   }
                }
 
-               var13.a(var7, var5);
+               var13.addEnchantment(var7, var5);
                a(var1, this, "commands.enchant.success", new Object[0]);
                var1.a(ag.d, 1);
             }

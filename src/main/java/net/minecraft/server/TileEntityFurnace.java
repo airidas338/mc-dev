@@ -24,13 +24,13 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
    public ItemStack a(int var1, int var2) {
       if(this.h[var1] != null) {
          ItemStack var3;
-         if(this.h[var1].b <= var2) {
+         if(this.h[var1].count <= var2) {
             var3 = this.h[var1];
             this.h[var1] = null;
             return var3;
          } else {
             var3 = this.h[var1].a(var2);
-            if(this.h[var1].b == 0) {
+            if(this.h[var1].count == 0) {
                this.h[var1] = null;
             }
 
@@ -52,10 +52,10 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
    }
 
    public void a(int var1, ItemStack var2) {
-      boolean var3 = var2 != null && var2.a(this.h[var1]) && ItemStack.a(var2, this.h[var1]);
+      boolean var3 = var2 != null && var2.a(this.h[var1]) && ItemStack.equals(var2, this.h[var1]);
       this.h[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
       if(var1 == 0 && !var3) {
@@ -87,7 +87,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
          NBTTagCompound var4 = var2.get(var3);
          byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.h.length) {
-            this.h[var5] = ItemStack.a(var4);
+            this.h[var5] = ItemStack.createStack(var4);
          }
       }
 
@@ -112,7 +112,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
          if(this.h[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
-            this.h[var3].b(var4);
+            this.h[var3].save(var4);
             var2.add((NBTBase)var4);
          }
       }
@@ -150,9 +150,9 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
                if(this.m()) {
                   var2 = true;
                   if(this.h[1] != null) {
-                     --this.h[1].b;
-                     if(this.h[1].b == 0) {
-                        Item var3 = this.h[1].b().q();
+                     --this.h[1].count;
+                     if(this.h[1].count == 0) {
+                        Item var3 = this.h[1].getItem().q();
                         this.h[1] = var3 != null?new ItemStack(var3):null;
                      }
                   }
@@ -192,26 +192,26 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
       if(this.h[0] == null) {
          return false;
       } else {
-         ItemStack var1 = aok.a().a(this.h[0]);
-         return var1 == null?false:(this.h[2] == null?true:(!this.h[2].a(var1)?false:(this.h[2].b < this.p_() && this.h[2].b < this.h[2].c()?true:this.h[2].b < var1.c())));
+         ItemStack var1 = RecipesFurnace.getInstance().getResult(this.h[0]);
+         return var1 == null?false:(this.h[2] == null?true:(!this.h[2].a(var1)?false:(this.h[2].count < this.p_() && this.h[2].count < this.h[2].getMaxStackSize()?true:this.h[2].count < var1.getMaxStackSize())));
       }
    }
 
    public void n() {
       if(this.o()) {
-         ItemStack var1 = aok.a().a(this.h[0]);
+         ItemStack var1 = RecipesFurnace.getInstance().getResult(this.h[0]);
          if(this.h[2] == null) {
-            this.h[2] = var1.k();
-         } else if(this.h[2].b() == var1.b()) {
-            ++this.h[2].b;
+            this.h[2] = var1.cloneItemStack();
+         } else if(this.h[2].getItem() == var1.getItem()) {
+            ++this.h[2].count;
          }
 
-         if(this.h[0].b() == Item.a(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.BUCKET) {
+         if(this.h[0].getItem() == Item.getItemOf(Blocks.SPONGE) && this.h[0].getData() == 1 && this.h[1] != null && this.h[1].getItem() == Items.BUCKET) {
             this.h[1] = new ItemStack(Items.ax);
          }
 
-         --this.h[0].b;
-         if(this.h[0].b <= 0) {
+         --this.h[0].count;
+         if(this.h[0].count <= 0) {
             this.h[0] = null;
          }
 
@@ -222,8 +222,8 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
       if(var0 == null) {
          return 0;
       } else {
-         Item var1 = var0.b();
-         if(var1 instanceof aju && Block.a(var1) != Blocks.AIR) {
+         Item var1 = var0.getItem();
+         if(var1 instanceof ItemBlock && Block.a(var1) != Blocks.AIR) {
             Block var2 = Block.a(var1);
             if(var2 == Blocks.WOOD_STEP) {
                return 150;
@@ -238,7 +238,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
             }
          }
 
-         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof ItemSword && ((ItemSword)var1).h().equals("WOOD")?200:(var1 instanceof alo && ((alo)var1).g().equals("WOOD")?200:(var1 == Items.y?100:(var1 == Items.h?1600:(var1 == Items.ay?20000:(var1 == Item.a(Blocks.SAPLING)?100:(var1 == Items.bv?2400:0)))))));
+         return var1 instanceof aks && ((aks)var1).h().equals("WOOD")?200:(var1 instanceof ItemSword && ((ItemSword)var1).h().equals("WOOD")?200:(var1 instanceof ItemHoe && ((ItemHoe)var1).g().equals("WOOD")?200:(var1 == Items.STICK?100:(var1 == Items.COAL?1600:(var1 == Items.ay?20000:(var1 == Item.getItemOf(Blocks.SAPLING)?100:(var1 == Items.bv?2400:0)))))));
       }
    }
 
@@ -268,7 +268,7 @@ public class TileEntityFurnace extends TileEntityLockable implements IUpdatePlay
 
    public boolean b(int var1, ItemStack var2, EnumFacing var3) {
       if(var3 == EnumFacing.DOWN && var1 == 1) {
-         Item var4 = var2.b();
+         Item var4 = var2.getItem();
          if(var4 != Items.ax && var4 != Items.BUCKET) {
             return false;
          }

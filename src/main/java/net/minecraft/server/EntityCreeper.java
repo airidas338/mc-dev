@@ -115,8 +115,8 @@ public class EntityCreeper extends EntityMonster {
    public void a(DamageSource var1) {
       super.a(var1);
       if(var1.getEntity() instanceof EntitySkeleton) {
-         int var2 = Item.b(Items.cq);
-         int var3 = Item.b(Items.cB);
+         int var2 = Item.getId(Items.cq);
+         int var3 = Item.getId(Items.cB);
          int var4 = var2 + this.V.nextInt(var3 - var2 + 1);
          this.a(Item.b(var4), 1);
       } else if(var1.getEntity() instanceof EntityCreeper && var1.getEntity() != this && ((EntityCreeper)var1.getEntity()).n() && ((EntityCreeper)var1.getEntity()).cn()) {
@@ -135,7 +135,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    protected Item A() {
-      return Items.H;
+      return Items.SULPHUR;
    }
 
    public int ck() {
@@ -153,12 +153,12 @@ public class EntityCreeper extends EntityMonster {
 
    protected boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.FLINT_AND_STEEL) {
+      if(var2 != null && var2.getItem() == Items.FLINT_AND_STEEL) {
          this.o.makeSound(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.bv();
          if(!this.o.isStatic) {
             this.cm();
-            var2.a(1, (EntityLiving)var1);
+            var2.damage(1, (EntityLiving)var1);
             return true;
          }
       }

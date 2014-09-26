@@ -19,14 +19,14 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
    public ItemStack a(int var1, int var2) {
       if(this.g[var1] != null) {
          ItemStack var3;
-         if(this.g[var1].b <= var2) {
+         if(this.g[var1].count <= var2) {
             var3 = this.g[var1];
             this.g[var1] = null;
             this.o_();
             return var3;
          } else {
             var3 = this.g[var1].a(var2);
-            if(this.g[var1].b == 0) {
+            if(this.g[var1].count == 0) {
                this.g[var1] = null;
             }
 
@@ -63,8 +63,8 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
 
    public void a(int var1, ItemStack var2) {
       this.g[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
       this.o_();
@@ -72,7 +72,7 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
 
    public int a(ItemStack var1) {
       for(int var2 = 0; var2 < this.g.length; ++var2) {
-         if(this.g[var2] == null || this.g[var2].b() == null) {
+         if(this.g[var2] == null || this.g[var2].getItem() == null) {
             this.a(var2, var1);
             return var2;
          }
@@ -102,7 +102,7 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
          NBTTagCompound var4 = var2.get(var3);
          int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.g.length) {
-            this.g[var5] = ItemStack.a(var4);
+            this.g[var5] = ItemStack.createStack(var4);
          }
       }
 
@@ -120,7 +120,7 @@ public class TileEntityDispenser extends TileEntityLockable implements IInventor
          if(this.g[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
-            this.g[var3].b(var4);
+            this.g[var3].save(var4);
             var2.add((NBTBase)var4);
          }
       }

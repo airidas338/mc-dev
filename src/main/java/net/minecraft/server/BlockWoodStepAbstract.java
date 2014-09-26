@@ -18,7 +18,7 @@ public abstract class BlockWoodStepAbstract extends BlockStepAbstract {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a((Block)Blocks.WOOD_STEP);
+      return Item.getItemOf((Block)Blocks.WOOD_STEP);
    }
 
    public String b(int var1) {
@@ -30,7 +30,7 @@ public abstract class BlockWoodStepAbstract extends BlockStepAbstract {
    }
 
    public Object a(ItemStack var1) {
-      return ayx.a(var1.i() & 7);
+      return ayx.a(var1.getData() & 7);
    }
 
    public IBlockData a(int var1) {
@@ -56,7 +56,7 @@ public abstract class BlockWoodStepAbstract extends BlockStepAbstract {
       return this.j()?new bed(this, new bex[]{b}):new bed(this, new bex[]{a, b});
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((ayx)var1.b(b)).a();
    }
 

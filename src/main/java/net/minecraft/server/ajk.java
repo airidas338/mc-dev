@@ -18,8 +18,8 @@ public class ajk {
 
    public void a(ItemStack var1, ItemStack var2) {
       if(var1 != null && var2 != null) {
-         if(var1.b() == var2.b()) {
-            int var3 = var2.b - var1.b;
+         if(var1.getItem() == var2.getItem()) {
+            int var3 = var2.count - var1.count;
             if(var3 > 0) {
                this.a(var1, var3);
             }

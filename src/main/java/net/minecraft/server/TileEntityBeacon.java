@@ -180,13 +180,13 @@ public class TileEntityBeacon extends TileEntityLockable implements IUpdatePlaye
 
    public ItemStack a(int var1, int var2) {
       if(var1 == 0 && this.m != null) {
-         if(var2 >= this.m.b) {
+         if(var2 >= this.m.count) {
             ItemStack var3 = this.m;
             this.m = null;
             return var3;
          } else {
-            this.m.b -= var2;
-            return new ItemStack(this.m.b(), var2, this.m.i());
+            this.m.count -= var2;
+            return new ItemStack(this.m.getItem(), var2, this.m.getData());
          }
       } else {
          return null;
@@ -235,7 +235,7 @@ public class TileEntityBeacon extends TileEntityLockable implements IUpdatePlaye
    public void c(EntityHuman var1) {}
 
    public boolean b(int var1, ItemStack var2) {
-      return var2.b() == Items.bO || var2.b() == Items.i || var2.b() == Items.k || var2.b() == Items.j;
+      return var2.getItem() == Items.bO || var2.getItem() == Items.DIAMOND || var2.getItem() == Items.GOLD_INGOT || var2.getItem() == Items.IRON_INGOT;
    }
 
    public String k() {

@@ -134,7 +134,7 @@ public abstract class CommandBlockListenerAbstract implements ICommandListener {
    }
 
    public boolean a(EntityHuman var1) {
-      if(!var1.by.canInstantlyBuild) {
+      if(!var1.abilities.canInstantlyBuild) {
          return false;
       } else {
          if(var1.getWorld().isStatic) {

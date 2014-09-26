@@ -22,7 +22,7 @@ public abstract class BlockStepAbstract extends Block {
       return false;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       if(this.j()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       } else {
@@ -48,7 +48,7 @@ public abstract class BlockStepAbstract extends Block {
    }
 
    public void a(World var1, Location var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       super.a(var1, var2, var3, var4, var5, var6);
    }
 

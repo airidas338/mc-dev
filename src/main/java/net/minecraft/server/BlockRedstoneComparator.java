@@ -13,7 +13,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
    public BlockRedstoneComparator(boolean var1) {
       super(var1);
       this.j(this.L.b().a(N, EnumFacing.NORTH).a(a, Boolean.valueOf(false)).a(b, aur.a));
-      this.A = true;
+      this.isTileEntity = true;
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
@@ -92,7 +92,7 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(!var4.by.e) {
+      if(!var4.abilities.e) {
          return false;
       } else {
          var3 = var3.a(b);
@@ -151,8 +151,8 @@ public class BlockRedstoneComparator extends BlockDiodeAbstract implements ICont
       this.k(var1, var2, var3);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
-      super.c(var1, var2, var3);
+   public void onPlace(World var1, Location var2, IBlockData var3) {
+      super.onPlace(var1, var2, var3);
       var1.setTileEntity(var2, this.a(var1, 0));
    }
 

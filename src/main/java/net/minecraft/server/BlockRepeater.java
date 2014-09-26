@@ -17,7 +17,7 @@ public class BlockRepeater extends BlockDiodeAbstract {
    }
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(!var4.by.e) {
+      if(!var4.abilities.e) {
          return false;
       } else {
          var1.setTypeAndData(var2, var3.a(b), 3);

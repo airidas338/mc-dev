@@ -33,7 +33,7 @@ public class Block {
     protected float x;
     protected boolean y = true;
     protected boolean z;
-    protected boolean A;
+    protected boolean isTileEntity;
     protected double B;
     protected double C;
     protected double D;
@@ -56,18 +56,18 @@ public class Block {
         return getId(var0.c()) + (var0.c().c(var0) << 12);
     }
 
-    public static Block c(int var0) {
+    public static Block getById(int var0) {
         return (Block) REGISTRY.a(var0);
     }
 
     public static IBlockData d(int var0) {
         int var1 = var0 & 4095;
         int var2 = var0 >> 12 & 15;
-        return c(var1).a(var2);
+        return getById(var1).a(var2);
     }
 
     public static Block a(Item var0) {
-        return var0 instanceof aju ? ((aju) var0).d() : null;
+        return var0 instanceof ItemBlock ? ((ItemBlock) var0).d() : null;
     }
 
     public static Block b(String var0) {
@@ -161,7 +161,7 @@ public class Block {
     }
 
     public boolean t() {
-        return this.J.k() && this.d() && !this.g();
+        return this.J.k() && this.d() && !this.isPowerSource();
     }
 
     public boolean u() {
@@ -207,12 +207,12 @@ public class Block {
         return this;
     }
 
-    public boolean w() {
+    public boolean isTicking() {
         return this.z;
     }
 
-    public boolean x() {
-        return this.A;
+    public boolean isTileEntity() {
+        return this.isTileEntity;
     }
 
     protected final void a(float var1, float var2, float var3, float var4, float var5, float var6) {
@@ -259,7 +259,7 @@ public class Block {
     public void b(World var1, Location var2, IBlockData var3, Random var4) {
     }
 
-    public void d(World var1, Location var2, IBlockData var3) {
+    public void postBreak(World var1, Location var2, IBlockData var3) {
     }
 
     public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
@@ -269,7 +269,7 @@ public class Block {
         return 10;
     }
 
-    public void c(World var1, Location var2, IBlockData var3) {
+    public void onPlace(World var1, Location var2, IBlockData var3) {
     }
 
     public void remove(World var1, Location var2, IBlockData var3) {
@@ -280,10 +280,10 @@ public class Block {
     }
 
     public Item a(IBlockData var1, Random var2, int var3) {
-        return Item.a(this);
+        return Item.getItemOf(this);
     }
 
-    public float a(EntityHuman var1, World var2, Location var3) {
+    public float getDamage(EntityHuman var1, World var2, Location var3) {
         float var4 = this.g(var2, var3);
         return var4 < 0.0F ? 0.0F : (!var1.b(this) ? var1.a(this) / var4 / 100.0F : var1.a(this) / var4 / 30.0F);
     }
@@ -300,7 +300,7 @@ public class Block {
                 if (var1.random.nextFloat() <= var4) {
                     Item var8 = this.a(var3, var1.random, var5);
                     if (var8 != null) {
-                        a(var1, var2, new ItemStack(var8, 1, this.a(var3)));
+                        a(var1, var2, new ItemStack(var8, 1, this.getDropData(var3)));
                     }
                 }
             }
@@ -320,7 +320,7 @@ public class Block {
         }
     }
 
-    protected void b(World var1, Location var2, int var3) {
+    protected void dropExperience(World var1, Location var2, int var3) {
         if (!var1.isStatic) {
             while (var3 > 0) {
                 int var4 = EntityExperienceOrb.a(var3);
@@ -331,7 +331,7 @@ public class Block {
 
     }
 
-    public int a(IBlockData var1) {
+    public int getDropData(IBlockData var1) {
         return 0;
     }
 
@@ -340,9 +340,9 @@ public class Block {
     }
 
     public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
-        this.a((IBlockAccess) var1, var2);
-        var3 = var3.b((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
-        var4 = var4.b((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
+        this.updateShape((IBlockAccess) var1, var2);
+        var3 = var3.add((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
+        var4 = var4.add((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
         Vec3D var5 = var3.a(var4, this.B);
         Vec3D var6 = var3.a(var4, this.E);
         Vec3D var7 = var3.b(var4, this.C);
@@ -426,7 +426,7 @@ public class Block {
                 var12 = EnumFacing.SOUTH;
             }
 
-            return new MovingObjectPosition(var11.b((double) var2.n(), (double) var2.o(), (double) var2.p()), var12, var2);
+            return new MovingObjectPosition(var11.add((double) var2.n(), (double) var2.o(), (double) var2.p()), var12, var2);
         }
     }
 
@@ -442,7 +442,7 @@ public class Block {
         return var1 == null ? false : var1.a >= this.B && var1.a <= this.E && var1.b >= this.C && var1.b <= this.F;
     }
 
-    public void a(World var1, Location var2, Explosion var3) {
+    public void wasExploded(World var1, Location var2, Explosion var3) {
     }
 
     public boolean a(World var1, Location var2, EnumFacing var3, ItemStack var4) {
@@ -468,14 +468,14 @@ public class Block {
         return this.a(var7);
     }
 
-    public void a(World var1, Location var2, EntityHuman var3) {
+    public void attack(World var1, Location var2, EntityHuman var3) {
     }
 
     public Vec3D a(World var1, Location var2, Entity var3, Vec3D var4) {
         return var4;
     }
 
-    public void a(IBlockAccess var1, Location var2) {
+    public void updateShape(IBlockAccess var1, Location var2) {
     }
 
     public final double z() {
@@ -506,7 +506,7 @@ public class Block {
         return 0;
     }
 
-    public boolean g() {
+    public boolean isPowerSource() {
         return false;
     }
 
@@ -521,7 +521,7 @@ public class Block {
     }
 
     public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-        var2.b(StatisticList.H[getId(this)]);
+        var2.b(StatisticList.MINE_BLOCK_COUNT[getId(this)]);
         var2.a(0.025F);
         if (this.G() && EnchantmentManager.e(var2)) {
             ItemStack var7 = this.i(var4);
@@ -536,12 +536,12 @@ public class Block {
     }
 
     protected boolean G() {
-        return this.d() && !this.A;
+        return this.d() && !this.isTileEntity;
     }
 
     protected ItemStack i(IBlockData var1) {
         int var2 = 0;
-        Item var3 = Item.a(this);
+        Item var3 = Item.getItemOf(this);
         if (var3 != null && var3.k()) {
             var2 = this.c(var1);
         }
@@ -561,8 +561,8 @@ public class Block {
         return this;
     }
 
-    public String H() {
-        return LocaleI18n.a(this.a() + ".name");
+    public String getName() {
+        return LocaleI18n.get(this.a() + ".name");
     }
 
     public String a() {
@@ -582,7 +582,7 @@ public class Block {
         return this;
     }
 
-    public int i() {
+    public int getDropData() {
         return this.J.getPushReaction();
     }
 
@@ -595,7 +595,7 @@ public class Block {
     }
 
     public int j(World var1, Location var2) {
-        return this.a(var1.getData(var2));
+        return this.getDropData(var1.getData(var2));
     }
 
     public Block a(CreativeModeTab var1) {

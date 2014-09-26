@@ -27,7 +27,7 @@ public class BlockSkull extends BlockContainer {
       return false;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       switch(bal.a[((EnumFacing)var1.getData(var2).b(a)).ordinal()]) {
       case 1:
       default:
@@ -49,7 +49,7 @@ public class BlockSkull extends BlockContainer {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3);
    }
 
@@ -69,7 +69,7 @@ public class BlockSkull extends BlockContainer {
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {}
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
-      if(var4.by.canInstantlyBuild) {
+      if(var4.abilities.canInstantlyBuild) {
          var3 = var3.a(b, Boolean.valueOf(true));
          var1.setTypeAndData(var2, var3, 4);
       }
@@ -85,10 +85,10 @@ public class BlockSkull extends BlockContainer {
                TileEntitySkull var5 = (TileEntitySkull)var4;
                ItemStack var6 = new ItemStack(Items.bX, 1, this.j(var1, var2));
                if(var5.c() == 3 && var5.b() != null) {
-                  var6.d(new NBTTagCompound());
+                  var6.setTag(new NBTTagCompound());
                   NBTTagCompound var7 = new NBTTagCompound();
                   GameProfileSerializer.serialize(var7, var5.b());
-                  var6.o().set("SkullOwner", (NBTBase)var7);
+                  var6.getTag().set("SkullOwner", (NBTBase)var7);
                }
 
                a(var1, var2, var6);
@@ -104,7 +104,7 @@ public class BlockSkull extends BlockContainer {
    }
 
    public boolean b(World var1, Location var2, ItemStack var3) {
-      return var3.i() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic?this.j().a(var1, var2) != null:false;
+      return var3.getData() == 1 && var2.o() >= 2 && var1.aa() != EnumDifficulty.PEACEFUL && !var1.isStatic?this.j().a(var1, var2) != null:false;
    }
 
    public void a(World var1, Location var2, TileEntitySkull var3) {

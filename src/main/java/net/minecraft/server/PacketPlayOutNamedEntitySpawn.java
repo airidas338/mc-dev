@@ -28,7 +28,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.f = (byte)((int)(var1.y * 256.0F / 360.0F));
       this.g = (byte)((int)(var1.z * 256.0F / 360.0F));
       ItemStack var2 = var1.bg.h();
-      this.h = var2 == null?0:Item.b(var2.b());
+      this.h = var2 == null?0:Item.getId(var2.getItem());
       this.i = var1.H();
    }
 

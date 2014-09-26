@@ -22,7 +22,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
          NBTTagCompound var4 = var2.get(var3);
          byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.a.length) {
-            this.a[var5] = ItemStack.a(var4);
+            this.a[var5] = ItemStack.createStack(var4);
          }
       }
 
@@ -36,7 +36,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
          if(this.a[var3] != null) {
             NBTTagCompound var4 = new NBTTagCompound();
             var4.setByte("Slot", (byte)var3);
-            this.a[var3].b(var4);
+            this.a[var3].save(var4);
             var2.add((NBTBase)var4);
          }
       }
@@ -64,13 +64,13 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
    public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
          ItemStack var3;
-         if(this.a[var1].b <= var2) {
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 
@@ -93,8 +93,8 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
 
    public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
    }
@@ -183,7 +183,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
 
       for(int var3 = 0; var3 < var2; ++var3) {
          ItemStack var4 = var1[var3];
-         if(var4 == null || var4.b != var4.c()) {
+         if(var4 == null || var4.count != var4.getMaxStackSize()) {
             return false;
          }
       }
@@ -202,9 +202,9 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
          } else {
             for(int var3 = 0; var3 < this.n_(); ++var3) {
                if(this.a(var3) != null) {
-                  ItemStack var4 = this.a(var3).k();
+                  ItemStack var4 = this.a(var3).cloneItemStack();
                   ItemStack var5 = a(var1, this.a(var3, 1), var2);
-                  if(var5 == null || var5.b == 0) {
+                  if(var5 == null || var5.count == 0) {
                      var1.o_();
                      return true;
                   }
@@ -225,7 +225,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
 
          for(int var5 = 0; var5 < var4.length; ++var5) {
             ItemStack var6 = var3.a(var4[var5]);
-            if(var6 == null || var6.b != var6.c()) {
+            if(var6 == null || var6.count != var6.getMaxStackSize()) {
                return false;
             }
          }
@@ -234,7 +234,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
 
          for(int var8 = 0; var8 < var7; ++var8) {
             ItemStack var9 = var1.a(var8);
-            if(var9 == null || var9.b != var9.c()) {
+            if(var9 == null || var9.count != var9.getMaxStackSize()) {
                return false;
             }
          }
@@ -305,9 +305,9 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
    private static boolean a(IHopper var0, IInventory var1, int var2, EnumFacing var3) {
       ItemStack var4 = var1.a(var2);
       if(var4 != null && b(var1, var4, var2, var3)) {
-         ItemStack var5 = var4.k();
+         ItemStack var5 = var4.cloneItemStack();
          ItemStack var6 = a(var0, var1.a(var2, 1), (EnumFacing)null);
-         if(var6 == null || var6.b == 0) {
+         if(var6 == null || var6.count == 0) {
             var1.o_();
             return true;
          }
@@ -323,9 +323,9 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
       if(var1 == null) {
          return false;
       } else {
-         ItemStack var3 = var1.l().k();
+         ItemStack var3 = var1.l().cloneItemStack();
          ItemStack var4 = a(var0, var3, (EnumFacing)null);
-         if(var4 != null && var4.b != 0) {
+         if(var4 != null && var4.count != 0) {
             var1.a(var4);
          } else {
             var2 = true;
@@ -341,18 +341,18 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
          IWorldInventory var6 = (IWorldInventory)var0;
          int[] var7 = var6.a(var2);
 
-         for(int var5 = 0; var5 < var7.length && var1 != null && var1.b > 0; ++var5) {
+         for(int var5 = 0; var5 < var7.length && var1 != null && var1.count > 0; ++var5) {
             var1 = c(var0, var1, var7[var5], var2);
          }
       } else {
          int var3 = var0.n_();
 
-         for(int var4 = 0; var4 < var3 && var1 != null && var1.b > 0; ++var4) {
+         for(int var4 = 0; var4 < var3 && var1 != null && var1.count > 0; ++var4) {
             var1 = c(var0, var1, var4, var2);
          }
       }
 
-      if(var1 != null && var1.b == 0) {
+      if(var1 != null && var1.count == 0) {
          var1 = null;
       }
 
@@ -376,10 +376,10 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
             var1 = null;
             var5 = true;
          } else if(a(var4, var1)) {
-            int var6 = var1.c() - var4.b;
-            int var7 = Math.min(var1.b, var6);
-            var1.b -= var7;
-            var4.b += var7;
+            int var6 = var1.getMaxStackSize() - var4.count;
+            int var7 = Math.min(var1.count, var6);
+            var1.count -= var7;
+            var4.count += var7;
             var5 = var7 > 0;
          }
 
@@ -442,7 +442,7 @@ public class TileEntityHopper extends TileEntityLockable implements IHopper, IUp
    }
 
    private static boolean a(ItemStack var0, ItemStack var1) {
-      return var0.b() != var1.b()?false:(var0.i() != var1.i()?false:(var0.b > var0.c()?false:ItemStack.a(var0, var1)));
+      return var0.getItem() != var1.getItem()?false:(var0.getData() != var1.getData()?false:(var0.count > var0.getMaxStackSize()?false:ItemStack.equals(var0, var1)));
    }
 
    public double A() {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class anj extends aju {
+public class anj extends ItemBlock {
 
    public anj(Block var1) {
       super(var1);
@@ -8,8 +8,8 @@ public class anj extends aju {
       this.a(true);
    }
 
-   public boolean a(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
-      if(var1.b == 0) {
+   public boolean interactWith(ItemStack var1, EntityHuman var2, World var3, Location var4, EnumFacing var5, float var6, float var7, float var8) {
+      if(var1.count == 0) {
          return false;
       } else if(!var2.a(var4, var5, var1)) {
          return false;
@@ -28,13 +28,13 @@ public class anj extends aju {
                IBlockData var12 = var9.a(BlockSnow.a, Integer.valueOf(var11 + 1));
                if(var3.b(this.a.a(var3, var4, var12)) && var3.setTypeAndData(var4, var12, 2)) {
                   var3.makeSound((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.H.b(), (this.a.H.d() + 1.0F) / 2.0F, this.a.H.e() * 0.8F);
-                  --var1.b;
+                  --var1.count;
                   return true;
                }
             }
          }
 
-         return super.a(var1, var2, var3, var4, var5, var6, var7, var8);
+         return super.interactWith(var1, var2, var3, var4, var5, var6, var7, var8);
       }
    }
 

@@ -22,7 +22,7 @@ public class PacketPlayInBlockPlace implements Packet {
    public PacketPlayInBlockPlace(Location var1, int var2, ItemStack var3, float var4, float var5, float var6) {
       this.b = var1;
       this.c = var2;
-      this.d = var3 != null?var3.k():null;
+      this.d = var3 != null?var3.cloneItemStack():null;
       this.e = var4;
       this.f = var5;
       this.g = var6;

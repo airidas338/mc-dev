@@ -7,7 +7,7 @@ public class ItemAxe extends aks {
    private static final Set c = Sets.newHashSet(new Block[]{Blocks.WOOD, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.JACK_O_LANTERN, Blocks.MELON, Blocks.LADDER});
 
 
-   protected ItemAxe(ami var1) {
+   protected ItemAxe(EnumToolMaterial var1) {
       super(3.0F, var1, c);
    }
 

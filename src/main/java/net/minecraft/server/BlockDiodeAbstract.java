@@ -120,7 +120,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       return this.c(var5)?(var5 == Blocks.REDSTONE_WIRE?((Integer)var4.b(BlockRedstoneWire.O)).intValue():var1.a(var2, var3)):0;
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 
@@ -135,7 +135,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
 
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.h(var1, var2, var3);
    }
 
@@ -146,7 +146,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
       var1.a(var5, (Block)this, var4);
    }
 
-   public void d(World var1, Location var2, IBlockData var3) {
+   public void postBreak(World var1, Location var2, IBlockData var3) {
       if(this.M) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
@@ -157,7 +157,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
          }
       }
 
-      super.d(var1, var2, var3);
+      super.postBreak(var1, var2, var3);
    }
 
    public boolean c() {
@@ -165,7 +165,7 @@ public abstract class BlockDiodeAbstract extends BlockDirectional {
    }
 
    protected boolean c(Block var1) {
-      return var1.g();
+      return var1.isPowerSource();
    }
 
    protected int a(IBlockAccess var1, Location var2, IBlockData var3) {

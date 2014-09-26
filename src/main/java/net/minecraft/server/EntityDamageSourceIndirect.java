@@ -25,6 +25,6 @@ public class EntityDamageSourceIndirect extends EntityDamageSource {
       ItemStack var3 = this.r instanceof EntityLiving?((EntityLiving)this.r).bz():null;
       String var4 = "death.attack." + this.translationIndex;
       String var5 = var4 + ".item";
-      return var3 != null && var3.s() && LocaleI18n.c(var5)?new ChatMessage(var5, new Object[]{var1.getScoreboardDisplayName(), var2, var3.C()}):new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), var2});
+      return var3 != null && var3.hasName() && LocaleI18n.c(var5)?new ChatMessage(var5, new Object[]{var1.getScoreboardDisplayName(), var2, var3.C()}):new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), var2});
    }
 }

@@ -30,7 +30,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	private static final Logger f = LogManager.getLogger();
 	public static final Marker a = MarkerManager.getMarker("NETWORK");
 	public static final Marker b = MarkerManager.getMarker("NETWORK_PACKETS", a);
-	public static final AttributeKey c = AttributeKey.valueOf("protocol");
+	public static final AttributeKey<gy> c = AttributeKey.valueOf("protocol");
 	public static final up d = new gs();
 	public static final up e = new gt();
 	private final EnumPacketDirection g;
@@ -49,23 +49,7 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	public void channelActive(ChannelHandlerContext var1) throws Exception {
 		super.channelActive(var1);
 		this.i = var1.channel();
-		System.out.println("Channel recieved. " + i.remoteAddress());
 		this.j = this.i.remoteAddress();
-		new Thread() {
-			public void run() {
-				try {
-					while (true) {
-						System.out.println(i.isActive() + ", " + i.isOpen());
-						if (!i.isActive()) {
-							break;
-						}
-						Thread.sleep(10);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		};//.start();
 		try {
 			this.a(gy.a);
 		} catch (Throwable var3) {
@@ -193,9 +177,6 @@ public class NetworkManager extends SimpleChannelInboundHandler {
 	}
 
 	public boolean isConnected() {
-		if (i != null) {
-			System.out.println(i + " " + i.isOpen() + " " + i.isActive());
-		}
 		return this.i != null && this.i.isOpen();
 	}
 

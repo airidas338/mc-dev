@@ -46,7 +46,7 @@ public class BlockRedstoneTorch extends BlockTorch {
       return 2;
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(this.M) {
          EnumFacing[] var4 = EnumFacing.values();
          int var5 = var4.length;
@@ -127,10 +127,10 @@ public class BlockRedstoneTorch extends BlockTorch {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(Blocks.REDSTONE_TORCH_ON);
+      return Item.getItemOf(Blocks.REDSTONE_TORCH_ON);
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 

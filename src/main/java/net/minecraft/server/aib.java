@@ -49,8 +49,8 @@ public abstract class aib {
       for(int var1 = 0; var1 < this.c.size(); ++var1) {
          ItemStack var2 = ((ajk)this.c.get(var1)).d();
          ItemStack var3 = (ItemStack)this.b.get(var1);
-         if(!ItemStack.b(var3, var2)) {
-            var3 = var2 == null?null:var2.k();
+         if(!ItemStack.matches(var3, var2)) {
+            var3 = var2 == null?null:var2.cloneItemStack();
             this.b.set(var1, var3);
 
             for(int var4 = 0; var4 < this.e.size(); ++var4) {
@@ -107,36 +107,36 @@ public abstract class aib {
             }
          } else if(this.g == 1) {
             ajk var8 = (ajk)this.c.get(var1);
-            if(var8 != null && a(var8, var6.p(), true) && var8.a(var6.p()) && var6.p().b > this.h.size() && this.b(var8)) {
+            if(var8 != null && a(var8, var6.p(), true) && var8.a(var6.p()) && var6.p().count > this.h.size() && this.b(var8)) {
                this.h.add(var8);
             }
          } else if(this.g == 2) {
             if(!this.h.isEmpty()) {
-               var17 = var6.p().k();
-               var9 = var6.p().b;
+               var17 = var6.p().cloneItemStack();
+               var9 = var6.p().count;
                Iterator var10 = this.h.iterator();
 
                while(var10.hasNext()) {
                   ajk var11 = (ajk)var10.next();
-                  if(var11 != null && a(var11, var6.p(), true) && var11.a(var6.p()) && var6.p().b >= this.h.size() && this.b(var11)) {
-                     ItemStack var12 = var17.k();
-                     int var13 = var11.e()?var11.d().b:0;
+                  if(var11 != null && a(var11, var6.p(), true) && var11.a(var6.p()) && var6.p().count >= this.h.size() && this.b(var11)) {
+                     ItemStack var12 = var17.cloneItemStack();
+                     int var13 = var11.e()?var11.d().count:0;
                      a(this.h, this.f, var12, var13);
-                     if(var12.b > var12.c()) {
-                        var12.b = var12.c();
+                     if(var12.count > var12.getMaxStackSize()) {
+                        var12.count = var12.getMaxStackSize();
                      }
 
-                     if(var12.b > var11.b(var12)) {
-                        var12.b = var11.b(var12);
+                     if(var12.count > var11.b(var12)) {
+                        var12.count = var11.b(var12);
                      }
 
-                     var9 -= var12.b - var13;
+                     var9 -= var12.count - var13;
                      var11.d(var12);
                   }
                }
 
-               var17.b = var9;
-               if(var17.b <= 0) {
+               var17.count = var9;
+               if(var17.count <= 0) {
                   var17 = null;
                }
 
@@ -163,7 +163,7 @@ public abstract class aib {
 
                   if(var2 == 1) {
                      var4.a(var6.p().a(1), true);
-                     if(var6.p().b == 0) {
+                     if(var6.p().count == 0) {
                         var6.b((ItemStack)null);
                      }
                   }
@@ -177,9 +177,9 @@ public abstract class aib {
                if(var16 != null && var16.a(var4)) {
                   var17 = this.b(var4, var1);
                   if(var17 != null) {
-                     Item var19 = var17.b();
-                     var5 = var17.k();
-                     if(var16.d() != null && var16.d().b() == var19) {
+                     Item var19 = var17.getItem();
+                     var5 = var17.cloneItemStack();
+                     if(var16.d() != null && var16.d().getItem() == var19) {
                         this.a(var1, var2, true, var4);
                      }
                   }
@@ -194,61 +194,61 @@ public abstract class aib {
                   var17 = var16.d();
                   ItemStack var20 = var6.p();
                   if(var17 != null) {
-                     var5 = var17.k();
+                     var5 = var17.cloneItemStack();
                   }
 
                   if(var17 == null) {
                      if(var20 != null && var16.a(var20)) {
-                        var22 = var2 == 0?var20.b:1;
+                        var22 = var2 == 0?var20.count:1;
                         if(var22 > var16.b(var20)) {
                            var22 = var16.b(var20);
                         }
 
-                        if(var20.b >= var22) {
+                        if(var20.count >= var22) {
                            var16.d(var20.a(var22));
                         }
 
-                        if(var20.b == 0) {
+                        if(var20.count == 0) {
                            var6.b((ItemStack)null);
                         }
                      }
                   } else if(var16.a(var4)) {
                      if(var20 == null) {
-                        var22 = var2 == 0?var17.b:(var17.b + 1) / 2;
+                        var22 = var2 == 0?var17.count:(var17.count + 1) / 2;
                         var24 = var16.a(var22);
                         var6.b(var24);
-                        if(var17.b == 0) {
+                        if(var17.count == 0) {
                            var16.d((ItemStack)null);
                         }
 
                         var16.a(var4, var6.p());
                      } else if(var16.a(var20)) {
-                        if(var17.b() == var20.b() && var17.i() == var20.i() && ItemStack.a(var17, var20)) {
-                           var22 = var2 == 0?var20.b:1;
-                           if(var22 > var16.b(var20) - var17.b) {
-                              var22 = var16.b(var20) - var17.b;
+                        if(var17.getItem() == var20.getItem() && var17.getData() == var20.getData() && ItemStack.equals(var17, var20)) {
+                           var22 = var2 == 0?var20.count:1;
+                           if(var22 > var16.b(var20) - var17.count) {
+                              var22 = var16.b(var20) - var17.count;
                            }
 
-                           if(var22 > var20.c() - var17.b) {
-                              var22 = var20.c() - var17.b;
+                           if(var22 > var20.getMaxStackSize() - var17.count) {
+                              var22 = var20.getMaxStackSize() - var17.count;
                            }
 
                            var20.a(var22);
-                           if(var20.b == 0) {
+                           if(var20.count == 0) {
                               var6.b((ItemStack)null);
                            }
 
-                           var17.b += var22;
-                        } else if(var20.b <= var16.b(var20)) {
+                           var17.count += var22;
+                        } else if(var20.count <= var16.b(var20)) {
                            var16.d(var20);
                            var6.b(var17);
                         }
-                     } else if(var17.b() == var20.b() && var20.c() > 1 && (!var17.f() || var17.i() == var20.i()) && ItemStack.a(var17, var20)) {
-                        var22 = var17.b;
-                        if(var22 > 0 && var22 + var20.b <= var20.c()) {
-                           var20.b += var22;
+                     } else if(var17.getItem() == var20.getItem() && var20.getMaxStackSize() > 1 && (!var17.usesData() || var17.getData() == var20.getData()) && ItemStack.equals(var17, var20)) {
+                        var22 = var17.count;
+                        if(var22 > 0 && var22 + var20.count <= var20.getMaxStackSize()) {
+                           var20.count += var22;
                            var17 = var16.a(var22);
-                           if(var17.b == 0) {
+                           if(var17.count == 0) {
                               var16.d((ItemStack)null);
                            }
 
@@ -273,16 +273,16 @@ public abstract class aib {
 
                if(var16.e() && var18) {
                   var24 = var16.d();
-                  var6.a(var2, var24.k());
+                  var6.a(var2, var24.cloneItemStack());
                   if((var16.d != var6 || !var16.a(var17)) && var17 != null) {
                      if(var22 > -1) {
                         var6.a(var17);
-                        var16.a(var24.b);
+                        var16.a(var24.count);
                         var16.d((ItemStack)null);
                         var16.a(var4, var24);
                      }
                   } else {
-                     var16.a(var24.b);
+                     var16.a(var24.count);
                      var16.d(var17);
                      var16.a(var4, var24);
                   }
@@ -291,17 +291,17 @@ public abstract class aib {
                   var16.d(var17);
                }
             }
-         } else if(var3 == 3 && var4.by.canInstantlyBuild && var6.p() == null && var1 >= 0) {
+         } else if(var3 == 3 && var4.abilities.canInstantlyBuild && var6.p() == null && var1 >= 0) {
             var16 = (ajk)this.c.get(var1);
             if(var16 != null && var16.e()) {
-               var17 = var16.d().k();
-               var17.b = var17.c();
+               var17 = var16.d().cloneItemStack();
+               var17.count = var17.getMaxStackSize();
                var6.b(var17);
             }
          } else if(var3 == 4 && var6.p() == null && var1 >= 0) {
             var16 = (ajk)this.c.get(var1);
             if(var16 != null && var16.e() && var16.a(var4)) {
-               var17 = var16.a(var2 == 0?1:var16.d().b);
+               var17 = var16.a(var2 == 0?1:var16.d().count);
                var16.a(var4, var17);
                var4.a(var17, true);
             }
@@ -313,13 +313,13 @@ public abstract class aib {
                var22 = var2 == 0?1:-1;
 
                for(int var21 = 0; var21 < 2; ++var21) {
-                  for(int var23 = var9; var23 >= 0 && var23 < this.c.size() && var17.b < var17.c(); var23 += var22) {
+                  for(int var23 = var9; var23 >= 0 && var23 < this.c.size() && var17.count < var17.getMaxStackSize(); var23 += var22) {
                      ajk var25 = (ajk)this.c.get(var23);
-                     if(var25.e() && a(var25, var17, true) && var25.a(var4) && this.a(var17, var25) && (var21 != 0 || var25.d().b != var25.d().c())) {
-                        int var14 = Math.min(var17.c() - var17.b, var25.d().b);
+                     if(var25.e() && a(var25, var17, true) && var25.a(var4) && this.a(var17, var25) && (var21 != 0 || var25.d().count != var25.d().getMaxStackSize())) {
+                        int var14 = Math.min(var17.getMaxStackSize() - var17.count, var25.d().count);
                         ItemStack var15 = var25.a(var14);
-                        var17.b += var14;
-                        if(var15.b <= 0) {
+                        var17.count += var14;
+                        if(var15.count <= 0) {
                            var25.d((ItemStack)null);
                         }
 
@@ -385,20 +385,20 @@ public abstract class aib {
 
       ajk var7;
       ItemStack var8;
-      if(var1.d()) {
-         while(var1.b > 0 && (!var4 && var6 < var3 || var4 && var6 >= var2)) {
+      if(var1.isStackable()) {
+         while(var1.count > 0 && (!var4 && var6 < var3 || var4 && var6 >= var2)) {
             var7 = (ajk)this.c.get(var6);
             var8 = var7.d();
-            if(var8 != null && var8.b() == var1.b() && (!var1.f() || var1.i() == var8.i()) && ItemStack.a(var1, var8)) {
-               int var9 = var8.b + var1.b;
-               if(var9 <= var1.c()) {
-                  var1.b = 0;
-                  var8.b = var9;
+            if(var8 != null && var8.getItem() == var1.getItem() && (!var1.usesData() || var1.getData() == var8.getData()) && ItemStack.equals(var1, var8)) {
+               int var9 = var8.count + var1.count;
+               if(var9 <= var1.getMaxStackSize()) {
+                  var1.count = 0;
+                  var8.count = var9;
                   var7.f();
                   var5 = true;
-               } else if(var8.b < var1.c()) {
-                  var1.b -= var1.c() - var8.b;
-                  var8.b = var1.c();
+               } else if(var8.count < var1.getMaxStackSize()) {
+                  var1.count -= var1.getMaxStackSize() - var8.count;
+                  var8.count = var1.getMaxStackSize();
                   var7.f();
                   var5 = true;
                }
@@ -412,7 +412,7 @@ public abstract class aib {
          }
       }
 
-      if(var1.b > 0) {
+      if(var1.count > 0) {
          if(var4) {
             var6 = var3 - 1;
          } else {
@@ -423,9 +423,9 @@ public abstract class aib {
             var7 = (ajk)this.c.get(var6);
             var8 = var7.d();
             if(var8 == null) {
-               var7.d(var1.k());
+               var7.d(var1.cloneItemStack());
                var7.f();
-               var1.b = 0;
+               var1.count = 0;
                var5 = true;
                break;
             }
@@ -450,7 +450,7 @@ public abstract class aib {
    }
 
    public static boolean a(int var0, EntityHuman var1) {
-      return var0 == 0?true:(var0 == 1?true:var0 == 2 && var1.by.canInstantlyBuild);
+      return var0 == 0?true:(var0 == 1?true:var0 == 2 && var1.abilities.canInstantlyBuild);
    }
 
    protected void d() {
@@ -460,9 +460,9 @@ public abstract class aib {
 
    public static boolean a(ajk var0, ItemStack var1, boolean var2) {
       boolean var3 = var0 == null || !var0.e();
-      if(var0 != null && var0.e() && var1 != null && var1.a(var0.d()) && ItemStack.a(var0.d(), var1)) {
-         int var10002 = var2?0:var1.b;
-         var3 |= var0.d().b + var10002 <= var1.c();
+      if(var0 != null && var0.e() && var1 != null && var1.a(var0.d()) && ItemStack.equals(var0.d(), var1)) {
+         int var10002 = var2?0:var1.count;
+         var3 |= var0.d().count + var10002 <= var1.getMaxStackSize();
       }
 
       return var3;
@@ -471,16 +471,16 @@ public abstract class aib {
    public static void a(Set var0, int var1, ItemStack var2, int var3) {
       switch(var1) {
       case 0:
-         var2.b = MathHelper.d((float)var2.b / (float)var0.size());
+         var2.count = MathHelper.d((float)var2.count / (float)var0.size());
          break;
       case 1:
-         var2.b = 1;
+         var2.count = 1;
          break;
       case 2:
-         var2.b = var2.b().j();
+         var2.count = var2.getItem().getMaxStackSize();
       }
 
-      var2.b += var3;
+      var2.count += var3;
    }
 
    public boolean b(ajk var1) {
@@ -501,7 +501,7 @@ public abstract class aib {
          for(int var3 = 0; var3 < var0.n_(); ++var3) {
             ItemStack var4 = var0.a(var3);
             if(var4 != null) {
-               var2 += (float)var4.b / (float)Math.min(var0.p_(), var4.c());
+               var2 += (float)var4.count / (float)Math.min(var0.p_(), var4.getMaxStackSize());
                ++var1;
             }
          }

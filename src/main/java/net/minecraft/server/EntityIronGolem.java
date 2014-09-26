@@ -141,13 +141,13 @@ public class EntityIronGolem extends EntityGolem {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Item.a((Block)Blocks.RED_ROSE), 1, (float)EnumFlowerType.b.b());
+         this.a(Item.getItemOf((Block)Blocks.RED_ROSE), 1, (float)EnumFlowerType.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.a(Items.j, 1);
+         this.a(Items.IRON_INGOT, 1);
       }
 
    }

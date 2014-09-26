@@ -46,7 +46,7 @@ public class ChatMessage extends ChatBaseComponent {
       }
 
       try {
-         this.b(LocaleI18n.a(this.d));
+         this.b(LocaleI18n.get(this.d));
       } catch (ia var6) {
          this.b.clear();
 

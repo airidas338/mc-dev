@@ -39,7 +39,7 @@ public class ajb extends aib {
    }
 
    public void a(IInventory var1) {
-      this.f.a(0, aop.a().a(this.a, this.h.o));
+      this.f.a(0, CraftingManager.getInstance().a(this.a, this.h.o));
    }
 
    public void b(EntityHuman var1) {
@@ -64,7 +64,7 @@ public class ajb extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 == 0) {
             if(!this.a(var5, 9, 45, true)) {
                return null;
@@ -79,8 +79,8 @@ public class ajb extends aib {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.b() instanceof ItemArmor && !((ajk)this.c.get(5 + ((ItemArmor)var3.b()).b)).e()) {
-            int var6 = 5 + ((ItemArmor)var3.b()).b;
+         } else if(var3.getItem() instanceof ItemArmor && !((ajk)this.c.get(5 + ((ItemArmor)var3.getItem()).b)).e()) {
+            int var6 = 5 + ((ItemArmor)var3.getItem()).b;
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
             }
@@ -96,13 +96,13 @@ public class ajb extends aib {
             return null;
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

@@ -22,19 +22,19 @@ class aif extends ajk {
    }
 
    public boolean a(EntityHuman var1) {
-      return (var1.by.canInstantlyBuild || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
+      return (var1.abilities.canInstantlyBuild || var1.bz >= this.c.a) && this.c.a > 0 && this.e();
    }
 
    public void a(EntityHuman var1, ItemStack var2) {
-      if(!var1.by.canInstantlyBuild) {
+      if(!var1.abilities.canInstantlyBuild) {
          var1.a(-this.c.a);
       }
 
       aid.a(this.c).a(0, (ItemStack)null);
       if(aid.b(this.c) > 0) {
          ItemStack var3 = aid.a(this.c).a(1);
-         if(var3 != null && var3.b > aid.b(this.c)) {
-            var3.b -= aid.b(this.c);
+         if(var3 != null && var3.count > aid.b(this.c)) {
+            var3.count -= aid.b(this.c);
             aid.a(this.c).a(1, var3);
          } else {
             aid.a(this.c).a(1, (ItemStack)null);
@@ -45,7 +45,7 @@ class aif extends ajk {
 
       this.c.a = 0;
       IBlockData var5 = this.a.getData(this.b);
-      if(!var1.by.canInstantlyBuild && !this.a.isStatic && var5.c() == Blocks.ANVIL && var1.bb().nextFloat() < 0.12F) {
+      if(!var1.abilities.canInstantlyBuild && !this.a.isStatic && var5.c() == Blocks.ANVIL && var1.bb().nextFloat() < 0.12F) {
          int var4 = ((Integer)var5.b(BlockAnvil.b)).intValue();
          ++var4;
          if(var4 > 2) {

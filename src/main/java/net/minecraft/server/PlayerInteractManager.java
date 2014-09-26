@@ -25,7 +25,7 @@ public class PlayerInteractManager {
 
    public void a(EnumGamemode var1) {
       this.c = var1;
-      var1.a(this.b.by);
+      var1.a(this.b.abilities);
       this.b.t();
       this.b.b.an().a((Packet)(new PacketPlayOutPlayerInfo(kj.b, new EntityPlayer[]{this.b})));
    }
@@ -60,7 +60,7 @@ public class PlayerInteractManager {
          if(var2.getMaterial() == Material.AIR) {
             this.h = false;
          } else {
-            var3 = var2.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
+            var3 = var2.getDamage((EntityHuman)this.b, this.b.o, this.i) * (float)(var1 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.i, var4);
@@ -80,7 +80,7 @@ public class PlayerInteractManager {
             this.d = false;
          } else {
             int var6 = this.g - this.e;
-            var3 = var5.a((EntityHuman)this.b, this.b.o, this.i) * (float)(var6 + 1);
+            var3 = var5.getDamage((EntityHuman)this.b, this.b.o, this.i) * (float)(var6 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.f, var4);
@@ -120,8 +120,8 @@ public class PlayerInteractManager {
          this.e = this.g;
          float var6 = 1.0F;
          if(var3.getMaterial() != Material.AIR) {
-            var3.a(this.a, var1, (EntityHuman)this.b);
-            var6 = var3.a((EntityHuman)this.b, this.b.o, var1);
+            var3.attack(this.a, var1, (EntityHuman)this.b);
+            var6 = var3.getDamage((EntityHuman)this.b, this.b.o, var1);
          }
 
          if(var3.getMaterial() != Material.AIR && var6 >= 1.0F) {
@@ -142,7 +142,7 @@ public class PlayerInteractManager {
          int var2 = this.g - this.e;
          Block var3 = this.a.getData(var1).c();
          if(var3.getMaterial() != Material.AIR) {
-            float var4 = var3.a((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
+            float var4 = var3.getDamage((EntityHuman)this.b, this.b.o, var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
                this.a.c(this.b.F(), var1, -1);
@@ -168,14 +168,14 @@ public class PlayerInteractManager {
       var2.c().a(this.a, var1, var2, (EntityHuman)this.b);
       boolean var3 = this.a.setAir(var1);
       if(var3) {
-         var2.c().d(this.a, var1, var2);
+         var2.c().postBreak(this.a, var1, var2);
       }
 
       return var3;
    }
 
    public boolean b(Location var1) {
-      if(this.c.d() && this.b.bz() != null && this.b.bz().b() instanceof ItemSword) {
+      if(this.c.d() && this.b.bz() != null && this.b.bz().getItem() instanceof ItemSword) {
          return false;
       } else {
          IBlockData var2 = this.a.getData(var1);
@@ -206,7 +206,7 @@ public class PlayerInteractManager {
             boolean var6 = this.b.b(var2.c());
             if(var5 != null) {
                var5.a(this.a, var2.c(), var1, this.b);
-               if(var5.b == 0) {
+               if(var5.count == 0) {
                   this.b.bZ();
                }
             }
@@ -224,21 +224,21 @@ public class PlayerInteractManager {
       if(this.c == EnumGamemode.SPECTATOR) {
          return false;
       } else {
-         int var4 = var3.b;
-         int var5 = var3.i();
+         int var4 = var3.count;
+         int var5 = var3.getData();
          ItemStack var6 = var3.a(var2, var1);
-         if(var6 == var3 && (var6 == null || var6.b == var4 && var6.l() <= 0 && var6.i() == var5)) {
+         if(var6 == var3 && (var6 == null || var6.count == var4 && var6.l() <= 0 && var6.getData() == var5)) {
             return false;
          } else {
             var1.bg.a[var1.bg.c] = var6;
             if(this.d()) {
-               var6.b = var4;
+               var6.count = var4;
                if(var6.e()) {
-                  var6.b(var5);
+                  var6.setData(var5);
                }
             }
 
-            if(var6.b == 0) {
+            if(var6.count == 0) {
                var1.bg.a[var1.bg.c] = null;
             }
 
@@ -282,14 +282,14 @@ public class PlayerInteractManager {
          if(var3 == null) {
             return false;
          } else if(this.d()) {
-            int var12 = var3.i();
-            int var10 = var3.b;
-            boolean var11 = var3.a(var1, var2, var4, var5, var6, var7, var8);
-            var3.b(var12);
-            var3.b = var10;
+            int var12 = var3.getData();
+            int var10 = var3.count;
+            boolean var11 = var3.placeItem(var1, var2, var4, var5, var6, var7, var8);
+            var3.setData(var12);
+            var3.count = var10;
             return var11;
          } else {
-            return var3.a(var1, var2, var4, var5, var6, var7, var8);
+            return var3.placeItem(var1, var2, var4, var5, var6, var7, var8);
          }
       }
    }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class akx extends aju {
+public class akx extends ItemBlock {
 
    public akx(Block var1) {
       super(var1);
@@ -13,6 +13,6 @@ public class akx extends aju {
    }
 
    public String e_(ItemStack var1) {
-      return super.a() + "." + akv.b(var1.i()).d();
+      return super.a() + "." + akv.b(var1.getData()).d();
    }
 }

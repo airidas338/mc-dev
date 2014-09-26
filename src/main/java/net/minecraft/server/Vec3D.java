@@ -39,18 +39,18 @@ public class Vec3D {
    }
 
    public Vec3D a(double var1, double var3, double var5) {
-      return this.b(-var1, -var3, -var5);
+      return this.add(-var1, -var3, -var5);
    }
 
    public Vec3D e(Vec3D var1) {
-      return this.b(var1.a, var1.b, var1.c);
+      return this.add(var1.a, var1.b, var1.c);
    }
 
-   public Vec3D b(double var1, double var3, double var5) {
+   public Vec3D add(double var1, double var3, double var5) {
       return new Vec3D(this.a + var1, this.b + var3, this.c + var5);
    }
 
-   public double f(Vec3D var1) {
+   public double distanceSquared(Vec3D var1) {
       double var2 = var1.a - this.a;
       double var4 = var1.b - this.b;
       double var6 = var1.c - this.c;

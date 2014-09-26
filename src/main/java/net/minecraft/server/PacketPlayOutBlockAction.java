@@ -21,7 +21,7 @@ public class PacketPlayOutBlockAction implements Packet {
       this.a = var1.c();
       this.b = var1.readUnsignedByte();
       this.c = var1.readUnsignedByte();
-      this.d = Block.c(var1.e() & 4095);
+      this.d = Block.getById(var1.e() & 4095);
    }
 
    public void b(PacketDataSerializer var1) {

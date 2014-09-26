@@ -349,7 +349,7 @@ public class ChunkRegionLoader implements IChunkLoader, brq {
                if(var34.hasKeyOfType("i", 8)) {
                   var37 = Block.b(var34.getString("i"));
                } else {
-                  var37 = Block.c(var34.getInt("i"));
+                  var37 = Block.getById(var34.getInt("i"));
                }
 
                var1.b(new Location(var34.getInt("x"), var34.getInt("y"), var34.getInt("z")), var37, var34.getInt("t"), var34.getInt("p"));

@@ -20,7 +20,7 @@ public class BlockPlant extends Block {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.GRASS || var1 == Blocks.DIRT || var1 == Blocks.FARMLAND;
+      return var1 == Blocks.GRASS || var1 == Blocks.DIRT || var1 == Blocks.SOIL;
    }
 
    public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {

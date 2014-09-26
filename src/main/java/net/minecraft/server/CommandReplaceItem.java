@@ -73,13 +73,13 @@ public class CommandReplaceItem extends CommandAbstract {
             String var10 = a(var1, var2, var16).c();
 
             try {
-               var9.d(gg.a(var10));
+               var9.setTag(gg.a(var10));
             } catch (gf var14) {
                throw new CommandException("commands.replaceitem.tagError", new Object[]{var14.getMessage()});
             }
          }
 
-         if(var9.b() == null) {
+         if(var9.getItem() == null) {
             var9 = null;
          }
 

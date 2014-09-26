@@ -71,7 +71,7 @@ public class BlockThin extends Block {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       float var3 = 0.4375F;
       float var4 = 0.5625F;
       float var5 = 0.4375F;

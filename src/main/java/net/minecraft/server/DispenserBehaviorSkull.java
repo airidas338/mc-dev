@@ -17,10 +17,10 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
             var3.setTypeAndData(var5, var6.P().a(BlockSkull.a, EnumFacing.UP), 3);
             TileEntity var7 = var3.getTileEntity(var5);
             if(var7 instanceof TileEntitySkull) {
-               if(var2.i() == 3) {
+               if(var2.getData() == 3) {
                   GameProfile var8 = null;
-                  if(var2.n()) {
-                     NBTTagCompound var9 = var2.o();
+                  if(var2.hasTag()) {
+                     NBTTagCompound var9 = var2.getTag();
                      if(var9.hasKeyOfType("SkullOwner", 10)) {
                         var8 = GameProfileSerializer.deserialize(var9.getCompound("SkullOwner"));
                      } else if(var9.hasKeyOfType("SkullOwner", 8)) {
@@ -30,14 +30,14 @@ final class DispenserBehaviorSkull extends DispenserBehaviorItem {
 
                   ((TileEntitySkull)var7).a(var8);
                } else {
-                  ((TileEntitySkull)var7).a(var2.i());
+                  ((TileEntitySkull)var7).a(var2.getData());
                }
 
                ((TileEntitySkull)var7).b(var4.d().b() * 4);
                Blocks.SKULL.a(var3, var5, (TileEntitySkull)var7);
             }
 
-            --var2.b;
+            --var2.count;
          }
       } else {
          this.b = false;

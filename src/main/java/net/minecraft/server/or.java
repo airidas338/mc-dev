@@ -14,7 +14,7 @@ class or extends DispenserBehaviorProjectile {
    }
 
    protected IProjectile a(World var1, IPosition var2) {
-      return new EntityPotion(var1, var2.getX(), var2.getY(), var2.getZ(), this.b.k());
+      return new EntityPotion(var1, var2.getX(), var2.getY(), var2.getZ(), this.b.cloneItemStack());
    }
 
    protected float a() {

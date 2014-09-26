@@ -15,7 +15,7 @@ public class DispenserRegistry {
    }
 
    static void b() {
-      BlockDispenser.M.a(Items.g, new DispenserBehaviorArrow());
+      BlockDispenser.M.a(Items.ARROW, new DispenserBehaviorArrow());
       BlockDispenser.M.a(Items.aP, new DispenserBehaviorEgg());
       BlockDispenser.M.a(Items.aD, new DispenserBehaviorSnowBall());
       BlockDispenser.M.a(Items.bK, new DispenserBehaviorExpBottle());
@@ -30,10 +30,10 @@ public class DispenserRegistry {
       BlockDispenser.M.a(Items.BUCKET, new DispenserBehaviorEmptyBucket());
       BlockDispenser.M.a(Items.FLINT_AND_STEEL, new DispenserBehaviorFlintAndSteel());
       BlockDispenser.M.a(Items.aW, new DispenserBehaviorBonemeal());
-      BlockDispenser.M.a(Item.a(Blocks.TNT), new DispenserBehaviorTNT());
+      BlockDispenser.M.a(Item.getItemOf(Blocks.TNT), new DispenserBehaviorTNT());
       BlockDispenser.M.a(Items.bX, new DispenserBehaviorSkull());
-      BlockDispenser.M.a(Item.a(Blocks.PUMPKIN), new DispenserBehaviorPumpkin());
-      BlockDispenser.M.a(Item.a(Blocks.COMMAND), new DispenserBehaviorCommand());
+      BlockDispenser.M.a(Item.getItemOf(Blocks.PUMPKIN), new DispenserBehaviorPumpkin());
+      BlockDispenser.M.a(Item.getItemOf(Blocks.COMMAND), new DispenserBehaviorCommand());
    }
 
    public static void c() {

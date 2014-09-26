@@ -114,12 +114,12 @@ public class EntityOcelot extends EntityTameableAnimal {
          if(this.e(var1) && !this.o.isStatic && !this.d(var2)) {
             this.bk.a(!this.cl());
          }
-      } else if(this.bn.f() && var2 != null && var2.b() == Items.aU && var1.h(this) < 9.0D) {
-         if(!var1.by.canInstantlyBuild) {
-            --var2.b;
+      } else if(this.bn.f() && var2 != null && var2.getItem() == Items.aU && var1.h(this) < 9.0D) {
+         if(!var1.abilities.canInstantlyBuild) {
+            --var2.count;
          }
 
-         if(var2.b <= 0) {
+         if(var2.count <= 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 
@@ -155,7 +155,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 != null && var1.b() == Items.aU;
+      return var1 != null && var1.getItem() == Items.aU;
    }
 
    public boolean a(EntityAnimal var1) {
@@ -200,7 +200,7 @@ public class EntityOcelot extends EntityTameableAnimal {
    }
 
    public String getName() {
-      return this.k_()?this.aL():(this.cj()?LocaleI18n.a("entity.Cat.name"):super.getName());
+      return this.k_()?this.aL():(this.cj()?LocaleI18n.get("entity.Cat.name"):super.getName());
    }
 
    public void m(boolean var1) {

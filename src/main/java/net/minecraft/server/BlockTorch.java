@@ -76,7 +76,7 @@ public class BlockTorch extends Block {
       }
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.f(var1, var2, var3);
    }
 

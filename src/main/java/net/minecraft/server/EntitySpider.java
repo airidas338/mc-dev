@@ -60,7 +60,7 @@ public class EntitySpider extends EntityMonster {
    }
 
    protected Item A() {
-      return Items.F;
+      return Items.STRING;
    }
 
    protected void b(boolean var1, int var2) {

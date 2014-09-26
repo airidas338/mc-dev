@@ -38,7 +38,7 @@ public class BlockHay extends BlockRotatable {
    }
 
    protected ItemStack i(IBlockData var1) {
-      return new ItemStack(Item.a((Block)this), 1, 0);
+      return new ItemStack(Item.getItemOf((Block)this), 1, 0);
    }
 
    public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {

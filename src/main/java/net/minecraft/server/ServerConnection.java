@@ -65,15 +65,12 @@ public class ServerConnection {
 
 			while (var2.hasNext()) {
 				NetworkManager var3 = (NetworkManager) var2.next();
-				System.out.println("Recieved NetworkManager " + var3.isConnected() + " at " + System.currentTimeMillis());
 				if (!var3.h()) {
 					if (!var3.isConnected()) {
-						System.out.println("NetworkManager is not connected " + var3);
 						var2.remove();
 						var3.l();
 					} else {
 						try {
-							System.out.println("Connecting NetworkManager " + var3);
 							var3.a();
 						} catch (Exception var8) {
 							if (var3.c()) {

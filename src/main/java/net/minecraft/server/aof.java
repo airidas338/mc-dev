@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-class aof implements aoo {
+class aof implements IRecipe {
 
    private aof() {}
 
@@ -11,7 +11,7 @@ class aof implements aoo {
       for(int var5 = 0; var5 < var1.n_(); ++var5) {
          ItemStack var6 = var1.a(var5);
          if(var6 != null) {
-            if(var6.b() != Items.cE) {
+            if(var6.getItem() != Items.cE) {
                return false;
             }
 
@@ -56,8 +56,8 @@ class aof implements aoo {
       for(int var2 = 0; var2 < var1.n_(); ++var2) {
          ItemStack var3 = var1.a(var2);
          if(var3 != null && TileEntityBanner.c(var3) > 0) {
-            ItemStack var4 = var3.k();
-            var4.b = 1;
+            ItemStack var4 = var3.cloneItemStack();
+            var4.count = 1;
             return var4;
          }
       }
@@ -79,11 +79,11 @@ class aof implements aoo {
       for(int var3 = 0; var3 < var2.length; ++var3) {
          ItemStack var4 = var1.a(var3);
          if(var4 != null) {
-            if(var4.b().r()) {
-               var2[var3] = new ItemStack(var4.b().q());
-            } else if(var4.n() && TileEntityBanner.c(var4) > 0) {
-               var2[var3] = var4.k();
-               var2[var3].b = 1;
+            if(var4.getItem().r()) {
+               var2[var3] = new ItemStack(var4.getItem().q());
+            } else if(var4.hasTag() && TileEntityBanner.c(var4) > 0) {
+               var2[var3] = var4.cloneItemStack();
+               var2[var3].count = 1;
             }
          }
       }

@@ -35,7 +35,7 @@ public class aio extends aib {
    }
 
    public void a(IInventory var1) {
-      this.f.a(0, aop.a().a(this.a, this.g));
+      this.f.a(0, CraftingManager.getInstance().a(this.a, this.g));
    }
 
    public void b(EntityHuman var1) {
@@ -60,7 +60,7 @@ public class aio extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 == 0) {
             if(!this.a(var5, 10, 46, true)) {
                return null;
@@ -79,13 +79,13 @@ public class aio extends aib {
             return null;
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

@@ -19,7 +19,7 @@ public class ajj extends ajk {
 
    public ItemStack a(int var1) {
       if(this.e()) {
-         this.c += Math.min(var1, this.d().b);
+         this.c += Math.min(var1, this.d().count);
       }
 
       return super.a(var1);
@@ -36,47 +36,47 @@ public class ajj extends ajk {
       }
 
       this.c = 0;
-      if(var1.b() == Item.a(Blocks.CRAFTING_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.CRAFTING_TABLE)) {
          this.b.b((Statistic)AchievementList.h);
       }
 
-      if(var1.b() instanceof ItemPickaxe) {
+      if(var1.getItem() instanceof ItemPickaxe) {
          this.b.b((Statistic)AchievementList.i);
       }
 
-      if(var1.b() == Item.a(Blocks.FURNACE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.FURNACE)) {
          this.b.b((Statistic)AchievementList.j);
       }
 
-      if(var1.b() instanceof alo) {
+      if(var1.getItem() instanceof ItemHoe) {
          this.b.b((Statistic)AchievementList.l);
       }
 
-      if(var1.b() == Items.P) {
+      if(var1.getItem() == Items.BREAD) {
          this.b.b((Statistic)AchievementList.m);
       }
 
-      if(var1.b() == Items.aZ) {
+      if(var1.getItem() == Items.aZ) {
          this.b.b((Statistic)AchievementList.n);
       }
 
-      if(var1.b() instanceof ItemPickaxe && ((ItemPickaxe)var1.b()).g() != ami.a) {
+      if(var1.getItem() instanceof ItemPickaxe && ((ItemPickaxe)var1.getItem()).g() != EnumToolMaterial.WOOD) {
          this.b.b((Statistic)AchievementList.o);
       }
 
-      if(var1.b() instanceof ItemSword) {
+      if(var1.getItem() instanceof ItemSword) {
          this.b.b((Statistic)AchievementList.r);
       }
 
-      if(var1.b() == Item.a(Blocks.ENCHANTMENT_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.ENCHANTMENT_TABLE)) {
          this.b.b((Statistic)AchievementList.E);
       }
 
-      if(var1.b() == Item.a(Blocks.BOOKSHELF)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.BOOKSHELF)) {
          this.b.b((Statistic)AchievementList.G);
       }
 
-      if(var1.b() == Items.ao && var1.i() == 1) {
+      if(var1.getItem() == Items.ao && var1.getData() == 1) {
          this.b.b((Statistic)AchievementList.M);
       }
 
@@ -84,7 +84,7 @@ public class ajj extends ajk {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      ItemStack[] var3 = aop.a().b(this.a, var1.o);
+      ItemStack[] var3 = CraftingManager.getInstance().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          ItemStack var5 = this.a.a(var4);

@@ -125,7 +125,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
                AxisAlignedBB var12 = var10.aQ().b((double)var11, (double)var11, (double)var11);
                MovingObjectPosition var13 = var12.a(var1, var2);
                if(var13 != null) {
-                  double var14 = var1.f(var13.c);
+                  double var14 = var1.distanceSquared(var13.c);
                   if(var14 < var6 || var6 == 0.0D) {
                      var4 = var10;
                      var6 = var14;
@@ -217,7 +217,7 @@ public abstract class EntityProjectile extends Entity implements IProjectile {
       if(var1.hasKeyOfType("inTile", 8)) {
          this.f = Block.b(var1.getString("inTile"));
       } else {
-         this.f = Block.c(var1.getByte("inTile") & 255);
+         this.f = Block.getById(var1.getByte("inTile") & 255);
       }
 
       this.b = var1.getByte("shake") & 255;

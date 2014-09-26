@@ -29,7 +29,7 @@ public class aje implements IInventory {
             var3 = this.b[var1];
             this.b[var1] = null;
             return var3;
-         } else if(this.b[var1].b <= var2) {
+         } else if(this.b[var1].count <= var2) {
             var3 = this.b[var1];
             this.b[var1] = null;
             if(this.e(var1)) {
@@ -39,7 +39,7 @@ public class aje implements IInventory {
             return var3;
          } else {
             var3 = this.b[var1].a(var2);
-            if(this.b[var1].b == 0) {
+            if(this.b[var1].count == 0) {
                this.b[var1] = null;
             }
 
@@ -70,8 +70,8 @@ public class aje implements IInventory {
 
    public void a(int var1, ItemStack var2) {
       this.b[var1] = var2;
-      if(var2 != null && var2.b > this.p_()) {
-         var2.b = this.p_();
+      if(var2 != null && var2.count > this.p_()) {
+         var2.count = this.p_();
       }
 
       if(this.e(var1)) {
@@ -129,12 +129,12 @@ public class aje implements IInventory {
             aqc var4 = var3.a(var1, var2, this.e);
             if(var4 != null && !var4.h()) {
                this.d = var4;
-               this.a(2, var4.d().k());
+               this.a(2, var4.d().cloneItemStack());
             } else if(var2 != null) {
                var4 = var3.a(var2, var1, this.e);
                if(var4 != null && !var4.h()) {
                   this.d = var4;
-                  this.a(2, var4.d().k());
+                  this.a(2, var4.d().cloneItemStack());
                } else {
                   this.a(2, (ItemStack)null);
                }

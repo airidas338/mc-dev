@@ -36,7 +36,7 @@ public class BlockFenceGate extends BlockDirectional {
       }
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       el var3 = ((EnumFacing)var1.getData(var2).b(N)).k();
       if(var3 == el.c) {
          this.a(0.0F, 0.0F, 0.375F, 1.0F, 1.0F, 0.625F);
@@ -83,7 +83,7 @@ public class BlockFenceGate extends BlockDirectional {
    public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(!var1.isStatic) {
          boolean var5 = var1.isBlockIndirectlyPowered(var2);
-         if(var5 || var4.g()) {
+         if(var5 || var4.isPowerSource()) {
             if(var5 && !((Boolean)var3.b(a)).booleanValue() && !((Boolean)var3.b(b)).booleanValue()) {
                var1.setTypeAndData(var2, var3.a(a, Boolean.valueOf(true)).a(b, Boolean.valueOf(true)), 2);
                var1.a((EntityHuman)null, 1003, var2, 0);

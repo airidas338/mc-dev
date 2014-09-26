@@ -13,8 +13,8 @@ public class TileEntityBanner extends TileEntity {
 
    public void a(ItemStack var1) {
       this.f = null;
-      if(var1.n() && var1.o().hasKeyOfType("BlockEntityTag", 10)) {
-         NBTTagCompound var2 = var1.o().getCompound("BlockEntityTag");
+      if(var1.hasTag() && var1.getTag().hasKeyOfType("BlockEntityTag", 10)) {
+         NBTTagCompound var2 = var1.getTag().getCompound("BlockEntityTag");
          if(var2.hasKey("Patterns")) {
             this.f = (NBTTagList)var2.getList("Patterns", 10).clone();
          }
@@ -22,10 +22,10 @@ public class TileEntityBanner extends TileEntity {
          if(var2.hasKeyOfType("Base", 99)) {
             this.a = var2.getInt("Base");
          } else {
-            this.a = var1.i() & 15;
+            this.a = var1.getData() & 15;
          }
       } else {
-         this.a = var1.i() & 15;
+         this.a = var1.getData() & 15;
       }
 
       this.h = null;
@@ -65,7 +65,7 @@ public class TileEntityBanner extends TileEntity {
 
    public static int b(ItemStack var0) {
       NBTTagCompound var1 = var0.a("BlockEntityTag", false);
-      return var1 != null && var1.hasKey("Base")?var1.getInt("Base"):var0.i();
+      return var1 != null && var1.hasKey("Base")?var1.getInt("Base"):var0.getData();
    }
 
    public static int c(ItemStack var0) {
@@ -80,9 +80,9 @@ public class TileEntityBanner extends TileEntity {
          if(var2.size() > 0) {
             var2.a(var2.size() - 1);
             if(var2.isEmpty()) {
-               var0.o().remove("BlockEntityTag");
-               if(var0.o().isEmpty()) {
-                  var0.d((NBTTagCompound)null);
+               var0.getTag().remove("BlockEntityTag");
+               if(var0.getTag().isEmpty()) {
+                  var0.setTag((NBTTagCompound)null);
                }
             }
 

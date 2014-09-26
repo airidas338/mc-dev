@@ -81,7 +81,7 @@ public abstract class PlayerList {
 		var12.sendPacket((Packet) (new PacketPlayOutCustomPayload("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).a(this.c().getServerModName()))));
 		var12.sendPacket((Packet) (new ix(var10.y(), var10.z())));
 		var12.sendPacket((Packet) (new PacketPlayOutSpawnPosition(var11)));
-		var12.sendPacket((Packet) (new PacketPlayOutAbilities(var2.by)));
+		var12.sendPacket((Packet) (new PacketPlayOutAbilities(var2.abilities)));
 		var12.sendPacket((Packet) (new PacketPlayOutHeldItemSlot(var2.bg.c)));
 		var2.A().d();
 		var2.A().b(var2);

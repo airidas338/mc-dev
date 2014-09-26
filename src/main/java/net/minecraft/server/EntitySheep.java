@@ -24,7 +24,7 @@ public class EntitySheep extends EntityAnimal {
       this.goalSelector.a(0, new yy(this));
       this.goalSelector.a(1, new zu(this, 1.25D));
       this.goalSelector.a(2, new yt(this, 1.0D));
-      this.goalSelector.a(3, new aag(this, 1.1D, Items.O, false));
+      this.goalSelector.a(3, new aag(this, 1.1D, Items.WHEAT, false));
       this.goalSelector.a(4, new za(this, 1.1D));
       this.goalSelector.a(5, this.bo);
       this.goalSelector.a(6, new PathfinderGoalRandomStroll(this, 1.0D));
@@ -60,7 +60,7 @@ public class EntitySheep extends EntityAnimal {
 
    protected void b(boolean var1, int var2) {
       if(!this.ck()) {
-         this.a(new ItemStack(Item.a(Blocks.WOOL), 1, this.cj().a()), 0.0F);
+         this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cj().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
@@ -76,25 +76,25 @@ public class EntitySheep extends EntityAnimal {
    }
 
    protected Item A() {
-      return Item.a(Blocks.WOOL);
+      return Item.getItemOf(Blocks.WOOL);
    }
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.be && !this.ck() && !this.i_()) {
+      if(var2 != null && var2.getItem() == Items.be && !this.ck() && !this.i_()) {
          if(!this.o.isStatic) {
             this.l(true);
             int var3 = 1 + this.V.nextInt(3);
 
             for(int var4 = 0; var4 < var3; ++var4) {
-               EntityItem var5 = this.a(new ItemStack(Item.a(Blocks.WOOL), 1, this.cj().a()), 1.0F);
+               EntityItem var5 = this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cj().a()), 1.0F);
                var5.w += (double)(this.V.nextFloat() * 0.05F);
                var5.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var5.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
             }
          }
 
-         var2.a(1, (EntityLiving)var1);
+         var2.damage(1, (EntityLiving)var1);
          this.a("mob.sheep.shear", 1.0F, 1.0F);
       }
 
@@ -181,12 +181,12 @@ public class EntitySheep extends EntityAnimal {
    private akv a(EntityAnimal var1, EntityAnimal var2) {
       int var3 = ((EntitySheep)var1).cj().b();
       int var4 = ((EntitySheep)var2).cj().b();
-      this.bk.a(0).b(var3);
-      this.bk.a(1).b(var4);
-      ItemStack var5 = aop.a().a(this.bk, ((EntitySheep)var1).o);
+      this.bk.a(0).setData(var3);
+      this.bk.a(1).setData(var4);
+      ItemStack var5 = CraftingManager.getInstance().a(this.bk, ((EntitySheep)var1).o);
       int var6;
-      if(var5 != null && var5.b() == Items.aW) {
-         var6 = var5.i();
+      if(var5 != null && var5.getItem() == Items.aW) {
+         var6 = var5.getData();
       } else {
          var6 = this.o.random.nextBoolean()?var3:var4;
       }

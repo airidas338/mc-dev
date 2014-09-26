@@ -13,10 +13,10 @@ public class BlockStone extends Block {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return var1.b(a) == bbb.a?Item.a(Blocks.COBBLESTONE):Item.a(Blocks.STONE);
+      return var1.b(a) == bbb.a?Item.getItemOf(Blocks.COBBLESTONE):Item.getItemOf(Blocks.STONE);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((bbb)var1.b(a)).a();
    }
 

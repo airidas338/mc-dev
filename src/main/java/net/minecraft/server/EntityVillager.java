@@ -20,7 +20,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    private boolean bx;
    private boolean by;
    private wa bz;
-   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.O, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.P, new agx(-4, -2))}, {new agr(Item.a(Blocks.PUMPKIN), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.a(Blocks.MELON), new agx(7, 12)), new agv(Items.APPLE, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.F, new agx(15, 20)), new agr(Items.h, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.a(Blocks.WOOL), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 0), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 1), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 2), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 3), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 4), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 5), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 6), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 7), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 8), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 9), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 10), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 11), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 12), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 13), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 14), new agx(1, 2)), new agv(new ItemStack(Item.a(Blocks.WOOL), 1, 15), new agx(1, 2))}}, {{new agr(Items.F, new agx(15, 20)), new agv(Items.g, new agx(-12, -8))}, {new agv(Items.BOW, new agx(2, 3)), new agu(Item.a(Blocks.GRAVEL), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.a(Blocks.BOOKSHELF), new agx(3, 4))}, {new agr(Items.WRITTEN_BOOK, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.a(Blocks.GLASS), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.k, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new ItemStack(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.a(Blocks.GLOWSTONE), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.h, new agx(16, 24)), new agv(Items.Y, new agx(4, 6))}, {new agr(Items.j, new agx(7, 9)), new agv(Items.Z, new agx(10, 14))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.ad, new agx(16, 19))}, {new agv(Items.X, new agx(5, 7)), new agv(Items.W, new agx(9, 11)), new agv(Items.U, new agx(5, 7)), new agv(Items.V, new agx(11, 15))}}, {{new agr(Items.h, new agx(16, 24)), new agv(Items.IRON_AXE, new agx(6, 8))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.l, new agx(9, 10))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.u, new agx(12, 15)), new agt(Items.x, new agx(9, 12))}}, {{new agr(Items.h, new agx(16, 24)), new agt(Items.IRON_SPADE, new agx(5, 7))}, {new agr(Items.j, new agx(7, 9)), new agt(Items.IRON_PICKAXE, new agx(9, 11))}, {new agr(Items.i, new agx(3, 4)), new agt(Items.w, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.h, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.S, new agx(2, 4))}, {new agt(Items.R, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
+   private static final agw[][][][] bA = new agw[][][][]{{{{new agr(Items.WHEAT, new agx(18, 22)), new agr(Items.bS, new agx(15, 19)), new agr(Items.bR, new agx(15, 19)), new agv(Items.BREAD, new agx(-4, -2))}, {new agr(Item.getItemOf(Blocks.PUMPKIN), new agx(8, 13)), new agv(Items.ca, new agx(-3, -2))}, {new agr(Item.getItemOf(Blocks.MELON), new agx(7, 12)), new agv(Items.APPLE, new agx(-5, -7))}, {new agv(Items.bc, new agx(-6, -10)), new agv(Items.aZ, new agx(1, 1))}}, {{new agr(Items.STRING, new agx(15, 20)), new agr(Items.COAL, new agx(16, 24)), new agu(Items.aU, new agx(6, 6), Items.aV, new agx(6, 6))}, {new agt(Items.aR, new agx(7, 8))}}, {{new agr(Item.getItemOf(Blocks.WOOL), new agx(16, 22)), new agv(Items.be, new agx(3, 4))}, {new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 0), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 1), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 2), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 3), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 4), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 5), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 6), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 7), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 8), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 9), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 10), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 11), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 12), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 13), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 14), new agx(1, 2)), new agv(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, 15), new agx(1, 2))}}, {{new agr(Items.STRING, new agx(15, 20)), new agv(Items.ARROW, new agx(-12, -8))}, {new agv(Items.BOW, new agx(2, 3)), new agu(Item.getItemOf(Blocks.GRAVEL), new agx(10, 10), Items.ak, new agx(6, 10))}}}, {{{new agr(Items.aK, new agx(24, 36)), new ags()}, {new agr(Items.aL, new agx(8, 10)), new agv(Items.aQ, new agx(10, 12)), new agv(Item.getItemOf(Blocks.BOOKSHELF), new agx(3, 4))}, {new agr(Items.WRITTEN_BOOK, new agx(2, 2)), new agv(Items.aS, new agx(10, 12)), new agv(Item.getItemOf(Blocks.GLASS), new agx(-5, -3))}, {new ags()}, {new ags()}, {new agv(Items.co, new agx(20, 22))}}}, {{{new agr(Items.bt, new agx(36, 40)), new agr(Items.GOLD_INGOT, new agx(8, 10))}, {new agv(Items.aC, new agx(-4, -1)), new agv(new ItemStack(Items.aW, 1, akv.l.b()), new agx(-2, -1))}, {new agv(Items.bH, new agx(7, 11)), new agv(Item.getItemOf(Blocks.GLOWSTONE), new agx(-3, -1))}, {new agv(Items.bK, new agx(3, 11))}}}, {{{new agr(Items.COAL, new agx(16, 24)), new agv(Items.IRON_HELMET, new agx(4, 6))}, {new agr(Items.IRON_INGOT, new agx(7, 9)), new agv(Items.IRON_CHESTPLATE, new agx(10, 14))}, {new agr(Items.DIAMOND, new agx(3, 4)), new agt(Items.DIAMOND_CHESTPLATE, new agx(16, 19))}, {new agv(Items.CHAINMAIL_BOOTS, new agx(5, 7)), new agv(Items.CHAINMAIL_LEGGINGS, new agx(9, 11)), new agv(Items.CHAINMAIL_HELMET, new agx(5, 7)), new agv(Items.CHAINMAIL_CHESTPLATE, new agx(11, 15))}}, {{new agr(Items.COAL, new agx(16, 24)), new agv(Items.IRON_AXE, new agx(6, 8))}, {new agr(Items.IRON_INGOT, new agx(7, 9)), new agt(Items.IRON_SWORD, new agx(9, 10))}, {new agr(Items.DIAMOND, new agx(3, 4)), new agt(Items.DIAMOND_SWORD, new agx(12, 15)), new agt(Items.DIAMOND_AXE, new agx(9, 12))}}, {{new agr(Items.COAL, new agx(16, 24)), new agt(Items.IRON_SPADE, new agx(5, 7))}, {new agr(Items.IRON_INGOT, new agx(7, 9)), new agt(Items.IRON_PICKAXE, new agx(9, 11))}, {new agr(Items.DIAMOND, new agx(3, 4)), new agt(Items.DIAMOND_PICKAXE, new agx(12, 15))}}}, {{{new agr(Items.al, new agx(14, 18)), new agr(Items.bk, new agx(14, 18))}, {new agr(Items.COAL, new agx(16, 24)), new agv(Items.am, new agx(-7, -5)), new agv(Items.bl, new agx(-8, -6))}}, {{new agr(Items.aF, new agx(9, 12)), new agv(Items.LEATHER_LEGGINGS, new agx(2, 4))}, {new agt(Items.LEATHER_CHESTPLATE, new agx(7, 12))}, {new agv(Items.aA, new agx(8, 10))}}}};
 
 
    public EntityVillager(World var1) {
@@ -124,7 +124,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      boolean var3 = var2 != null && var2.b() == Items.bJ;
+      boolean var3 = var2 != null && var2.getItem() == Items.bJ;
       if(!var3 && this.isAlive() && !this.cm() && !this.i_()) {
          if(!this.o.isStatic && (this.bp == null || this.bp.size() > 0)) {
             this.a_(var1);
@@ -159,7 +159,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
          ItemStack var4 = this.bz.a(var3);
          if(var4 != null) {
-            var2.add((NBTBase)var4.b(new NBTTagCompound()));
+            var2.add((NBTBase)var4.save(new NBTTagCompound()));
          }
       }
 
@@ -181,7 +181,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       NBTTagList var5 = var1.getList("Inventory", 10);
 
       for(int var3 = 0; var3 < var5.size(); ++var3) {
-         ItemStack var4 = ItemStack.a(var5.get(var3));
+         ItemStack var4 = ItemStack.createStack(var5.get(var3));
          if(var4 != null) {
             this.bz.a(var4);
          }
@@ -289,10 +289,10 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
             ItemStack var4 = this.bz.a(var3);
             if(var4 != null) {
-               if(var4.b() == Items.P && var4.b >= 3) {
+               if(var4.getItem() == Items.BREAD && var4.count >= 3) {
                   var2 = true;
                   this.bz.a(var3, 3);
-               } else if((var4.b() == Items.bS || var4.b() == Items.bR) && var4.b >= 12) {
+               } else if((var4.getItem() == Items.bS || var4.getItem() == Items.bR) && var4.count >= 12) {
                   var2 = true;
                   this.bz.a(var3, 12);
                }
@@ -331,8 +331,8 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
          var2 += 5;
       }
 
-      if(var1.a().b() == Items.bO) {
-         this.bt += var1.a().b;
+      if(var1.a().getItem() == Items.bO) {
+         this.bt += var1.a().count;
       }
 
       if(var1.j()) {
@@ -492,20 +492,20 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
 
    protected void a(EntityItem var1) {
       ItemStack var2 = var1.l();
-      Item var3 = var2.b();
+      Item var3 = var2.getItem();
       if(this.a(var3)) {
          ItemStack var4 = this.bz.a(var2);
          if(var4 == null) {
             var1.J();
          } else {
-            var2.b = var4.b;
+            var2.count = var4.count;
          }
       }
 
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.P || var1 == Items.bS || var1 == Items.bR || var1 == Items.O || var1 == Items.N;
+      return var1 == Items.BREAD || var1 == Items.bS || var1 == Items.bR || var1 == Items.WHEAT || var1 == Items.SEEDS;
    }
 
    public boolean cp() {
@@ -527,11 +527,11 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
       for(int var3 = 0; var3 < this.bz.n_(); ++var3) {
          ItemStack var4 = this.bz.a(var3);
          if(var4 != null) {
-            if(var4.b() == Items.P && var4.b >= 3 * var1 || var4.b() == Items.bS && var4.b >= 12 * var1 || var4.b() == Items.bR && var4.b >= 12 * var1) {
+            if(var4.getItem() == Items.BREAD && var4.count >= 3 * var1 || var4.getItem() == Items.bS && var4.count >= 12 * var1 || var4.getItem() == Items.bR && var4.count >= 12 * var1) {
                return true;
             }
 
-            if(var2 && var4.b() == Items.O && var4.b >= 9 * var1) {
+            if(var2 && var4.getItem() == Items.WHEAT && var4.count >= 9 * var1) {
                return true;
             }
          }
@@ -543,7 +543,7 @@ public class EntityVillager extends EntityAgeable implements ago, aqb {
    public boolean cs() {
       for(int var1 = 0; var1 < this.bz.n_(); ++var1) {
          ItemStack var2 = this.bz.a(var1);
-         if(var2 != null && (var2.b() == Items.N || var2.b() == Items.bS || var2.b() == Items.bR)) {
+         if(var2 != null && (var2.getItem() == Items.SEEDS || var2.getItem() == Items.bS || var2.getItem() == Items.bR)) {
             return true;
          }
       }

@@ -4,7 +4,7 @@ public abstract class BlockContainer extends Block implements IContainer {
 
    protected BlockContainer(Material var1) {
       super(var1);
-      this.A = true;
+      this.isTileEntity = true;
    }
 
    public int b() {

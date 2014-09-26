@@ -91,15 +91,15 @@ public class EntityHorse extends EntityAnimal implements vr {
          switch(var1) {
          case 0:
          default:
-            return LocaleI18n.a("entity.horse.name");
+            return LocaleI18n.get("entity.horse.name");
          case 1:
-            return LocaleI18n.a("entity.donkey.name");
+            return LocaleI18n.get("entity.donkey.name");
          case 2:
-            return LocaleI18n.a("entity.mule.name");
+            return LocaleI18n.get("entity.mule.name");
          case 3:
-            return LocaleI18n.a("entity.zombiehorse.name");
+            return LocaleI18n.get("entity.zombiehorse.name");
          case 4:
-            return LocaleI18n.a("entity.skeletonhorse.name");
+            return LocaleI18n.get("entity.skeletonhorse.name");
          }
       }
    }
@@ -187,7 +187,7 @@ public class EntityHorse extends EntityAnimal implements vr {
       if(var1 == null) {
          return 0;
       } else {
-         Item var2 = var1.b();
+         Item var2 = var1.getItem();
          return var2 == Items.ck?1:(var2 == Items.cl?2:(var2 == Items.cm?3:0));
       }
    }
@@ -265,7 +265,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public void cC() {
       if(!this.o.isStatic && this.cu()) {
-         this.a(Item.a((Block)Blocks.CHEST), 1);
+         this.a(Item.getItemOf((Block)Blocks.CHEST), 1);
          this.o(false);
       }
    }
@@ -315,7 +315,7 @@ public class EntityHorse extends EntityAnimal implements vr {
          for(int var3 = 0; var3 < var2; ++var3) {
             ItemStack var4 = var1.a(var3);
             if(var4 != null) {
-               this.bC.a(var3, var4.k());
+               this.bC.a(var3, var4.cloneItemStack());
             }
          }
       }
@@ -486,7 +486,7 @@ public class EntityHorse extends EntityAnimal implements vr {
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.bJ) {
+      if(var2 != null && var2.getItem() == Items.bJ) {
          return super.a(var1);
       } else if(!this.cm() && this.cP()) {
          return false;
@@ -500,11 +500,11 @@ public class EntityHorse extends EntityAnimal implements vr {
             boolean var3 = false;
             if(this.cM()) {
                byte var4 = -1;
-               if(var2.b() == Items.ck) {
+               if(var2.getItem() == Items.ck) {
                   var4 = 1;
-               } else if(var2.b() == Items.cl) {
+               } else if(var2.getItem() == Items.cl) {
                   var4 = 2;
-               } else if(var2.b() == Items.cm) {
+               } else if(var2.getItem() == Items.cm) {
                   var4 = 3;
                }
 
@@ -523,22 +523,22 @@ public class EntityHorse extends EntityAnimal implements vr {
                float var7 = 0.0F;
                short var5 = 0;
                byte var6 = 0;
-               if(var2.b() == Items.O) {
+               if(var2.getItem() == Items.WHEAT) {
                   var7 = 2.0F;
                   var5 = 20;
                   var6 = 3;
-               } else if(var2.b() == Items.aY) {
+               } else if(var2.getItem() == Items.aY) {
                   var7 = 1.0F;
                   var5 = 30;
                   var6 = 3;
-               } else if(Block.a(var2.b()) == Blocks.HAY_BLOCK) {
+               } else if(Block.a(var2.getItem()) == Blocks.HAY_BLOCK) {
                   var7 = 20.0F;
                   var5 = 180;
-               } else if(var2.b() == Items.APPLE) {
+               } else if(var2.getItem() == Items.APPLE) {
                   var7 = 3.0F;
                   var5 = 60;
                   var6 = 3;
-               } else if(var2.b() == Items.bW) {
+               } else if(var2.getItem() == Items.bW) {
                   var7 = 4.0F;
                   var5 = 60;
                   var6 = 5;
@@ -546,7 +546,7 @@ public class EntityHorse extends EntityAnimal implements vr {
                      var3 = true;
                      this.c(var1);
                   }
-               } else if(var2.b() == Items.ao) {
+               } else if(var2.getItem() == Items.ao) {
                   var7 = 10.0F;
                   var5 = 240;
                   var6 = 10;
@@ -585,20 +585,20 @@ public class EntityHorse extends EntityAnimal implements vr {
                return true;
             }
 
-            if(!var3 && this.cN() && !this.cu() && var2.b() == Item.a((Block)Blocks.CHEST)) {
+            if(!var3 && this.cN() && !this.cu() && var2.getItem() == Item.getItemOf((Block)Blocks.CHEST)) {
                this.o(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var3 = true;
                this.cY();
             }
 
-            if(!var3 && this.cn() && !this.cE() && var2.b() == Items.aA) {
+            if(!var3 && this.cn() && !this.cE() && var2.getItem() == Items.aA) {
                this.g(var1);
                return true;
             }
 
             if(var3) {
-               if(!var1.by.canInstantlyBuild && --var2.b == 0) {
+               if(!var1.abilities.canInstantlyBuild && --var2.count == 0) {
                   var1.bg.a(var1.bg.c, (ItemStack)null);
                }
 
@@ -922,7 +922,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             if(var4 != null) {
                NBTTagCompound var5 = new NBTTagCompound();
                var5.setByte("Slot", (byte)var3);
-               var4.b(var5);
+               var4.save(var5);
                var2.add((NBTBase)var5);
             }
          }
@@ -931,11 +931,11 @@ public class EntityHorse extends EntityAnimal implements vr {
       }
 
       if(this.bC.a(1) != null) {
-         var1.set("ArmorItem", (NBTBase)this.bC.a(1).b(new NBTTagCompound()));
+         var1.set("ArmorItem", (NBTBase)this.bC.a(1).save(new NBTTagCompound()));
       }
 
       if(this.bC.a(0) != null) {
-         var1.set("SaddleItem", (NBTBase)this.bC.a(0).b(new NBTTagCompound()));
+         var1.set("SaddleItem", (NBTBase)this.bC.a(0).save(new NBTTagCompound()));
       }
 
    }
@@ -975,22 +975,22 @@ public class EntityHorse extends EntityAnimal implements vr {
             NBTTagCompound var6 = var4.get(var5);
             int var7 = var6.getByte("Slot") & 255;
             if(var7 >= 2 && var7 < this.bC.n_()) {
-               this.bC.a(var7, ItemStack.a(var6));
+               this.bC.a(var7, ItemStack.createStack(var6));
             }
          }
       }
 
       ItemStack var9;
       if(var1.hasKeyOfType("ArmorItem", 10)) {
-         var9 = ItemStack.a(var1.getCompound("ArmorItem"));
-         if(var9 != null && a(var9.b())) {
+         var9 = ItemStack.createStack(var1.getCompound("ArmorItem"));
+         if(var9 != null && a(var9.getItem())) {
             this.bC.a(1, var9);
          }
       }
 
       if(var1.hasKeyOfType("SaddleItem", 10)) {
-         var9 = ItemStack.a(var1.getCompound("SaddleItem"));
-         if(var9 != null && var9.b() == Items.aA) {
+         var9 = ItemStack.createStack(var1.getCompound("SaddleItem"));
+         if(var9 != null && var9.getItem() == Items.aA) {
             this.bC.a(0, var9);
          }
       } else if(var1.getBoolean("Saddle")) {
@@ -1176,7 +1176,7 @@ public class EntityHorse extends EntityAnimal implements vr {
             return true;
          }
 
-         if(var2 != null && var2.b() == Item.a((Block)Blocks.CHEST) && !this.cu()) {
+         if(var2 != null && var2.getItem() == Item.getItemOf((Block)Blocks.CHEST) && !this.cu()) {
             this.o(true);
             this.cY();
             return true;
@@ -1185,9 +1185,9 @@ public class EntityHorse extends EntityAnimal implements vr {
 
       int var3 = var1 - 400;
       if(var3 >= 0 && var3 < 2 && var3 < this.bC.n_()) {
-         if(var3 == 0 && var2 != null && var2.b() != Items.aA) {
+         if(var3 == 0 && var2 != null && var2.getItem() != Items.aA) {
             return false;
-         } else if(var3 == 1 && (var2 != null && !a(var2.b()) || !this.cM())) {
+         } else if(var3 == 1 && (var2 != null && !a(var2.getItem()) || !this.cM())) {
             return false;
          } else {
             this.bC.a(var3, var2);

@@ -19,8 +19,8 @@ public class BlockDispenser extends BlockContainer {
 		return 4;
 	}
 
-	public void c(World var1, Location var2, IBlockData var3) {
-		super.c(var1, var2, var3);
+	public void onPlace(World var1, Location var2, IBlockData var3) {
+		super.onPlace(var1, var2, var3);
 		this.e(var1, var2, var3);
 	}
 
@@ -72,7 +72,7 @@ public class BlockDispenser extends BlockContainer {
 				IDispenseBehavior var7 = this.a(var6);
 				if (var7 != IDispenseBehavior.a) {
 					ItemStack var8 = var7.a(var3, var6);
-					var4.a(var5, var8.b == 0 ? null : var8);
+					var4.a(var5, var8.count == 0 ? null : var8);
 				}
 
 			}
@@ -80,7 +80,7 @@ public class BlockDispenser extends BlockContainer {
 	}
 
 	protected IDispenseBehavior a(ItemStack var1) {
-		return (IDispenseBehavior) M.a(var1 == null ? null : var1.b());
+		return (IDispenseBehavior) M.a(var1 == null ? null : var1.getItem());
 	}
 
 	public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
@@ -112,10 +112,10 @@ public class BlockDispenser extends BlockContainer {
 
 	public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
 		var1.setTypeAndData(var2, var3.a(a, BlockPiston.a(var1, var2, var4)), 2);
-		if (var5.s()) {
+		if (var5.hasName()) {
 			TileEntity var6 = var1.getTileEntity(var2);
 			if (var6 instanceof TileEntityDispenser) {
-				((TileEntityDispenser) var6).a(var5.q());
+				((TileEntityDispenser) var6).a(var5.getName());
 			}
 		}
 

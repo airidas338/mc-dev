@@ -101,12 +101,12 @@ public class EntityFallingBlock extends Entity {
                         }
                      }
                   } else if(this.b && !this.e && this.o.getGameRules().getBoolean("doTileDrops")) {
-                     this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
+                     this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                   }
                }
             } else if(this.a > 100 && !this.o.isStatic && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
                if(this.b && this.o.getGameRules().getBoolean("doTileDrops")) {
-                  this.a(new ItemStack(var1, 1, var1.a(this.d)), 0.0F);
+                  this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 
                this.J();
@@ -166,9 +166,9 @@ public class EntityFallingBlock extends Entity {
       if(var1.hasKeyOfType("Block", 8)) {
          this.d = Block.b(var1.getString("Block")).a(var2);
       } else if(var1.hasKeyOfType("TileID", 99)) {
-         this.d = Block.c(var1.getInt("TileID")).a(var2);
+         this.d = Block.getById(var1.getInt("TileID")).a(var2);
       } else {
-         this.d = Block.c(var1.getByte("Tile") & 255).a(var2);
+         this.d = Block.getById(var1.getByte("Tile") & 255).a(var2);
       }
 
       this.a = var1.getByte("Time") & 255;

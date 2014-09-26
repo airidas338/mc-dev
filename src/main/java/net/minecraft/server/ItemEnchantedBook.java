@@ -7,12 +7,12 @@ public class ItemEnchantedBook extends Item {
       return false;
    }
 
-   public amx g(ItemStack var1) {
-      return this.h(var1).size() > 0?amx.b:super.g(var1);
+   public EnumItemRarity g(ItemStack var1) {
+      return this.h(var1).size() > 0?EnumItemRarity.UNCOMMON:super.g(var1);
    }
 
    public NBTTagList h(ItemStack var1) {
-      NBTTagCompound var2 = var1.o();
+      NBTTagCompound var2 = var1.getTag();
       return var2 != null && var2.hasKeyOfType("StoredEnchantments", 9)?(NBTTagList)var2.get("StoredEnchantments"):new NBTTagList();
    }
 
@@ -22,7 +22,7 @@ public class ItemEnchantedBook extends Item {
 
       for(int var5 = 0; var5 < var3.size(); ++var5) {
          NBTTagCompound var6 = var3.get(var5);
-         if(var6.getShort("id") == var2.b.B) {
+         if(var6.getShort("id") == var2.b.id) {
             if(var6.getShort("lvl") < var2.c) {
                var6.setShort("lvl", (short)var2.c);
             }
@@ -34,16 +34,16 @@ public class ItemEnchantedBook extends Item {
 
       if(var4) {
          NBTTagCompound var7 = new NBTTagCompound();
-         var7.setShort("id", (short)var2.b.B);
+         var7.setShort("id", (short)var2.b.id);
          var7.setShort("lvl", (short)var2.c);
          var3.add((NBTBase)var7);
       }
 
-      if(!var1.n()) {
-         var1.d(new NBTTagCompound());
+      if(!var1.hasTag()) {
+         var1.setTag(new NBTTagCompound());
       }
 
-      var1.o().set("StoredEnchantments", (NBTBase)var3);
+      var1.getTag().set("StoredEnchantments", (NBTBase)var3);
    }
 
    public ItemStack a(apo var1) {

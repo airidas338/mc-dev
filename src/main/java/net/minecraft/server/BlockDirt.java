@@ -38,7 +38,7 @@ public class BlockDirt extends Block {
       return new bed(this, new bex[]{a, b});
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       avd var2 = (avd)var1.b(a);
       if(var2 == avd.c) {
          var2 = avd.a;

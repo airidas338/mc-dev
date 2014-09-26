@@ -29,7 +29,7 @@ public class EntityDamageSource extends DamageSource {
       ItemStack var2 = this.q instanceof EntityLiving?((EntityLiving)this.q).bz():null;
       String var3 = "death.attack." + this.translationIndex;
       String var4 = var3 + ".item";
-      return var2 != null && var2.s() && LocaleI18n.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName(), var2.C()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName()});
+      return var2 != null && var2.hasName() && LocaleI18n.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName(), var2.C()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName()});
    }
 
    public boolean r() {

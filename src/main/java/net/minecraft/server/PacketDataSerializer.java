@@ -158,12 +158,12 @@ public class PacketDataSerializer extends ByteBuf {
       if(var1 == null) {
          this.writeShort(-1);
       } else {
-         this.writeShort(Item.b(var1.b()));
-         this.writeByte(var1.b);
-         this.writeShort(var1.i());
+         this.writeShort(Item.getId(var1.getItem()));
+         this.writeByte(var1.count);
+         this.writeShort(var1.getData());
          NBTTagCompound var2 = null;
-         if(var1.b().m() || var1.b().p()) {
-            var2 = var1.o();
+         if(var1.getItem().m() || var1.getItem().p()) {
+            var2 = var1.getTag();
          }
 
          this.a(var2);
@@ -178,7 +178,7 @@ public class PacketDataSerializer extends ByteBuf {
          byte var3 = this.readByte();
          short var4 = this.readShort();
          var1 = new ItemStack(Item.b(var2), var3, var4);
-         var1.d(this.h());
+         var1.setTag(this.h());
       }
 
       return var1;

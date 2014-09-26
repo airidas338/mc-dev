@@ -88,7 +88,7 @@ public class BlockBed extends BlockDirectional {
       return false;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.j();
    }
 
@@ -155,12 +155,12 @@ public class BlockBed extends BlockDirectional {
 
    }
 
-   public int i() {
+   public int getDropData() {
       return 1;
    }
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
-      if(var4.by.canInstantlyBuild && var3.b(a) == atq.a) {
+      if(var4.abilities.canInstantlyBuild && var3.b(a) == atq.a) {
          Location var5 = var2.a(((EnumFacing)var3.b(N)).d());
          if(var1.getData(var5).c() == this) {
             var1.setAir(var5);

@@ -26,7 +26,7 @@ public class BlockCarpet extends Block {
       this.b(0);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.b(0);
    }
 
@@ -58,7 +58,7 @@ public class BlockCarpet extends Block {
       return !var1.isEmpty(var2.b());
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 

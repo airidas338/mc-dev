@@ -188,7 +188,7 @@ public class BlockTripwireHook extends Block {
       }
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       float var3 = 0.1875F;
       switch(bbu.a[((EnumFacing)var1.getData(var2).b(a)).ordinal()]) {
       case 1:
@@ -229,7 +229,7 @@ public class BlockTripwireHook extends Block {
       return !((Boolean)var3.b(b)).booleanValue()?0:(var3.b(a) == var4?15:0);
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 

@@ -40,7 +40,7 @@ public class EnchantmentWeaponDamage extends Enchantment {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.b() instanceof ItemAxe?true:super.a(var1);
+      return var1.getItem() instanceof ItemAxe?true:super.a(var1);
    }
 
    public void a(EntityLiving var1, Entity var2, int var3) {

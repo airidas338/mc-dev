@@ -116,7 +116,7 @@ public class aiq extends aib {
                      List var7 = this.a(var2, var4, this.g[var4]);
                      if(var7 != null && !var7.isEmpty()) {
                         apo var6 = (apo)var7.get(this.k.nextInt(var7.size()));
-                        this.h[var4] = var6.b.B | var6.c << 8;
+                        this.h[var4] = var6.b.id | var6.c << 8;
                      }
                   }
                }
@@ -137,16 +137,16 @@ public class aiq extends aib {
       ItemStack var3 = this.a.a(0);
       ItemStack var4 = this.a.a(1);
       int var5 = var2 + 1;
-      if((var4 == null || var4.b < var5) && !var1.by.canInstantlyBuild) {
+      if((var4 == null || var4.count < var5) && !var1.abilities.canInstantlyBuild) {
          return false;
-      } else if(this.g[var2] > 0 && var3 != null && (var1.bz >= var5 && var1.bz >= this.g[var2] || var1.by.canInstantlyBuild)) {
+      } else if(this.g[var2] > 0 && var3 != null && (var1.bz >= var5 && var1.bz >= this.g[var2] || var1.abilities.canInstantlyBuild)) {
          if(!this.i.isStatic) {
             List var6 = this.a(var3, var2, this.g[var2]);
-            boolean var7 = var3.b() == Items.aL;
+            boolean var7 = var3.getItem() == Items.aL;
             if(var6 != null) {
                var1.b(var5);
                if(var7) {
-                  var3.a((Item)Items.cd);
+                  var3.setItem((Item)Items.cd);
                }
 
                for(int var8 = 0; var8 < var6.size(); ++var8) {
@@ -154,13 +154,13 @@ public class aiq extends aib {
                   if(var7) {
                      Items.cd.a(var3, var9);
                   } else {
-                     var3.a(var9.b, var9.c);
+                     var3.addEnchantment(var9.b, var9.c);
                   }
                }
 
-               if(!var1.by.canInstantlyBuild) {
-                  var4.b -= var5;
-                  if(var4.b <= 0) {
+               if(!var1.abilities.canInstantlyBuild) {
+                  var4.count -= var5;
+                  if(var4.count <= 0) {
                      this.a.a(1, (ItemStack)null);
                   }
                }
@@ -180,7 +180,7 @@ public class aiq extends aib {
    private List a(ItemStack var1, int var2, int var3) {
       this.k.setSeed((long)(this.f + var2));
       List var4 = EnchantmentManager.b(this.k, var1, var3);
-      if(var1.b() == Items.aL && var4 != null && var4.size() > 1) {
+      if(var1.getItem() == Items.aL && var4 != null && var4.size() > 1) {
          var4.remove(this.k.nextInt(var4.size()));
       }
 
@@ -209,7 +209,7 @@ public class aiq extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 == 0) {
             if(!this.a(var5, 2, 38, true)) {
                return null;
@@ -218,7 +218,7 @@ public class aiq extends aib {
             if(!this.a(var5, 2, 38, true)) {
                return null;
             }
-         } else if(var5.b() == Items.aW && akv.a(var5.i()) == akv.l) {
+         } else if(var5.getItem() == Items.aW && akv.a(var5.getData()) == akv.l) {
             if(!this.a(var5, 1, 2, true)) {
                return null;
             }
@@ -227,22 +227,22 @@ public class aiq extends aib {
                return null;
             }
 
-            if(var5.n() && var5.b == 1) {
-               ((ajk)this.c.get(0)).d(var5.k());
-               var5.b = 0;
-            } else if(var5.b >= 1) {
-               ((ajk)this.c.get(0)).d(new ItemStack(var5.b(), 1, var5.i()));
-               --var5.b;
+            if(var5.hasTag() && var5.count == 1) {
+               ((ajk)this.c.get(0)).d(var5.cloneItemStack());
+               var5.count = 0;
+            } else if(var5.count >= 1) {
+               ((ajk)this.c.get(0)).d(new ItemStack(var5.getItem(), 1, var5.getData()));
+               --var5.count;
             }
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

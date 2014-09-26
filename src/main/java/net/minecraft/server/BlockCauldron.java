@@ -58,10 +58,10 @@ public class BlockCauldron extends Block {
             return true;
          } else {
             int var10 = ((Integer)var3.b(a)).intValue();
-            Item var11 = var9.b();
+            Item var11 = var9.getItem();
             if(var11 == Items.ax) {
                if(var10 < 3) {
-                  if(!var4.by.canInstantlyBuild) {
+                  if(!var4.abilities.canInstantlyBuild) {
                      var4.bg.a(var4.bg.c, new ItemStack(Items.BUCKET));
                   }
 
@@ -73,7 +73,7 @@ public class BlockCauldron extends Block {
                ItemStack var13;
                if(var11 == Items.bA) {
                   if(var10 > 0) {
-                     if(!var4.by.canInstantlyBuild) {
+                     if(!var4.abilities.canInstantlyBuild) {
                         var13 = new ItemStack(Items.POTION, 1, 0);
                         if(!var4.bg.a(var13)) {
                            var1.addEntity((Entity)(new EntityItem(var1, (double)var2.n() + 0.5D, (double)var2.o() + 1.5D, (double)var2.p() + 0.5D, var13)));
@@ -81,8 +81,8 @@ public class BlockCauldron extends Block {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
 
-                        --var9.b;
-                        if(var9.b <= 0) {
+                        --var9.count;
+                        if(var9.count <= 0) {
                            var4.bg.a(var4.bg.c, (ItemStack)null);
                         }
                      }
@@ -94,18 +94,18 @@ public class BlockCauldron extends Block {
                } else {
                   if(var10 > 0 && var11 instanceof ItemArmor) {
                      ItemArmor var12 = (ItemArmor)var11;
-                     if(var12.w_() == ajp.a && var12.d_(var9)) {
+                     if(var12.w_() == EnumArmorMaterial.CLOTH && var12.d_(var9)) {
                         var12.c(var9);
                         this.a(var1, var2, var3, var10 - 1);
                         return true;
                      }
                   }
 
-                  if(var10 > 0 && var11 instanceof ajs && TileEntityBanner.c(var9) > 0) {
-                     var13 = var9.k();
-                     var13.b = 1;
+                  if(var10 > 0 && var11 instanceof ItemBanner && TileEntityBanner.c(var9) > 0) {
+                     var13 = var9.cloneItemStack();
+                     var13.count = 1;
                      TileEntityBanner.e(var13);
-                     if(var9.b <= 1 && !var4.by.canInstantlyBuild) {
+                     if(var9.count <= 1 && !var4.abilities.canInstantlyBuild) {
                         var4.bg.a(var4.bg.c, var13);
                      } else {
                         if(!var4.bg.a(var13)) {
@@ -114,12 +114,12 @@ public class BlockCauldron extends Block {
                            ((EntityPlayer)var4).a(var4.bh);
                         }
 
-                        if(!var4.by.canInstantlyBuild) {
-                           --var9.b;
+                        if(!var4.abilities.canInstantlyBuild) {
+                           --var9.count;
                         }
                      }
 
-                     if(!var4.by.canInstantlyBuild) {
+                     if(!var4.abilities.canInstantlyBuild) {
                         this.a(var1, var2, var3, var10 - 1);
                      }
 

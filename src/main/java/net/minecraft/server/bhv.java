@@ -132,7 +132,7 @@ public class bhv extends WorldGenerator {
                         if(var13 != 0 || var3.o() >= var3.o() + var5 - 1) {
                            Location var14 = new Location(var17, var9, var12);
                            if(!var1.getData(var14).c().m()) {
-                              this.a(var1, var14, Block.c(Block.getId(Blocks.BIG_MUSHROOM_1) + var4), var13);
+                              this.a(var1, var14, Block.getById(Block.getId(Blocks.BIG_MUSHROOM_1) + var4), var13);
                            }
                         }
                      }
@@ -142,7 +142,7 @@ public class bhv extends WorldGenerator {
                for(var9 = 0; var9 < var5; ++var9) {
                   Block var18 = var1.getData(var3.b(var9)).c();
                   if(!var18.m()) {
-                     this.a(var1, var3.b(var9), Block.c(Block.getId(Blocks.BIG_MUSHROOM_1) + var4), 10);
+                     this.a(var1, var3.b(var9), Block.getById(Block.getId(Blocks.BIG_MUSHROOM_1) + var4), 10);
                   }
                }
 

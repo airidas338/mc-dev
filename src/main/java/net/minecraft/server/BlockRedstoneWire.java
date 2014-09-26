@@ -150,7 +150,7 @@ public class BlockRedstoneWire extends Block {
       }
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          this.e(var1, var2, var3);
          Iterator var4 = en.b.iterator();
@@ -303,11 +303,11 @@ public class BlockRedstoneWire extends Block {
          EnumFacing var3 = (EnumFacing)var0.b(BlockRepeater.N);
          return var3 == var1 || var3.d() == var1;
       } else {
-         return var2.g() && var1 != null;
+         return var2.isPowerSource() && var1 != null;
       }
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return this.P;
    }
 

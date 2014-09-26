@@ -12,7 +12,7 @@ public class ItemFishingRod extends Item {
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
       if(var3.bE != null) {
          int var4 = var3.bE.l();
-         var1.a(var4, (EntityLiving)var3);
+         var1.damage(var4, (EntityLiving)var3);
          var3.bv();
       } else {
          var2.makeSound((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
@@ -21,7 +21,7 @@ public class ItemFishingRod extends Item {
          }
 
          var3.bv();
-         var3.b(StatisticList.J[Item.b((Item)this)]);
+         var3.b(StatisticList.USE_ITEM_COUNT[Item.getId((Item)this)]);
       }
 
       return var1;

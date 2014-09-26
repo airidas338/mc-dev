@@ -244,7 +244,7 @@ public class WorldGenBigTree extends WorldGenTreeAbstract {
 
    private boolean f() {
       Block var1 = this.l.getData(this.m.b()).c();
-      if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.FARMLAND) {
+      if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.SOIL) {
          return false;
       } else {
          int var2 = this.a(this.m, this.m.b(this.a - 1));

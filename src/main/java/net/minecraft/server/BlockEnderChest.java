@@ -28,7 +28,7 @@ public class BlockEnderChest extends BlockContainer {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(Blocks.OBSIDIAN);
+      return Item.getItemOf(Blocks.OBSIDIAN);
    }
 
    public int a(Random var1) {

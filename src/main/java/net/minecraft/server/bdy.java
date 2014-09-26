@@ -31,7 +31,7 @@ public class bdy {
       this.f.clear();
       Block var1 = this.a.getData(this.c).c();
       if(!BlockPiston.a(var1, this.a, this.c, this.d, false)) {
-         if(var1.i() != 1) {
+         if(var1.getDropData() != 1) {
             return false;
          } else {
             this.f.add(this.c);
@@ -114,7 +114,7 @@ public class bdy {
                   return false;
                }
 
-               if(var2.i() == 1) {
+               if(var2.getDropData() == 1) {
                   this.f.add(var6);
                   return true;
                }

@@ -20,7 +20,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
       return 20;
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 
@@ -77,8 +77,8 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
       var1.updateAdjacentComparators(var2, this);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
-      super.c(var1, var2, var3);
+   public void onPlace(World var1, Location var2, IBlockData var3) {
+      super.onPlace(var1, var2, var3);
       this.e(var1, var2, var3);
    }
 

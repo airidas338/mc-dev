@@ -21,7 +21,7 @@ public class EnchantmentThorns extends Enchantment {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.b() instanceof ItemArmor?true:super.a(var1);
+      return var1.getItem() instanceof ItemArmor?true:super.a(var1);
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {
@@ -31,10 +31,10 @@ public class EnchantmentThorns extends Enchantment {
          var2.a(DamageSource.a((Entity)var1), (float)b(var3, var4));
          var2.a("damage.thorns", 0.5F, 1.0F);
          if(var5 != null) {
-            var5.a(3, var1);
+            var5.damage(3, var1);
          }
       } else if(var5 != null) {
-         var5.a(1, var1);
+         var5.damage(1, var1);
       }
 
    }

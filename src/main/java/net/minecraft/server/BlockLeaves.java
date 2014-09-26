@@ -131,7 +131,7 @@ public abstract class BlockLeaves extends BlockTransparent {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(Blocks.SAPLING);
+      return Item.getItemOf(Blocks.SAPLING);
    }
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
@@ -146,7 +146,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 
          if(var1.random.nextInt(var6) == 0) {
             Item var7 = this.a(var3, var1.random, var5);
-            a(var1, var2, new ItemStack(var7, 1, this.a(var3)));
+            a(var1, var2, new ItemStack(var7, 1, this.getDropData(var3)));
          }
 
          var6 = 200;

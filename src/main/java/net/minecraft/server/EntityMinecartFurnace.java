@@ -97,8 +97,8 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
    public boolean e(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.h) {
-         if(!var1.by.canInstantlyBuild && --var2.b == 0) {
+      if(var2 != null && var2.getItem() == Items.COAL) {
+         if(!var1.abilities.canInstantlyBuild && --var2.count == 0) {
             var1.bg.a(var1.bg.c, (ItemStack)null);
          }
 

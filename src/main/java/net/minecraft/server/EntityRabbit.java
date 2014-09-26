@@ -247,7 +247,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.bR || var1 == Items.bW || var1 == Item.a((Block)Blocks.YELLOW_FLOWER);
+      return var1 == Items.bR || var1 == Items.bW || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
    }
 
    public EntityRabbit b(EntityAgeable var1) {
@@ -260,7 +260,7 @@ public class EntityRabbit extends EntityAnimal {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 != null && this.a(var1.b());
+      return var1 != null && this.a(var1.getItem());
    }
 
    public int cl() {
@@ -275,7 +275,7 @@ public class EntityRabbit extends EntityAnimal {
          this.targetSelector.a(2, new aaq(this, EntityHuman.class, true));
          this.targetSelector.a(2, new aaq(this, EntityWolf.class, true));
          if(!this.k_()) {
-            this.a(LocaleI18n.a("entity.KillerBunny.name"));
+            this.a(LocaleI18n.get("entity.KillerBunny.name"));
          }
       }
 

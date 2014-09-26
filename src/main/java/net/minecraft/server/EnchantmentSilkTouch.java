@@ -20,10 +20,10 @@ public class EnchantmentSilkTouch extends Enchantment {
    }
 
    public boolean a(Enchantment var1) {
-      return super.a(var1) && var1.B != LOOT_BONUS_BLOCKS.B;
+      return super.a(var1) && var1.id != LOOT_BONUS_BLOCKS.id;
    }
 
    public boolean a(ItemStack var1) {
-      return var1.b() == Items.be?true:super.a(var1);
+      return var1.getItem() == Items.be?true:super.a(var1);
    }
 }

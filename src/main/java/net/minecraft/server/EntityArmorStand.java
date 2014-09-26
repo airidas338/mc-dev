@@ -83,7 +83,7 @@ public class EntityArmorStand extends EntityLiving {
          }
       }
 
-      if(var2 != null && EntityInsentient.c(var2) != var3 && (var3 != 4 || !(var2.b() instanceof aju))) {
+      if(var2 != null && EntityInsentient.c(var2) != var3 && (var3 != 4 || !(var2.getItem() instanceof ItemBlock))) {
          return false;
       } else {
          this.c(var3, var2);
@@ -98,7 +98,7 @@ public class EntityArmorStand extends EntityLiving {
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          NBTTagCompound var4 = new NBTTagCompound();
          if(this.g[var3] != null) {
-            this.g[var3].b(var4);
+            this.g[var3].save(var4);
          }
 
          var2.add((NBTBase)var4);
@@ -124,7 +124,7 @@ public class EntityArmorStand extends EntityLiving {
          NBTTagList var2 = var1.getList("Equipment", 10);
 
          for(int var3 = 0; var3 < this.g.length; ++var3) {
-            this.g[var3] = ItemStack.a(var2.get(var3));
+            this.g[var3] = ItemStack.createStack(var2.get(var3));
          }
       }
 
@@ -237,8 +237,8 @@ public class EntityArmorStand extends EntityLiving {
          byte var3 = 0;
          ItemStack var4 = var1.bY();
          boolean var5 = var4 != null;
-         if(var5 && var4.b() instanceof ItemArmor) {
-            ItemArmor var6 = (ItemArmor)var4.b();
+         if(var5 && var4.getItem() instanceof ItemArmor) {
+            ItemArmor var6 = (ItemArmor)var4.getItem();
             if(var6.b == 3) {
                var3 = 1;
             } else if(var6.b == 2) {
@@ -250,7 +250,7 @@ public class EntityArmorStand extends EntityLiving {
             }
          }
 
-         if(var5 && (var4.b() == Items.bX || var4.b() == Item.a(Blocks.PUMPKIN))) {
+         if(var5 && (var4.getItem() == Items.bX || var4.getItem() == Item.getItemOf(Blocks.PUMPKIN))) {
             var3 = 4;
          }
 
@@ -306,16 +306,16 @@ public class EntityArmorStand extends EntityLiving {
             int var4 = var1.bg.c;
             ItemStack var5 = var1.bg.a(var4);
             ItemStack var6;
-            if(var1.by.canInstantlyBuild && (var3 == null || var3.b() == Item.a(Blocks.AIR)) && var5 != null) {
-               var6 = var5.k();
-               var6.b = 1;
+            if(var1.abilities.canInstantlyBuild && (var3 == null || var3.getItem() == Item.getItemOf(Blocks.AIR)) && var5 != null) {
+               var6 = var5.cloneItemStack();
+               var6.count = 1;
                this.c(var2, var6);
-            } else if(var5 != null && var5.b > 1) {
+            } else if(var5 != null && var5.count > 1) {
                if(var3 == null) {
-                  var6 = var5.k();
-                  var6.b = 1;
+                  var6 = var5.cloneItemStack();
+                  var6.count = 1;
                   this.c(var2, var6);
-                  --var5.b;
+                  --var5.count;
                }
             } else {
                this.c(var2, var5);
@@ -357,7 +357,7 @@ public class EntityArmorStand extends EntityLiving {
                   var1.i().J();
                }
 
-               if(var1.getEntity() instanceof EntityHuman && !((EntityHuman)var1.getEntity()).by.e) {
+               if(var1.getEntity() instanceof EntityHuman && !((EntityHuman)var1.getEntity()).abilities.e) {
                   return false;
                } else if(var1.u()) {
                   this.z();
@@ -408,7 +408,7 @@ public class EntityArmorStand extends EntityLiving {
 
    private void C() {
       for(int var1 = 0; var1 < this.g.length; ++var1) {
-         if(this.g[var1] != null && this.g[var1].b > 0) {
+         if(this.g[var1] != null && this.g[var1].count > 0) {
             if(this.g[var1] != null) {
                Block.a(this.o, (new Location(this)).a(), this.g[var1]);
             }

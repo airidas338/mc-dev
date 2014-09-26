@@ -17,10 +17,10 @@ public class BlockFurnace extends BlockContainer {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(Blocks.FURNACE);
+      return Item.getItemOf(Blocks.FURNACE);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
@@ -88,10 +88,10 @@ public class BlockFurnace extends BlockContainer {
 
    public void a(World var1, Location var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       var1.setTypeAndData(var2, var3.a(a, var4.aO().d()), 2);
-      if(var5.s()) {
+      if(var5.hasName()) {
          TileEntity var6 = var1.getTileEntity(var2);
          if(var6 instanceof TileEntityFurnace) {
-            ((TileEntityFurnace)var6).a(var5.q());
+            ((TileEntityFurnace)var6).a(var5.getName());
          }
       }
 

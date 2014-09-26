@@ -33,21 +33,21 @@ public class BlockFlowerPot extends BlockContainer {
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       ItemStack var9 = var4.bg.h();
-      if(var9 != null && var9.b() instanceof aju) {
+      if(var9 != null && var9.getItem() instanceof ItemBlock) {
          TileEntityFlowerPot var10 = this.d(var1, var2);
          if(var10 == null) {
             return false;
          } else if(var10.b() != null) {
             return false;
          } else {
-            Block var11 = Block.a(var9.b());
-            if(!this.a(var11, var9.i())) {
+            Block var11 = Block.a(var9.getItem());
+            if(!this.a(var11, var9.getData())) {
                return false;
             } else {
-               var10.a(var9.b(), var9.i());
+               var10.a(var9.getItem(), var9.getData());
                var10.o_();
                var1.notify(var2);
-               if(!var4.by.canInstantlyBuild && --var9.b <= 0) {
+               if(!var4.abilities.canInstantlyBuild && --var9.count <= 0) {
                   var4.bg.a(var4.bg.c, (ItemStack)null);
                }
 
@@ -91,7 +91,7 @@ public class BlockFlowerPot extends BlockContainer {
 
    public void a(World var1, Location var2, IBlockData var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
-      if(var4.by.canInstantlyBuild) {
+      if(var4.abilities.canInstantlyBuild) {
          TileEntityFlowerPot var5 = this.d(var1, var2);
          if(var5 != null) {
             var5.a((Item)null, 0);
@@ -161,7 +161,7 @@ public class BlockFlowerPot extends BlockContainer {
          var4 = ayx.f.a();
       }
 
-      return new TileEntityFlowerPot(Item.a((Block)var3), var4);
+      return new TileEntityFlowerPot(Item.getItemOf((Block)var3), var4);
    }
 
    protected bed e() {
@@ -178,7 +178,7 @@ public class BlockFlowerPot extends BlockContainer {
       if(var5 instanceof TileEntityFlowerPot) {
          TileEntityFlowerPot var6 = (TileEntityFlowerPot)var5;
          Item var7 = var6.b();
-         if(var7 instanceof aju) {
+         if(var7 instanceof ItemBlock) {
             int var8 = var6.c();
             Block var9 = Block.a(var7);
             if(var9 == Blocks.SAPLING) {

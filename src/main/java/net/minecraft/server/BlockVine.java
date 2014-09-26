@@ -43,7 +43,7 @@ public class BlockVine extends Block {
       return true;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       float var3 = 0.0625F;
       float var4 = 1.0F;
       float var5 = 1.0F;
@@ -294,8 +294,8 @@ public class BlockVine extends Block {
    }
 
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
-      if(!var1.isStatic && var2.bY() != null && var2.bY().b() == Items.be) {
-         var2.b(StatisticList.H[Block.getId((Block)this)]);
+      if(!var1.isStatic && var2.bY() != null && var2.bY().getItem() == Items.be) {
+         var2.b(StatisticList.MINE_BLOCK_COUNT[Block.getId((Block)this)]);
          a(var1, var3, new ItemStack(Blocks.VINE, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5);

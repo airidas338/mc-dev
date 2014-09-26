@@ -64,18 +64,18 @@ public class aid extends aib {
          this.g.a(0, (ItemStack)null);
          this.a = 0;
       } else {
-         ItemStack var12 = var8.k();
+         ItemStack var12 = var8.cloneItemStack();
          ItemStack var13 = this.h.a(1);
          Map var14 = EnchantmentManager.a(var12);
          boolean var15 = false;
-         int var25 = var10 + var8.A() + (var13 == null?0:var13.A());
+         int var25 = var10 + var8.getRepairCost() + (var13 == null?0:var13.getRepairCost());
          this.k = 0;
          int var16;
          if(var13 != null) {
-            var15 = var13.b() == Items.cd && Items.cd.h(var13).size() > 0;
+            var15 = var13.getItem() == Items.cd && Items.cd.h(var13).size() > 0;
             int var17;
             int var18;
-            if(var12.e() && var12.b().a(var8, var13)) {
+            if(var12.e() && var12.getItem().a(var8, var13)) {
                var16 = Math.min(var12.h(), var12.j() / 4);
                if(var16 <= 0) {
                   this.g.a(0, (ItemStack)null);
@@ -83,16 +83,16 @@ public class aid extends aib {
                   return;
                }
 
-               for(var17 = 0; var16 > 0 && var17 < var13.b; ++var17) {
+               for(var17 = 0; var16 > 0 && var17 < var13.count; ++var17) {
                   var18 = var12.h() - var16;
-                  var12.b(var18);
+                  var12.setData(var18);
                   ++var9;
                   var16 = Math.min(var12.h(), var12.j() / 4);
                }
 
                this.k = var17;
             } else {
-               if(!var15 && (var12.b() != var13.b() || !var12.e())) {
+               if(!var15 && (var12.getItem() != var13.getItem() || !var12.e())) {
                   this.g.a(0, (ItemStack)null);
                   this.a = 0;
                   return;
@@ -109,8 +109,8 @@ public class aid extends aib {
                      var20 = 0;
                   }
 
-                  if(var20 < var12.i()) {
-                     var12.b(var20);
+                  if(var20 < var12.getData()) {
+                     var12.setData(var20);
                      var9 += 2;
                   }
                }
@@ -134,7 +134,7 @@ public class aid extends aib {
 
                      var21 = var10000;
                      boolean var22 = var28.a(var8);
-                     if(this.m.by.canInstantlyBuild || var8.b() == Items.cd) {
+                     if(this.m.abilities.canInstantlyBuild || var8.getItem() == Items.cd) {
                         var22 = true;
                      }
 
@@ -188,12 +188,12 @@ public class aid extends aib {
          }
 
          if(StringUtils.isBlank(this.l)) {
-            if(var8.s()) {
+            if(var8.hasName()) {
                var11 = 1;
                var9 += var11;
                var12.r();
             }
-         } else if(!this.l.equals(var8.q())) {
+         } else if(!this.l.equals(var8.getName())) {
             var11 = 1;
             var9 += var11;
             var12.c(this.l);
@@ -208,18 +208,18 @@ public class aid extends aib {
             this.a = 39;
          }
 
-         if(this.a >= 40 && !this.m.by.canInstantlyBuild) {
+         if(this.a >= 40 && !this.m.abilities.canInstantlyBuild) {
             var12 = null;
          }
 
          if(var12 != null) {
-            var16 = var12.A();
-            if(var13 != null && var16 < var13.A()) {
-               var16 = var13.A();
+            var16 = var12.getRepairCost();
+            if(var13 != null && var16 < var13.getRepairCost()) {
+               var16 = var13.getRepairCost();
             }
 
             var16 = var16 * 2 + 1;
-            var12.c(var16);
+            var12.setRepairCost(var16);
             EnchantmentManager.a(var14, var12);
          }
 
@@ -255,7 +255,7 @@ public class aid extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 == 2) {
             if(!this.a(var5, 3, 39, true)) {
                return null;
@@ -270,13 +270,13 @@ public class aid extends aib {
             return null;
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

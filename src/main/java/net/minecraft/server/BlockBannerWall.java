@@ -6,7 +6,7 @@ public class BlockBannerWall extends BlockBannerAbstract {
       this.j(this.L.b().a(a, EnumFacing.NORTH));
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       EnumFacing var3 = (EnumFacing)var1.getData(var2).b(a);
       float var4 = 0.0F;
       float var5 = 0.78125F;

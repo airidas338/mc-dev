@@ -27,6 +27,6 @@ public class EnchantmentLootBonus extends Enchantment {
    }
 
    public boolean a(Enchantment var1) {
-      return super.a(var1) && var1.B != DURABILITY.B;
+      return super.a(var1) && var1.id != DURABILITY.id;
    }
 }

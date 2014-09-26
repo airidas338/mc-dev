@@ -11,7 +11,7 @@ public class BlockCloth extends Block {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 

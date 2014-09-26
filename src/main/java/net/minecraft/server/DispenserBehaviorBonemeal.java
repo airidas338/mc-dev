@@ -6,10 +6,10 @@ final class DispenserBehaviorBonemeal extends DispenserBehaviorItem {
 
 
    protected ItemStack b(ISourceBlock var1, ItemStack var2) {
-      if(akv.a == akv.a(var2.i())) {
+      if(akv.a == akv.a(var2.getData())) {
          World var3 = var1.i();
          Location var4 = var1.d().a(BlockDispenser.b(var1.f()));
-         if(akw.a(var2, var3, var4)) {
+         if(ItemDye.a(var2, var3, var4)) {
             if(!var3.isStatic) {
                var3.triggerEffect(2005, var4, 0);
             }

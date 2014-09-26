@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 final class alw implements Function {
 
    public String a(ItemStack var1) {
-      return bby.a(var1.i()).c();
+      return bby.a(var1.getData()).c();
    }
 
    // $FF: synthetic method

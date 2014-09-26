@@ -42,7 +42,7 @@ public class EntityPotion extends EntityProjectile {
          this.c = new ItemStack(Items.POTION, 1, 0);
       }
 
-      this.c.b(var1);
+      this.c.setData(var1);
    }
 
    public int o() {
@@ -50,7 +50,7 @@ public class EntityPotion extends EntityProjectile {
          this.c = new ItemStack(Items.POTION, 1, 0);
       }
 
-      return this.c.i();
+      return this.c.getData();
    }
 
    protected void a(MovingObjectPosition var1) {
@@ -99,7 +99,7 @@ public class EntityPotion extends EntityProjectile {
    public void a(NBTTagCompound var1) {
       super.a(var1);
       if(var1.hasKeyOfType("Potion", 10)) {
-         this.c = ItemStack.a(var1.getCompound("Potion"));
+         this.c = ItemStack.createStack(var1.getCompound("Potion"));
       } else {
          this.a(var1.getInt("potionValue"));
       }
@@ -113,7 +113,7 @@ public class EntityPotion extends EntityProjectile {
    public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.c != null) {
-         var1.set("Potion", (NBTBase)this.c.b(new NBTTagCompound()));
+         var1.set("Potion", (NBTBase)this.c.save(new NBTTagCompound()));
       }
 
    }

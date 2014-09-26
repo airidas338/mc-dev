@@ -37,7 +37,7 @@ public class aip extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 < 9) {
             if(!this.a(var5, 9, 45, true)) {
                return null;
@@ -46,13 +46,13 @@ public class aip extends aib {
             return null;
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

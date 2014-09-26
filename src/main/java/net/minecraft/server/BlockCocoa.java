@@ -39,11 +39,11 @@ public class BlockCocoa extends BlockDirectional implements atz {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       IBlockData var3 = var1.getData(var2);
       EnumFacing var4 = (EnumFacing)var3.b(N);
       int var5 = ((Integer)var3.b(a)).intValue();

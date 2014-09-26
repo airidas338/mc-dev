@@ -23,7 +23,7 @@ public class BlockPortal extends BlockHalfTransparent {
          }
 
          if(var5 > 0 && !var1.getData(var6.a()).c().t()) {
-            Entity var7 = anl.a(var1, 57, (double)var6.n() + 0.5D, (double)var6.o() + 1.1D, (double)var6.p() + 0.5D);
+            Entity var7 = ItemMonsterEgg.a(var1, 57, (double)var6.n() + 0.5D, (double)var6.o() + 1.1D, (double)var6.p() + 0.5D);
             if(var7 != null) {
                var7.aj = var7.ar();
             }
@@ -36,7 +36,7 @@ public class BlockPortal extends BlockHalfTransparent {
       return null;
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       el var3 = (el)var1.getData(var2).b(a);
       float var4 = 0.125F;
       float var5 = 0.125F;

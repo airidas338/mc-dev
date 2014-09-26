@@ -43,10 +43,10 @@ public class StatisticList {
    public static Statistic E = (new CounterStatistic("stat.treasureFished", new ChatMessage("stat.treasureFished", new Object[0]))).h();
    public static Statistic F = (new CounterStatistic("stat.talkedToVillager", new ChatMessage("stat.talkedToVillager", new Object[0]))).h();
    public static Statistic G = (new CounterStatistic("stat.tradedWithVillager", new ChatMessage("stat.tradedWithVillager", new Object[0]))).h();
-   public static final Statistic[] H = new Statistic[4096];
-   public static final Statistic[] I = new Statistic[32000];
-   public static final Statistic[] J = new Statistic[32000];
-   public static final Statistic[] K = new Statistic[32000];
+   public static final Statistic[] MINE_BLOCK_COUNT = new Statistic[4096];
+   public static final Statistic[] CRAFT_BLOCK_COUNT = new Statistic[32000];
+   public static final Statistic[] USE_ITEM_COUNT = new Statistic[32000];
+   public static final Statistic[] BREAK_ITEM_COUNT = new Statistic[32000];
 
 
    public static void a() {
@@ -60,20 +60,20 @@ public class StatisticList {
 
    private static void b() {
       HashSet var0 = Sets.newHashSet();
-      Iterator var1 = aop.a().b().iterator();
+      Iterator var1 = CraftingManager.getInstance().getRecipies().iterator();
 
       while(var1.hasNext()) {
-         aoo var2 = (aoo)var1.next();
+         IRecipe var2 = (IRecipe)var1.next();
          if(var2.b() != null) {
-            var0.add(var2.b().b());
+            var0.add(var2.b().getItem());
          }
       }
 
-      var1 = aok.a().b().values().iterator();
+      var1 = RecipesFurnace.getInstance().getRecipes().values().iterator();
 
       while(var1.hasNext()) {
          ItemStack var5 = (ItemStack)var1.next();
-         var0.add(var5.b());
+         var0.add(var5.getItem());
       }
 
       var1 = var0.iterator();
@@ -81,15 +81,15 @@ public class StatisticList {
       while(var1.hasNext()) {
          Item var6 = (Item)var1.next();
          if(var6 != null) {
-            int var3 = Item.b(var6);
+            int var3 = Item.getId(var6);
             String var4 = a(var6);
             if(var4 != null) {
-               I[var3] = (new CraftingStatistic("stat.craftItem.", var4, new ChatMessage("stat.craftItem", new Object[]{(new ItemStack(var6)).C()}), var6)).h();
+               CRAFT_BLOCK_COUNT[var3] = (new CraftingStatistic("stat.craftItem.", var4, new ChatMessage("stat.craftItem", new Object[]{(new ItemStack(var6)).C()}), var6)).h();
             }
          }
       }
 
-      a(I);
+      a(CRAFT_BLOCK_COUNT);
    }
 
    private static void c() {
@@ -97,18 +97,18 @@ public class StatisticList {
 
       while(var0.hasNext()) {
          Block var1 = (Block)var0.next();
-         Item var2 = Item.a(var1);
+         Item var2 = Item.getItemOf(var1);
          if(var2 != null) {
             int var3 = Block.getId(var1);
             String var4 = a(var2);
             if(var4 != null && var1.I()) {
-               H[var3] = (new CraftingStatistic("stat.mineBlock.", var4, new ChatMessage("stat.mineBlock", new Object[]{(new ItemStack(var1)).C()}), var2)).h();
-               e.add((CraftingStatistic)H[var3]);
+               MINE_BLOCK_COUNT[var3] = (new CraftingStatistic("stat.mineBlock.", var4, new ChatMessage("stat.mineBlock", new Object[]{(new ItemStack(var1)).C()}), var2)).h();
+               e.add((CraftingStatistic)MINE_BLOCK_COUNT[var3]);
             }
          }
       }
 
-      a(H);
+      a(MINE_BLOCK_COUNT);
    }
 
    private static void d() {
@@ -117,18 +117,18 @@ public class StatisticList {
       while(var0.hasNext()) {
          Item var1 = (Item)var0.next();
          if(var1 != null) {
-            int var2 = Item.b(var1);
+            int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null) {
-               J[var2] = (new CraftingStatistic("stat.useItem.", var3, new ChatMessage("stat.useItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
-               if(!(var1 instanceof aju)) {
-                  d.add((CraftingStatistic)J[var2]);
+               USE_ITEM_COUNT[var2] = (new CraftingStatistic("stat.useItem.", var3, new ChatMessage("stat.useItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
+               if(!(var1 instanceof ItemBlock)) {
+                  d.add((CraftingStatistic)USE_ITEM_COUNT[var2]);
                }
             }
          }
       }
 
-      a(J);
+      a(USE_ITEM_COUNT);
    }
 
    private static void e() {
@@ -137,15 +137,15 @@ public class StatisticList {
       while(var0.hasNext()) {
          Item var1 = (Item)var0.next();
          if(var1 != null) {
-            int var2 = Item.b(var1);
+            int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null && var1.m()) {
-               K[var2] = (new CraftingStatistic("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
+               BREAK_ITEM_COUNT[var2] = (new CraftingStatistic("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new ItemStack(var1)).C()}), var1)).h();
             }
          }
       }
 
-      a(K);
+      a(BREAK_ITEM_COUNT);
    }
 
    private static String a(Item var0) {
@@ -167,7 +167,7 @@ public class StatisticList {
       a(var0, Blocks.WOOD_DOUBLE_STEP, Blocks.WOOD_STEP);
       a(var0, Blocks.DOUBLE_STEP2, Blocks.STEP2);
       a(var0, Blocks.GRASS, Blocks.DIRT);
-      a(var0, Blocks.FARMLAND, Blocks.DIRT);
+      a(var0, Blocks.SOIL, Blocks.DIRT);
    }
 
    private static void a(Statistic[] var0, Block var1, Block var2) {

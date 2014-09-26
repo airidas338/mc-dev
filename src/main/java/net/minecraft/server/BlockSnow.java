@@ -37,7 +37,7 @@ public class BlockSnow extends Block {
       this.b(0);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       IBlockData var3 = var1.getData(var2);
       this.b(((Integer)var3.b(a)).intValue());
    }
@@ -69,7 +69,7 @@ public class BlockSnow extends Block {
    public void a(World var1, EntityHuman var2, Location var3, IBlockData var4, TileEntity var5) {
       a(var1, var3, new ItemStack(Items.aD, ((Integer)var4.b(a)).intValue() + 1, 0));
       var1.setAir(var3);
-      var2.b(StatisticList.H[Block.getId((Block)this)]);
+      var2.b(StatisticList.MINE_BLOCK_COUNT[Block.getId((Block)this)]);
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {

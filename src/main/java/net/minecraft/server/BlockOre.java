@@ -9,7 +9,7 @@ public class BlockOre extends Block {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return this == Blocks.COAL_ORE?Items.h:(this == Blocks.DIAMOND_ORE?Items.i:(this == Blocks.LAPIS_ORE?Items.aW:(this == Blocks.EMERALD_ORE?Items.bO:(this == Blocks.QUARTZ_ORE?Items.cg:Item.a((Block)this)))));
+      return this == Blocks.COAL_ORE?Items.COAL:(this == Blocks.DIAMOND_ORE?Items.DIAMOND:(this == Blocks.LAPIS_ORE?Items.aW:(this == Blocks.EMERALD_ORE?Items.bO:(this == Blocks.QUARTZ_ORE?Items.cg:Item.getItemOf((Block)this)))));
    }
 
    public int a(Random var1) {
@@ -17,7 +17,7 @@ public class BlockOre extends Block {
    }
 
    public int getDropCount(int var1, Random var2) {
-      if(var1 > 0 && Item.a((Block)this) != this.a((IBlockData)this.O().a().iterator().next(), var2, var1)) {
+      if(var1 > 0 && Item.getItemOf((Block)this) != this.a((IBlockData)this.O().a().iterator().next(), var2, var1)) {
          int var3 = var2.nextInt(var1 + 2) - 1;
          if(var3 < 0) {
             var3 = 0;
@@ -31,7 +31,7 @@ public class BlockOre extends Block {
 
    public void dropNaturally(World var1, Location var2, IBlockData var3, float var4, int var5) {
       super.dropNaturally(var1, var2, var3, var4, var5);
-      if(this.a(var3, var1.random, var5) != Item.a((Block)this)) {
+      if(this.a(var3, var1.random, var5) != Item.getItemOf((Block)this)) {
          int var6 = 0;
          if(this == Blocks.COAL_ORE) {
             var6 = MathHelper.a(var1.random, 0, 2);
@@ -45,7 +45,7 @@ public class BlockOre extends Block {
             var6 = MathHelper.a(var1.random, 2, 5);
          }
 
-         this.b(var1, var2, var6);
+         this.dropExperience(var1, var2, var6);
       }
 
    }
@@ -54,7 +54,7 @@ public class BlockOre extends Block {
       return 0;
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return this == Blocks.LAPIS_ORE?akv.l.b():0;
    }
 }

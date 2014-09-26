@@ -71,7 +71,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
    }
 
    protected Item A() {
-      return Items.H;
+      return Items.SULPHUR;
    }
 
    protected void b(boolean var1, int var2) {
@@ -85,7 +85,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
       var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.H, 1);
+         this.a(Items.SULPHUR, 1);
       }
 
    }

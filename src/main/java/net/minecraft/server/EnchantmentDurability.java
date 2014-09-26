@@ -25,6 +25,6 @@ public class EnchantmentDurability extends Enchantment {
    }
 
    public static boolean a(ItemStack var0, int var1, Random var2) {
-      return var0.b() instanceof ItemArmor && var2.nextFloat() < 0.6F?false:var2.nextInt(var1 + 1) > 0;
+      return var0.getItem() instanceof ItemArmor && var2.nextFloat() < 0.6F?false:var2.nextInt(var1 + 1) > 0;
    }
 }

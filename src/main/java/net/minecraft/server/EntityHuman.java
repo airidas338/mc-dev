@@ -34,7 +34,7 @@ public abstract class EntityHuman extends EntityLiving {
    private Location c;
    private boolean d;
    private Location e;
-   public PlayerAbilities by = new PlayerAbilities();
+   public PlayerAbilities abilities = new PlayerAbilities();
    public int bz;
    public int bA;
    public float bB;
@@ -97,7 +97,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean bV() {
-      return this.bR() && this.g.b().e(this.g) == EnumAnimation.BLOCK;
+      return this.bR() && this.g.getItem().e(this.g) == EnumAnimation.BLOCK;
    }
 
    public void s_() throws IOException {
@@ -151,7 +151,7 @@ public abstract class EntityHuman extends EntityLiving {
          this.bi = this.bh;
       }
 
-      if(this.au() && this.by.isInvulnerable) {
+      if(this.au() && this.abilities.isInvulnerable) {
          this.N();
       }
 
@@ -211,7 +211,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public int L() {
-      return this.by.isInvulnerable?0:80;
+      return this.abilities.isInvulnerable?0:80;
    }
 
    protected String P() {
@@ -244,11 +244,11 @@ public abstract class EntityHuman extends EntityLiving {
             Vec3D var7 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.3D, var5, 0.6D);
             var7 = var7.a(-this.z * 3.1415927F / 180.0F);
             var7 = var7.b(-this.y * 3.1415927F / 180.0F);
-            var7 = var7.b(this.s, this.t + (double)this.aR(), this.u);
-            if(var1.f()) {
-               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b()), var1.i()});
+            var7 = var7.add(this.s, this.t + (double)this.aR(), this.u);
+            if(var1.usesData()) {
+               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.getId(var1.getItem()), var1.getData()});
             } else {
-               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.b(var1.b())});
+               this.o.a(EnumParticleEffect.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.getId(var1.getItem())});
             }
          }
 
@@ -260,11 +260,11 @@ public abstract class EntityHuman extends EntityLiving {
    protected void s() {
       if(this.g != null) {
          this.b(this.g, 16);
-         int var1 = this.g.b;
+         int var1 = this.g.count;
          ItemStack var2 = this.g.b(this.o, this);
-         if(var2 != this.g || var2 != null && var2.b != var1) {
+         if(var2 != this.g || var2 != null && var2.count != var1) {
             this.bg.a[this.bg.c] = var2;
-            if(var2.b == 0) {
+            if(var2.count == 0) {
                this.bg.a[this.bg.c] = null;
             }
          }
@@ -331,7 +331,7 @@ public abstract class EntityHuman extends EntityLiving {
       super.m();
       AttributeInstance var1 = this.getAttributeInstance(GenericAttributes.d);
       if(!this.o.isStatic) {
-         var1.a((double)this.by.b());
+         var1.a((double)this.abilities.b());
       }
 
       this.aK = this.bD;
@@ -473,7 +473,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public EntityItem a(boolean var1) {
-      return this.a(this.bg.a(this.bg.c, var1 && this.bg.h() != null?this.bg.h().b:1), false, true);
+      return this.a(this.bg.a(this.bg.c, var1 && this.bg.h() != null?this.bg.h().count:1), false, true);
    }
 
    public EntityItem a(ItemStack var1, boolean var2) {
@@ -483,7 +483,7 @@ public abstract class EntityHuman extends EntityLiving {
    public EntityItem a(ItemStack var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return null;
-      } else if(var1.b == 0) {
+      } else if(var1.count == 0) {
          return null;
       } else {
          double var4 = this.t - 0.30000001192092896D + (double)this.aR();
@@ -603,7 +603,7 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       this.bj.a(var1);
-      this.by.b(var1);
+      this.abilities.b(var1);
       if(var1.hasKeyOfType("EnderItems", 9)) {
          NBTTagList var3 = var1.getList("EnderItems", 10);
          this.a.a(var3);
@@ -630,11 +630,11 @@ public abstract class EntityHuman extends EntityLiving {
       }
 
       this.bj.b(var1);
-      this.by.a(var1);
+      this.abilities.a(var1);
       var1.set("EnderItems", (NBTBase)this.a.h());
       ItemStack var2 = this.bg.h();
-      if(var2 != null && var2.b() != null) {
-         var1.set("SelectedItem", (NBTBase)var2.b(new NBTTagCompound()));
+      if(var2 != null && var2.getItem() != null) {
+         var1.set("SelectedItem", (NBTBase)var2.save(new NBTTagCompound()));
       }
 
    }
@@ -642,7 +642,7 @@ public abstract class EntityHuman extends EntityLiving {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.by.isInvulnerable && !var1.g()) {
+      } else if(this.abilities.isInvulnerable && !var1.g()) {
          return false;
       } else {
          this.aO = 0;
@@ -757,15 +757,15 @@ public abstract class EntityHuman extends EntityLiving {
          return false;
       } else {
          ItemStack var2 = this.bY();
-         ItemStack var3 = var2 != null?var2.k():null;
+         ItemStack var3 = var2 != null?var2.cloneItemStack():null;
          if(!var1.e(this)) {
             if(var2 != null && var1 instanceof EntityLiving) {
-               if(this.by.canInstantlyBuild) {
+               if(this.abilities.canInstantlyBuild) {
                   var2 = var3;
                }
 
                if(var2.a(this, (EntityLiving)var1)) {
-                  if(var2.b <= 0 && !this.by.canInstantlyBuild) {
+                  if(var2.count <= 0 && !this.abilities.canInstantlyBuild) {
                      this.bZ();
                   }
 
@@ -776,10 +776,10 @@ public abstract class EntityHuman extends EntityLiving {
             return false;
          } else {
             if(var2 != null && var2 == this.bY()) {
-               if(var2.b <= 0 && !this.by.canInstantlyBuild) {
+               if(var2.count <= 0 && !this.abilities.canInstantlyBuild) {
                   this.bZ();
-               } else if(var2.b < var3.b && this.by.canInstantlyBuild) {
-                  var2.b = var3.b;
+               } else if(var2.count < var3.count && this.abilities.canInstantlyBuild) {
+                  var2.count = var3.count;
                }
             }
 
@@ -880,7 +880,7 @@ public abstract class EntityHuman extends EntityLiving {
 
                   if(var15 != null && var16 instanceof EntityLiving) {
                      var15.a((EntityLiving)var16, this);
-                     if(var15.b <= 0) {
+                     if(var15.count <= 0) {
                         this.bZ();
                      }
                   }
@@ -1105,10 +1105,10 @@ public abstract class EntityHuman extends EntityLiving {
       double var3 = this.s;
       double var5 = this.t;
       double var7 = this.u;
-      if(this.by.isFlying && this.m == null) {
+      if(this.abilities.isFlying && this.m == null) {
          double var9 = this.w;
          float var11 = this.aK;
-         this.aK = this.by.a() * (float)(this.ax()?2:1);
+         this.aK = this.abilities.a() * (float)(this.ax()?2:1);
          super.g(var1, var2);
          this.w = var9 * 0.6D;
          this.aK = var11;
@@ -1191,7 +1191,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void e(float var1, float var2) {
-      if(!this.by.canFly) {
+      if(!this.abilities.canFly) {
          if(var1 >= 2.0F) {
             this.a(StatisticList.m, (int)Math.round((double)var1 * 100.0D));
          }
@@ -1224,7 +1224,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void aB() {
-      if(!this.by.isFlying) {
+      if(!this.abilities.isFlying) {
          super.aB();
       }
 
@@ -1286,7 +1286,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public void a(float var1) {
-      if(!this.by.isInvulnerable) {
+      if(!this.abilities.isInvulnerable) {
          if(!this.o.isStatic) {
             this.bj.a(var1);
          }
@@ -1299,7 +1299,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean j(boolean var1) {
-      return (var1 || this.bj.c()) && !this.by.isInvulnerable;
+      return (var1 || this.bj.c()) && !this.abilities.isInvulnerable;
    }
 
    public boolean cl() {
@@ -1318,11 +1318,11 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean cm() {
-      return this.by.e;
+      return this.abilities.e;
    }
 
    public boolean a(Location var1, EnumFacing var2, ItemStack var3) {
-      if(this.by.e) {
+      if(this.abilities.e) {
          return true;
       } else if(var3 == null) {
          return false;
@@ -1369,7 +1369,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    protected boolean r_() {
-      return !this.by.isFlying;
+      return !this.abilities.isFlying;
    }
 
    public void t() {}
@@ -1403,7 +1403,7 @@ public abstract class EntityHuman extends EntityLiving {
    }
 
    public boolean aK() {
-      return !this.by.isFlying;
+      return !this.abilities.isFlying;
    }
 
    public Scoreboard co() {
@@ -1465,7 +1465,7 @@ public abstract class EntityHuman extends EntityLiving {
          return true;
       } else {
          ItemStack var2 = this.bY();
-         return var2 != null && var2.s()?var2.q().equals(var1.b()):false;
+         return var2 != null && var2.hasName()?var2.getName().equals(var1.b()):false;
       }
    }
 
@@ -1482,12 +1482,12 @@ public abstract class EntityHuman extends EntityLiving {
          int var4;
          if(var3 >= 0 && var3 < this.bg.b.length) {
             var4 = var3 + 1;
-            if(var2 != null && var2.b() != null) {
-               if(var2.b() instanceof ItemArmor) {
+            if(var2 != null && var2.getItem() != null) {
+               if(var2.getItem() instanceof ItemArmor) {
                   if(EntityInsentient.c(var2) != var4) {
                      return false;
                   }
-               } else if(var4 != 4 || var2.b() != Items.bX && !(var2.b() instanceof aju)) {
+               } else if(var4 != 4 || var2.getItem() != Items.bX && !(var2.getItem() instanceof ItemBlock)) {
                   return false;
                }
             }

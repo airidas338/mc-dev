@@ -31,14 +31,14 @@ public class bfm {
       Block var7 = var4.c();
       if(var6 != Blocks.AIR) {
          --this.b;
-         if(var6.w()) {
+         if(var6.isTicking()) {
             --this.c;
          }
       }
 
       if(var7 != Blocks.AIR) {
          ++this.b;
-         if(var7.w()) {
+         if(var7.isTicking()) {
             ++this.c;
          }
       }
@@ -93,7 +93,7 @@ public class bfm {
                Block var4 = this.b(var1, var2, var3);
                if(var4 != Blocks.AIR) {
                   ++this.b;
-                  if(var4.w()) {
+                  if(var4.isTicking()) {
                      ++this.c;
                   }
                }

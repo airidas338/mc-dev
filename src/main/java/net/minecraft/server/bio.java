@@ -42,7 +42,7 @@ public class bio extends WorldGenTreeAbstract {
             return false;
          } else {
             Block var20 = var1.getData(var3.b()).c();
-            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT || var20 == Blocks.FARMLAND) && var3.o() < 256 - var4 - 1) {
+            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT || var20 == Blocks.SOIL) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var21 = var2.nextInt(2);
                var11 = 1;

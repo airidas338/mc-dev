@@ -18,7 +18,7 @@ public class BlockHugeMushroom extends Block {
    }
 
    public Item a(IBlockData var1, Random var2, int var3) {
-      return Item.a(this.b);
+      return Item.getItemOf(this.b);
    }
 
    public IBlockData getPlacedData(World var1, Location var2, EnumFacing var3, float var4, float var5, float var6, int var7, EntityLiving var8) {

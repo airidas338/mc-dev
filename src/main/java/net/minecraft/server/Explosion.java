@@ -161,7 +161,7 @@ public class Explosion {
                }
 
                this.d.setTypeAndData(var3, Blocks.AIR.P(), 3);
-               var4.a(this.d, var3, this);
+               var4.wasExploded(this.d, var3, this);
             }
          }
       }

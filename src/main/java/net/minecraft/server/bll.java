@@ -9,8 +9,8 @@ public class bll extends bln {
    private boolean f;
    private boolean g;
    private boolean h;
-   private static final List i = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.i, 0, 1, 3, 3), new StructurePieceTreaasure(Items.j, 0, 1, 5, 10), new StructurePieceTreaasure(Items.k, 0, 2, 7, 15), new StructurePieceTreaasure(Items.bO, 0, 1, 3, 2), new StructurePieceTreaasure(Items.aX, 0, 4, 6, 20), new StructurePieceTreaasure(Items.bt, 0, 3, 7, 16), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
-   private static final List j = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.g, 0, 2, 7, 30)});
+   private static final List i = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.DIAMOND, 0, 1, 3, 3), new StructurePieceTreaasure(Items.IRON_INGOT, 0, 1, 5, 10), new StructurePieceTreaasure(Items.GOLD_INGOT, 0, 2, 7, 15), new StructurePieceTreaasure(Items.bO, 0, 1, 3, 2), new StructurePieceTreaasure(Items.aX, 0, 4, 6, 20), new StructurePieceTreaasure(Items.bt, 0, 3, 7, 16), new StructurePieceTreaasure(Items.aA, 0, 1, 1, 3), new StructurePieceTreaasure(Items.ck, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cl, 0, 1, 1, 1), new StructurePieceTreaasure(Items.cm, 0, 1, 1, 1)});
+   private static final List j = Lists.newArrayList(new StructurePieceTreaasure[]{new StructurePieceTreaasure(Items.ARROW, 0, 2, 7, 30)});
    private static blm k = new blm((blj)null);
 
 

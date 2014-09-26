@@ -57,7 +57,7 @@ public class EntityEnderman extends EntityMonster {
       if(var1.hasKeyOfType("carried", 8)) {
          var2 = Block.b(var1.getString("carried")).a(var1.getShort("carriedData") & '\uffff');
       } else {
-         var2 = Block.c(var1.getShort("carried")).a(var1.getShort("carriedData") & '\uffff');
+         var2 = Block.getById(var1.getShort("carried")).a(var1.getShort("carriedData") & '\uffff');
       }
 
       this.a(var2);
@@ -65,7 +65,7 @@ public class EntityEnderman extends EntityMonster {
 
    private boolean c(EntityHuman var1) {
       ItemStack var2 = var1.bg.b[3];
-      if(var2 != null && var2.b() == Item.a(Blocks.PUMPKIN)) {
+      if(var2 != null && var2.getItem() == Item.getItemOf(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).a();

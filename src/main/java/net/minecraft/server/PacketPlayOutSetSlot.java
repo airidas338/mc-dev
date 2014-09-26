@@ -14,7 +14,7 @@ public class PacketPlayOutSetSlot implements Packet {
    public PacketPlayOutSetSlot(int var1, int var2, ItemStack var3) {
       this.a = var1;
       this.b = var2;
-      this.c = var3 == null?null:var3.k();
+      this.c = var3 == null?null:var3.cloneItemStack();
    }
 
    public void a(PacketListener var1) {

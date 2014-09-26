@@ -14,7 +14,7 @@ final class DispenserBehaviorPumpkin extends DispenserBehaviorItem {
             var3.setTypeAndData(var4, var5.P(), 3);
          }
 
-         --var2.b;
+         --var2.count;
       } else {
          this.b = false;
       }

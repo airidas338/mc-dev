@@ -13,12 +13,12 @@ public class ItemShears extends Item {
       if(var3.getMaterial() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.LONG_GRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
          return super.a(var1, var2, var3, var4, var5);
       } else {
-         var1.a(1, var5);
+         var1.damage(1, var5);
          return true;
       }
    }
 
-   public boolean b(Block var1) {
+   public boolean canDestroySpecialBlocks(Block var1) {
       return var1 == Blocks.WEB || var1 == Blocks.REDSTONE_WIRE || var1 == Blocks.TRIPWIRE;
    }
 

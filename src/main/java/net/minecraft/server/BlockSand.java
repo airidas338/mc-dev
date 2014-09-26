@@ -9,7 +9,7 @@ public class BlockSand extends BlockFalling {
       this.j(this.L.b().a(a, bac.a));
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((bac)var1.b(a)).a();
    }
 

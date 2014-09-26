@@ -9,6 +9,6 @@ public class ItemCoal extends Item {
    }
 
    public String e_(ItemStack var1) {
-      return var1.i() == 1?"item.charcoal":"item.coal";
+      return var1.getData() == 1?"item.charcoal":"item.coal";
    }
 }

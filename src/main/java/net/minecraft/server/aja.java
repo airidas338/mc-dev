@@ -15,6 +15,6 @@ class aja extends ajk {
    }
 
    public boolean a(ItemStack var1) {
-      return super.a(var1) && this.a.cM() && EntityHorse.a(var1.b());
+      return super.a(var1) && this.a.cM() && EntityHorse.a(var1.getItem());
    }
 }

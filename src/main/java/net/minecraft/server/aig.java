@@ -43,14 +43,14 @@ public class aig extends aib {
       ajk var4 = (ajk)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
-         var3 = var5.k();
+         var3 = var5.cloneItemStack();
          if(var2 == 0) {
             if(!this.a(var5, 1, 37, true)) {
                return null;
             }
 
             var4.a(var5, var3);
-         } else if(!this.f.e() && this.f.a(var5) && var5.b == 1) {
+         } else if(!this.f.e() && this.f.a(var5) && var5.count == 1) {
             if(!this.a(var5, 0, 1, false)) {
                return null;
             }
@@ -66,13 +66,13 @@ public class aig extends aib {
             return null;
          }
 
-         if(var5.b == 0) {
+         if(var5.count == 0) {
             var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 

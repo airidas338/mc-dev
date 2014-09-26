@@ -1116,7 +1116,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public EntityItem a(ItemStack var1, float var2) {
-		if (var1.b != 0 && var1.b() != null) {
+		if (var1.count != 0 && var1.getItem() != null) {
 			EntityItem var3 = new EntityItem(this.o, this.s, this.t + (double) var2, this.u, var1);
 			var3.p();
 			this.o.addEntity((Entity) var3);
@@ -1436,7 +1436,7 @@ public abstract class Entity implements ICommandListener {
 				var1 = "generic";
 			}
 
-			return LocaleI18n.a("entity." + var1 + ".name");
+			return LocaleI18n.get("entity." + var1 + ".name");
 		}
 	}
 

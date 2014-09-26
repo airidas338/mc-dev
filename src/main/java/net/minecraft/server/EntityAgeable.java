@@ -20,22 +20,22 @@ public abstract class EntityAgeable extends EntityCreature {
 
    public boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bg.h();
-      if(var2 != null && var2.b() == Items.bJ) {
+      if(var2 != null && var2.getItem() == Items.bJ) {
          if(!this.o.isStatic) {
-            Class var3 = EntityTypes.a(var2.i());
+            Class var3 = EntityTypes.a(var2.getData());
             if(var3 != null && this.getClass() == var3) {
                EntityAgeable var4 = this.a(this);
                if(var4 != null) {
                   var4.b(-24000);
                   var4.setPositionRotation(this.s, this.t, this.u, 0.0F, 0.0F);
                   this.o.addEntity((Entity)var4);
-                  if(var2.s()) {
-                     var4.a(var2.q());
+                  if(var2.hasName()) {
+                     var4.a(var2.getName());
                   }
 
-                  if(!var1.by.canInstantlyBuild) {
-                     --var2.b;
-                     if(var2.b <= 0) {
+                  if(!var1.abilities.canInstantlyBuild) {
+                     --var2.count;
+                     if(var2.count <= 0) {
                         var1.bg.a(var1.bg.c, (ItemStack)null);
                      }
                   }

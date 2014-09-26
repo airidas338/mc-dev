@@ -120,22 +120,22 @@ public class EntityItem extends Entity {
          ItemStack var3 = var1.l();
          if(this.d != 32767 && var1.d != 32767) {
             if(this.c != -32768 && var1.c != -32768) {
-               if(var3.b() != var2.b()) {
+               if(var3.getItem() != var2.getItem()) {
                   return false;
-               } else if(var3.n() ^ var2.n()) {
+               } else if(var3.hasTag() ^ var2.hasTag()) {
                   return false;
-               } else if(var3.n() && !var3.o().equals(var2.o())) {
+               } else if(var3.hasTag() && !var3.getTag().equals(var2.getTag())) {
                   return false;
-               } else if(var3.b() == null) {
+               } else if(var3.getItem() == null) {
                   return false;
-               } else if(var3.b().k() && var3.i() != var2.i()) {
+               } else if(var3.getItem().k() && var3.getData() != var2.getData()) {
                   return false;
-               } else if(var3.b < var2.b) {
+               } else if(var3.count < var2.count) {
                   return var1.a(this);
-               } else if(var3.b + var2.b > var3.c()) {
+               } else if(var3.count + var2.count > var3.getMaxStackSize()) {
                   return false;
                } else {
-                  var3.b += var2.b;
+                  var3.count += var2.count;
                   var1.d = Math.max(var1.d, this.d);
                   var1.c = Math.min(var1.c, this.c);
                   var1.a(var3);
@@ -178,7 +178,7 @@ public class EntityItem extends Entity {
    public boolean a(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(this.l() != null && this.l().b() == Items.bZ && var1.isExplosion()) {
+      } else if(this.l() != null && this.l().getItem() == Items.bZ && var1.isExplosion()) {
          return false;
       } else {
          this.ac();
@@ -204,7 +204,7 @@ public class EntityItem extends Entity {
       }
 
       if(this.l() != null) {
-         var1.set("Item", (NBTBase)this.l().b(new NBTTagCompound()));
+         var1.set("Item", (NBTBase)this.l().save(new NBTTagCompound()));
       }
 
    }
@@ -225,7 +225,7 @@ public class EntityItem extends Entity {
       }
 
       NBTTagCompound var2 = var1.getCompound("Item");
-      this.a(ItemStack.a(var2));
+      this.a(ItemStack.createStack(var2));
       if(this.l() == null) {
          this.J();
       }
@@ -235,29 +235,29 @@ public class EntityItem extends Entity {
    public void d(EntityHuman var1) {
       if(!this.o.isStatic) {
          ItemStack var2 = this.l();
-         int var3 = var2.b;
+         int var3 = var2.count;
          if(this.d == 0 && (this.g == null || 6000 - this.c <= 200 || this.g.equals(var1.getName())) && var1.bg.a(var2)) {
-            if(var2.b() == Item.a(Blocks.LOG)) {
+            if(var2.getItem() == Item.getItemOf(Blocks.LOG)) {
                var1.b((Statistic)AchievementList.g);
             }
 
-            if(var2.b() == Item.a(Blocks.LOG2)) {
+            if(var2.getItem() == Item.getItemOf(Blocks.LOG2)) {
                var1.b((Statistic)AchievementList.g);
             }
 
-            if(var2.b() == Items.aF) {
+            if(var2.getItem() == Items.aF) {
                var1.b((Statistic)AchievementList.t);
             }
 
-            if(var2.b() == Items.i) {
+            if(var2.getItem() == Items.DIAMOND) {
                var1.b((Statistic)AchievementList.w);
             }
 
-            if(var2.b() == Items.bv) {
+            if(var2.getItem() == Items.bv) {
                var1.b((Statistic)AchievementList.A);
             }
 
-            if(var2.b() == Items.i && this.n() != null) {
+            if(var2.getItem() == Items.DIAMOND && this.n() != null) {
                EntityHuman var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
                   var4.b((Statistic)AchievementList.x);
@@ -269,7 +269,7 @@ public class EntityItem extends Entity {
             }
 
             var1.a((Entity)this, var3);
-            if(var2.b <= 0) {
+            if(var2.count <= 0) {
                this.J();
             }
          }
@@ -278,7 +278,7 @@ public class EntityItem extends Entity {
    }
 
    public String getName() {
-      return this.k_()?this.aL():LocaleI18n.a("item." + this.l().a());
+      return this.k_()?this.aL():LocaleI18n.get("item." + this.l().a());
    }
 
    public boolean aE() {

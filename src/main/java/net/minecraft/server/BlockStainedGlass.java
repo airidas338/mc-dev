@@ -12,7 +12,7 @@ public class BlockStainedGlass extends BlockHalfTransparent {
       this.a(CreativeModeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((akv)var1.b(a)).a();
    }
 
@@ -36,7 +36,7 @@ public class BlockStainedGlass extends BlockHalfTransparent {
       return this.P().a(a, akv.b(var1));
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          BlockBeacon.d(var1, var2);
       }

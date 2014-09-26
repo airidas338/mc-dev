@@ -12,10 +12,10 @@ public class BlockTNT extends Block {
       this.a(CreativeModeTab.d);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
-      super.c(var1, var2, var3);
+   public void onPlace(World var1, Location var2, IBlockData var3) {
+      super.onPlace(var1, var2, var3);
       if(var1.isBlockIndirectlyPowered(var2)) {
-         this.d(var1, var2, var3.a(a, Boolean.valueOf(true)));
+         this.postBreak(var1, var2, var3.a(a, Boolean.valueOf(true)));
          var1.setAir(var2);
       }
 
@@ -23,13 +23,13 @@ public class BlockTNT extends Block {
 
    public void doPhysics(World var1, Location var2, IBlockData var3, Block var4) {
       if(var1.isBlockIndirectlyPowered(var2)) {
-         this.d(var1, var2, var3.a(a, Boolean.valueOf(true)));
+         this.postBreak(var1, var2, var3.a(a, Boolean.valueOf(true)));
          var1.setAir(var2);
       }
 
    }
 
-   public void a(World var1, Location var2, Explosion var3) {
+   public void wasExploded(World var1, Location var2, Explosion var3) {
       if(!var1.isStatic) {
          EntityTNTPrimed var4 = new EntityTNTPrimed(var1, (double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), var3.c());
          var4.a = var1.random.nextInt(var4.a / 4) + var4.a / 8;
@@ -37,7 +37,7 @@ public class BlockTNT extends Block {
       }
    }
 
-   public void d(World var1, Location var2, IBlockData var3) {
+   public void postBreak(World var1, Location var2, IBlockData var3) {
       this.a(var1, var2, var3, (EntityLiving)null);
    }
 
@@ -54,14 +54,14 @@ public class BlockTNT extends Block {
 
    public boolean interact(World var1, Location var2, IBlockData var3, EntityHuman var4, EnumFacing var5, float var6, float var7, float var8) {
       if(var4.bY() != null) {
-         Item var9 = var4.bY().b();
+         Item var9 = var4.bY().getItem();
          if(var9 == Items.FLINT_AND_STEEL || var9 == Items.bL) {
             this.a(var1, var2, var3.a(a, Boolean.valueOf(true)), (EntityLiving)var4);
             var1.setAir(var2);
             if(var9 == Items.FLINT_AND_STEEL) {
-               var4.bY().a(1, (EntityLiving)var4);
-            } else if(!var4.by.canInstantlyBuild) {
-               --var4.bY().b;
+               var4.bY().damage(1, (EntityLiving)var4);
+            } else if(!var4.abilities.canInstantlyBuild) {
+               --var4.bY().count;
             }
 
             return true;

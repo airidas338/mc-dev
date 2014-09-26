@@ -97,7 +97,7 @@ public abstract class EntityFireball extends Entity {
                AxisAlignedBB var11 = var9.aQ().b((double)var10, (double)var10, (double)var10);
                MovingObjectPosition var12 = var11.a(var1, var2);
                if(var12 != null) {
-                  double var13 = var1.f(var12.c);
+                  double var13 = var1.distanceSquared(var12.c);
                   if(var13 < var6 || var6 == 0.0D) {
                      var4 = var9;
                      var6 = var13;
@@ -182,7 +182,7 @@ public abstract class EntityFireball extends Entity {
       if(var1.hasKeyOfType("inTile", 8)) {
          this.h = Block.b(var1.getString("inTile"));
       } else {
-         this.h = Block.c(var1.getByte("inTile") & 255);
+         this.h = Block.getById(var1.getByte("inTile") & 255);
       }
 
       this.i = var1.getByte("inGround") == 1;

@@ -25,11 +25,11 @@ public class anp extends ann {
             IBlockData var7 = var2.getData(var5);
             if(var7.c().getMaterial() == Material.WATER && ((Integer)var7.b(BlockFluids.b)).intValue() == 0 && var2.isEmpty(var6)) {
                var2.a(var6, Blocks.WATER_LILY.P());
-               if(!var3.by.canInstantlyBuild) {
-                  --var1.b;
+               if(!var3.abilities.canInstantlyBuild) {
+                  --var1.count;
                }
 
-               var3.b(StatisticList.J[Item.b((Item)this)]);
+               var3.b(StatisticList.USE_ITEM_COUNT[Item.getId((Item)this)]);
             }
          }
 

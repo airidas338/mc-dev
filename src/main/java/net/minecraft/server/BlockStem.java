@@ -35,7 +35,7 @@ public class BlockStem extends BlockPlant implements atz {
    }
 
    protected boolean c(Block var1) {
-      return var1 == Blocks.FARMLAND;
+      return var1 == Blocks.SOIL;
    }
 
    public void b(World var1, Location var2, IBlockData var3, Random var4) {
@@ -59,7 +59,7 @@ public class BlockStem extends BlockPlant implements atz {
 
                var2 = var2.a(en.a.a(var4));
                Block var9 = var1.getData(var2.b()).c();
-               if(var1.getData(var2).c().J == Material.AIR && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
+               if(var1.getData(var2).c().J == Material.AIR && (var9 == Blocks.SOIL || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
                   var1.a(var2, this.M.P());
                }
             }
@@ -78,7 +78,7 @@ public class BlockStem extends BlockPlant implements atz {
       this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.25F, 0.5F + var1);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.F = (double)((float)(((Integer)var1.getData(var2).b(a)).intValue() * 2 + 2) / 16.0F);
       float var3 = 0.125F;
       this.a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, (float)this.F, 0.5F + var3);

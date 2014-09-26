@@ -85,12 +85,12 @@ public abstract class BlockFluids extends Block {
                var8 = this.f(var1, var7.b());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);
-                  var3 = var3.b((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
+                  var3 = var3.add((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
                }
             }
          } else if(var8 >= 0) {
             var9 = var8 - var4;
-            var3 = var3.b((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
+            var3 = var3.add((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
          }
       }
 
@@ -101,7 +101,7 @@ public abstract class BlockFluids extends Block {
             var6 = (EnumFacing)var5.next();
             var7 = var2.a(var6);
             if(this.b(var1, var7, var6) || this.b(var1, var7.a(), var6)) {
-               var3 = var3.a().b(0.0D, -6.0D, 0.0D);
+               var3 = var3.a().add(0.0D, -6.0D, 0.0D);
                break;
             }
          }
@@ -118,7 +118,7 @@ public abstract class BlockFluids extends Block {
       return this.J == Material.WATER?5:(this.J == Material.LAVA?(var1.worldProvider.o()?10:30):0);
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 

@@ -56,7 +56,7 @@ public class EntityItemFrame extends EntityHanging {
          ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;
-            if(var4.by.canInstantlyBuild) {
+            if(var4.abilities.canInstantlyBuild) {
                this.b(var3);
                return;
             }
@@ -67,7 +67,7 @@ public class EntityItemFrame extends EntityHanging {
          }
 
          if(var3 != null && this.V.nextFloat() < this.c) {
-            var3 = var3.k();
+            var3 = var3.cloneItemStack();
             this.b(var3);
             this.a(var3, 0.0F);
          }
@@ -77,8 +77,8 @@ public class EntityItemFrame extends EntityHanging {
 
    private void b(ItemStack var1) {
       if(var1 != null) {
-         if(var1.b() == Items.bd) {
-            WorldMap var2 = ((ItemWorldMap)var1.b()).a(var1, this.o);
+         if(var1.getItem() == Items.bd) {
+            WorldMap var2 = ((ItemWorldMap)var1.getItem()).a(var1, this.o);
             var2.h.remove("frame-" + this.F());
          }
 
@@ -96,8 +96,8 @@ public class EntityItemFrame extends EntityHanging {
 
    private void a(ItemStack var1, boolean var2) {
       if(var1 != null) {
-         var1 = var1.k();
-         var1.b = 1;
+         var1 = var1.cloneItemStack();
+         var1.count = 1;
          var1.a(this);
       }
 
@@ -127,7 +127,7 @@ public class EntityItemFrame extends EntityHanging {
 
    public void b(NBTTagCompound var1) {
       if(this.o() != null) {
-         var1.set("Item", (NBTBase)this.o().b(new NBTTagCompound()));
+         var1.set("Item", (NBTBase)this.o().save(new NBTTagCompound()));
          var1.setByte("ItemRotation", (byte)this.p());
          var1.setFloat("ItemDropChance", this.c);
       }
@@ -138,7 +138,7 @@ public class EntityItemFrame extends EntityHanging {
    public void a(NBTTagCompound var1) {
       NBTTagCompound var2 = var1.getCompound("Item");
       if(var2 != null && !var2.isEmpty()) {
-         this.a(ItemStack.a(var2), false);
+         this.a(ItemStack.createStack(var2), false);
          this.a(var1.getByte("ItemRotation"), false);
          if(var1.hasKeyOfType("ItemDropChance", 99)) {
             this.c = var1.getFloat("ItemDropChance");
@@ -157,7 +157,7 @@ public class EntityItemFrame extends EntityHanging {
          ItemStack var2 = var1.bz();
          if(var2 != null && !this.o.isStatic) {
             this.a(var2);
-            if(!var1.by.canInstantlyBuild && --var2.b <= 0) {
+            if(!var1.abilities.canInstantlyBuild && --var2.count <= 0) {
                var1.bg.a(var1.bg.c, (ItemStack)null);
             }
          }

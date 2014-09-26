@@ -30,11 +30,11 @@ public class BlockTrapdoor extends Block {
    }
 
    public AxisAlignedBB a(World var1, Location var2, IBlockData var3) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.d(var1.getData(var2));
    }
 
@@ -95,7 +95,7 @@ public class BlockTrapdoor extends Block {
             this.b(var1, var2, var3, 0);
          } else {
             boolean var6 = var1.isBlockIndirectlyPowered(var2);
-            if(var6 || var4.g()) {
+            if(var6 || var4.isPowerSource()) {
                boolean var7 = ((Boolean)var3.b(b)).booleanValue();
                if(var7 != var6) {
                   var1.setTypeAndData(var2, var3.a(b, Boolean.valueOf(var6)), 2);
@@ -108,7 +108,7 @@ public class BlockTrapdoor extends Block {
    }
 
    public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 

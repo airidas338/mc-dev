@@ -148,7 +148,7 @@ public abstract class EntityLiving extends Entity {
          this.N();
       }
 
-      boolean var7 = var1 && ((EntityHuman)this).by.isInvulnerable;
+      boolean var7 = var1 && ((EntityHuman)this).abilities.isInvulnerable;
       if(this.isAlive() && this.a(Material.WATER)) {
          if(!this.aX() && !this.k(MobEffectList.o.H) && !var7) {
             this.h(this.j(this.aA()));
@@ -569,7 +569,7 @@ public abstract class EntityLiving extends Entity {
             return false;
          } else {
             if((var1 == DamageSource.ANVIL || var1 == DamageSource.FALLING_BLOCK) && this.p(4) != null) {
-               this.p(4).a((int)(var2 * 4.0F + this.V.nextFloat() * var2 * 2.0F), this);
+               this.p(4).damage((int)(var2 * 4.0F + this.V.nextFloat() * var2 * 2.0F), this);
                var2 *= 0.75F;
             }
 
@@ -661,8 +661,8 @@ public abstract class EntityLiving extends Entity {
          Vec3D var6 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.3D, var4, 0.6D);
          var6 = var6.a(-this.z * 3.1415927F / 180.0F);
          var6 = var6.b(-this.y * 3.1415927F / 180.0F);
-         var6 = var6.b(this.s, this.t + (double)this.aR(), this.u);
-         this.o.a(EnumParticleEffect.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.b(var1.b())});
+         var6 = var6.add(this.s, this.t + (double)this.aR(), this.u);
+         this.o.a(EnumParticleEffect.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.getId(var1.getItem())});
       }
 
    }
@@ -773,8 +773,8 @@ public abstract class EntityLiving extends Entity {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          ItemStack var5 = var2[var4];
-         if(var5 != null && var5.b() instanceof ItemArmor) {
-            int var6 = ((ItemArmor)var5.b()).c;
+         if(var5 != null && var5.getItem() instanceof ItemArmor) {
+            int var6 = ((ItemArmor)var5.getItem()).c;
             var1 += var6;
          }
       }
@@ -1011,7 +1011,7 @@ public abstract class EntityLiving extends Entity {
       if(this.bL()) {
          float var5;
          float var6;
-         if(this.V() && (!(this instanceof EntityHuman) || !((EntityHuman)this).by.isFlying)) {
+         if(this.V() && (!(this instanceof EntityHuman) || !((EntityHuman)this).abilities.isFlying)) {
             var8 = this.t;
             var5 = 0.8F;
             var6 = 0.02F;
@@ -1038,7 +1038,7 @@ public abstract class EntityLiving extends Entity {
             if(this.D && this.c(this.v, this.w + 0.6000000238418579D - this.t + var8, this.x)) {
                this.w = 0.30000001192092896D;
             }
-         } else if(this.ab() && (!(this instanceof EntityHuman) || !((EntityHuman)this).by.isFlying)) {
+         } else if(this.ab() && (!(this instanceof EntityHuman) || !((EntityHuman)this).abilities.isFlying)) {
             var8 = this.t;
             this.a(var1, var2, 0.02F);
             this.d(this.v, this.w, this.x);
@@ -1151,7 +1151,7 @@ public abstract class EntityLiving extends Entity {
          for(int var2 = 0; var2 < 5; ++var2) {
             ItemStack var3 = this.h[var2];
             ItemStack var4 = this.p(var2);
-            if(!ItemStack.b(var4, var3)) {
+            if(!ItemStack.matches(var4, var3)) {
                ((WorldServer)this.o).s().a((Entity)this, (Packet)(new PacketPlayOutEntityEquipment(this.F(), var2, var4)));
                if(var3 != null) {
                   this.c.a(var3.B());
@@ -1161,7 +1161,7 @@ public abstract class EntityLiving extends Entity {
                   this.c.b(var4.B());
                }
 
-               this.h[var2] = var4 == null?null:var4.k();
+               this.h[var2] = var4 == null?null:var4.cloneItemStack();
             }
          }
 

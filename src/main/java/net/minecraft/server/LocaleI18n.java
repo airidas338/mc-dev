@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 public class LocaleI18n {
 
-   private static fj a = fj.a();
-   private static fj b = new fj();
+   private static LocaleLanguage a = LocaleLanguage.a();
+   private static LocaleLanguage b = new LocaleLanguage();
 
 
-   public static String a(String var0) {
+   public static String get(String var0) {
       return a.a(var0);
    }
 
-   public static String a(String var0, Object ... var1) {
+   public static String get(String var0, Object ... var1) {
       return a.a(var0, var1);
    }
 

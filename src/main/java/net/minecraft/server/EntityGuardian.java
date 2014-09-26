@@ -298,7 +298,7 @@ public class EntityGuardian extends EntityMonster {
       }
 
       if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new ItemStack(Items.aU, 1, ali.a.a()), 1.0F);
+         this.a(new ItemStack(Items.aU, 1, EnumFish.COD.a()), 1.0F);
       } else if(this.V.nextInt(3 + var2) > 1) {
          this.a(new ItemStack(Items.cD, 1, 0), 1.0F);
       }

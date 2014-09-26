@@ -23,7 +23,7 @@ public class EnchantmentManager {
       if(var1 == null) {
          return 0;
       } else {
-         NBTTagList var2 = var1.p();
+         NBTTagList var2 = var1.getEnchantments();
          if(var2 == null) {
             return 0;
          } else {
@@ -42,7 +42,7 @@ public class EnchantmentManager {
 
    public static Map a(ItemStack var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      NBTTagList var2 = var0.b() == Items.cd?Items.cd.h(var0):var0.p();
+      NBTTagList var2 = var0.getItem() == Items.cd?Items.cd.h(var0):var0.getEnchantments();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.size(); ++var3) {
             short var4 = var2.get(var3).getShort("id");
@@ -66,18 +66,18 @@ public class EnchantmentManager {
             var6.setShort("id", (short)var4);
             var6.setShort("lvl", (short)((Integer)var0.get(Integer.valueOf(var4))).intValue());
             var2.add((NBTBase)var6);
-            if(var1.b() == Items.cd) {
+            if(var1.getItem() == Items.cd) {
                Items.cd.a(var1, new apo(var5, ((Integer)var0.get(Integer.valueOf(var4))).intValue()));
             }
          }
       }
 
       if(var2.size() > 0) {
-         if(var1.b() != Items.cd) {
+         if(var1.getItem() != Items.cd) {
             var1.a("ench", (NBTBase)var2);
          }
-      } else if(var1.n()) {
-         var1.o().remove("ench");
+      } else if(var1.hasTag()) {
+         var1.getTag().remove("ench");
       }
 
    }
@@ -104,7 +104,7 @@ public class EnchantmentManager {
 
    private static void a(apl var0, ItemStack var1) {
       if(var1 != null) {
-         NBTTagList var2 = var1.p();
+         NBTTagList var2 = var1.getEnchantments();
          if(var2 != null) {
             for(int var3 = 0; var3 < var2.size(); ++var3) {
                short var4 = var2.get(var3).getShort("id");
@@ -174,47 +174,47 @@ public class EnchantmentManager {
    }
 
    public static int a(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.KNOCKBACK.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.KNOCKBACK.id, var0.bz());
    }
 
    public static int getFireAspectEnchantmentLevel(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.FIRE_ASPECT.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.FIRE_ASPECT.id, var0.bz());
    }
 
    public static int a(Entity var0) {
-      return a(Enchantment.OXYGEN.B, var0.at());
+      return a(Enchantment.OXYGEN.id, var0.at());
    }
 
    public static int b(Entity var0) {
-      return a(Enchantment.DEPTH_STRIDER.B, var0.at());
+      return a(Enchantment.DEPTH_STRIDER.id, var0.at());
    }
 
    public static int c(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.DIG_SPEED.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.DIG_SPEED.id, var0.bz());
    }
 
    public static boolean e(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.DURABILITY.B, var0.bz()) > 0;
+      return getEnchantmentLevel(Enchantment.DURABILITY.id, var0.bz()) > 0;
    }
 
    public static int f(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS.id, var0.bz());
    }
 
    public static int g(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.LUCK.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LUCK.id, var0.bz());
    }
 
    public static int h(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.LURE.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LURE.id, var0.bz());
    }
 
    public static int i(EntityLiving var0) {
-      return getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS.B, var0.bz());
+      return getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS.id, var0.bz());
    }
 
    public static boolean j(EntityLiving var0) {
-      return a(Enchantment.WATER_WORKER.B, var0.at()) > 0;
+      return a(Enchantment.WATER_WORKER.id, var0.at()) > 0;
    }
 
    public static ItemStack a(Enchantment var0, EntityLiving var1) {
@@ -223,7 +223,7 @@ public class EnchantmentManager {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          ItemStack var5 = var2[var4];
-         if(var5 != null && getEnchantmentLevel(var0.B, var5) > 0) {
+         if(var5 != null && getEnchantmentLevel(var0.id, var5) > 0) {
             return var5;
          }
       }
@@ -232,7 +232,7 @@ public class EnchantmentManager {
    }
 
    public static int a(Random var0, int var1, int var2, ItemStack var3) {
-      Item var4 = var3.b();
+      Item var4 = var3.getItem();
       int var5 = var4.b();
       if(var5 <= 0) {
          return 0;
@@ -248,9 +248,9 @@ public class EnchantmentManager {
 
    public static ItemStack a(Random var0, ItemStack var1, int var2) {
       List var3 = b(var0, var1, var2);
-      boolean var4 = var1.b() == Items.aL;
+      boolean var4 = var1.getItem() == Items.aL;
       if(var4) {
-         var1.a((Item)Items.cd);
+         var1.setItem((Item)Items.cd);
       }
 
       if(var3 != null) {
@@ -261,7 +261,7 @@ public class EnchantmentManager {
             if(var4) {
                Items.cd.a(var1, var6);
             } else {
-               var1.a(var6.b, var6.c);
+               var1.addEnchantment(var6.b, var6.c);
             }
          }
       }
@@ -270,7 +270,7 @@ public class EnchantmentManager {
    }
 
    public static List b(Random var0, ItemStack var1, int var2) {
-      Item var3 = var1.b();
+      Item var3 = var1.getItem();
       int var4 = var3.b();
       if(var4 <= 0) {
          return null;
@@ -330,9 +330,9 @@ public class EnchantmentManager {
    }
 
    public static Map b(int var0, ItemStack var1) {
-      Item var2 = var1.b();
+      Item var2 = var1.getItem();
       HashMap var3 = null;
-      boolean var4 = var1.b() == Items.aL;
+      boolean var4 = var1.getItem() == Items.aL;
       Enchantment[] var5 = Enchantment.b;
       int var6 = var5.length;
 
@@ -345,7 +345,7 @@ public class EnchantmentManager {
                      var3 = Maps.newHashMap();
                   }
 
-                  var3.put(Integer.valueOf(var8.B), new apo(var8, var9));
+                  var3.put(Integer.valueOf(var8.id), new apo(var8, var9));
                }
             }
          }

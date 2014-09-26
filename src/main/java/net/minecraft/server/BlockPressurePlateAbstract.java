@@ -9,7 +9,7 @@ public abstract class BlockPressurePlateAbstract extends Block {
       this.a(true);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       this.d(var1.getData(var2));
    }
 
@@ -131,7 +131,7 @@ public abstract class BlockPressurePlateAbstract extends Block {
       return var4 == EnumFacing.UP?this.e(var3):0;
    }
 
-   public boolean g() {
+   public boolean isPowerSource() {
       return true;
    }
 
@@ -142,7 +142,7 @@ public abstract class BlockPressurePlateAbstract extends Block {
       this.a(0.0F, 0.375F, 0.0F, 1.0F, 0.625F, 1.0F);
    }
 
-   public int i() {
+   public int getDropData() {
       return 1;
    }
 

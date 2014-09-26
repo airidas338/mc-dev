@@ -30,11 +30,11 @@ public abstract class BlockMinecartTrackAbstract extends Block {
    }
 
    public MovingObjectPosition a(World var1, Location var2, Vec3D var3, Vec3D var4) {
-      this.a(var1, var2);
+      this.updateShape(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
-   public void a(IBlockAccess var1, Location var2) {
+   public void updateShape(IBlockAccess var1, Location var2) {
       IBlockData var3 = var1.getData(var2);
       atl var4 = var3.c() == this?(atl)var3.b(this.l()):null;
       if(var4 != null && var4.c()) {
@@ -53,7 +53,7 @@ public abstract class BlockMinecartTrackAbstract extends Block {
       return World.a((IBlockAccess)var1, var2.b());
    }
 
-   public void c(World var1, Location var2, IBlockData var3) {
+   public void onPlace(World var1, Location var2, IBlockData var3) {
       if(!var1.isStatic) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
@@ -97,7 +97,7 @@ public abstract class BlockMinecartTrackAbstract extends Block {
       return var1.isStatic?var3:(new atk(this, var1, var2, var3)).a(var1.isBlockIndirectlyPowered(var2), var4).b();
    }
 
-   public int i() {
+   public int getDropData() {
       return 0;
    }
 

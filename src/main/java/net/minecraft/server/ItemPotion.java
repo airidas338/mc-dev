@@ -21,9 +21,9 @@ public class ItemPotion extends Item {
    }
 
    public List h(ItemStack var1) {
-      if(var1.n() && var1.o().hasKeyOfType("CustomPotionEffects", 9)) {
+      if(var1.hasTag() && var1.getTag().hasKeyOfType("CustomPotionEffects", 9)) {
          ArrayList var7 = Lists.newArrayList();
-         NBTTagList var3 = var1.o().getList("CustomPotionEffects", 10);
+         NBTTagList var3 = var1.getTag().getList("CustomPotionEffects", 10);
 
          for(int var4 = 0; var4 < var3.size(); ++var4) {
             NBTTagCompound var5 = var3.get(var4);
@@ -35,10 +35,10 @@ public class ItemPotion extends Item {
 
          return var7;
       } else {
-         List var2 = (List)this.a.get(Integer.valueOf(var1.i()));
+         List var2 = (List)this.a.get(Integer.valueOf(var1.getData()));
          if(var2 == null) {
-            var2 = PotionBrewer.getEffects(var1.i(), false);
-            this.a.put(Integer.valueOf(var1.i()), var2);
+            var2 = PotionBrewer.getEffects(var1.getData(), false);
+            this.a.put(Integer.valueOf(var1.getData()), var2);
          }
 
          return var2;
@@ -56,8 +56,8 @@ public class ItemPotion extends Item {
    }
 
    public ItemStack b(ItemStack var1, World var2, EntityHuman var3) {
-      if(!var3.by.canInstantlyBuild) {
-         --var1.b;
+      if(!var3.abilities.canInstantlyBuild) {
+         --var1.count;
       }
 
       if(!var2.isStatic) {
@@ -72,9 +72,9 @@ public class ItemPotion extends Item {
          }
       }
 
-      var3.b(StatisticList.J[Item.b((Item)this)]);
-      if(!var3.by.canInstantlyBuild) {
-         if(var1.b <= 0) {
+      var3.b(StatisticList.USE_ITEM_COUNT[Item.getId((Item)this)]);
+      if(!var3.abilities.canInstantlyBuild) {
+         if(var1.count <= 0) {
             return new ItemStack(Items.bA);
          }
 
@@ -93,9 +93,9 @@ public class ItemPotion extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityHuman var3) {
-      if(f(var1.i())) {
-         if(!var3.by.canInstantlyBuild) {
-            --var1.b;
+      if(f(var1.getData())) {
+         if(!var3.abilities.canInstantlyBuild) {
+            --var1.count;
          }
 
          var2.makeSound((Entity)var3, "random.bow", 0.5F, 0.4F / (g.nextFloat() * 0.4F + 0.8F));
@@ -103,7 +103,7 @@ public class ItemPotion extends Item {
             var2.addEntity((Entity)(new EntityPotion(var2, var3, var1)));
          }
 
-         var3.b(StatisticList.J[Item.b((Item)this)]);
+         var3.b(StatisticList.USE_ITEM_COUNT[Item.getId((Item)this)]);
          return var1;
       } else {
          var3.a(var1, this.d(var1));
@@ -116,12 +116,12 @@ public class ItemPotion extends Item {
    }
 
    public String a(ItemStack var1) {
-      if(var1.i() == 0) {
-         return LocaleI18n.a("item.emptyPotion.name").trim();
+      if(var1.getData() == 0) {
+         return LocaleI18n.get("item.emptyPotion.name").trim();
       } else {
          String var2 = "";
-         if(f(var1.i())) {
-            var2 = LocaleI18n.a("potion.prefix.grenade").trim() + " ";
+         if(f(var1.getData())) {
+            var2 = LocaleI18n.get("potion.prefix.grenade").trim() + " ";
          }
 
          List var3 = Items.POTION.h(var1);
@@ -129,10 +129,10 @@ public class ItemPotion extends Item {
          if(var3 != null && !var3.isEmpty()) {
             var4 = ((MobEffect)var3.get(0)).g();
             var4 = var4 + ".postfix";
-            return var2 + LocaleI18n.a(var4).trim();
+            return var2 + LocaleI18n.get(var4).trim();
          } else {
-            var4 = PotionBrewer.c(var1.i());
-            return LocaleI18n.a(var4).trim() + " " + super.a(var1);
+            var4 = PotionBrewer.c(var1.getData());
+            return LocaleI18n.get(var4).trim() + " " + super.a(var1);
          }
       }
    }
